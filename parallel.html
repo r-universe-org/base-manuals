@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Package 'parallel' reference manual</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <!-- styling for math and syntax -->
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
+
+    <!-- for (future) customizations -->
+    <script src="https://r-universe.dev/static/manual.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+
+  </head>
+
+  <body class="macintosh">
+    <h1 class="manual-title">Package 'parallel'</h1>
+    <table class="description-table">
+      <tr>
+<th>Title:</th>
+<td class="description-title">Support for Parallel computation in R</td>
+</tr>
+      <tr>
+<th>Description:</th>
+<td class="description-description">Support for parallel computation, including by forking
+   (taken from package multicore), by sockets (taken from package snow)
+   and random-number generation.</td>
+</tr>
+      <tr>
+<th>Authors:</th>
+<td class="description-author">R Core Team</td>
+</tr>
+      <tr>
+<th>Maintainer:</th>
+<td class="description-maintainer">R Core Team &lt;do-use-Contact-address@r-project.org&gt;</td>
+</tr>
+      <tr>
+<th>License:</th>
+<td class="description-license">Part of R 4.2.2</td>
+</tr>
+      <tr>
+<th>Version:</th>
+<td class="description-version">4.2.2</td>
+</tr>
+      <tr>
+<th>Built:</th>
+<td class="description-date">2022-10-31 22:33:07 UTC</td>
+</tr>
+      <tr>
+<th>Source:</th>
+<td class="description-source">base</td>
+</tr>
+    </table>
+
+    <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
+    <ul id="help-index-list">
+<li class="help-index-item"><a href="#children">Low-level Functions for Management of Forked Processes</a></li>
+<li class="help-index-item"><a href="#clusterApply">Apply Operations using Clusters</a></li>
+<li class="help-index-item"><a href="#detectCores">Detect the Number of CPU Cores</a></li>
+<li class="help-index-item"><a href="#makeCluster">
+Create a Parallel Socket Cluster
+</a></li>
+<li class="help-index-item"><a href="#mcaffinity">Get or Set CPU Affinity Mask of the Current Process</a></li>
+<li class="help-index-item"><a href="#mcfork">Fork a Copy of the Current R Process</a></li>
+<li class="help-index-item"><a href="#mclapply">Parallel Versions of lapply and mapply using Forking</a></li>
+<li class="help-index-item"><a href="#mcparallel">Evaluate an R Expression Asynchronously in a Separate Process</a></li>
+<li class="help-index-item"><a href="#parallel-package">
+Support for Parallel Computation
+</a></li>
+<li class="help-index-item"><a href="#pvec">Parallelize a Vector Map Function using Forking</a></li>
+<li class="help-index-item"><a href="#RngStream">Implementation of Pierre L'Ecuyer's RngStreams</a></li>
+<li class="help-index-item"><a href="#splitIndices">Divide Tasks for Distribution in a Cluster</a></li>
+</ul>
+
+    <hr>
+  <div class="container manual-page" id="children">
+
+<a href="#children" class="help-page-title"><h2>Low-level Functions for Management of Forked Processes</h2></a>
+
+<h3>Description</h3>
+
+<p>These are low-level support functions for the forking approach.
+</p>
+<p>They are not available on Windows, and not exported from the namespace.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">children<span class="token punctuation">(</span>select<span class="token punctuation">)</span>
+readChild<span class="token punctuation">(</span>child<span class="token punctuation">)</span>
+readChildren<span class="token punctuation">(</span>timeout <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+selectChildren<span class="token punctuation">(</span>children <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> timeout <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+sendChildStdin<span class="token punctuation">(</span>child<span class="token punctuation">,</span> what<span class="token punctuation">)</span>
+sendMaster<span class="token punctuation">(</span>what<span class="token punctuation">,</span> raw.asis <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+
+mckill<span class="token punctuation">(</span>process<span class="token punctuation">,</span> signal <span class="token operator">=</span> <span class="token number">2L</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>select</code></td>
+<td>
+<p>if omitted, all active children are returned, otherwise
+<code>select</code> should be a list of processes and only those from the
+list that are active will be returned.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>child</code></td>
+<td>
+<p>child process (object of the class <code>"childProcess"</code>) or a
+process ID (pid).  See also ‘Details’.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>timeout</code></td>
+<td>
+<p>timeout (in seconds, fractions supported) to wait
+for a response before giving up.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>children</code></td>
+<td>
+<p>list of child processes or a single child process
+object or a vector of process IDs or <code>NULL</code>.  If <code>NULL</code>
+behaves as if all currently known children were supplied.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>what</code></td>
+<td>
+<p>For <code>sendChildStdin</code>:<br>
+Character or raw vector.  In the former case elements are
+collapsed using the newline character.  (But no trailing newline is
+added at the end!)
+</p>
+<p>For <code>sendMaster</code>:<br>
+Data to send to the master process.  If <code>what</code> is not
+a raw vector, it will be serialized into a raw vector.  Do NOT
+send an empty raw vector – that is reserved for internal use.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>raw.asis</code></td>
+<td>
+<p>logical, if <code>TRUE</code> and <code>what</code> is a raw
+vector then it is sent directly as-is to the master (default,
+suitable for arbitrary payload passing), otherwise raw vectors
+are serialized before sending just as any other objects
+(suitable for passing evaluation results).</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>process</code></td>
+<td>
+<p>process (object of the class <code>process</code>) or a
+process ID (pid)</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>signal</code></td>
+<td>
+<p>integer: signal to send.  Values of 2 (SIGINT), 9
+(SIGKILL) and 15 (SIGTERM) are pretty much portable, but for maximal
+portability use <code>tools::<a href="tools.html#pskill">SIGTERM</a></code> and so on.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>children</code> returns currently active children.
+</p>
+<p><code>readChild</code> reads data (sent by <code>sendMaster</code>) from a given
+child process.
+</p>
+<p><code>selectChildren</code> checks children for available data.
+</p>
+<p><code>readChildren</code> checks all children for available data and reads
+from the first child that has available data.
+</p>
+<p><code>sendChildStdin</code> sends a string (or data) to one or more child's
+standard input.  Note that if the master session was interactive, it
+will also be echoed on the standard output of the master process
+(unless disabled).  The function is vector-compatible, so you can
+specify <code>child</code> as a list or a vector of process IDs.
+</p>
+<p><code>sendMaster</code> sends data from the child to the master process.
+</p>
+<p><code>mckill</code> sends a signal to a child process: it is equivalent to
+<code><a href="tools.html#pskill">pskill</a></code> in package <span class="pkg">tools</span>.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>children</code> returns a (possibly empty) list of objects of class
+<code>"process"</code>, the process ID.
+</p>
+<p><code>readChild</code> and <code>readChildren</code> return a raw vector with a
+<code>"pid"</code> attribute if data were available, an integer vector of
+length one with the process ID if a child terminated or <code>NULL</code>
+if the child no longer exists (no children at all for
+<code>readChildren</code>).
+</p>
+<p><code>selectChildren</code> returns <code>TRUE</code> is the timeout was reached,
+<code>FALSE</code> if an error occurred (e.g., if the master process was
+interrupted) or an integer vector of process IDs with children that
+have data available, or <code>NULL</code> if there are no children.
+</p>
+<p><code>sendChildStdin</code> returns a vector of <code>TRUE</code> values (one for
+each member of <code>child</code>) or throws an error.
+</p>
+<p><code>sendMaster</code> returns <code>TRUE</code> or throws an error.
+</p>
+<p><code>mckill</code> returns <code>TRUE</code>.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>This is a very low-level interface for expert use only: it not
+regarded as part of the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> API and subject to change without notice.
+</p>
+<p><code>sendMaster</code>, <code>readChild</code> and <code>sendChildStdin</code> did not
+support long vectors prior to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.4.0 and so were limited to
+<code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{31} - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code> bytes (and still are on 32-bit platforms).
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Simon Urbanek and R Core.
+</p>
+<p>Derived from the <span class="pkg">multicore</span> package formerly on <abbr><span class="acronym">CRAN</span></abbr>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#mcfork">mcfork</a></code>, <code><a href="#children">sendMaster</a></code>, <code><a href="#mcparallel">mcparallel</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+p  <span class="token operator">&lt;-</span> mcparallel<span class="token punctuation">(</span>scan<span class="token punctuation">(</span>n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> quiet <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+sendChildStdin<span class="token punctuation">(</span>p<span class="token punctuation">,</span> <span class="token string">"17.4\n"</span><span class="token punctuation">)</span>
+mccollect<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+<span class="token comment">## End(Not run)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="clusterApply">
+
+<a href="#clusterApply" class="help-page-title"><h2>Apply Operations using Clusters</h2></a>
+
+<h3>Description</h3>
+
+<p>These functions provide several ways to parallelize computations using
+a cluster.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">clusterCall<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> fun<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+clusterApply<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> fun<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+clusterApplyLB<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> fun<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+clusterEvalQ<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> expr<span class="token punctuation">)</span>
+clusterExport<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> varlist<span class="token punctuation">,</span> envir <span class="token operator">=</span> .GlobalEnv<span class="token punctuation">)</span>
+clusterMap<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> fun<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> MoreArgs <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> RECYCLE <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
+           SIMPLIFY <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> USE.NAMES <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
+           .scheduling <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"static"</span><span class="token punctuation">,</span> <span class="token string">"dynamic"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+clusterSplit<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> seq<span class="token punctuation">)</span>
+
+parLapply<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> X<span class="token punctuation">,</span> fun<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> chunk.size <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+parSapply<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> X<span class="token punctuation">,</span> FUN<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> simplify <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
+          USE.NAMES <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> chunk.size <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+parApply<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> X<span class="token punctuation">,</span> MARGIN<span class="token punctuation">,</span> FUN<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> chunk.size <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+parRapply<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> FUN<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> chunk.size <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+parCapply<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> FUN<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> chunk.size <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+
+parLapplyLB<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> X<span class="token punctuation">,</span> fun<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> chunk.size <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+parSapplyLB<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> X<span class="token punctuation">,</span> FUN<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> simplify <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
+            USE.NAMES <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> chunk.size <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>cl</code></td>
+<td>
+<p>a cluster object, created by this package or by package
+<a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a>.  If <code>NULL</code>, use the registered default cluster.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>fun, FUN</code></td>
+<td>
+<p>function or character string naming a function.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>expr</code></td>
+<td>
+<p>expression to evaluate.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>seq</code></td>
+<td>
+<p>vector to split.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>varlist</code></td>
+<td>
+<p>character vector of names of objects to export.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>envir</code></td>
+<td>
+<p>environment from which t export variables</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+<p>a vector for <code>clusterApply</code> and <code>clusterApplyLB</code>, a
+matrix for <code>parRapply</code> and <code>parCapply</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>additional arguments to pass to <code>fun</code> or <code>FUN</code>:
+beware of partial matching to earlier arguments.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>MoreArgs</code></td>
+<td>
+<p>additional arguments for <code>fun</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>RECYCLE</code></td>
+<td>
+<p>logical; if true shorter arguments are recycled.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>X</code></td>
+<td>
+<p>A vector (atomic or list) for <code>parLapply</code> and
+<code>parSapply</code>, an array for <code>parApply</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>chunk.size</code></td>
+<td>
+<p>scalar number; number of invocations of <code>fun</code> or
+<code>FUN</code> in one chunk; a chunk is a unit for scheduling.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>MARGIN</code></td>
+<td>
+<p>vector specifying the dimensions to use.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>simplify, USE.NAMES</code></td>
+<td>
+<p>logical; see <code><a href="base.html#lapply">sapply</a></code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>SIMPLIFY</code></td>
+<td>
+<p>logical; see <code><a href="base.html#mapply">mapply</a></code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>.scheduling</code></td>
+<td>
+<p>should tasks be statically allocated to nodes or
+dynamic load-balancing used?</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>clusterCall</code> calls a function <code>fun</code> with identical
+arguments <code>...</code> on each node.
+</p>
+<p><code>clusterEvalQ</code> evaluates a literal expression on each cluster
+node.  It is a parallel version of <code><a href="base.html#eval">evalq</a></code>, and is a
+convenience function invoking <code>clusterCall</code>.
+</p>
+<p><code>clusterApply</code> calls <code>fun</code> on the first node with
+arguments <code>x[[1]]</code> and <code>...</code>, on the second node with
+<code>x[[2]]</code> and <code>...</code>, and so on, recycling nodes as needed.
+</p>
+<p><code>clusterApplyLB</code> is a load balancing version of
+<code>clusterApply</code>.  If the length <code>n</code> of <code>x</code> is not
+greater than the number of nodes <code>p</code>, then a job is sent to
+<code>n</code> nodes.  Otherwise the first <code>p</code> jobs are placed in order
+on the <code>p</code> nodes.  When the first job completes, the next job is
+placed on the node that has become free; this continues until all jobs
+are complete.  Using <code>clusterApplyLB</code> can result in better
+cluster utilization than using <code>clusterApply</code>, but increased
+communication can reduce performance.  Furthermore, the node that
+executes a particular job is non-deterministic. This means that
+simulations that assign RNG streams to nodes will not be reproducible.
+</p>
+<p><code>clusterMap</code> is a multi-argument version of <code>clusterApply</code>,
+analogous to <code><a href="base.html#mapply">mapply</a></code> and <code><a href="base.html#funprog">Map</a></code>.  If
+<code>RECYCLE</code> is true shorter arguments are recycled (and either none
+or all must be of length zero); otherwise, the result length is the
+length of the shortest argument.  Nodes are recycled if the length of
+the result is greater than the number of nodes.  (<code>mapply</code> always
+uses <code>RECYCLE = TRUE</code>, and has argument <code>SIMPLIFY = TRUE</code>.
+<code>Map</code> always uses <code>RECYCLE = TRUE</code>.)
+</p>
+<p><code>clusterExport</code> assigns the values on the master <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> process of
+the variables named in <code>varlist</code> to variables of the same names
+in the global environment (aka ‘workspace’) of each node.  The
+environment on the master from which variables are exported defaults
+to the global environment.
+</p>
+<p><code>clusterSplit</code> splits <code>seq</code> into a consecutive piece for
+each cluster and returns the result as a list with length equal to the
+number of nodes.  Currently the pieces are chosen to be close
+to equal in length: the computation is done on the master.
+</p>
+<p><code>parLapply</code>, <code>parSapply</code>, and <code>parApply</code> are parallel
+versions of <code>lapply</code>, <code>sapply</code> and <code>apply</code>.  Chunks of
+computation are statically allocated to nodes using <code>clusterApply</code>.
+By default, the number of chunks is the same as the number of nodes.
+<code>parLapplyLB</code>, <code>parSapplyLB</code> are load-balancing versions,
+intended for use when applying <code>FUN</code> to different elements of
+<code>X</code> takes quite variable amounts of time, and either the function is
+deterministic or reproducible results are not required.  Chunks of
+computation are allocated dynamically to nodes using
+<code>clusterApplyLB</code>.  From <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.5.0, the default number of chunks is
+twice the number of nodes. Before <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.5.0, the (fixed) number of chunks
+was the same as the number of nodes.  As for <code>clusterApplyLB</code>,
+with load balancing the node that executes a particular job is
+non-deterministic and simulations that assign RNG streams to nodes
+will not be reproducible.
+</p>
+<p><code>parRapply</code> and <code>parCapply</code> are parallel row and column
+<code>apply</code> functions for a matrix <code>x</code>; they may be slightly
+more efficient than <code>parApply</code> but do less post-processing of the
+result.
+</p>
+<p>A chunk size of <code>0</code> with static scheduling uses the default (one
+chunk per node).  With dynamic scheduling, chunk size of <code>0</code> has the
+same effect as <code>1</code> (one invocation of <code>FUN</code>/<code>fun</code> per
+chunk).
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>clusterCall</code>, <code>clusterEvalQ</code> and <code>clusterSplit</code>, a
+list with one element per node.
+</p>
+<p>For <code>clusterApply</code> and <code>clusterApplyLB</code>, a list the same
+length as <code>x</code>.
+</p>
+<p><code>clusterMap</code> follows <code><a href="base.html#mapply">mapply</a></code>.
+</p>
+<p><code>clusterExport</code> returns nothing.
+</p>
+<p><code>parLapply</code> returns a list the length of <code>X</code>.
+</p>
+<p><code>parSapply</code> and <code>parApply</code> follow <code><a href="base.html#lapply">sapply</a></code> and
+<code><a href="base.html#apply">apply</a></code> respectively.
+</p>
+<p><code>parRapply</code> and <code>parCapply</code> always return a vector.  If
+<code>FUN</code> always returns a scalar result this will be of length the
+number of rows or columns: otherwise it will be the concatenation of
+the returned values.
+</p>
+<p>An error is signalled on the master if any of the workers produces an
+error.
+</p>
+
+
+<h3>Note</h3>
+
+<p>These functions are almost identical to those in package <a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a>.
+</p>
+<p>Two exceptions: <code>parLapply</code> has argument <code>X</code>
+not <code>x</code> for consistency with <code><a href="base.html#lapply">lapply</a></code>, and
+<code>parSapply</code> has been updated to match <code><a href="base.html#lapply">sapply</a></code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Luke Tierney and R Core.
+</p>
+<p>Derived from the <a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a> package.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## Use option cl.cores to choose an appropriate cluster size.</span>
+cl <span class="token operator">&lt;-</span> makeCluster<span class="token punctuation">(</span>getOption<span class="token punctuation">(</span><span class="token string">"cl.cores"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+clusterApply<span class="token punctuation">(</span>cl<span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span> get<span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+xx <span class="token operator">&lt;-</span> <span class="token number">1</span>
+clusterExport<span class="token punctuation">(</span>cl<span class="token punctuation">,</span> <span class="token string">"xx"</span><span class="token punctuation">)</span>
+clusterCall<span class="token punctuation">(</span>cl<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span> xx <span class="token operator">+</span> y<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Use clusterMap like an mapply example</span>
+clusterMap<span class="token punctuation">(</span>cl<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> seq_len<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">+</span> y<span class="token punctuation">,</span>
+          c<span class="token punctuation">(</span>a <span class="token operator">=</span>  <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>A <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> C <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+parSapply<span class="token punctuation">(</span>cl<span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">20</span><span class="token punctuation">,</span> get<span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+
+<span class="token comment">## A bootstrapping example, which can be done in many ways:</span>
+clusterEvalQ<span class="token punctuation">(</span>cl<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token comment">## set up each worker.  Could also use clusterExport()</span>
+  library<span class="token punctuation">(</span>boot<span class="token punctuation">)</span>
+  cd4.rg <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> mle<span class="token punctuation">)</span> MASS<span class="token operator">::</span>mvrnorm<span class="token punctuation">(</span>nrow<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">,</span> mle<span class="token operator">$</span>m<span class="token punctuation">,</span> mle<span class="token operator">$</span>v<span class="token punctuation">)</span>
+  cd4.mle <span class="token operator">&lt;-</span> list<span class="token punctuation">(</span>m <span class="token operator">=</span> colMeans<span class="token punctuation">(</span>cd4<span class="token punctuation">)</span><span class="token punctuation">,</span> v <span class="token operator">=</span> var<span class="token punctuation">(</span>cd4<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token keyword">NULL</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+res <span class="token operator">&lt;-</span> clusterEvalQ<span class="token punctuation">(</span>cl<span class="token punctuation">,</span> boot<span class="token punctuation">(</span>cd4<span class="token punctuation">,</span> corr<span class="token punctuation">,</span> R <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">,</span>
+                    sim <span class="token operator">=</span> <span class="token string">"parametric"</span><span class="token punctuation">,</span> ran.gen <span class="token operator">=</span> cd4.rg<span class="token punctuation">,</span> mle <span class="token operator">=</span> cd4.mle<span class="token punctuation">)</span><span class="token punctuation">)</span>
+library<span class="token punctuation">(</span>boot<span class="token punctuation">)</span>
+cd4.boot <span class="token operator">&lt;-</span> do.call<span class="token punctuation">(</span>c<span class="token punctuation">,</span> res<span class="token punctuation">)</span>
+boot.ci<span class="token punctuation">(</span>cd4.boot<span class="token punctuation">,</span>  type <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"norm"</span><span class="token punctuation">,</span> <span class="token string">"basic"</span><span class="token punctuation">,</span> <span class="token string">"perc"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        conf <span class="token operator">=</span> <span class="token number">0.9</span><span class="token punctuation">,</span> h <span class="token operator">=</span> atanh<span class="token punctuation">,</span> hinv <span class="token operator">=</span> tanh<span class="token punctuation">)</span>
+stopCluster<span class="token punctuation">(</span>cl<span class="token punctuation">)</span>
+
+<span class="token comment">## or</span>
+library<span class="token punctuation">(</span>boot<span class="token punctuation">)</span>
+run1 <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   library<span class="token punctuation">(</span>boot<span class="token punctuation">)</span>
+   cd4.rg <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> mle<span class="token punctuation">)</span> MASS<span class="token operator">::</span>mvrnorm<span class="token punctuation">(</span>nrow<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">,</span> mle<span class="token operator">$</span>m<span class="token punctuation">,</span> mle<span class="token operator">$</span>v<span class="token punctuation">)</span>
+   cd4.mle <span class="token operator">&lt;-</span> list<span class="token punctuation">(</span>m <span class="token operator">=</span> colMeans<span class="token punctuation">(</span>cd4<span class="token punctuation">)</span><span class="token punctuation">,</span> v <span class="token operator">=</span> var<span class="token punctuation">(</span>cd4<span class="token punctuation">)</span><span class="token punctuation">)</span>
+   boot<span class="token punctuation">(</span>cd4<span class="token punctuation">,</span> corr<span class="token punctuation">,</span> R <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">,</span> sim <span class="token operator">=</span> <span class="token string">"parametric"</span><span class="token punctuation">,</span>
+        ran.gen <span class="token operator">=</span> cd4.rg<span class="token punctuation">,</span> mle <span class="token operator">=</span> cd4.mle<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+cl <span class="token operator">&lt;-</span> makeCluster<span class="token punctuation">(</span>mc <span class="token operator">&lt;-</span> getOption<span class="token punctuation">(</span><span class="token string">"cl.cores"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">## to make this reproducible</span>
+clusterSetRNGStream<span class="token punctuation">(</span>cl<span class="token punctuation">,</span> <span class="token number">123</span><span class="token punctuation">)</span>
+cd4.boot <span class="token operator">&lt;-</span> do.call<span class="token punctuation">(</span>c<span class="token punctuation">,</span> parLapply<span class="token punctuation">(</span>cl<span class="token punctuation">,</span> seq_len<span class="token punctuation">(</span>mc<span class="token punctuation">)</span><span class="token punctuation">,</span> run1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+boot.ci<span class="token punctuation">(</span>cd4.boot<span class="token punctuation">,</span>  type <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"norm"</span><span class="token punctuation">,</span> <span class="token string">"basic"</span><span class="token punctuation">,</span> <span class="token string">"perc"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        conf <span class="token operator">=</span> <span class="token number">0.9</span><span class="token punctuation">,</span> h <span class="token operator">=</span> atanh<span class="token punctuation">,</span> hinv <span class="token operator">=</span> tanh<span class="token punctuation">)</span>
+stopCluster<span class="token punctuation">(</span>cl<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="detectCores">
+
+<a href="#detectCores" class="help-page-title"><h2>Detect the Number of CPU Cores</h2></a>
+
+<h3>Description</h3>
+
+<p>Attempt to detect the number of CPU cores on the current host.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">detectCores<span class="token punctuation">(</span>all.tests <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> logical <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>all.tests</code></td>
+<td>
+<p>Logical: if true apply all known tests.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>logical</code></td>
+<td>
+<p>Logical: if possible, use the number of physical CPUs/cores
+(if <code>FALSE</code>) or logical CPUs (if <code>TRUE</code>).  Currently this
+is honoured only on macOS, Solaris and Windows.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>This attempts to detect the number of available CPU cores.
+</p>
+<p>It has methods to do so for Linux, macOS, FreeBSD, OpenBSD, Solaris
+and Windows.  <code>detectCores(TRUE)</code> could be tried on other
+Unix-alike systems.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An integer, <code>NA</code> if the answer is unknown.
+</p>
+<p>Exactly what this represents is OS-dependent: where possible by
+default it counts logical (e.g., hyperthreaded) CPUs and not physical
+cores or packages.
+</p>
+<p>Under macOS there is a further distinction between ‘available in
+the current power management mode’ and ‘could be available
+this boot’, and this function returns the first.
+</p>
+<p>On Windows:
+Only versions of Windows since XP SP3 are supported.  Microsoft
+documents that with <code>logical = FALSE</code> it will report the number of
+cores on Vista or later, but the number of physical CPU packages on XP
+or Server 2003: however it reported correctly on the XP systems we
+tested.
+
+</p>
+<p>On Sparc Solaris <code>logical = FALSE</code> returns the number of physical
+cores and <code>logical = TRUE</code> returns the number of available
+hardware threads. (Some Sparc CPUs have multiple cores per CPU, others
+have multiple threads per core and some have both.)  For example, the
+UltraSparc T2 CPU in the former CRAN check server was a single
+physical CPU with 8 cores, and each core supports 8 hardware threads.
+So <code>detectCores(logical = FALSE)</code> returns 8, and
+<code>detectCores(logical = TRUE)</code> returns 64.
+</p>
+<p>Where virtual machines are in use, one would hope that the result
+for <code>logical = TRUE</code> represents the number of CPUs available (or
+potentially available) to that particular VM.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This is not suitable for use directly for the <code>mc.cores</code> argument
+of <code>mclapply</code> nor specifying the number of cores in
+<code>makeCluster</code>.  First because it may return <code>NA</code>, second
+because it does not give the number of <em>allowed</em> cores, and third
+because on Sparc Solaris and some Windows boxes it is not reasonable
+to try to use all the logical CPUs at once.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Simon Urbanek and Brian Ripley
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">detectCores<span class="token punctuation">(</span><span class="token punctuation">)</span>
+detectCores<span class="token punctuation">(</span>logical <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="makeCluster">
+
+<a href="#makeCluster" class="help-page-title"><h2>
+Create a Parallel Socket Cluster
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Creates a set of copies of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> running in parallel and communicating
+over sockets.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">makeCluster<span class="token punctuation">(</span>spec<span class="token punctuation">,</span> type<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+makePSOCKcluster<span class="token punctuation">(</span>names<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+makeForkCluster<span class="token punctuation">(</span>nnodes <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"mc.cores"</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+stopCluster<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+
+setDefaultCluster<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+getDefaultCluster<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>spec</code></td>
+<td>
+<p>A specification appropriate to the type of cluster.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>names</code></td>
+<td>
+<p>Either a character vector of host names on which to run
+the worker copies of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, or a positive integer (in which case
+that number of copies is run on ‘<span class="samp">⁠localhost⁠</span>’).</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>nnodes</code></td>
+<td>
+<p>The number of nodes to be forked.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>type</code></td>
+<td>
+<p>One of the supported types: see ‘Details’.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>Options to be passed to the function spawning the workers.
+See ‘Details’.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>cl</code></td>
+<td>
+<p>an object of class <code>"cluster"</code>.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>makeCluster</code> creates a cluster of one of the supported types.
+The default type, <code>"PSOCK"</code>, calls <code>makePSOCKcluster</code>.  Type
+<code>"FORK"</code> calls <code>makeForkCluster</code>.  Other types are passed to
+package <a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a>.
+</p>
+<p><code>makePSOCKcluster</code> is an enhanced version of
+<code>makeSOCKcluster</code> in package <a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a>.  It runs
+<code>Rscript</code> on the specified host(s) to set up a worker process
+which listens on a socket for expressions to evaluate, and returns the
+results (as serialized objects).
+</p>
+<p><code>makeForkCluster</code> is merely a stub on Windows.  On Unix-alike
+platforms it creates the worker process by forking.
+</p>
+<p>The workers are most often running on the same host as the master,
+when no options need be set.
+</p>
+<p>Several options are supported (mainly for <code>makePSOCKcluster</code>):
+</p>
+
+<dl>
+<dt><code>master</code></dt>
+<dd>
+<p>The host name of the master, as known to the
+workers.  This may not be the same as it is known to the master,
+and on private subnets it may be necessary to specify this as a
+numeric IP address.  For example, macOS is likely to detect a
+machine as ‘<span class="samp">⁠somename.local⁠</span>’, a name known only to itself.</p>
+</dd>
+<dt><code>port</code></dt>
+<dd>
+<p>The port number for the socket connection,
+default taken from the environment variable <span class="env">R_PARALLEL_PORT</span>,
+then a randomly chosen port in the range <code>11000:11999</code>.</p>
+</dd>
+<dt><code>timeout</code></dt>
+<dd>
+<p>The timeout in seconds for that port.  This is
+the maximum time of zero communication between master and worker
+before failing.  Default is 30 days (and the POSIX standard only
+requires values up to 31 days to be supported).</p>
+</dd>
+<dt><code>setup_timeout</code></dt>
+<dd>
+<p>The maximum number of seconds a worker
+attempts to connect to master before failing.  Default is 2
+minutes.  The waiting time before the next attempt starts at
+0.1 seconds and is incremented 50% after each retry.</p>
+</dd>
+<dt><code>outfile</code></dt>
+<dd>
+<p>Where to direct the <code><a href="base.html#showConnections">stdout</a></code> and
+<code><a href="base.html#showConnections">stderr</a></code> connection output from the workers.
+<code>""</code> indicates no redirection (which may only be useful for
+workers on the local machine).
+Defaults to ‘<span class="file">/dev/null</span>’ (‘<span class="file">nul:</span>’ on Windows).  The other
+possibility is a file path on the worker's host.
+Files will be opened in append mode, as all workers log to the
+same file.</p>
+</dd>
+<dt><code>homogeneous</code></dt>
+<dd>
+<p>Logical, default true.  See ‘Note’.</p>
+</dd>
+<dt><code>rscript</code></dt>
+<dd>
+<p>See ‘Note’.</p>
+</dd>
+<dt><code>rscript_args</code></dt>
+<dd>
+<p>Character vector of additional
+arguments for <code>Rscript</code> such as <span class="option">--no-environ</span>.</p>
+</dd>
+<dt><code>renice</code></dt>
+<dd>
+<p>A numerical ‘niceness’ to set for the
+worker processes, e.g. <code>15</code> for a low priority.
+OS-dependent: see <code><a href="tools.html#psnice">psnice</a></code> for details.</p>
+</dd>
+<dt><code>rshcmd</code></dt>
+<dd>
+<p>The command to be run on the master to launch a
+process on another host.  Defaults to <code>ssh</code>.</p>
+</dd>
+<dt><code>user</code></dt>
+<dd>
+<p>The user name to be used when communicating with
+another host.</p>
+</dd>
+<dt><code>manual</code></dt>
+<dd>
+<p>Logical.  If true the workers will need to be
+run manually.</p>
+</dd>
+<dt><code>methods</code></dt>
+<dd>
+<p>Logical.  If true (default) the workers will
+load the <span class="pkg">methods</span> package: not loading it saves ca 30% of the
+startup CPU time of the cluster.</p>
+</dd>
+<dt><code>useXDR</code></dt>
+<dd>
+<p>Logical. If true (default) serialization will
+use XDR: where large amounts of data are to be transferred and
+all the nodes are little-endian, communication may be
+substantially faster if this is set to false.</p>
+</dd>
+<dt><code>setup_strategy</code></dt>
+<dd>
+<p>Character.  If <code>"parallel"</code> (default)
+workers will be started in parallel during cluster setup when this is
+possible, which is now for homogeneous <code>"PSOCK"</code> clusters with
+all workers started automatically (<code>manual = FALSE</code>) on the local
+machine.  Workers will be started sequentially on other clusters, on
+all clusters with <code>setup_strategy = "sequential"</code> and on <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.6.0
+and older.  This option is for expert use only (e.g.  debugging) and
+may be removed in future versions of R.</p>
+</dd>
+</dl>
+<p>Function <code>makeForkCluster</code> creates a socket cluster by forking
+(and hence is not available on Windows).  It supports options
+<code>port</code>, <code>timeout</code> and <code>outfile</code>, and always uses
+<code>useXDR = FALSE</code>. It is <em>strongly discouraged</em> to use the
+<code>"FORK"</code> cluster with GUI front-ends  or multi-threaded libraries.
+See <code><a href="#mcfork">mcfork</a></code> for details.
+</p>
+<p>It is good practice to shut down the workers by calling
+<code><a href="#makeCluster">stopCluster</a></code>: however the workers will terminate
+themselves once the socket on which they are listening for commands
+becomes unavailable, which it should if the master <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session is
+completed (or its process dies).
+</p>
+<p>Function <code>setDefaultCluster</code> registers a cluster as the default one
+for the current session.  Using <code>setDefaultCluster(NULL)</code> removes
+the registered cluster, as does stopping that cluster.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For the cluster creators, an object of class
+<code>c("SOCKcluster", "cluster")</code>.
+</p>
+<p>For the default cluster setter and getter, the registered default
+cluster or <code>NULL</code> if there is no such cluster.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Option <code>homogeneous = TRUE</code> was for years documented as
+‘Are all the hosts running identical setups?’, but this was
+apparently more restrictive than its author intended and not required
+by the code.
+</p>
+<p>The current interpretation of <code>homogeneous = TRUE</code> is that
+<code>Rscript</code> can be launched using the same path on each worker.
+That path is given by the option <code>rscript</code> and defaults to the
+full path to <code>Rscript</code> on the master.  (The workers are not
+required to be running the same version of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> as the master, nor even
+as each other.)
+</p>
+<p>For <code>homogeneous = FALSE</code>, <code>Rscript</code> on the workers is
+found on their default shell's path.
+</p>
+<p>For the very common usage of running both master and worker on a
+single multi-core host, the default settings are the appropriate ones.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Luke Tierney and R Core.
+</p>
+<p>Derived from the <a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a> package.
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="mcaffinity">
+
+<a href="#mcaffinity" class="help-page-title"><h2>Get or Set CPU Affinity Mask of the Current Process</h2></a>
+
+<h3>Description</h3>
+
+<p><code>mcaffinity</code> retrieves or sets the CPU affinity mask of the
+current process, i.e., the set of CPUs the process is allowed to be
+run on. (CPU here means logical CPU which can be CPU, core or
+hyperthread unit.)
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">mcaffinity<span class="token punctuation">(</span>affinity <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table><tr style="vertical-align: top;">
+<td><code>affinity</code></td>
+<td>
+<p>specification of the CPUs to lock this process to
+(numeric vector) or <code>NULL</code> if no change is requested</p>
+</td>
+</tr></table>
+<h3>Details</h3>
+
+<p><code>mcaffinity</code> can be used to obtain (<code>affinity = NULL</code>)
+or set the CPU affinity mask of the current process. The affinity mask
+is a list of integer CPU identifiers (starting from 1) that this
+process is allowed to run on. Not all systems provide user access to
+the process CPU affinity, in cases where no support is present at all
+<code>mcaffinity()</code> will return <code>NULL</code>. Some systems may take
+into account only the number of CPUs present in the mask.
+</p>
+<p>Typically, it is legal to specify larger set than the number of
+logical CPUs (but at most as many as the OS can handle) and the system
+will return back the actually present set.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>NULL</code> if CPU affinity is not supported by the system or an
+integer vector with the set of CPUs in the active affinity mask for
+this process (this may be different than <code>affinity</code>).
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Simon Urbanek.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#mcparallel">mcparallel</a></code>
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="mcfork">
+
+<a href="#mcfork" class="help-page-title"><h2>Fork a Copy of the Current R Process</h2></a>
+
+<h3>Description</h3>
+
+<p>These are low-level functions, not available on Windows, and not
+exported from the namespace.
+</p>
+<p><code>mcfork</code> creates a new child process as a copy of the current <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> process.
+</p>
+<p><code>mcexit</code> closes the current child process, informing the master
+process as necessary.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">mcfork<span class="token punctuation">(</span>estranged <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+
+mcexit<span class="token punctuation">(</span>exit.code <span class="token operator">=</span> <span class="token number">0L</span><span class="token punctuation">,</span> send <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>estranged</code></td>
+<td>
+<p>logical, if <code>TRUE</code> then the new process has
+no ties to the parent process, will not show in the list of
+children and will not be killed on exit.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>exit.code</code></td>
+<td>
+<p>process exit code.  By convention <code>0L</code> signifies
+a clean exit, <code>1L</code> an error.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>send</code></td>
+<td>
+<p>if not <code>NULL</code> send this data before exiting
+(equivalent to using <code><a href="#children">sendMaster</a></code>).</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The <code>mcfork</code> function provides an interface to the <code>fork</code>
+system call.  In addition it sets up a pipe between the master and
+child process that can be used to send data from the child process
+to the master (see <code><a href="#children">sendMaster</a></code>) and child's ‘<span class="file">stdin</span>’ is
+re-mapped to another pipe held by the master process (see
+<code><a href="#children">sendChildStdin</a></code>).
+</p>
+<p>If you are not familiar with the <code>fork</code> system call, do not use
+this function directly as it leads to very complex inter-process
+interactions amongst the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> processes involved.
+</p>
+<p>In a nutshell <code>fork</code> spawns a copy (child) of the current
+process, that can work in parallel to the master (parent)
+process.  At the point of forking both processes share exactly the
+same state including the workspace, global options, loaded packages
+etc.  Forking is relatively cheap in modern operating systems and no
+real copy of the used memory is created, instead both processes
+share the same memory and only modified parts are copied. This makes
+<code>mcfork</code> an ideal tool for parallel processing since there is no
+need to setup the parallel working environment, data and code is
+shared automatically from the start.
+</p>
+<p><code>mcexit</code> is to be run in the child process.  It sends <code>send</code>
+to the master (unless <code>NULL</code>) and then shuts down the child
+process.  The child can also be shut down by sending it the signal
+<code>SIGUSR1</code>, as is done by the unexported function
+<code>parallel:::rmChild</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>mcfork</code> returns an object of the class <code>"childProcess"</code> to
+the master and of class <code>"masterProcess"</code> to the child: both the
+classes inherit from class <code>"process"</code>.  If <code>estranged</code> is
+set to <code>TRUE</code> then the child process will be of the class
+<code>"estrangedProcess"</code> and cannot communicate with the master
+process nor will it show up on the list of children. These are lists
+with components <code>pid</code> (the process id of the <em>other</em>
+process) and a vector <code>fd</code> of the two file descriptor numbers
+for ends in the current process of the inter-process pipes.
+</p>
+<p><code>mcexit</code> never returns.
+</p>
+
+
+<h3>GUI/embedded environments</h3>
+
+<p>It is <em>strongly discouraged</em> to use <code>mcfork</code> and the
+higher-level functions which rely on it (e.g., <code>mcparallel</code>,
+<code>mclapply</code> and <code>pvec</code>) in GUI or embedded environments,
+because it leads to several processes sharing the same GUI which will
+likely cause chaos (and possibly crashes).  Child processes should
+never use on-screen graphics devices.  Some precautions have been
+taken to make this usable in <code>R.app</code> on macOS, but users of
+third-party front-ends should consult their documentation.
+</p>
+<p>This can also apply to other connections (e.g., to an X server) created
+before forking, and to files opened by e.g. graphics devices.
+</p>
+<p>Note that <span class="pkg">tcltk</span> counts as a GUI for these purposes since
+<code>Tcl</code> runs an event loop.  That event loop is inhibited in a
+child process but there could still be problems with Tk graphical
+connections.
+</p>
+<p>It is <em>strongly discouraged</em> to use <code>mcfork</code> and the
+higher-level functions in any multi-threaded R process (with additional
+threads created by a third-party library or package).  Such use can lead
+to deadlocks or crashes, because the child process created by
+<code>mcfork</code> may not be able to access resources locked in the parent or
+may see an inconsistent version of global data (<code>mcfork</code> runs system
+call <code>fork</code> without <code>exec</code>).
+</p>
+<p>If in doubt, it is safer to use a non-FORK cluster (see
+<code><a href="#makeCluster">makeCluster</a></code>, <code><a href="#clusterApply">clusterApply</a></code>).
+</p>
+
+
+<h3>Warning</h3>
+
+<p>This is a very low-level API for expert use only.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Simon Urbanek and R Core.
+</p>
+<p>Derived from the <span class="pkg">multicore</span> package formerly on <abbr><span class="acronym">CRAN</span></abbr>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#mcparallel">mcparallel</a></code>, <code><a href="#children">sendMaster</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## This will work when run as an example, but not when pasted in.</span>
+p <span class="token operator">&lt;-</span> parallel<span class="token operator">::</span><span class="token operator">:</span>mcfork<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>inherits<span class="token punctuation">(</span>p<span class="token punctuation">,</span> <span class="token string">"masterProcess"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cat<span class="token punctuation">(</span><span class="token string">"I'm a child! "</span><span class="token punctuation">,</span> Sys.getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
+    parallel<span class="token operator">::</span><span class="token operator">:</span>mcexit<span class="token punctuation">(</span><span class="token punctuation">,</span><span class="token string">"I was a child"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+cat<span class="token punctuation">(</span><span class="token string">"I'm the master\n"</span><span class="token punctuation">)</span>
+unserialize<span class="token punctuation">(</span>parallel<span class="token operator">::</span><span class="token operator">:</span>readChildren<span class="token punctuation">(</span><span class="token number">1.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="mclapply">
+
+<a href="#mclapply" class="help-page-title"><h2>Parallel Versions of <code>lapply</code> and <code>mapply</code> using Forking</h2></a>
+
+<h3>Description</h3>
+
+<p><code>mclapply</code> is a parallelized version of <code><a href="base.html#lapply">lapply</a></code>,
+it returns a list of the same length as <code>X</code>, each element of
+which is the result of applying <code>FUN</code> to the corresponding
+element of <code>X</code>.
+</p>
+<p>It relies on forking and hence is not available on Windows unless
+<code>mc.cores = 1</code>.
+</p>
+<p><code>mcmapply</code> is a parallelized version of <code><a href="base.html#mapply">mapply</a></code>, and
+<code>mcMap</code> corresponds to <code><a href="base.html#funprog">Map</a></code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">mclapply<span class="token punctuation">(</span>X<span class="token punctuation">,</span> FUN<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span>
+         mc.preschedule <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> mc.set.seed <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
+         mc.silent <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> mc.cores <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"mc.cores"</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+         mc.cleanup <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> mc.allow.recursive <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> affinity.list <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+
+mcmapply<span class="token punctuation">(</span>FUN<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span>
+         MoreArgs <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> SIMPLIFY <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> USE.NAMES <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
+         mc.preschedule <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> mc.set.seed <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
+         mc.silent <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> mc.cores <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"mc.cores"</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+         mc.cleanup <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> affinity.list <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+
+mcMap<span class="token punctuation">(</span>f<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>X</code></td>
+<td>
+<p>a vector (atomic or list) or an expressions vector.  Other
+objects (including classed objects) will be coerced by
+<code><a href="base.html#list">as.list</a></code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>FUN</code></td>
+<td>
+<p>the function to be applied to (<code>mclapply</code>) each
+element of <code>X</code> or (<code>mcmapply</code>) in parallel to <code>...</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>f</code></td>
+<td>
+<p>the function to be applied in parallel to <code>...</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>For <code>mclapply</code>, optional arguments to <code>FUN</code>.
+For <code>mcmapply</code> and <code>mcMap</code>, vector or list inputs: see
+<code><a href="base.html#mapply">mapply</a></code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>MoreArgs, SIMPLIFY, USE.NAMES</code></td>
+<td>
+<p>see <code><a href="base.html#mapply">mapply</a></code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>mc.preschedule</code></td>
+<td>
+<p>if set to <code>TRUE</code> then the computation is
+first divided to (at most) as many jobs are there are cores and then
+the jobs are started, each job possibly covering more than one
+value.  If set to <code>FALSE</code> then one job is forked for each value
+of <code>X</code>.  The former is better for short computations or large
+number of values in <code>X</code>, the latter is better for jobs that
+have high variance of completion time and not too many values of
+<code>X</code> compared to <code>mc.cores</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>mc.set.seed</code></td>
+<td>
+<p>See <code><a href="#mcparallel">mcparallel</a></code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>mc.silent</code></td>
+<td>
+<p>if set to <code>TRUE</code> then all output on
+‘<span class="file">stdout</span>’ will be suppressed for all parallel processes forked
+(‘<span class="file">stderr</span>’ is not affected).</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>mc.cores</code></td>
+<td>
+<p>The number of cores to use, i.e. at most how many
+child processes will be run simultaneously.   The option is
+initialized from environment variable <span class="env">MC_CORES</span> if set.  Must
+be at least one, and parallelization requires at least two cores.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>mc.cleanup</code></td>
+<td>
+<p>if set to <code>TRUE</code> then all children that have
+been forked by this function will be killed (by sending
+<code>SIGTERM</code>) before this function returns.  Under normal
+circumstances <code>mclapply</code> waits for the children to deliver
+results, so this option usually has only effect when <code>mclapply</code>
+is interrupted. If set to <code>FALSE</code> then child processes are
+collected, but not forcefully terminated.  As a special case this
+argument can be set to the number of the signal that should be used
+to kill the children instead of <code>SIGTERM</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>mc.allow.recursive</code></td>
+<td>
+<p>Unless true, calling <code>mclapply</code> in a
+child process will use the child and not fork again.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>affinity.list</code></td>
+<td>
+<p>a vector (atomic or list) containing the CPU
+affinity mask for each element of <code>X</code>.  The CPU affinity mask
+describes on which CPU (core or hyperthread unit) a given item is
+allowed to run, see <code><a href="#mcaffinity">mcaffinity</a></code>.  To use this parameter
+prescheduling has to be deactivated (<code>mc.preschedule = FALSE</code>).</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>mclapply</code> is a parallelized version of <code><a href="base.html#lapply">lapply</a></code>,
+provided <code>mc.cores &gt; 1</code>: for <code>mc.cores == 1</code> (and the
+<code>affinity.list</code> is <code>NULL</code>) it simply calls <code>lapply</code>.
+</p>
+<p>By default (<code>mc.preschedule = TRUE</code>) the input <code>X</code> is split
+into as many parts as there are cores (currently the values are spread
+across the cores sequentially, i.e. first value to core 1,
+second to core 2, ... (core + 1)-th value to core 1 etc.) and then
+one process is forked to each core and the results are collected.
+</p>
+<p>Without prescheduling, a separate job is forked for each value of
+<code>X</code>.  To ensure that no more than <code>mc.cores</code> jobs are
+running at once, once that number has been forked the master process
+waits for a child to complete before the next fork.
+</p>
+<p>Due to the parallel nature of the execution random numbers are not
+sequential (in the random number sequence) as they would be when using
+<code>lapply</code>.  They are sequential for each forked process, but not
+all jobs as a whole.  See <code><a href="#mcparallel">mcparallel</a></code> or the package's
+vignette for ways to make the results reproducible with
+<code>mc.preschedule = TRUE</code>.
+</p>
+<p>Note: the number of file descriptors (and processes) is usually
+limited by the operating system, so you may have trouble using more
+than 100 cores or so (see <code>ulimit -n</code> or similar in your OS
+documentation) unless you raise the limit of permissible open file
+descriptors (fork will fail with error <code>"unable to create a pipe"</code>).
+</p>
+<p>Prior to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.4.0 and on a 32-bit platform, the <a href="base.html#serialize">serialize</a>d
+result from each forked process is limited to <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{31} - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code>
+bytes.  (Returning very large results via serialization is
+inefficient and should be avoided.)
+</p>
+<p><code>affinity.list</code> can be used to run elements of <code>X</code> on
+specific CPUs.  This can be helpful, if elements of <code>X</code> have a
+high variance of completion time or if the hardware architecture is
+heterogeneous.  It also enables the development of scheduling
+strategies for optimizing the overall runtime of parallel jobs.  If
+<code>affinity.list</code> is set, the <code>mc.core</code> parameter is replaced
+with the number of CPU ids used in the affinity masks.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>mclapply</code>, a list of the same length as <code>X</code> and named
+by <code>X</code>.
+</p>
+<p>For <code>mcmapply</code>, a list, vector or array: see
+<code><a href="base.html#mapply">mapply</a></code>.
+</p>
+<p>For <code>mcMap</code>, a list.
+</p>
+<p>Each forked process runs its job inside <code>try(..., silent = TRUE)</code>
+so if errors occur they will be stored as class <code>"try-error"</code>
+objects in the return value and a warning will be given.  Note that
+the job will typically involve more than one value of <code>X</code> and
+hence a <code>"try-error"</code> object will be returned for all the values
+involved in the failure, even if not all of them failed. If any forked
+process is killed or fails to deliver a result for any reason, values
+involved in the failure will be <code>NULL</code>. To allow detection of such
+errors, <code>FUN</code> should not return <code>NULL</code>. As of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.0, the
+return value of <code>mcmapply</code> is always a list when it needs to contain
+<code>"try-error"</code> objects (<code>SIMPLIFY</code> is overridden to <code>FALSE</code>).
+</p>
+
+
+<h3>Warning</h3>
+
+<p>It is <em>strongly discouraged</em> to use these functions in GUI or
+embedded environments, because it leads to several processes sharing
+the same GUI which will likely cause chaos (and possibly
+crashes).  Child processes should never use on-screen graphics
+devices.
+</p>
+<p>Some precautions have been taken to make this usable in
+<code>R.app</code> on macOS, but users of third-party front-ends
+should consult their documentation.
+</p>
+<p>Note that <span class="pkg">tcltk</span> counts as a GUI for these purposes since
+<code>Tcl</code> runs an event loop.  That event loop
+is inhibited in a child process but there could still be problems with
+Tk graphical connections.
+</p>
+<p>It is <em>strongly discouraged</em> to use these functions with
+multi-threaded libraries or packages (see <code><a href="#mcfork">mcfork</a></code> for more
+details).  If in doubt, it is safer to use a non-FORK cluster (see
+<code><a href="#makeCluster">makeCluster</a></code>, <code><a href="#clusterApply">clusterApply</a></code>).
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Simon Urbanek and R Core.
+The <code>affinity.list</code> feature by Helena Kotthaus and Andreas Lang,
+TU Dortmund.
+Derived from the <span class="pkg">multicore</span> package formerly on <abbr><span class="acronym">CRAN</span></abbr>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#mcparallel">mcparallel</a></code>, <code><a href="#pvec">pvec</a></code>,
+<code><a href="#clusterApply">parLapply</a></code>, <code><a href="#clusterApply">clusterMap</a></code>.
+</p>
+<p><code><a href="base.html#lapply">simplify2array</a></code> for results like <code><a href="base.html#lapply">sapply</a></code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">simplify2array<span class="token punctuation">(</span>mclapply<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># use the same random numbers for all values</span>
+set.seed<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+simplify2array<span class="token punctuation">(</span>mclapply<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">,</span> mc.preschedule <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+                        mc.set.seed <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Contrast this with the examples for clusterCall</span>
+library<span class="token punctuation">(</span>boot<span class="token punctuation">)</span>
+cd4.rg <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> mle<span class="token punctuation">)</span> MASS<span class="token operator">::</span>mvrnorm<span class="token punctuation">(</span>nrow<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">,</span> mle<span class="token operator">$</span>m<span class="token punctuation">,</span> mle<span class="token operator">$</span>v<span class="token punctuation">)</span>
+cd4.mle <span class="token operator">&lt;-</span> list<span class="token punctuation">(</span>m <span class="token operator">=</span> colMeans<span class="token punctuation">(</span>cd4<span class="token punctuation">)</span><span class="token punctuation">,</span> v <span class="token operator">=</span> var<span class="token punctuation">(</span>cd4<span class="token punctuation">)</span><span class="token punctuation">)</span>
+mc <span class="token operator">&lt;-</span> getOption<span class="token punctuation">(</span><span class="token string">"mc.cores"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+run1 <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span> boot<span class="token punctuation">(</span>cd4<span class="token punctuation">,</span> corr<span class="token punctuation">,</span> R <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">,</span> sim <span class="token operator">=</span> <span class="token string">"parametric"</span><span class="token punctuation">,</span>
+                           ran.gen <span class="token operator">=</span> cd4.rg<span class="token punctuation">,</span> mle <span class="token operator">=</span> cd4.mle<span class="token punctuation">)</span>
+<span class="token comment">## To make this reproducible:</span>
+set.seed<span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">,</span> <span class="token string">"L'Ecuyer"</span><span class="token punctuation">)</span>
+res <span class="token operator">&lt;-</span> mclapply<span class="token punctuation">(</span>seq_len<span class="token punctuation">(</span>mc<span class="token punctuation">)</span><span class="token punctuation">,</span> run1<span class="token punctuation">)</span>
+cd4.boot <span class="token operator">&lt;-</span> do.call<span class="token punctuation">(</span>c<span class="token punctuation">,</span> res<span class="token punctuation">)</span>
+boot.ci<span class="token punctuation">(</span>cd4.boot<span class="token punctuation">,</span>  type <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"norm"</span><span class="token punctuation">,</span> <span class="token string">"basic"</span><span class="token punctuation">,</span> <span class="token string">"perc"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        conf <span class="token operator">=</span> <span class="token number">0.9</span><span class="token punctuation">,</span> h <span class="token operator">=</span> atanh<span class="token punctuation">,</span> hinv <span class="token operator">=</span> tanh<span class="token punctuation">)</span>
+
+<span class="token comment">## Usage of the affinity.list parameter</span>
+A <span class="token operator">&lt;-</span> runif<span class="token punctuation">(</span><span class="token number">2500000</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+B <span class="token operator">&lt;-</span> runif<span class="token punctuation">(</span><span class="token number">2500000</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+C <span class="token operator">&lt;-</span> runif<span class="token punctuation">(</span><span class="token number">5000000</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+first <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> head<span class="token punctuation">(</span>sort<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Restict all elements of X to run on CPU 1 and 2</span>
+affL <span class="token operator">&lt;-</span> list<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+mclapply<span class="token punctuation">(</span>list<span class="token punctuation">(</span>A<span class="token punctuation">,</span> A<span class="token punctuation">,</span> A<span class="token punctuation">)</span><span class="token punctuation">,</span> first<span class="token punctuation">,</span> mc.preschedule <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> affinity.list <span class="token operator">=</span> affL<span class="token punctuation">)</span>
+
+
+<span class="token comment"># Completion times are assumed to have a high variance</span>
+<span class="token comment"># To optimize the overall execution time elements of X are scheduled to suitable CPUs</span>
+<span class="token comment"># Assuming that the runtime for C is as long as the runtime of A plus B</span>
+<span class="token comment"># mapping: A to 1 , B to 1, C to 2</span>
+X <span class="token operator">&lt;-</span> list<span class="token punctuation">(</span>A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> C<span class="token punctuation">)</span>
+affL <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+mclapply<span class="token punctuation">(</span>X<span class="token punctuation">,</span> first<span class="token punctuation">,</span> mc.preschedule <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> affinity.list <span class="token operator">=</span> affL<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="mcparallel">
+
+<a href="#mcparallel" class="help-page-title"><h2>Evaluate an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> Expression Asynchronously in a Separate Process</h2></a>
+
+<h3>Description</h3>
+
+<p>These functions are based on forking and so are not available on Windows.
+</p>
+<p><code>mcparallel</code> starts a parallel <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> process which evaluates the
+given expression.
+</p>
+<p><code>mccollect</code> collects results from one or more parallel processes.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">mcparallel<span class="token punctuation">(</span>expr<span class="token punctuation">,</span> name<span class="token punctuation">,</span> mc.set.seed <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> silent <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+           mc.affinity <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> mc.interactive <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+	   detached <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+
+mccollect<span class="token punctuation">(</span>jobs<span class="token punctuation">,</span> wait <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> timeout <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> intermediate <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>expr</code></td>
+<td>
+<p>expression to evaluate (do <em>not</em> use any on-screen
+devices or GUI elements in this code, see <code><a href="#mcfork">mcfork</a></code> for
+the inadvisability of using <code>mcparallel</code> with GUI front-ends
+and multi-threaded libraries).  Raw vectors are reserved for
+internal use and cannot be returned, but the expression may evaluate
+e.g. to a list holding a raw vector. <code>NULL</code> should not be returned
+because it is used by <code>mccollect</code> to signal an error. </p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>name</code></td>
+<td>
+<p>an optional name (character vector of length one) that can
+be associated with the job.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>mc.set.seed</code></td>
+<td>
+<p>logical: see section ‘Random numbers’.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>silent</code></td>
+<td>
+<p>if set to <code>TRUE</code> then all output on stdout will be
+suppressed (stderr is not affected).</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>mc.affinity</code></td>
+<td>
+<p>either a numeric vector specifying CPUs to restrict
+the child process to (1-based) or <code>NULL</code> to not modify the CPU
+affinity</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>mc.interactive</code></td>
+<td>
+<p>logical, if <code>TRUE</code> or <code>FALSE</code> then the
+child process will be set as interactive or non-interactive
+respectively. If <code>NA</code> then the child process will inherit the
+interactive flag from the parent.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>detached</code></td>
+<td>
+<p>logical, if <code>TRUE</code> then the job is detached from
+the current session and cannot deliver any results back - it is used
+for the code side-effect only.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>jobs</code></td>
+<td>
+<p>list of jobs (or a single job) to collect results
+for.  Alternatively <code>jobs</code> can also be an integer vector of
+process IDs.  If omitted <code>collect</code> will wait for all currently
+existing children.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>wait</code></td>
+<td>
+<p>if set to <code>FALSE</code> it checks for any results that are
+available within <code>timeout</code> seconds from now, otherwise it waits
+for all specified jobs to finish.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>timeout</code></td>
+<td>
+<p>timeout (in seconds) to check for job results – applies
+only if <code>wait</code> is <code>FALSE</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>intermediate</code></td>
+<td>
+<p><code>FALSE</code> or a function which will be called while
+<code>collect</code> waits for results.  The function will be called with one
+parameter which is the list of results received so far.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>mcparallel</code> evaluates the <code>expr</code> expression in parallel to
+the current <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> process.  Everything is shared read-only (or in fact
+copy-on-write) between the parallel process and the current process,
+i.e. no side-effects of the expression affect the main process.  The
+result of the parallel execution can be collected using
+<code>mccollect</code> function.
+</p>
+<p><code>mccollect</code> function collects any available results from parallel
+jobs (or in fact any child process).  If <code>wait</code> is <code>TRUE</code>
+then <code>collect</code> waits for all specified jobs to finish before
+returning a list containing the last reported result for each
+job.   If <code>wait</code> is <code>FALSE</code> then <code>mccollect</code> merely
+checks for any results available at the moment and will not wait for
+jobs to finish.   If <code>jobs</code> is specified, jobs not listed there
+will not be affected or acted upon.
+</p>
+<p>Note: If <code>expr</code> uses low-level multicore functions such
+as <code><a href="#children">sendMaster</a></code> a single job can deliver results
+multiple times and it is the responsibility of the user to interpret
+them correctly.  <code>mccollect</code> will return <code>NULL</code> for a
+terminating job that has sent its results already after which the
+job is no longer available.
+</p>
+<p>Jobs are identified by process IDs (even when referred to as job objects),
+which are reused by the operating system.  Detached jobs created by
+<code>mcparallel</code> can thus never be safely referred to by their process
+IDs nor job objects.  Non-detached jobs are guaranteed to exist until
+collected by <code>mccollect</code>, even if crashed or terminated by a signal. 
+Once collected by <code>mccollect</code>, a job is regarded as detached, and
+thus must no longer be referred to by its process ID nor its job object. 
+With <code>wait = TRUE</code>, all jobs passed to <code>mccollect</code> are
+collected.  With <code>wait = FALSE</code>, the collected jobs are given as
+names of the result vector, and thus in subsequent calls to
+<code>mccollect</code> these jobs must be excluded. Job objects should be used
+in preference of process IDs whenever accepted by the API.
+</p>
+<p>The <code>mc.affinity</code> parameter can be used to try to restrict
+the child process to specific CPUs. The availability and the extent of
+this feature is system-dependent (e.g., some systems will only
+consider the CPU count, others will ignore it completely).
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>mcparallel</code> returns an object of the class <code>"parallelJob"</code>
+which inherits from <code>"childProcess"</code> (see the ‘Value’
+section of the help for <code><a href="#mcfork">mcfork</a></code>).  If argument
+<code>name</code> was supplied this will have an additional component
+<code>name</code>.
+</p>
+<p><code>mccollect</code> returns any results that are available in a list.  The
+results will have the same order as the specified jobs.  If there are
+multiple jobs and a job has a name it will be used to name the
+result, otherwise its process ID will be used.  If none of the
+specified children are still running, it returns <code>NULL</code>.
+</p>
+
+
+<h3>Random numbers</h3>
+
+<p>If <code>mc.set.seed = FALSE</code>, the child process has the same initial
+random number generator (RNG) state as the current <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session.  If the
+RNG has been used (or <code>.Random.seed</code> was restored from a saved
+workspace), the child will start drawing random numbers at the same
+point as the current session.  If the RNG has not yet been used, the
+child will set a seed based on the time and process ID when it first
+uses the RNG: this is pretty much guaranteed to give a different
+random-number stream from the current session and any other child
+process.
+</p>
+<p>The behaviour with <code>mc.set.seed = TRUE</code> is different only if
+<code><a href="base.html#Random">RNGkind</a>("L'Ecuyer-CMRG")</code> has been selected.  Then each
+time a child is forked it is given the next stream (see
+<code><a href="#RngStream">nextRNGStream</a></code>).  So if you select that generator, set a
+seed and call <code><a href="#RngStream">mc.reset.stream</a></code> just before the first use
+of <code>mcparallel</code> the results of simulations will be reproducible
+provided the same tasks are given to the first, second, ...
+forked process.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Prior to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.4.0 and on a 32-bit platform, the <a href="base.html#serialize">serialize</a>d
+result from each forked process is limited to <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{31} - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code> bytes.  (Returning very large results via serialization is
+inefficient and should be avoided.)
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Simon Urbanek and R Core.
+</p>
+<p>Derived from the <span class="pkg">multicore</span> package formerly on
+<abbr><span class="acronym">CRAN</span></abbr>. (but with different handling of the RNG stream).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#pvec">pvec</a></code>, <code><a href="#mclapply">mclapply</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">p <span class="token operator">&lt;-</span> mcparallel<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span>
+q <span class="token operator">&lt;-</span> mcparallel<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token comment"># wait for both jobs to finish and collect all results</span>
+res <span class="token operator">&lt;-</span> mccollect<span class="token punctuation">(</span>list<span class="token punctuation">(</span>p<span class="token punctuation">,</span> q<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## IGNORE_RDIFF_BEGIN</span>
+<span class="token comment">## reports process ids, so not reproducible</span>
+p <span class="token operator">&lt;-</span> mcparallel<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span>
+mccollect<span class="token punctuation">(</span>p<span class="token punctuation">,</span> wait <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment"># will retrieve the result (since it's fast)</span>
+mccollect<span class="token punctuation">(</span>p<span class="token punctuation">,</span> wait <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>     <span class="token comment"># will signal the job as terminating</span>
+mccollect<span class="token punctuation">(</span>p<span class="token punctuation">,</span> wait <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>     <span class="token comment"># there is no longer such a job</span>
+<span class="token comment">## IGNORE_RDIFF_END</span>
+
+
+<span class="token comment"># a naive parallel lapply can be created using mcparallel alone:</span>
+jobs <span class="token operator">&lt;-</span> lapply<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> mcparallel<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> name <span class="token operator">=</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+mccollect<span class="token punctuation">(</span>jobs<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="parallel-package">
+
+<a href="#parallel-package" class="help-page-title"><h2>
+Support for Parallel Computation
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Support for parallel computation, including random-number generation.
+</p>
+
+
+<h3>Details</h3>
+
+<p>This package was first included with <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 2.14.0 in 2011.
+</p>
+<p>There is support for multiple RNG streams with the
+‘<span class="samp">⁠"L'Ecuyer-CMRG"⁠</span>’ <a href="base.html#Random">RNG</a>: see <code><a href="#RngStream">nextRNGStream</a></code>.
+</p>
+<p>It contains functionality derived from and pretty much equivalent to
+that contained in packages <span class="pkg">multicore</span> (formerly on
+<abbr><span class="acronym">CRAN</span></abbr>, with some low-level functions renamed and not
+exported) and <a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a> (for socket clusters only, but MPI
+
+clusters generated by <a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a> are also supported). There
+have been many enhancements and bug fixes since 2011.
+</p>
+<p>This package also provides <code><a href="#makeCluster">makeForkCluster</a></code> to create
+socket clusters by forking (not Windows).
+</p>
+<p>For a complete list of exported functions, use
+<code>library(help = "parallel")</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Brian Ripley, Luke Tierney and Simon Urbanek
+</p>
+<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Parallel computation involves launching worker processes: functions
+<code><a href="tools.html#psnice">psnice</a></code> and <code><a href="tools.html#pskill">pskill</a></code> in package <span class="pkg">tools</span>
+provide means to manage such processes.
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="pvec">
+
+<a href="#pvec" class="help-page-title"><h2>Parallelize a Vector Map Function using Forking</h2></a>
+
+<h3>Description</h3>
+
+<p><code>pvec</code> parallelizes the execution of a function on vector elements
+by splitting the vector and submitting each part to one core. The
+function must be a vectorized map, i.e. it takes a vector input and
+creates a vector output of exactly the same length as the input which
+doesn't depend on the partition of the vector.
+</p>
+<p>It relies on forking and hence is not available on Windows unless
+<code>mc.cores = 1</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">pvec<span class="token punctuation">(</span>v<span class="token punctuation">,</span> FUN<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> mc.set.seed <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> mc.silent <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+     mc.cores <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"mc.cores"</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mc.cleanup <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>v</code></td>
+<td>
+<p>vector to operate on</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>FUN</code></td>
+<td>
+<p>function to call on each part of the vector</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>any further arguments passed to <code>FUN</code> after the vector</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>mc.set.seed</code></td>
+<td>
+<p>See <code><a href="#mcparallel">mcparallel</a></code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>mc.silent</code></td>
+<td>
+<p>if set to <code>TRUE</code> then all output on ‘<span class="file">stdout</span>’ will
+be suppressed for all parallel processes forked (‘<span class="file">stderr</span>’ is not
+affected).</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>mc.cores</code></td>
+<td>
+<p>The number of cores to use, i.e. at most how many
+child processes will be run simultaneously.  Must be at least one,
+and at least two for parallel operation.  The option is initialized
+from environment variable <span class="env">MC_CORES</span> if set.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>mc.cleanup</code></td>
+<td>
+<p>See the description of this argument in
+<code><a href="#mclapply">mclapply</a></code>.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>pvec</code> parallelizes <code>FUN(x, ...)</code> where <code>FUN</code> is a
+function that returns a vector of the same length as
+<code>x</code>. <code>FUN</code> must also be pure (i.e., without side-effects)
+since side-effects are not collected from the parallel processes. The
+vector is split into nearly identically sized subvectors on which
+<code>FUN</code> is run.  Although it is in principle possible to use
+functions that are not necessarily maps, the interpretation would be
+case-specific as the splitting is in theory arbitrary (a warning is
+given in such cases).
+</p>
+<p>The major difference between <code>pvec</code> and <code><a href="#mclapply">mclapply</a></code> is
+that <code>mclapply</code> will run <code>FUN</code> on each element separately
+whereas <code>pvec</code> assumes that <code>c(FUN(x[1]), FUN(x[2]))</code> is
+equivalent to <code>FUN(x[1:2])</code> and thus will split into as many
+calls to <code>FUN</code> as there are cores (or elements, if fewer), each
+handling a subset vector.  This makes it more efficient than
+<code>mclapply</code> but requires the above assumption on <code>FUN</code>.
+</p>
+<p>If <code>mc.cores == 1</code> this evaluates <code>FUN(v, ...)</code> in the
+current process.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The result of the computation – in a successful case it should be of
+the same length as <code>v</code>.  If an error occurred or the function was
+not a map the result may be shorter or longer, and a warning is given.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Due to the nature of the parallelization, error handling does not
+follow the usual rules since errors will be returned as strings and
+results from killed child processes will show up simply as
+non-existent data.  Therefore it is the responsibility of the user to
+check the length of the result to make sure it is of the correct size.
+<code>pvec</code> raises a warning if that is the case since it does not
+know whether such an outcome is intentional or not.
+</p>
+<p>See <code><a href="#mcfork">mcfork</a></code> for the inadvisability of using this with
+GUI front-ends and multi-threaded libraries.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Simon Urbanek and R Core.
+</p>
+<p>Derived from the <span class="pkg">multicore</span> package formerly on <abbr><span class="acronym">CRAN</span></abbr>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#mcparallel">mcparallel</a></code>, <code><a href="#mclapply">mclapply</a></code>,
+<code><a href="#clusterApply">parLapply</a></code>, <code><a href="#clusterApply">clusterMap</a></code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">x <span class="token operator">&lt;-</span> pvec<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1000</span><span class="token punctuation">,</span> sqrt<span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span>all<span class="token punctuation">(</span>x <span class="token operator">==</span> sqrt<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token comment"># One use is to convert date strings to unix time in large datasets</span>
+<span class="token comment"># as that is a relatively slow operation.</span>
+<span class="token comment"># So let's get some random dates first</span>
+<span class="token comment"># (A small test only with 2 cores: set options("mc.cores")</span>
+<span class="token comment"># and increase N for a larger-scale test.)</span>
+N <span class="token operator">&lt;-</span> <span class="token number">1e5</span>
+dates <span class="token operator">&lt;-</span> sprintf<span class="token punctuation">(</span><span class="token string">'%04d-%02d-%02d'</span><span class="token punctuation">,</span> as.integer<span class="token punctuation">(</span><span class="token number">2000</span><span class="token operator">+</span>rnorm<span class="token punctuation">(</span>N<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                 as.integer<span class="token punctuation">(</span>runif<span class="token punctuation">(</span>N<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> as.integer<span class="token punctuation">(</span>runif<span class="token punctuation">(</span>N<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+system.time<span class="token punctuation">(</span>a <span class="token operator">&lt;-</span> as.POSIXct<span class="token punctuation">(</span>dates<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># But specifying the format is faster</span>
+system.time<span class="token punctuation">(</span>a <span class="token operator">&lt;-</span> as.POSIXct<span class="token punctuation">(</span>dates<span class="token punctuation">,</span> format <span class="token operator">=</span> <span class="token string">"%Y-%m-%d"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># pvec ought to be faster, but system overhead can be high</span>
+system.time<span class="token punctuation">(</span>b <span class="token operator">&lt;-</span> pvec<span class="token punctuation">(</span>dates<span class="token punctuation">,</span> as.POSIXct<span class="token punctuation">,</span> format <span class="token operator">=</span> <span class="token string">"%Y-%m-%d"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span>all<span class="token punctuation">(</span>a <span class="token operator">==</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># using mclapply for this would much slower because each value</span>
+<span class="token comment"># will require a separate call to as.POSIXct()</span>
+<span class="token comment"># as lapply(dates, as.POSIXct) does</span>
+system.time<span class="token punctuation">(</span>c <span class="token operator">&lt;-</span> unlist<span class="token punctuation">(</span>mclapply<span class="token punctuation">(</span>dates<span class="token punctuation">,</span> as.POSIXct<span class="token punctuation">,</span>  format <span class="token operator">=</span> <span class="token string">"%Y-%m-%d"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span>all<span class="token punctuation">(</span>a <span class="token operator">==</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="RngStream">
+
+<a href="#RngStream" class="help-page-title"><h2>Implementation of Pierre L'Ecuyer's RngStreams</h2></a>
+
+<h3>Description</h3>
+
+<p>This is an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> re-implementation of Pierre L'Ecuyer's ‘RngStreams’
+multiple streams of pseudo-random numbers.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">nextRNGStream<span class="token punctuation">(</span>seed<span class="token punctuation">)</span>
+nextRNGSubStream<span class="token punctuation">(</span>seed<span class="token punctuation">)</span>
+
+clusterSetRNGStream<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> iseed<span class="token punctuation">)</span>
+mc.reset.stream<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>seed</code></td>
+<td>
+<p>An integer vector of length 7 as given by
+<code>.Random.seed</code> when the ‘<span class="samp">⁠"L'Ecuyer-CMRG"⁠</span>’ RNG is in use.
+See <code><a href="base.html#Random">RNG</a></code> for the valid values.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>cl</code></td>
+<td>
+<p>A cluster from this package or package <a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a>, or (if
+<code>NULL</code>) the registered cluster.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>iseed</code></td>
+<td>
+<p>An integer to be supplied to <code><a href="base.html#Random">set.seed</a></code>, or
+<code>NULL</code> not to set reproducible seeds.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The ‘RngStream’ interface works with (potentially) multiple
+streams of pseudo-random numbers: this is particularly suitable for
+working with parallel computations since each task can be assigned a
+separate RNG stream.
+</p>
+<p>This uses as its underlying generator <code>RNGkind("L'Ecuyer-CMRG")</code>,
+of L'Ecuyer (1999), which has a seed vector of 6 (signed) integers and a
+period of around <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>191</mn></msup></mrow><annotation encoding="application/x-tex">2^{191}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">191</span></span></span></span></span></span></span></span></span></span></span></span></code>.  Each ‘stream’ is a
+subsequence of the period of length <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>127</mn></msup></mrow><annotation encoding="application/x-tex">2^{127}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">127</span></span></span></span></span></span></span></span></span></span></span></span></code> which is in
+turn divided into ‘substreams’ of length <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>76</mn></msup></mrow><annotation encoding="application/x-tex">2^{76}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">76</span></span></span></span></span></span></span></span></span></span></span></span></code>.
+</p>
+<p>The idea of L'Ecuyer <em>et al</em> (2002) is to use a separate stream
+for each of the parallel computations (which ensures that the random
+numbers generated never get into to sync) and the parallel
+computations can themselves use substreams if required.  The original
+interface stores the original seed of the first stream, the original
+seed of the current stream and the current seed: this could be
+implemented in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, but it is as easy to work by saving the relevant
+values of <code>.Random.seed</code>: see the examples.
+</p>
+<p><code>clusterSetRNGStream</code> selects the <code>"L'Ecuyer-CMRG"</code> RNG and
+then distributes streams to the members of a cluster, optionally
+setting the seed of the streams by <code>set.seed(iseed)</code> (otherwise
+they are set from the current seed of the master process: after
+selecting the L'Ecuyer generator).
+</p>
+<p>When not on Windows, Calling <code>mc.reset.stream()</code> after setting
+the L'Ecuyer random number generator and seed makes runs from
+<code><a href="#mcparallel">mcparallel</a>(mc.set.seed = TRUE)</code>
+reproducible.  This is
+done internally in <code><a href="#mclapply">mclapply</a></code> and <code><a href="#pvec">pvec</a></code>.
+(Note that it does not set the seed in the master process, so does not
+affect the fallback-to-serial versions of these functions.)
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>nextRNGStream</code> and <code>nextRNGSubStream</code>,
+a value which can be assigned to <code>.Random.seed</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Interfaces to L'Ecuyer's C code are available in CRAN
+packages <a href="https://CRAN.R-project.org/package=rlecuyer" target="_blank"><span class="pkg">rlecuyer</span></a> and <a href="https://CRAN.R-project.org/package=rstream" target="_blank"><span class="pkg">rstream</span></a>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Brian Ripley
+</p>
+
+
+<h3>References</h3>
+
+<p>L'Ecuyer, P. (1999).
+Good parameters and implementations for combined multiple recursive
+random number generators.
+<em>Operations Research</em>, <b>47</b>, 159–164.
+<a href="https://doi.org/10.1287/opre.47.1.159" target="_blank">doi:10.1287/opre.47.1.159</a>.
+</p>
+<p>L'Ecuyer, P., Simard, R.,  Chen, E. J. and Kelton, W. D. (2002).
+An object-oriented random-number package with many long streams
+and substreams.
+<em>Operations Research</em>, <b>50</b>, 1073–1075.
+<a href="https://doi.org/10.1287/opre.50.6.1073.358" target="_blank">doi:10.1287/opre.50.6.1073.358</a>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="base.html#Random">RNG</a></code> for fuller details of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s built-in random number
+generators.
+</p>
+<p>The vignette for package <span class="pkg">parallel</span>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">RNGkind<span class="token punctuation">(</span><span class="token string">"L'Ecuyer-CMRG"</span><span class="token punctuation">)</span>
+set.seed<span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span>s <span class="token operator">&lt;-</span> .Random.seed<span class="token punctuation">)</span>
+<span class="token comment">## do some work involving random numbers.</span>
+nextRNGStream<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+nextRNGSubStream<span class="token punctuation">(</span>s<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="splitIndices">
+
+<a href="#splitIndices" class="help-page-title"><h2>Divide Tasks for Distribution in a Cluster</h2></a>
+
+<h3>Description</h3>
+
+<p>This divides up <code>1:nx</code> into <code>ncl</code> lists of approximately
+equal size, as a way to allocate tasks to nodes in a cluster.
+</p>
+<p>It is mainly for internal use, but some package authors have found it useful.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">splitIndices<span class="token punctuation">(</span>nx<span class="token punctuation">,</span> ncl<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>nx</code></td>
+<td>
+<p>Number of tasks.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>ncl</code></td>
+<td>
+<p>Number of cluster nodes.</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>A list of length <code>ncl</code>, each element being an integer vector.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">splitIndices<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+</body>
+</html>

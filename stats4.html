@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Package 'stats4' reference manual</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <!-- styling for math and syntax -->
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
+
+    <!-- for (future) customizations -->
+    <script src="https://r-universe.dev/static/manual.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+
+  </head>
+
+  <body class="macintosh">
+    <h1 class="manual-title">Package 'stats4'</h1>
+    <table class="description-table">
+      <tr>
+<th>Title:</th>
+<td class="description-title">Statistical Functions using S4 Classes</td>
+</tr>
+      <tr>
+<th>Description:</th>
+<td class="description-description">Statistical Functions using S4 classes.</td>
+</tr>
+      <tr>
+<th>Authors:</th>
+<td class="description-author">R Core Team and contributors worldwide</td>
+</tr>
+      <tr>
+<th>Maintainer:</th>
+<td class="description-maintainer">R Core Team &lt;do-use-Contact-address@r-project.org&gt;</td>
+</tr>
+      <tr>
+<th>License:</th>
+<td class="description-license">Part of R 4.2.2</td>
+</tr>
+      <tr>
+<th>Version:</th>
+<td class="description-version">4.2.2</td>
+</tr>
+      <tr>
+<th>Built:</th>
+<td class="description-date">2022-10-31 22:33:05 UTC</td>
+</tr>
+      <tr>
+<th>Source:</th>
+<td class="description-source">base</td>
+</tr>
+    </table>
+
+    <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
+    <ul id="help-index-list">
+<li class="help-index-item"><a href="#coef-methods">Methods for Function coef in Package stats4</a></li>
+<li class="help-index-item"><a href="#confint-methods">Methods for Function confint in Package stats4</a></li>
+<li class="help-index-item"><a href="#logLik-methods">Methods for Function logLik in Package stats4</a></li>
+<li class="help-index-item"><a href="#mle">Maximum Likelihood Estimation</a></li>
+<li class="help-index-item"><a href="#mle-class">Class "mle" for Results of Maximum Likelihood Estimation</a></li>
+<li class="help-index-item"><a href="#plot-methods">Methods for Function plot in Package stats4</a></li>
+<li class="help-index-item"><a href="#profile-methods">Methods for Function profile in Package stats4</a></li>
+<li class="help-index-item"><a href="#profile.mle-class">
+Class "profile.mle"; Profiling information for "mle" object
+</a></li>
+<li class="help-index-item"><a href="#show-methods">Methods for Function show in Package stats4</a></li>
+<li class="help-index-item"><a href="#stats4-package">Statistical Functions using S4 Classes</a></li>
+<li class="help-index-item"><a href="#summary-methods">Methods for Function summary in Package stats4</a></li>
+<li class="help-index-item"><a href="#summary.mle-class">Class "summary.mle", Summary of "mle" Objects</a></li>
+<li class="help-index-item"><a href="#update-methods">Methods for Function update in Package stats4</a></li>
+<li class="help-index-item"><a href="#vcov-methods">Methods for Function vcov in Package stats4</a></li>
+</ul>
+
+    <hr>
+  <div class="container manual-page" id="coef-methods">
+
+<a href="#coef-methods" class="help-page-title"><h2>Methods for Function <code>coef</code> in Package <span class="pkg">stats4</span>
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Extract the coefficient vector from <code>"mle"</code> objects.
+</p>
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt><code>signature(object = "ANY")</code></dt>
+<dd>
+<p>Generic function: see
+<code><a href="stats.html#coef">coef</a></code>.</p>
+</dd>
+<dt><code>signature(object = "mle")</code></dt>
+<dd>
+<p>Extract the full coefficient
+vector (including any fixed coefficients) from the fit.</p>
+</dd>
+<dt><code>signature(object = "summary.mle")</code></dt>
+<dd>
+<p>Extract the
+coefficient vector and standard errors from the summary of the
+fit.</p>
+</dd>
+</dl>
+<hr>
+</div>
+<div class="container manual-page" id="confint-methods">
+
+<a href="#confint-methods" class="help-page-title"><h2>Methods for Function <code>confint</code> in Package <span class="pkg">stats4</span>
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Generate confidence intervals</p>
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt><code>signature(object = "ANY")</code></dt>
+<dd>
+<p>Generic function: see
+<code><a href="stats.html#confint">confint</a></code>.</p>
+</dd>
+<dt><code>signature(object = "mle")</code></dt>
+<dd>
+<p>First generate profile and
+then confidence intervals from the profile.</p>
+</dd>
+<dt><code>signature(object = "profile.mle")</code></dt>
+<dd>
+<p>Generate confidence
+intervals based on likelihood profile.</p>
+</dd>
+</dl>
+<hr>
+</div>
+<div class="container manual-page" id="logLik-methods">
+
+<a href="#logLik-methods" class="help-page-title"><h2>Methods for Function <code>logLik</code> in Package <span class="pkg">stats4</span>
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Extract the maximized log-likelihood from <code>"mle"</code> objects.
+</p>
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt><code>signature(object = "ANY")</code></dt>
+<dd>
+<p>Generic function: see
+<code><a href="stats.html#logLik">logLik</a></code>.</p>
+</dd>
+<dt><code>signature(object = "mle")</code></dt>
+<dd>
+<p>Extract log-likelihood from
+the fit.</p>
+</dd>
+</dl>
+<h3>Note</h3>
+
+<p>The <code>mle</code> method does not know about the number of observations
+unless <code>nobs</code> was specified on the call and so may not be
+suitable for use with <code><a href="stats.html#AIC">BIC</a></code>.
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="mle">
+
+<a href="#mle" class="help-page-title"><h2>Maximum Likelihood Estimation</h2></a>
+
+<h3>Description</h3>
+
+<p>Estimate parameters by the method of maximum likelihood.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">mle<span class="token punctuation">(</span>minuslogl<span class="token punctuation">,</span> start<span class="token punctuation">,</span>
+       optim <span class="token operator">=</span> stats<span class="token operator">::</span>optim<span class="token punctuation">,</span>
+       method <span class="token operator">=</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>useLim<span class="token punctuation">)</span> <span class="token string">"BFGS"</span> <span class="token keyword">else</span> <span class="token string">"L-BFGS-B"</span><span class="token punctuation">,</span>
+       fixed <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nobs<span class="token punctuation">,</span> lower<span class="token punctuation">,</span> upper<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>minuslogl</code></td>
+<td>
+<p>Function to calculate negative log-likelihood.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>start</code></td>
+<td>
+<p>Named list of vectors or single vector. Initial values
+for optimizer. By default taken from the default arguments of <code>minuslogl</code></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>optim</code></td>
+<td>
+<p>Optimizer function. (Experimental)</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>method</code></td>
+<td>
+<p>Optimization method to use. See <code><a href="stats.html#optim">optim</a></code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>fixed</code></td>
+<td>
+<p>Named list of vectors or single vector.  Parameter values to keep fixed during
+optimization.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>nobs</code></td>
+<td>
+<p>optional integer: the number of observations, to be used for
+e.g. computing <code><a href="stats.html#AIC">BIC</a></code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>lower, upper</code></td>
+<td>
+<p>Named lists of vectors or single vectors. Bounds for <code><a href="stats.html#optim">optim</a></code>, if relevant.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>Further arguments to pass to <code><a href="stats.html#optim">optim</a></code>.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The <code>optim</code> optimizer is used to find the minimum of the
+negative log-likelihood.  An approximate covariance matrix for the
+parameters is obtained by inverting the Hessian matrix at the optimum.
+By default,  <code><a href="stats.html#optim">optim</a></code> from the <code>stats</code> package is used; other
+optimizers need to be plug-compatible, both with respect to arguments
+and return values.
+</p>
+<p>The function <code>minuslogl</code> should take one or several arguments,
+each of which can be a vector. The optimizer optimizes a function
+which takes a single vector argument, containing the
+concatenation of the arguments to <code>minuslogl</code>, removing any
+values that should be held fixed. This function internally unpacks the
+argument vector, inserts the fixed values and calls <code>minuslogl</code>.
+</p>
+<p>The vector arguments <code>start</code>, <code>fixed</code>, <code>upper</code>, and
+<code>lower</code>, can be given in both packed and unpacked form, either as
+a single vector or as a list of vectors. In the latter case, you only
+need to specify those list elements that are actually affected. For vector
+arguments, including those inside lists, use a default marker for
+those values that you don't want to set: <code>NA</code> for <code>fixed</code>
+and <code>start</code>, and <code>+Inf, -Inf</code> for <code>upper</code>, and
+<code>lower</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code><a href="#mle-class">mle-class</a></code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Notice that the <code>mll</code> argument should calculate -log L (not -2 log L). It
+is for the user to ensure that the likelihood is correct, and that
+asymptotic likelihood inference is valid.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#mle-class">mle-class</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## Avoid printing to unwarranted accuracy</span>
+od <span class="token operator">&lt;-</span> options<span class="token punctuation">(</span>digits <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Simulated EC50 experiment with count data</span>
+x <span class="token operator">&lt;-</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">10</span>
+y <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">26</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Easy one-dimensional MLE:</span>
+nLL <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>lambda<span class="token punctuation">)</span> <span class="token operator">-</span>sum<span class="token punctuation">(</span>stats<span class="token operator">::</span>dpois<span class="token punctuation">(</span>y<span class="token punctuation">,</span> lambda<span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+fit0 <span class="token operator">&lt;-</span> mle<span class="token punctuation">(</span>nLL<span class="token punctuation">,</span> start <span class="token operator">=</span> list<span class="token punctuation">(</span>lambda <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nobs <span class="token operator">=</span> NROW<span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## sanity check --- notice that "nobs" must be input</span>
+<span class="token comment">## (not guaranteed to be meaningful for any likelihood)</span>
+stopifnot<span class="token punctuation">(</span>nobs<span class="token punctuation">(</span>fit0<span class="token punctuation">)</span> <span class="token operator">==</span> length<span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token comment"># For 1D, this is preferable:</span>
+fit1 <span class="token operator">&lt;-</span> mle<span class="token punctuation">(</span>nLL<span class="token punctuation">,</span> start <span class="token operator">=</span> list<span class="token punctuation">(</span>lambda <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nobs <span class="token operator">=</span> NROW<span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            method <span class="token operator">=</span> <span class="token string">"Brent"</span><span class="token punctuation">,</span> lower <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> upper <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">)</span>
+
+<span class="token comment">## This needs a constrained parameter space: most methods will accept NA</span>
+ll <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>ymax <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">,</span> xhalf <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>ymax <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> xhalf <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+      <span class="token operator">-</span>sum<span class="token punctuation">(</span>stats<span class="token operator">::</span>dpois<span class="token punctuation">(</span>y<span class="token punctuation">,</span> lambda <span class="token operator">=</span> ymax<span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span>x<span class="token operator">/</span>xhalf<span class="token punctuation">)</span><span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span> <span class="token keyword">NA</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">(</span>fit <span class="token operator">&lt;-</span> mle<span class="token punctuation">(</span>ll<span class="token punctuation">,</span> nobs <span class="token operator">=</span> length<span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+mle<span class="token punctuation">(</span>ll<span class="token punctuation">,</span> fixed <span class="token operator">=</span> list<span class="token punctuation">(</span>xhalf <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Alternative using bounds on optimization</span>
+ll2 <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>ymax <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">,</span> xhalf <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">)</span>
+    <span class="token operator">-</span>sum<span class="token punctuation">(</span>stats<span class="token operator">::</span>dpois<span class="token punctuation">(</span>y<span class="token punctuation">,</span> lambda <span class="token operator">=</span> ymax<span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span>x<span class="token operator">/</span>xhalf<span class="token punctuation">)</span><span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+mle<span class="token punctuation">(</span>ll2<span class="token punctuation">,</span> lower <span class="token operator">=</span> rep<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+AIC<span class="token punctuation">(</span>fit<span class="token punctuation">)</span>
+BIC<span class="token punctuation">(</span>fit<span class="token punctuation">)</span>
+
+summary<span class="token punctuation">(</span>fit<span class="token punctuation">)</span>
+logLik<span class="token punctuation">(</span>fit<span class="token punctuation">)</span>
+vcov<span class="token punctuation">(</span>fit<span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>profile<span class="token punctuation">(</span>fit<span class="token punctuation">)</span><span class="token punctuation">,</span> absVal <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+confint<span class="token punctuation">(</span>fit<span class="token punctuation">)</span>
+
+<span class="token comment">## Use bounded optimization</span>
+<span class="token comment">## The lower bounds are really &gt; 0,</span>
+<span class="token comment">## but we use &gt;=0 to stress-test profiling</span>
+<span class="token punctuation">(</span>fit2 <span class="token operator">&lt;-</span> mle<span class="token punctuation">(</span>ll2<span class="token punctuation">,</span> lower <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>profile<span class="token punctuation">(</span>fit2<span class="token punctuation">)</span><span class="token punctuation">,</span> absVal <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+
+<span class="token comment">## A better parametrization:</span>
+ll3 <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>lymax <span class="token operator">=</span> log<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span> lxhalf <span class="token operator">=</span> log<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token operator">-</span>sum<span class="token punctuation">(</span>stats<span class="token operator">::</span>dpois<span class="token punctuation">(</span>y<span class="token punctuation">,</span> lambda <span class="token operator">=</span> exp<span class="token punctuation">(</span>lymax<span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span>x<span class="token operator">/</span>exp<span class="token punctuation">(</span>lxhalf<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span>fit3 <span class="token operator">&lt;-</span> mle<span class="token punctuation">(</span>ll3<span class="token punctuation">)</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>profile<span class="token punctuation">(</span>fit3<span class="token punctuation">)</span><span class="token punctuation">,</span> absVal <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+exp<span class="token punctuation">(</span>confint<span class="token punctuation">(</span>fit3<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Regression tests for bounded cases (this was broken in R 3.x)</span>
+fit4 <span class="token operator">&lt;-</span> mle<span class="token punctuation">(</span>ll<span class="token punctuation">,</span> lower <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># has max on boundary</span>
+confint<span class="token punctuation">(</span>fit4<span class="token punctuation">)</span>
+
+<span class="token comment">## direct check that fixed= and constraints work together</span>
+mle<span class="token punctuation">(</span>ll<span class="token punctuation">,</span> lower <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> fixed<span class="token operator">=</span>list<span class="token punctuation">(</span>ymax<span class="token operator">=</span><span class="token number">23</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># has max on boundary</span>
+
+<span class="token comment">## Linear regression using MLE</span>
+x <span class="token operator">&lt;-</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span> 
+y <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">0.48</span><span class="token punctuation">,</span> <span class="token number">2.24</span><span class="token punctuation">,</span> <span class="token number">2.22</span><span class="token punctuation">,</span> <span class="token number">5.15</span><span class="token punctuation">,</span> <span class="token number">4.64</span><span class="token punctuation">,</span> <span class="token number">5.53</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8.8</span><span class="token punctuation">,</span> <span class="token number">7.67</span><span class="token punctuation">,</span> <span class="token number">9.23</span><span class="token punctuation">)</span>
+
+LM_mll <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>formula<span class="token punctuation">,</span> data <span class="token operator">=</span> environment<span class="token punctuation">(</span>formula<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+     y <span class="token operator">&lt;-</span> model.response<span class="token punctuation">(</span>model.frame<span class="token punctuation">(</span>formula<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">)</span>
+     X <span class="token operator">&lt;-</span> model.matrix<span class="token punctuation">(</span>formula<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+     b0 <span class="token operator">&lt;-</span> numeric<span class="token punctuation">(</span>NCOL<span class="token punctuation">(</span>X<span class="token punctuation">)</span><span class="token punctuation">)</span>
+     names<span class="token punctuation">(</span>b0<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> colnames<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+     <span class="token keyword">function</span><span class="token punctuation">(</span>b<span class="token operator">=</span>b0<span class="token punctuation">,</span> sigma<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+         <span class="token operator">-</span>sum<span class="token punctuation">(</span>dnorm<span class="token punctuation">(</span>y<span class="token punctuation">,</span> X <span class="token percent-operator operator">%*%</span> b<span class="token punctuation">,</span> sigma<span class="token punctuation">,</span> log<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+mll <span class="token operator">&lt;-</span> LM_mll<span class="token punctuation">(</span>y <span class="token operator">~</span> x<span class="token punctuation">)</span>
+
+summary<span class="token punctuation">(</span>lm<span class="token punctuation">(</span>y<span class="token operator">~</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># for comparison -- notice variance bias in MLE</span>
+summary<span class="token punctuation">(</span>mle<span class="token punctuation">(</span>mll<span class="token punctuation">,</span> lower<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">Inf</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">Inf</span><span class="token punctuation">,</span> <span class="token number">0.01</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+summary<span class="token punctuation">(</span>mle<span class="token punctuation">(</span>mll<span class="token punctuation">,</span> lower<span class="token operator">=</span>list<span class="token punctuation">(</span>sigma <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># alternative specification</span>
+
+confint<span class="token punctuation">(</span>mle<span class="token punctuation">(</span>mll<span class="token punctuation">,</span> lower<span class="token operator">=</span>list<span class="token punctuation">(</span>sigma <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>profile<span class="token punctuation">(</span>mle<span class="token punctuation">(</span>mll<span class="token punctuation">,</span> lower<span class="token operator">=</span>list<span class="token punctuation">(</span>sigma <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+Binom_mll <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    force<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> force<span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token comment">## beware lazy evaluation</span>
+    <span class="token keyword">function</span><span class="token punctuation">(</span>p<span class="token operator">=</span><span class="token number">.5</span><span class="token punctuation">)</span> <span class="token operator">-</span>dbinom<span class="token punctuation">(</span>x<span class="token punctuation">,</span> n<span class="token punctuation">,</span> p<span class="token punctuation">,</span> log<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">## Likelihood functions for different x.</span>
+<span class="token comment">## This code goes wrong, if force(x) is not used in Binom_mll:</span>
+
+curve<span class="token punctuation">(</span>Binom_mll<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">,</span> xname<span class="token operator">=</span><span class="token string">"p"</span><span class="token punctuation">,</span> ylim<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+mll_list <span class="token operator">&lt;-</span> list<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>x <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span>
+    mll_list<span class="token punctuation">[</span><span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> Binom_mll<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>mll <span class="token keyword">in</span> mll_list<span class="token punctuation">)</span>
+    curve<span class="token punctuation">(</span>mll<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">,</span> xname<span class="token operator">=</span><span class="token string">"p"</span><span class="token punctuation">,</span> add<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+
+mll <span class="token operator">&lt;-</span> Binom_mll<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+mle<span class="token punctuation">(</span>mll<span class="token punctuation">,</span> lower <span class="token operator">=</span> <span class="token number">1e-16</span><span class="token punctuation">,</span> upper <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">-</span><span class="token number">1e-16</span><span class="token punctuation">)</span> <span class="token comment"># limits must be inside (0,1)</span>
+
+<span class="token comment">## Boundary case: This works, but fails if limits are set closer to 0 and 1  </span>
+mll <span class="token operator">&lt;-</span> Binom_mll<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+mle<span class="token punctuation">(</span>mll<span class="token punctuation">,</span> lower<span class="token operator">=</span><span class="token number">.005</span><span class="token punctuation">,</span> upper<span class="token operator">=</span><span class="token number">.995</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Not run: </span>
+<span class="token comment">## We can use limits closer to the boundaries if we use the</span>
+<span class="token comment">## drop-in replacement optimr() from the optimx package.</span>
+
+mle<span class="token punctuation">(</span>mll<span class="token punctuation">,</span> lower <span class="token operator">=</span> <span class="token number">1e-16</span><span class="token punctuation">,</span> upper <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">-</span><span class="token number">1e-16</span><span class="token punctuation">,</span> optim<span class="token operator">=</span>optimx<span class="token operator">::</span>optimr<span class="token punctuation">)</span>
+
+<span class="token comment">## End(Not run)</span>
+
+
+options<span class="token punctuation">(</span>od<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="mle-class">
+
+<a href="#mle-class" class="help-page-title"><h2>Class <code>"mle"</code> for Results of Maximum Likelihood Estimation</h2></a>
+
+<h3>Description</h3>
+
+<p>This class encapsulates results of a generic maximum
+likelihood procedure.</p>
+
+
+<h3>Objects from the Class</h3>
+
+<p>Objects can be created by calls of the form <code>new("mle", ...)</code>, but
+most often as the result of a call to <code><a href="#mle">mle</a></code>.
+</p>
+
+
+<h3>Slots</h3>
+
+
+<dl>
+<dt>
+<code>call</code>:</dt>
+<dd>
+<p>Object of class <code>"language"</code>.
+The call to <code><a href="#mle">mle</a></code>.</p>
+</dd>
+<dt>
+<code>coef</code>:</dt>
+<dd>
+<p>Object of class <code>"numeric"</code>.  Estimated
+parameters.</p>
+</dd>
+<dt>
+<code>fullcoef</code>:</dt>
+<dd>
+<p>Object of class <code>"numeric"</code>.
+Full parameter set of fixed and estimated parameters.</p>
+</dd>
+<dt>
+<code>fixed</code>:</dt>
+<dd>
+<p>Object of class <code>"numeric"</code>.
+Fixed parameter values (<code>NA</code> for non-fixed parameters).</p>
+</dd>
+<dt>
+<code>vcov</code>:</dt>
+<dd>
+<p>Object of class <code>"matrix"</code>.  Approximate
+variance-covariance matrix.</p>
+</dd>
+<dt>
+<code>min</code>:</dt>
+<dd>
+<p>Object of class <code>"numeric"</code>.  Minimum value
+of objective function.</p>
+</dd>
+<dt>
+<code>details</code>:</dt>
+<dd>
+<p>a <code>"<a href="base.html#list">list</a>"</code>, as returned from
+<code><a href="stats.html#optim">optim</a></code>.</p>
+</dd>
+<dt>
+<code>minuslogl</code>:</dt>
+<dd>
+<p>Object of class <code>"function"</code>.  The
+negative loglikelihood function.</p>
+</dd>
+<dt>
+<code>nobs</code>:</dt>
+<dd>
+<p><code>"<a href="base.html#integer">integer</a>"</code> of length one.  The
+number of observations (often <code>NA</code>, when not set in call
+explicitly).</p>
+</dd>
+<dt>
+<code>method</code>:</dt>
+<dd>
+<p>Object of class <code>"character"</code>.  The
+optimization method used.</p>
+</dd>
+</dl>
+<h3>Methods</h3>
+
+
+<dl>
+<dt>confint</dt>
+<dd>
+<p><code>signature(object = "mle")</code>: Confidence
+intervals from likelihood profiles.</p>
+</dd>
+<dt>logLik</dt>
+<dd>
+<p><code>signature(object = "mle")</code>: Extract maximized
+log-likelihood.</p>
+</dd>
+<dt>profile</dt>
+<dd>
+<p><code>signature(fitted = "mle")</code>: Likelihood profile
+generation.</p>
+</dd>
+<dt>nobs</dt>
+<dd>
+<p><code>signature(object = "mle")</code>: Number of
+observations, here simply accessing the <code>nobs</code> slot mentioned above.</p>
+</dd>
+<dt>show</dt>
+<dd>
+<p><code>signature(object = "mle")</code>: Display object briefly.</p>
+</dd>
+<dt>summary</dt>
+<dd>
+<p><code>signature(object = "mle")</code>: Generate object summary.</p>
+</dd>
+<dt>update</dt>
+<dd>
+<p><code>signature(object = "mle")</code>:  Update fit.</p>
+</dd>
+<dt>vcov</dt>
+<dd>
+<p><code>signature(object = "mle")</code>: Extract
+variance-covariance matrix.</p>
+</dd>
+</dl>
+<hr>
+</div>
+<div class="container manual-page" id="plot-methods">
+
+<a href="#plot-methods" class="help-page-title"><h2>Methods for Function <code>plot</code> in Package <span class="pkg">stats4</span>
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Plot profile likelihoods for <code>"mle"</code> objects.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## S4 method for signature 'profile.mle,missing'</span>
+plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> levels<span class="token punctuation">,</span> conf <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">99</span><span class="token punctuation">,</span> <span class="token number">95</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">100</span><span class="token punctuation">,</span> nseg <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">,</span>
+     absVal <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+<p>an object of class <code>"profile.mle"</code> </p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>levels</code></td>
+<td>
+<p>levels, on the scale of the absolute value of a t
+statistic, at which to interpolate intervals.  Usually <code>conf</code>
+is used instead of giving <code>levels</code> explicitly.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>conf</code></td>
+<td>
+<p>a numeric vector of confidence levels for profile-based
+confidence intervals on the parameters.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>nseg</code></td>
+<td>
+<p>an integer value giving the number of segments to use in
+the spline interpolation of the profile t curves.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>absVal</code></td>
+<td>
+<p>a logical value indicating whether or not the plots
+should be on the scale of the absolute value of the profile t.
+Defaults to <code>TRUE</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>other arguments to the <code>plot</code> function can be passed here.</p>
+</td>
+</tr>
+</table>
+<h3>Methods</h3>
+
+
+<dl>
+<dt><code>signature(x = "ANY", y = "ANY")</code></dt>
+<dd>
+<p>Generic function: see
+<code><a href="graphics.html#plot.default">plot</a></code>.</p>
+</dd>
+<dt><code>signature(x = "profile.mle", y = "missing")</code></dt>
+<dd>
+<p>Plot
+likelihood profiles for <code>x</code>.</p>
+</dd>
+</dl>
+<hr>
+</div>
+<div class="container manual-page" id="profile-methods">
+
+<a href="#profile-methods" class="help-page-title"><h2>Methods for Function <code>profile</code> in Package <span class="pkg">stats4</span>
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Profile likelihood for <code>"mle"</code> objects.</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## S4 method for signature 'mle'</span>
+profile<span class="token punctuation">(</span>fitted<span class="token punctuation">,</span> which <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span>p<span class="token punctuation">,</span> maxsteps <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">,</span> alpha <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">,</span>
+        zmax <span class="token operator">=</span> sqrt<span class="token punctuation">(</span>qchisq<span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> alpha<span class="token punctuation">,</span> <span class="token number">1L</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> del <span class="token operator">=</span> zmax<span class="token operator">/</span><span class="token number">5</span><span class="token punctuation">,</span>
+        trace <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>fitted</code></td>
+<td>
+<p>Object to be profiled</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>which</code></td>
+<td>
+<p>Optionally select subset of parameters to profile.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>maxsteps</code></td>
+<td>
+<p>Maximum number of steps to bracket <code>zmax</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>alpha</code></td>
+<td>
+<p>Significance level corresponding to <code>zmax</code>, based on
+a Scheffe-style multiple testing interval.  Ignored
+if <code>zmax</code> is specified.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>zmax</code></td>
+<td>
+<p>Cutoff for the profiled value of the signed root-likelihood.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>del</code></td>
+<td>
+<p>Initial stepsize on root-likelihood scale.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>trace</code></td>
+<td>
+<p>Logical. Print intermediate results.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>Currently unused.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The profiling algorithm tries to find an approximately evenly spaced
+set of at least five parameter values (in each direction from the
+optimum) to cover
+the root-likelihood function. Some care is taken to try and get sensible
+results in cases of high parameter curvature. Notice that it may not
+always be possible to obtain the cutoff value, since the likelihood
+might level off.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"profile.mle"</code>, see
+<code>"profile.mle-class"</code>.
+</p>
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt><code>signature(fitted = "ANY")</code></dt>
+<dd>
+<p>Generic function: see
+<code><a href="stats.html#profile">profile</a></code>.</p>
+</dd>
+<dt><code>signature(fitted = "mle")</code></dt>
+<dd>
+<p>Profile the likelihood in
+the vicinity of the optimum of an <code>"mle"</code> object.</p>
+</dd>
+</dl>
+<hr>
+</div>
+<div class="container manual-page" id="profile.mle-class">
+
+<a href="#profile.mle-class" class="help-page-title"><h2>
+Class <code>"profile.mle"</code>; Profiling information for <code>"mle"</code> object
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Likelihood profiles along each parameter of likelihood function</p>
+
+
+<h3>Objects from the Class</h3>
+
+<p>Objects can be created by calls of the form <code>new("profile.mle",
+  ...)</code>, but most often by invoking <code>profile</code> on an "mle" object.
+</p>
+
+
+<h3>Slots</h3>
+
+
+<dl>
+<dt>
+<code>profile</code>:</dt>
+<dd>
+<p>Object of class <code>"list"</code>. List of
+profiles, one for each requested parameter. Each profile is a data
+frame with the first column called <code>z</code> being the signed square
+root of the -2 log likelihood ratio, and the others being the
+parameters with names prefixed by <code>par.vals.</code></p>
+</dd>
+<dt>
+<code>summary</code>:</dt>
+<dd>
+<p>Object of class <code>"summary.mle"</code>. Summary
+of object being profiled.</p>
+</dd>
+</dl>
+<h3>Methods</h3>
+
+
+<dl>
+<dt>confint</dt>
+<dd>
+<p><code>signature(object = "profile.mle")</code>: Use profile
+to generate approximate confidence intervals for parameters.</p>
+</dd>
+<dt>plot</dt>
+<dd>
+<p><code>signature(x = "profile.mle", y = "missing")</code>: Plot
+profiles for each parameter.</p>
+</dd>
+</dl>
+<h3>See Also</h3>
+
+<p><code><a href="#mle">mle</a></code>, <code><a href="#mle-class">mle-class</a></code>, <code><a href="#summary.mle-class">summary.mle-class</a></code>
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="show-methods">
+
+<a href="#show-methods" class="help-page-title"><h2>Methods for Function <code>show</code> in Package <span class="pkg">stats4</span>
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Show objects of classes <code>mle</code> and <code>summary.mle</code></p>
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt><code>signature(object = "mle")</code></dt>
+<dd>
+<p>Print simple summary of
+<code>mle</code> object.  Just the coefficients and the call.</p>
+</dd>
+<dt><code>signature(object = "summary.mle")</code></dt>
+<dd>
+<p>Shows call, table of
+coefficients and standard errors, and <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>2</mn><mi>log</mi><mo>⁡</mo><mi>L</mi></mrow><annotation encoding="application/x-tex">-2 \log L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">−</span><span class="mord">2</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">L</span></span></span></span></code>.</p>
+</dd>
+</dl>
+<hr>
+</div>
+<div class="container manual-page" id="stats4-package">
+
+<a href="#stats4-package" class="help-page-title"><h2>Statistical Functions using S4 Classes</h2></a>
+
+<h3>Description</h3>
+
+<p>Statistical Functions using S4 classes.
+</p>
+
+
+<h3>Details</h3>
+
+<p>This package contains functions and classes for statistics
+using the <a href="methods.html#methods-package">S version 4</a> class system.
+</p>
+<p>The methods currently support maximum likelihood (function
+<code><a href="#mle">mle</a>()</code> returning class <code>"<a href="#mle-class">mle</a>"</code>),
+including methods for <code><a href="#logLik-methods">logLik</a></code> for use
+with <code><a href="stats.html#AIC">AIC</a></code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>R Core Team and contributors worldwide
+</p>
+<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="summary-methods">
+
+<a href="#summary-methods" class="help-page-title"><h2>Methods for Function <code>summary</code> in Package <span class="pkg">stats4</span>
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Summarize objects</p>
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt><code>signature(object = "ANY")</code></dt>
+<dd>
+<p>Generic function</p>
+</dd>
+<dt><code>signature(object = "mle")</code></dt>
+<dd>
+<p>Generate a summary as an
+object of class <code>"summary.mle"</code>, containing estimates,
+asymptotic SE, and value of <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>2</mn><mi>log</mi><mo>⁡</mo><mi>L</mi></mrow><annotation encoding="application/x-tex">-2 \log L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">−</span><span class="mord">2</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">L</span></span></span></span></code>.</p>
+</dd>
+</dl>
+<hr>
+</div>
+<div class="container manual-page" id="summary.mle-class">
+
+<a href="#summary.mle-class" class="help-page-title"><h2>Class <code>"summary.mle"</code>, Summary of <code>"mle"</code> Objects</h2></a>
+
+<h3>Description</h3>
+
+<p>Extract of "mle" object</p>
+
+
+<h3>Objects from the Class</h3>
+
+<p>Objects can be created by calls of the form <code>new("summary.mle",
+  ...)</code>, but most often by invoking <code>summary</code> on an "mle" object.
+They contain values meant for printing by <code>show</code>.
+</p>
+
+
+<h3>Slots</h3>
+
+
+<dl>
+<dt>
+<code>call</code>:</dt>
+<dd>
+<p>Object of class <code>"language"</code> The call that
+generated the "mle" object.</p>
+</dd>
+<dt>
+<code>coef</code>:</dt>
+<dd>
+<p>Object of class <code>"matrix"</code>. Estimated
+coefficients and standard errors </p>
+</dd>
+<dt>
+<code>m2logL</code>:</dt>
+<dd>
+<p>Object of class <code>"numeric"</code>. Minus twice
+the log likelihood.</p>
+</dd>
+</dl>
+<h3>Methods</h3>
+
+
+<dl>
+<dt>show</dt>
+<dd>
+<p><code>signature(object = "summary.mle")</code>: Pretty-prints
+<code>object</code>  </p>
+</dd>
+<dt>coef</dt>
+<dd>
+<p><code>signature(object = "summary.mle")</code>: Extracts the
+contents of the <code>coef</code> slot</p>
+</dd>
+</dl>
+<h3>See Also</h3>
+
+<p><code><a href="base.html#summary">summary</a></code>, <code><a href="#mle">mle</a></code>, <code><a href="#mle-class">mle-class</a></code>
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="update-methods">
+
+<a href="#update-methods" class="help-page-title"><h2>Methods for Function <code>update</code> in Package <span class="pkg">stats4</span>
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Update <code>"mle"</code> objects.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## S4 method for signature 'mle'</span>
+update<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> evaluate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>object</code></td>
+<td>
+<p>An existing fit.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>Additional arguments to the call, or arguments with
+changed values. Use <code>name = NULL</code> to remove the argument <code>name</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>evaluate</code></td>
+<td>
+<p>If true evaluate the new call else return the call.</p>
+</td>
+</tr>
+</table>
+<h3>Methods</h3>
+
+
+<dl>
+<dt><code>signature(object = "ANY")</code></dt>
+<dd>
+<p>Generic function: see
+<code><a href="stats.html#update">update</a></code>.</p>
+</dd>
+<dt><code>signature(object = "mle")</code></dt>
+<dd>
+<p>Update a fit.</p>
+</dd>
+</dl>
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">x <span class="token operator">&lt;-</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">10</span>
+y <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">26</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span>
+ll <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>ymax <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">,</span> xhalf <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">)</span>
+    <span class="token operator">-</span>sum<span class="token punctuation">(</span>stats<span class="token operator">::</span>dpois<span class="token punctuation">(</span>y<span class="token punctuation">,</span> lambda <span class="token operator">=</span> ymax<span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span>x<span class="token operator">/</span>xhalf<span class="token punctuation">)</span><span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+fit <span class="token operator">&lt;-</span> mle<span class="token punctuation">(</span>ll<span class="token punctuation">)</span>
+<span class="token comment">## note the recorded call contains ..1, a problem with S4 dispatch</span>
+update<span class="token punctuation">(</span>fit<span class="token punctuation">,</span> fixed <span class="token operator">=</span> list<span class="token punctuation">(</span>xhalf <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="vcov-methods">
+
+<a href="#vcov-methods" class="help-page-title"><h2>Methods for Function <code>vcov</code> in Package <span class="pkg">stats4</span>
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Extract the approximate variance-covariance matrix from <code>"mle"</code>
+objects.
+</p>
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt><code>signature(object = "ANY")</code></dt>
+<dd>
+<p>Generic function: see
+<code><a href="stats.html#vcov">vcov</a></code>.</p>
+</dd>
+<dt><code>signature(object = "mle")</code></dt>
+<dd>
+<p>Extract the estimated
+variance-covariance matrix for the estimated parameters (if any).</p>
+</dd>
+</dl>
+<hr>
+</div>
+</body>
+</html>

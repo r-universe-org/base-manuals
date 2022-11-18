@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Package 'KernSmooth' reference manual</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <!-- styling for math and syntax -->
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
+
+    <!-- for (future) customizations -->
+    <script src="https://r-universe.dev/static/manual.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+
+  </head>
+
+  <body class="macintosh">
+    <h1 class="manual-title">Package 'KernSmooth'</h1>
+    <table class="description-table">
+      <tr>
+<th>Title:</th>
+<td class="description-title">Functions for Kernel Smoothing Supporting Wand &amp; Jones (1995)</td>
+</tr>
+      <tr>
+<th>Description:</th>
+<td class="description-description">Functions for kernel smoothing (and density estimation)
+  corresponding to the book: 
+  Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".</td>
+</tr>
+      <tr>
+<th>Authors:</th>
+<td class="description-author">Matt Wand [aut],
+  Cleve Moler [ctb] (LINPACK routines in src/d*),
+  Brian Ripley [trl, cre, ctb] (R port and updates)</td>
+</tr>
+      <tr>
+<th>Maintainer:</th>
+<td class="description-maintainer">Brian Ripley &lt;ripley@stats.ox.ac.uk&gt;</td>
+</tr>
+      <tr>
+<th>License:</th>
+<td class="description-license">Unlimited</td>
+</tr>
+      <tr>
+<th>Version:</th>
+<td class="description-version">2.23-20</td>
+</tr>
+      <tr>
+<th>Built:</th>
+<td class="description-date">2022-10-31 22:33:21 UTC</td>
+</tr>
+      <tr>
+<th>Source:</th>
+<td class="description-source">CRAN</td>
+</tr>
+    </table>
+
+    <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
+    <ul id="help-index-list">
+<li class="help-index-item"><a href="#bkde">
+Compute a Binned Kernel Density Estimate
+</a></li>
+<li class="help-index-item"><a href="#bkde2D">
+Compute a 2D Binned Kernel Density Estimate
+</a></li>
+<li class="help-index-item"><a href="#bkfe">
+Compute a Binned Kernel Functional Estimate 
+</a></li>
+<li class="help-index-item"><a href="#dpih">
+Select a Histogram Bin Width 
+</a></li>
+<li class="help-index-item"><a href="#dpik">
+Select a Bandwidth for Kernel Density Estimation
+</a></li>
+<li class="help-index-item"><a href="#dpill">
+Select a Bandwidth for Local Linear Regression
+</a></li>
+<li class="help-index-item"><a href="#locpoly">
+Estimate Functions Using Local Polynomials
+</a></li>
+</ul>
+
+    <hr>
+  <div class="container manual-page" id="bkde">
+
+<a href="#bkde" class="help-page-title"><h2>
+Compute a Binned Kernel Density Estimate
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Returns x and y coordinates of the binned
+kernel density estimate of the probability
+density of the data.  
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">bkde<span class="token punctuation">(</span>x<span class="token punctuation">,</span> kernel <span class="token operator">=</span> <span class="token string">"normal"</span><span class="token punctuation">,</span> canonical <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> bandwidth<span class="token punctuation">,</span>
+     gridsize <span class="token operator">=</span> <span class="token number">401L</span><span class="token punctuation">,</span> range.x<span class="token punctuation">,</span> truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>numeric vector of observations from the distribution whose density is to
+be estimated.  Missing values are not allowed.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>bandwidth</code></td>
+<td>
+
+<p>the kernel bandwidth smoothing parameter.  Larger values of
+<code>bandwidth</code> make smoother estimates, smaller values of
+<code>bandwidth</code> make less smooth estimates.  The default is a bandwidth
+computed from the variance of <code>x</code>, specifically the
+‘oversmoothed bandwidth selector’ of Wand and Jones
+(1995, page 61).
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>kernel</code></td>
+<td>
+
+<p>character string which determines the smoothing kernel.
+<code>kernel</code> can be:
+<code>"normal"</code> - the Gaussian density function (the default).
+<code>"box"</code> - a rectangular box.
+<code>"epanech"</code> - the centred beta(2,2) density.
+<code>"biweight"</code> - the centred beta(3,3) density.
+<code>"triweight"</code> - the centred beta(4,4) density.
+This can be abbreviated to any unique abbreviation.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>canonical</code></td>
+<td>
+
+<p>length-one logical vector: if <code>TRUE</code>, canonically scaled kernels are used.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>gridsize</code></td>
+<td>
+
+<p>the number of equally spaced points at which to estimate the density.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>range.x</code></td>
+<td>
+
+<p>vector containing the minimum and maximum values of <code>x</code>
+at which to compute the estimate.
+The default is the minimum and maximum data values, extended by the
+support of the kernel.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>truncate</code></td>
+<td>
+
+<p>logical flag: if <code>TRUE</code>, data with <code>x</code> values outside the
+range specified by <code>range.x</code> are ignored.
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>This is the binned approximation to the ordinary kernel density estimate.
+Linear binning is used to obtain the bin counts.  
+For each <code>x</code> value in the sample, the kernel is
+centered on that <code>x</code> and the heights of the kernel at each datapoint are summed.
+This sum, after a normalization, is the corresponding <code>y</code> value in the output.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list containing the following components:
+</p>
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>vector of sorted <code>x</code> values at which the estimate was computed.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>y</code></td>
+<td>
+
+<p>vector of density estimates
+at the corresponding <code>x</code>.
+</p>
+</td>
+</tr>
+</table>
+<h3>Background</h3>
+
+<p>Density estimation is a smoothing operation.
+Inevitably there is a trade-off between bias in the estimate and the
+estimate's variability: large bandwidths will produce smooth estimates that
+may hide local features of the density; small bandwidths may introduce
+spurious bumps into the estimate.
+</p>
+
+
+<h3>References</h3>
+
+<p>Wand, M. P. and Jones, M. C. (1995).
+<em>Kernel Smoothing.</em>
+Chapman and Hall, London.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="stats.html#density">density</a></code>, <code><a href="#dpik">dpik</a></code>, <code><a href="graphics.html#hist">hist</a></code>,
+<code><a href="stats.html#ksmooth">ksmooth</a></code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+x <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>duration
+est <span class="token operator">&lt;-</span> bkde<span class="token punctuation">(</span>x<span class="token punctuation">,</span> bandwidth<span class="token operator">=</span><span class="token number">0.25</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>est<span class="token punctuation">,</span> type<span class="token operator">=</span><span class="token string">"l"</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="bkde2D">
+
+<a href="#bkde2D" class="help-page-title"><h2>
+Compute a 2D Binned Kernel Density Estimate
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Returns the set of grid points in each coordinate direction,
+and the matrix of density estimates over the mesh induced by
+the grid points. The kernel is the standard bivariate normal
+density. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">bkde2D<span class="token punctuation">(</span>x<span class="token punctuation">,</span> bandwidth<span class="token punctuation">,</span> gridsize <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">51L</span><span class="token punctuation">,</span> <span class="token number">51L</span><span class="token punctuation">)</span><span class="token punctuation">,</span> range.x<span class="token punctuation">,</span> truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>a two-column numeric matrix containing the observations from the  
+distribution whose density is to be estimated.
+Missing values are not allowed.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>bandwidth</code></td>
+<td>
+
+<p>numeric vector oflength 2, containing the bandwidth to be used in each coordinate
+direction.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>gridsize</code></td>
+<td>
+
+<p>vector containing the number of equally spaced points in each direction
+over which the density is to be estimated.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>range.x</code></td>
+<td>
+
+<p>a list containing two vectors, where each vector 
+contains the minimum and maximum values of <code>x</code>
+at which to compute the estimate for each direction.
+The default minimum in each direction is minimum
+data value minus 1.5 times the bandwidth for
+that direction. The default maximum is the maximum
+data value plus 1.5 times the bandwidth for
+that direction
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>truncate</code></td>
+<td>
+
+<p>logical flag: if TRUE, data with <code>x</code> values outside the
+range specified by <code>range.x</code> are ignored.
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>a list containing the following components:
+</p>
+<table>
+<tr style="vertical-align: top;">
+<td><code>x1</code></td>
+<td>
+
+<p>vector of values of the grid points in the first coordinate
+direction at which the estimate was computed. 
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>x2</code></td>
+<td>
+
+<p>vector of values of the grid points in the second coordinate
+direction at which the estimate was computed. 
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>fhat</code></td>
+<td>
+
+<p>matrix of density estimates 
+over the mesh induced by <code>x1</code> and <code>x2</code>.
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>This is the binned approximation to the 2D kernel density estimate.
+Linear binning is used to obtain the bin counts and the
+Fast Fourier Transform is used to perform the discrete convolutions.
+For each <code>x1</code>,<code>x2</code> pair the bivariate Gaussian kernel is
+centered on that location and the heights of the 
+kernel, scaled by the bandwidths, at each datapoint are summed.
+This sum, after a normalization, is the corresponding 
+<code>fhat</code> value in the output.
+</p>
+
+
+<h3>References</h3>
+
+<p>Wand, M. P. (1994).
+Fast Computation of Multivariate Kernel Estimators.
+<em>Journal of Computational and Graphical Statistics,</em>
+<b>3</b>, 433-445.
+</p>
+<p>Wand, M. P. and Jones, M. C. (1995).
+<em>Kernel Smoothing.</em>
+Chapman and Hall, London.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#bkde">bkde</a></code>, <code><a href="stats.html#density">density</a></code>, <code><a href="graphics.html#hist">hist</a></code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+x <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span>geyser<span class="token operator">$</span>duration<span class="token punctuation">,</span> geyser<span class="token operator">$</span>waiting<span class="token punctuation">)</span>
+est <span class="token operator">&lt;-</span> bkde2D<span class="token punctuation">(</span>x<span class="token punctuation">,</span> bandwidth<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token number">0.7</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+contour<span class="token punctuation">(</span>est<span class="token operator">$</span>x1<span class="token punctuation">,</span> est<span class="token operator">$</span>x2<span class="token punctuation">,</span> est<span class="token operator">$</span>fhat<span class="token punctuation">)</span>
+persp<span class="token punctuation">(</span>est<span class="token operator">$</span>fhat<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="bkfe">
+
+<a href="#bkfe" class="help-page-title"><h2>
+Compute a Binned Kernel Functional Estimate 
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Returns an estimate of a binned approximation to
+the kernel estimate of the specified density functional. 
+The kernel is the standard normal density.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">bkfe<span class="token punctuation">(</span>x<span class="token punctuation">,</span> drv<span class="token punctuation">,</span> bandwidth<span class="token punctuation">,</span> gridsize <span class="token operator">=</span> <span class="token number">401L</span><span class="token punctuation">,</span> range.x<span class="token punctuation">,</span> binned <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+     truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>numeric vector of observations from the distribution whose density is to
+be estimated.
+Missing values are not allowed.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>drv</code></td>
+<td>
+
+<p>order of derivative in the density functional. Must be a
+non-negative even integer.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>bandwidth</code></td>
+<td>
+
+<p>the kernel bandwidth smoothing parameter.  Must be supplied.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>gridsize</code></td>
+<td>
+
+<p>the number of equally-spaced points over which binning is
+performed.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>range.x</code></td>
+<td>
+
+<p>vector containing the minimum and maximum values of <code>x</code>
+at which to compute the estimate.
+The default is the minimum and maximum data values, extended by the
+support of the kernel.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>binned</code></td>
+<td>
+
+<p>logical flag: if <code>TRUE</code>, then <code>x</code> and <code>y</code> are taken to be grid counts
+rather than raw data.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>truncate</code></td>
+<td>
+
+<p>logical flag: if <code>TRUE</code>, data with <code>x</code> values outside the
+range specified by <code>range.x</code> are ignored.
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The density functional of order <code>drv</code> is the integral of the
+product of the density and its <code>drv</code>th derivative. 
+The kernel estimates
+of such quantities are computed using a binned implementation,
+and the kernel is the standard normal density.
+</p>
+
+
+<h3>Value</h3>
+
+<p>the (scalar) estimated functional.
+</p>
+
+
+<h3>Background</h3>
+
+<p>Estimates of this type were proposed by Sheather and
+Jones (1991).
+</p>
+
+
+<h3>References</h3>
+
+<p>Sheather, S. J. and Jones, M. C. (1991).
+A reliable data-based bandwidth selection method for
+kernel density estimation.
+<em>Journal of the Royal Statistical Society, Series B</em>,
+<b>53</b>, 683–690.
+</p>
+<p>Wand, M. P. and Jones, M. C. (1995).
+<em>Kernel Smoothing.</em>
+Chapman and Hall, London.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+x <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>duration
+est <span class="token operator">&lt;-</span> bkfe<span class="token punctuation">(</span>x<span class="token punctuation">,</span> drv<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> bandwidth<span class="token operator">=</span><span class="token number">0.3</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="dpih">
+
+<a href="#dpih" class="help-page-title"><h2>
+Select a Histogram Bin Width 
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Uses direct plug-in methodology to select the bin width of 
+a histogram.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">dpih<span class="token punctuation">(</span>x<span class="token punctuation">,</span> scalest <span class="token operator">=</span> <span class="token string">"minim"</span><span class="token punctuation">,</span> level <span class="token operator">=</span> <span class="token number">2L</span><span class="token punctuation">,</span> gridsize <span class="token operator">=</span> <span class="token number">401L</span><span class="token punctuation">,</span> 
+     range.x <span class="token operator">=</span> range<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>numeric vector containing the sample on which the
+histogram is to be constructed.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>scalest</code></td>
+<td>
+
+<p>estimate of scale.
+</p>
+<p><code>"stdev"</code> - standard deviation is used.
+</p>
+<p><code>"iqr"</code> - inter-quartile range divided by 1.349 is used.
+</p>
+<p><code>"minim"</code> - minimum of <code>"stdev"</code> and <code>"iqr"</code> is used.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>level</code></td>
+<td>
+
+<p>number of levels of functional estimation used in the
+plug-in rule.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>gridsize</code></td>
+<td>
+
+<p>number of grid points used in the binned approximations
+to functional estimates.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>range.x</code></td>
+<td>
+
+<p>range over which functional estimates are obtained.
+The default is the minimum and maximum data values.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>truncate</code></td>
+<td>
+
+<p>if <code>truncate</code> is <code>TRUE</code> then observations outside
+of the interval specified by <code>range.x</code> are omitted.
+Otherwise, they are used to weight the extreme grid points.
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The direct plug-in approach, where unknown functionals
+that appear in expressions for the asymptotically
+optimal bin width and bandwidths
+are replaced by kernel estimates, is used.
+The normal distribution is used to provide an
+initial estimate.
+</p>
+
+
+<h3>Value</h3>
+
+<p>the selected bin width.
+</p>
+
+
+<h3>Background</h3>
+
+<p>This method for selecting the bin width of a histogram is
+described in Wand (1995). It is an extension of the
+normal scale rule of Scott (1979) and uses plug-in ideas
+from bandwidth selection for kernel density estimation
+(e.g. Sheather and Jones, 1991).
+</p>
+
+
+<h3>References</h3>
+
+<p>Scott, D. W. (1979). 
+On optimal and data-based histograms.
+<em>Biometrika</em>,
+<b>66</b>, 605–610.
+</p>
+<p>Sheather, S. J. and Jones, M. C. (1991).
+A reliable data-based bandwidth selection method for
+kernel density estimation.
+<em>Journal of the Royal Statistical Society, Series B</em>,
+<b>53</b>, 683–690. 
+</p>
+<p>Wand, M. P. (1995).
+Data-based choice of histogram binwidth.
+<em>The American Statistician</em>, <b>51</b>, 59–64.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="graphics.html#hist">hist</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+x <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>duration
+h <span class="token operator">&lt;-</span> dpih<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+bins <span class="token operator">&lt;-</span> seq<span class="token punctuation">(</span>min<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token operator">-</span>h<span class="token punctuation">,</span> max<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token operator">+</span>h<span class="token punctuation">,</span> by<span class="token operator">=</span>h<span class="token punctuation">)</span>
+hist<span class="token punctuation">(</span>x<span class="token punctuation">,</span> breaks<span class="token operator">=</span>bins<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="dpik">
+
+<a href="#dpik" class="help-page-title"><h2>
+Select a Bandwidth for Kernel Density Estimation
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Use direct plug-in methodology to select the bandwidth
+of a kernel density estimate.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">dpik<span class="token punctuation">(</span>x<span class="token punctuation">,</span> scalest <span class="token operator">=</span> <span class="token string">"minim"</span><span class="token punctuation">,</span> level <span class="token operator">=</span> <span class="token number">2L</span><span class="token punctuation">,</span> kernel <span class="token operator">=</span> <span class="token string">"normal"</span><span class="token punctuation">,</span>   
+     canonical <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> gridsize <span class="token operator">=</span> <span class="token number">401L</span><span class="token punctuation">,</span> range.x <span class="token operator">=</span> range<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> 
+     truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>numeric vector containing the sample on which the
+kernel density estimate is to be constructed.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>scalest</code></td>
+<td>
+
+<p>estimate of scale.
+</p>
+<p><code>"stdev"</code> - standard deviation is used.
+</p>
+<p><code>"iqr"</code> - inter-quartile range divided by 1.349 is used.
+</p>
+<p><code>"minim"</code> - minimum of <code>"stdev"</code> and <code>"iqr"</code> is used.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>level</code></td>
+<td>
+
+<p>number of levels of functional estimation used in the
+plug-in rule.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>kernel</code></td>
+<td>
+
+<p>character string which determines the smoothing kernel.
+<code>kernel</code> can be:
+<code>"normal"</code> - the Gaussian density function (the default).
+<code>"box"</code> - a rectangular box.
+<code>"epanech"</code> - the centred beta(2,2) density.
+<code>"biweight"</code> - the centred beta(3,3) density.
+<code>"triweight"</code> - the centred beta(4,4) density.
+This can be abbreviated to any unique abbreviation.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>canonical</code></td>
+<td>
+
+<p>logical flag: if <code>TRUE</code>, canonically scaled kernels are used
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>gridsize</code></td>
+<td>
+
+<p>the number of equally-spaced points over which binning is 
+performed to obtain kernel functional approximation. 
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>range.x</code></td>
+<td>
+
+<p>vector containing the minimum and maximum values of <code>x</code>
+at which to compute the estimate.
+The default is the minimum and maximum data values.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>truncate</code></td>
+<td>
+
+<p>logical flag: if <code>TRUE</code>, data with <code>x</code> values outside the
+range specified by <code>range.x</code> are ignored.
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The direct plug-in approach, where unknown functionals
+that appear in expressions for the asymptotically
+optimal bandwidths
+are replaced by kernel estimates, is used.
+The normal distribution is used to provide an
+initial estimate.
+</p>
+
+
+<h3>Value</h3>
+
+<p>the selected bandwidth.
+</p>
+
+
+<h3>Background</h3>
+
+<p>This method for selecting the bandwidth of a kernel
+density estimate was proposed by Sheather and
+Jones (1991)
+and is
+described in Section 3.6 of Wand and Jones (1995). 
+</p>
+
+
+<h3>References</h3>
+
+<p>Sheather, S. J. and Jones, M. C. (1991).
+A reliable data-based bandwidth selection method for
+kernel density estimation.
+<em>Journal of the Royal Statistical Society, Series B</em>,
+<b>53</b>, 683–690.
+</p>
+<p>Wand, M. P. and Jones, M. C. (1995).
+<em>Kernel Smoothing.</em>
+Chapman and Hall, London.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#bkde">bkde</a></code>, <code><a href="stats.html#density">density</a></code>, <code><a href="stats.html#ksmooth">ksmooth</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+x <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>duration
+h <span class="token operator">&lt;-</span> dpik<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+est <span class="token operator">&lt;-</span> bkde<span class="token punctuation">(</span>x<span class="token punctuation">,</span> bandwidth<span class="token operator">=</span>h<span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>est<span class="token punctuation">,</span>type<span class="token operator">=</span><span class="token string">"l"</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="dpill">
+
+<a href="#dpill" class="help-page-title"><h2>
+Select a Bandwidth for Local Linear Regression
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Use direct plug-in methodology to select the bandwidth
+of a local linear Gaussian kernel regression estimate, as described
+by Ruppert, Sheather and Wand (1995). 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">dpill<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> blockmax <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> divisor <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> trim <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">,</span> proptrun <span class="token operator">=</span> <span class="token number">0.05</span><span class="token punctuation">,</span> 
+      gridsize <span class="token operator">=</span> <span class="token number">401L</span><span class="token punctuation">,</span> range.x<span class="token punctuation">,</span> truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>numeric vector of x data.
+Missing values are not accepted.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>y</code></td>
+<td>
+
+<p>numeric vector of y data.
+This must be same length as <code>x</code>, and
+missing values are not accepted.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>blockmax</code></td>
+<td>
+
+<p>the maximum number of blocks of the data for construction
+of an initial parametric estimate. 
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>divisor</code></td>
+<td>
+
+<p>the value that the sample size is divided by to determine
+a lower limit on the number of blocks of the data for
+construction of an initial parametric estimate.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>trim</code></td>
+<td>
+
+<p>the proportion of the sample trimmed from each end in the
+<code>x</code> direction before application of the plug-in methodology.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>proptrun</code></td>
+<td>
+
+<p>the proportion of the range of <code>x</code> at each end truncated in the
+functional estimates.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>gridsize</code></td>
+<td>
+
+<p>number of equally-spaced grid points over which the
+function is to be estimated.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>range.x</code></td>
+<td>
+
+<p>vector containing the minimum and maximum values of <code>x</code> at which to
+compute the estimate.
+For density estimation the default is the minimum and maximum data values
+with 5% of the range added to each end.
+For regression estimation the default is the minimum and maximum data values.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>truncate</code></td>
+<td>
+
+<p>logical flag: if <code>TRUE</code>, data with <code>x</code> values outside the
+range specified by <code>range.x</code> are ignored.
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The direct plug-in approach, where unknown functionals
+that appear in expressions for the asymptotically
+optimal bandwidths
+are replaced by kernel estimates, is used.
+The kernel is the standard normal density.
+Least squares quartic fits over blocks of data are used to 
+obtain an initial estimate. Mallow's <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">C_p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></code> is used to select
+the number of blocks.
+</p>
+
+
+<h3>Value</h3>
+
+<p>the selected bandwidth.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>If there are severe irregularities (i.e. outliers, sparse regions)
+in the <code>x</code> values then the local polynomial smooths required for the
+bandwidth selection algorithm may become degenerate and the function
+will crash. Outliers in the <code>y</code> direction may lead to deterioration
+of the quality of the selected bandwidth.
+</p>
+
+
+<h3>References</h3>
+
+<p>Ruppert, D., Sheather, S. J. and Wand, M. P. (1995).
+An effective bandwidth selector for local least squares
+regression.
+<em>Journal of the American Statistical Association</em>,
+<b>90</b>, 1257–1270.
+</p>
+<p>Wand, M. P. and Jones, M. C. (1995).
+<em>Kernel Smoothing.</em>
+Chapman and Hall, London.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="stats.html#ksmooth">ksmooth</a></code>, <code><a href="#locpoly">locpoly</a></code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">"MASS"</span><span class="token punctuation">)</span>
+x <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>duration
+y <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>waiting
+plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+h <span class="token operator">&lt;-</span> dpill<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+fit <span class="token operator">&lt;-</span> locpoly<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> bandwidth <span class="token operator">=</span> h<span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>fit<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="locpoly">
+
+<a href="#locpoly" class="help-page-title"><h2>
+Estimate Functions Using Local Polynomials
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Estimates a probability density function,  
+regression function or their derivatives
+using local polynomials. A fast binned implementation
+over an equally-spaced grid is used.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">locpoly<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> drv <span class="token operator">=</span> <span class="token number">0L</span><span class="token punctuation">,</span> degree<span class="token punctuation">,</span> kernel <span class="token operator">=</span> <span class="token string">"normal"</span><span class="token punctuation">,</span> 
+        bandwidth<span class="token punctuation">,</span> gridsize <span class="token operator">=</span> <span class="token number">401L</span><span class="token punctuation">,</span> bwdisc <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">,</span> 
+        range.x<span class="token punctuation">,</span> binned <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>numeric vector of x data.
+Missing values are not accepted.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>bandwidth</code></td>
+<td>
+
+<p>the kernel bandwidth smoothing parameter.
+It may be a single number or an array having
+length <code>gridsize</code>, representing a bandwidth
+that varies according to the location of
+estimation.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>y</code></td>
+<td>
+
+<p>vector of y data.
+This must be same length as <code>x</code>, and
+missing values are not accepted.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>drv</code></td>
+<td>
+
+<p>order of derivative to be estimated.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>degree</code></td>
+<td>
+
+<p>degree of local polynomial used. Its value
+must be greater than or equal to the value
+of <code>drv</code>. The default value is of <code>degree</code> is
+<code>drv</code> + 1.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>kernel</code></td>
+<td>
+
+<p><code>"normal"</code> - the Gaussian density function.  Currently ignored.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>gridsize</code></td>
+<td>
+
+<p>number of equally-spaced grid points over which the 
+function is to be estimated.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>bwdisc</code></td>
+<td>
+
+<p>number of logarithmically-equally-spaced bandwidths
+on which <code>bandwidth</code> is discretised, to speed up
+computation.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>range.x</code></td>
+<td>
+
+<p>vector containing the minimum and maximum values of <code>x</code> at which to
+compute the estimate.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>binned</code></td>
+<td>
+
+<p>logical flag: if <code>TRUE</code>, then <code>x</code> and <code>y</code> are taken to be grid counts
+rather than raw data. 
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>truncate</code></td>
+<td>
+
+<p>logical flag: if <code>TRUE</code>, data with <code>x</code> values outside the range specified
+by <code>range.x</code> are ignored.
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>if <code>y</code> is specified, a local polynomial regression estimate of 
+E[Y|X] (or its derivative) is computed.
+If <code>y</code> is missing, a local polynomial estimate of the density
+of <code>x</code> (or its derivative) is computed.
+</p>
+<p>a list containing the following components:
+</p>
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>vector of sorted x values at which the estimate was computed.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>y</code></td>
+<td>
+
+<p>vector of smoothed estimates for either the density or the regression
+at the corresponding <code>x</code>.
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Local polynomial fitting with a kernel weight is used to
+estimate either a density, regression function or their
+derivatives. In the case of density estimation, the 
+data are binned and the local fitting procedure is applied to 
+the bin counts. In either case, binned approximations over
+an equally-spaced grid is used for fast computation. The
+bandwidth may be either scalar or a vector of length
+<code>gridsize</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Wand, M. P. and Jones, M. C. (1995).
+<em>Kernel Smoothing.</em>
+Chapman and Hall, London.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#bkde">bkde</a></code>, <code><a href="stats.html#density">density</a></code>, <code><a href="#dpill">dpill</a></code>,
+<code><a href="stats.html#ksmooth">ksmooth</a></code>, <code><a href="stats.html#loess">loess</a></code>, <code><a href="stats.html#smooth">smooth</a></code>,
+<code><a href="stats.html#supsmu">supsmu</a></code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">"MASS"</span><span class="token punctuation">)</span>
+<span class="token comment"># local linear density estimate</span>
+x <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>duration
+est <span class="token operator">&lt;-</span> locpoly<span class="token punctuation">(</span>x<span class="token punctuation">,</span> bandwidth <span class="token operator">=</span> <span class="token number">0.25</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>est<span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"l"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># local linear regression estimate</span>
+y <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>waiting
+plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+fit <span class="token operator">&lt;-</span> locpoly<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> bandwidth <span class="token operator">=</span> <span class="token number">0.25</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>fit<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+</body>
+</html>

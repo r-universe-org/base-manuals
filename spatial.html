@@ -1,0 +1,2087 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Package 'spatial' reference manual</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <!-- styling for math and syntax -->
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
+
+    <!-- for (future) customizations -->
+    <script src="https://r-universe.dev/static/manual.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+
+  </head>
+
+  <body class="macintosh">
+    <h1 class="manual-title">Package 'spatial'</h1>
+    <table class="description-table">
+      <tr>
+<th>Title:</th>
+<td class="description-title">Functions for Kriging and Point Pattern Analysis</td>
+</tr>
+      <tr>
+<th>Description:</th>
+<td class="description-description">Functions for kriging and point pattern analysis.</td>
+</tr>
+      <tr>
+<th>Authors:</th>
+<td class="description-author">Brian Ripley [aut, cre, cph],
+  Roger Bivand [ctb],
+  William Venables [cph]</td>
+</tr>
+      <tr>
+<th>Maintainer:</th>
+<td class="description-maintainer">Brian Ripley &lt;ripley@stats.ox.ac.uk&gt;</td>
+</tr>
+      <tr>
+<th>License:</th>
+<td class="description-license">GPL-2 | GPL-3</td>
+</tr>
+      <tr>
+<th>Version:</th>
+<td class="description-version">7.3-15</td>
+</tr>
+      <tr>
+<th>Built:</th>
+<td class="description-date">2022-10-31 22:33:24 UTC</td>
+</tr>
+      <tr>
+<th>Source:</th>
+<td class="description-source">CRAN</td>
+</tr>
+    </table>
+
+    <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
+    <ul id="help-index-list">
+<li class="help-index-item"><a href="#anova.trls">
+Anova tables for fitted trend surface objects
+</a></li>
+<li class="help-index-item"><a href="#correlogram">
+Compute Spatial Correlograms
+</a></li>
+<li class="help-index-item"><a href="#expcov">
+Spatial Covariance Functions
+</a></li>
+<li class="help-index-item"><a href="#Kaver">
+Average K-functions from Simulations
+</a></li>
+<li class="help-index-item"><a href="#Kenvl">
+Compute Envelope and Average of Simulations of K-fns
+</a></li>
+<li class="help-index-item"><a href="#Kfn">
+Compute K-fn of a Point Pattern
+</a></li>
+<li class="help-index-item"><a href="#ppgetregion">
+Get Domain for Spatial Point Pattern Analyses
+</a></li>
+<li class="help-index-item"><a href="#ppinit">
+Read a Point Process Object from a File
+</a></li>
+<li class="help-index-item"><a href="#pplik">
+Pseudo-likelihood Estimation of a Strauss Spatial Point Process
+</a></li>
+<li class="help-index-item"><a href="#ppregion">
+Set Domain for Spatial Point Pattern Analyses
+</a></li>
+<li class="help-index-item"><a href="#predict.trls">
+Predict method for trend surface fits
+</a></li>
+<li class="help-index-item"><a href="#prmat">
+Evaluate Kriging Surface over a Grid
+</a></li>
+<li class="help-index-item"><a href="#Psim">
+Simulate Binomial Spatial Point Process
+</a></li>
+<li class="help-index-item"><a href="#semat">
+Evaluate Kriging Standard Error of Prediction over a Grid
+</a></li>
+<li class="help-index-item"><a href="#SSI">
+Simulates Sequential Spatial Inhibition Point Process
+</a></li>
+<li class="help-index-item"><a href="#Strauss">
+Simulates Strauss Spatial Point Process
+</a></li>
+<li class="help-index-item"><a href="#surf.gls">
+Fits a Trend Surface by Generalized Least-squares
+</a></li>
+<li class="help-index-item"><a href="#surf.ls">
+Fits a Trend Surface by Least-squares
+</a></li>
+<li class="help-index-item"><a href="#trls.influence">
+Regression diagnostics for trend surfaces
+</a></li>
+<li class="help-index-item"><a href="#trmat">
+Evaluate Trend Surface over a Grid
+</a></li>
+<li class="help-index-item"><a href="#variogram">
+Compute Spatial Variogram
+</a></li>
+</ul>
+
+    <hr>
+  <div class="container manual-page" id="anova.trls">
+
+<a href="#anova.trls" class="help-page-title"><h2>
+Anova tables for fitted trend surface objects
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Compute analysis of variance tables for one or more
+fitted trend surface model objects; where <code>anova.trls</code> is
+called with multiple objects, it passes on the arguments to
+<code>anovalist.trls</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'trls'</span>
+anova<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+anovalist.trls<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>object</code></td>
+<td>
+
+<p>A fitted trend surface model object from <code>surf.ls</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+
+<p>Further objects of the same kind
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p><code>anova.trls</code> and <code>anovalist.trls</code> return objects corresponding
+to their printed tabular output.
+</p>
+
+
+<h3>References</h3>
+
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#surf.ls">surf.ls</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">library<span class="token punctuation">(</span>stats<span class="token punctuation">)</span>
+data<span class="token punctuation">(</span>topo<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+topo0 <span class="token operator">&lt;-</span> surf.ls<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> topo<span class="token punctuation">)</span>
+topo1 <span class="token operator">&lt;-</span> surf.ls<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> topo<span class="token punctuation">)</span>
+topo2 <span class="token operator">&lt;-</span> surf.ls<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> topo<span class="token punctuation">)</span>
+topo3 <span class="token operator">&lt;-</span> surf.ls<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> topo<span class="token punctuation">)</span>
+topo4 <span class="token operator">&lt;-</span> surf.ls<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> topo<span class="token punctuation">)</span>
+anova<span class="token punctuation">(</span>topo0<span class="token punctuation">,</span> topo1<span class="token punctuation">,</span> topo2<span class="token punctuation">,</span> topo3<span class="token punctuation">,</span> topo4<span class="token punctuation">)</span>
+summary<span class="token punctuation">(</span>topo4<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="correlogram">
+
+<a href="#correlogram" class="help-page-title"><h2>
+Compute Spatial Correlograms
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Compute spatial correlograms of spatial data or residuals.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">correlogram<span class="token punctuation">(</span>krig<span class="token punctuation">,</span> nint<span class="token punctuation">,</span> plotit <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>  <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>krig</code></td>
+<td>
+
+<p>trend-surface or kriging object with columns <code>x</code>, <code>y</code>, and <code>z</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>nint</code></td>
+<td>
+
+<p>number of bins used
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>plotit</code></td>
+<td>
+
+<p>logical for plotting
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+
+<p>parameters for the plot
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Divides range of data into <code>nint</code> bins, and computes the covariance for
+pairs with separation in each bin, then divides by the variance.
+Returns results for bins with 6 or more pairs.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>x</code> and <code>y</code> coordinates of the correlogram, and <code>cnt</code>, the number of pairs
+averaged per bin.
+</p>
+
+
+<h3>Side Effects</h3>
+
+<p>Plots the correlogram if <code>plotit = TRUE</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1981) <em>Spatial Statistics.</em> Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#variogram">variogram</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>topo<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+topo.kr <span class="token operator">&lt;-</span> surf.ls<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> topo<span class="token punctuation">)</span>
+correlogram<span class="token punctuation">(</span>topo.kr<span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span>
+d <span class="token operator">&lt;-</span> seq<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>d<span class="token punctuation">,</span> expcov<span class="token punctuation">(</span>d<span class="token punctuation">,</span> <span class="token number">0.7</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="expcov">
+
+<a href="#expcov" class="help-page-title"><h2>
+Spatial Covariance Functions
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Spatial covariance functions for use with <code>surf.gls</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">expcov<span class="token punctuation">(</span>r<span class="token punctuation">,</span> d<span class="token punctuation">,</span> alpha <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> se <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+gaucov<span class="token punctuation">(</span>r<span class="token punctuation">,</span> d<span class="token punctuation">,</span> alpha <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> se <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+sphercov<span class="token punctuation">(</span>r<span class="token punctuation">,</span> d<span class="token punctuation">,</span> alpha <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> se <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> D <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>r</code></td>
+<td>
+
+<p>vector of distances at which to evaluate the covariance
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>d</code></td>
+<td>
+
+<p>range parameter
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>alpha</code></td>
+<td>
+
+<p>proportion of nugget effect
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>se</code></td>
+<td>
+
+<p>standard deviation at distance zero
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>D</code></td>
+<td>
+
+<p>dimension of spheres.
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>vector of covariance values.
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1981) <em>Spatial Statistics.</em> Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#surf.gls">surf.gls</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>topo<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+topo.kr <span class="token operator">&lt;-</span> surf.ls<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> topo<span class="token punctuation">)</span>
+correlogram<span class="token punctuation">(</span>topo.kr<span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span>
+d <span class="token operator">&lt;-</span> seq<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>d<span class="token punctuation">,</span> expcov<span class="token punctuation">(</span>d<span class="token punctuation">,</span> <span class="token number">0.7</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="Kaver">
+
+<a href="#Kaver" class="help-page-title"><h2>
+Average K-functions from Simulations
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Forms the average of a series of (usually simulated) K-functions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">Kaver<span class="token punctuation">(</span>fs<span class="token punctuation">,</span> nsim<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>fs</code></td>
+<td>
+
+<p>full scale for K-fn
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>nsim</code></td>
+<td>
+
+<p>number of simulations
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+
+<p>arguments to simulate one point process object
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>list with components <code>x</code> and <code>y</code> of the average K-fn on L-scale.
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1981) <em>Spatial Statistics.</em> Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#Kfn">Kfn</a></code>, <code><a href="#Kenvl">Kenvl</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">towns <span class="token operator">&lt;-</span> ppinit<span class="token punctuation">(</span><span class="token string">"towns.dat"</span><span class="token punctuation">)</span>
+par<span class="token punctuation">(</span>pty<span class="token operator">=</span><span class="token string">"s"</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>Kfn<span class="token punctuation">(</span>towns<span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">,</span> type<span class="token operator">=</span><span class="token string">"b"</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>Kfn<span class="token punctuation">(</span>towns<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> type<span class="token operator">=</span><span class="token string">"b"</span><span class="token punctuation">,</span> xlab<span class="token operator">=</span><span class="token string">"distance"</span><span class="token punctuation">,</span> ylab<span class="token operator">=</span><span class="token string">"L(t)"</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span> lines<span class="token punctuation">(</span>Kfn<span class="token punctuation">(</span>Psim<span class="token punctuation">(</span><span class="token number">69</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+lims <span class="token operator">&lt;-</span> Kenvl<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span>Psim<span class="token punctuation">(</span><span class="token number">69</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>lims<span class="token operator">$</span>x<span class="token punctuation">,</span>lims<span class="token operator">$</span>lower<span class="token punctuation">,</span> lty<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token string">"green"</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>lims<span class="token operator">$</span>x<span class="token punctuation">,</span>lims<span class="token operator">$</span>upper<span class="token punctuation">,</span> lty<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token string">"green"</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>Kaver<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span>Strauss<span class="token punctuation">(</span><span class="token number">69</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">3.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  col<span class="token operator">=</span><span class="token string">"red"</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="Kenvl">
+
+<a href="#Kenvl" class="help-page-title"><h2>
+Compute Envelope and Average of Simulations of K-fns
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Computes envelope (upper and lower limits) and average of simulations of K-fns
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">Kenvl<span class="token punctuation">(</span>fs<span class="token punctuation">,</span> nsim<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>fs</code></td>
+<td>
+
+<p>full scale for K-fn
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>nsim</code></td>
+<td>
+
+<p>number of simulations
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+
+<p>arguments to produce one simulation
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>list with components
+</p>
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>distances
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>lower</code></td>
+<td>
+
+<p>min of K-fns
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>upper</code></td>
+<td>
+
+<p>max of K-fns
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>aver</code></td>
+<td>
+
+<p>average of K-fns
+</p>
+</td>
+</tr>
+</table>
+<h3>References</h3>
+
+<p>Ripley, B. D. (1981) <em>Spatial Statistics.</em> Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#Kfn">Kfn</a></code>, <code><a href="#Kaver">Kaver</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">towns <span class="token operator">&lt;-</span> ppinit<span class="token punctuation">(</span><span class="token string">"towns.dat"</span><span class="token punctuation">)</span>
+par<span class="token punctuation">(</span>pty<span class="token operator">=</span><span class="token string">"s"</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>Kfn<span class="token punctuation">(</span>towns<span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">,</span> type<span class="token operator">=</span><span class="token string">"b"</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>Kfn<span class="token punctuation">(</span>towns<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> type<span class="token operator">=</span><span class="token string">"b"</span><span class="token punctuation">,</span> xlab<span class="token operator">=</span><span class="token string">"distance"</span><span class="token punctuation">,</span> ylab<span class="token operator">=</span><span class="token string">"L(t)"</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span> lines<span class="token punctuation">(</span>Kfn<span class="token punctuation">(</span>Psim<span class="token punctuation">(</span><span class="token number">69</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+lims <span class="token operator">&lt;-</span> Kenvl<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span>Psim<span class="token punctuation">(</span><span class="token number">69</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>lims<span class="token operator">$</span>x<span class="token punctuation">,</span>lims<span class="token operator">$</span>lower<span class="token punctuation">,</span> lty<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token string">"green"</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>lims<span class="token operator">$</span>x<span class="token punctuation">,</span>lims<span class="token operator">$</span>upper<span class="token punctuation">,</span> lty<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token string">"green"</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>Kaver<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span>Strauss<span class="token punctuation">(</span><span class="token number">69</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">3.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token string">"red"</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="Kfn">
+
+<a href="#Kfn" class="help-page-title"><h2>
+Compute K-fn of a Point Pattern
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Actually computes <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><msqrt><mrow><mi>K</mi><mi mathvariant="normal">/</mi><mi>π</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">L = \sqrt{K/\pi}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.305em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span></span></span><span style="top:-2.895em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewBox="0 0 400000 1296" preserveAspectRatio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119 c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120 c340,-704.7,510.7,-1060.3,512,-1067 l0 -0 c4.7,-7.3,11,-11,19,-11 H40000v40H1012.3 s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232 c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1 s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26 c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.305em;"><span></span></span></span></span></span></span></span></span></code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">Kfn<span class="token punctuation">(</span>pp<span class="token punctuation">,</span> fs<span class="token punctuation">,</span> k<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>pp</code></td>
+<td>
+
+<p>a list such as a pp object, including components <code>x</code> and <code>y</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>fs</code></td>
+<td>
+
+<p>full scale of the plot
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>k</code></td>
+<td>
+
+<p>number of regularly spaced distances in (0, <code>fs</code>)
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>relies on the domain D having been set by <code>ppinit</code> or <code>ppregion</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with components
+</p>
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>vector of distances
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>y</code></td>
+<td>
+
+<p>vector of L-fn values
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>k</code></td>
+<td>
+
+<p>number of distances returned – may be less than <code>k</code> if <code>fs</code> is too large
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>dmin</code></td>
+<td>
+
+<p>minimum distance between pair of points
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>lm</code></td>
+<td>
+
+<p>maximum deviation from L(t) = t
+</p>
+</td>
+</tr>
+</table>
+<h3>References</h3>
+
+<p>Ripley, B. D. (1981) <em>Spatial Statistics.</em> Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#ppinit">ppinit</a></code>, <code><a href="#ppregion">ppregion</a></code>, <code><a href="#Kaver">Kaver</a></code>, <code><a href="#Kenvl">Kenvl</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">towns <span class="token operator">&lt;-</span> ppinit<span class="token punctuation">(</span><span class="token string">"towns.dat"</span><span class="token punctuation">)</span>
+par<span class="token punctuation">(</span>pty<span class="token operator">=</span><span class="token string">"s"</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>Kfn<span class="token punctuation">(</span>towns<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> type<span class="token operator">=</span><span class="token string">"s"</span><span class="token punctuation">,</span> xlab<span class="token operator">=</span><span class="token string">"distance"</span><span class="token punctuation">,</span> ylab<span class="token operator">=</span><span class="token string">"L(t)"</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="ppgetregion">
+
+<a href="#ppgetregion" class="help-page-title"><h2>
+Get Domain for Spatial Point Pattern Analyses
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Retrieves the rectangular domain <code>(xl, xu)</code>  <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">×</span></span></span></span></code>  <code>(yl, yu)</code> from the
+underlying <code>C</code> code.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">ppgetregion<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Value</h3>
+
+<p>A vector of length four with names <code>c("xl", "xu", "yl", "yu")</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#ppregion">ppregion</a></code>
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="ppinit">
+
+<a href="#ppinit" class="help-page-title"><h2>
+Read a Point Process Object from a File
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Read a file in standard format and create a point process object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">ppinit<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table><tr style="vertical-align: top;">
+<td><code>file</code></td>
+<td>
+
+<p>string giving file name
+</p>
+</td>
+</tr></table>
+<h3>Details</h3>
+
+<p>The file should contain
+</p>
+<p>the number of points<br>
+a header (ignored)<br>
+xl xu yl yu scale<br>
+x y (repeated n times)<br></p>
+
+
+<h3>Value</h3>
+
+<p>class <code>"pp"</code> object with components <code>x</code>, <code>y</code>,
+<code>xl</code>, <code>xu</code>, <code>yl</code>, <code>yu</code>
+</p>
+
+
+<h3>Side Effects</h3>
+
+<p>Calls <code>ppregion</code> to set the domain.
+</p>
+
+
+<h3>References</h3>
+
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#ppregion">ppregion</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">towns <span class="token operator">&lt;-</span> ppinit<span class="token punctuation">(</span><span class="token string">"towns.dat"</span><span class="token punctuation">)</span>
+par<span class="token punctuation">(</span>pty<span class="token operator">=</span><span class="token string">"s"</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>Kfn<span class="token punctuation">(</span>towns<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> type<span class="token operator">=</span><span class="token string">"b"</span><span class="token punctuation">,</span> xlab<span class="token operator">=</span><span class="token string">"distance"</span><span class="token punctuation">,</span> ylab<span class="token operator">=</span><span class="token string">"L(t)"</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="pplik">
+
+<a href="#pplik" class="help-page-title"><h2>
+Pseudo-likelihood Estimation of a Strauss Spatial Point Process
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Pseudo-likelihood estimation of a Strauss spatial point process.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">pplik<span class="token punctuation">(</span>pp<span class="token punctuation">,</span> R<span class="token punctuation">,</span> ng<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">,</span> trace<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>pp</code></td>
+<td>
+
+<p>a pp object
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>R</code></td>
+<td>
+
+<p>the fixed parameter <code>R</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>ng</code></td>
+<td>
+
+<p>use a <code>ng</code>  x  <code>ng</code> grid with border <code>R</code> in the domain for numerical
+integration.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>trace</code></td>
+<td>
+
+<p>logical? Should function evaluations be printed?
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>estimate for <code>c</code> in the interval <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0, 1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span></code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1988) <em>Statistical Inference for Spatial
+Processes.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#Strauss">Strauss</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">pines <span class="token operator">&lt;-</span> ppinit<span class="token punctuation">(</span><span class="token string">"pines.dat"</span><span class="token punctuation">)</span>
+pplik<span class="token punctuation">(</span>pines<span class="token punctuation">,</span> <span class="token number">0.7</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="ppregion">
+
+<a href="#ppregion" class="help-page-title"><h2>
+Set Domain for Spatial Point Pattern Analyses
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Sets the rectangular domain <code>(xl, xu)</code>  <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">×</span></span></span></span></code>  <code>(yl, yu)</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">ppregion<span class="token punctuation">(</span>xl <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> xu <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> yl <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> yu <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>xl</code></td>
+<td>
+
+<p>Either <code>xl</code> or a list containing components <code>xl</code>, <code>xu</code>, <code>yl</code>, <code>yu</code> (such as
+a point-process object)
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>xu</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>yl</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>yu</code></td>
+<td>
+
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>none
+</p>
+
+
+<h3>Side Effects</h3>
+
+<p>initializes variables in the <code>C</code> subroutines.
+</p>
+
+
+<h3>References</h3>
+
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#ppinit">ppinit</a></code>, <code><a href="#ppgetregion">ppgetregion</a></code>
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="predict.trls">
+
+<a href="#predict.trls" class="help-page-title"><h2>
+Predict method for trend surface fits
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Predicted values based on trend surface model object
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'trls'</span>
+predict<span class="token punctuation">(</span>object<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>object</code></td>
+<td>
+
+<p>Fitted trend surface model object returned by <code>surf.ls</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>Vector of prediction location eastings (x coordinates)
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>y</code></td>
+<td>
+
+<p>Vector of prediction location northings (y coordinates)
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+
+<p>further arguments passed to or from other methods.
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p><code>predict.trls</code> produces a vector of predictions corresponding
+to the prediction locations. To display the output with <code>image</code>
+or <code>contour</code>, use <code>trmat</code> or convert the returned vector
+to matrix form.
+</p>
+
+
+<h3>References</h3>
+
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#surf.ls">surf.ls</a></code>, <code><a href="#trmat">trmat</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>topo<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+topo2 <span class="token operator">&lt;-</span> surf.ls<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> topo<span class="token punctuation">)</span>
+topo4 <span class="token operator">&lt;-</span> surf.ls<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> topo<span class="token punctuation">)</span>
+x <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">1.78</span><span class="token punctuation">,</span> <span class="token number">2.21</span><span class="token punctuation">)</span>
+y <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">6.15</span><span class="token punctuation">,</span> <span class="token number">6.15</span><span class="token punctuation">)</span>
+z2 <span class="token operator">&lt;-</span> predict<span class="token punctuation">(</span>topo2<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+z4 <span class="token operator">&lt;-</span> predict<span class="token punctuation">(</span>topo4<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+cat<span class="token punctuation">(</span><span class="token string">"2nd order predictions:"</span><span class="token punctuation">,</span> z2<span class="token punctuation">,</span> <span class="token string">"\n4th order predictions:"</span><span class="token punctuation">,</span> z4<span class="token punctuation">,</span> <span class="token string">"\n"</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="prmat">
+
+<a href="#prmat" class="help-page-title"><h2>
+Evaluate Kriging Surface over a Grid
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Evaluate Kriging surface over a grid.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">prmat<span class="token punctuation">(</span>obj<span class="token punctuation">,</span> xl<span class="token punctuation">,</span> xu<span class="token punctuation">,</span> yl<span class="token punctuation">,</span> yu<span class="token punctuation">,</span> n<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>obj</code></td>
+<td>
+
+<p>object returned by <code>surf.gls</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>xl</code></td>
+<td>
+
+<p>limits of the rectangle for grid
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>xu</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>yl</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>yu</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>n</code></td>
+<td>
+
+<p>use <code>n</code>  x  <code>n</code> grid within the rectangle
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>list with components <code>x</code>, <code>y</code> and <code>z</code> suitable for <code>contour</code> and <code>image</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1981) <em>Spatial Statistics.</em> Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#surf.gls">surf.gls</a></code>, <code><a href="#trmat">trmat</a></code>, <code><a href="#semat">semat</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>topo<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+topo.kr <span class="token operator">&lt;-</span> surf.gls<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> expcov<span class="token punctuation">,</span> topo<span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token number">0.7</span><span class="token punctuation">)</span>
+prsurf <span class="token operator">&lt;-</span> prmat<span class="token punctuation">(</span>topo.kr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span>
+contour<span class="token punctuation">(</span>prsurf<span class="token punctuation">,</span> levels<span class="token operator">=</span>seq<span class="token punctuation">(</span><span class="token number">700</span><span class="token punctuation">,</span> <span class="token number">925</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="Psim">
+
+<a href="#Psim" class="help-page-title"><h2>
+Simulate Binomial Spatial Point Process
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Simulate Binomial spatial point process.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">Psim<span class="token punctuation">(</span>n<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table><tr style="vertical-align: top;">
+<td><code>n</code></td>
+<td>
+
+<p>number of points
+</p>
+</td>
+</tr></table>
+<h3>Details</h3>
+
+<p>relies on the region being set by <code>ppinit</code> or <code>ppregion</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>list of vectors of <code>x</code> and <code>y</code> coordinates.
+</p>
+
+
+<h3>Side Effects</h3>
+
+<p>uses the random number generator.
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1981) <em>Spatial Statistics.</em> Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#SSI">SSI</a></code>, <code><a href="#Strauss">Strauss</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">towns <span class="token operator">&lt;-</span> ppinit<span class="token punctuation">(</span><span class="token string">"towns.dat"</span><span class="token punctuation">)</span>
+par<span class="token punctuation">(</span>pty<span class="token operator">=</span><span class="token string">"s"</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>Kfn<span class="token punctuation">(</span>towns<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> type<span class="token operator">=</span><span class="token string">"s"</span><span class="token punctuation">,</span> xlab<span class="token operator">=</span><span class="token string">"distance"</span><span class="token punctuation">,</span> ylab<span class="token operator">=</span><span class="token string">"L(t)"</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span> lines<span class="token punctuation">(</span>Kfn<span class="token punctuation">(</span>Psim<span class="token punctuation">(</span><span class="token number">69</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="semat">
+
+<a href="#semat" class="help-page-title"><h2>
+Evaluate Kriging Standard Error of Prediction over a Grid
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Evaluate Kriging standard error of prediction over a grid.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">semat<span class="token punctuation">(</span>obj<span class="token punctuation">,</span> xl<span class="token punctuation">,</span> xu<span class="token punctuation">,</span> yl<span class="token punctuation">,</span> yu<span class="token punctuation">,</span> n<span class="token punctuation">,</span> se<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>obj</code></td>
+<td>
+
+<p>object returned by <code>surf.gls</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>xl</code></td>
+<td>
+
+<p>limits of the rectangle for grid
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>xu</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>yl</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>yu</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>n</code></td>
+<td>
+
+<p>use <code>n</code>  x  <code>n</code> grid within the rectangle
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>se</code></td>
+<td>
+
+<p>standard error at distance zero as a multiple of the supplied
+covariance. Otherwise estimated, and it assumed that a correlation
+function was supplied.
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>list with components x, y and z suitable for <code>contour</code> and <code>image</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1981) <em>Spatial Statistics.</em> Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#surf.gls">surf.gls</a></code>, <code><a href="#trmat">trmat</a></code>, <code><a href="#prmat">prmat</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>topo<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+topo.kr <span class="token operator">&lt;-</span> surf.gls<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> expcov<span class="token punctuation">,</span> topo<span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token number">0.7</span><span class="token punctuation">)</span>
+prsurf <span class="token operator">&lt;-</span> prmat<span class="token punctuation">(</span>topo.kr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span>
+contour<span class="token punctuation">(</span>prsurf<span class="token punctuation">,</span> levels<span class="token operator">=</span>seq<span class="token punctuation">(</span><span class="token number">700</span><span class="token punctuation">,</span> <span class="token number">925</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+sesurf <span class="token operator">&lt;-</span> semat<span class="token punctuation">(</span>topo.kr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span>
+contour<span class="token punctuation">(</span>sesurf<span class="token punctuation">,</span> levels<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="SSI">
+
+<a href="#SSI" class="help-page-title"><h2>
+Simulates Sequential Spatial Inhibition Point Process
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Simulates SSI (sequential spatial inhibition) point process.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">SSI<span class="token punctuation">(</span>n<span class="token punctuation">,</span> r<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>n</code></td>
+<td>
+
+<p>number of points
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>r</code></td>
+<td>
+
+<p>inhibition distance
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>uses the region set by <code>ppinit</code> or <code>ppregion</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>list of vectors of <code>x</code> and <code>y</code> coordinates
+</p>
+
+
+<h3>Side Effects</h3>
+
+<p>uses the random number generator.
+</p>
+
+
+<h3>Warnings</h3>
+
+<p>will never return if <code>r</code> is too large and it cannot place
+<code>n</code> points.
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1981) <em>Spatial Statistics.</em> Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#Psim">Psim</a></code>, <code><a href="#Strauss">Strauss</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">towns <span class="token operator">&lt;-</span> ppinit<span class="token punctuation">(</span><span class="token string">"towns.dat"</span><span class="token punctuation">)</span>
+par<span class="token punctuation">(</span>pty <span class="token operator">=</span> <span class="token string">"s"</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>Kfn<span class="token punctuation">(</span>towns<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"b"</span><span class="token punctuation">,</span> xlab <span class="token operator">=</span> <span class="token string">"distance"</span><span class="token punctuation">,</span> ylab <span class="token operator">=</span> <span class="token string">"L(t)"</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>Kaver<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> SSI<span class="token punctuation">(</span><span class="token number">69</span><span class="token punctuation">,</span> <span class="token number">1.2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="Strauss">
+
+<a href="#Strauss" class="help-page-title"><h2>
+Simulates Strauss Spatial Point Process
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Simulates Strauss spatial point process.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">Strauss<span class="token punctuation">(</span>n<span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>n</code></td>
+<td>
+
+<p>number of points
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>c</code></td>
+<td>
+
+<p>parameter <code>c</code> in <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0, 1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span></code>. <code>c = 0</code> corresponds to complete inhibition at distances up to <code>r</code>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>r</code></td>
+<td>
+
+<p>inhibition distance
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Uses spatial birth-and-death process for 4<code>n</code> steps, or for 40<code>n</code> steps
+starting from a binomial pattern on the first call from an other function.
+Uses the region set by <code>ppinit</code> or <code>ppregion</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>list of vectors of <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></code> and <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></code> coordinates
+</p>
+
+
+<h3>Side Effects</h3>
+
+<p>uses the random number generator
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1981) <em>Spatial Statistics.</em> Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#Psim">Psim</a></code>, <code><a href="#SSI">SSI</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">towns <span class="token operator">&lt;-</span> ppinit<span class="token punctuation">(</span><span class="token string">"towns.dat"</span><span class="token punctuation">)</span>
+par<span class="token punctuation">(</span>pty<span class="token operator">=</span><span class="token string">"s"</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>Kfn<span class="token punctuation">(</span>towns<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> type<span class="token operator">=</span><span class="token string">"b"</span><span class="token punctuation">,</span> xlab<span class="token operator">=</span><span class="token string">"distance"</span><span class="token punctuation">,</span> ylab<span class="token operator">=</span><span class="token string">"L(t)"</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>Kaver<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> Strauss<span class="token punctuation">(</span><span class="token number">69</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">3.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="surf.gls">
+
+<a href="#surf.gls" class="help-page-title"><h2>
+Fits a Trend Surface by Generalized Least-squares
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Fits a trend surface by generalized least-squares.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">surf.gls<span class="token punctuation">(</span>np<span class="token punctuation">,</span> covmod<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">,</span> nx <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>np</code></td>
+<td>
+
+<p>degree of polynomial surface
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>covmod</code></td>
+<td>
+
+<p>function to evaluate covariance or correlation function
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>x coordinates or a data frame with columns <code>x</code>, <code>y</code>, <code>z</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>y</code></td>
+<td>
+
+<p>y coordinates
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>z</code></td>
+<td>
+
+<p>z coordinates. Will supersede <code>x$z</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>nx</code></td>
+<td>
+
+<p>Number of bins for table of the covariance. Increasing adds accuracy,
+and increases size of the object.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+
+<p>parameters for <code>covmod</code>
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>list with components
+</p>
+<table>
+<tr style="vertical-align: top;">
+<td><code>beta</code></td>
+<td>
+
+<p>the coefficients
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>y</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>z</code></td>
+<td>
+
+<p>and others for internal use only.
+</p>
+</td>
+</tr>
+</table>
+<h3>References</h3>
+
+<p>Ripley, B. D. (1981) <em>Spatial Statistics.</em> Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#trmat">trmat</a></code>, <code><a href="#surf.ls">surf.ls</a></code>, <code><a href="#prmat">prmat</a></code>, <code><a href="#semat">semat</a></code>, <code><a href="#expcov">expcov</a></code>, <code><a href="#expcov">gaucov</a></code>, <code><a href="#expcov">sphercov</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">library<span class="token punctuation">(</span>MASS<span class="token punctuation">)</span>  <span class="token comment"># for eqscplot</span>
+data<span class="token punctuation">(</span>topo<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+topo.kr <span class="token operator">&lt;-</span> surf.gls<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> expcov<span class="token punctuation">,</span> topo<span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token number">0.7</span><span class="token punctuation">)</span>
+trsurf <span class="token operator">&lt;-</span> trmat<span class="token punctuation">(</span>topo.kr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span>
+eqscplot<span class="token punctuation">(</span>trsurf<span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"n"</span><span class="token punctuation">)</span>
+contour<span class="token punctuation">(</span>trsurf<span class="token punctuation">,</span> add <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+
+prsurf <span class="token operator">&lt;-</span> prmat<span class="token punctuation">(</span>topo.kr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span>
+contour<span class="token punctuation">(</span>prsurf<span class="token punctuation">,</span> levels<span class="token operator">=</span>seq<span class="token punctuation">(</span><span class="token number">700</span><span class="token punctuation">,</span> <span class="token number">925</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+sesurf <span class="token operator">&lt;-</span> semat<span class="token punctuation">(</span>topo.kr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span>
+eqscplot<span class="token punctuation">(</span>sesurf<span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"n"</span><span class="token punctuation">)</span>
+contour<span class="token punctuation">(</span>sesurf<span class="token punctuation">,</span> levels <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> add <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="surf.ls">
+
+<a href="#surf.ls" class="help-page-title"><h2>
+Fits a Trend Surface by Least-squares
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Fits a trend surface by least-squares.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">surf.ls<span class="token punctuation">(</span>np<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>np</code></td>
+<td>
+
+<p>degree of polynomial surface
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>x coordinates or a data frame with columns <code>x</code>, <code>y</code>, <code>z</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>y</code></td>
+<td>
+
+<p>y coordinates
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>z</code></td>
+<td>
+
+<p>z coordinates. Will supersede <code>x$z</code>
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>list with components
+</p>
+<table>
+<tr style="vertical-align: top;">
+<td><code>beta</code></td>
+<td>
+
+<p>the coefficients
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>y</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>z</code></td>
+<td>
+
+<p>and others for internal use only.
+</p>
+</td>
+</tr>
+</table>
+<h3>References</h3>
+
+<p>Ripley, B. D. (1981) <em>Spatial Statistics.</em> Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#trmat">trmat</a></code>, <code><a href="#surf.gls">surf.gls</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">library<span class="token punctuation">(</span>MASS<span class="token punctuation">)</span>  <span class="token comment"># for eqscplot</span>
+data<span class="token punctuation">(</span>topo<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+topo.kr <span class="token operator">&lt;-</span> surf.ls<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> topo<span class="token punctuation">)</span>
+trsurf <span class="token operator">&lt;-</span> trmat<span class="token punctuation">(</span>topo.kr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span>
+eqscplot<span class="token punctuation">(</span>trsurf<span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"n"</span><span class="token punctuation">)</span>
+contour<span class="token punctuation">(</span>trsurf<span class="token punctuation">,</span> add <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+points<span class="token punctuation">(</span>topo<span class="token punctuation">)</span>
+
+eqscplot<span class="token punctuation">(</span>trsurf<span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"n"</span><span class="token punctuation">)</span>
+contour<span class="token punctuation">(</span>trsurf<span class="token punctuation">,</span> add <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>topo.kr<span class="token punctuation">,</span> add <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+title<span class="token punctuation">(</span>xlab<span class="token operator">=</span> <span class="token string">"Circle radius proportional to Cook's influence statistic"</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="trls.influence">
+
+<a href="#trls.influence" class="help-page-title"><h2>
+Regression diagnostics for trend surfaces
+</h2></a>
+
+<h3>Description</h3>
+
+<p>This function provides the basic quantities which are used in
+forming a variety of diagnostics for checking the quality of
+regression fits for trend surfaces calculated by <code>surf.ls</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">trls.influence<span class="token punctuation">(</span>object<span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'trls'</span>
+plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> border <span class="token operator">=</span> <span class="token string">"red"</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token keyword">NA</span><span class="token punctuation">,</span> pch <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">,</span> cex <span class="token operator">=</span> <span class="token number">0.6</span><span class="token punctuation">,</span>
+     add <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> div <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>object, x</code></td>
+<td>
+
+<p>Fitted trend surface model from <code>surf.ls</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>div</code></td>
+<td>
+
+<p>scaling factor for influence circle radii in <code>plot.trls</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>add</code></td>
+<td>
+
+<p>add influence plot to existing graphics if <code>TRUE</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>border, col, pch, cex, ...</code></td>
+<td>
+
+<p>additional graphical parameters
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p><code>trls.influence</code> returns a list with components:
+</p>
+<table>
+<tr style="vertical-align: top;">
+<td><code>r</code></td>
+<td>
+
+<p>raw residuals as given by <code>residuals.trls</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>hii</code></td>
+<td>
+
+<p>diagonal elements of the Hat matrix
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>stresid</code></td>
+<td>
+
+<p>standardised residuals
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>Di</code></td>
+<td>
+
+<p>Cook's statistic
+</p>
+</td>
+</tr>
+</table>
+<h3>References</h3>
+
+<p>Unwin, D. J., Wrigley, N. (1987) Towards a general-theory of
+control point distribution effects in trend surface models.
+<em>Computers and Geosciences,</em> <b>13</b>, 351–355.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#surf.ls">surf.ls</a></code>, <code><a href="stats.html#influence.measures">influence.measures</a></code>, <code><a href="stats.html#plot.lm">plot.lm</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">library<span class="token punctuation">(</span>MASS<span class="token punctuation">)</span>  <span class="token comment"># for eqscplot</span>
+data<span class="token punctuation">(</span>topo<span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">"MASS"</span><span class="token punctuation">)</span>
+topo2 <span class="token operator">&lt;-</span> surf.ls<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> topo<span class="token punctuation">)</span>
+infl.topo2 <span class="token operator">&lt;-</span> trls.influence<span class="token punctuation">(</span>topo2<span class="token punctuation">)</span>
+<span class="token punctuation">(</span>cand <span class="token operator">&lt;-</span> as.data.frame<span class="token punctuation">(</span>infl.topo2<span class="token punctuation">)</span><span class="token punctuation">[</span>abs<span class="token punctuation">(</span>infl.topo2<span class="token operator">$</span>stresid<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">1.5</span><span class="token punctuation">,</span> <span class="token punctuation">]</span><span class="token punctuation">)</span>
+cand.xy <span class="token operator">&lt;-</span> topo<span class="token punctuation">[</span>as.integer<span class="token punctuation">(</span>rownames<span class="token punctuation">(</span>cand<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">,</span> <span class="token string">"y"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+trsurf <span class="token operator">&lt;-</span> trmat<span class="token punctuation">(</span>topo2<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span>
+eqscplot<span class="token punctuation">(</span>trsurf<span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"n"</span><span class="token punctuation">)</span>
+contour<span class="token punctuation">(</span>trsurf<span class="token punctuation">,</span> add <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token string">"grey"</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>topo2<span class="token punctuation">,</span> add <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> div <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span>
+points<span class="token punctuation">(</span>cand.xy<span class="token punctuation">,</span> pch <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token string">"orange"</span><span class="token punctuation">)</span>
+text<span class="token punctuation">(</span>cand.xy<span class="token punctuation">,</span> labels <span class="token operator">=</span> rownames<span class="token punctuation">(</span>cand.xy<span class="token punctuation">)</span><span class="token punctuation">,</span> pos <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">,</span> offset <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="trmat">
+
+<a href="#trmat" class="help-page-title"><h2>
+Evaluate Trend Surface over a Grid
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Evaluate trend surface over a grid.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">trmat<span class="token punctuation">(</span>obj<span class="token punctuation">,</span> xl<span class="token punctuation">,</span> xu<span class="token punctuation">,</span> yl<span class="token punctuation">,</span> yu<span class="token punctuation">,</span> n<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>obj</code></td>
+<td>
+
+<p>object returned by <code>surf.ls</code> or <code>surf.gls</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>xl</code></td>
+<td>
+
+<p>limits of the rectangle for grid
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>xu</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>yl</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>yu</code></td>
+<td>
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>n</code></td>
+<td>
+
+<p>use <code>n</code>  x  <code>n</code> grid within the rectangle
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>list with components <code>x</code>, <code>y</code> and <code>z</code> suitable for <code>contour</code> and <code>image</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1981) <em>Spatial Statistics.</em> Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#surf.ls">surf.ls</a></code>, <code><a href="#surf.gls">surf.gls</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>topo<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+topo.kr <span class="token operator">&lt;-</span> surf.ls<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> topo<span class="token punctuation">)</span>
+trsurf <span class="token operator">&lt;-</span> trmat<span class="token punctuation">(</span>topo.kr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.5</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="variogram">
+
+<a href="#variogram" class="help-page-title"><h2>
+Compute Spatial Variogram
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Compute spatial (semi-)variogram of spatial data or residuals.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">variogram<span class="token punctuation">(</span>krig<span class="token punctuation">,</span> nint<span class="token punctuation">,</span> plotit <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>krig</code></td>
+<td>
+
+<p>trend-surface or kriging object with columns <code>x</code>, <code>y</code>, and <code>z</code>
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>nint</code></td>
+<td>
+
+<p>number of bins used
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>plotit</code></td>
+<td>
+
+<p>logical for plotting
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+
+<p>parameters for the plot
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Divides range of data into <code>nint</code> bins, and computes the average squared
+difference for pairs with separation in each bin.  Returns results for
+bins with 6 or more pairs.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>x</code> and <code>y</code> coordinates of the variogram and <code>cnt</code>,
+the number of pairs averaged per bin.
+</p>
+
+
+<h3>Side Effects</h3>
+
+<p>Plots the variogram if <code>plotit = TRUE</code>
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1981) <em>Spatial Statistics.</em> Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#correlogram">correlogram</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>topo<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+topo.kr <span class="token operator">&lt;-</span> surf.ls<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> topo<span class="token punctuation">)</span>
+variogram<span class="token punctuation">(</span>topo.kr<span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+</body>
+</html>

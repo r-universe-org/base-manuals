@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Package 'tcltk' reference manual</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <!-- styling for math and syntax -->
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
+
+    <!-- for (future) customizations -->
+    <script src="https://r-universe.dev/static/manual.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+
+  </head>
+
+  <body class="macintosh">
+    <h1 class="manual-title">Package 'tcltk'</h1>
+    <table class="description-table">
+      <tr>
+<th>Title:</th>
+<td class="description-title">Tcl/Tk Interface</td>
+</tr>
+      <tr>
+<th>Description:</th>
+<td class="description-description">Interface and language bindings to Tcl/Tk GUI elements.</td>
+</tr>
+      <tr>
+<th>Authors:</th>
+<td class="description-author">R Core Team</td>
+</tr>
+      <tr>
+<th>Maintainer:</th>
+<td class="description-maintainer">R Core Team &lt;do-use-Contact-address@r-project.org&gt;</td>
+</tr>
+      <tr>
+<th>License:</th>
+<td class="description-license">Part of R 4.2.2</td>
+</tr>
+      <tr>
+<th>Version:</th>
+<td class="description-version">4.2.2</td>
+</tr>
+      <tr>
+<th>Built:</th>
+<td class="description-date">2022-10-31 22:33:06 UTC</td>
+</tr>
+      <tr>
+<th>Source:</th>
+<td class="description-source">base</td>
+</tr>
+    </table>
+
+    <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
+    <ul id="help-index-list">
+<li class="help-index-item"><a href="#TclInterface">Low-level Tcl/Tk Interface</a></li>
+<li class="help-index-item"><a href="#tclServiceMode"> Allow Tcl events to be serviced or not </a></li>
+<li class="help-index-item"><a href="#tcltk-defunct">Defunct Functions in Package tcltk</a></li>
+<li class="help-index-item"><a href="#tcltk-package">
+Tcl/Tk Interface
+</a></li>
+<li class="help-index-item"><a href="#tk_choose.dir">Choose a Folder Interactively</a></li>
+<li class="help-index-item"><a href="#tk_choose.files">Choose a List of Files Interactively</a></li>
+<li class="help-index-item"><a href="#tk_messageBox">Tk Message Box</a></li>
+<li class="help-index-item"><a href="#tk_select.list">Select Items from a List</a></li>
+<li class="help-index-item"><a href="#TkCommands">Tk non-widget commands</a></li>
+<li class="help-index-item"><a href="#tkpager">Page file using Tk text widget</a></li>
+<li class="help-index-item"><a href="#tkProgressBar">Progress Bars via Tk</a></li>
+<li class="help-index-item"><a href="#tkStartGUI">Tcl/Tk GUI startup</a></li>
+<li class="help-index-item"><a href="#TkWidgetcmds">Tk widget commands</a></li>
+<li class="help-index-item"><a href="#TkWidgets">Tk widgets</a></li>
+</ul>
+
+    <hr>
+  <div class="container manual-page" id="TclInterface">
+
+<a href="#TclInterface" class="help-page-title"><h2>Low-level Tcl/Tk Interface</h2></a>
+
+<h3>Description</h3>
+
+<p>These functions and variables provide the basic glue between <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> and the
+Tcl interpreter and Tk GUI toolkit. Tk
+windows may be represented via <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects. Tcl variables can be accessed
+via objects of class <code>tclVar</code> and the C level interface to Tcl
+objects is accessed via objects of class <code>tclObj</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">.Tcl<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+.Tcl.objv<span class="token punctuation">(</span>objv<span class="token punctuation">)</span>
+.Tcl.args<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+.Tcl.args.objv<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+.Tcl.callback<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+.Tk.ID<span class="token punctuation">(</span>win<span class="token punctuation">)</span>
+.Tk.newwin<span class="token punctuation">(</span>ID<span class="token punctuation">)</span>
+.Tk.subwin<span class="token punctuation">(</span>parent<span class="token punctuation">)</span>
+.TkRoot
+
+tkdestroy<span class="token punctuation">(</span>win<span class="token punctuation">)</span>
+is.tkwin<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+
+tclvalue<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+tclvalue<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> value
+
+tclVar<span class="token punctuation">(</span>init <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'tclVar'</span>
+as.character<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'tclVar'</span>
+tclvalue<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token comment">## S3 replacement method for class 'tclVar'</span>
+tclvalue<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> value
+
+tclArray<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'tclArray'</span>
+x<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token ellipsis">...</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token comment">## S3 replacement method for class 'tclArray'</span>
+x<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token ellipsis">...</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> value
+<span class="token comment">## S3 method for class 'tclArray'</span>
+x<span class="token operator">$</span>i
+<span class="token comment">## S3 replacement method for class 'tclArray'</span>
+x<span class="token operator">$</span>i <span class="token operator">&lt;-</span> value
+
+<span class="token comment">## S3 method for class 'tclArray'</span>
+names<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'tclArray'</span>
+length<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+
+tclObj<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+tclObj<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> value
+<span class="token comment">## S3 method for class 'tclVar'</span>
+tclObj<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token comment">## S3 replacement method for class 'tclVar'</span>
+tclObj<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> value
+
+as.tclObj<span class="token punctuation">(</span>x<span class="token punctuation">,</span> drop <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+is.tclObj<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+
+<span class="token comment">## S3 method for class 'tclObj'</span>
+as.character<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'tclObj'</span>
+as.integer<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'tclObj'</span>
+as.double<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'tclObj'</span>
+as.logical<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'tclObj'</span>
+as.raw<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'tclObj'</span>
+tclvalue<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+
+<span class="token comment">## Default S3 method:</span>
+tclvalue<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token comment">## Default S3 replacement method:</span>
+tclvalue<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> value
+
+
+addTclPath<span class="token punctuation">(</span>path <span class="token operator">=</span> <span class="token string">"."</span><span class="token punctuation">)</span>
+tclRequire<span class="token punctuation">(</span>package<span class="token punctuation">,</span> warn <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+tclVersion<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>objv</code></td>
+<td>
+<p>a named vector of Tcl objects</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>win</code></td>
+<td>
+<p>a window structure</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+<p>an object</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>i</code></td>
+<td>
+<p>character or (unquoted) name</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>drop</code></td>
+<td>
+<p>logical. Indicates whether a single-element vector should
+be made into a simple Tcl object or a list of length one</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>value</code></td>
+<td>
+<p>For <code>tclvalue</code> assignments, a character string. For
+<code>tclObj</code> assignments, an object of class <code>tclObj</code></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>ID</code></td>
+<td>
+<p>a window ID</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>parent</code></td>
+<td>
+<p>a window which becomes the parent of the resulting window</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>path</code></td>
+<td>
+<p>path to a directory containing Tcl packages</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>package</code></td>
+<td>
+<p>a Tcl package name</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>warn</code></td>
+<td>
+<p>logical. Warn if not found?</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>Additional arguments. See below.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>init</code></td>
+<td>
+<p>initialization value</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Many of these functions are not intended for general use but are used
+internally by the commands that create and manipulate Tk widgets and
+Tcl objects.  At the lowest level <code>.Tcl</code> sends a command as a text
+string to the Tcl interpreter and returns the result as an object of
+class <code>tclObj</code> (see below).  A newer variant <code>.Tcl.objv</code>
+accepts arguments in the form of a named list of <code>tclObj</code>
+objects.
+</p>
+<p><code>.Tcl.args</code> converts an R argument list of <code>tag = value</code> pairs
+to the Tcl <code>-option value</code> style, thus
+enabling a simple translation between the two languages. To send a
+value with no preceding option flag to Tcl, just use an untagged
+argument. In the rare case one needs an option with no subsequent
+value <code>tag = NULL</code> can be used. Most values are just converted to
+character mode and inserted in the command string, but window objects
+are passed using their ID string, and callbacks are passed via the
+result of <code>.Tcl.callback</code>. Tags are converted to option flags
+simply by prepending a <code>-</code>
+</p>
+<p><code>.Tcl.args.objv</code> serves a similar purpose as <code>.Tcl.args</code> but
+produces a list of <code>tclObj</code> objects suitable for passing to
+<code>.Tcl.objv</code>. The names of the list are converted to Tcl option
+style internally by <code>.Tcl.objv</code>.
+</p>
+<p>Callbacks can be either <em>atomic callbacks</em> handled by
+<code>.Tcl.callback</code> or expressions. An expression is treated as a
+list of atomic callbacks, with the following exceptions: if an
+element is a name, it is first evaluated in the callers frame, and
+likewise if it is an explicit function definition; the <code>break</code>
+expression is translated directly to the Tcl counterpart.
+<code>.Tcl.callback</code> converts <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> functions and unevaluated calls to
+Tcl command strings.  The argument must be either a function closure
+or an object of mode <code>"call"</code> followed by an environment.  The
+return value in the first case is of the form <code>R_call
+  0x408b94d4</code> in which the hexadecimal number is the memory address of
+the function. In the second case it will be of the form
+<code>R_call_lang 0x8a95904 0x819bfd0</code>. For expressions, a sequence
+of similar items is generated, separated by
+semicolons. <code>.Tcl.args</code> takes special precautions to ensure
+that functions or calls will continue to exist at the specified
+address by assigning the
+callback into the relevant window environment (see below).
+</p>
+<p>Tk windows are represented as objects of class <code>tkwin</code> which are
+lists containing  a <code>ID</code> field and an <code>env</code> field which is
+an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> environments, enclosed in the global environment.  The value of
+the <code>ID</code> field is identical to the Tk window name. The <code>env</code>
+environment contains a <code>parent</code> variable and a <code>num.subwin</code>
+variable.  If the window obtains sub-windows and  callbacks, they are
+added as variables to the environment.   <code>.TkRoot</code> is the top
+window with ID "."; this window is not  displayed in order to avoid
+ill effects of closing it via window  manager controls. The
+<code>parent</code> variable is undefined for <code>.TkRoot</code>.
+</p>
+<p><code>.Tk.ID</code> extracts the <code>ID</code> of a window,
+<code>.Tk.newwin</code> creates a new window environment with a given ID and
+<code>.Tk.subwin</code> creates a new window which is a sub-window of a given
+parent window.
+</p>
+<p><code>tkdestroy</code> destroys a window and also removes the reference to a
+window from its parent.
+</p>
+<p><code>is.tkwin</code> can be used to test whether a given object is a window
+environment.
+</p>
+<p><code>tclVar</code> creates a new Tcl variable and initializes it to
+<code>init</code>.  An R object of class <code>tclVar</code> is created to
+represent it.  Using <code>as.character</code> on the object returns the Tcl
+variable name.  Accessing the Tcl variable from R is done using the
+<code>tclvalue</code> function, which can also occur on the left-hand side of
+assignments.  If <code>tclvalue</code> is passed an argument which is not a
+<code>tclVar</code> object, then it will assume that it is a character string
+explicitly naming global Tcl variable. Tcl variables created by
+<code>tclVar</code> are uniquely named and automatically unset by the
+garbage collector when the representing object is no longer in use.
+</p>
+<p><code>tclArray</code> creates a new Tcl array and initializes it to the empty
+array.  An R object of class <code>tclArray</code> and inheriting from class
+<code>tclVar</code> is created to represent it. You can access elements of
+the Tcl array using indexing with <code>[[</code> or <code>$</code>, which also
+allow replacement forms.  Notice that Tcl arrays are associative by
+nature and hence unordered; indexing with a numeric index <code>i</code>
+refers to the element with the <em>name</em>
+<code>as.character(i)</code>.  Multiple indices are pasted together separated
+by commas to form a single name.  You can query the
+length and the set of names in an array using methods for
+<code>length</code> and <code>names</code>, respectively; these cannot
+meaningfully be set so assignment forms exist only to print an error
+message.
+</p>
+<p>It is possible to access Tcl's ‘dual-ported’ objects directly,
+thus avoiding parsing and deparsing of their string representation.
+This works by using objects of class <code>tclObj</code>.  The string
+representation of such objects can be extracted (but not set) using
+<code>tclvalue</code> and conversion to vectors of mode <code>"character"</code>,
+<code>"double"</code>, <code>"integer"</code>, <code>"logical"</code>, and <code>"raw"</code>
+is performed using the standard coercion functions <code>as.character</code>,
+etc.  Conversely, such
+vectors can be converted using <code>as.tclObj</code>.  There is an
+ambiguity as to what should happen for length one vectors, controlled
+by the <code>drop</code> argument; there are cases where the distinction
+matters to Tcl, although mostly it treats them equivalently.  Notice
+that <code>tclvalue</code> and <code>as.character</code> differ on an object whose
+string representation has embedded spaces, the former is sometimes to
+be preferred, in particular when applied to the result of
+<code>tclread</code>, <code>tkgetOpenFile</code>, and similar functions.  The
+<code>as.raw</code> method returns a raw vector or a list of raw vectors and
+can be used to return binary data from Tcl.
+</p>
+<p>The object behind a <code>tclVar</code> object is extracted using
+<code>tclObj(x)</code> which also allows an assignment form, in which the
+right hand side of the assignment is automatically converted using
+<code>as.tclObj</code>.  There is a print method for <code>tclObj</code> objects;
+it prints <code>&lt;Tcl&gt;</code> followed by the string representation of the
+object.  Notice that <code>as.character</code> on a <code>tclVar</code> object is
+the <em>name</em> of the corresponding Tcl variable and not the value.
+</p>
+<p>Tcl packages can be loaded with <code>tclRequire</code>; it may be necessary
+to add the directory where they are found to the Tcl search path with
+<code>addTclPath</code>.  The return value is a class <code>"tclObj"</code> object
+if it succeeds, or <code>FALSE</code> if it fails (when a warning is
+issued).  To see the current search path as an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> character vector, use
+</p>
+<pre>strsplit(tclvalue('auto_path'), " ")[[1]]</pre>
+<p>.
+</p>
+<p>The Tcl version (including patchlevel) is returned as a character
+string (such as <code>"8.6.3"</code>).
+</p>
+
+
+<h3>Note</h3>
+
+<p>Strings containing unbalanced braces are currently not handled
+well in many circumstances.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#TkWidgets">TkWidgets</a></code>,
+<code><a href="#TkCommands">TkCommands</a></code>,
+<code><a href="#TkWidgetcmds">TkWidgetcmds</a></code>.
+</p>
+<p><code><a href="base.html#capabilities">capabilities</a>("tcltk")</code> to see if Tcl/Tk support was
+compiled into this build of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">tclVersion<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+.Tcl<span class="token punctuation">(</span><span class="token string">"format \"%s\n\" \"Hello, World!\""</span><span class="token punctuation">)</span>
+f <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> cat<span class="token punctuation">(</span><span class="token string">"HI!\n"</span><span class="token punctuation">)</span>
+<span class="token comment">## IGNORE_RDIFF_BEGIN</span>
+.Tcl.callback<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+.Tcl.args<span class="token punctuation">(</span>text <span class="token operator">=</span> <span class="token string">"Push!"</span><span class="token punctuation">,</span> command <span class="token operator">=</span> f<span class="token punctuation">)</span> <span class="token comment"># NB: Different address</span>
+<span class="token comment">## IGNORE_RDIFF_END</span>
+
+xyzzy <span class="token operator">&lt;-</span> tclVar<span class="token punctuation">(</span><span class="token number">7913</span><span class="token punctuation">)</span>
+tclvalue<span class="token punctuation">(</span>xyzzy<span class="token punctuation">)</span>
+tclvalue<span class="token punctuation">(</span>xyzzy<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> <span class="token string">"foo"</span>
+as.character<span class="token punctuation">(</span>xyzzy<span class="token punctuation">)</span>
+tcl<span class="token punctuation">(</span><span class="token string">"set"</span><span class="token punctuation">,</span> as.character<span class="token punctuation">(</span>xyzzy<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Not run: </span>
+<span class="token comment">## These cannot be run by example() but should be OK when pasted</span>
+<span class="token comment">## into an interactive R session with the tcltk package loaded</span>
+top <span class="token operator">&lt;-</span> tktoplevel<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># a Tk widget, see Tk-widgets</span>
+ls<span class="token punctuation">(</span>envir <span class="token operator">=</span> top<span class="token operator">$</span>env<span class="token punctuation">,</span> all.names <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+
+<span class="token comment">## End(Not run)</span>
+
+<span class="token comment">## IGNORE_RDIFF_BEGIN</span>
+ls<span class="token punctuation">(</span>envir <span class="token operator">=</span> .TkRoot<span class="token operator">$</span>env<span class="token punctuation">,</span> all.names <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span> <span class="token comment"># .Tcl.args put a callback ref in here</span>
+<span class="token comment">## IGNORE_RDIFF_END</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="tclServiceMode">
+
+<a href="#tclServiceMode" class="help-page-title"><h2> Allow Tcl events to be serviced or not </h2></a>
+
+<h3>Description</h3>
+
+<p>This function controls or reports on the Tcl service mode,
+i.e., whether Tcl will respond to events.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">tclServiceMode<span class="token punctuation">(</span>on <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table><tr style="vertical-align: top;">
+<td><code>on</code></td>
+<td>
+<p>(logical) Whether event servicing is turned on. </p>
+</td>
+</tr></table>
+<h3>Details</h3>
+
+<p>If called with <code>on == NULL</code> (the default), no change is made.
+</p>
+<p>Note that this blocks all Tcl/Tk activity, including for widgets from
+other packages.  It may be better to manage mapping of windows individually.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The value of the Tcl service mode before the call.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## see demo(tkcanvas) for an example</span>
+oldmode <span class="token operator">&lt;-</span> tclServiceMode<span class="token punctuation">(</span><span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+<span class="token comment"># Do some work to create a nice picture.</span>
+<span class="token comment"># Nothing will be displayed until...</span>
+tclServiceMode<span class="token punctuation">(</span>oldmode<span class="token punctuation">)</span>
+<span class="token comment">## another idea is to use tkwm.withdraw() ... tkwm.deiconify()</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="tcltk-defunct">
+
+<a href="#tcltk-defunct" class="help-page-title"><h2>Defunct Functions in Package <span class="pkg">tcltk</span>
+</h2></a>
+
+<h3>Description</h3>
+
+<p>The functions or variables listed here are no longer part of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> as
+they are not needed (any more).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">tkcmd<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+tkfile.tail<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkfile.dir<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkopen<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkclose<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkputs<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkread<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table><tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>Handled via <code>.Tcl.args</code></p>
+</td>
+</tr></table>
+<h3>Details</h3>
+
+<p>At <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 2.0.0, <code>tkcmd</code> was renamed to <code>tcl</code>.  The
+file commands used to be <code>tkopen</code>, <code>tkclose</code>, etc., but
+since <code>open</code> and <code>close</code> do not belong to the Tk toolkit,
+the preferred names are now <code>tclopen</code>, etc.
+</p>
+<p>The <code>$</code> methods for class <code>"tclvar"</code> have been deprecated in
+favour of <code><a href="#TclInterface">tclVar</a></code> and <code><a href="#TclInterface">tclvalue</a></code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="base.html#Defunct">Defunct</a></code>
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="tcltk-package">
+
+<a href="#tcltk-package" class="help-page-title"><h2>
+Tcl/Tk Interface
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Interface and language bindings to Tcl/Tk GUI elements.
+</p>
+
+
+<h3>Details</h3>
+
+<p>This package provides access to the platform-independent Tcl scripting
+language and Tk GUI elements.  See <a href="#TkWidgets">TkWidgets</a> for a list of
+supported widgets, <a href="#TkWidgetcmds">TkWidgetcmds</a> for commands to work with them,
+and references in those files for more.
+</p>
+<p>The Tcl/Tk documentation is in
+the system man pages.
+</p>
+<p>For a complete list of functions, use <code>ls("package:tcltk")</code>.
+</p>
+<p>Note that Tk will not be initialized if there is no <code>DISPLAY</code>
+variable set, but Tcl can still be used.  This is most useful to allow
+the loading of a package which depends on <span class="pkg">tcltk</span> in a session that
+does not actually use it (e.g., during installation).
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>R Core Team
+</p>
+<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="tk_choose.dir">
+
+<a href="#tk_choose.dir" class="help-page-title"><h2>Choose a Folder Interactively</h2></a>
+
+<h3>Description</h3>
+
+<p>Use a Tk widget to choose a directory interactively.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">tk_choose.dir<span class="token punctuation">(</span>default <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> caption <span class="token operator">=</span> <span class="token string">"Select directory"</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>default</code></td>
+<td>
+<p>which directory to show initially.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>caption</code></td>
+<td>
+<p>the caption on the selection dialog.</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>A length-one character vector, character <code>NA</code> if
+‘Cancel’ was selected.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#tk_choose.files">tk_choose.files</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> tk_choose.dir<span class="token punctuation">(</span>getwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"Choose a suitable folder"</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="tk_choose.files">
+
+<a href="#tk_choose.files" class="help-page-title"><h2>Choose a List of Files Interactively</h2></a>
+
+<h3>Description</h3>
+
+<p>Use a Tk file dialog to choose a list of zero or more files
+interactively.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">tk_choose.files<span class="token punctuation">(</span>default <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> caption <span class="token operator">=</span> <span class="token string">"Select files"</span><span class="token punctuation">,</span>
+                multi <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> filters <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>default</code></td>
+<td>
+<p>which filename to show initially.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>caption</code></td>
+<td>
+<p>the caption on the file selection dialog.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>multi</code></td>
+<td>
+<p>whether to allow multiple files to be selected.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>filters</code></td>
+<td>
+<p>two-column character matrix of filename filters.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>index</code></td>
+<td>
+<p>unused.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Unlike <code><a href="base.html#file.choose">file.choose</a></code>, <code>tk_choose.files</code> will always
+attempt to return a character vector giving a list of files.  If the
+user cancels the dialog, then zero files are returned, whereas
+<code><a href="base.html#file.choose">file.choose</a></code> would signal an error.
+</p>
+<p>The format of <code>filters</code> can be seen from the example.  File
+patterns are specified via extensions, with <code>"*"</code> meaning any
+file, and <code>""</code> any file without an extension (a filename not
+containing a period).  (Other forms may work on specific platforms.)
+Note that the way to have multiple extensions for one file type is to
+have multiple rows with the same name in the first column, and that
+whether the extensions are named in file chooser widget is
+platform-specific. <b>The format may change before release.</b>
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector giving zero or more file paths.
+</p>
+
+
+<h3>Note</h3>
+
+<p>A bug in Tk 8.5.0–8.5.4 prevented multiple selections being used.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="base.html#file.choose">file.choose</a></code>, <code><a href="#tk_choose.dir">tk_choose.dir</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">Filters <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"R code"</span><span class="token punctuation">,</span> <span class="token string">".R"</span><span class="token punctuation">,</span> <span class="token string">"R code"</span><span class="token punctuation">,</span> <span class="token string">".s"</span><span class="token punctuation">,</span>
+                    <span class="token string">"Text"</span><span class="token punctuation">,</span> <span class="token string">".txt"</span><span class="token punctuation">,</span> <span class="token string">"All files"</span><span class="token punctuation">,</span> <span class="token string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> byrow <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+Filters
+<span class="token keyword">if</span><span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> tk_choose.files<span class="token punctuation">(</span>filter <span class="token operator">=</span> Filters<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="tk_messageBox">
+
+<a href="#tk_messageBox" class="help-page-title"><h2>Tk Message Box</h2></a>
+
+<h3>Description</h3>
+
+<p>An implementation of a generic message box using Tk.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">tk_messageBox<span class="token punctuation">(</span>type <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"ok"</span><span class="token punctuation">,</span> <span class="token string">"okcancel"</span><span class="token punctuation">,</span> <span class="token string">"yesno"</span><span class="token punctuation">,</span> <span class="token string">"yesnocancel"</span><span class="token punctuation">,</span>
+                       <span class="token string">"retrycancel"</span><span class="token punctuation">,</span> <span class="token string">"abortretryignore"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              message<span class="token punctuation">,</span> caption <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> default <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>type</code></td>
+<td>
+<p>character. The type of dialog box. It will have the
+buttons implied by its name.  Can be abbreviated.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>message</code></td>
+<td>
+<p>character. The information field of the dialog box.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>caption</code></td>
+<td>
+<p>the caption on the widget displayed.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>default</code></td>
+<td>
+<p>character. The name of the button to be used as the
+default.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>additional named arguments to be passed to the Tk
+function of this name.  An example is <code>icon = "warning"</code>.</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>A character string giving the name of the button pressed.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#TkCommands">tkmessageBox</a></code> for a ‘raw’ interface.
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="tk_select.list">
+
+<a href="#tk_select.list" class="help-page-title"><h2>Select Items from a List</h2></a>
+
+<h3>Description</h3>
+
+<p>Select item(s) from a character vector using a Tk listbox.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">tk_select.list<span class="token punctuation">(</span>choices<span class="token punctuation">,</span> preselect <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> multiple <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+               title <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>choices</code></td>
+<td>
+<p>a character vector of items.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>preselect</code></td>
+<td>
+<p>a character vector, or <code>NULL</code>.  If non-null and
+if the string(s) appear in the list, the item(s) are selected
+initially.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>multiple</code></td>
+<td>
+<p>logical: can more than one item be selected?</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>title</code></td>
+<td>
+<p>optional character string for window title, or
+<code>NULL</code> for no title.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>This is a version of <code><a href="utils.html#select.list">select.list</a></code> implemented as a Tk
+list box plus <code>OK</code> and <code>Cancel</code> buttons.  There will be a
+scrollbar if the list is too long to fit comfortably on the screen.
+</p>
+<p>The dialog box is <em>modal</em>, so a selection must be made or
+cancelled before the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session can proceed.  Double-clicking on an
+item is equivalent to selecting it and then clicking <code>OK</code>.
+</p>
+<p>If Tk is version 8.5 or later, themed widgets will be used.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of selected items.  If <code>multiple</code> is false and
+no item was selected (or <code>Cancel</code> was used), <code>""</code> is
+returned.   If <code>multiple</code> is true and no item was selected (or
+<code>Cancel</code> was used) then a character vector of length 0 is returned.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="utils.html#select.list">select.list</a></code> (a text version except on Windows and the macOS GUI),
+<code><a href="utils.html#menu">menu</a></code> (whose <code>graphics = TRUE</code> mode uses this
+on most Unix-alikes).
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="TkCommands">
+
+<a href="#TkCommands" class="help-page-title"><h2>Tk non-widget commands</h2></a>
+
+<h3>Description</h3>
+
+<p>These functions interface to Tk non-widget commands, such as the
+window manager interface commands and the geometry managers.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">tcl<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktitle<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+
+tktitle<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> value
+
+tkbell<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkbind<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkbindtags<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkfocus<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tklower<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkraise<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+tkclipboard.append<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkclipboard.clear<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+tkevent.add<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkevent.delete<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkevent.generate<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkevent.info<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+tkfont.actual<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkfont.configure<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkfont.create<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkfont.delete<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkfont.families<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkfont.measure<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkfont.metrics<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkfont.names<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+tkgrab<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrab.current<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrab.release<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrab.set<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrab.status<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+tkimage.create<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkimage.delete<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkimage.height<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkimage.inuse<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkimage.names<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkimage.type<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkimage.types<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkimage.width<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+<span class="token comment">## NB: some widgets also have a selection.clear command,</span>
+<span class="token comment">## hence the "X".</span>
+
+tkXselection.clear<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkXselection.get<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkXselection.handle<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkXselection.own<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+tkwait.variable<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwait.visibility<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwait.window<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+<span class="token comment">## winfo actually has a large number of subcommands,</span>
+<span class="token comment">## but it's rarely used,</span>
+<span class="token comment">## so use tkwinfo("atom", ...) etc. instead.</span>
+
+tkwinfo<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Window manager interface</span>
+
+tkwm.aspect<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.client<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.colormapwindows<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.command<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.deiconify<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.focusmodel<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.frame<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.geometry<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.grid<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.group<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.iconbitmap<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.iconify<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.iconmask<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.iconname<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.iconposition<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.iconwindow<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.maxsize<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.minsize<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.overrideredirect<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.positionfrom<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.protocol<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.resizable<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.sizefrom<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.state<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.title<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.transient<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwm.withdraw<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">### Geometry managers</span>
+
+tkgrid<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrid.bbox<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrid.columnconfigure<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrid.configure<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrid.forget<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrid.info<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrid.location<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrid.propagate<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrid.rowconfigure<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrid.remove<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrid.size<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgrid.slaves<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+tkpack<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkpack.configure<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkpack.forget<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkpack.info<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkpack.propagate<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkpack.slaves<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+tkplace<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkplace.configure<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkplace.forget<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkplace.info<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkplace.slaves<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Standard dialogs</span>
+tkgetOpenFile<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgetSaveFile<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkchooseDirectory<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkmessageBox<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkdialog<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkpopup<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">## File handling functions</span>
+tclfile.tail<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tclfile.dir<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tclopen<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tclclose<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tclputs<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tclread<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+<p>A window object</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>value</code></td>
+<td>
+<p>For <code>tktitle</code> assignments, a character string.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>Handled via <code>.Tcl.args</code></p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>tcl</code> provides a generic interface to calling any Tk or Tcl
+command by simply running <code>.Tcl.args.objv</code> on the argument list
+and passing the
+result to <code>.Tcl.objv</code>.  Most of the other commands simply call
+<code>tcl</code> with a particular
+first argument and sometimes also a second argument giving the
+subcommand.
+</p>
+<p><code>tktitle</code> and its assignment form provides an alternate interface
+to Tk's <code>wm title</code>
+</p>
+<p>There are far too many of these commands to describe them and their
+arguments in full.  Please refer to the Tcl/Tk documentation for details.
+With a few exceptions, the pattern is that Tk subcommands like
+<code>pack configure</code> are converted to function names like
+<code>tkpack.configure</code>, and Tcl subcommands are like
+<code>tclfile.dir</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#TclInterface">TclInterface</a></code>, <code><a href="#TkWidgets">TkWidgets</a></code>,
+<code><a href="#TkWidgetcmds">TkWidgetcmds</a></code></p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## These cannot be run by examples() but should be OK when pasted</span><span class="token comment">## into an interactive R session with the tcltk package loaded</span>
+
+tt <span class="token operator">&lt;-</span> tktoplevel<span class="token punctuation">(</span><span class="token punctuation">)</span>
+tkpack<span class="token punctuation">(</span>l1 <span class="token operator">&lt;-</span> tklabel<span class="token punctuation">(</span>tt<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"Heave"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> l2 <span class="token operator">&lt;-</span> tklabel<span class="token punctuation">(</span>tt<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"Ho"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+tkpack.configure<span class="token punctuation">(</span>l1<span class="token punctuation">,</span> side <span class="token operator">=</span> <span class="token string">"left"</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Try stretching the window and then</span>
+
+tkdestroy<span class="token punctuation">(</span>tt<span class="token punctuation">)</span>
+
+<span class="token comment">## End(Not run)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="tkpager">
+
+<a href="#tkpager" class="help-page-title"><h2>Page file using Tk text widget</h2></a>
+
+<h3>Description</h3>
+
+<p>This plugs into <code>file.show</code>, showing files in separate windows.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">tkpager<span class="token punctuation">(</span>file<span class="token punctuation">,</span> header<span class="token punctuation">,</span> title<span class="token punctuation">,</span> delete.file<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>file</code></td>
+<td>
+<p>character vector containing the names of the
+files to be displayed</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>header</code></td>
+<td>
+<p>headers to use for each file</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>title</code></td>
+<td>
+<p>common title to use for the window(s). Pasted together
+with the <code>header</code> to form actual window title.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>delete.file</code></td>
+<td>
+<p>logical. Should file(s) be deleted after display?</p>
+</td>
+</tr>
+</table>
+<h3>Note</h3>
+
+<p>  The <code>"\b_"</code> string used for underlining is currently
+quietly removed. The font and background colour are currently
+hardcoded to Courier and gray90.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="base.html#file.show">file.show</a></code>
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="tkProgressBar">
+
+<a href="#tkProgressBar" class="help-page-title"><h2>Progress Bars via Tk</h2></a>
+
+<h3>Description</h3>
+
+<p>Put up a Tk progress bar widget.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">tkProgressBar<span class="token punctuation">(</span>title <span class="token operator">=</span> <span class="token string">"R progress bar"</span><span class="token punctuation">,</span> label <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span>
+              min <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> max <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> initial <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> width <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">)</span>
+
+getTkProgressBar<span class="token punctuation">(</span>pb<span class="token punctuation">)</span>
+setTkProgressBar<span class="token punctuation">(</span>pb<span class="token punctuation">,</span> value<span class="token punctuation">,</span> title <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> label <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'tkProgressBar'</span>
+close<span class="token punctuation">(</span>con<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>title, label</code></td>
+<td>
+<p>character strings, giving the window title and the
+label on the dialog box respectively.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>min, max</code></td>
+<td>
+<p>(finite) numeric values for the extremes of the
+progress bar.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>initial, value</code></td>
+<td>
+<p>initial or new value for the progress bar.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>width</code></td>
+<td>
+<p>the width of the progress bar in pixels: the dialog box
+will be 40 pixels wider (plus frame).</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>pb, con</code></td>
+<td>
+<p>an object of class <code>"tkProgressBar"</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>for consistency with the generic.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>tkProgressBar</code> will display a widget containing a label and
+progress bar.
+</p>
+<p><code>setTkProgessBar</code> will update the value and for non-<code>NULL</code>
+values, the title and label (provided there was one when the widget
+was created).  Missing (<code><a href="base.html#NA">NA</a></code>) and out-of-range values of
+<code>value</code> will be (silently) ignored.
+</p>
+<p>The progress bar should be <code>close</code>d when finished with.
+</p>
+<p>This will use the <code>ttk::progressbar</code> widget for Tk version 8.5 or
+later, otherwise <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s copy of BWidget's <code>progressbar</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>tkProgressBar</code> an object of class <code>"tkProgressBar"</code>.
+</p>
+<p>For <code>getTkProgressBar</code> and <code>setTkProgressBar</code>, a
+length-one numeric vector giving the previous value (invisibly for
+<code>setTkProgressBar</code>).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="utils.html#txtProgressBar">txtProgressBar</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">pb <span class="token operator">&lt;-</span> tkProgressBar<span class="token punctuation">(</span><span class="token string">"test progress bar"</span><span class="token punctuation">,</span> <span class="token string">"Some information in %"</span><span class="token punctuation">,</span>
+                    <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span>
+Sys.sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+u <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> sort<span class="token punctuation">(</span>runif<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token keyword">in</span> u<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Sys.sleep<span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span>
+    info <span class="token operator">&lt;-</span> sprintf<span class="token punctuation">(</span><span class="token string">"%d%% done"</span><span class="token punctuation">,</span> round<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    setTkProgressBar<span class="token punctuation">(</span>pb<span class="token punctuation">,</span> i<span class="token punctuation">,</span> sprintf<span class="token punctuation">(</span><span class="token string">"test (%s)"</span><span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">,</span> info<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+Sys.sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+close<span class="token punctuation">(</span>pb<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="tkStartGUI">
+
+<a href="#tkStartGUI" class="help-page-title"><h2>Tcl/Tk GUI startup</h2></a>
+
+<h3>Description</h3>
+
+<p>Starts up the Tcl/Tk GUI
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">tkStartGUI<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Details</h3>
+
+<p>Starts a GUI console implemented via a Tk text widget. This should
+probably be called at most once per session. Also redefines the file
+pager (as used by <code>help()</code>) to be the Tk pager.
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>tkStartGUI()</code> saves its evaluation environment as
+<code>.GUIenv</code>. This means that the user interface elements can be
+accessed in order to extend the interface. The three main objects are
+named <code>Term</code>, <code>Menu</code>, and <code>Toolbar</code>, and the various
+submenus and callback functions can be seen with
+<code>ls(envir = .GUIenv)</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Peter Dalgaard</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="TkWidgetcmds">
+
+<a href="#TkWidgetcmds" class="help-page-title"><h2>Tk widget commands</h2></a>
+
+<h3>Description</h3>
+
+<p>These functions interface to Tk widget commands.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">tkactivate<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkadd<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkaddtag<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkbbox<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkcanvasx<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkcanvasy<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkcget<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkcompare<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkconfigure<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkcoords<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkcreate<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkcurselection<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkdchars<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkdebug<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkdelete<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkdelta<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkdeselect<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkdlineinfo<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkdtag<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkdump<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkentrycget<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkentryconfigure<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkfind<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkflash<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkfraction<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkget<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkgettags<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkicursor<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkidentify<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkindex<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkinsert<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkinvoke<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkitembind<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkitemcget<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkitemconfigure<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkitemfocus<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkitemlower<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkitemraise<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkitemscale<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkmark.gravity<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkmark.names<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkmark.<span class="token keyword">next</span><span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkmark.previous<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkmark.set<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkmark.unset<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkmove<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tknearest<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkpost<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkpostcascade<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkpostscript<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkscan.mark<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkscan.dragto<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tksearch<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tksee<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkselect<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkselection.adjust<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkselection.anchor<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkselection.clear<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkselection.from<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkselection.includes<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkselection.present<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkselection.range<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkselection.set<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkselection.to<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkset<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tksize<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktoggle<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktag.add<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktag.bind<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktag.cget<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktag.configure<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktag.delete<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktag.lower<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktag.names<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktag.nextrange<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktag.prevrange<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktag.raise<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktag.ranges<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktag.remove<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktype<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkunpost<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwindow.cget<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwindow.configure<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwindow.create<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkwindow.names<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkxview<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkxview.moveto<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkxview.scroll<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkyposition<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkyview<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkyview.moveto<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkyview.scroll<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>widget</code></td>
+<td>
+<p>The widget this applies to</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>Handled via <code>.Tcl.args</code></p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>There are far too many of these commands to describe them and their
+arguments in full. Please refer to the Tcl/Tk documentation for details.
+Except for a few exceptions, the pattern is that  Tcl widget commands
+possibly with subcommands like
+<code>.a.b selection clear</code> are converted to function names like
+<code>tkselection.clear</code> and the widget is given as the first argument.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#TclInterface">TclInterface</a></code>, <code><a href="#TkWidgets">TkWidgets</a></code>,
+<code><a href="#TkCommands">TkCommands</a></code></p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## These cannot be run by examples() but should be OK when pasted</span><span class="token comment">## into an interactive R session with the tcltk package loaded</span>
+
+tt <span class="token operator">&lt;-</span> tktoplevel<span class="token punctuation">(</span><span class="token punctuation">)</span>
+tkpack<span class="token punctuation">(</span>txt.w <span class="token operator">&lt;-</span> tktext<span class="token punctuation">(</span>tt<span class="token punctuation">)</span><span class="token punctuation">)</span>
+tkinsert<span class="token punctuation">(</span>txt.w<span class="token punctuation">,</span> <span class="token string">"0.0"</span><span class="token punctuation">,</span> <span class="token string">"plot(1:10)"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># callback function</span>
+eval.txt <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> eval<span class="token punctuation">(</span>str2lang<span class="token punctuation">(</span>tclvalue<span class="token punctuation">(</span>tkget<span class="token punctuation">(</span>txt.w<span class="token punctuation">,</span> <span class="token string">"0.0"</span><span class="token punctuation">,</span> <span class="token string">"end"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+tkpack<span class="token punctuation">(</span>but.w <span class="token operator">&lt;-</span> tkbutton<span class="token punctuation">(</span>tt<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"Submit"</span><span class="token punctuation">,</span> command <span class="token operator">=</span> eval.txt<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Try pressing the button, edit the text and when finished:</span>
+
+tkdestroy<span class="token punctuation">(</span>tt<span class="token punctuation">)</span>
+
+<span class="token comment">## End(Not run)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="TkWidgets">
+
+<a href="#TkWidgets" class="help-page-title"><h2>Tk widgets</h2></a>
+
+<h3>Description</h3>
+
+<p>Create Tk widgets and associated <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">tkwidget<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> type<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+tkbutton<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkcanvas<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkcheckbutton<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkentry<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttkentry<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkframe<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tklabel<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tklistbox<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkmenu<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkmenubutton<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkmessage<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkradiobutton<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkscale<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tkscrollbar<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktext<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+tktoplevel<span class="token punctuation">(</span>parent <span class="token operator">=</span> .TkRoot<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+ttkbutton<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttkcheckbutton<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttkcombobox<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttkframe<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttklabel<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttklabelframe<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttkmenubutton<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttknotebook<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttkpanedwindow<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttkprogressbar<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttkradiobutton<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttkscale<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttkscrollbar<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttkseparator<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttksizegrip<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttkspinbox<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+ttktreeview<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>parent</code></td>
+<td>
+<p>Parent of widget window.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>type</code></td>
+<td>
+<p>string describing the type of widget desired.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>handled via <code><a href="#TclInterface">.Tcl.args</a></code>.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>These functions create Tk widgets.  <code>tkwidget</code> creates a widget of
+a given type, the others simply call <code>tkwidget</code> with the
+respective <code>type</code> argument.
+</p>
+<p>The functions starting <code>ttk</code> are for the themed widget set for Tk
+8.5 or later.  A tutorial can be found at <a href="https://tkdocs.com/" target="_blank">https://tkdocs.com/</a>.
+</p>
+<p>It is not possible to describe the widgets and their arguments in
+full.  Please refer to the Tcl/Tk documentation.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#TclInterface">TclInterface</a></code>, <code><a href="#TkCommands">TkCommands</a></code>,
+<code><a href="#TkWidgetcmds">TkWidgetcmds</a></code></p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## These cannot be run by examples() but should be OK when pasted</span><span class="token comment">## into an interactive R session with the tcltk package loaded</span>
+
+tt <span class="token operator">&lt;-</span> tktoplevel<span class="token punctuation">(</span><span class="token punctuation">)</span>
+label.widget <span class="token operator">&lt;-</span> tklabel<span class="token punctuation">(</span>tt<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"Hello, World!"</span><span class="token punctuation">)</span>
+button.widget <span class="token operator">&lt;-</span> tkbutton<span class="token punctuation">(</span>tt<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"Push"</span><span class="token punctuation">,</span>
+                          command <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>cat<span class="token punctuation">(</span><span class="token string">"OW!\n"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+tkpack<span class="token punctuation">(</span>label.widget<span class="token punctuation">,</span> button.widget<span class="token punctuation">)</span> <span class="token comment"># geometry manager</span>
+                                    <span class="token comment"># see Tk-commands</span>
+
+<span class="token comment">## Push the button and then...</span>
+
+tkdestroy<span class="token punctuation">(</span>tt<span class="token punctuation">)</span>
+
+<span class="token comment">## test for themed widgets</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>as.character<span class="token punctuation">(</span>tcl<span class="token punctuation">(</span><span class="token string">"info"</span><span class="token punctuation">,</span> <span class="token string">"tclversion"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token string">"8.5"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment"># make use of themed widgets</span>
+  <span class="token comment"># list themes</span>
+  themes <span class="token operator">&lt;-</span> as.character<span class="token punctuation">(</span>tcl<span class="token punctuation">(</span><span class="token string">"ttk::style"</span><span class="token punctuation">,</span> <span class="token string">"theme"</span><span class="token punctuation">,</span> <span class="token string">"names"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  themes
+  <span class="token comment"># select a theme -- for pre-XP windows</span>
+  <span class="token comment">#   tcl("ttk::style", "theme", "use", "winnative")</span>
+  tcl<span class="token punctuation">(</span><span class="token string">"ttk::style"</span><span class="token punctuation">,</span> <span class="token string">"theme"</span><span class="token punctuation">,</span> <span class="token string">"use"</span><span class="token punctuation">,</span> themes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token comment"># use Tk 8.0 widgets</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">## End(Not run)</span></code></pre>
+
+<hr>
+</div>
+</body>
+</html>

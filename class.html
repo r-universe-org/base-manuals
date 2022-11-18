@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Package 'class' reference manual</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <!-- styling for math and syntax -->
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
+
+    <!-- for (future) customizations -->
+    <script src="https://r-universe.dev/static/manual.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+
+  </head>
+
+  <body class="macintosh">
+    <h1 class="manual-title">Package 'class'</h1>
+    <table class="description-table">
+      <tr>
+<th>Title:</th>
+<td class="description-title">Functions for Classification</td>
+</tr>
+      <tr>
+<th>Description:</th>
+<td class="description-description">Various functions for classification, including k-nearest
+  neighbour, Learning Vector Quantization and Self-Organizing Maps.</td>
+</tr>
+      <tr>
+<th>Authors:</th>
+<td class="description-author">Brian Ripley [aut, cre, cph],
+  William Venables [cph]</td>
+</tr>
+      <tr>
+<th>Maintainer:</th>
+<td class="description-maintainer">Brian Ripley &lt;ripley@stats.ox.ac.uk&gt;</td>
+</tr>
+      <tr>
+<th>License:</th>
+<td class="description-license">GPL-2 | GPL-3</td>
+</tr>
+      <tr>
+<th>Version:</th>
+<td class="description-version">7.3-20</td>
+</tr>
+      <tr>
+<th>Built:</th>
+<td class="description-date">2022-10-31 22:33:28 UTC</td>
+</tr>
+      <tr>
+<th>Source:</th>
+<td class="description-source">CRAN</td>
+</tr>
+    </table>
+
+    <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
+    <ul id="help-index-list">
+<li class="help-index-item"><a href="#batchSOM">
+Self-Organizing Maps: Batch Algorithm
+</a></li>
+<li class="help-index-item"><a href="#condense">
+Condense training set for k-NN classifier
+</a></li>
+<li class="help-index-item"><a href="#knn">
+k-Nearest Neighbour Classification
+</a></li>
+<li class="help-index-item"><a href="#knn.cv">
+k-Nearest Neighbour Cross-Validatory Classification
+</a></li>
+<li class="help-index-item"><a href="#knn1">
+1-Nearest Neighbour Classification
+</a></li>
+<li class="help-index-item"><a href="#lvq1">
+Learning Vector Quantization 1
+</a></li>
+<li class="help-index-item"><a href="#lvq2">
+Learning Vector Quantization 2.1
+</a></li>
+<li class="help-index-item"><a href="#lvq3">
+Learning Vector Quantization 3
+</a></li>
+<li class="help-index-item"><a href="#lvqinit">
+Initialize a LVQ Codebook
+</a></li>
+<li class="help-index-item"><a href="#lvqtest">
+Classify Test Set from LVQ Codebook
+</a></li>
+<li class="help-index-item"><a href="#multiedit">
+Multiedit for k-NN Classifier
+</a></li>
+<li class="help-index-item"><a href="#olvq1">
+Optimized Learning Vector Quantization 1
+</a></li>
+<li class="help-index-item"><a href="#reduce.nn">
+Reduce Training Set for a k-NN Classifier
+</a></li>
+<li class="help-index-item"><a href="#SOM">
+Self-Organizing Maps: Online Algorithm
+</a></li>
+<li class="help-index-item"><a href="#somgrid">
+Plot SOM Fits
+</a></li>
+</ul>
+
+    <hr>
+  <div class="container manual-page" id="batchSOM">
+
+<a href="#batchSOM" class="help-page-title"><h2>
+Self-Organizing Maps: Batch Algorithm
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Kohonen's Self-Organizing Maps are a crude form of multidimensional scaling.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">batchSOM<span class="token punctuation">(</span>data<span class="token punctuation">,</span> grid <span class="token operator">=</span> somgrid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> radii<span class="token punctuation">,</span> init<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>data</code></td>
+<td>
+
+<p>a matrix or data frame of observations, scaled so that Euclidean
+distance is appropriate.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>grid</code></td>
+<td>
+
+<p>A grid for the representatives: see <code><a href="#somgrid">somgrid</a></code>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>radii</code></td>
+<td>
+
+<p>the radii of the neighbourhood to be used for each pass: one pass is
+run for each element of <code>radii</code>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>init</code></td>
+<td>
+
+<p>the initial representatives.  If missing, chosen (without replacement)
+randomly from <code>data</code>.
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The batch SOM algorithm of Kohonen(1995, section 3.14) is used.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"SOM"</code> with components
+</p>
+<table>
+<tr style="vertical-align: top;">
+<td><code>grid</code></td>
+<td>
+<p>the grid, an object of class <code>"somgrid"</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>codes</code></td>
+<td>
+<p>a matrix of representatives.</p>
+</td>
+</tr>
+</table>
+<h3>References</h3>
+
+<p>Kohonen, T. (1995) <em>Self-Organizing Maps.</em> Springer-Verlag.
+</p>
+<p>Ripley, B. D. (1996)
+<em>Pattern Recognition and Neural Networks.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#somgrid">somgrid</a></code>, <code><a href="#SOM">SOM</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">require<span class="token punctuation">(</span>graphics<span class="token punctuation">)</span>
+data<span class="token punctuation">(</span>crabs<span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">"MASS"</span><span class="token punctuation">)</span>
+
+lcrabs <span class="token operator">&lt;-</span> log<span class="token punctuation">(</span>crabs<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token operator">:</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+crabs.grp <span class="token operator">&lt;-</span> factor<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"B"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"O"</span><span class="token punctuation">,</span> <span class="token string">"o"</span><span class="token punctuation">)</span><span class="token punctuation">[</span>rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+gr <span class="token operator">&lt;-</span> somgrid<span class="token punctuation">(</span>topo <span class="token operator">=</span> <span class="token string">"hexagonal"</span><span class="token punctuation">)</span>
+crabs.som <span class="token operator">&lt;-</span> batchSOM<span class="token punctuation">(</span>lcrabs<span class="token punctuation">,</span> gr<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>crabs.som<span class="token punctuation">)</span>
+
+bins <span class="token operator">&lt;-</span> as.numeric<span class="token punctuation">(</span>knn1<span class="token punctuation">(</span>crabs.som<span class="token operator">$</span>code<span class="token punctuation">,</span> lcrabs<span class="token punctuation">,</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">47</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>crabs.som<span class="token operator">$</span>grid<span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"n"</span><span class="token punctuation">)</span>
+symbols<span class="token punctuation">(</span>crabs.som<span class="token operator">$</span>grid<span class="token operator">$</span>pts<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> crabs.som<span class="token operator">$</span>grid<span class="token operator">$</span>pts<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        circles <span class="token operator">=</span> rep<span class="token punctuation">(</span><span class="token number">0.4</span><span class="token punctuation">,</span> <span class="token number">48</span><span class="token punctuation">)</span><span class="token punctuation">,</span> inches <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> add <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+text<span class="token punctuation">(</span>crabs.som<span class="token operator">$</span>grid<span class="token operator">$</span>pts<span class="token punctuation">[</span>bins<span class="token punctuation">,</span> <span class="token punctuation">]</span> <span class="token operator">+</span> rnorm<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+     as.character<span class="token punctuation">(</span>crabs.grp<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="condense">
+
+<a href="#condense" class="help-page-title"><h2>
+Condense training set for k-NN classifier
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Condense training set for k-NN classifier
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">condense<span class="token punctuation">(</span>train<span class="token punctuation">,</span> class<span class="token punctuation">,</span> store<span class="token punctuation">,</span> trace <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>train</code></td>
+<td>
+
+<p>matrix for training set
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>class</code></td>
+<td>
+
+<p>vector of classifications for test set
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>store</code></td>
+<td>
+
+<p>initial store set. Default one randomly chosen element of the set.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>trace</code></td>
+<td>
+
+<p>logical. Trace iterations?
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The store set is used to 1-NN classify the rest, and misclassified
+patterns are added to the store set. The whole set is checked until
+no additions occur.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Index vector of cases to be retained (the final store set).
+</p>
+
+
+<h3>References</h3>
+
+<p>P. A. Devijver and J. Kittler (1982)
+<em>Pattern Recognition. A Statistical Approach.</em>
+Prentice-Hall, pp. 119–121.
+</p>
+<p>Ripley, B. D. (1996)
+<em>Pattern Recognition and Neural Networks.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#reduce.nn">reduce.nn</a></code>, <code><a href="#multiedit">multiedit</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">train <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+test <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+cl <span class="token operator">&lt;-</span> factor<span class="token punctuation">(</span>c<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+keep <span class="token operator">&lt;-</span> condense<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">)</span>
+knn<span class="token punctuation">(</span>train<span class="token punctuation">[</span>keep<span class="token punctuation">,</span> <span class="token punctuation">,</span> drop<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">]</span><span class="token punctuation">,</span> test<span class="token punctuation">,</span> cl<span class="token punctuation">[</span>keep<span class="token punctuation">]</span><span class="token punctuation">)</span>
+keep2 <span class="token operator">&lt;-</span> reduce.nn<span class="token punctuation">(</span>train<span class="token punctuation">,</span> keep<span class="token punctuation">,</span> cl<span class="token punctuation">)</span>
+knn<span class="token punctuation">(</span>train<span class="token punctuation">[</span>keep2<span class="token punctuation">,</span> <span class="token punctuation">,</span> drop<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">]</span><span class="token punctuation">,</span> test<span class="token punctuation">,</span> cl<span class="token punctuation">[</span>keep2<span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="knn">
+
+<a href="#knn" class="help-page-title"><h2>
+k-Nearest Neighbour Classification
+</h2></a>
+
+<h3>Description</h3>
+
+<p>k-nearest neighbour classification for test set from training set. For
+each row of the test set, the <code>k</code> nearest (in Euclidean distance)
+training set vectors are found, and the classification is decided by
+majority vote, with ties broken at random. If there are ties for the
+<code>k</code>th nearest vector, all candidates are included in the vote.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">knn<span class="token punctuation">(</span>train<span class="token punctuation">,</span> test<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> prob <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> use.all <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>train</code></td>
+<td>
+
+<p>matrix or data frame of training set cases.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>test</code></td>
+<td>
+
+<p>matrix or data frame of test set cases. A vector will be interpreted
+as a row vector for a single case.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>cl</code></td>
+<td>
+
+<p>factor of true classifications of training set
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>k</code></td>
+<td>
+
+<p>number of neighbours considered.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>l</code></td>
+<td>
+
+<p>minimum vote for definite decision, otherwise <code>doubt</code>. (More
+precisely, less than <code>k-l</code> dissenting votes are allowed, even if <code>k</code>
+is increased by ties.)
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>prob</code></td>
+<td>
+
+<p>If this is true, the proportion of the votes for the winning class
+are returned as attribute <code>prob</code>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>use.all</code></td>
+<td>
+
+<p>controls handling of ties. If true, all distances equal to the <code>k</code>th
+largest are included. If false, a random selection of distances
+equal to the <code>k</code>th is chosen to use exactly <code>k</code> neighbours.
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>Factor of classifications of test set. <code>doubt</code> will be returned as <code>NA</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1996)
+<em>Pattern Recognition and Neural Networks.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#knn1">knn1</a></code>, <code><a href="#knn.cv">knn.cv</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">train <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+test <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+cl <span class="token operator">&lt;-</span> factor<span class="token punctuation">(</span>c<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+knn<span class="token punctuation">(</span>train<span class="token punctuation">,</span> test<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> prob<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+attributes<span class="token punctuation">(</span>.Last.value<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="knn.cv">
+
+<a href="#knn.cv" class="help-page-title"><h2>
+k-Nearest Neighbour Cross-Validatory Classification
+</h2></a>
+
+<h3>Description</h3>
+
+<p>k-nearest neighbour cross-validatory classification from training set.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">knn.cv<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> prob <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> use.all <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>train</code></td>
+<td>
+
+<p>matrix or data frame of training set cases.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>cl</code></td>
+<td>
+
+<p>factor of true classifications of training set
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>k</code></td>
+<td>
+
+<p>number of neighbours considered.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>l</code></td>
+<td>
+
+<p>minimum vote for definite decision, otherwise <code>doubt</code>. (More
+precisely, less than <code>k-l</code> dissenting votes are allowed, even
+if <code>k</code> is increased by ties.)
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>prob</code></td>
+<td>
+
+<p>If this is true, the proportion of the votes for the winning class
+are returned as attribute <code>prob</code>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>use.all</code></td>
+<td>
+
+<p>controls handling of ties. If true, all distances equal to the <code>k</code>th
+largest are included. If false, a random selection of distances
+equal to the <code>k</code>th is chosen to use exactly <code>k</code> neighbours.
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>This uses leave-one-out cross validation.
+For each row of the training set <code>train</code>, the <code>k</code> nearest
+(in Euclidean distance) other
+training set vectors are found, and the classification is decided by
+majority vote, with ties broken at random. If there are ties for the
+<code>k</code>th nearest vector, all candidates are included in the vote.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Factor of classifications of training set. <code>doubt</code> will be returned as <code>NA</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1996)
+<em>Pattern Recognition and Neural Networks.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#knn">knn</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">train <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+cl <span class="token operator">&lt;-</span> factor<span class="token punctuation">(</span>c<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+knn.cv<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> prob <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+attributes<span class="token punctuation">(</span>.Last.value<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="knn1">
+
+<a href="#knn1" class="help-page-title"><h2>
+1-Nearest Neighbour Classification
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Nearest neighbour classification for test set from training set. For
+each row of the test set, the nearest (by Euclidean distance) training
+set vector is found, and its classification used. If there is more than
+one nearest, a majority vote is used with ties broken at random.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">knn1<span class="token punctuation">(</span>train<span class="token punctuation">,</span> test<span class="token punctuation">,</span> cl<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>train</code></td>
+<td>
+
+<p>matrix or data frame of training set cases.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>test</code></td>
+<td>
+
+<p>matrix or data frame of test set cases. A vector will be interpreted
+as a row vector for a single case.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>cl</code></td>
+<td>
+
+<p>factor of true classification of training set.
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>Factor of classifications of test set.
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1996)
+<em>Pattern Recognition and Neural Networks.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#knn">knn</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">train <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+test <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+cl <span class="token operator">&lt;-</span> factor<span class="token punctuation">(</span>c<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+knn1<span class="token punctuation">(</span>train<span class="token punctuation">,</span> test<span class="token punctuation">,</span> cl<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="lvq1">
+
+<a href="#lvq1" class="help-page-title"><h2>
+Learning Vector Quantization 1
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Moves examples in a codebook to better represent the training set.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">lvq1<span class="token punctuation">(</span>x<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> codebk<span class="token punctuation">,</span> niter <span class="token operator">=</span> <span class="token number">100</span> <span class="token operator">*</span> nrow<span class="token punctuation">(</span>codebk<span class="token operator">$</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> alpha <span class="token operator">=</span> <span class="token number">0.03</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>a matrix or data frame of examples
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>cl</code></td>
+<td>
+
+<p>a vector or factor of classifications for the examples
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>codebk</code></td>
+<td>
+
+<p>a codebook
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>niter</code></td>
+<td>
+
+<p>number of iterations
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>alpha</code></td>
+<td>
+
+<p>constant for training
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Selects <code>niter</code> examples at random  with replacement, and adjusts the nearest
+example in the codebook for each.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A codebook, represented as a list with components <code>x</code> and <code>cl</code>
+giving the examples and classes.
+</p>
+
+
+<h3>References</h3>
+
+<p>Kohonen, T. (1990) The self-organizing map.
+<em>Proc. IEEE </em>
+<b>78</b>, 1464–1480.
+</p>
+<p>Kohonen, T. (1995)
+<em>Self-Organizing Maps.</em>
+Springer, Berlin.
+</p>
+<p>Ripley, B. D. (1996)
+<em>Pattern Recognition and Neural Networks.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#lvqinit">lvqinit</a></code>, <code><a href="#olvq1">olvq1</a></code>, <code><a href="#lvq2">lvq2</a></code>, <code><a href="#lvq3">lvq3</a></code>, <code><a href="#lvqtest">lvqtest</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">train <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+test <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+cl <span class="token operator">&lt;-</span> factor<span class="token punctuation">(</span>c<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+cd <span class="token operator">&lt;-</span> lvqinit<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+lvqtest<span class="token punctuation">(</span>cd<span class="token punctuation">,</span> train<span class="token punctuation">)</span>
+cd0 <span class="token operator">&lt;-</span> olvq1<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> cd<span class="token punctuation">)</span>
+lvqtest<span class="token punctuation">(</span>cd0<span class="token punctuation">,</span> train<span class="token punctuation">)</span>
+cd1 <span class="token operator">&lt;-</span> lvq1<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> cd0<span class="token punctuation">)</span>
+lvqtest<span class="token punctuation">(</span>cd1<span class="token punctuation">,</span> train<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="lvq2">
+
+<a href="#lvq2" class="help-page-title"><h2>
+Learning Vector Quantization 2.1
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Moves examples in a codebook to better represent the training set.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">lvq2<span class="token punctuation">(</span>x<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> codebk<span class="token punctuation">,</span> niter <span class="token operator">=</span> <span class="token number">100</span> <span class="token operator">*</span> nrow<span class="token punctuation">(</span>codebk<span class="token operator">$</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> alpha <span class="token operator">=</span> <span class="token number">0.03</span><span class="token punctuation">,</span>
+     win <span class="token operator">=</span> <span class="token number">0.3</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>a matrix or data frame of examples
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>cl</code></td>
+<td>
+
+<p>a vector or factor of classifications for the examples
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>codebk</code></td>
+<td>
+
+<p>a codebook
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>niter</code></td>
+<td>
+
+<p>number of iterations
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>alpha</code></td>
+<td>
+
+<p>constant for training
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>win</code></td>
+<td>
+
+<p>a tolerance for the closeness of the two nearest vectors.
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Selects <code>niter</code> examples at random  with replacement, and adjusts the nearest
+two examples in the codebook if one is correct and the other incorrect.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A codebook, represented as a list with components <code>x</code> and <code>cl</code>
+giving the examples and classes.
+</p>
+
+
+<h3>References</h3>
+
+<p>Kohonen, T. (1990) The self-organizing map.
+<em>Proc. IEEE</em>
+<b>78</b>, 1464–1480.
+</p>
+<p>Kohonen, T. (1995)
+<em>Self-Organizing Maps.</em>
+Springer, Berlin.
+</p>
+<p>Ripley, B. D. (1996)
+<em>Pattern Recognition and Neural Networks.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#lvqinit">lvqinit</a></code>, <code><a href="#lvq1">lvq1</a></code>, <code><a href="#olvq1">olvq1</a></code>,
+<code><a href="#lvq3">lvq3</a></code>, <code><a href="#lvqtest">lvqtest</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">train <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+test <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+cl <span class="token operator">&lt;-</span> factor<span class="token punctuation">(</span>c<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+cd <span class="token operator">&lt;-</span> lvqinit<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+lvqtest<span class="token punctuation">(</span>cd<span class="token punctuation">,</span> train<span class="token punctuation">)</span>
+cd0 <span class="token operator">&lt;-</span> olvq1<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> cd<span class="token punctuation">)</span>
+lvqtest<span class="token punctuation">(</span>cd0<span class="token punctuation">,</span> train<span class="token punctuation">)</span>
+cd2 <span class="token operator">&lt;-</span> lvq2<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> cd0<span class="token punctuation">)</span>
+lvqtest<span class="token punctuation">(</span>cd2<span class="token punctuation">,</span> train<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="lvq3">
+
+<a href="#lvq3" class="help-page-title"><h2>
+Learning Vector Quantization 3
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Moves examples in a codebook to better represent the training set.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">lvq3<span class="token punctuation">(</span>x<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> codebk<span class="token punctuation">,</span> niter <span class="token operator">=</span> <span class="token number">100</span><span class="token operator">*</span>nrow<span class="token punctuation">(</span>codebk<span class="token operator">$</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> alpha <span class="token operator">=</span> <span class="token number">0.03</span><span class="token punctuation">,</span>
+     win <span class="token operator">=</span> <span class="token number">0.3</span><span class="token punctuation">,</span> epsilon <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>a matrix or data frame of examples
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>cl</code></td>
+<td>
+
+<p>a vector or factor of classifications for the examples
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>codebk</code></td>
+<td>
+
+<p>a codebook
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>niter</code></td>
+<td>
+
+<p>number of iterations
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>alpha</code></td>
+<td>
+
+<p>constant for training
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>win</code></td>
+<td>
+
+<p>a tolerance for the closeness of the two nearest vectors.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>epsilon</code></td>
+<td>
+
+<p>proportion of move for correct vectors
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Selects <code>niter</code> examples at random  with replacement, and adjusts the nearest
+two examples in the codebook for each.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A codebook, represented as a list with components <code>x</code> and <code>cl</code>
+giving the examples and classes.
+</p>
+
+
+<h3>References</h3>
+
+<p>Kohonen, T. (1990) The self-organizing map.
+<em>Proc. IEEE</em>
+<b>78</b>, 1464–1480.
+</p>
+<p>Kohonen, T. (1995)
+<em>Self-Organizing Maps.</em>
+Springer, Berlin.
+</p>
+<p>Ripley, B. D. (1996)
+<em>Pattern Recognition and Neural Networks.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#lvqinit">lvqinit</a></code>, <code><a href="#lvq1">lvq1</a></code>, <code><a href="#olvq1">olvq1</a></code>,
+<code><a href="#lvq2">lvq2</a></code>, <code><a href="#lvqtest">lvqtest</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">train <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+test <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+cl <span class="token operator">&lt;-</span> factor<span class="token punctuation">(</span>c<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+cd <span class="token operator">&lt;-</span> lvqinit<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+lvqtest<span class="token punctuation">(</span>cd<span class="token punctuation">,</span> train<span class="token punctuation">)</span>
+cd0 <span class="token operator">&lt;-</span> olvq1<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> cd<span class="token punctuation">)</span>
+lvqtest<span class="token punctuation">(</span>cd0<span class="token punctuation">,</span> train<span class="token punctuation">)</span>
+cd3 <span class="token operator">&lt;-</span> lvq3<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> cd0<span class="token punctuation">)</span>
+lvqtest<span class="token punctuation">(</span>cd3<span class="token punctuation">,</span> train<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="lvqinit">
+
+<a href="#lvqinit" class="help-page-title"><h2>
+Initialize a LVQ Codebook
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Construct an initial codebook for LVQ methods.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">lvqinit<span class="token punctuation">(</span>x<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> size<span class="token punctuation">,</span> prior<span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>a matrix or data frame of training examples, <code>n</code> by <code>p</code>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>cl</code></td>
+<td>
+
+<p>the classifications for the training examples. A vector or factor of
+length <code>n</code>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>size</code></td>
+<td>
+
+<p>the size of the codebook. Defaults to <code>min(round(0.4*ng*(ng-1 + p/2),0), n)</code>
+where <code>ng</code> is the number of classes.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>prior</code></td>
+<td>
+
+<p>Probabilities to represent classes in the codebook. Default proportions in the
+training set.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>k</code></td>
+<td>
+
+<p>k used for k-NN test of correct classification. Default is 5.
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Selects <code>size</code> examples from the training set without replacement with
+proportions proportional to the prior or the original proportions.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A codebook, represented as a list with components <code>x</code> and <code>cl</code> giving
+the examples and classes.
+</p>
+
+
+<h3>References</h3>
+
+<p>Kohonen, T. (1990) The self-organizing map.
+<em>Proc. IEEE </em>
+<b>78</b>, 1464–1480.
+</p>
+<p>Kohonen, T. (1995)
+<em>Self-Organizing Maps.</em>
+Springer, Berlin.
+</p>
+<p>Ripley, B. D. (1996)
+<em>Pattern Recognition and Neural Networks.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#lvq1">lvq1</a></code>, <code><a href="#lvq2">lvq2</a></code>, <code><a href="#lvq3">lvq3</a></code>, <code><a href="#olvq1">olvq1</a></code>, <code><a href="#lvqtest">lvqtest</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">train <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+test <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+cl <span class="token operator">&lt;-</span> factor<span class="token punctuation">(</span>c<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+cd <span class="token operator">&lt;-</span> lvqinit<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+lvqtest<span class="token punctuation">(</span>cd<span class="token punctuation">,</span> train<span class="token punctuation">)</span>
+cd1 <span class="token operator">&lt;-</span> olvq1<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> cd<span class="token punctuation">)</span>
+lvqtest<span class="token punctuation">(</span>cd1<span class="token punctuation">,</span> train<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="lvqtest">
+
+<a href="#lvqtest" class="help-page-title"><h2>
+Classify Test Set from LVQ Codebook
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Classify a test set by 1-NN from a specified LVQ codebook.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">lvqtest<span class="token punctuation">(</span>codebk<span class="token punctuation">,</span> test<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>codebk</code></td>
+<td>
+
+<p>codebook object returned by other LVQ software
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>test</code></td>
+<td>
+
+<p>matrix of test examples
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Uses 1-NN to classify each test example against the codebook.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Factor of classification for each row of <code>x</code>
+</p>
+
+
+<h3>References</h3>
+
+<p>Ripley, B. D. (1996)
+<em>Pattern Recognition and Neural Networks.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#lvqinit">lvqinit</a></code>, <code><a href="#olvq1">olvq1</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment"># The function is currently defined as</span><span class="token keyword">function</span><span class="token punctuation">(</span>codebk<span class="token punctuation">,</span> test<span class="token punctuation">)</span> knn1<span class="token punctuation">(</span>codebk<span class="token operator">$</span>x<span class="token punctuation">,</span> test<span class="token punctuation">,</span> codebk<span class="token operator">$</span>cl<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="multiedit">
+
+<a href="#multiedit" class="help-page-title"><h2>
+Multiedit for k-NN Classifier
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Multiedit for k-NN classifier
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">multiedit<span class="token punctuation">(</span>x<span class="token punctuation">,</span> class<span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> V <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> I <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> trace <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>matrix of training set.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>class</code></td>
+<td>
+
+<p>vector of classification of training set.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>k</code></td>
+<td>
+
+<p>number of neighbours used in k-NN.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>V</code></td>
+<td>
+
+<p>divide training set into V parts.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>I</code></td>
+<td>
+
+<p>number of null passes before quitting.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>trace</code></td>
+<td>
+
+<p>logical for statistics at each pass.
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>Index vector of cases to be retained.
+</p>
+
+
+<h3>References</h3>
+
+<p>P. A. Devijver and J. Kittler (1982)
+<em>Pattern Recognition. A Statistical Approach.</em>
+Prentice-Hall, p. 115.
+</p>
+<p>Ripley, B. D. (1996)
+<em>Pattern Recognition and Neural Networks.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#condense">condense</a></code>, <code><a href="#reduce.nn">reduce.nn</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">tr <span class="token operator">&lt;-</span> sample<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span>
+train <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span>tr<span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span>tr<span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span>tr<span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+test <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token operator">-</span>tr<span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token operator">-</span>tr<span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token operator">-</span>tr<span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+cl <span class="token operator">&lt;-</span> factor<span class="token punctuation">(</span>c<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span>rep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> labels<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"v"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+table<span class="token punctuation">(</span>cl<span class="token punctuation">,</span> knn<span class="token punctuation">(</span>train<span class="token punctuation">,</span> test<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ind1 <span class="token operator">&lt;-</span> multiedit<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+length<span class="token punctuation">(</span>ind1<span class="token punctuation">)</span>
+table<span class="token punctuation">(</span>cl<span class="token punctuation">,</span> knn<span class="token punctuation">(</span>train<span class="token punctuation">[</span>ind1<span class="token punctuation">,</span> <span class="token punctuation">,</span> drop<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">]</span><span class="token punctuation">,</span> test<span class="token punctuation">,</span> cl<span class="token punctuation">[</span>ind1<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ntrain <span class="token operator">&lt;-</span> train<span class="token punctuation">[</span>ind1<span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">;</span> ncl <span class="token operator">&lt;-</span> cl<span class="token punctuation">[</span>ind1<span class="token punctuation">]</span>
+ind2 <span class="token operator">&lt;-</span> condense<span class="token punctuation">(</span>ntrain<span class="token punctuation">,</span> ncl<span class="token punctuation">)</span>
+length<span class="token punctuation">(</span>ind2<span class="token punctuation">)</span>
+table<span class="token punctuation">(</span>cl<span class="token punctuation">,</span> knn<span class="token punctuation">(</span>ntrain<span class="token punctuation">[</span>ind2<span class="token punctuation">,</span> <span class="token punctuation">,</span> drop<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">]</span><span class="token punctuation">,</span> test<span class="token punctuation">,</span> ncl<span class="token punctuation">[</span>ind2<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="olvq1">
+
+<a href="#olvq1" class="help-page-title"><h2>
+Optimized Learning Vector Quantization 1
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Moves examples in a codebook to better represent the training set.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">olvq1<span class="token punctuation">(</span>x<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> codebk<span class="token punctuation">,</span> niter <span class="token operator">=</span> <span class="token number">40</span> <span class="token operator">*</span> nrow<span class="token punctuation">(</span>codebk<span class="token operator">$</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> alpha <span class="token operator">=</span> <span class="token number">0.3</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+
+<p>a matrix or data frame of examples
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>cl</code></td>
+<td>
+
+<p>a vector or factor of classifications for the examples
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>codebk</code></td>
+<td>
+
+<p>a codebook
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>niter</code></td>
+<td>
+
+<p>number of iterations
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>alpha</code></td>
+<td>
+
+<p>constant for training
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Selects <code>niter</code> examples at random with replacement, and adjusts the
+nearest example in the codebook for each.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A codebook, represented as a list with components <code>x</code> and <code>cl</code> giving
+the examples and classes.
+</p>
+
+
+<h3>References</h3>
+
+<p>Kohonen, T. (1990) The self-organizing map.
+<em>Proc. IEEE</em>
+<b>78</b>, 1464–1480.
+</p>
+<p>Kohonen, T. (1995)
+<em>Self-Organizing Maps.</em>
+Springer, Berlin.
+</p>
+<p>Ripley, B. D. (1996)
+<em>Pattern Recognition and Neural Networks.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#lvqinit">lvqinit</a></code>, <code><a href="#lvqtest">lvqtest</a></code>, <code><a href="#lvq1">lvq1</a></code>, <code><a href="#lvq2">lvq2</a></code>, <code><a href="#lvq3">lvq3</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">train <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+test <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+cl <span class="token operator">&lt;-</span> factor<span class="token punctuation">(</span>c<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+cd <span class="token operator">&lt;-</span> lvqinit<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+lvqtest<span class="token punctuation">(</span>cd<span class="token punctuation">,</span> train<span class="token punctuation">)</span>
+cd1 <span class="token operator">&lt;-</span> olvq1<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">,</span> cd<span class="token punctuation">)</span>
+lvqtest<span class="token punctuation">(</span>cd1<span class="token punctuation">,</span> train<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="reduce.nn">
+
+<a href="#reduce.nn" class="help-page-title"><h2>
+Reduce Training Set for a k-NN Classifier
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Reduce training set for a k-NN classifier. Used after <code>condense</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">reduce.nn<span class="token punctuation">(</span>train<span class="token punctuation">,</span> ind<span class="token punctuation">,</span> class<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>train</code></td>
+<td>
+
+<p>matrix for training set
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>ind</code></td>
+<td>
+
+<p>Initial list of members of the training set (from <code>condense</code>).
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>class</code></td>
+<td>
+
+<p>vector of classifications for test set
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>All the members of the training set are tried in random order.
+Any which when dropped do not cause any members of the training set to
+be wrongly classified are dropped.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Index vector of cases to be retained.
+</p>
+
+
+<h3>References</h3>
+
+<p>Gates, G.W. (1972) The reduced nearest neighbor rule.
+<em>IEEE Trans. Information Theory</em>
+<b>IT-18</b>, 431–432.
+</p>
+<p>Ripley, B. D. (1996)
+<em>Pattern Recognition and Neural Networks.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#condense">condense</a></code>, <code><a href="#multiedit">multiedit</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">train <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+test <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token number">26</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+cl <span class="token operator">&lt;-</span> factor<span class="token punctuation">(</span>c<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+keep <span class="token operator">&lt;-</span> condense<span class="token punctuation">(</span>train<span class="token punctuation">,</span> cl<span class="token punctuation">)</span>
+knn<span class="token punctuation">(</span>train<span class="token punctuation">[</span>keep<span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span> test<span class="token punctuation">,</span> cl<span class="token punctuation">[</span>keep<span class="token punctuation">]</span><span class="token punctuation">)</span>
+keep2 <span class="token operator">&lt;-</span> reduce.nn<span class="token punctuation">(</span>train<span class="token punctuation">,</span> keep<span class="token punctuation">,</span> cl<span class="token punctuation">)</span>
+knn<span class="token punctuation">(</span>train<span class="token punctuation">[</span>keep2<span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span> test<span class="token punctuation">,</span> cl<span class="token punctuation">[</span>keep2<span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="SOM">
+
+<a href="#SOM" class="help-page-title"><h2>
+Self-Organizing Maps: Online Algorithm
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Kohonen's Self-Organizing Maps are a crude form of multidimensional scaling.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">SOM<span class="token punctuation">(</span>data<span class="token punctuation">,</span> grid <span class="token operator">=</span> somgrid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rlen <span class="token operator">=</span> <span class="token number">10000</span><span class="token punctuation">,</span> alpha<span class="token punctuation">,</span> radii<span class="token punctuation">,</span> init<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>data</code></td>
+<td>
+
+<p>a matrix or data frame of observations, scaled so that Euclidean
+distance is appropriate.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>grid</code></td>
+<td>
+
+<p>A grid for the representatives: see <code><a href="#somgrid">somgrid</a></code>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>rlen</code></td>
+<td>
+
+<p>the number of updates: used only in the defaults for <code>alpha</code> and <code>radii</code>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>alpha</code></td>
+<td>
+
+<p>the amount of change: one update is done for each element of <code>alpha</code>.
+Default is to decline linearly from 0.05 to 0 over <code>rlen</code> updates.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>radii</code></td>
+<td>
+
+<p>the radii of the neighbourhood to be used for each update: must be the
+same length as <code>alpha</code>.  Default is to decline linearly from 4 to 1
+over <code>rlen</code> updates.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>init</code></td>
+<td>
+
+<p>the initial representatives.  If missing, chosen (without replacement)
+randomly from <code>data</code>.
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>alpha</code> and <code>radii</code> can also be lists, in which case each component is
+used in turn, allowing two- or more phase training.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"SOM"</code> with components
+</p>
+<table>
+<tr style="vertical-align: top;">
+<td><code>grid</code></td>
+<td>
+
+<p>the grid, an object of class <code>"somgrid"</code>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>codes</code></td>
+<td>
+
+<p>a matrix of representatives.
+</p>
+</td>
+</tr>
+</table>
+<h3>References</h3>
+
+<p>Kohonen, T. (1995) <em>Self-Organizing Maps.</em> Springer-Verlag
+</p>
+<p>Kohonen, T., Hynninen, J., Kangas, J. and Laaksonen, J. (1996)
+<em>SOM PAK: The self-organizing map program package.</em>
+Laboratory of Computer and Information Science, Helsinki University
+of Technology, Technical Report A31.
+</p>
+<p>Ripley, B. D. (1996)
+<em>Pattern Recognition and Neural Networks.</em> Cambridge.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#somgrid">somgrid</a></code>, <code><a href="#batchSOM">batchSOM</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">require<span class="token punctuation">(</span>graphics<span class="token punctuation">)</span>
+data<span class="token punctuation">(</span>crabs<span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">"MASS"</span><span class="token punctuation">)</span>
+
+lcrabs <span class="token operator">&lt;-</span> log<span class="token punctuation">(</span>crabs<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token operator">:</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+crabs.grp <span class="token operator">&lt;-</span> factor<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"B"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"O"</span><span class="token punctuation">,</span> <span class="token string">"o"</span><span class="token punctuation">)</span><span class="token punctuation">[</span>rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+gr <span class="token operator">&lt;-</span> somgrid<span class="token punctuation">(</span>topo <span class="token operator">=</span> <span class="token string">"hexagonal"</span><span class="token punctuation">)</span>
+crabs.som <span class="token operator">&lt;-</span> SOM<span class="token punctuation">(</span>lcrabs<span class="token punctuation">,</span> gr<span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>crabs.som<span class="token punctuation">)</span>
+
+<span class="token comment">## 2-phase training</span>
+crabs.som2 <span class="token operator">&lt;-</span> SOM<span class="token punctuation">(</span>lcrabs<span class="token punctuation">,</span> gr<span class="token punctuation">,</span>
+    alpha <span class="token operator">=</span> list<span class="token punctuation">(</span>seq<span class="token punctuation">(</span><span class="token number">0.05</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> <span class="token number">1e4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> seq<span class="token punctuation">(</span><span class="token number">0.02</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> <span class="token number">1e5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    radii <span class="token operator">=</span> list<span class="token punctuation">(</span>seq<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> len <span class="token operator">=</span> <span class="token number">1e4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> seq<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> len <span class="token operator">=</span> <span class="token number">1e5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>crabs.som2<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="somgrid">
+
+<a href="#somgrid" class="help-page-title"><h2>
+Plot SOM Fits
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Plotting functions for SOM results.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">somgrid<span class="token punctuation">(</span>xdim <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> ydim <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">,</span> topo <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"rectangular"</span><span class="token punctuation">,</span> <span class="token string">"hexagonal"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## S3 method for class 'somgrid'</span>
+plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"p"</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+<span class="token comment">## S3 method for class 'SOM'</span>
+plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>xdim, ydim</code></td>
+<td>
+<p>dimensions of the grid</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>topo</code></td>
+<td>
+<p>the topology of the grid.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+<p>an object inheriting from class <code>"somgrid"</code> or <code>"SOM"</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>type, ...</code></td>
+<td>
+<p>graphical parameters.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The class <code>"somgrid"</code> records the coordinates of the grid to be
+used for (batch or on-line) SOM: this has a plot method.
+</p>
+<p>The plot method for class <code>"SOM"</code> plots a <code><a href="graphics.html#stars">stars</a></code>
+plot of the representative at each grid point.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>somgrid</code>, an object of class <code>"somgrid"</code>, a list with
+components
+</p>
+<table>
+<tr style="vertical-align: top;">
+<td><code>pts</code></td>
+<td>
+<p>a two-column matrix giving locations for the grid points.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>xdim, ydim, topo</code></td>
+<td>
+<p>as in the arguments to <code>somgrid</code>.</p>
+</td>
+</tr>
+</table>
+<h3>References</h3>
+
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#batchSOM">batchSOM</a></code>, <code><a href="#SOM">SOM</a></code>
+</p>
+
+<hr>
+</div>
+</body>
+</html>
