@@ -80,8 +80,8 @@ al.</td>
 <li class="help-index-item"><a href="#clara">Clustering Large Applications</a></li>
 <li class="help-index-item"><a href="#clara.object">Clustering Large Applications (CLARA) Object</a></li>
 <li class="help-index-item"><a href="#clusGap">Gap Statistic for Estimating the Number of Clusters</a></li>
-<li class="help-index-item"><a href="#clusplot.default">Bivariate Cluster Plot (clusplot) Default Method</a></li>
 <li class="help-index-item"><a href="#clusplot.partition">Bivariate Cluster Plot (of a Partitioning Object)</a></li>
+<li class="help-index-item"><a href="#clusplot.default">Bivariate Cluster Plot (clusplot) Default Method</a></li>
 <li class="help-index-item"><a href="#cluster-internal">Internal cluster functions</a></li>
 <li class="help-index-item"><a href="#coef.hclust">Agglomerative / Divisive Coefficient for 'hclust' Objects</a></li>
 <li class="help-index-item"><a href="#daisy">Dissimilarity Matrix Calculation</a></li>
@@ -1859,6 +1859,116 @@ gsP.Z</code></pre>
 
 <hr>
 </div>
+<div class="container manual-page" id="clusplot.partition">
+
+<a href="#clusplot.partition" class="help-page-title"><h2>Bivariate Cluster Plot (of a Partitioning Object)</h2></a>
+
+<h3>Description</h3>
+
+<p>Draws a 2-dimensional “clusplot” (clustering plot) on the
+current graphics device.
+The generic function has a default and a <code>partition</code> method.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">clusplot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+<span class="token comment">## S3 method for class 'partition'</span>
+clusplot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> dist <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+<p>an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object, here, specifically an object of class
+<code>"partition"</code>, e.g. created by one of the functions
+<code><a href="#pam">pam</a></code>, <code><a href="#clara">clara</a></code>, or <code><a href="#fanny">fanny</a></code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>main</code></td>
+<td>
+<p>title for the plot; when <code>NULL</code> (by default), a title
+is constructed, using <code>x$call</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>dist</code></td>
+<td>
+<p>when <code>x</code> does not have a <code>diss</code> nor a
+<code>data</code> component, e.g., for <code><a href="#pam">pam</a>(dist(*),
+      keep.diss=FALSE)</code>, <code>dist</code> must specify the dissimilarity for the
+clusplot.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>optional arguments passed to methods, notably the
+<code><a href="#clusplot.default">clusplot.default</a></code> method (except for the <code>diss</code>
+one) may also be supplied to this function.  Many graphical parameters
+(see <code><a href="graphics.html#par">par</a></code>) may also be supplied as arguments here.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The <code>clusplot.partition()</code> method relies on <code><a href="#clusplot.default">clusplot.default</a></code>.
+</p>
+<p>If the clustering algorithms <code>pam</code>, <code>fanny</code> and <code>clara</code>
+are applied to a data matrix of observations-by-variables then a
+clusplot of the resulting clustering can always be drawn.  When the
+data matrix contains missing values and the clustering is performed
+with <code><a href="#pam">pam</a></code> or <code><a href="#fanny">fanny</a></code>, the dissimilarity
+matrix will be given as input to <code>clusplot</code>.  When the clustering
+algorithm <code><a href="#clara">clara</a></code> was applied to a data matrix with <code><a href="base.html#NA">NA</a></code>s
+then <code>clusplot()</code> will replace the missing values as described in
+<code><a href="#clusplot.default">clusplot.default</a></code>, because a dissimilarity matrix is not
+available.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For the <code>partition</code> (and <code>default</code>) method: An invisible
+list with components <code>Distances</code> and <code>Shading</code>, as for
+<code><a href="#clusplot.default">clusplot.default</a></code>, see there.
+</p>
+
+
+<h3>Side Effects</h3>
+
+<p>a 2-dimensional clusplot is created on the current graphics device.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#clusplot.default">clusplot.default</a></code> for references;
+<code><a href="#partition.object">partition.object</a></code>, <code><a href="#pam">pam</a></code>,
+<code><a href="#pam.object">pam.object</a></code>, <code><a href="#clara">clara</a></code>,
+<code><a href="#clara.object">clara.object</a></code>, <code><a href="#fanny">fanny</a></code>,
+<code><a href="#fanny.object">fanny.object</a></code>, <code><a href="graphics.html#par">par</a></code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## For more, see ?clusplot.default</span><span class="token comment">## generate 25 objects, divided into 2 clusters.</span>
+x <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+           cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+clusplot<span class="token punctuation">(</span>pam<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">## add noise, and try again :</span>
+x4 <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span>x<span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+clusplot<span class="token punctuation">(</span>pam<span class="token punctuation">(</span>x4<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
 <div class="container manual-page" id="clusplot.default">
 
 <a href="#clusplot.default" class="help-page-title"><h2>Bivariate Cluster Plot (clusplot) Default Method</h2></a>
@@ -2295,116 +2405,6 @@ rect<span class="token punctuation">(</span>U<span class="token punctuation">[</
 
 <span class="token comment"># reset graphics</span>
 par<span class="token punctuation">(</span>op<span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="clusplot.partition">
-
-<a href="#clusplot.partition" class="help-page-title"><h2>Bivariate Cluster Plot (of a Partitioning Object)</h2></a>
-
-<h3>Description</h3>
-
-<p>Draws a 2-dimensional “clusplot” (clustering plot) on the
-current graphics device.
-The generic function has a default and a <code>partition</code> method.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">clusplot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-
-<span class="token comment">## S3 method for class 'partition'</span>
-clusplot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> dist <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
-<td>
-<p>an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object, here, specifically an object of class
-<code>"partition"</code>, e.g. created by one of the functions
-<code><a href="#pam">pam</a></code>, <code><a href="#clara">clara</a></code>, or <code><a href="#fanny">fanny</a></code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>main</code></td>
-<td>
-<p>title for the plot; when <code>NULL</code> (by default), a title
-is constructed, using <code>x$call</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>dist</code></td>
-<td>
-<p>when <code>x</code> does not have a <code>diss</code> nor a
-<code>data</code> component, e.g., for <code><a href="#pam">pam</a>(dist(*),
-      keep.diss=FALSE)</code>, <code>dist</code> must specify the dissimilarity for the
-clusplot.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
-<td>
-<p>optional arguments passed to methods, notably the
-<code><a href="#clusplot.default">clusplot.default</a></code> method (except for the <code>diss</code>
-one) may also be supplied to this function.  Many graphical parameters
-(see <code><a href="graphics.html#par">par</a></code>) may also be supplied as arguments here.</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p>The <code>clusplot.partition()</code> method relies on <code><a href="#clusplot.default">clusplot.default</a></code>.
-</p>
-<p>If the clustering algorithms <code>pam</code>, <code>fanny</code> and <code>clara</code>
-are applied to a data matrix of observations-by-variables then a
-clusplot of the resulting clustering can always be drawn.  When the
-data matrix contains missing values and the clustering is performed
-with <code><a href="#pam">pam</a></code> or <code><a href="#fanny">fanny</a></code>, the dissimilarity
-matrix will be given as input to <code>clusplot</code>.  When the clustering
-algorithm <code><a href="#clara">clara</a></code> was applied to a data matrix with <code><a href="base.html#NA">NA</a></code>s
-then <code>clusplot()</code> will replace the missing values as described in
-<code><a href="#clusplot.default">clusplot.default</a></code>, because a dissimilarity matrix is not
-available.
-</p>
-
-
-<h3>Value</h3>
-
-<p>For the <code>partition</code> (and <code>default</code>) method: An invisible
-list with components <code>Distances</code> and <code>Shading</code>, as for
-<code><a href="#clusplot.default">clusplot.default</a></code>, see there.
-</p>
-
-
-<h3>Side Effects</h3>
-
-<p>a 2-dimensional clusplot is created on the current graphics device.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#clusplot.default">clusplot.default</a></code> for references;
-<code><a href="#partition.object">partition.object</a></code>, <code><a href="#pam">pam</a></code>,
-<code><a href="#pam.object">pam.object</a></code>, <code><a href="#clara">clara</a></code>,
-<code><a href="#clara.object">clara.object</a></code>, <code><a href="#fanny">fanny</a></code>,
-<code><a href="#fanny.object">fanny.object</a></code>, <code><a href="graphics.html#par">par</a></code>.
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment">## For more, see ?clusplot.default</span><span class="token comment">## generate 25 objects, divided into 2 clusters.</span>
-x <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-           cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-clusplot<span class="token punctuation">(</span>pam<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment">## add noise, and try again :</span>
-x4 <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span>x<span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-clusplot<span class="token punctuation">(</span>pam<span class="token punctuation">(</span>x4<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div>

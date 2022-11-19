@@ -56,9 +56,11 @@
 
     <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
     <ul id="help-index-list">
+<li class="help-index-item"><a href="#zBasicFunsList">List of Builtin and Special Functions</a></li>
 <li class="help-index-item"><a href="#as">Force an Object to Belong to a Class</a></li>
 <li class="help-index-item"><a href="#BasicClasses">Classes Corresponding to Basic Data Types </a></li>
 <li class="help-index-item"><a href="#callGeneric">Call the Current Generic Function from a Method</a></li>
+<li class="help-index-item"><a href="#NextMethod">Call an Inherited Method</a></li>
 <li class="help-index-item"><a href="#canCoerce">Can an Object be Coerced to a Certain S4 Class?</a></li>
 <li class="help-index-item"><a href="#cbind2">Combine two Objects by Columns or Rows</a></li>
 <li class="help-index-item"><a href="#Classes">S4 Class Documentation</a></li>
@@ -75,6 +77,7 @@ Methods</a></li>
 <li class="help-index-item"><a href="#dotsMethods">The Use of ... in Method Signatures</a></li>
 <li class="help-index-item"><a href="#EmptyMethodsList-class">Internal Class representing Empty Methods List </a></li>
 <li class="help-index-item"><a href="#EnvironmentClass">Class "environment"</a></li>
+<li class="help-index-item"><a href="#stdRefClass">Class "envRefClass"</a></li>
 <li class="help-index-item"><a href="#evalSource">
 Use Function Definitions from a Source File without Reinstalling a Package
 </a></li>
@@ -97,6 +100,7 @@ Use Function Definitions from a Source File without Reinstalling a Package
 <li class="help-index-item"><a href="#languageEl">Elements of Language Objects</a></li>
 <li class="help-index-item"><a href="#LinearMethodsList-class">Class "LinearMethodsList"</a></li>
 <li class="help-index-item"><a href="#localRefClass">Localized Objects based on Reference Classes</a></li>
+<li class="help-index-item"><a href="#setSClass">Create a Class Definition</a></li>
 <li class="help-index-item"><a href="#method.skeleton">Create a Skeleton File for a New Method</a></li>
 <li class="help-index-item"><a href="#MethodDefinition-class">Classes to Represent Method Definitions</a></li>
 <li class="help-index-item"><a href="#Methods">S4 Class Documentation</a></li>
@@ -114,7 +118,6 @@ Formal Methods and Classes
 <li class="help-index-item"><a href="#methodUtilities">Utility Functions for Methods and S-Plus Compatibility</a></li>
 <li class="help-index-item"><a href="#MethodWithNext-class">Class MethodWithNext </a></li>
 <li class="help-index-item"><a href="#new"> Generate an Object from a Class </a></li>
-<li class="help-index-item"><a href="#NextMethod">Call an Inherited Method</a></li>
 <li class="help-index-item"><a href="#nonStructure-class">A non-structure S4 Class for basic types </a></li>
 <li class="help-index-item"><a href="#ObjectsWithPackage-class">A Vector of Object Names, with associated Package Names </a></li>
 <li class="help-index-item"><a href="#promptClass">Generate a Shell for Documentation of a Formal Class</a></li>
@@ -139,12 +142,10 @@ Set Actions For Package Loading
 </a></li>
 <li class="help-index-item"><a href="#setMethod"> Create and Save a Method </a></li>
 <li class="help-index-item"><a href="#setOldClass">Register Old-Style (S3) Classes and Inheritance</a></li>
-<li class="help-index-item"><a href="#setSClass">Create a Class Definition</a></li>
 <li class="help-index-item"><a href="#show">Show an Object</a></li>
 <li class="help-index-item"><a href="#showMethods">Show all the methods for the specified function(s) or class</a></li>
 <li class="help-index-item"><a href="#signature-class">Class "signature" For Method Definitions</a></li>
 <li class="help-index-item"><a href="#slot">The Slots in an Object from a Formal Class</a></li>
-<li class="help-index-item"><a href="#stdRefClass">Class "envRefClass"</a></li>
 <li class="help-index-item"><a href="#StructureClasses">Classes Corresponding to Basic Structures</a></li>
 <li class="help-index-item"><a href="#substituteDirect">SubstituteDirect</a></li>
 <li class="help-index-item"><a href="#testInheritedMethods">
@@ -152,11 +153,50 @@ Test for and Report about  Selection of Inherited Methods
 </a></li>
 <li class="help-index-item"><a href="#TraceClasses">Classes Used Internally to Control Tracing </a></li>
 <li class="help-index-item"><a href="#validObject"> Test the Validity of an Object </a></li>
-<li class="help-index-item"><a href="#zBasicFunsList">List of Builtin and Special Functions</a></li>
 </ul>
 
     <hr>
-  <div class="container manual-page" id="as">
+  <div class="container manual-page" id="zBasicFunsList">
+
+<a href="#zBasicFunsList" class="help-page-title"><h2>List of Builtin and Special Functions</h2></a>
+
+<h3>Description</h3>
+
+<p>A named list providing instructions for turning builtin and special
+functions into generic functions.
+</p>
+<p>Functions in R that are defined as <code>.Primitive(&lt;name&gt;)</code> are not
+suitable for formal methods, because they lack the basic reflectance
+property.  You can't find the argument list for these functions by
+examining the function object itself.
+</p>
+<p>Future versions of R may fix this by attaching a formal argument list
+to the corresponding function.  While generally the names of arguments
+are not checked by the internal code implementing the function, the
+number of arguments frequently is.
+</p>
+<p>In any case, some definition of a formal argument list is needed if
+users are to define methods for these functions.  In particular, if
+methods are to be merged from multiple packages, the different sets
+of methods need to agree on the formal arguments.
+</p>
+<p>In the absence of reflectance, this list provides the relevant
+information  via a dummy function associated with each of the known
+specials for which methods are allowed.
+</p>
+<p>At the same, the list flags those specials for which methods are
+meaningless (e.g., <code>for</code>) or just a very bad idea (e.g.,
+<code>.Primitive</code>).
+</p>
+<p>A generic function created via <code><a href="#setMethod">setMethod</a></code>, for
+example, for one of these special functions will have the argument
+list from <code>.BasicFunsList</code>.  If no entry exists, the argument
+list <code>(x, ...)</code>  is assumed.
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="as">
 
 <a href="#as" class="help-page-title"><h2>Force an Object to Belong to a Class</h2></a>
 
@@ -455,6 +495,279 @@ of method dispatch
 showMethods<span class="token punctuation">(</span><span class="token string">"Ops"</span><span class="token punctuation">,</span> includeDefs <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 
 <span class="token comment">## End(Not run)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="NextMethod">
+
+<a href="#NextMethod" class="help-page-title"><h2>Call an Inherited Method</h2></a>
+
+<h3>Description</h3>
+
+<p>A call to <code>callNextMethod</code> can only appear inside a method
+definition.  It then results in a call to the first inherited method
+after the current method, with the arguments to the current method
+passed down to the next method.  The value of that method call is the
+value of <code>callNextMethod</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">callNextMethod<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table><tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+
+<p>Optionally, the arguments to the function in its next call
+(but note that the dispatch is as in the detailed description below;
+the arguments have no effect on selecting the next method.)
+</p>
+<p>If no arguments are included in the call to <code>callNextMethod</code>, the
+effect is to call the method with the current arguments.
+See the detailed description for what this really means.
+</p>
+<p>Calling with no arguments is often the natural way to use
+<code>callNextMethod</code>; see the examples.
+</p>
+</td>
+</tr></table>
+<h3>Details</h3>
+
+<p>The ‘next’ method (i.e., the first inherited method) is defined
+to be that method which <em>would</em> have been called if the current
+method did not exist. This is more-or-less literally what happens: The
+current method (to be precise, the method with signature given by the
+<code>defined</code> slot of the method from which <code>callNextMethod</code> is
+called) is deleted from a copy of the methods for the current generic,
+and <code><a href="#getMethod">selectMethod</a></code> is called to find the next method (the
+result is cached in the method object where the call occurred, so the search typically
+happens only once per session per combination of argument classes).
+</p>
+<p>The next method is defined from the <em>signature</em> of the current
+method, not from the actual classes of the arguments.
+In particular, modifying any of the arguments has no effect on the
+selection.
+As a result, the selected next method can be called with invalid
+arguments if the calling function assigns objects of a different
+class before the <code>callNextMethod()</code> call.
+Be careful of any assignments to such arguments.
+</p>
+<p>It is possible for the selection of the next method to be ambiguous,
+even though the original set of methods was consistent.
+See the section “Ambiguous Selection”.
+</p>
+<p>The statement that the method is called with the current arguments is
+more precisely as follows.  Arguments that were missing in the current
+call are still missing (remember that <code>"missing"</code> is a valid
+class in a method signature).  For a formal argument, say <code>x</code>, that
+appears in the original call, there is a corresponding argument in the
+next method call equivalent to <code>x = x</code>.  In effect, this
+means that the next method sees the same actual arguments, but
+arguments are evaluated only once.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The value returned by the selected method.
+</p>
+
+
+<h3>Ambiguous Selection</h3>
+
+<p>There are two fairly common situations in which the choice of a next
+method is ambiguous, even when the original set of methods uniquely
+defines all method selection unambiguously.
+In these situations, <code>callNextMethod()</code> should be replaced,
+either by a call to a specific function or by recalling the generic
+with different arguments.
+</p>
+<p>The most likely situation arises with methods for binary operators,
+typically through one of the group generic functions.
+See the example for class <code>"rnum"</code> below.
+Examples of this sort usually require three methods: two for the case
+that the first or the second argument comes from the class, and a
+third for the case that both arguments come from the class.
+If that last method uses <code>callNextMethod</code>, the other two methods
+are equally valid.  The ambiguity is exactly the same that required
+defining the two-argument method in the first place.
+</p>
+<p>In fact, the two possibilities are equally valid conceptually as well
+as formally.
+As in the example below, the logic of the application usually requires
+selecting a computation explicitly or else calling the generic
+function with modified arguments to select an appropriate method.
+</p>
+<p>The other likely source of ambiguity arises from a class that inherits
+directly from more than one other class (a “mixin” in standard
+terminology).
+If the generic has methods corresponding to both superclasses, a
+method for the current class is again needed to resolve ambiguity.
+Using <code>callNextMethod</code> will again reimpose the ambiguity.
+Again, some explicit choice has to be made in the calling method
+instead.
+</p>
+<p>These ambiguities are not the result of bad design, but they do
+require workarounds.
+Other ambiguities usually reflect inconsistencies in the tree of
+inheritances, such as a class appearing in more than one place among
+the superclasses.
+Such cases should be rare, but with the independent definition of
+classes in multiple packages, they can't be ruled out.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, John M. (2016)
+<em>Extending R</em>,
+Chapman &amp; Hall.
+(Chapters 9 and 10.)
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#callGeneric">callGeneric</a></code> to call the generic function with the
+current dispatch rules (typically for a group generic function);
+<a href="#Methods_Details">Methods_Details</a> for the general behavior of method dispatch.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## callNextMethod() used for the Math, Math2 group generic functions</span><span class="token comment">## A class to automatically round numeric results to "d" digits</span>
+
+rnum <span class="token operator">&lt;-</span> setClass<span class="token punctuation">(</span><span class="token string">"rnum"</span><span class="token punctuation">,</span> slots <span class="token operator">=</span> c<span class="token punctuation">(</span>d <span class="token operator">=</span> <span class="token string">"integer"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> contains <span class="token operator">=</span> <span class="token string">"numeric"</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Math functions operate on the rounded numbers, return a plain</span>
+<span class="token comment">## vector.  The next method will always be the default, usually a primitive.</span>
+setMethod<span class="token punctuation">(</span><span class="token string">"Math"</span><span class="token punctuation">,</span> <span class="token string">"rnum"</span><span class="token punctuation">,</span>
+          <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+              callNextMethod<span class="token punctuation">(</span>round<span class="token punctuation">(</span>as.numeric<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+setMethod<span class="token punctuation">(</span><span class="token string">"Math2"</span><span class="token punctuation">,</span> <span class="token string">"rnum"</span><span class="token punctuation">,</span>
+          <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> digits<span class="token punctuation">)</span>
+              callNextMethod<span class="token punctuation">(</span>round<span class="token punctuation">(</span>as.numeric<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">,</span> digits<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Examples of callNextMethod with two arguments in the signature.</span>
+
+<span class="token comment">## For arithmetic and one rnum with anything, callNextMethod with no arguments</span>
+<span class="token comment">## round the full accuracy result, and return as plain vector</span>
+setMethod<span class="token punctuation">(</span><span class="token string">"Arith"</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>e1 <span class="token operator">=</span><span class="token string">"rnum"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token keyword">function</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
+              as.numeric<span class="token punctuation">(</span>round<span class="token punctuation">(</span>callNextMethod<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e1<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+setMethod<span class="token punctuation">(</span><span class="token string">"Arith"</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>e2 <span class="token operator">=</span><span class="token string">"rnum"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token keyword">function</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
+              as.numeric<span class="token punctuation">(</span>round<span class="token punctuation">(</span>callNextMethod<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e2<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## A method for BOTH arguments from "rnum" would be ambiguous</span>
+<span class="token comment">## for callNextMethod(): the two methods above are equally valid.</span>
+<span class="token comment">## The method chooses the smaller number of digits,</span>
+<span class="token comment">## and then calls the generic function, postponing the method selection</span>
+<span class="token comment">## until it's not ambiguous.</span>
+setMethod<span class="token punctuation">(</span><span class="token string">"Arith"</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>e1 <span class="token operator">=</span><span class="token string">"rnum"</span><span class="token punctuation">,</span> e2 <span class="token operator">=</span> <span class="token string">"rnum"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token keyword">function</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">if</span><span class="token punctuation">(</span>e1<span class="token operator">@</span>d <span class="token operator">&lt;=</span> e2<span class="token operator">@</span>d<span class="token punctuation">)</span>
+                  callGeneric<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> as.numeric<span class="token punctuation">(</span>e2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+              <span class="token keyword">else</span>
+                  callGeneric<span class="token punctuation">(</span>as.numeric<span class="token punctuation">(</span>e1<span class="token punctuation">)</span><span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">## For comparisons, callNextMethod with the rounded arguments</span>
+setMethod<span class="token punctuation">(</span><span class="token string">"Compare"</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>e1 <span class="token operator">=</span> <span class="token string">"rnum"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token keyword">function</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
+              callNextMethod<span class="token punctuation">(</span>round<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e1<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">,</span> round<span class="token punctuation">(</span>e2<span class="token punctuation">,</span> e1<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+setMethod<span class="token punctuation">(</span><span class="token string">"Compare"</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>e2 <span class="token operator">=</span> <span class="token string">"rnum"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token keyword">function</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
+              callNextMethod<span class="token punctuation">(</span>round<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">,</span> round<span class="token punctuation">(</span>e2<span class="token punctuation">,</span> e2<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## similarly to the Arith case, the method for two "rnum" objects</span>
+<span class="token comment">## can not unambiguously use callNextMethod().  Instead, we rely on</span>
+<span class="token comment">## The rnum() method inhertited from Math2 to return plain vectors.</span>
+setMethod<span class="token punctuation">(</span><span class="token string">"Compare"</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>e1 <span class="token operator">=</span><span class="token string">"rnum"</span><span class="token punctuation">,</span> e2 <span class="token operator">=</span> <span class="token string">"rnum"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token keyword">function</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              d <span class="token operator">&lt;-</span> min<span class="token punctuation">(</span>e1<span class="token operator">@</span>d<span class="token punctuation">,</span> e2<span class="token operator">@</span>d<span class="token punctuation">)</span>
+              callGeneric<span class="token punctuation">(</span>round<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">,</span> round<span class="token punctuation">(</span>e2<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">)</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+
+
+
+set.seed<span class="token punctuation">(</span><span class="token number">867</span><span class="token punctuation">)</span>
+
+x1 <span class="token operator">&lt;-</span> rnum<span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">*</span>runif<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token number">1L</span><span class="token punctuation">)</span>
+x2 <span class="token operator">&lt;-</span> rnum<span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">*</span>runif<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token number">2L</span><span class="token punctuation">)</span>
+
+x1<span class="token operator">+</span><span class="token number">1</span>
+x2<span class="token operator">*</span><span class="token number">2</span>
+x1<span class="token operator">-</span>x2
+
+<span class="token comment">## Simple examples to illustrate callNextMethod with and without arguments</span>
+B0 <span class="token operator">&lt;-</span> setClass<span class="token punctuation">(</span><span class="token string">"B0"</span><span class="token punctuation">,</span> slots <span class="token operator">=</span> c<span class="token punctuation">(</span>s0 <span class="token operator">=</span> <span class="token string">"numeric"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## and a function to illustrate callNextMethod</span>
+
+f <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"default"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    str<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token comment"># print a summary</span>
+    paste<span class="token punctuation">(</span>text<span class="token punctuation">,</span> <span class="token string">":"</span><span class="token punctuation">,</span> class<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+setGeneric<span class="token punctuation">(</span><span class="token string">"f"</span><span class="token punctuation">)</span>
+setMethod<span class="token punctuation">(</span><span class="token string">"f"</span><span class="token punctuation">,</span> <span class="token string">"B0"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"B0"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cat<span class="token punctuation">(</span><span class="token string">"B0 method called with s0 ="</span><span class="token punctuation">,</span> x<span class="token operator">@</span>s0<span class="token punctuation">,</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
+    callNextMethod<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+b0 <span class="token operator">&lt;-</span> B0<span class="token punctuation">(</span>s0 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token comment">## call f() with 2 arguments: callNextMethod passes both to the default method</span>
+f<span class="token punctuation">(</span>b0<span class="token punctuation">,</span> <span class="token string">"first test"</span><span class="token punctuation">)</span>
+
+<span class="token comment">## call f() with 1 argument:  the default "B0" is not passed by callNextMethod</span>
+f<span class="token punctuation">(</span>b0<span class="token punctuation">)</span>
+
+<span class="token comment">## Now, a class that extends B0, with no methods for f()</span>
+B1 <span class="token operator">&lt;-</span> setClass<span class="token punctuation">(</span><span class="token string">"B1"</span><span class="token punctuation">,</span> slots <span class="token operator">=</span> c<span class="token punctuation">(</span>s1 <span class="token operator">=</span> <span class="token string">"character"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> contains <span class="token operator">=</span> <span class="token string">"B0"</span><span class="token punctuation">)</span>
+b1 <span class="token operator">&lt;-</span> B1<span class="token punctuation">(</span>s0 <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> s1 <span class="token operator">=</span> <span class="token string">"Testing B1"</span><span class="token punctuation">)</span>
+
+<span class="token comment">## the two cases work as before, by inheriting the "B0" method</span>
+
+f<span class="token punctuation">(</span>b1<span class="token punctuation">,</span> b1<span class="token operator">@</span>s1<span class="token punctuation">)</span>
+
+f<span class="token punctuation">(</span>b1<span class="token punctuation">)</span>
+
+B2 <span class="token operator">&lt;-</span> setClass<span class="token punctuation">(</span><span class="token string">"B2"</span><span class="token punctuation">,</span> contains <span class="token operator">=</span> <span class="token string">"B1"</span><span class="token punctuation">)</span>
+
+<span class="token comment">## And, a method for "B2" that calls with explicit arguments.</span>
+<span class="token comment">## Note that the method selection in callNextMethod</span>
+<span class="token comment">## uses the class of the *argument* to consistently select the "B0" method</span>
+
+setMethod<span class="token punctuation">(</span><span class="token string">"f"</span><span class="token punctuation">,</span> <span class="token string">"B2"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"B1 method"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    y <span class="token operator">&lt;-</span> B1<span class="token punctuation">(</span>s0 <span class="token operator">=</span> <span class="token operator">-</span>x<span class="token operator">@</span>s0<span class="token punctuation">,</span> s1 <span class="token operator">=</span><span class="token string">"Modified x"</span><span class="token punctuation">)</span>
+    callNextMethod<span class="token punctuation">(</span>y<span class="token punctuation">,</span> text<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+b2 <span class="token operator">&lt;-</span> B2<span class="token punctuation">(</span>s1 <span class="token operator">=</span> <span class="token string">"Testing B2"</span><span class="token punctuation">,</span> s0 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span>
+
+f<span class="token punctuation">(</span>b2<span class="token punctuation">,</span> b2<span class="token operator">@</span>s1<span class="token punctuation">)</span>
+
+f<span class="token punctuation">(</span>b2<span class="token punctuation">)</span>
+
+
+<span class="token comment">## Be careful:  the argument passed must be legal for the method selected</span>
+<span class="token comment">## Although the argument here is numeric, it's still the "B0" method that's called</span>
+setMethod<span class="token punctuation">(</span><span class="token string">"f"</span><span class="token punctuation">,</span> <span class="token string">"B2"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"B1 method"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    callNextMethod<span class="token punctuation">(</span>x<span class="token operator">@</span>s0<span class="token punctuation">,</span> text<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">##  Now the call will cause an error:</span>
+
+tryCatch<span class="token punctuation">(</span>f<span class="token punctuation">(</span>b2<span class="token punctuation">)</span><span class="token punctuation">,</span> error <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> cat<span class="token punctuation">(</span>e<span class="token operator">$</span>message<span class="token punctuation">,</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div>
@@ -1826,6 +2139,119 @@ Implements the assignments in the new environment.  Note that the
 <h3>See Also</h3>
 
  <p><code><a href="base.html#environment">new.env</a></code> </p>
+
+<hr>
+</div>
+<div class="container manual-page" id="stdRefClass">
+
+<a href="#stdRefClass" class="help-page-title"><h2>Class <code>"envRefClass"</code>
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Support Class to Implement R Objects using Reference Semantics
+</p>
+
+
+<h3>NOTE:</h3>
+
+<p>The software described here is an initial version.  The eventual goal
+is to support reference-style classes with software in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> itself
+or using inter-system interfaces.  The current implementation (<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+version 2.12.0) is preliminary and subject to change, and currently
+includes only the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>-only implementation.  Developers are encouraged
+to experiment with the software, but the description here is more than
+usually subject to change.
+</p>
+
+
+<h3>Purpose of the Class</h3>
+
+<p>This class implements basic reference-style semantics for <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+objects.  Objects normally do not come directly from this class, but
+from subclasses defined by a call to <code><a href="#refClass">setRefClass</a></code>.
+The documentation below is technical background describing the implementation, but applications
+should use the interface documented under <code><a href="#refClass">setRefClass</a></code>,
+in particular the <code>$</code> operator and field accessor functions as
+described there.
+</p>
+
+
+<h3>A Basic Reference Class</h3>
+
+<p>The design of reference classes for <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> divides those classes up
+according to the mechanism used for implementing references, fields,
+and class methods.
+Each version of this mechanism is defined by a <em>basic reference
+class</em>, which must implement a set of methods and provide some
+further information used by <code><a href="#refClass">setRefClass</a></code>.
+</p>
+<p>The required methods are for operators <code>$</code> and <code>$&lt;-</code> to
+get and set a field in an object, and for <code><a href="#new">initialize</a></code> to
+initialize objects.
+</p>
+<p>To support these methods, the basic reference class needs to have some
+implementation mechanism to store and retrieve data from fields in the
+object.
+The mechanism needs to be consistent with reference semantics; that
+is, changes made to the contents of an object are global, seen by any
+code accessing that object, rather than only local to the function
+call where the change takes place.
+As described below, class <code>envRefClass</code> implements reference
+semantics through specialized use of <a href="#EnvironmentClass">environment</a>
+objects.
+Other basic reference classes may use an interface to a language such
+as Java or C++ using reference semantics for classes.
+</p>
+<p>Usually, the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>  user will be able to invoke class methods on the
+class, using the <code>$</code> operator.  The basic reference class
+method for <code>$</code> needs to make this possible.  Essentially, the
+operator must return an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> function corresponding to the object and
+the class method name.
+</p>
+<p>Class methods may include an implementation of data abstraction, in
+the sense that fields are accessed by “get” and “set”
+methods.  The basic reference class provides this facility by setting
+the <code>"fieldAccessorGenerator"</code> slot in its definition to a
+function of one variable.
+This function will be called by <code><a href="#refClass">setRefClass</a></code> with the
+vector of field names as arguments.
+The generator function must return a list of defined accessor
+functions.
+An element corresponding to a get operation is invoked with no
+arguments and should extract the corresponding field; an element for a
+set operation will be invoked with a single argument, the value to be
+assigned to the field.
+The implementation needs to supply the object, since that is not an
+argument in the method invocation.
+The mechanism used currently by <code>envRefClass</code> is described below.
+</p>
+
+
+<h3>Support Classes</h3>
+
+<p>Two virtual classes are supplied to test for reference objects:
+<code>is(x, "refClass")</code> tests whether <code>x</code> comes from a class
+defined using the reference class mechanism described here;
+<code>is(x, "refObject")</code> tests whether the object has reference
+semantics generally, including the previous classes and also classes
+inheriting from the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> types with reference semantics, such as
+<code>"environment"</code>.
+</p>
+<p>Installed class methods are <code>"classMethodDefinition"</code> objects,
+with slots that identify the name of the function as a class method
+and the other class methods called from this method.
+The latter information is determined heuristically when the class is
+defined by using the <code>codetools</code> recommended package.  This
+package must be installed when reference classes are defined, but is
+not needed in order to use existing reference classes.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>John Chambers
+</p>
 
 <hr>
 </div>
@@ -4729,6 +5155,124 @@ stopifnot<span class="token punctuation">(</span>identical<span class="token pun
 
 <hr>
 </div>
+<div class="container manual-page" id="setSClass">
+
+<a href="#setSClass" class="help-page-title"><h2>Create a Class Definition</h2></a>
+
+<h3>Description</h3>
+
+<p>Constructs an object of class <code><a href="#classRepresentation-class">classRepresentation</a></code>
+to describe a particular class.  Mostly a utility function, but you can
+call it to create a class definition without assigning it, as
+<code><a href="#setClass">setClass</a></code> would do.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">makeClassRepresentation<span class="token punctuation">(</span>name<span class="token punctuation">,</span> slots<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> superClasses<span class="token operator">=</span>character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                        prototype<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span> package<span class="token punctuation">,</span> validity<span class="token punctuation">,</span> access<span class="token punctuation">,</span>
+                        version<span class="token punctuation">,</span> sealed<span class="token punctuation">,</span> virtual<span class="token operator">=</span><span class="token keyword">NA</span><span class="token punctuation">,</span> where<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>name</code></td>
+<td>
+<p>character string name for the class</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>slots</code></td>
+<td>
+<p>named list of slot classes as would be supplied to
+<code>setClass</code>, but <em>without</em> the unnamed arguments for
+superClasses if any.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>superClasses</code></td>
+<td>
+<p>what classes does this class extend</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>prototype</code></td>
+<td>
+<p>an object providing the default data for the class,
+e.g., the result of a call to <code><a href="#representation">prototype</a></code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>package</code></td>
+<td>
+<p>The character string name for the package in which
+the class will be stored; see <code><a href="#getPackageName">getPackageName</a></code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>validity</code></td>
+<td>
+<p>Optional validity method.  See
+<code><a href="#validObject">validObject</a></code>, and the discussion of validity methods in
+the reference.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>access</code></td>
+<td>
+<p>Access information.  Not currently used.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>version</code></td>
+<td>
+<p>Optional version key for version control.  Currently
+generated, but not used.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>sealed</code></td>
+<td>
+<p>Is the class sealed? See <code><a href="#setClass">setClass</a></code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>virtual</code></td>
+<td>
+<p>Is this known to be a virtual class?</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>where</code></td>
+<td>
+<p>The environment from which to look for class
+definitions needed (e.g., for slots or superclasses). See the
+discussion of this argument under <a href="#GenericFunctions">GenericFunctions</a>.</p>
+</td>
+</tr>
+</table>
+<h3>References</h3>
+
+<p>Chambers, John M. (2008)
+<em>Software for Data Analysis: Programming with R</em>
+Springer.  (For the R version.)
+</p>
+<p>Chambers, John M. (1998)
+<em>Programming with Data</em>
+Springer (For the original S4 version.)
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#setClass">setClass</a></code>
+</p>
+
+<hr>
+</div>
 <div class="container manual-page" id="method.skeleton">
 
 <a href="#method.skeleton" class="help-page-title"><h2>Create a Skeleton File for a New Method</h2></a>
@@ -6755,279 +7299,6 @@ setMethod<span class="token punctuation">(</span><span class="token string">"ini
               .Object<span class="token operator">@</span>y <span class="token operator">&lt;-</span> y
               .Object
           <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="NextMethod">
-
-<a href="#NextMethod" class="help-page-title"><h2>Call an Inherited Method</h2></a>
-
-<h3>Description</h3>
-
-<p>A call to <code>callNextMethod</code> can only appear inside a method
-definition.  It then results in a call to the first inherited method
-after the current method, with the arguments to the current method
-passed down to the next method.  The value of that method call is the
-value of <code>callNextMethod</code>.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">callNextMethod<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table><tr style="vertical-align: top;">
-<td><code>...</code></td>
-<td>
-
-<p>Optionally, the arguments to the function in its next call
-(but note that the dispatch is as in the detailed description below;
-the arguments have no effect on selecting the next method.)
-</p>
-<p>If no arguments are included in the call to <code>callNextMethod</code>, the
-effect is to call the method with the current arguments.
-See the detailed description for what this really means.
-</p>
-<p>Calling with no arguments is often the natural way to use
-<code>callNextMethod</code>; see the examples.
-</p>
-</td>
-</tr></table>
-<h3>Details</h3>
-
-<p>The ‘next’ method (i.e., the first inherited method) is defined
-to be that method which <em>would</em> have been called if the current
-method did not exist. This is more-or-less literally what happens: The
-current method (to be precise, the method with signature given by the
-<code>defined</code> slot of the method from which <code>callNextMethod</code> is
-called) is deleted from a copy of the methods for the current generic,
-and <code><a href="#getMethod">selectMethod</a></code> is called to find the next method (the
-result is cached in the method object where the call occurred, so the search typically
-happens only once per session per combination of argument classes).
-</p>
-<p>The next method is defined from the <em>signature</em> of the current
-method, not from the actual classes of the arguments.
-In particular, modifying any of the arguments has no effect on the
-selection.
-As a result, the selected next method can be called with invalid
-arguments if the calling function assigns objects of a different
-class before the <code>callNextMethod()</code> call.
-Be careful of any assignments to such arguments.
-</p>
-<p>It is possible for the selection of the next method to be ambiguous,
-even though the original set of methods was consistent.
-See the section “Ambiguous Selection”.
-</p>
-<p>The statement that the method is called with the current arguments is
-more precisely as follows.  Arguments that were missing in the current
-call are still missing (remember that <code>"missing"</code> is a valid
-class in a method signature).  For a formal argument, say <code>x</code>, that
-appears in the original call, there is a corresponding argument in the
-next method call equivalent to <code>x = x</code>.  In effect, this
-means that the next method sees the same actual arguments, but
-arguments are evaluated only once.
-</p>
-
-
-<h3>Value</h3>
-
-<p>The value returned by the selected method.
-</p>
-
-
-<h3>Ambiguous Selection</h3>
-
-<p>There are two fairly common situations in which the choice of a next
-method is ambiguous, even when the original set of methods uniquely
-defines all method selection unambiguously.
-In these situations, <code>callNextMethod()</code> should be replaced,
-either by a call to a specific function or by recalling the generic
-with different arguments.
-</p>
-<p>The most likely situation arises with methods for binary operators,
-typically through one of the group generic functions.
-See the example for class <code>"rnum"</code> below.
-Examples of this sort usually require three methods: two for the case
-that the first or the second argument comes from the class, and a
-third for the case that both arguments come from the class.
-If that last method uses <code>callNextMethod</code>, the other two methods
-are equally valid.  The ambiguity is exactly the same that required
-defining the two-argument method in the first place.
-</p>
-<p>In fact, the two possibilities are equally valid conceptually as well
-as formally.
-As in the example below, the logic of the application usually requires
-selecting a computation explicitly or else calling the generic
-function with modified arguments to select an appropriate method.
-</p>
-<p>The other likely source of ambiguity arises from a class that inherits
-directly from more than one other class (a “mixin” in standard
-terminology).
-If the generic has methods corresponding to both superclasses, a
-method for the current class is again needed to resolve ambiguity.
-Using <code>callNextMethod</code> will again reimpose the ambiguity.
-Again, some explicit choice has to be made in the calling method
-instead.
-</p>
-<p>These ambiguities are not the result of bad design, but they do
-require workarounds.
-Other ambiguities usually reflect inconsistencies in the tree of
-inheritances, such as a class appearing in more than one place among
-the superclasses.
-Such cases should be rare, but with the independent definition of
-classes in multiple packages, they can't be ruled out.
-</p>
-
-
-<h3>References</h3>
-
-<p>Chambers, John M. (2016)
-<em>Extending R</em>,
-Chapman &amp; Hall.
-(Chapters 9 and 10.)
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#callGeneric">callGeneric</a></code> to call the generic function with the
-current dispatch rules (typically for a group generic function);
-<a href="#Methods_Details">Methods_Details</a> for the general behavior of method dispatch.
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment">## callNextMethod() used for the Math, Math2 group generic functions</span><span class="token comment">## A class to automatically round numeric results to "d" digits</span>
-
-rnum <span class="token operator">&lt;-</span> setClass<span class="token punctuation">(</span><span class="token string">"rnum"</span><span class="token punctuation">,</span> slots <span class="token operator">=</span> c<span class="token punctuation">(</span>d <span class="token operator">=</span> <span class="token string">"integer"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> contains <span class="token operator">=</span> <span class="token string">"numeric"</span><span class="token punctuation">)</span>
-
-<span class="token comment">## Math functions operate on the rounded numbers, return a plain</span>
-<span class="token comment">## vector.  The next method will always be the default, usually a primitive.</span>
-setMethod<span class="token punctuation">(</span><span class="token string">"Math"</span><span class="token punctuation">,</span> <span class="token string">"rnum"</span><span class="token punctuation">,</span>
-          <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-              callNextMethod<span class="token punctuation">(</span>round<span class="token punctuation">(</span>as.numeric<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-setMethod<span class="token punctuation">(</span><span class="token string">"Math2"</span><span class="token punctuation">,</span> <span class="token string">"rnum"</span><span class="token punctuation">,</span>
-          <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> digits<span class="token punctuation">)</span>
-              callNextMethod<span class="token punctuation">(</span>round<span class="token punctuation">(</span>as.numeric<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">,</span> digits<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment">## Examples of callNextMethod with two arguments in the signature.</span>
-
-<span class="token comment">## For arithmetic and one rnum with anything, callNextMethod with no arguments</span>
-<span class="token comment">## round the full accuracy result, and return as plain vector</span>
-setMethod<span class="token punctuation">(</span><span class="token string">"Arith"</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>e1 <span class="token operator">=</span><span class="token string">"rnum"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-          <span class="token keyword">function</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
-              as.numeric<span class="token punctuation">(</span>round<span class="token punctuation">(</span>callNextMethod<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e1<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-setMethod<span class="token punctuation">(</span><span class="token string">"Arith"</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>e2 <span class="token operator">=</span><span class="token string">"rnum"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-          <span class="token keyword">function</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
-              as.numeric<span class="token punctuation">(</span>round<span class="token punctuation">(</span>callNextMethod<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e2<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment">## A method for BOTH arguments from "rnum" would be ambiguous</span>
-<span class="token comment">## for callNextMethod(): the two methods above are equally valid.</span>
-<span class="token comment">## The method chooses the smaller number of digits,</span>
-<span class="token comment">## and then calls the generic function, postponing the method selection</span>
-<span class="token comment">## until it's not ambiguous.</span>
-setMethod<span class="token punctuation">(</span><span class="token string">"Arith"</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>e1 <span class="token operator">=</span><span class="token string">"rnum"</span><span class="token punctuation">,</span> e2 <span class="token operator">=</span> <span class="token string">"rnum"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-          <span class="token keyword">function</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-              <span class="token keyword">if</span><span class="token punctuation">(</span>e1<span class="token operator">@</span>d <span class="token operator">&lt;=</span> e2<span class="token operator">@</span>d<span class="token punctuation">)</span>
-                  callGeneric<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> as.numeric<span class="token punctuation">(</span>e2<span class="token punctuation">)</span><span class="token punctuation">)</span>
-              <span class="token keyword">else</span>
-                  callGeneric<span class="token punctuation">(</span>as.numeric<span class="token punctuation">(</span>e1<span class="token punctuation">)</span><span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
-          <span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token comment">## For comparisons, callNextMethod with the rounded arguments</span>
-setMethod<span class="token punctuation">(</span><span class="token string">"Compare"</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>e1 <span class="token operator">=</span> <span class="token string">"rnum"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-          <span class="token keyword">function</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
-              callNextMethod<span class="token punctuation">(</span>round<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e1<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">,</span> round<span class="token punctuation">(</span>e2<span class="token punctuation">,</span> e1<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-setMethod<span class="token punctuation">(</span><span class="token string">"Compare"</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>e2 <span class="token operator">=</span> <span class="token string">"rnum"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-          <span class="token keyword">function</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
-              callNextMethod<span class="token punctuation">(</span>round<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">,</span> round<span class="token punctuation">(</span>e2<span class="token punctuation">,</span> e2<span class="token operator">@</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment">## similarly to the Arith case, the method for two "rnum" objects</span>
-<span class="token comment">## can not unambiguously use callNextMethod().  Instead, we rely on</span>
-<span class="token comment">## The rnum() method inhertited from Math2 to return plain vectors.</span>
-setMethod<span class="token punctuation">(</span><span class="token string">"Compare"</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>e1 <span class="token operator">=</span><span class="token string">"rnum"</span><span class="token punctuation">,</span> e2 <span class="token operator">=</span> <span class="token string">"rnum"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-          <span class="token keyword">function</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-              d <span class="token operator">&lt;-</span> min<span class="token punctuation">(</span>e1<span class="token operator">@</span>d<span class="token punctuation">,</span> e2<span class="token operator">@</span>d<span class="token punctuation">)</span>
-              callGeneric<span class="token punctuation">(</span>round<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">,</span> round<span class="token punctuation">(</span>e2<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">)</span>
-          <span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-
-
-
-set.seed<span class="token punctuation">(</span><span class="token number">867</span><span class="token punctuation">)</span>
-
-x1 <span class="token operator">&lt;-</span> rnum<span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">*</span>runif<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token number">1L</span><span class="token punctuation">)</span>
-x2 <span class="token operator">&lt;-</span> rnum<span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">*</span>runif<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token number">2L</span><span class="token punctuation">)</span>
-
-x1<span class="token operator">+</span><span class="token number">1</span>
-x2<span class="token operator">*</span><span class="token number">2</span>
-x1<span class="token operator">-</span>x2
-
-<span class="token comment">## Simple examples to illustrate callNextMethod with and without arguments</span>
-B0 <span class="token operator">&lt;-</span> setClass<span class="token punctuation">(</span><span class="token string">"B0"</span><span class="token punctuation">,</span> slots <span class="token operator">=</span> c<span class="token punctuation">(</span>s0 <span class="token operator">=</span> <span class="token string">"numeric"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment">## and a function to illustrate callNextMethod</span>
-
-f <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"default"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    str<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token comment"># print a summary</span>
-    paste<span class="token punctuation">(</span>text<span class="token punctuation">,</span> <span class="token string">":"</span><span class="token punctuation">,</span> class<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-setGeneric<span class="token punctuation">(</span><span class="token string">"f"</span><span class="token punctuation">)</span>
-setMethod<span class="token punctuation">(</span><span class="token string">"f"</span><span class="token punctuation">,</span> <span class="token string">"B0"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"B0"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    cat<span class="token punctuation">(</span><span class="token string">"B0 method called with s0 ="</span><span class="token punctuation">,</span> x<span class="token operator">@</span>s0<span class="token punctuation">,</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
-    callNextMethod<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-b0 <span class="token operator">&lt;-</span> B0<span class="token punctuation">(</span>s0 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
-
-<span class="token comment">## call f() with 2 arguments: callNextMethod passes both to the default method</span>
-f<span class="token punctuation">(</span>b0<span class="token punctuation">,</span> <span class="token string">"first test"</span><span class="token punctuation">)</span>
-
-<span class="token comment">## call f() with 1 argument:  the default "B0" is not passed by callNextMethod</span>
-f<span class="token punctuation">(</span>b0<span class="token punctuation">)</span>
-
-<span class="token comment">## Now, a class that extends B0, with no methods for f()</span>
-B1 <span class="token operator">&lt;-</span> setClass<span class="token punctuation">(</span><span class="token string">"B1"</span><span class="token punctuation">,</span> slots <span class="token operator">=</span> c<span class="token punctuation">(</span>s1 <span class="token operator">=</span> <span class="token string">"character"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> contains <span class="token operator">=</span> <span class="token string">"B0"</span><span class="token punctuation">)</span>
-b1 <span class="token operator">&lt;-</span> B1<span class="token punctuation">(</span>s0 <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> s1 <span class="token operator">=</span> <span class="token string">"Testing B1"</span><span class="token punctuation">)</span>
-
-<span class="token comment">## the two cases work as before, by inheriting the "B0" method</span>
-
-f<span class="token punctuation">(</span>b1<span class="token punctuation">,</span> b1<span class="token operator">@</span>s1<span class="token punctuation">)</span>
-
-f<span class="token punctuation">(</span>b1<span class="token punctuation">)</span>
-
-B2 <span class="token operator">&lt;-</span> setClass<span class="token punctuation">(</span><span class="token string">"B2"</span><span class="token punctuation">,</span> contains <span class="token operator">=</span> <span class="token string">"B1"</span><span class="token punctuation">)</span>
-
-<span class="token comment">## And, a method for "B2" that calls with explicit arguments.</span>
-<span class="token comment">## Note that the method selection in callNextMethod</span>
-<span class="token comment">## uses the class of the *argument* to consistently select the "B0" method</span>
-
-setMethod<span class="token punctuation">(</span><span class="token string">"f"</span><span class="token punctuation">,</span> <span class="token string">"B2"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"B1 method"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    y <span class="token operator">&lt;-</span> B1<span class="token punctuation">(</span>s0 <span class="token operator">=</span> <span class="token operator">-</span>x<span class="token operator">@</span>s0<span class="token punctuation">,</span> s1 <span class="token operator">=</span><span class="token string">"Modified x"</span><span class="token punctuation">)</span>
-    callNextMethod<span class="token punctuation">(</span>y<span class="token punctuation">,</span> text<span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-b2 <span class="token operator">&lt;-</span> B2<span class="token punctuation">(</span>s1 <span class="token operator">=</span> <span class="token string">"Testing B2"</span><span class="token punctuation">,</span> s0 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span>
-
-f<span class="token punctuation">(</span>b2<span class="token punctuation">,</span> b2<span class="token operator">@</span>s1<span class="token punctuation">)</span>
-
-f<span class="token punctuation">(</span>b2<span class="token punctuation">)</span>
-
-
-<span class="token comment">## Be careful:  the argument passed must be legal for the method selected</span>
-<span class="token comment">## Although the argument here is numeric, it's still the "B0" method that's called</span>
-setMethod<span class="token punctuation">(</span><span class="token string">"f"</span><span class="token punctuation">,</span> <span class="token string">"B2"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"B1 method"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    callNextMethod<span class="token punctuation">(</span>x<span class="token operator">@</span>s0<span class="token punctuation">,</span> text<span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token comment">##  Now the call will cause an error:</span>
-
-tryCatch<span class="token punctuation">(</span>f<span class="token punctuation">(</span>b2<span class="token punctuation">)</span><span class="token punctuation">,</span> error <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> cat<span class="token punctuation">(</span>e<span class="token operator">$</span>message<span class="token punctuation">,</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div>
@@ -12423,124 +12694,6 @@ setOldClass<span class="token punctuation">(</span><span class="token string">"t
 
 <hr>
 </div>
-<div class="container manual-page" id="setSClass">
-
-<a href="#setSClass" class="help-page-title"><h2>Create a Class Definition</h2></a>
-
-<h3>Description</h3>
-
-<p>Constructs an object of class <code><a href="#classRepresentation-class">classRepresentation</a></code>
-to describe a particular class.  Mostly a utility function, but you can
-call it to create a class definition without assigning it, as
-<code><a href="#setClass">setClass</a></code> would do.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">makeClassRepresentation<span class="token punctuation">(</span>name<span class="token punctuation">,</span> slots<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> superClasses<span class="token operator">=</span>character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                        prototype<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span> package<span class="token punctuation">,</span> validity<span class="token punctuation">,</span> access<span class="token punctuation">,</span>
-                        version<span class="token punctuation">,</span> sealed<span class="token punctuation">,</span> virtual<span class="token operator">=</span><span class="token keyword">NA</span><span class="token punctuation">,</span> where<span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr style="vertical-align: top;">
-<td><code>name</code></td>
-<td>
-<p>character string name for the class</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>slots</code></td>
-<td>
-<p>named list of slot classes as would be supplied to
-<code>setClass</code>, but <em>without</em> the unnamed arguments for
-superClasses if any.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>superClasses</code></td>
-<td>
-<p>what classes does this class extend</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>prototype</code></td>
-<td>
-<p>an object providing the default data for the class,
-e.g., the result of a call to <code><a href="#representation">prototype</a></code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
-<td>
-<p>The character string name for the package in which
-the class will be stored; see <code><a href="#getPackageName">getPackageName</a></code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>validity</code></td>
-<td>
-<p>Optional validity method.  See
-<code><a href="#validObject">validObject</a></code>, and the discussion of validity methods in
-the reference.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>access</code></td>
-<td>
-<p>Access information.  Not currently used.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>version</code></td>
-<td>
-<p>Optional version key for version control.  Currently
-generated, but not used.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>sealed</code></td>
-<td>
-<p>Is the class sealed? See <code><a href="#setClass">setClass</a></code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>virtual</code></td>
-<td>
-<p>Is this known to be a virtual class?</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
-<td>
-<p>The environment from which to look for class
-definitions needed (e.g., for slots or superclasses). See the
-discussion of this argument under <a href="#GenericFunctions">GenericFunctions</a>.</p>
-</td>
-</tr>
-</table>
-<h3>References</h3>
-
-<p>Chambers, John M. (2008)
-<em>Software for Data Analysis: Programming with R</em>
-Springer.  (For the R version.)
-</p>
-<p>Chambers, John M. (1998)
-<em>Programming with Data</em>
-Springer (For the original S4 version.)
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#setClass">setClass</a></code>
-</p>
-
-<hr>
-</div>
 <div class="container manual-page" id="show">
 
 <a href="#show" class="help-page-title"><h2>Show an Object</h2></a>
@@ -13067,119 +13220,6 @@ getSlots<span class="token punctuation">(</span><span class="token string">"trac
 getSlots<span class="token punctuation">(</span>getClass<span class="token punctuation">(</span><span class="token string">"track"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 slotNames<span class="token punctuation">(</span>class<span class="token punctuation">(</span>myTrack<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># is the same as</span>
 slotNames<span class="token punctuation">(</span>myTrack<span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="stdRefClass">
-
-<a href="#stdRefClass" class="help-page-title"><h2>Class <code>"envRefClass"</code>
-</h2></a>
-
-<h3>Description</h3>
-
-<p>Support Class to Implement R Objects using Reference Semantics
-</p>
-
-
-<h3>NOTE:</h3>
-
-<p>The software described here is an initial version.  The eventual goal
-is to support reference-style classes with software in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> itself
-or using inter-system interfaces.  The current implementation (<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
-version 2.12.0) is preliminary and subject to change, and currently
-includes only the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>-only implementation.  Developers are encouraged
-to experiment with the software, but the description here is more than
-usually subject to change.
-</p>
-
-
-<h3>Purpose of the Class</h3>
-
-<p>This class implements basic reference-style semantics for <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
-objects.  Objects normally do not come directly from this class, but
-from subclasses defined by a call to <code><a href="#refClass">setRefClass</a></code>.
-The documentation below is technical background describing the implementation, but applications
-should use the interface documented under <code><a href="#refClass">setRefClass</a></code>,
-in particular the <code>$</code> operator and field accessor functions as
-described there.
-</p>
-
-
-<h3>A Basic Reference Class</h3>
-
-<p>The design of reference classes for <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> divides those classes up
-according to the mechanism used for implementing references, fields,
-and class methods.
-Each version of this mechanism is defined by a <em>basic reference
-class</em>, which must implement a set of methods and provide some
-further information used by <code><a href="#refClass">setRefClass</a></code>.
-</p>
-<p>The required methods are for operators <code>$</code> and <code>$&lt;-</code> to
-get and set a field in an object, and for <code><a href="#new">initialize</a></code> to
-initialize objects.
-</p>
-<p>To support these methods, the basic reference class needs to have some
-implementation mechanism to store and retrieve data from fields in the
-object.
-The mechanism needs to be consistent with reference semantics; that
-is, changes made to the contents of an object are global, seen by any
-code accessing that object, rather than only local to the function
-call where the change takes place.
-As described below, class <code>envRefClass</code> implements reference
-semantics through specialized use of <a href="#EnvironmentClass">environment</a>
-objects.
-Other basic reference classes may use an interface to a language such
-as Java or C++ using reference semantics for classes.
-</p>
-<p>Usually, the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>  user will be able to invoke class methods on the
-class, using the <code>$</code> operator.  The basic reference class
-method for <code>$</code> needs to make this possible.  Essentially, the
-operator must return an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> function corresponding to the object and
-the class method name.
-</p>
-<p>Class methods may include an implementation of data abstraction, in
-the sense that fields are accessed by “get” and “set”
-methods.  The basic reference class provides this facility by setting
-the <code>"fieldAccessorGenerator"</code> slot in its definition to a
-function of one variable.
-This function will be called by <code><a href="#refClass">setRefClass</a></code> with the
-vector of field names as arguments.
-The generator function must return a list of defined accessor
-functions.
-An element corresponding to a get operation is invoked with no
-arguments and should extract the corresponding field; an element for a
-set operation will be invoked with a single argument, the value to be
-assigned to the field.
-The implementation needs to supply the object, since that is not an
-argument in the method invocation.
-The mechanism used currently by <code>envRefClass</code> is described below.
-</p>
-
-
-<h3>Support Classes</h3>
-
-<p>Two virtual classes are supplied to test for reference objects:
-<code>is(x, "refClass")</code> tests whether <code>x</code> comes from a class
-defined using the reference class mechanism described here;
-<code>is(x, "refObject")</code> tests whether the object has reference
-semantics generally, including the previous classes and also classes
-inheriting from the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> types with reference semantics, such as
-<code>"environment"</code>.
-</p>
-<p>Installed class methods are <code>"classMethodDefinition"</code> objects,
-with slots that identify the name of the function as a class method
-and the other class methods called from this method.
-The latter information is determined heuristically when the class is
-defined by using the <code>codetools</code> recommended package.  This
-package must be installed when reference classes are defined, but is
-not needed in order to use existing reference classes.
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>John Chambers
-</p>
 
 <hr>
 </div>
@@ -13802,46 +13842,6 @@ tT  <span class="token operator">&lt;-</span> new<span class="token punctuation"
 
 <span class="token comment">## A stricter test detects the problem</span>
 <span class="token comment">## Not run: try(validObject(tT, complete = TRUE))</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="zBasicFunsList">
-
-<a href="#zBasicFunsList" class="help-page-title"><h2>List of Builtin and Special Functions</h2></a>
-
-<h3>Description</h3>
-
-<p>A named list providing instructions for turning builtin and special
-functions into generic functions.
-</p>
-<p>Functions in R that are defined as <code>.Primitive(&lt;name&gt;)</code> are not
-suitable for formal methods, because they lack the basic reflectance
-property.  You can't find the argument list for these functions by
-examining the function object itself.
-</p>
-<p>Future versions of R may fix this by attaching a formal argument list
-to the corresponding function.  While generally the names of arguments
-are not checked by the internal code implementing the function, the
-number of arguments frequently is.
-</p>
-<p>In any case, some definition of a formal argument list is needed if
-users are to define methods for these functions.  In particular, if
-methods are to be merged from multiple packages, the different sets
-of methods need to agree on the formal arguments.
-</p>
-<p>In the absence of reflectance, this list provides the relevant
-information  via a dummy function associated with each of the known
-specials for which methods are allowed.
-</p>
-<p>At the same, the list flags those specials for which methods are
-meaningless (e.g., <code>for</code>) or just a very bad idea (e.g.,
-<code>.Primitive</code>).
-</p>
-<p>A generic function created via <code><a href="#setMethod">setMethod</a></code>, for
-example, for one of these special functions will have the argument
-list from <code>.BasicFunsList</code>.  If no entry exists, the argument
-list <code>(x, ...)</code>  is assumed.
-</p>
 
 <hr>
 </div>

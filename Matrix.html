@@ -68,6 +68,9 @@
 
     <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
     <ul id="help-index-list">
+<li class="help-index-item"><a href="#Xtrct-methods">Methods for "[": Extraction or Subsetting in Package 'Matrix'</a></li>
+<li class="help-index-item"><a href="#Subassign-methods">Methods for "[&lt;-" - Assigning to Subsets for 'Matrix'</a></li>
+<li class="help-index-item"><a href="#boolean-matprod">Boolean Arithmetic Matrix Products: %&amp;% and Methods</a></li>
 <li class="help-index-item"><a href="#abIndex-class">Class "abIndex" of Abstract Index Vectors</a></li>
 <li class="help-index-item"><a href="#abIseq">Sequence Generation of "abIndex", Abstract Index Vectors</a></li>
 <li class="help-index-item"><a href="#all-methods">"Matrix" Methods for Functions all() and any()</a></li>
@@ -76,7 +79,6 @@
 <li class="help-index-item"><a href="#band">Extract bands of a matrix</a></li>
 <li class="help-index-item"><a href="#bandSparse">Construct Sparse Banded Matrix from (Sup-/Super-) Diagonals</a></li>
 <li class="help-index-item"><a href="#bdiag">Construct a Block Diagonal Matrix</a></li>
-<li class="help-index-item"><a href="#boolean-matprod">Boolean Arithmetic Matrix Products: %&amp;% and Methods</a></li>
 <li class="help-index-item"><a href="#BunchKaufman-methods">Bunch-Kaufman Decomposition Methods</a></li>
 <li class="help-index-item"><a href="#CAex">Albers' example Matrix with "Difficult" Eigen Factorization</a></li>
 <li class="help-index-item"><a href="#cBind">'cbind()' and 'rbind()' recursively built on cbind2/rbind2</a></li>
@@ -178,7 +180,6 @@
 <li class="help-index-item"><a href="#sparseVector">Sparse Vector Construction from Nonzero Entries</a></li>
 <li class="help-index-item"><a href="#sparseVector-class">Sparse Vector Classes</a></li>
 <li class="help-index-item"><a href="#spMatrix">Sparse Matrix Constructor From Triplet</a></li>
-<li class="help-index-item"><a href="#Subassign-methods">Methods for "[&lt;-" - Assigning to Subsets for 'Matrix'</a></li>
 <li class="help-index-item"><a href="#symmetricMatrix-class">Virtual Class of Symmetric Matrices in Package Matrix</a></li>
 <li class="help-index-item"><a href="#symmpart">Symmetric Part and Skew(symmetric) Part of a Matrix</a></li>
 <li class="help-index-item"><a href="#triangularMatrix-class">Virtual Class of Triangular Matrices in Package Matrix</a></li>
@@ -190,11 +191,270 @@
 <li class="help-index-item"><a href="#updown">Up- and Down-Dating a Cholesky Decomposition</a></li>
 <li class="help-index-item"><a href="#USCounties">USCounties Contiguity Matrix</a></li>
 <li class="help-index-item"><a href="#wrld_1deg">World 1-degree grid contiguity matrix</a></li>
-<li class="help-index-item"><a href="#Xtrct-methods">Methods for "[": Extraction or Subsetting in Package 'Matrix'</a></li>
 </ul>
 
     <hr>
-  <div class="container manual-page" id="abIndex-class">
+  <div class="container manual-page" id="Xtrct-methods">
+
+<a href="#Xtrct-methods" class="help-page-title"><h2>Methods for "[": Extraction or Subsetting in Package 'Matrix'</h2></a>
+
+<h3>Description</h3>
+
+<p>Methods for <code>"["</code>, i.e., extraction or subsetting mostly of
+matrices, in package <span class="pkg">Matrix</span>.
+</p>
+
+
+<h3>Methods</h3>
+
+<p>There are more than these:
+</p>
+
+<dl>
+<dt>x = "Matrix", i = "missing", j = "missing", drop= "ANY"</dt>
+<dd>
+<p> ... </p>
+</dd>
+<dt>x = "Matrix", i = "numeric", j = "missing", drop= "missing"</dt>
+<dd>
+<p> ... </p>
+</dd>
+<dt>x = "Matrix", i = "missing", j = "numeric", drop= "missing"</dt>
+<dd>
+<p> ... </p>
+</dd>
+<dt>x = "dsparseMatrix", i = "missing", j = "numeric", drop= "logical"</dt>
+<dd>
+<p> ... </p>
+</dd>
+<dt>x = "dsparseMatrix", i = "numeric", j = "missing", drop= "logical"</dt>
+<dd>
+<p> ... </p>
+</dd>
+<dt>x = "dsparseMatrix", i = "numeric", j = "numeric", drop= "logical"</dt>
+<dd>
+<p> ... </p>
+</dd>
+</dl>
+<h3>See Also</h3>
+
+<p><code><a href="#Subassign-methods">[&lt;–methods</a></code> for sub<em>assign</em>ment to <code>"Matrix"</code>
+objects.
+<code><a href="base.html#Extract">Extract</a></code> about the standard extraction.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">str<span class="token punctuation">(</span>m <span class="token operator">&lt;-</span> Matrix<span class="token punctuation">(</span>round<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">7</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nrow <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>m<span class="token punctuation">,</span> m<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+m<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>   <span class="token comment"># simple number</span>
+m<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token comment"># simple numeric of length 2</span>
+m<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">,</span> drop<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">]</span> <span class="token comment"># sub matrix of class 'dgeMatrix'</span>
+<span class="token comment">## rows or columns only:</span>
+m<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">]</span>     <span class="token comment"># first row, as simple numeric vector</span>
+m<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">]</span>   <span class="token comment"># sub matrix of first two columns</span>
+
+showMethods<span class="token punctuation">(</span><span class="token string">"["</span><span class="token punctuation">,</span> inherited <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="Subassign-methods">
+
+<a href="#Subassign-methods" class="help-page-title"><h2>Methods for "[&lt;-" - Assigning to Subsets for 'Matrix'</h2></a>
+
+<h3>Description</h3>
+
+<p>Methods for <code>"[&lt;-"</code>, i.e., extraction or subsetting mostly of
+matrices, in package <span class="pkg">Matrix</span>.
+</p>
+<p><b>Note</b>: Contrary to standard <code><a href="base.html#matrix">matrix</a></code> assignment in
+base <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, in <code>x[..] &lt;- val</code> it is typically an <b>error</b> (see
+<code><a href="base.html#stop">stop</a></code>) when the <a href="base.html#typeof">type</a> or <code><a href="base.html#class">class</a></code> of
+<code>val</code> would require the class of <code>x</code> to be changed, e.g.,
+when <code>x</code> is logical, say <code>"lsparseMatrix"</code>, and <code>val</code>
+is numeric.
+In other cases, e.g., when <code>x</code> is a <code>"nsparseMatrix"</code> and
+<code>val</code> is not <code>TRUE</code> or <code>FALSE</code>, a warning is signalled,
+and <code>val</code> is “interpreted” as <code><a href="base.html#logical">logical</a></code>, and
+(logical) <code><a href="base.html#NA">NA</a></code> is interpreted as <code>TRUE</code>.
+</p>
+
+
+<h3>Methods</h3>
+
+<p>There are <em>many many</em> more than these:
+</p>
+
+<dl>
+<dt>x = "Matrix", i = "missing", j = "missing", value= "ANY"</dt>
+<dd>
+<p>is currently a simple fallback method implementation which ensures
+“readable” error messages.</p>
+</dd>
+<dt>x = "Matrix", i = "ANY", j = "ANY", value= "ANY"</dt>
+<dd>
+<p> currently
+gives an error </p>
+</dd>
+<dt>x = "denseMatrix", i = "index", j = "missing", value= "numeric"</dt>
+<dd>
+<p> ... </p>
+</dd>
+<dt>x = "denseMatrix", i = "index", j = "index", value= "numeric"</dt>
+<dd>
+<p> ... </p>
+</dd>
+<dt>x = "denseMatrix", i = "missing", j = "index", value= "numeric"</dt>
+<dd>
+<p> ... </p>
+</dd>
+</dl>
+<h3>See Also</h3>
+
+
+<p><code><a href="#Xtrct-methods">[-methods</a></code> for subsetting <code>"Matrix"</code> objects; the
+<code><a href="#index-class">index</a></code> class;
+<code><a href="base.html#Extract">Extract</a></code> about the standard subset assignment (and extraction).
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">set.seed<span class="token punctuation">(</span><span class="token number">101</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span>a <span class="token operator">&lt;-</span> m <span class="token operator">&lt;-</span> Matrix<span class="token punctuation">(</span>round<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">7</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nrow <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+a<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">2.2</span> <span class="token comment"># &lt;&lt;- replaces **every** entry</span>
+a
+<span class="token comment">## as do these:</span>
+a<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">3</span> <span class="token punctuation">;</span> a<span class="token punctuation">[</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">4</span>
+
+m<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>  <span class="token operator">&lt;-</span> <span class="token number">3.14</span> <span class="token comment"># simple number</span>
+m<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token operator">&lt;-</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span>  <span class="token comment"># simple numeric of length 2</span>
+
+<span class="token comment">## sub matrix assignment:</span>
+m<span class="token punctuation">[</span><span class="token operator">-</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">:</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment">#-&gt; upper right corner of 'm'</span>
+m<span class="token punctuation">[</span><span class="token number">3</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">0</span>
+m<span class="token punctuation">[</span><span class="token number">6</span><span class="token operator">:</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> Diagonal<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+m
+
+<span class="token comment">## rows or columns only:</span>
+m<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">10</span>
+m<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">7</span>
+m<span class="token punctuation">[</span><span class="token operator">-</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">0</span> <span class="token comment"># not the first 6 rows, i.e. only the 7th</span>
+as<span class="token punctuation">(</span>m<span class="token punctuation">,</span> <span class="token string">"sparseMatrix"</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="boolean-matprod">
+
+<a href="#boolean-matprod" class="help-page-title"><h2>Boolean Arithmetic Matrix Products: <code>%&amp;%</code> and Methods</h2></a>
+
+<h3>Description</h3>
+
+<p>For boolean or “patter<b>n</b>” matrices, i.e., <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects of
+class <code><a href="#nMatrix-class">nMatrix</a></code>, it is natural to allow matrix
+products using boolean instead of numerical arithmetic.
+</p>
+<p>In package <span class="pkg">Matrix</span>, we use the binary operator <code>%&amp;%</code> (aka
+“infix”) function) for this and provide methods for all our
+matrices and the traditional <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> matrices (see <code><a href="base.html#matrix">matrix</a></code>).
+</p>
+
+
+<h3>Value</h3>
+
+<p>a pattern matrix, i.e., inheriting from <code>"<a href="#nMatrix-class">nMatrix</a>"</code>,
+or an <code>"<a href="#ldiMatrix-class">ldiMatrix</a>"</code> in case of a diagonal matrix.
+</p>
+
+
+<h3>Methods</h3>
+
+<p>We provide methods for both the “traditional” (<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> base) matrices
+and numeric vectors and conceptually all matrices and
+<code><a href="#sparseVector-class">sparseVector</a></code>s in package <span class="pkg">Matrix</span>.
+</p>
+
+<dl>
+<dt><code>signature(x = "ANY", y = "ANY")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "ANY", y = "Matrix")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "Matrix", y = "ANY")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "mMatrix", y = "mMatrix")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "nMatrix", y = "nMatrix")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "nMatrix", y = "nsparseMatrix")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "nsparseMatrix", y = "nMatrix")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "nsparseMatrix", y = "nsparseMatrix")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "sparseVector", y = "mMatrix")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "mMatrix", y = "sparseVector")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "sparseVector", y = "sparseVector")</code></dt>
+<dd> </dd>
+</dl>
+<h3>Note</h3>
+
+<p>These boolean arithmetic matrix products had been newly
+introduced for <span class="pkg">Matrix</span> 1.2.0 (March 2015).  Its implementation
+has still not been tested extensively.
+</p>
+<p>Originally, it was left unspecified how non-structural zeros, i.e., <code>0</code>'s
+as part of the <code>M@x</code> slot should be treated for numeric
+(<code>"<a href="#dMatrix-class">dMatrix</a>"</code>) and logical (<code>"<a href="#dMatrix-class">lMatrix</a>"</code>)
+sparse matrices.  We now specify that boolean matrix products should behave as if
+applied to <code><a href="#drop0">drop0</a>(M)</code>, i.e., as if dropping such zeros from
+the matrix before using it.
+<br>
+Equivalently, for all matrices <code>M</code>, boolean arithmetic should work as if
+applied to <code>M != 0</code> (or <code>M != FALSE</code>.
+</p>
+<p>The current implementation ends up coercing both <code>x</code> and <code>y</code> to
+(virtual) class <code><a href="#nsparseMatrix-classes">nsparseMatrix</a></code> which may be quite inefficient
+for dense matrices.  A future implementation may well return a matrix
+with <b>different</b> class, but the “same” content, i.e., the
+same matrix entries <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mi>i</mi></msub><mi>j</mi></mrow><annotation encoding="application/x-tex">m_ij</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span></code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#matrix-products">%*%</a></code>, <code>crossprod()</code>, or <code><a href="#matrix-products">tcrossprod</a>()</code>,
+for (regular) matrix product methods.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">set.seed<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>
+L <span class="token operator">&lt;-</span> Matrix<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">,</span>    <span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span>N <span class="token operator">&lt;-</span> as<span class="token punctuation">(</span>L<span class="token punctuation">,</span> <span class="token string">"nMatrix"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+L. <span class="token operator">&lt;-</span> L<span class="token punctuation">;</span> L.<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token boolean">TRUE</span><span class="token punctuation">;</span> L.<span class="token operator">@</span>x<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token boolean">FALSE</span><span class="token punctuation">;</span> L. <span class="token comment"># has "zeros" to drop0()</span>
+D <span class="token operator">&lt;-</span> Matrix<span class="token punctuation">(</span>round<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token comment"># -&gt; values in -1:1 (for this seed)</span>
+L <span class="token percent-operator operator">%&amp;%</span> D
+stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>L <span class="token percent-operator operator">%&amp;%</span> D<span class="token punctuation">,</span> N <span class="token percent-operator operator">%&amp;%</span> D<span class="token punctuation">)</span><span class="token punctuation">,</span>
+          all<span class="token punctuation">(</span>L <span class="token percent-operator operator">%&amp;%</span> D <span class="token operator">==</span> as<span class="token punctuation">(</span><span class="token punctuation">(</span>L <span class="token percent-operator operator">%*%</span> abs<span class="token punctuation">(</span>D<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"sparseMatrix"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## cross products , possibly with  boolArith = TRUE :</span>
+crossprod<span class="token punctuation">(</span>N<span class="token punctuation">)</span>     <span class="token comment"># -&gt; sparse patter'n' (TRUE/FALSE : boolean arithmetic)</span>
+crossprod<span class="token punctuation">(</span>N  <span class="token operator">+</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># -&gt; numeric Matrix (with same "pattern")</span>
+stopifnot<span class="token punctuation">(</span>all<span class="token punctuation">(</span>crossprod<span class="token punctuation">(</span>N<span class="token punctuation">)</span> <span class="token operator">==</span> t<span class="token punctuation">(</span>N<span class="token punctuation">)</span> <span class="token percent-operator operator">%&amp;%</span> N<span class="token punctuation">)</span><span class="token punctuation">,</span>
+          identical<span class="token punctuation">(</span>crossprod<span class="token punctuation">(</span>N<span class="token punctuation">)</span><span class="token punctuation">,</span> crossprod<span class="token punctuation">(</span>N <span class="token operator">+</span><span class="token number">0</span><span class="token punctuation">,</span> boolArith<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          identical<span class="token punctuation">(</span>crossprod<span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">,</span> crossprod<span class="token punctuation">(</span>N   <span class="token punctuation">,</span> boolArith<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+crossprod<span class="token punctuation">(</span>D<span class="token punctuation">,</span> boolArith <span class="token operator">=</span>  <span class="token boolean">TRUE</span><span class="token punctuation">)</span> <span class="token comment"># pattern: "nsCMatrix"</span>
+crossprod<span class="token punctuation">(</span>L<span class="token punctuation">,</span> boolArith <span class="token operator">=</span>  <span class="token boolean">TRUE</span><span class="token punctuation">)</span> <span class="token comment">#  ditto</span>
+crossprod<span class="token punctuation">(</span>L<span class="token punctuation">,</span> boolArith <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span> <span class="token comment"># numeric: "dsCMatrix"</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="abIndex-class">
 
 <a href="#abIndex-class" class="help-page-title"><h2>Class "abIndex" of Abstract Index Vectors</h2></a>
 
@@ -981,114 +1241,6 @@ bdiag_m <span class="token operator">&lt;-</span> <span class="token keyword">fu
 l12 <span class="token operator">&lt;-</span> replicate<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> matrix<span class="token punctuation">(</span>rpois<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span> lambda <span class="token operator">=</span> <span class="token number">6.4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> simplify<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 dim<span class="token punctuation">(</span>T12 <span class="token operator">&lt;-</span> bdiag_m<span class="token punctuation">(</span>l12<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment"># 48 x 48</span>
 T12<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">20</span><span class="token punctuation">]</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="boolean-matprod">
-
-<a href="#boolean-matprod" class="help-page-title"><h2>Boolean Arithmetic Matrix Products: <code>%&amp;%</code> and Methods</h2></a>
-
-<h3>Description</h3>
-
-<p>For boolean or “patter<b>n</b>” matrices, i.e., <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects of
-class <code><a href="#nMatrix-class">nMatrix</a></code>, it is natural to allow matrix
-products using boolean instead of numerical arithmetic.
-</p>
-<p>In package <span class="pkg">Matrix</span>, we use the binary operator <code>%&amp;%</code> (aka
-“infix”) function) for this and provide methods for all our
-matrices and the traditional <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> matrices (see <code><a href="base.html#matrix">matrix</a></code>).
-</p>
-
-
-<h3>Value</h3>
-
-<p>a pattern matrix, i.e., inheriting from <code>"<a href="#nMatrix-class">nMatrix</a>"</code>,
-or an <code>"<a href="#ldiMatrix-class">ldiMatrix</a>"</code> in case of a diagonal matrix.
-</p>
-
-
-<h3>Methods</h3>
-
-<p>We provide methods for both the “traditional” (<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> base) matrices
-and numeric vectors and conceptually all matrices and
-<code><a href="#sparseVector-class">sparseVector</a></code>s in package <span class="pkg">Matrix</span>.
-</p>
-
-<dl>
-<dt><code>signature(x = "ANY", y = "ANY")</code></dt>
-<dd> </dd>
-<dt><code>signature(x = "ANY", y = "Matrix")</code></dt>
-<dd> </dd>
-<dt><code>signature(x = "Matrix", y = "ANY")</code></dt>
-<dd> </dd>
-<dt><code>signature(x = "mMatrix", y = "mMatrix")</code></dt>
-<dd> </dd>
-<dt><code>signature(x = "nMatrix", y = "nMatrix")</code></dt>
-<dd> </dd>
-<dt><code>signature(x = "nMatrix", y = "nsparseMatrix")</code></dt>
-<dd> </dd>
-<dt><code>signature(x = "nsparseMatrix", y = "nMatrix")</code></dt>
-<dd> </dd>
-<dt><code>signature(x = "nsparseMatrix", y = "nsparseMatrix")</code></dt>
-<dd> </dd>
-<dt><code>signature(x = "sparseVector", y = "mMatrix")</code></dt>
-<dd> </dd>
-<dt><code>signature(x = "mMatrix", y = "sparseVector")</code></dt>
-<dd> </dd>
-<dt><code>signature(x = "sparseVector", y = "sparseVector")</code></dt>
-<dd> </dd>
-</dl>
-<h3>Note</h3>
-
-<p>These boolean arithmetic matrix products had been newly
-introduced for <span class="pkg">Matrix</span> 1.2.0 (March 2015).  Its implementation
-has still not been tested extensively.
-</p>
-<p>Originally, it was left unspecified how non-structural zeros, i.e., <code>0</code>'s
-as part of the <code>M@x</code> slot should be treated for numeric
-(<code>"<a href="#dMatrix-class">dMatrix</a>"</code>) and logical (<code>"<a href="#dMatrix-class">lMatrix</a>"</code>)
-sparse matrices.  We now specify that boolean matrix products should behave as if
-applied to <code><a href="#drop0">drop0</a>(M)</code>, i.e., as if dropping such zeros from
-the matrix before using it.
-<br>
-Equivalently, for all matrices <code>M</code>, boolean arithmetic should work as if
-applied to <code>M != 0</code> (or <code>M != FALSE</code>.
-</p>
-<p>The current implementation ends up coercing both <code>x</code> and <code>y</code> to
-(virtual) class <code><a href="#nsparseMatrix-classes">nsparseMatrix</a></code> which may be quite inefficient
-for dense matrices.  A future implementation may well return a matrix
-with <b>different</b> class, but the “same” content, i.e., the
-same matrix entries <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mi>i</mi></msub><mi>j</mi></mrow><annotation encoding="application/x-tex">m_ij</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span></code>.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#matrix-products">%*%</a></code>, <code>crossprod()</code>, or <code><a href="#matrix-products">tcrossprod</a>()</code>,
-for (regular) matrix product methods.
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r">set.seed<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>
-L <span class="token operator">&lt;-</span> Matrix<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">,</span>    <span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
-<span class="token punctuation">(</span>N <span class="token operator">&lt;-</span> as<span class="token punctuation">(</span>L<span class="token punctuation">,</span> <span class="token string">"nMatrix"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-L. <span class="token operator">&lt;-</span> L<span class="token punctuation">;</span> L.<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token boolean">TRUE</span><span class="token punctuation">;</span> L.<span class="token operator">@</span>x<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token boolean">FALSE</span><span class="token punctuation">;</span> L. <span class="token comment"># has "zeros" to drop0()</span>
-D <span class="token operator">&lt;-</span> Matrix<span class="token punctuation">(</span>round<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token comment"># -&gt; values in -1:1 (for this seed)</span>
-L <span class="token percent-operator operator">%&amp;%</span> D
-stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>L <span class="token percent-operator operator">%&amp;%</span> D<span class="token punctuation">,</span> N <span class="token percent-operator operator">%&amp;%</span> D<span class="token punctuation">)</span><span class="token punctuation">,</span>
-          all<span class="token punctuation">(</span>L <span class="token percent-operator operator">%&amp;%</span> D <span class="token operator">==</span> as<span class="token punctuation">(</span><span class="token punctuation">(</span>L <span class="token percent-operator operator">%*%</span> abs<span class="token punctuation">(</span>D<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"sparseMatrix"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment">## cross products , possibly with  boolArith = TRUE :</span>
-crossprod<span class="token punctuation">(</span>N<span class="token punctuation">)</span>     <span class="token comment"># -&gt; sparse patter'n' (TRUE/FALSE : boolean arithmetic)</span>
-crossprod<span class="token punctuation">(</span>N  <span class="token operator">+</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># -&gt; numeric Matrix (with same "pattern")</span>
-stopifnot<span class="token punctuation">(</span>all<span class="token punctuation">(</span>crossprod<span class="token punctuation">(</span>N<span class="token punctuation">)</span> <span class="token operator">==</span> t<span class="token punctuation">(</span>N<span class="token punctuation">)</span> <span class="token percent-operator operator">%&amp;%</span> N<span class="token punctuation">)</span><span class="token punctuation">,</span>
-          identical<span class="token punctuation">(</span>crossprod<span class="token punctuation">(</span>N<span class="token punctuation">)</span><span class="token punctuation">,</span> crossprod<span class="token punctuation">(</span>N <span class="token operator">+</span><span class="token number">0</span><span class="token punctuation">,</span> boolArith<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-          identical<span class="token punctuation">(</span>crossprod<span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">,</span> crossprod<span class="token punctuation">(</span>N   <span class="token punctuation">,</span> boolArith<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-crossprod<span class="token punctuation">(</span>D<span class="token punctuation">,</span> boolArith <span class="token operator">=</span>  <span class="token boolean">TRUE</span><span class="token punctuation">)</span> <span class="token comment"># pattern: "nsCMatrix"</span>
-crossprod<span class="token punctuation">(</span>L<span class="token punctuation">,</span> boolArith <span class="token operator">=</span>  <span class="token boolean">TRUE</span><span class="token punctuation">)</span> <span class="token comment">#  ditto</span>
-crossprod<span class="token punctuation">(</span>L<span class="token punctuation">,</span> boolArith <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span> <span class="token comment"># numeric: "dsCMatrix"</span></code></pre>
 
 <hr>
 </div>
@@ -14352,93 +14504,6 @@ L <span class="token comment"># an "lgTMatrix"</span>
 
 <hr>
 </div>
-<div class="container manual-page" id="Subassign-methods">
-
-<a href="#Subassign-methods" class="help-page-title"><h2>Methods for "[&lt;-" - Assigning to Subsets for 'Matrix'</h2></a>
-
-<h3>Description</h3>
-
-<p>Methods for <code>"[&lt;-"</code>, i.e., extraction or subsetting mostly of
-matrices, in package <span class="pkg">Matrix</span>.
-</p>
-<p><b>Note</b>: Contrary to standard <code><a href="base.html#matrix">matrix</a></code> assignment in
-base <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, in <code>x[..] &lt;- val</code> it is typically an <b>error</b> (see
-<code><a href="base.html#stop">stop</a></code>) when the <a href="base.html#typeof">type</a> or <code><a href="base.html#class">class</a></code> of
-<code>val</code> would require the class of <code>x</code> to be changed, e.g.,
-when <code>x</code> is logical, say <code>"lsparseMatrix"</code>, and <code>val</code>
-is numeric.
-In other cases, e.g., when <code>x</code> is a <code>"nsparseMatrix"</code> and
-<code>val</code> is not <code>TRUE</code> or <code>FALSE</code>, a warning is signalled,
-and <code>val</code> is “interpreted” as <code><a href="base.html#logical">logical</a></code>, and
-(logical) <code><a href="base.html#NA">NA</a></code> is interpreted as <code>TRUE</code>.
-</p>
-
-
-<h3>Methods</h3>
-
-<p>There are <em>many many</em> more than these:
-</p>
-
-<dl>
-<dt>x = "Matrix", i = "missing", j = "missing", value= "ANY"</dt>
-<dd>
-<p>is currently a simple fallback method implementation which ensures
-“readable” error messages.</p>
-</dd>
-<dt>x = "Matrix", i = "ANY", j = "ANY", value= "ANY"</dt>
-<dd>
-<p> currently
-gives an error </p>
-</dd>
-<dt>x = "denseMatrix", i = "index", j = "missing", value= "numeric"</dt>
-<dd>
-<p> ... </p>
-</dd>
-<dt>x = "denseMatrix", i = "index", j = "index", value= "numeric"</dt>
-<dd>
-<p> ... </p>
-</dd>
-<dt>x = "denseMatrix", i = "missing", j = "index", value= "numeric"</dt>
-<dd>
-<p> ... </p>
-</dd>
-</dl>
-<h3>See Also</h3>
-
-
-<p><code><a href="#Xtrct-methods">[-methods</a></code> for subsetting <code>"Matrix"</code> objects; the
-<code><a href="#index-class">index</a></code> class;
-<code><a href="base.html#Extract">Extract</a></code> about the standard subset assignment (and extraction).
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r">set.seed<span class="token punctuation">(</span><span class="token number">101</span><span class="token punctuation">)</span>
-<span class="token punctuation">(</span>a <span class="token operator">&lt;-</span> m <span class="token operator">&lt;-</span> Matrix<span class="token punctuation">(</span>round<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">7</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nrow <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-a<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">2.2</span> <span class="token comment"># &lt;&lt;- replaces **every** entry</span>
-a
-<span class="token comment">## as do these:</span>
-a<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">3</span> <span class="token punctuation">;</span> a<span class="token punctuation">[</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">4</span>
-
-m<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>  <span class="token operator">&lt;-</span> <span class="token number">3.14</span> <span class="token comment"># simple number</span>
-m<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token operator">&lt;-</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span>  <span class="token comment"># simple numeric of length 2</span>
-
-<span class="token comment">## sub matrix assignment:</span>
-m<span class="token punctuation">[</span><span class="token operator">-</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">:</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment">#-&gt; upper right corner of 'm'</span>
-m<span class="token punctuation">[</span><span class="token number">3</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">0</span>
-m<span class="token punctuation">[</span><span class="token number">6</span><span class="token operator">:</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> Diagonal<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
-m
-
-<span class="token comment">## rows or columns only:</span>
-m<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">10</span>
-m<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">7</span>
-m<span class="token punctuation">[</span><span class="token operator">-</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">0</span> <span class="token comment"># not the first 6 rows, i.e. only the 7th</span>
-as<span class="token punctuation">(</span>m<span class="token punctuation">,</span> <span class="token string">"sparseMatrix"</span><span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
 <div class="container manual-page" id="symmetricMatrix-class">
 
 <a href="#symmetricMatrix-class" class="help-page-title"><h2>Virtual Class of Symmetric Matrices in Package Matrix</h2></a>
@@ -15468,71 +15533,6 @@ system.time<span class="token punctuation">(</span>MJ4 <span class="token operat
 stopifnot<span class="token punctuation">(</span>all.equal<span class="token punctuation">(</span>MJ<span class="token punctuation">,</span> MJ2<span class="token punctuation">)</span><span class="token punctuation">,</span>
           all.equal<span class="token punctuation">(</span>MJ<span class="token punctuation">,</span> MJ3<span class="token punctuation">)</span><span class="token punctuation">,</span>
           all.equal<span class="token punctuation">(</span>MJ<span class="token punctuation">,</span> MJ4<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="Xtrct-methods">
-
-<a href="#Xtrct-methods" class="help-page-title"><h2>Methods for "[": Extraction or Subsetting in Package 'Matrix'</h2></a>
-
-<h3>Description</h3>
-
-<p>Methods for <code>"["</code>, i.e., extraction or subsetting mostly of
-matrices, in package <span class="pkg">Matrix</span>.
-</p>
-
-
-<h3>Methods</h3>
-
-<p>There are more than these:
-</p>
-
-<dl>
-<dt>x = "Matrix", i = "missing", j = "missing", drop= "ANY"</dt>
-<dd>
-<p> ... </p>
-</dd>
-<dt>x = "Matrix", i = "numeric", j = "missing", drop= "missing"</dt>
-<dd>
-<p> ... </p>
-</dd>
-<dt>x = "Matrix", i = "missing", j = "numeric", drop= "missing"</dt>
-<dd>
-<p> ... </p>
-</dd>
-<dt>x = "dsparseMatrix", i = "missing", j = "numeric", drop= "logical"</dt>
-<dd>
-<p> ... </p>
-</dd>
-<dt>x = "dsparseMatrix", i = "numeric", j = "missing", drop= "logical"</dt>
-<dd>
-<p> ... </p>
-</dd>
-<dt>x = "dsparseMatrix", i = "numeric", j = "numeric", drop= "logical"</dt>
-<dd>
-<p> ... </p>
-</dd>
-</dl>
-<h3>See Also</h3>
-
-<p><code><a href="#Subassign-methods">[&lt;–methods</a></code> for sub<em>assign</em>ment to <code>"Matrix"</code>
-objects.
-<code><a href="base.html#Extract">Extract</a></code> about the standard extraction.
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r">str<span class="token punctuation">(</span>m <span class="token operator">&lt;-</span> Matrix<span class="token punctuation">(</span>round<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">7</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nrow <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>m<span class="token punctuation">,</span> m<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-m<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>   <span class="token comment"># simple number</span>
-m<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token comment"># simple numeric of length 2</span>
-m<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">,</span> drop<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">]</span> <span class="token comment"># sub matrix of class 'dgeMatrix'</span>
-<span class="token comment">## rows or columns only:</span>
-m<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">]</span>     <span class="token comment"># first row, as simple numeric vector</span>
-m<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">]</span>   <span class="token comment"># sub matrix of first two columns</span>
-
-showMethods<span class="token punctuation">(</span><span class="token string">"["</span><span class="token punctuation">,</span> inherited <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div>

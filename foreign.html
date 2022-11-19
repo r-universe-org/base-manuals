@@ -79,11 +79,11 @@
 <li class="help-index-item"><a href="#read.epiinfo">Read Epi Info Data Files</a></li>
 <li class="help-index-item"><a href="#read.mtp">Read a Minitab Portable Worksheet</a></li>
 <li class="help-index-item"><a href="#read.octave">Read Octave Text Data Files</a></li>
-<li class="help-index-item"><a href="#read.S">Read an S3 Binary or data.dump File</a></li>
 <li class="help-index-item"><a href="#read.spss">Read an SPSS Data File</a></li>
 <li class="help-index-item"><a href="#read.ssd">Obtain a Data Frame from a SAS Permanent Dataset, via read.xport </a></li>
 <li class="help-index-item"><a href="#read.systat">Obtain a Data Frame from a Systat File</a></li>
 <li class="help-index-item"><a href="#read.xport">Read a SAS XPORT Format Library</a></li>
+<li class="help-index-item"><a href="#read.S">Read an S3 Binary or data.dump File</a></li>
 <li class="help-index-item"><a href="#write.arff">Write Data into ARFF Files</a></li>
 <li class="help-index-item"><a href="#write.dbf">Write a DBF File</a></li>
 <li class="help-index-item"><a href="#write.dta">Write Files in Stata Binary Format</a></li>
@@ -682,97 +682,6 @@ facilities as an intermediary step.
 
 <hr>
 </div>
-<div class="container manual-page" id="read.S">
-
-<a href="#read.S" class="help-page-title"><h2>Read an S3 Binary or data.dump File</h2></a>
-
-<h3>Description</h3>
-
-<p>Reads binary data files or <code>data.dump</code> files that were produced
-in S version 3.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">data.restore<span class="token punctuation">(</span>file<span class="token punctuation">,</span> print <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> verbose <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> env <span class="token operator">=</span> .GlobalEnv<span class="token punctuation">)</span>
-  read.S<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
-<td>
-<p>the filename of the S-PLUS <code>data.dump</code> or binary
-file.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>print</code></td>
-<td>
-<p>whether to print the name of each object as read from the
-file.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>verbose</code></td>
-<td>
-<p>whether to print the name of every subitem within each
-object.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>env</code></td>
-<td>
-<p>environment within which to create the restored object(s).</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p><code>read.S</code> can read the binary files produced in some older
-versions of S-PLUS on either Windows (versions 3.x, 4.x, 2000) or Unix
-(version 3.x with 4 byte integers).  It automatically detects whether
-the file was produced on a big- or little-endian machine and adapts
-itself accordingly.
-</p>
-<p><code>data.restore</code> can read a similar range of files produced by
-<code>data.dump</code> and for newer versions of S-PLUS, those from
-<code>data.dump(....., oldStyle=TRUE)</code>.
-</p>
-<p>Not all S3 objects can be handled in the current version.  The most
-frequently encountered exceptions are functions and expressions; you
-will also have trouble with objects that contain model formulas.  In
-particular, comments will be lost from function bodies, and the
-argument lists of functions will often be changed.
-</p>
-
-
-<h3>Value</h3>
-
-<p>For <code>read.S</code>, an R version of the S3 object.
-</p>
-<p>For <code>data.restore</code>, the name of the file.
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>Duncan Murdoch
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment">## if you have an S-PLUS _Data file containing 'myobj'</span><span class="token comment">## Not run: read.S(file.path("_Data", "myobj"))</span>
-data.restore<span class="token punctuation">(</span><span class="token string">"dumpdata"</span><span class="token punctuation">,</span> print <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
-
-<span class="token comment">## End(Not run)</span></code></pre>
-
-<hr>
-</div>
 <div class="container manual-page" id="read.spss">
 
 <a href="#read.spss" class="help-page-title"><h2>Read an SPSS Data File</h2></a>
@@ -1356,6 +1265,97 @@ available at
 
 <pre class="language-r"><code class="language-r"><span class="token comment">## Not run: ## no XPORT file is installed</span>
 read.xport<span class="token punctuation">(</span><span class="token string">"test.xpt"</span><span class="token punctuation">)</span>
+
+<span class="token comment">## End(Not run)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="read.S">
+
+<a href="#read.S" class="help-page-title"><h2>Read an S3 Binary or data.dump File</h2></a>
+
+<h3>Description</h3>
+
+<p>Reads binary data files or <code>data.dump</code> files that were produced
+in S version 3.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">data.restore<span class="token punctuation">(</span>file<span class="token punctuation">,</span> print <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> verbose <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> env <span class="token operator">=</span> .GlobalEnv<span class="token punctuation">)</span>
+  read.S<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>file</code></td>
+<td>
+<p>the filename of the S-PLUS <code>data.dump</code> or binary
+file.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>print</code></td>
+<td>
+<p>whether to print the name of each object as read from the
+file.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>verbose</code></td>
+<td>
+<p>whether to print the name of every subitem within each
+object.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>env</code></td>
+<td>
+<p>environment within which to create the restored object(s).</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>read.S</code> can read the binary files produced in some older
+versions of S-PLUS on either Windows (versions 3.x, 4.x, 2000) or Unix
+(version 3.x with 4 byte integers).  It automatically detects whether
+the file was produced on a big- or little-endian machine and adapts
+itself accordingly.
+</p>
+<p><code>data.restore</code> can read a similar range of files produced by
+<code>data.dump</code> and for newer versions of S-PLUS, those from
+<code>data.dump(....., oldStyle=TRUE)</code>.
+</p>
+<p>Not all S3 objects can be handled in the current version.  The most
+frequently encountered exceptions are functions and expressions; you
+will also have trouble with objects that contain model formulas.  In
+particular, comments will be lost from function bodies, and the
+argument lists of functions will often be changed.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>read.S</code>, an R version of the S3 object.
+</p>
+<p>For <code>data.restore</code>, the name of the file.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Duncan Murdoch
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## if you have an S-PLUS _Data file containing 'myobj'</span><span class="token comment">## Not run: read.S(file.path("_Data", "myobj"))</span>
+data.restore<span class="token punctuation">(</span><span class="token string">"dumpdata"</span><span class="token punctuation">,</span> print <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 
 <span class="token comment">## End(Not run)</span></code></pre>
 

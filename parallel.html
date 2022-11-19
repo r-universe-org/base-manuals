@@ -57,13 +57,13 @@
 
     <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
     <ul id="help-index-list">
-<li class="help-index-item"><a href="#children">Low-level Functions for Management of Forked Processes</a></li>
 <li class="help-index-item"><a href="#clusterApply">Apply Operations using Clusters</a></li>
 <li class="help-index-item"><a href="#detectCores">Detect the Number of CPU Cores</a></li>
 <li class="help-index-item"><a href="#makeCluster">
 Create a Parallel Socket Cluster
 </a></li>
 <li class="help-index-item"><a href="#mcaffinity">Get or Set CPU Affinity Mask of the Current Process</a></li>
+<li class="help-index-item"><a href="#children">Low-level Functions for Management of Forked Processes</a></li>
 <li class="help-index-item"><a href="#mcfork">Fork a Copy of the Current R Process</a></li>
 <li class="help-index-item"><a href="#mclapply">Parallel Versions of lapply and mapply using Forking</a></li>
 <li class="help-index-item"><a href="#mcparallel">Evaluate an R Expression Asynchronously in a Separate Process</a></li>
@@ -76,190 +76,7 @@ Support for Parallel Computation
 </ul>
 
     <hr>
-  <div class="container manual-page" id="children">
-
-<a href="#children" class="help-page-title"><h2>Low-level Functions for Management of Forked Processes</h2></a>
-
-<h3>Description</h3>
-
-<p>These are low-level support functions for the forking approach.
-</p>
-<p>They are not available on Windows, and not exported from the namespace.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">children<span class="token punctuation">(</span>select<span class="token punctuation">)</span>
-readChild<span class="token punctuation">(</span>child<span class="token punctuation">)</span>
-readChildren<span class="token punctuation">(</span>timeout <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
-selectChildren<span class="token punctuation">(</span>children <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> timeout <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
-sendChildStdin<span class="token punctuation">(</span>child<span class="token punctuation">,</span> what<span class="token punctuation">)</span>
-sendMaster<span class="token punctuation">(</span>what<span class="token punctuation">,</span> raw.asis <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
-
-mckill<span class="token punctuation">(</span>process<span class="token punctuation">,</span> signal <span class="token operator">=</span> <span class="token number">2L</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr style="vertical-align: top;">
-<td><code>select</code></td>
-<td>
-<p>if omitted, all active children are returned, otherwise
-<code>select</code> should be a list of processes and only those from the
-list that are active will be returned.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>child</code></td>
-<td>
-<p>child process (object of the class <code>"childProcess"</code>) or a
-process ID (pid).  See also ‘Details’.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>timeout</code></td>
-<td>
-<p>timeout (in seconds, fractions supported) to wait
-for a response before giving up.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>children</code></td>
-<td>
-<p>list of child processes or a single child process
-object or a vector of process IDs or <code>NULL</code>.  If <code>NULL</code>
-behaves as if all currently known children were supplied.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>what</code></td>
-<td>
-<p>For <code>sendChildStdin</code>:<br>
-Character or raw vector.  In the former case elements are
-collapsed using the newline character.  (But no trailing newline is
-added at the end!)
-</p>
-<p>For <code>sendMaster</code>:<br>
-Data to send to the master process.  If <code>what</code> is not
-a raw vector, it will be serialized into a raw vector.  Do NOT
-send an empty raw vector – that is reserved for internal use.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>raw.asis</code></td>
-<td>
-<p>logical, if <code>TRUE</code> and <code>what</code> is a raw
-vector then it is sent directly as-is to the master (default,
-suitable for arbitrary payload passing), otherwise raw vectors
-are serialized before sending just as any other objects
-(suitable for passing evaluation results).</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>process</code></td>
-<td>
-<p>process (object of the class <code>process</code>) or a
-process ID (pid)</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>signal</code></td>
-<td>
-<p>integer: signal to send.  Values of 2 (SIGINT), 9
-(SIGKILL) and 15 (SIGTERM) are pretty much portable, but for maximal
-portability use <code>tools::<a href="tools.html#pskill">SIGTERM</a></code> and so on.</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p><code>children</code> returns currently active children.
-</p>
-<p><code>readChild</code> reads data (sent by <code>sendMaster</code>) from a given
-child process.
-</p>
-<p><code>selectChildren</code> checks children for available data.
-</p>
-<p><code>readChildren</code> checks all children for available data and reads
-from the first child that has available data.
-</p>
-<p><code>sendChildStdin</code> sends a string (or data) to one or more child's
-standard input.  Note that if the master session was interactive, it
-will also be echoed on the standard output of the master process
-(unless disabled).  The function is vector-compatible, so you can
-specify <code>child</code> as a list or a vector of process IDs.
-</p>
-<p><code>sendMaster</code> sends data from the child to the master process.
-</p>
-<p><code>mckill</code> sends a signal to a child process: it is equivalent to
-<code><a href="tools.html#pskill">pskill</a></code> in package <span class="pkg">tools</span>.
-</p>
-
-
-<h3>Value</h3>
-
-<p><code>children</code> returns a (possibly empty) list of objects of class
-<code>"process"</code>, the process ID.
-</p>
-<p><code>readChild</code> and <code>readChildren</code> return a raw vector with a
-<code>"pid"</code> attribute if data were available, an integer vector of
-length one with the process ID if a child terminated or <code>NULL</code>
-if the child no longer exists (no children at all for
-<code>readChildren</code>).
-</p>
-<p><code>selectChildren</code> returns <code>TRUE</code> is the timeout was reached,
-<code>FALSE</code> if an error occurred (e.g., if the master process was
-interrupted) or an integer vector of process IDs with children that
-have data available, or <code>NULL</code> if there are no children.
-</p>
-<p><code>sendChildStdin</code> returns a vector of <code>TRUE</code> values (one for
-each member of <code>child</code>) or throws an error.
-</p>
-<p><code>sendMaster</code> returns <code>TRUE</code> or throws an error.
-</p>
-<p><code>mckill</code> returns <code>TRUE</code>.
-</p>
-
-
-<h3>Warning</h3>
-
-<p>This is a very low-level interface for expert use only: it not
-regarded as part of the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> API and subject to change without notice.
-</p>
-<p><code>sendMaster</code>, <code>readChild</code> and <code>sendChildStdin</code> did not
-support long vectors prior to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.4.0 and so were limited to
-<code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{31} - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code> bytes (and still are on 32-bit platforms).
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>Simon Urbanek and R Core.
-</p>
-<p>Derived from the <span class="pkg">multicore</span> package formerly on <abbr><span class="acronym">CRAN</span></abbr>.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#mcfork">mcfork</a></code>, <code><a href="#children">sendMaster</a></code>, <code><a href="#mcparallel">mcparallel</a></code>
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
-p  <span class="token operator">&lt;-</span> mcparallel<span class="token punctuation">(</span>scan<span class="token punctuation">(</span>n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> quiet <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-sendChildStdin<span class="token punctuation">(</span>p<span class="token punctuation">,</span> <span class="token string">"17.4\n"</span><span class="token punctuation">)</span>
-mccollect<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
-
-<span class="token comment">## End(Not run)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="clusterApply">
+  <div class="container manual-page" id="clusterApply">
 
 <a href="#clusterApply" class="help-page-title"><h2>Apply Operations using Clusters</h2></a>
 
@@ -982,6 +799,189 @@ this process (this may be different than <code>affinity</code>).
 
 <p><code><a href="#mcparallel">mcparallel</a></code>
 </p>
+
+<hr>
+</div>
+<div class="container manual-page" id="children">
+
+<a href="#children" class="help-page-title"><h2>Low-level Functions for Management of Forked Processes</h2></a>
+
+<h3>Description</h3>
+
+<p>These are low-level support functions for the forking approach.
+</p>
+<p>They are not available on Windows, and not exported from the namespace.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">children<span class="token punctuation">(</span>select<span class="token punctuation">)</span>
+readChild<span class="token punctuation">(</span>child<span class="token punctuation">)</span>
+readChildren<span class="token punctuation">(</span>timeout <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+selectChildren<span class="token punctuation">(</span>children <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> timeout <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+sendChildStdin<span class="token punctuation">(</span>child<span class="token punctuation">,</span> what<span class="token punctuation">)</span>
+sendMaster<span class="token punctuation">(</span>what<span class="token punctuation">,</span> raw.asis <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+
+mckill<span class="token punctuation">(</span>process<span class="token punctuation">,</span> signal <span class="token operator">=</span> <span class="token number">2L</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>select</code></td>
+<td>
+<p>if omitted, all active children are returned, otherwise
+<code>select</code> should be a list of processes and only those from the
+list that are active will be returned.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>child</code></td>
+<td>
+<p>child process (object of the class <code>"childProcess"</code>) or a
+process ID (pid).  See also ‘Details’.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>timeout</code></td>
+<td>
+<p>timeout (in seconds, fractions supported) to wait
+for a response before giving up.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>children</code></td>
+<td>
+<p>list of child processes or a single child process
+object or a vector of process IDs or <code>NULL</code>.  If <code>NULL</code>
+behaves as if all currently known children were supplied.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>what</code></td>
+<td>
+<p>For <code>sendChildStdin</code>:<br>
+Character or raw vector.  In the former case elements are
+collapsed using the newline character.  (But no trailing newline is
+added at the end!)
+</p>
+<p>For <code>sendMaster</code>:<br>
+Data to send to the master process.  If <code>what</code> is not
+a raw vector, it will be serialized into a raw vector.  Do NOT
+send an empty raw vector – that is reserved for internal use.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>raw.asis</code></td>
+<td>
+<p>logical, if <code>TRUE</code> and <code>what</code> is a raw
+vector then it is sent directly as-is to the master (default,
+suitable for arbitrary payload passing), otherwise raw vectors
+are serialized before sending just as any other objects
+(suitable for passing evaluation results).</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>process</code></td>
+<td>
+<p>process (object of the class <code>process</code>) or a
+process ID (pid)</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>signal</code></td>
+<td>
+<p>integer: signal to send.  Values of 2 (SIGINT), 9
+(SIGKILL) and 15 (SIGTERM) are pretty much portable, but for maximal
+portability use <code>tools::<a href="tools.html#pskill">SIGTERM</a></code> and so on.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>children</code> returns currently active children.
+</p>
+<p><code>readChild</code> reads data (sent by <code>sendMaster</code>) from a given
+child process.
+</p>
+<p><code>selectChildren</code> checks children for available data.
+</p>
+<p><code>readChildren</code> checks all children for available data and reads
+from the first child that has available data.
+</p>
+<p><code>sendChildStdin</code> sends a string (or data) to one or more child's
+standard input.  Note that if the master session was interactive, it
+will also be echoed on the standard output of the master process
+(unless disabled).  The function is vector-compatible, so you can
+specify <code>child</code> as a list or a vector of process IDs.
+</p>
+<p><code>sendMaster</code> sends data from the child to the master process.
+</p>
+<p><code>mckill</code> sends a signal to a child process: it is equivalent to
+<code><a href="tools.html#pskill">pskill</a></code> in package <span class="pkg">tools</span>.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>children</code> returns a (possibly empty) list of objects of class
+<code>"process"</code>, the process ID.
+</p>
+<p><code>readChild</code> and <code>readChildren</code> return a raw vector with a
+<code>"pid"</code> attribute if data were available, an integer vector of
+length one with the process ID if a child terminated or <code>NULL</code>
+if the child no longer exists (no children at all for
+<code>readChildren</code>).
+</p>
+<p><code>selectChildren</code> returns <code>TRUE</code> is the timeout was reached,
+<code>FALSE</code> if an error occurred (e.g., if the master process was
+interrupted) or an integer vector of process IDs with children that
+have data available, or <code>NULL</code> if there are no children.
+</p>
+<p><code>sendChildStdin</code> returns a vector of <code>TRUE</code> values (one for
+each member of <code>child</code>) or throws an error.
+</p>
+<p><code>sendMaster</code> returns <code>TRUE</code> or throws an error.
+</p>
+<p><code>mckill</code> returns <code>TRUE</code>.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>This is a very low-level interface for expert use only: it not
+regarded as part of the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> API and subject to change without notice.
+</p>
+<p><code>sendMaster</code>, <code>readChild</code> and <code>sendChildStdin</code> did not
+support long vectors prior to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.4.0 and so were limited to
+<code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{31} - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code> bytes (and still are on 32-bit platforms).
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Simon Urbanek and R Core.
+</p>
+<p>Derived from the <span class="pkg">multicore</span> package formerly on <abbr><span class="acronym">CRAN</span></abbr>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#mcfork">mcfork</a></code>, <code><a href="#children">sendMaster</a></code>, <code><a href="#mcparallel">mcparallel</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+p  <span class="token operator">&lt;-</span> mcparallel<span class="token punctuation">(</span>scan<span class="token punctuation">(</span>n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> quiet <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+sendChildStdin<span class="token punctuation">(</span>p<span class="token punctuation">,</span> <span class="token string">"17.4\n"</span><span class="token punctuation">)</span>
+mccollect<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+<span class="token comment">## End(Not run)</span></code></pre>
 
 <hr>
 </div>

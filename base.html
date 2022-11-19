@@ -55,6 +55,13 @@
 
     <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
     <ul id="help-index-list">
+<li class="help-index-item"><a href="#bincode">Bin a Numeric Vector</a></li>
+<li class="help-index-item"><a href="#dev">
+Lists of Open/Active Graphics Devices
+</a></li>
+<li class="help-index-item"><a href="#zMachine">Numerical Characteristics of the Machine</a></li>
+<li class="help-index-item"><a href="#Platform">Platform Specific Variables</a></li>
+<li class="help-index-item"><a href="#zScript">Scripting Language Interface</a></li>
 <li class="help-index-item"><a href="#abbreviate">Abbreviate Strings</a></li>
 <li class="help-index-item"><a href="#agrep">Approximate String Matching (Fuzzy Matching)</a></li>
 <li class="help-index-item"><a href="#all">Are All Values True?</a></li>
@@ -89,7 +96,6 @@ The R Base Package
 </a></li>
 <li class="help-index-item"><a href="#basename">Manipulate File Paths</a></li>
 <li class="help-index-item"><a href="#Bessel">Bessel Functions</a></li>
-<li class="help-index-item"><a href="#bincode">Bin a Numeric Vector</a></li>
 <li class="help-index-item"><a href="#bindenv">Binding and Environment Locking, Active Bindings</a></li>
 <li class="help-index-item"><a href="#bitwise">Bitwise Logical Operations</a></li>
 <li class="help-index-item"><a href="#body">Access to and Manipulation of the Body of a Function</a></li>
@@ -116,7 +122,6 @@ Functions to Retrieve Values Supplied by Calls to the Browser
 <li class="help-index-item"><a href="#chol2inv">Inverse from Cholesky (or QR) Decomposition</a></li>
 <li class="help-index-item"><a href="#class">Object Classes</a></li>
 <li class="help-index-item"><a href="#col">Column Indexes</a></li>
-<li class="help-index-item"><a href="#colnames">Row and Column Names</a></li>
 <li class="help-index-item"><a href="#Colon">Colon Operator</a></li>
 <li class="help-index-item"><a href="#colSums">Form Row and Column Sums and Means</a></li>
 <li class="help-index-item"><a href="#commandArgs">Extract Command Line Arguments</a></li>
@@ -154,9 +159,6 @@ Retrieve Headers from URLs
 <li class="help-index-item"><a href="#Deprecated">Marking Objects as Deprecated</a></li>
 <li class="help-index-item"><a href="#det">Calculate the Determinant of a Matrix</a></li>
 <li class="help-index-item"><a href="#detach">Detach Objects from the Search Path</a></li>
-<li class="help-index-item"><a href="#dev">
-Lists of Open/Active Graphics Devices
-</a></li>
 <li class="help-index-item"><a href="#diag">Matrix Diagonals</a></li>
 <li class="help-index-item"><a href="#diff">Lagged Differences</a></li>
 <li class="help-index-item"><a href="#difftime">Time Intervals / Differences</a></li>
@@ -250,11 +252,11 @@ Obtain a Description of one or more Native (C/Fortran) Symbols
 <li class="help-index-item"><a href="#is.function">Is an Object of Type (Primitive) Function?</a></li>
 <li class="help-index-item"><a href="#is.language">Is an Object a Language Object?</a></li>
 <li class="help-index-item"><a href="#is.object">Is an Object ‘internally classed’?</a></li>
+<li class="help-index-item"><a href="#isR">Are we using R, rather than S?</a></li>
 <li class="help-index-item"><a href="#is.recursive">Is an Object Atomic or Recursive?</a></li>
 <li class="help-index-item"><a href="#is.single">Is an Object of Single Precision Type?</a></li>
 <li class="help-index-item"><a href="#is.unsorted">Test if an Object is Not Sorted</a></li>
 <li class="help-index-item"><a href="#ISOdatetime">Date-time Conversion Functions from Numeric Representations</a></li>
-<li class="help-index-item"><a href="#isR">Are we using R, rather than S?</a></li>
 <li class="help-index-item"><a href="#isS4"> Test for an S4 object </a></li>
 <li class="help-index-item"><a href="#isSymmetric">Test if a Matrix or other Object is Symmetric (Hermitian)</a></li>
 <li class="help-index-item"><a href="#jitter">‘Jitter’ (Add Noise) to Numbers</a></li>
@@ -354,7 +356,6 @@ Create Data Frame From List
 Report Configuration Options for PCRE
 </a></li>
 <li class="help-index-item"><a href="#pipeOp">Forward Pipe Operator</a></li>
-<li class="help-index-item"><a href="#Platform">Platform Specific Variables</a></li>
 <li class="help-index-item"><a href="#plot">Generic X-Y Plotting</a></li>
 <li class="help-index-item"><a href="#pmatch">Partial String Matching</a></li>
 <li class="help-index-item"><a href="#polyroot">Find Zeros of a Real or Complex Polynomial</a></li>
@@ -373,6 +374,7 @@ Report Configuration Options for PCRE
 <li class="help-index-item"><a href="#qraux">Reconstruct the Q, R, or X Matrices from a QR Object</a></li>
 <li class="help-index-item"><a href="#quit">Terminate an R Session</a></li>
 <li class="help-index-item"><a href="#Quotes">Quotes</a></li>
+<li class="help-index-item"><a href="#Version">Version Information</a></li>
 <li class="help-index-item"><a href="#Random">Random Number Generation</a></li>
 <li class="help-index-item"><a href="#Random-user">User-supplied Random Number Generation</a></li>
 <li class="help-index-item"><a href="#range">Range of Values</a></li>
@@ -394,17 +396,18 @@ Set Environment Variables from a File
 <li class="help-index-item"><a href="#reg.finalizer">Finalization of Objects</a></li>
 <li class="help-index-item"><a href="#regex">Regular Expressions as used in R</a></li>
 <li class="help-index-item"><a href="#regmatches">Extract or Replace Matched Substrings</a></li>
+<li class="help-index-item"><a href="#rm">Remove Objects from a Specified Environment</a></li>
 <li class="help-index-item"><a href="#rep">Replicate Elements of Vectors and Lists</a></li>
 <li class="help-index-item"><a href="#replace">Replace Values in a Vector</a></li>
 <li class="help-index-item"><a href="#Reserved">Reserved Words in R</a></li>
 <li class="help-index-item"><a href="#rev">Reverse Elements</a></li>
 <li class="help-index-item"><a href="#Rhome">Return the R Home Directory</a></li>
 <li class="help-index-item"><a href="#rle">Run Length Encoding</a></li>
-<li class="help-index-item"><a href="#rm">Remove Objects from a Specified Environment</a></li>
 <li class="help-index-item"><a href="#Round">Rounding of Numbers</a></li>
 <li class="help-index-item"><a href="#round.POSIXt">Round / Truncate Date-Time Objects</a></li>
 <li class="help-index-item"><a href="#row">Row Indexes</a></li>
 <li class="help-index-item"><a href="#row.names">Get and Set Row Names for Data Frames</a></li>
+<li class="help-index-item"><a href="#colnames">Row and Column Names</a></li>
 <li class="help-index-item"><a href="#rowsum">Give Column Sums of a Matrix or Data Frame, Based on a Grouping Variable</a></li>
 <li class="help-index-item"><a href="#S3method">
 Register S3 Methods
@@ -513,7 +516,6 @@ Set File Time
 <li class="help-index-item"><a href="#validUTF8">Check if a Character Vector is Validly Encoded</a></li>
 <li class="help-index-item"><a href="#vector">Vectors - Creation, Coercion, etc</a></li>
 <li class="help-index-item"><a href="#Vectorize">Vectorize a Scalar Function</a></li>
-<li class="help-index-item"><a href="#Version">Version Information</a></li>
 <li class="help-index-item"><a href="#warning">Warning Messages</a></li>
 <li class="help-index-item"><a href="#warnings">Print Warning Messages</a></li>
 <li class="help-index-item"><a href="#weekday.POSIXt">Extract Parts of a POSIXt or Date Object</a></li>
@@ -525,14 +527,635 @@ Set File Time
 <li class="help-index-item"><a href="#writeLines">Write Lines to a Connection</a></li>
 <li class="help-index-item"><a href="#xtfrm">Auxiliary Function for Sorting and Ranking</a></li>
 <li class="help-index-item"><a href="#zapsmall">Rounding of Numbers: Zapping Small Ones to Zero</a></li>
-<li class="help-index-item"><a href="#zMachine">Numerical Characteristics of the Machine</a></li>
 <li class="help-index-item"><a href="#zpackages">Listing of Packages</a></li>
-<li class="help-index-item"><a href="#zScript">Scripting Language Interface</a></li>
 <li class="help-index-item"><a href="#zutils">Miscellaneous Internal/Programming Utilities</a></li>
 </ul>
 
     <hr>
-  <div class="container manual-page" id="abbreviate">
+  <div class="container manual-page" id="bincode">
+
+<a href="#bincode" class="help-page-title"><h2>Bin a Numeric Vector</h2></a>
+
+<h3>Description</h3>
+
+<p>Bin a numeric vector and return integer codes for the binning.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">.bincode<span class="token punctuation">(</span>x<span class="token punctuation">,</span> breaks<span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> include.lowest <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+<p>a numeric vector which is to be converted to integer codes by
+binning.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>breaks</code></td>
+<td>
+<p>a numeric vector of two or more cut points, sorted in
+increasing order.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>right</code></td>
+<td>
+<p>logical, indicating if the intervals should be closed on
+the right (and open on the left) or vice versa.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>include.lowest</code></td>
+<td>
+<p>logical, indicating if an ‘x[i]’ equal to
+the lowest (or highest, for <code>right = FALSE</code>) ‘breaks’
+value should be included in the first (or last) bin.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>This is a ‘barebones’ version of <code>cut.default(labels =
+    FALSE)</code> intended for use in other functions which have checked the
+arguments passed.  (Note the different order of the arguments they have
+in common.)
+</p>
+<p>Unlike <code><a href="#cut">cut</a></code>, the <code>breaks</code> do not need to be unique.
+An input can only fall into a zero-length interval if it is closed
+at both ends, so only if <code>include.lowest = TRUE</code> and it is the
+first (or last for <code>right = FALSE</code>) interval.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An integer vector of the same length as <code>x</code> indicating which bin
+each element falls into (the leftmost bin being bin <code>1</code>).
+<code>NaN</code> and <code>NA</code> elements of <code>x</code> are mapped to
+<code>NA</code> codes, as are values outside range of <code>breaks</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#cut">cut</a></code>, <code><a href="#tabulate">tabulate</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## An example with non-unique breaks:</span>
+x <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.01</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.99</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+b <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+.bincode<span class="token punctuation">(</span>x<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+.bincode<span class="token punctuation">(</span>x<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+.bincode<span class="token punctuation">(</span>x<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+.bincode<span class="token punctuation">(</span>x<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="dev">
+
+<a href="#dev" class="help-page-title"><h2>
+Lists of Open/Active Graphics Devices
+</h2></a>
+
+<h3>Description</h3>
+
+<p>A pairlist of the names of open graphics devices is stored in
+<code>.Devices</code>. The name of the active device (see
+<code><a href="grDevices.html#dev">dev.cur</a></code>) is stored in <code>.Device</code>.  Both are symbols
+and so appear in the base namespace.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>.Device</code> is a length-one character vector.
+</p>
+<p><code>.Devices</code> is a <a href="#list">pairlist</a> of length-one character vectors.
+The first entry is always <code>"null device"</code>, and there are as many
+entries as the maximal number of graphics devices which have been
+simultaneously active.  If a device has been removed, its entry will be
+<code>""</code> until the device number is reused.
+</p>
+<p>Devices may add attributes to the character vector: for example
+devices which write to a file may record its path in attribute
+<code>"filepath"</code>.
+</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="zMachine">
+
+<a href="#zMachine" class="help-page-title"><h2>Numerical Characteristics of the Machine</h2></a>
+
+<h3>Description</h3>
+
+<p><code>.Machine</code> is a variable holding information on the numerical
+characteristics of the machine <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> is running on, such as the largest
+double or integer and the machine's precision.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">.Machine</code></pre>
+
+
+<h3>Details</h3>
+
+<p>The algorithm is based on Cody's (1988) subroutine MACHAR.  As all
+current implementations of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> use 32-bit integers and use IEC 60559
+floating-point (double precision) arithmetic, the <code>"integer"</code> and
+<code>"double"</code> related values are the same for almost all <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> builds.
+
+</p>
+<p>Note that on most platforms smaller positive values than
+<code>.Machine$double.xmin</code> can occur.  On a typical <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> platform the
+smallest positive double is about <code>5e-324</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with components
+</p>
+<table>
+<tr style="vertical-align: top;">
+<td><code>double.eps</code></td>
+<td>
+<p>the smallest positive floating-point number
+<code>x</code> such that <code>1 + x != 1</code>.  It equals
+<code>double.base ^ ulp.digits</code> if either <code>double.base</code> is 2 or
+<code>double.rounding</code> is 0;  otherwise, it is
+<code>(double.base ^ double.ulp.digits) / 2</code>.  Normally
+<code>2.220446e-16</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>double.neg.eps</code></td>
+<td>
+<p>a small positive floating-point number <code>x</code>
+such that <code>1 - x != 1</code>.  It equals
+<code>double.base ^ double.neg.ulp.digits</code> if <code>double.base</code> is 2
+or <code>double.rounding</code> is 0;  otherwise, it is
+<code>(double.base ^ double.neg.ulp.digits) / 2</code>.  Normally
+<code>1.110223e-16</code>. As <code>double.neg.ulp.digits</code> is bounded
+below by <code>-(double.digits + 3)</code>, <code>double.neg.eps</code> may not
+be the smallest number that can alter 1 by subtraction.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>double.xmin</code></td>
+<td>
+<p>the smallest non-zero normalized
+floating-point number, a power of the radix, i.e.,
+<code>double.base ^ double.min.exp</code>. Normally <code>2.225074e-308</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>double.xmax</code></td>
+<td>
+<p>the largest normalized floating-point number.
+Typically, it is equal to <code>(1 - double.neg.eps) *
+      double.base ^ double.max.exp</code>, but
+on some machines it is only the second or third largest such
+number, being too small by 1 or 2 units in the last digit of the
+significand.  Normally <code>1.797693e+308</code>.  Note that larger
+unnormalized numbers can occur.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>double.base</code></td>
+<td>
+<p>the radix for the floating-point representation:
+normally <code>2</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>double.digits</code></td>
+<td>
+<p>the number of base digits in the floating-point
+significand: normally <code>53</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>double.rounding</code></td>
+<td>
+<p>the rounding action, one of<br>
+0 if floating-point addition chops; <br>
+1 if floating-point addition rounds, but not in the IEEE style; <br>
+2 if floating-point addition rounds in the IEEE style; <br>
+3 if floating-point addition chops, and there is partial underflow; <br>
+4 if floating-point addition rounds, but not in the IEEE style, and
+there is partial underflow; <br>
+5 if floating-point addition rounds in the IEEE style, and there is
+partial underflow.<br>
+Normally <code>5</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>double.guard</code></td>
+<td>
+<p>the number of guard digits for multiplication
+with truncating arithmetic.  It is 1 if floating-point arithmetic
+truncates and more than <code>double digits</code> base-<code>double.base</code> digits
+participate in the post-normalization shift of the floating-point
+significand in multiplication, and 0 otherwise.<br>
+Normally <code>0</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>double.ulp.digits</code></td>
+<td>
+<p>the largest negative integer <code>i</code> such
+that <code>1 + double.base ^ i != 1</code>, except that it is bounded below by
+<code>-(double.digits + 3)</code>.  Normally <code>-52</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>double.neg.ulp.digits</code></td>
+<td>
+<p>the largest negative integer <code>i</code>
+such that <code>1 - double.base ^ i != 1</code>, except that it is bounded
+below by <code>-(double.digits + 3)</code>. Normally <code>-53</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>double.exponent</code></td>
+<td>
+
+<p>the number of bits (decimal places if <code>double.base</code> is 10) reserved
+for the representation of the exponent (including the bias or sign)
+of a floating-point number.  Normally <code>11</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>double.min.exp</code></td>
+<td>
+
+<p>the largest in magnitude negative integer <code>i</code> such that
+<code>double.base ^ i</code> is positive and normalized.  Normally <code>-1022</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>double.max.exp</code></td>
+<td>
+
+<p>the smallest positive power of <code>double.base</code> that overflows.  Normally
+<code>1024</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>integer.max</code></td>
+<td>
+<p>the largest integer which can be represented.
+Always <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn><mo>=</mo><mn>2147483647</mn></mrow><annotation encoding="application/x-tex">2^{31} - 1 = 2147483647</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2147483647</span></span></span></span></code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>sizeof.long</code></td>
+<td>
+<p>the number of bytes in a C <code>long</code> type:
+<code>4</code> or <code>8</code> (most 64-bit systems, but not Windows).</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>sizeof.longlong</code></td>
+<td>
+<p>the number of bytes in a C <code>long long</code>
+type.  Will be zero if there is no such type, otherwise usually
+<code>8</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>sizeof.longdouble</code></td>
+<td>
+<p>the number of bytes in a C <code>long double</code>
+type.  Will be zero if there is no such type (or its use was
+disabled when <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> was built), otherwise possibly
+<code>12</code> (most 32-bit builds),  <code>16</code> (most 64-bit builds) or 8
+(CPUs such as ARM where for most compilers <code>long double</code> is
+identical to <code>double</code>).</p>
+</td>
+</tr>
+</table>
+<table>
+<tr style="vertical-align: top;">
+<td><code>sizeof.pointer</code></td>
+<td>
+<p>the number of bytes in the C <code>SEXP</code>
+type.  Will be <code>4</code> on 32-bit builds and <code>8</code> on 64-bit
+builds of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>longdouble.eps, longdouble.neg.eps, longdouble.digits, ...</code></td>
+<td>
+
+<p>introduced in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.0.0. When
+<code><a href="#capabilities">capabilities</a>("long.double")</code> is true, there are 10 such
+<code>"longdouble.&lt;kind&gt;"</code> values, specifying the <code>long double</code>
+property corresponding to its <code>"double.*"</code> counterpart.  See
+also ‘Note’.</p>
+</td>
+</tr>
+</table>
+<h3>Note</h3>
+
+<p>In the (typical) case where <code><a href="#capabilities">capabilities</a>("long.double")</code> is
+true, <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> uses the <code>long double</code> C type in quite a few places internally
+for accumulators in e.g. <code><a href="#sum">sum</a></code>, reading non-integer
+numeric constants into (binary) double precision numbers, or arithmetic
+such as <code>x %% y</code>; also, <code>long double</code> can be read by
+<code><a href="#readBin">readBin</a></code>.
+<br>
+For this reason, in that case, <code>.Machine</code> contains ten further components,
+<code>longdouble.eps</code>, <code>*.neg.eps</code>, <code>*.digits</code>, <code>*.rounding</code>
+<code>*.guard</code>, <code>*.ulp.digits</code>, <code>*.neg.ulp.digits</code>,
+<code>*.exponent</code>, <code>*.min.exp</code>, and <code>*.max.exp</code>, computed
+entirely analogously to their <code>double.*</code> counterparts, see there.
+</p>
+<p><code>sizeof.longdouble</code> only tells you the amount of storage
+allocated for a long double.  Often what is stored is the 80-bit extended
+double type of IEC 60559, padded to the double alignment used on the
+platform — this seems to be the case for the common <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> platforms
+using ix86 and x86_64 chips.  There are other implementation of long
+double, usually in software for example on Sparc Solaris and AIX.
+</p>
+<p>Note that it is legal for a platform to have a <code>long double</code> C
+type which is identical to the <code>double</code> type — this happens on
+ARM cpus.  In that case <code><a href="#capabilities">capabilities</a>("long.double")</code> will
+be false but on versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> prior to 4.0.4, <code>.Machine</code> may contain
+<code>"longdouble.&lt;kind&gt;"</code> elements.
+</p>
+
+
+<h3>Source</h3>
+
+<p>Uses a C translation of Fortran code in the reference, modified by the
+R Core Team to defeat over-optimization in modern compilers.
+</p>
+
+
+<h3>References</h3>
+
+<p>Cody, W. J. (1988).
+MACHAR: A subroutine to dynamically determine machine parameters.
+<em>Transactions on Mathematical Software</em>, <b>14</b>(4), 303–311.
+<a href="https://doi.org/10.1145/50063.51907" target="_blank">doi:10.1145/50063.51907</a>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#Platform">.Platform</a></code> for details of the platform.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">.Machine
+<span class="token comment">## or for a neat printout</span>
+noquote<span class="token punctuation">(</span>unlist<span class="token punctuation">(</span>format<span class="token punctuation">(</span>.Machine<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="Platform">
+
+<a href="#Platform" class="help-page-title"><h2>Platform Specific Variables</h2></a>
+
+<h3>Description</h3>
+
+<p><code>.Platform</code> is a list with some details of the platform under
+which <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> was built.  This provides means to write OS-portable <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+code.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">.Platform</code></pre>
+
+
+<h3>Value</h3>
+
+<p>A list with at least the following components:
+</p>
+<table>
+<tr style="vertical-align: top;">
+<td><code>OS.type</code></td>
+<td>
+
+<p>character string, giving the <b>O</b>perating <b>S</b>ystem
+(family) of the computer.  One of <code>"unix"</code> or <code>"windows"</code>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>file.sep</code></td>
+<td>
+
+<p>character string, giving the <b>file</b> <b>sep</b>arator used on your
+platform: <code>"/"</code> on both Unix-alikes <em>and</em> on Windows (but
+not on the former port to Classic Mac OS).
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>dynlib.ext</code></td>
+<td>
+
+<p>character string, giving the file name <b>ext</b>ension of
+<b>dyn</b>amically loadable <b>lib</b>raries, e.g., <code>".dll"</code> on
+Windows and <code>".so"</code> or <code>".sl"</code> on Unix-alikes.  (Note for
+macOS users: these are shared objects as loaded by
+<code><a href="#dynload">dyn.load</a></code> and not dylibs: see <code><a href="#dynload">dyn.load</a></code>.)
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>GUI</code></td>
+<td>
+
+<p>character string, giving the type of GUI in use, or <code>"unknown"</code>
+if no GUI can be assumed.  Possible values are for Unix-alikes the
+values given via the <span class="option">-g</span> command-line flag (<code>"X11"</code>,
+<code>"Tk"</code>), <code>"AQUA"</code> (running under <code>R.app</code> on macOS),
+<code>"Rgui"</code> and <code>"RTerm"</code> (Windows) and perhaps others under
+alternative front-ends or embedded <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>endian</code></td>
+<td>
+
+<p>character string, <code>"big"</code> or <code>"little"</code>, giving the
+‘endianness’ of the processor in use.  This is relevant when it is
+necessary to know the order to read/write bytes of e.g. an
+integer or double from/to a <a href="#connections">connection</a>: see
+<code><a href="#readBin">readBin</a></code>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>pkgType</code></td>
+<td>
+
+<p>character string, the preferred setting for
+<code><a href="#options">options</a>("pkgType")</code>.  Values <code>"source"</code>,
+<code>"mac.binary"</code> and <code>"win.binary"</code> are currently in use.
+</p>
+<p>This should <strong>not</strong> be used to identify the OS.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>path.sep</code></td>
+<td>
+
+<p>character string, giving the <b>path</b> <b>sep</b>arator,
+used on your platform, e.g., <code>":"</code> on Unix-alikes and
+<code>";"</code> on Windows.  Used to separate paths in environment
+variables such as <code>PATH</code> and <code>TEXINPUTS</code>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>r_arch</code></td>
+<td>
+
+<p>character string, possibly <code>""</code>.  The name of an
+architecture-specific directory used in this build of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
+</p>
+</td>
+</tr>
+</table>
+<h3>AQUA</h3>
+
+<p><code>.Platform$GUI</code> is set to <code>"AQUA"</code> under the macOS GUI,
+<code>R.app</code>. This has a number of consequences:
+</p>
+
+
+
+
+<ul>
+<li> <p>‘<span class="file">/usr/local/bin</span>’ is <em>appended</em> to the <span class="env">PATH</span>
+environment variable.
+</p>
+</li>
+<li>
+<p> the default graphics device is set to <code>quartz</code>.
+</p>
+</li>
+<li>
+<p> selects native (rather than Tk) widgets for the <code>graphics
+      = TRUE</code> options of <code><a href="utils.html#menu">menu</a></code> and <code><a href="utils.html#select.list">select.list</a></code>.
+</p>
+</li>
+<li>
+<p> HTML help is displayed in the internal browser.
+</p>
+</li>
+<li>
+<p> the spreadsheet-like data editor/viewer uses a Quartz version
+rather than the X11 one.
+</p>
+</li>
+</ul>
+<h3>See Also</h3>
+
+<p><code><a href="#Version">R.version</a></code> and <code><a href="#Sys.info">Sys.info</a></code> give more details
+about the OS.  In particular, <code>R.version$platform</code> is the
+canonical name of the platform under which <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> was compiled.
+</p>
+<p><code><a href="#zMachine">.Machine</a></code> for details of the arithmetic used, and
+<code><a href="#system">system</a></code> for invoking platform-specific system commands.
+</p>
+<p><code><a href="#capabilities">capabilities</a></code> and <code><a href="#extSoftVersion">extSoftVersion</a></code> (and links
+there) for availability of capabilities partly <em>external</em> to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+but used from <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> functions.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## Note: this can be done in a system-independent way by dir.exists()</span><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"unix"</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   system.test <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span> system<span class="token punctuation">(</span>paste<span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0L</span>
+   dir.exists2 <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>dir<span class="token punctuation">)</span>
+       sapply<span class="token punctuation">(</span>dir<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span> system.test<span class="token punctuation">(</span><span class="token string">"-d"</span><span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">)</span>
+   dir.exists2<span class="token punctuation">(</span>c<span class="token punctuation">(</span>R.home<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"/tmp"</span><span class="token punctuation">,</span> <span class="token string">"~"</span><span class="token punctuation">,</span> <span class="token string">"/NO"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># &gt; T T T F</span>
+<span class="token punctuation">}</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="zScript">
+
+<a href="#zScript" class="help-page-title"><h2>Scripting Language Interface</h2></a>
+
+<h3>Description</h3>
+
+<p>Internal interface to run a script through its interpreter.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">.Script<span class="token punctuation">(</span>interpreter<span class="token punctuation">,</span> script<span class="token punctuation">,</span> args<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>interpreter</code></td>
+<td>
+<p>a character string naming the interpreter for the
+script.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>script</code></td>
+<td>
+<p>a character string with the base file name of the
+script, which must be located in the ‘<span class="file"><code>interpreter</code></span>’
+subdirectory of
+‘<span class="file"><var>R_SHARE_DIR</var></span>’ (normally ‘<span class="file"><var><a href="#Rhome">R_HOME</a></var>/share</span>’).
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>args</code></td>
+<td>
+<p>a character string giving the arguments to pass to the
+script.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>further arguments to be passed to <code><a href="#system">system</a></code>
+when invoking the interpreter on the script.</p>
+</td>
+</tr>
+</table>
+<h3>Note</h3>
+
+<p>This function is for R internal use only.</p>
+
+<hr>
+</div>
+<div class="container manual-page" id="abbreviate">
 
 <a href="#abbreviate" class="help-page-title"><h2>Abbreviate Strings</h2></a>
 
@@ -5060,95 +5683,6 @@ title<span class="token punctuation">(</span>expression<span class="token punctu
 
 <hr>
 </div>
-<div class="container manual-page" id="bincode">
-
-<a href="#bincode" class="help-page-title"><h2>Bin a Numeric Vector</h2></a>
-
-<h3>Description</h3>
-
-<p>Bin a numeric vector and return integer codes for the binning.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">.bincode<span class="token punctuation">(</span>x<span class="token punctuation">,</span> breaks<span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> include.lowest <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
-<td>
-<p>a numeric vector which is to be converted to integer codes by
-binning.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>breaks</code></td>
-<td>
-<p>a numeric vector of two or more cut points, sorted in
-increasing order.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>right</code></td>
-<td>
-<p>logical, indicating if the intervals should be closed on
-the right (and open on the left) or vice versa.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>include.lowest</code></td>
-<td>
-<p>logical, indicating if an ‘x[i]’ equal to
-the lowest (or highest, for <code>right = FALSE</code>) ‘breaks’
-value should be included in the first (or last) bin.</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p>This is a ‘barebones’ version of <code>cut.default(labels =
-    FALSE)</code> intended for use in other functions which have checked the
-arguments passed.  (Note the different order of the arguments they have
-in common.)
-</p>
-<p>Unlike <code><a href="#cut">cut</a></code>, the <code>breaks</code> do not need to be unique.
-An input can only fall into a zero-length interval if it is closed
-at both ends, so only if <code>include.lowest = TRUE</code> and it is the
-first (or last for <code>right = FALSE</code>) interval.
-</p>
-
-
-<h3>Value</h3>
-
-<p>An integer vector of the same length as <code>x</code> indicating which bin
-each element falls into (the leftmost bin being bin <code>1</code>).
-<code>NaN</code> and <code>NA</code> elements of <code>x</code> are mapped to
-<code>NA</code> codes, as are values outside range of <code>breaks</code>.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#cut">cut</a></code>, <code><a href="#tabulate">tabulate</a></code>
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment">## An example with non-unique breaks:</span>
-x <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.01</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.99</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
-b <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
-.bincode<span class="token punctuation">(</span>x<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
-.bincode<span class="token punctuation">(</span>x<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
-.bincode<span class="token punctuation">(</span>x<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
-.bincode<span class="token punctuation">(</span>x<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
 <div class="container manual-page" id="bindenv">
 
 <a href="#bindenv" class="help-page-title"><h2>Binding and Environment Locking, Active Bindings</h2></a>
@@ -8120,118 +8654,6 @@ x<span class="token punctuation">[</span>row<span class="token punctuation">(</s
 
 <span class="token punctuation">(</span>i34 <span class="token operator">&lt;-</span> .col<span class="token punctuation">(</span><span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>i34<span class="token punctuation">,</span> .col<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 'dim' maybe "double"</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="colnames">
-
-<a href="#colnames" class="help-page-title"><h2>Row and Column Names</h2></a>
-
-<h3>Description</h3>
-
-<p>Retrieve or set the row or column names of a matrix-like object.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">rownames<span class="token punctuation">(</span>x<span class="token punctuation">,</span> do.<span class="token keyword">NULL</span> <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> prefix <span class="token operator">=</span> <span class="token string">"row"</span><span class="token punctuation">)</span>
-rownames<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> value
-
-colnames<span class="token punctuation">(</span>x<span class="token punctuation">,</span> do.<span class="token keyword">NULL</span> <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> prefix <span class="token operator">=</span> <span class="token string">"col"</span><span class="token punctuation">)</span>
-colnames<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> value</code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
-<td>
-<p>a matrix-like <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object, with at least two dimensions for
-<code>colnames</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>do.NULL</code></td>
-<td>
-<p>logical. If <code>FALSE</code> and names are <code>NULL</code>, names are created.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>prefix</code></td>
-<td>
-<p>for created names.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>value</code></td>
-<td>
-<p>a valid value for that component of
-<code><a href="#dimnames">dimnames</a>(x)</code>.  For a matrix or array this is either
-<code>NULL</code> or a character vector of non-zero length equal to the
-appropriate dimension.</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p>The extractor functions try to do something sensible for any
-matrix-like object <code>x</code>.  If the object has <code><a href="#dimnames">dimnames</a></code>
-the first component is used as the row names, and the second component
-(if any) is used for the column names.  For a data frame, <code>rownames</code>
-and <code>colnames</code> eventually call <code><a href="#row.names">row.names</a></code> and
-<code><a href="#names">names</a></code> respectively, but the latter are preferred.
-</p>
-<p>If <code>do.NULL</code> is <code>FALSE</code>, a character vector (of length
-<code><a href="#nrow">NROW</a>(x)</code> or <code><a href="#nrow">NCOL</a>(x)</code>) is returned in any
-case, prepending <code>prefix</code> to simple numbers, if there are no
-dimnames or the corresponding component of the dimnames is <code>NULL</code>.
-</p>
-<p>The replacement methods for arrays/matrices coerce vector and factor
-values of <code>value</code> to character, but do not dispatch methods for
-<code>as.character</code>.
-</p>
-<p>For a data frame, <code>value</code> for <code>rownames</code> should be a
-character vector of non-duplicated and non-missing names (this is
-enforced), and for <code>colnames</code> a character vector of (preferably)
-unique syntactically-valid names.  In both cases, <code>value</code> will be
-coerced by <code><a href="#character">as.character</a></code>, and setting <code>colnames</code>
-will convert the row names to character.
-</p>
-
-
-<h3>Note</h3>
-
-<p>If the replacement versions are called on a matrix without any
-existing dimnames, they will add suitable dimnames.  But
-constructions such as
-</p>
-<pre>    rownames(x)[3] &lt;- "c"</pre>
-<p>may not work unless <code>x</code> already has dimnames, since this will
-create a length-3 <code>value</code> from the <code>NULL</code> value of
-<code>rownames(x)</code>.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#dimnames">dimnames</a></code>,
-<code><a href="stats.html#case.names">case.names</a></code>,
-<code><a href="stats.html#case.names">variable.names</a></code>.
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r">m0 <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span><span class="token keyword">NA</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
-rownames<span class="token punctuation">(</span>m0<span class="token punctuation">)</span>
-
-m2 <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">)</span>
-colnames<span class="token punctuation">(</span>m2<span class="token punctuation">,</span> do.<span class="token keyword">NULL</span> <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
-colnames<span class="token punctuation">(</span>m2<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">,</span><span class="token string">"Y"</span><span class="token punctuation">)</span>
-rownames<span class="token punctuation">(</span>m2<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> rownames<span class="token punctuation">(</span>m2<span class="token punctuation">,</span> do.<span class="token keyword">NULL</span> <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> prefix <span class="token operator">=</span> <span class="token string">"Obs."</span><span class="token punctuation">)</span>
-m2</code></pre>
 
 <hr>
 </div>
@@ -13400,38 +13822,6 @@ attach_and_detach <span class="token operator">&lt;-</span> <span class="token k
    detach<span class="token punctuation">(</span>name<span class="token punctuation">,</span> character.only <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 attach_and_detach<span class="token punctuation">(</span>women<span class="token punctuation">,</span> pos <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="dev">
-
-<a href="#dev" class="help-page-title"><h2>
-Lists of Open/Active Graphics Devices
-</h2></a>
-
-<h3>Description</h3>
-
-<p>A pairlist of the names of open graphics devices is stored in
-<code>.Devices</code>. The name of the active device (see
-<code><a href="grDevices.html#dev">dev.cur</a></code>) is stored in <code>.Device</code>.  Both are symbols
-and so appear in the base namespace.
-</p>
-
-
-<h3>Value</h3>
-
-<p><code>.Device</code> is a length-one character vector.
-</p>
-<p><code>.Devices</code> is a <a href="#list">pairlist</a> of length-one character vectors.
-The first entry is always <code>"null device"</code>, and there are as many
-entries as the maximal number of graphics devices which have been
-simultaneously active.  If a device has been removed, its entry will be
-<code>""</code> until the device number is reused.
-</p>
-<p>Devices may add attributes to the character vector: for example
-devices which write to a file may record its path in attribute
-<code>"filepath"</code>.
-</p>
 
 <hr>
 </div>
@@ -25875,6 +26265,52 @@ is.object<span class="token punctuation">(</span>as.factor<span class="token pun
 
 <hr>
 </div>
+<div class="container manual-page" id="isR">
+
+<a href="#isR" class="help-page-title"><h2>Are we using R, rather than S?</h2></a>
+
+<h3>Description</h3>
+
+<p>Test if running under <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">is.R<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Details</h3>
+
+<p>The function has been written such as to correctly run in all versions
+of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, S and S-PLUS.
+In order for code to be runnable in both <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> and S dialects previous to
+S-PLUS 8.0, your code must either define <code>is.R</code> or use it as
+</p>
+<p><code>if (exists("is.R") &amp;&amp; is.function(is.R) &amp;&amp; is.R()) {</code><br><em>## R-specific code</em><br><code>} else {</code><br><em>## S-version of code</em><br><code>}</code>
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>is.R</code> returns <code>TRUE</code> if we are using <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> and <code>FALSE</code>
+otherwise.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#Version">R.version</a></code>, <code><a href="#system">system</a></code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">x <span class="token operator">&lt;-</span> stats<span class="token operator">::</span>runif<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span> small <span class="token operator">&lt;-</span> x <span class="token operator">&lt;</span> <span class="token number">0.4</span>
+<span class="token comment">## In the early years of R, 'which()' only existed in R:</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>is.R<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> which<span class="token punctuation">(</span>small<span class="token punctuation">)</span> <span class="token keyword">else</span> seq<span class="token punctuation">(</span>along <span class="token operator">=</span> small<span class="token punctuation">)</span><span class="token punctuation">[</span>small<span class="token punctuation">]</span></code></pre>
+
+<hr>
+</div>
 <div class="container manual-page" id="is.recursive">
 
 <a href="#is.recursive" class="help-page-title"><h2>Is an Object Atomic or Recursive?</h2></a>
@@ -26126,52 +26562,6 @@ range <code>0:9999</code> are accepted.
 <p><a href="#DateTimeClasses">DateTimeClasses</a> for details of the date-time classes;
 <code><a href="#strptime">strptime</a></code> for conversions from character strings.
 </p>
-
-<hr>
-</div>
-<div class="container manual-page" id="isR">
-
-<a href="#isR" class="help-page-title"><h2>Are we using R, rather than S?</h2></a>
-
-<h3>Description</h3>
-
-<p>Test if running under <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">is.R<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Details</h3>
-
-<p>The function has been written such as to correctly run in all versions
-of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, S and S-PLUS.
-In order for code to be runnable in both <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> and S dialects previous to
-S-PLUS 8.0, your code must either define <code>is.R</code> or use it as
-</p>
-<p><code>if (exists("is.R") &amp;&amp; is.function(is.R) &amp;&amp; is.R()) {</code><br><em>## R-specific code</em><br><code>} else {</code><br><em>## S-version of code</em><br><code>}</code>
-</p>
-
-
-<h3>Value</h3>
-
-<p><code>is.R</code> returns <code>TRUE</code> if we are using <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> and <code>FALSE</code>
-otherwise.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#Version">R.version</a></code>, <code><a href="#system">system</a></code>.</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r">x <span class="token operator">&lt;-</span> stats<span class="token operator">::</span>runif<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span> small <span class="token operator">&lt;-</span> x <span class="token operator">&lt;</span> <span class="token number">0.4</span>
-<span class="token comment">## In the early years of R, 'which()' only existed in R:</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>is.R<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> which<span class="token punctuation">(</span>small<span class="token punctuation">)</span> <span class="token keyword">else</span> seq<span class="token punctuation">(</span>along <span class="token operator">=</span> small<span class="token punctuation">)</span><span class="token punctuation">[</span>small<span class="token punctuation">]</span></code></pre>
 
 <hr>
 </div>
@@ -37756,176 +38146,6 @@ stop<span class="token punctuation">(</span><span class="token punctuation">)</s
 
 <hr>
 </div>
-<div class="container manual-page" id="Platform">
-
-<a href="#Platform" class="help-page-title"><h2>Platform Specific Variables</h2></a>
-
-<h3>Description</h3>
-
-<p><code>.Platform</code> is a list with some details of the platform under
-which <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> was built.  This provides means to write OS-portable <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
-code.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">.Platform</code></pre>
-
-
-<h3>Value</h3>
-
-<p>A list with at least the following components:
-</p>
-<table>
-<tr style="vertical-align: top;">
-<td><code>OS.type</code></td>
-<td>
-
-<p>character string, giving the <b>O</b>perating <b>S</b>ystem
-(family) of the computer.  One of <code>"unix"</code> or <code>"windows"</code>.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>file.sep</code></td>
-<td>
-
-<p>character string, giving the <b>file</b> <b>sep</b>arator used on your
-platform: <code>"/"</code> on both Unix-alikes <em>and</em> on Windows (but
-not on the former port to Classic Mac OS).
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>dynlib.ext</code></td>
-<td>
-
-<p>character string, giving the file name <b>ext</b>ension of
-<b>dyn</b>amically loadable <b>lib</b>raries, e.g., <code>".dll"</code> on
-Windows and <code>".so"</code> or <code>".sl"</code> on Unix-alikes.  (Note for
-macOS users: these are shared objects as loaded by
-<code><a href="#dynload">dyn.load</a></code> and not dylibs: see <code><a href="#dynload">dyn.load</a></code>.)
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>GUI</code></td>
-<td>
-
-<p>character string, giving the type of GUI in use, or <code>"unknown"</code>
-if no GUI can be assumed.  Possible values are for Unix-alikes the
-values given via the <span class="option">-g</span> command-line flag (<code>"X11"</code>,
-<code>"Tk"</code>), <code>"AQUA"</code> (running under <code>R.app</code> on macOS),
-<code>"Rgui"</code> and <code>"RTerm"</code> (Windows) and perhaps others under
-alternative front-ends or embedded <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>endian</code></td>
-<td>
-
-<p>character string, <code>"big"</code> or <code>"little"</code>, giving the
-‘endianness’ of the processor in use.  This is relevant when it is
-necessary to know the order to read/write bytes of e.g. an
-integer or double from/to a <a href="#connections">connection</a>: see
-<code><a href="#readBin">readBin</a></code>.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>pkgType</code></td>
-<td>
-
-<p>character string, the preferred setting for
-<code><a href="#options">options</a>("pkgType")</code>.  Values <code>"source"</code>,
-<code>"mac.binary"</code> and <code>"win.binary"</code> are currently in use.
-</p>
-<p>This should <strong>not</strong> be used to identify the OS.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>path.sep</code></td>
-<td>
-
-<p>character string, giving the <b>path</b> <b>sep</b>arator,
-used on your platform, e.g., <code>":"</code> on Unix-alikes and
-<code>";"</code> on Windows.  Used to separate paths in environment
-variables such as <code>PATH</code> and <code>TEXINPUTS</code>.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>r_arch</code></td>
-<td>
-
-<p>character string, possibly <code>""</code>.  The name of an
-architecture-specific directory used in this build of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
-</p>
-</td>
-</tr>
-</table>
-<h3>AQUA</h3>
-
-<p><code>.Platform$GUI</code> is set to <code>"AQUA"</code> under the macOS GUI,
-<code>R.app</code>. This has a number of consequences:
-</p>
-
-
-
-
-<ul>
-<li> <p>‘<span class="file">/usr/local/bin</span>’ is <em>appended</em> to the <span class="env">PATH</span>
-environment variable.
-</p>
-</li>
-<li>
-<p> the default graphics device is set to <code>quartz</code>.
-</p>
-</li>
-<li>
-<p> selects native (rather than Tk) widgets for the <code>graphics
-      = TRUE</code> options of <code><a href="utils.html#menu">menu</a></code> and <code><a href="utils.html#select.list">select.list</a></code>.
-</p>
-</li>
-<li>
-<p> HTML help is displayed in the internal browser.
-</p>
-</li>
-<li>
-<p> the spreadsheet-like data editor/viewer uses a Quartz version
-rather than the X11 one.
-</p>
-</li>
-</ul>
-<h3>See Also</h3>
-
-<p><code><a href="#Version">R.version</a></code> and <code><a href="#Sys.info">Sys.info</a></code> give more details
-about the OS.  In particular, <code>R.version$platform</code> is the
-canonical name of the platform under which <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> was compiled.
-</p>
-<p><code><a href="#zMachine">.Machine</a></code> for details of the arithmetic used, and
-<code><a href="#system">system</a></code> for invoking platform-specific system commands.
-</p>
-<p><code><a href="#capabilities">capabilities</a></code> and <code><a href="#extSoftVersion">extSoftVersion</a></code> (and links
-there) for availability of capabilities partly <em>external</em> to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
-but used from <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> functions.
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment">## Note: this can be done in a system-independent way by dir.exists()</span><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"unix"</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-   system.test <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span> system<span class="token punctuation">(</span>paste<span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0L</span>
-   dir.exists2 <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>dir<span class="token punctuation">)</span>
-       sapply<span class="token punctuation">(</span>dir<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span> system.test<span class="token punctuation">(</span><span class="token string">"-d"</span><span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">)</span>
-   dir.exists2<span class="token punctuation">(</span>c<span class="token punctuation">(</span>R.home<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"/tmp"</span><span class="token punctuation">,</span> <span class="token string">"~"</span><span class="token punctuation">,</span> <span class="token string">"/NO"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># &gt; T T T F</span>
-<span class="token punctuation">}</span></code></pre>
-
-<hr>
-</div>
 <div class="container manual-page" id="plot">
 
 <a href="#plot" class="help-page-title"><h2>Generic X-Y Plotting</h2></a>
@@ -40324,6 +40544,193 @@ r<span class="token string">"(c:\Program files\R)"</span>
 r<span class="token string">"{(\1\2)}"</span>
 r<span class="token string">"(use both "</span>double<span class="token string">" and 'single' quotes)"</span>
 r<span class="token string">"---(\1--)-)---"</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="Version">
+
+<a href="#Version" class="help-page-title"><h2>Version Information</h2></a>
+
+<h3>Description</h3>
+
+<p><code>R.Version()</code> provides detailed information about the version of
+<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> running.
+</p>
+<p><code>R.version</code> is a variable (a <code><a href="#list">list</a></code>) holding this
+information (and <code>version</code> is a copy of it for S compatibility).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">R.Version<span class="token punctuation">(</span><span class="token punctuation">)</span>
+R.version
+R.version.string
+version</code></pre>
+
+
+<h3>Details</h3>
+
+<p>This gives details of the OS under which <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> was built, not the one
+under which it is currently running (for which see
+<code><a href="#Sys.info">Sys.info</a></code>).
+</p>
+<p>Note that OS names might not be what you expect: for example macOS
+Mavericks 10.9.4 identifies itself as ‘<span class="samp">⁠darwin13.3.0⁠</span>’, Linux
+usually as ‘<span class="samp">⁠linux-gnu⁠</span>’, Solaris 10 as ‘<span class="samp">⁠solaris2.10⁠</span>’ and Windows
+as ‘<span class="samp">⁠mingw32⁠</span>’.
+</p>
+<p><code>R.version$crt</code> is supported on Windows since <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.2.0 and returns
+<code>"ucrt"</code> to denote the Universal C Runtime. It would return
+<code>"msvcrt"</code> for the older Microsoft Visual C++ Runtime (but <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> does
+not use that runtime since 4.2.0).
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>R.Version</code> returns a list with character-string components
+</p>
+<table>
+<tr style="vertical-align: top;">
+<td><code>platform</code></td>
+<td>
+<p>the platform for which <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> was built.  A triplet of the
+form CPU-VENDOR-OS, as determined by the configure script.  E.g,
+<code>"i686-unknown-linux-gnu"</code> or <code>"i386-pc-mingw32"</code>.
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>arch</code></td>
+<td>
+<p>the architecture (CPU) <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> was built on/for.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>os</code></td>
+<td>
+<p>the underlying operating system.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>crt</code></td>
+<td>
+<p>the C runtime on Windows.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>system</code></td>
+<td>
+<p>CPU and OS, separated by a comma.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>status</code></td>
+<td>
+<p>the status of the version (e.g., <code>"alpha"</code>)</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>major</code></td>
+<td>
+<p>the major version number</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>minor</code></td>
+<td>
+<p>the minor version number, including the patchlevel</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>year</code></td>
+<td>
+<p>the year the version was released</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>month</code></td>
+<td>
+<p>the month the version was released</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>day</code></td>
+<td>
+<p>the day the version was released</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>svn rev</code></td>
+<td>
+<p>the Subversion revision number, which should be either
+<code>"unknown"</code> or a single number. (A range of numbers or a number
+with ‘<span class="samp">⁠M⁠</span>’ or ‘<span class="samp">⁠S⁠</span>’ appended indicates inconsistencies in the
+sources used to build this version of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.)
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>language</code></td>
+<td>
+<p>always <code>"R"</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>version.string</code></td>
+<td>
+<p>a
+<code><a href="#character">character</a></code> string concatenating some of the info above,
+useful for plotting, etc.</p>
+</td>
+</tr>
+</table>
+<p><code>R.version</code> and <code>version</code> are lists of class
+<code>"simple.list"</code> which has a <code>print</code> method.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Do <em>not</em> use <code>R.version$os</code> to test the platform the
+code is running on: use <code>.Platform$OS.type</code> instead.  Slightly
+different versions of the OS may report different values of
+<code>R.version$os</code>, as may different versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
+</p>
+<p><code>R.version.string</code> is a copy of <code>R.version$version.string</code>
+for simplicity and backwards compatibility.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="utils.html#sessionInfo">sessionInfo</a></code> which provides additional information;
+<code><a href="#numeric_version">getRversion</a></code> typically used inside R code,
+<code><a href="#Platform">.Platform</a></code>, <code><a href="#Sys.info">Sys.info</a></code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">require<span class="token punctuation">(</span>graphics<span class="token punctuation">)</span>
+
+R.version<span class="token operator">$</span>os <span class="token comment"># to check how lucky you are ...</span>
+plot<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># any plot</span>
+mtext<span class="token punctuation">(</span>R.version.string<span class="token punctuation">,</span> side <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> line <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">,</span> adj <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># a useful bottom-right note</span>
+
+<span class="token comment">## a good way to detect macOS:</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>grepl<span class="token punctuation">(</span><span class="token string">"^darwin"</span><span class="token punctuation">,</span> R.version<span class="token operator">$</span>os<span class="token punctuation">)</span><span class="token punctuation">)</span> message<span class="token punctuation">(</span><span class="token string">"running on macOS"</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Short R version string, ("space free", useful in file/directory names;</span>
+<span class="token comment">##                          also fine for unreleased versions of R):</span>
+shortRversion <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   rvs <span class="token operator">&lt;-</span> R.version.string
+   <span class="token keyword">if</span><span class="token punctuation">(</span>grepl<span class="token punctuation">(</span><span class="token string">"devel"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>st <span class="token operator">&lt;-</span> R.version<span class="token operator">$</span>status<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+       rvs <span class="token operator">&lt;-</span> sub<span class="token punctuation">(</span>paste0<span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">,</span>st<span class="token punctuation">,</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"-devel_"</span><span class="token punctuation">,</span> rvs<span class="token punctuation">,</span> fixed<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+   gsub<span class="token punctuation">(</span><span class="token string">"[()]"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> gsub<span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">,</span> <span class="token string">"_"</span><span class="token punctuation">,</span> sub<span class="token punctuation">(</span><span class="token string">" version "</span><span class="token punctuation">,</span> <span class="token string">"-"</span><span class="token punctuation">,</span> rvs<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+shortRversion<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div>
@@ -43267,6 +43674,124 @@ NEWS<span class="token punctuation">[</span>head<span class="token punctuation">
 
 <hr>
 </div>
+<div class="container manual-page" id="rm">
+
+<a href="#rm" class="help-page-title"><h2>Remove Objects from a Specified Environment</h2></a>
+
+<h3>Description</h3>
+
+<p><code>remove</code> and <code>rm</code> can be used to remove objects.  These can
+be specified successively as character strings, or in the character
+vector <code>list</code>, or through a combination of both.  All objects
+thus specified will be removed.
+</p>
+<p>If <code>envir</code> is NULL then the currently active environment is
+searched first.
+</p>
+<p>If <code>inherits</code> is <code>TRUE</code> then parents of the supplied
+directory are searched until a variable with the given name is
+encountered.  A warning is printed for each variable that is not
+found.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">remove<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">,</span> list <span class="token operator">=</span> character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pos <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+       envir <span class="token operator">=</span> as.environment<span class="token punctuation">(</span>pos<span class="token punctuation">)</span><span class="token punctuation">,</span> inherits <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+
+rm    <span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">,</span> list <span class="token operator">=</span> character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pos <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+       envir <span class="token operator">=</span> as.environment<span class="token punctuation">(</span>pos<span class="token punctuation">)</span><span class="token punctuation">,</span> inherits <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>the objects to be removed, as names (unquoted) or
+character strings (quoted).</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>list</code></td>
+<td>
+<p>a character vector naming objects to be removed.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>pos</code></td>
+<td>
+<p>where to do the removal.  By default, uses the
+current environment.  See ‘details’ for other possibilities.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>envir</code></td>
+<td>
+<p>the <code><a href="#environment">environment</a></code> to use.  See ‘details’.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>inherits</code></td>
+<td>
+<p>should the enclosing frames of the environment be
+inspected?</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The <code>pos</code> argument can specify the  environment from which to remove
+the objects in any of several ways:
+as an integer (the position in the <code><a href="#search">search</a></code> list); as
+the character string name of an element in the search list; or as an
+<code><a href="#environment">environment</a></code> (including using <code><a href="#sys.parent">sys.frame</a></code> to
+access the currently active function calls).
+The <code>envir</code> argument is an alternative way to specify an
+environment, but is primarily there for back compatibility.
+</p>
+<p>It is not allowed to remove variables from the base environment and
+base namespace, nor from any environment which is locked (see
+<code><a href="#bindenv">lockEnvironment</a></code>).
+</p>
+<p>Earlier versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> incorrectly claimed that supplying a character
+vector in <code>...</code> removed the objects named in the character
+vector, but it removed the character vector.  Use the <code>list</code>
+argument to specify objects <em>via</em> a character vector.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#ls">ls</a></code>, <code><a href="#ls">objects</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">tmp <span class="token operator">&lt;-</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">4</span>
+<span class="token comment">## work with tmp  and cleanup</span>
+rm<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span>
+
+<span class="token comment">## Not run: </span>
+<span class="token comment">## remove (almost) everything in the working environment.</span>
+<span class="token comment">## You will get no warning, so don't do this unless you are really sure.</span>
+rm<span class="token punctuation">(</span>list <span class="token operator">=</span> ls<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## End(Not run)</span></code></pre>
+
+<hr>
+</div>
 <div class="container manual-page" id="rep">
 
 <a href="#rep" class="help-page-title"><h2>Replicate Elements of Vectors and Lists</h2></a>
@@ -43783,124 +44308,6 @@ stopifnot<span class="token punctuation">(</span>x <span class="token operator">
 
 <hr>
 </div>
-<div class="container manual-page" id="rm">
-
-<a href="#rm" class="help-page-title"><h2>Remove Objects from a Specified Environment</h2></a>
-
-<h3>Description</h3>
-
-<p><code>remove</code> and <code>rm</code> can be used to remove objects.  These can
-be specified successively as character strings, or in the character
-vector <code>list</code>, or through a combination of both.  All objects
-thus specified will be removed.
-</p>
-<p>If <code>envir</code> is NULL then the currently active environment is
-searched first.
-</p>
-<p>If <code>inherits</code> is <code>TRUE</code> then parents of the supplied
-directory are searched until a variable with the given name is
-encountered.  A warning is printed for each variable that is not
-found.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">remove<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">,</span> list <span class="token operator">=</span> character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pos <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
-       envir <span class="token operator">=</span> as.environment<span class="token punctuation">(</span>pos<span class="token punctuation">)</span><span class="token punctuation">,</span> inherits <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
-
-rm    <span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">,</span> list <span class="token operator">=</span> character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pos <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
-       envir <span class="token operator">=</span> as.environment<span class="token punctuation">(</span>pos<span class="token punctuation">)</span><span class="token punctuation">,</span> inherits <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
-<td>
-<p>the objects to be removed, as names (unquoted) or
-character strings (quoted).</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>list</code></td>
-<td>
-<p>a character vector naming objects to be removed.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>pos</code></td>
-<td>
-<p>where to do the removal.  By default, uses the
-current environment.  See ‘details’ for other possibilities.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>envir</code></td>
-<td>
-<p>the <code><a href="#environment">environment</a></code> to use.  See ‘details’.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>inherits</code></td>
-<td>
-<p>should the enclosing frames of the environment be
-inspected?</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p>The <code>pos</code> argument can specify the  environment from which to remove
-the objects in any of several ways:
-as an integer (the position in the <code><a href="#search">search</a></code> list); as
-the character string name of an element in the search list; or as an
-<code><a href="#environment">environment</a></code> (including using <code><a href="#sys.parent">sys.frame</a></code> to
-access the currently active function calls).
-The <code>envir</code> argument is an alternative way to specify an
-environment, but is primarily there for back compatibility.
-</p>
-<p>It is not allowed to remove variables from the base environment and
-base namespace, nor from any environment which is locked (see
-<code><a href="#bindenv">lockEnvironment</a></code>).
-</p>
-<p>Earlier versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> incorrectly claimed that supplying a character
-vector in <code>...</code> removed the objects named in the character
-vector, but it removed the character vector.  Use the <code>list</code>
-argument to specify objects <em>via</em> a character vector.
-</p>
-
-
-<h3>References</h3>
-
-<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
-<em>The New S Language</em>.
-Wadsworth &amp; Brooks/Cole.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#ls">ls</a></code>, <code><a href="#ls">objects</a></code>
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r">tmp <span class="token operator">&lt;-</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">4</span>
-<span class="token comment">## work with tmp  and cleanup</span>
-rm<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span>
-
-<span class="token comment">## Not run: </span>
-<span class="token comment">## remove (almost) everything in the working environment.</span>
-<span class="token comment">## You will get no warning, so don't do this unless you are really sure.</span>
-rm<span class="token punctuation">(</span>list <span class="token operator">=</span> ls<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment">## End(Not run)</span></code></pre>
-
-<hr>
-</div>
 <div class="container manual-page" id="Round">
 
 <a href="#Round" class="help-page-title"><h2>Rounding of Numbers</h2></a>
@@ -44375,6 +44782,118 @@ row.names<span class="token punctuation">(</span>df<span class="token punctuatio
 attr<span class="token punctuation">(</span>df<span class="token punctuation">,</span> <span class="token string">"row.names"</span><span class="token punctuation">)</span> <span class="token comment">#&gt; 1:4</span>
 deparse<span class="token punctuation">(</span>df<span class="token punctuation">)</span> <span class="token comment"># or dput(df) -- shows</span>
 <span class="token comment">##--&gt; c(NA, -4L) : Compact storage, regarded as automatic.</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="colnames">
+
+<a href="#colnames" class="help-page-title"><h2>Row and Column Names</h2></a>
+
+<h3>Description</h3>
+
+<p>Retrieve or set the row or column names of a matrix-like object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">rownames<span class="token punctuation">(</span>x<span class="token punctuation">,</span> do.<span class="token keyword">NULL</span> <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> prefix <span class="token operator">=</span> <span class="token string">"row"</span><span class="token punctuation">)</span>
+rownames<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> value
+
+colnames<span class="token punctuation">(</span>x<span class="token punctuation">,</span> do.<span class="token keyword">NULL</span> <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> prefix <span class="token operator">=</span> <span class="token string">"col"</span><span class="token punctuation">)</span>
+colnames<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> value</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+<p>a matrix-like <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object, with at least two dimensions for
+<code>colnames</code>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>do.NULL</code></td>
+<td>
+<p>logical. If <code>FALSE</code> and names are <code>NULL</code>, names are created.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>prefix</code></td>
+<td>
+<p>for created names.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>value</code></td>
+<td>
+<p>a valid value for that component of
+<code><a href="#dimnames">dimnames</a>(x)</code>.  For a matrix or array this is either
+<code>NULL</code> or a character vector of non-zero length equal to the
+appropriate dimension.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The extractor functions try to do something sensible for any
+matrix-like object <code>x</code>.  If the object has <code><a href="#dimnames">dimnames</a></code>
+the first component is used as the row names, and the second component
+(if any) is used for the column names.  For a data frame, <code>rownames</code>
+and <code>colnames</code> eventually call <code><a href="#row.names">row.names</a></code> and
+<code><a href="#names">names</a></code> respectively, but the latter are preferred.
+</p>
+<p>If <code>do.NULL</code> is <code>FALSE</code>, a character vector (of length
+<code><a href="#nrow">NROW</a>(x)</code> or <code><a href="#nrow">NCOL</a>(x)</code>) is returned in any
+case, prepending <code>prefix</code> to simple numbers, if there are no
+dimnames or the corresponding component of the dimnames is <code>NULL</code>.
+</p>
+<p>The replacement methods for arrays/matrices coerce vector and factor
+values of <code>value</code> to character, but do not dispatch methods for
+<code>as.character</code>.
+</p>
+<p>For a data frame, <code>value</code> for <code>rownames</code> should be a
+character vector of non-duplicated and non-missing names (this is
+enforced), and for <code>colnames</code> a character vector of (preferably)
+unique syntactically-valid names.  In both cases, <code>value</code> will be
+coerced by <code><a href="#character">as.character</a></code>, and setting <code>colnames</code>
+will convert the row names to character.
+</p>
+
+
+<h3>Note</h3>
+
+<p>If the replacement versions are called on a matrix without any
+existing dimnames, they will add suitable dimnames.  But
+constructions such as
+</p>
+<pre>    rownames(x)[3] &lt;- "c"</pre>
+<p>may not work unless <code>x</code> already has dimnames, since this will
+create a length-3 <code>value</code> from the <code>NULL</code> value of
+<code>rownames(x)</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#dimnames">dimnames</a></code>,
+<code><a href="stats.html#case.names">case.names</a></code>,
+<code><a href="stats.html#case.names">variable.names</a></code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">m0 <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span><span class="token keyword">NA</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+rownames<span class="token punctuation">(</span>m0<span class="token punctuation">)</span>
+
+m2 <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">)</span>
+colnames<span class="token punctuation">(</span>m2<span class="token punctuation">,</span> do.<span class="token keyword">NULL</span> <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+colnames<span class="token punctuation">(</span>m2<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">,</span><span class="token string">"Y"</span><span class="token punctuation">)</span>
+rownames<span class="token punctuation">(</span>m2<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> rownames<span class="token punctuation">(</span>m2<span class="token punctuation">,</span> do.<span class="token keyword">NULL</span> <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> prefix <span class="token operator">=</span> <span class="token string">"Obs."</span><span class="token punctuation">)</span>
+m2</code></pre>
 
 <hr>
 </div>
@@ -58569,193 +59088,6 @@ combnV<span class="token punctuation">(</span><span class="token number">4</span
 
 <hr>
 </div>
-<div class="container manual-page" id="Version">
-
-<a href="#Version" class="help-page-title"><h2>Version Information</h2></a>
-
-<h3>Description</h3>
-
-<p><code>R.Version()</code> provides detailed information about the version of
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> running.
-</p>
-<p><code>R.version</code> is a variable (a <code><a href="#list">list</a></code>) holding this
-information (and <code>version</code> is a copy of it for S compatibility).
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">R.Version<span class="token punctuation">(</span><span class="token punctuation">)</span>
-R.version
-R.version.string
-version</code></pre>
-
-
-<h3>Details</h3>
-
-<p>This gives details of the OS under which <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> was built, not the one
-under which it is currently running (for which see
-<code><a href="#Sys.info">Sys.info</a></code>).
-</p>
-<p>Note that OS names might not be what you expect: for example macOS
-Mavericks 10.9.4 identifies itself as ‘<span class="samp">⁠darwin13.3.0⁠</span>’, Linux
-usually as ‘<span class="samp">⁠linux-gnu⁠</span>’, Solaris 10 as ‘<span class="samp">⁠solaris2.10⁠</span>’ and Windows
-as ‘<span class="samp">⁠mingw32⁠</span>’.
-</p>
-<p><code>R.version$crt</code> is supported on Windows since <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.2.0 and returns
-<code>"ucrt"</code> to denote the Universal C Runtime. It would return
-<code>"msvcrt"</code> for the older Microsoft Visual C++ Runtime (but <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> does
-not use that runtime since 4.2.0).
-</p>
-
-
-<h3>Value</h3>
-
-<p><code>R.Version</code> returns a list with character-string components
-</p>
-<table>
-<tr style="vertical-align: top;">
-<td><code>platform</code></td>
-<td>
-<p>the platform for which <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> was built.  A triplet of the
-form CPU-VENDOR-OS, as determined by the configure script.  E.g,
-<code>"i686-unknown-linux-gnu"</code> or <code>"i386-pc-mingw32"</code>.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>arch</code></td>
-<td>
-<p>the architecture (CPU) <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> was built on/for.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>os</code></td>
-<td>
-<p>the underlying operating system.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>crt</code></td>
-<td>
-<p>the C runtime on Windows.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>system</code></td>
-<td>
-<p>CPU and OS, separated by a comma.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>status</code></td>
-<td>
-<p>the status of the version (e.g., <code>"alpha"</code>)</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>major</code></td>
-<td>
-<p>the major version number</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>minor</code></td>
-<td>
-<p>the minor version number, including the patchlevel</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>year</code></td>
-<td>
-<p>the year the version was released</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>month</code></td>
-<td>
-<p>the month the version was released</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>day</code></td>
-<td>
-<p>the day the version was released</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>svn rev</code></td>
-<td>
-<p>the Subversion revision number, which should be either
-<code>"unknown"</code> or a single number. (A range of numbers or a number
-with ‘<span class="samp">⁠M⁠</span>’ or ‘<span class="samp">⁠S⁠</span>’ appended indicates inconsistencies in the
-sources used to build this version of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.)
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>language</code></td>
-<td>
-<p>always <code>"R"</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>version.string</code></td>
-<td>
-<p>a
-<code><a href="#character">character</a></code> string concatenating some of the info above,
-useful for plotting, etc.</p>
-</td>
-</tr>
-</table>
-<p><code>R.version</code> and <code>version</code> are lists of class
-<code>"simple.list"</code> which has a <code>print</code> method.
-</p>
-
-
-<h3>Note</h3>
-
-<p>Do <em>not</em> use <code>R.version$os</code> to test the platform the
-code is running on: use <code>.Platform$OS.type</code> instead.  Slightly
-different versions of the OS may report different values of
-<code>R.version$os</code>, as may different versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
-</p>
-<p><code>R.version.string</code> is a copy of <code>R.version$version.string</code>
-for simplicity and backwards compatibility.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="utils.html#sessionInfo">sessionInfo</a></code> which provides additional information;
-<code><a href="#numeric_version">getRversion</a></code> typically used inside R code,
-<code><a href="#Platform">.Platform</a></code>, <code><a href="#Sys.info">Sys.info</a></code>.
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r">require<span class="token punctuation">(</span>graphics<span class="token punctuation">)</span>
-
-R.version<span class="token operator">$</span>os <span class="token comment"># to check how lucky you are ...</span>
-plot<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># any plot</span>
-mtext<span class="token punctuation">(</span>R.version.string<span class="token punctuation">,</span> side <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> line <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">,</span> adj <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># a useful bottom-right note</span>
-
-<span class="token comment">## a good way to detect macOS:</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>grepl<span class="token punctuation">(</span><span class="token string">"^darwin"</span><span class="token punctuation">,</span> R.version<span class="token operator">$</span>os<span class="token punctuation">)</span><span class="token punctuation">)</span> message<span class="token punctuation">(</span><span class="token string">"running on macOS"</span><span class="token punctuation">)</span>
-
-<span class="token comment">## Short R version string, ("space free", useful in file/directory names;</span>
-<span class="token comment">##                          also fine for unreleased versions of R):</span>
-shortRversion <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   rvs <span class="token operator">&lt;-</span> R.version.string
-   <span class="token keyword">if</span><span class="token punctuation">(</span>grepl<span class="token punctuation">(</span><span class="token string">"devel"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>st <span class="token operator">&lt;-</span> R.version<span class="token operator">$</span>status<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-       rvs <span class="token operator">&lt;-</span> sub<span class="token punctuation">(</span>paste0<span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">,</span>st<span class="token punctuation">,</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"-devel_"</span><span class="token punctuation">,</span> rvs<span class="token punctuation">,</span> fixed<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span>
-   gsub<span class="token punctuation">(</span><span class="token string">"[()]"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> gsub<span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">,</span> <span class="token string">"_"</span><span class="token punctuation">,</span> sub<span class="token punctuation">(</span><span class="token string">" version "</span><span class="token punctuation">,</span> <span class="token string">"-"</span><span class="token punctuation">,</span> rvs<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-shortRversion<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
 <div class="container manual-page" id="warning">
 
 <a href="#warning" class="help-page-title"><h2>Warning Messages</h2></a>
@@ -59944,282 +60276,6 @@ zapsmall<span class="token punctuation">(</span>exp<span class="token punctuatio
 
 <hr>
 </div>
-<div class="container manual-page" id="zMachine">
-
-<a href="#zMachine" class="help-page-title"><h2>Numerical Characteristics of the Machine</h2></a>
-
-<h3>Description</h3>
-
-<p><code>.Machine</code> is a variable holding information on the numerical
-characteristics of the machine <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> is running on, such as the largest
-double or integer and the machine's precision.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">.Machine</code></pre>
-
-
-<h3>Details</h3>
-
-<p>The algorithm is based on Cody's (1988) subroutine MACHAR.  As all
-current implementations of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> use 32-bit integers and use IEC 60559
-floating-point (double precision) arithmetic, the <code>"integer"</code> and
-<code>"double"</code> related values are the same for almost all <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> builds.
-
-</p>
-<p>Note that on most platforms smaller positive values than
-<code>.Machine$double.xmin</code> can occur.  On a typical <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> platform the
-smallest positive double is about <code>5e-324</code>.
-</p>
-
-
-<h3>Value</h3>
-
-<p>A list with components
-</p>
-<table>
-<tr style="vertical-align: top;">
-<td><code>double.eps</code></td>
-<td>
-<p>the smallest positive floating-point number
-<code>x</code> such that <code>1 + x != 1</code>.  It equals
-<code>double.base ^ ulp.digits</code> if either <code>double.base</code> is 2 or
-<code>double.rounding</code> is 0;  otherwise, it is
-<code>(double.base ^ double.ulp.digits) / 2</code>.  Normally
-<code>2.220446e-16</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>double.neg.eps</code></td>
-<td>
-<p>a small positive floating-point number <code>x</code>
-such that <code>1 - x != 1</code>.  It equals
-<code>double.base ^ double.neg.ulp.digits</code> if <code>double.base</code> is 2
-or <code>double.rounding</code> is 0;  otherwise, it is
-<code>(double.base ^ double.neg.ulp.digits) / 2</code>.  Normally
-<code>1.110223e-16</code>. As <code>double.neg.ulp.digits</code> is bounded
-below by <code>-(double.digits + 3)</code>, <code>double.neg.eps</code> may not
-be the smallest number that can alter 1 by subtraction.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>double.xmin</code></td>
-<td>
-<p>the smallest non-zero normalized
-floating-point number, a power of the radix, i.e.,
-<code>double.base ^ double.min.exp</code>. Normally <code>2.225074e-308</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>double.xmax</code></td>
-<td>
-<p>the largest normalized floating-point number.
-Typically, it is equal to <code>(1 - double.neg.eps) *
-      double.base ^ double.max.exp</code>, but
-on some machines it is only the second or third largest such
-number, being too small by 1 or 2 units in the last digit of the
-significand.  Normally <code>1.797693e+308</code>.  Note that larger
-unnormalized numbers can occur.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>double.base</code></td>
-<td>
-<p>the radix for the floating-point representation:
-normally <code>2</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>double.digits</code></td>
-<td>
-<p>the number of base digits in the floating-point
-significand: normally <code>53</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>double.rounding</code></td>
-<td>
-<p>the rounding action, one of<br>
-0 if floating-point addition chops; <br>
-1 if floating-point addition rounds, but not in the IEEE style; <br>
-2 if floating-point addition rounds in the IEEE style; <br>
-3 if floating-point addition chops, and there is partial underflow; <br>
-4 if floating-point addition rounds, but not in the IEEE style, and
-there is partial underflow; <br>
-5 if floating-point addition rounds in the IEEE style, and there is
-partial underflow.<br>
-Normally <code>5</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>double.guard</code></td>
-<td>
-<p>the number of guard digits for multiplication
-with truncating arithmetic.  It is 1 if floating-point arithmetic
-truncates and more than <code>double digits</code> base-<code>double.base</code> digits
-participate in the post-normalization shift of the floating-point
-significand in multiplication, and 0 otherwise.<br>
-Normally <code>0</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>double.ulp.digits</code></td>
-<td>
-<p>the largest negative integer <code>i</code> such
-that <code>1 + double.base ^ i != 1</code>, except that it is bounded below by
-<code>-(double.digits + 3)</code>.  Normally <code>-52</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>double.neg.ulp.digits</code></td>
-<td>
-<p>the largest negative integer <code>i</code>
-such that <code>1 - double.base ^ i != 1</code>, except that it is bounded
-below by <code>-(double.digits + 3)</code>. Normally <code>-53</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>double.exponent</code></td>
-<td>
-
-<p>the number of bits (decimal places if <code>double.base</code> is 10) reserved
-for the representation of the exponent (including the bias or sign)
-of a floating-point number.  Normally <code>11</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>double.min.exp</code></td>
-<td>
-
-<p>the largest in magnitude negative integer <code>i</code> such that
-<code>double.base ^ i</code> is positive and normalized.  Normally <code>-1022</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>double.max.exp</code></td>
-<td>
-
-<p>the smallest positive power of <code>double.base</code> that overflows.  Normally
-<code>1024</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>integer.max</code></td>
-<td>
-<p>the largest integer which can be represented.
-Always <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn><mo>=</mo><mn>2147483647</mn></mrow><annotation encoding="application/x-tex">2^{31} - 1 = 2147483647</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2147483647</span></span></span></span></code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>sizeof.long</code></td>
-<td>
-<p>the number of bytes in a C <code>long</code> type:
-<code>4</code> or <code>8</code> (most 64-bit systems, but not Windows).</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>sizeof.longlong</code></td>
-<td>
-<p>the number of bytes in a C <code>long long</code>
-type.  Will be zero if there is no such type, otherwise usually
-<code>8</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>sizeof.longdouble</code></td>
-<td>
-<p>the number of bytes in a C <code>long double</code>
-type.  Will be zero if there is no such type (or its use was
-disabled when <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> was built), otherwise possibly
-<code>12</code> (most 32-bit builds),  <code>16</code> (most 64-bit builds) or 8
-(CPUs such as ARM where for most compilers <code>long double</code> is
-identical to <code>double</code>).</p>
-</td>
-</tr>
-</table>
-<table>
-<tr style="vertical-align: top;">
-<td><code>sizeof.pointer</code></td>
-<td>
-<p>the number of bytes in the C <code>SEXP</code>
-type.  Will be <code>4</code> on 32-bit builds and <code>8</code> on 64-bit
-builds of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>longdouble.eps, longdouble.neg.eps, longdouble.digits, ...</code></td>
-<td>
-
-<p>introduced in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.0.0. When
-<code><a href="#capabilities">capabilities</a>("long.double")</code> is true, there are 10 such
-<code>"longdouble.&lt;kind&gt;"</code> values, specifying the <code>long double</code>
-property corresponding to its <code>"double.*"</code> counterpart.  See
-also ‘Note’.</p>
-</td>
-</tr>
-</table>
-<h3>Note</h3>
-
-<p>In the (typical) case where <code><a href="#capabilities">capabilities</a>("long.double")</code> is
-true, <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> uses the <code>long double</code> C type in quite a few places internally
-for accumulators in e.g. <code><a href="#sum">sum</a></code>, reading non-integer
-numeric constants into (binary) double precision numbers, or arithmetic
-such as <code>x %% y</code>; also, <code>long double</code> can be read by
-<code><a href="#readBin">readBin</a></code>.
-<br>
-For this reason, in that case, <code>.Machine</code> contains ten further components,
-<code>longdouble.eps</code>, <code>*.neg.eps</code>, <code>*.digits</code>, <code>*.rounding</code>
-<code>*.guard</code>, <code>*.ulp.digits</code>, <code>*.neg.ulp.digits</code>,
-<code>*.exponent</code>, <code>*.min.exp</code>, and <code>*.max.exp</code>, computed
-entirely analogously to their <code>double.*</code> counterparts, see there.
-</p>
-<p><code>sizeof.longdouble</code> only tells you the amount of storage
-allocated for a long double.  Often what is stored is the 80-bit extended
-double type of IEC 60559, padded to the double alignment used on the
-platform — this seems to be the case for the common <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> platforms
-using ix86 and x86_64 chips.  There are other implementation of long
-double, usually in software for example on Sparc Solaris and AIX.
-</p>
-<p>Note that it is legal for a platform to have a <code>long double</code> C
-type which is identical to the <code>double</code> type — this happens on
-ARM cpus.  In that case <code><a href="#capabilities">capabilities</a>("long.double")</code> will
-be false but on versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> prior to 4.0.4, <code>.Machine</code> may contain
-<code>"longdouble.&lt;kind&gt;"</code> elements.
-</p>
-
-
-<h3>Source</h3>
-
-<p>Uses a C translation of Fortran code in the reference, modified by the
-R Core Team to defeat over-optimization in modern compilers.
-</p>
-
-
-<h3>References</h3>
-
-<p>Cody, W. J. (1988).
-MACHAR: A subroutine to dynamically determine machine parameters.
-<em>Transactions on Mathematical Software</em>, <b>14</b>(4), 303–311.
-<a href="https://doi.org/10.1145/50063.51907" target="_blank">doi:10.1145/50063.51907</a>.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#Platform">.Platform</a></code> for details of the platform.
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r">.Machine
-<span class="token comment">## or for a neat printout</span>
-noquote<span class="token punctuation">(</span>unlist<span class="token punctuation">(</span>format<span class="token punctuation">(</span>.Machine<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
 <div class="container manual-page" id="zpackages">
 
 <a href="#zpackages" class="help-page-title"><h2>Listing of Packages</h2></a>
@@ -60309,62 +60365,6 @@ Guido Masarotto for the <code>all.available = TRUE</code> part of
 require<span class="token punctuation">(</span>splines<span class="token punctuation">)</span>
 <span class="token punctuation">(</span>.packages<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>               <span class="token comment"># "splines", too</span>
 detach<span class="token punctuation">(</span><span class="token string">"package:splines"</span><span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="zScript">
-
-<a href="#zScript" class="help-page-title"><h2>Scripting Language Interface</h2></a>
-
-<h3>Description</h3>
-
-<p>Internal interface to run a script through its interpreter.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">.Script<span class="token punctuation">(</span>interpreter<span class="token punctuation">,</span> script<span class="token punctuation">,</span> args<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr style="vertical-align: top;">
-<td><code>interpreter</code></td>
-<td>
-<p>a character string naming the interpreter for the
-script.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>script</code></td>
-<td>
-<p>a character string with the base file name of the
-script, which must be located in the ‘<span class="file"><code>interpreter</code></span>’
-subdirectory of
-‘<span class="file"><var>R_SHARE_DIR</var></span>’ (normally ‘<span class="file"><var><a href="#Rhome">R_HOME</a></var>/share</span>’).
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>args</code></td>
-<td>
-<p>a character string giving the arguments to pass to the
-script.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
-<td>
-<p>further arguments to be passed to <code><a href="#system">system</a></code>
-when invoking the interpreter on the script.</p>
-</td>
-</tr>
-</table>
-<h3>Note</h3>
-
-<p>This function is for R internal use only.</p>
 
 <hr>
 </div>

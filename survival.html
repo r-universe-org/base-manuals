@@ -192,6 +192,9 @@ Person Years
 Rate table structure
 </a></li>
 <li class="help-index-item"><a href="#ratetableDate">Convert date objects to ratetable form</a></li>
+<li class="help-index-item"><a href="#survexp.us">
+Census Data Sets for the Expected Survival and Person Years Functions
+</a></li>
 <li class="help-index-item"><a href="#rats">Rat treatment data from Mantel et al</a></li>
 <li class="help-index-item"><a href="#rats2">Rat data from Gail et al.</a></li>
 <li class="help-index-item"><a href="#reliability">Reliability data sets</a></li>
@@ -225,6 +228,7 @@ Summary of a Survival Curve
 <li class="help-index-item"><a href="#Surv">
 Create a Survival Object 
 </a></li>
+<li class="help-index-item"><a href="#Survmethods">Methods for Surv objects</a></li>
 <li class="help-index-item"><a href="#Surv2">Create a survival object</a></li>
 <li class="help-index-item"><a href="#Surv2data">Convert data from timecourse to (time1,time2) style
 </a></li>
@@ -240,9 +244,6 @@ Compute Expected Survival
 </a></li>
 <li class="help-index-item"><a href="#survexp.object">
 Expected Survival Curve Object 
-</a></li>
-<li class="help-index-item"><a href="#survexp.us">
-Census Data Sets for the Expected Survival and Person Years Functions
 </a></li>
 <li class="help-index-item"><a href="#survfit">Create survival curves</a></li>
 <li class="help-index-item"><a href="#survfit.coxph">
@@ -264,7 +265,6 @@ A direct interface to the ‘computational engine’ of survfit.coxph
 </a></li>
 <li class="help-index-item"><a href="#survival-deprecated">Deprecated functions in package survival</a></li>
 <li class="help-index-item"><a href="#survival-internal">Internal survival functions</a></li>
-<li class="help-index-item"><a href="#Survmethods">Methods for Surv objects</a></li>
 <li class="help-index-item"><a href="#survobrien">
 O'Brien's Test for Association of a Single Variable with Survival
 </a></li>
@@ -9922,6 +9922,79 @@ then those routines will automatically be adapted to the new date type.
 
 <hr>
 </div>
+<div class="container manual-page" id="survexp.us">
+
+<a href="#survexp.us" class="help-page-title"><h2>
+Census Data Sets for the Expected Survival and Person Years Functions
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Census data sets for the expected survival and person years functions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>survexp<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"survival"</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Details</h3>
+
+
+<dl>
+<dt>survexp.us</dt>
+<dd>
+<p>total United States population, by age and sex, 1940 to 2012.
+</p>
+</dd>
+<dt>survexp.usr</dt>
+<dd>
+<p>United States population, by age, sex and race, 1940 to 2014.
+Race is white or black.  For 1960 and 1970 the black
+population values were not reported separately, so the nonwhite
+values were used.  (Over the years, the reported tables have
+differed wrt reporting non-white and/or black.)
+</p>
+</dd>
+<dt>survexp.mn</dt>
+<dd>
+<p>total Minnesota population, by age and sex, 1970 to 2013.
+</p>
+</dd>
+</dl>
+<p>Each of these tables contains the daily hazard rate for a matched
+subject from the population, defined as <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>q</mi><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mn>365.25</mn></mrow><annotation encoding="application/x-tex">-\log(1-q)/365.25</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mclose">)</span><span class="mord">/365.25</span></span></span></span></code> where
+<code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span></code> is the 1 year probability of death as reported in the original
+tables from the US Census.  For age 25 in 1970, for instance,
+<code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>1</mn><mo>−</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">p = 1-q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span></code> is is the
+probability that a subject who becomes 25 years of age in 1970 will
+achieve his/her 26th birthday.  The tables are recast in terms of
+hazard per day for computational convenience.
+</p>
+<p>Each table is stored as an array, with additional attributes, and
+can be subset and manipulated as standard R arrays.
+See the help page for <code>ratetable</code> for details.
+</p>
+<p>All numeric dimensions of a rate table must be in the same units.
+The <code>survexp.us</code> rate table contains daily hazard rates, the age
+cutpoints are in days, and the calendar year cutpoints are a Date.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#ratetable">ratetable</a></code>, <code><a href="#survexp">survexp</a></code>,
+<code><a href="#pyears">pyears</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">survexp.uswhite <span class="token operator">&lt;-</span> survexp.usr<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token string">"white"</span><span class="token punctuation">,</span><span class="token punctuation">]</span></code></pre>
+
+<hr>
+</div>
 <div class="container manual-page" id="rats">
 
 <a href="#rats" class="help-page-title"><h2>Rat treatment data from Mantel et al</h2></a>
@@ -12824,6 +12897,176 @@ Surv<span class="token punctuation">(</span>heart<span class="token operator">$<
 
 <hr>
 </div>
+<div class="container manual-page" id="Survmethods">
+
+<a href="#Survmethods" class="help-page-title"><h2>Methods for Surv objects</h2></a>
+
+<h3>Description</h3>
+
+<p>The list of methods that apply to <code>Surv</code> objects</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'Surv'</span>
+anyDuplicated<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+as.character<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+as.data.frame<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+as.integer<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+as.matrix<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+as.numeric<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+c<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+duplicated<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+format<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+head<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+is.na<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+length<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+mean<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+median<span class="token punctuation">(</span>x<span class="token punctuation">,</span> na.rm<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+names<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    <span class="token comment">## S3 replacement method for class 'Surv'</span>
+names<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> value
+    <span class="token comment">## S3 method for class 'Surv'</span>
+quantile<span class="token punctuation">(</span>x<span class="token punctuation">,</span> probs<span class="token punctuation">,</span> na.rm<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+rep<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+rep.int<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+rep_len<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+rev<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+t<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+tail<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    <span class="token comment">## S3 method for class 'Surv'</span>
+unique<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+<p>a <code>Surv</code> object</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>probs</code></td>
+<td>
+<p>a vector of probabilities</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>na.rm</code></td>
+<td>
+<p>remove missing values from the calculation</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>value</code></td>
+<td>
+<p>a character vector of up to the same length as <code>x</code>, or
+<code>NULL</code></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>...</code></td>
+<td>
+<p>other arguments to the method</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>These functions extend the standard methods to <code>Surv</code> objects.
+The arguments and results from these are mostly as expected, with the
+following further details:
+</p>
+
+<ul>
+<li>
+<p> The <code>as.character</code> function uses "5+" for right censored
+at time 5, "5-" for left censored at time 5, "[2,7]" for an
+observation that was interval censored between 2 and 7,
+"(1,6]" for a counting process data denoting an observation which
+was at risk from time 1 to 6, with an event at time 6, and
+"(1,6+]" for an observation over the same interval but not ending
+with and event.
+For a multi-state survival object the type of event is appended to
+the event time using ":type".
+</p>
+</li>
+<li>
+<p> The <code>print</code> and <code>format</code> methods make use of
+<code>as.character</code>.
+</p>
+</li>
+<li>
+<p> The <code>as.numeric</code> and <code>as.integer</code> methods perform
+these actions on the survival times, but do not affect the
+censoring indicator.
+</p>
+</li>
+<li>
+<p> The <code>as.matrix</code> and <code>t</code> methods return a matrix
+</p>
+</li>
+<li>
+<p> The <code>length</code> of a <code>Surv</code> object is the number of
+survival times it contains, not the number of items required to
+encode it, e.g., <code>x &lt;- Surv(1:4, 5:9, c(1,0,1,0)); length(x)</code>
+has a value of 4.
+Likewise <code>names(x)</code> will be NULL or a vector of length 4.
+(For technical reasons, any names are actually stored in the
+<code>rownames</code> attribute of the object.)
+</p>
+</li>
+<li>
+<p> For a multi-state survival object <code>levels</code> returns the
+names of the endpoints, otherwise it is NULL.
+</p>
+</li>
+<li>
+<p> The <code>median</code>, <code>quantile</code> and <code>plot</code> methods
+first construct a survival curve using <code>survfit</code>, then apply
+the appropriate method to that curve.
+</p>
+</li>
+<li>
+<p> The concatonation method <code>c()</code> is asymmetric, its first
+argument determines the exection path.  For instance
+<code>c(Surv(1:4), Surv(5:6))</code> will concatonate the two objects,
+<code>c(Surv(1:4), 5:6)</code> will give an error, and
+<code>c(5:6, Surv(1:4))</code> is equivalent to
+<code>c(5:6, as.vector(Surv(1:4)))</code>. 
+</p>
+</li>
+</ul>
+<h3>See Also</h3>
+
+ <p><code><a href="#Surv">Surv</a></code></p>
+
+<hr>
+</div>
 <div class="container manual-page" id="Surv2">
 
 <a href="#Surv2" class="help-page-title"><h2>Create a survival object</h2></a>
@@ -13935,79 +14178,6 @@ all time, so <code>n.risk</code> will be a constant.
 <code><a href="#print.survfit">print.survfit</a></code>,
 <code><a href="#survexp">survexp</a></code>.   
 </p>
-
-<hr>
-</div>
-<div class="container manual-page" id="survexp.us">
-
-<a href="#survexp.us" class="help-page-title"><h2>
-Census Data Sets for the Expected Survival and Person Years Functions
-</h2></a>
-
-<h3>Description</h3>
-
-<p>Census data sets for the expected survival and person years functions.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>survexp<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"survival"</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Details</h3>
-
-
-<dl>
-<dt>survexp.us</dt>
-<dd>
-<p>total United States population, by age and sex, 1940 to 2012.
-</p>
-</dd>
-<dt>survexp.usr</dt>
-<dd>
-<p>United States population, by age, sex and race, 1940 to 2014.
-Race is white or black.  For 1960 and 1970 the black
-population values were not reported separately, so the nonwhite
-values were used.  (Over the years, the reported tables have
-differed wrt reporting non-white and/or black.)
-</p>
-</dd>
-<dt>survexp.mn</dt>
-<dd>
-<p>total Minnesota population, by age and sex, 1970 to 2013.
-</p>
-</dd>
-</dl>
-<p>Each of these tables contains the daily hazard rate for a matched
-subject from the population, defined as <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>q</mi><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mn>365.25</mn></mrow><annotation encoding="application/x-tex">-\log(1-q)/365.25</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mclose">)</span><span class="mord">/365.25</span></span></span></span></code> where
-<code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span></code> is the 1 year probability of death as reported in the original
-tables from the US Census.  For age 25 in 1970, for instance,
-<code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>1</mn><mo>−</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">p = 1-q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span></code> is is the
-probability that a subject who becomes 25 years of age in 1970 will
-achieve his/her 26th birthday.  The tables are recast in terms of
-hazard per day for computational convenience.
-</p>
-<p>Each table is stored as an array, with additional attributes, and
-can be subset and manipulated as standard R arrays.
-See the help page for <code>ratetable</code> for details.
-</p>
-<p>All numeric dimensions of a rate table must be in the same units.
-The <code>survexp.us</code> rate table contains daily hazard rates, the age
-cutpoints are in days, and the calendar year cutpoints are a Date.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#ratetable">ratetable</a></code>, <code><a href="#survexp">survexp</a></code>,
-<code><a href="#pyears">pyears</a></code>
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r">survexp.uswhite <span class="token operator">&lt;-</span> survexp.usr<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token string">"white"</span><span class="token punctuation">,</span><span class="token punctuation">]</span></code></pre>
 
 <hr>
 </div>
@@ -15651,176 +15821,6 @@ survfitTurnbull<span class="token punctuation">(</span>x<span class="token punct
 
 <p>The arguments to these routines are not guaranteed to stay the
 same from release to release – call them at your own risk!</p>
-
-<hr>
-</div>
-<div class="container manual-page" id="Survmethods">
-
-<a href="#Survmethods" class="help-page-title"><h2>Methods for Surv objects</h2></a>
-
-<h3>Description</h3>
-
-<p>The list of methods that apply to <code>Surv</code> objects</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'Surv'</span>
-anyDuplicated<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-as.character<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-as.data.frame<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-as.integer<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-as.matrix<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-as.numeric<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-c<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-duplicated<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-format<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-head<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-is.na<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-length<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-mean<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-median<span class="token punctuation">(</span>x<span class="token punctuation">,</span> na.rm<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-names<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-    <span class="token comment">## S3 replacement method for class 'Surv'</span>
-names<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> value
-    <span class="token comment">## S3 method for class 'Surv'</span>
-quantile<span class="token punctuation">(</span>x<span class="token punctuation">,</span> probs<span class="token punctuation">,</span> na.rm<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-rep<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-rep.int<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-rep_len<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-rev<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-t<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-tail<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-    <span class="token comment">## S3 method for class 'Surv'</span>
-unique<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
-<td>
-<p>a <code>Surv</code> object</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>probs</code></td>
-<td>
-<p>a vector of probabilities</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>na.rm</code></td>
-<td>
-<p>remove missing values from the calculation</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>value</code></td>
-<td>
-<p>a character vector of up to the same length as <code>x</code>, or
-<code>NULL</code></p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
-<td>
-<p>other arguments to the method</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p>These functions extend the standard methods to <code>Surv</code> objects.
-The arguments and results from these are mostly as expected, with the
-following further details:
-</p>
-
-<ul>
-<li>
-<p> The <code>as.character</code> function uses "5+" for right censored
-at time 5, "5-" for left censored at time 5, "[2,7]" for an
-observation that was interval censored between 2 and 7,
-"(1,6]" for a counting process data denoting an observation which
-was at risk from time 1 to 6, with an event at time 6, and
-"(1,6+]" for an observation over the same interval but not ending
-with and event.
-For a multi-state survival object the type of event is appended to
-the event time using ":type".
-</p>
-</li>
-<li>
-<p> The <code>print</code> and <code>format</code> methods make use of
-<code>as.character</code>.
-</p>
-</li>
-<li>
-<p> The <code>as.numeric</code> and <code>as.integer</code> methods perform
-these actions on the survival times, but do not affect the
-censoring indicator.
-</p>
-</li>
-<li>
-<p> The <code>as.matrix</code> and <code>t</code> methods return a matrix
-</p>
-</li>
-<li>
-<p> The <code>length</code> of a <code>Surv</code> object is the number of
-survival times it contains, not the number of items required to
-encode it, e.g., <code>x &lt;- Surv(1:4, 5:9, c(1,0,1,0)); length(x)</code>
-has a value of 4.
-Likewise <code>names(x)</code> will be NULL or a vector of length 4.
-(For technical reasons, any names are actually stored in the
-<code>rownames</code> attribute of the object.)
-</p>
-</li>
-<li>
-<p> For a multi-state survival object <code>levels</code> returns the
-names of the endpoints, otherwise it is NULL.
-</p>
-</li>
-<li>
-<p> The <code>median</code>, <code>quantile</code> and <code>plot</code> methods
-first construct a survival curve using <code>survfit</code>, then apply
-the appropriate method to that curve.
-</p>
-</li>
-<li>
-<p> The concatonation method <code>c()</code> is asymmetric, its first
-argument determines the exection path.  For instance
-<code>c(Surv(1:4), Surv(5:6))</code> will concatonate the two objects,
-<code>c(Surv(1:4), 5:6)</code> will give an error, and
-<code>c(5:6, Surv(1:4))</code> is equivalent to
-<code>c(5:6, as.vector(Surv(1:4)))</code>. 
-</p>
-</li>
-</ul>
-<h3>See Also</h3>
-
- <p><code><a href="#Surv">Surv</a></code></p>
 
 <hr>
 </div>

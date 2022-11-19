@@ -63,6 +63,7 @@
 
     <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
     <ul id="help-index-list">
+<li class="help-index-item"><a href="#Extract.pdMat">Subscript a pdMat Object</a></li>
 <li class="help-index-item"><a href="#ACF">Autocorrelation Function</a></li>
 <li class="help-index-item"><a href="#ACF.gls">Autocorrelation Function for gls Residuals</a></li>
 <li class="help-index-item"><a href="#ACF.lme">Autocorrelation Function for lme Residuals</a></li>
@@ -122,7 +123,6 @@
 <li class="help-index-item"><a href="#Dim.pdMat">Dimensions of a pdMat Object</a></li>
 <li class="help-index-item"><a href="#Earthquake">Earthquake Intensity</a></li>
 <li class="help-index-item"><a href="#ergoStool">Ergometrics experiment with stool types</a></li>
-<li class="help-index-item"><a href="#Extract.pdMat">Subscript a pdMat Object</a></li>
 <li class="help-index-item"><a href="#Fatigue">Cracks caused by metal fatigue</a></li>
 <li class="help-index-item"><a href="#fdHess">Finite difference Hessian</a></li>
 <li class="help-index-item"><a href="#fitted.glsStruct">Calculate glsStruct Fitted Values</a></li>
@@ -352,7 +352,89 @@ reStruct Object</a></li>
 </ul>
 
     <hr>
-  <div class="container manual-page" id="ACF">
+  <div class="container manual-page" id="Extract.pdMat">
+
+<a href="#Extract.pdMat" class="help-page-title"><h2>Subscript a pdMat Object</h2></a>
+
+<h3>Description</h3>
+
+<p>This method function extracts sub-matrices from the positive-definite
+matrix represented by <code>x</code>. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'pdMat'</span>
+x<span class="token punctuation">[</span>i<span class="token punctuation">,</span> j<span class="token punctuation">,</span> drop <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">]</span>
+<span class="token comment">## S3 replacement method for class 'pdMat'</span>
+x<span class="token punctuation">[</span>i<span class="token punctuation">,</span> j<span class="token punctuation">]</span> <span class="token operator">&lt;-</span> value</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;">
+<td><code>x</code></td>
+<td>
+<p>an object inheriting from class <code>"<a href="#pdMat">pdMat</a>"</code> representing a
+positive-definite matrix.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>i, j</code></td>
+<td>
+<p>optional subscripts applying respectively to the rows
+and columns of the positive-definite matrix represented by
+<code>object</code>. When <code>i</code> (<code>j</code>) is omitted, all rows (columns)
+are extracted.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>drop</code></td>
+<td>
+<p>a logical value. If <code>TRUE</code>, single rows or columns are
+converted to vectors. If <code>FALSE</code> the returned value retains its
+matrix representation.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td><code>value</code></td>
+<td>
+<p>a vector, or matrix, with the replacement values for the
+relevant piece of the matrix represented by <code>x</code>.</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>if <code>i</code> and <code>j</code> are identical, the returned value will be
+<code>pdMat</code> object with the same class as <code>x</code>. Otherwise, the
+returned value will be a matrix. In the case a single row (or column)
+is selected, the returned value may be converted to a vector,
+according to the rules above.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>José Pinheiro and Douglas Bates <a href="mailto:bates@stat.wisc.edu">bates@stat.wisc.edu</a></p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="base.html#Extract">[</a></code>, <code><a href="#pdMat">pdMat</a></code></p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">pd1 <span class="token operator">&lt;-</span> pdSymm<span class="token punctuation">(</span>diag<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+pd1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">,</span> drop <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">]</span>
+pd1<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">3</span> <span class="token operator">*</span> diag<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="ACF">
 
 <a href="#ACF" class="help-page-title"><h2>Autocorrelation Function</h2></a>
 
@@ -6190,88 +6272,6 @@ Engineering and the Sciences (5th ed)</em>, Duxbury, Boston, MA.
 <pre class="language-r"><code class="language-r">fm1 <span class="token operator">&lt;-</span>
    lme<span class="token punctuation">(</span>effort <span class="token operator">~</span> Type<span class="token punctuation">,</span> data <span class="token operator">=</span> ergoStool<span class="token punctuation">,</span> random <span class="token operator">=</span> <span class="token operator">~</span> <span class="token number">1</span> <span class="token operator">|</span> Subject<span class="token punctuation">)</span>
 anova<span class="token punctuation">(</span> fm1 <span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="Extract.pdMat">
-
-<a href="#Extract.pdMat" class="help-page-title"><h2>Subscript a pdMat Object</h2></a>
-
-<h3>Description</h3>
-
-<p>This method function extracts sub-matrices from the positive-definite
-matrix represented by <code>x</code>. 
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'pdMat'</span>
-x<span class="token punctuation">[</span>i<span class="token punctuation">,</span> j<span class="token punctuation">,</span> drop <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">]</span>
-<span class="token comment">## S3 replacement method for class 'pdMat'</span>
-x<span class="token punctuation">[</span>i<span class="token punctuation">,</span> j<span class="token punctuation">]</span> <span class="token operator">&lt;-</span> value</code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
-<td>
-<p>an object inheriting from class <code>"<a href="#pdMat">pdMat</a>"</code> representing a
-positive-definite matrix.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>i, j</code></td>
-<td>
-<p>optional subscripts applying respectively to the rows
-and columns of the positive-definite matrix represented by
-<code>object</code>. When <code>i</code> (<code>j</code>) is omitted, all rows (columns)
-are extracted.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>drop</code></td>
-<td>
-<p>a logical value. If <code>TRUE</code>, single rows or columns are
-converted to vectors. If <code>FALSE</code> the returned value retains its
-matrix representation.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>value</code></td>
-<td>
-<p>a vector, or matrix, with the replacement values for the
-relevant piece of the matrix represented by <code>x</code>.</p>
-</td>
-</tr>
-</table>
-<h3>Value</h3>
-
-<p>if <code>i</code> and <code>j</code> are identical, the returned value will be
-<code>pdMat</code> object with the same class as <code>x</code>. Otherwise, the
-returned value will be a matrix. In the case a single row (or column)
-is selected, the returned value may be converted to a vector,
-according to the rules above.
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>José Pinheiro and Douglas Bates <a href="mailto:bates@stat.wisc.edu">bates@stat.wisc.edu</a></p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="base.html#Extract">[</a></code>, <code><a href="#pdMat">pdMat</a></code></p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r">pd1 <span class="token operator">&lt;-</span> pdSymm<span class="token punctuation">(</span>diag<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-pd1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">,</span> drop <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">]</span>
-pd1<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">3</span> <span class="token operator">*</span> diag<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div>
