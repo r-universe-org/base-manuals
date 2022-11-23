@@ -183,7 +183,7 @@ multiple lattice plots on a single page.  Such capabilities are
 described in the <code><a href="#print.trellis">print.trellis</a></code> help page.  See
 <code><a href="#update.trellis">update.trellis</a></code> to learn about manipulating a
 <code>"trellis"</code> object.  Tools to augment lattice plots after they
-are drawn (including <code><a href="graphics.html#locator">locator</a></code>-like functionality) are
+are drawn (including <code><a href="https://r-universe.dev/manuals/graphics.html#locator">locator</a></code>-like functionality) are
 described in the <code><a href="#interaction">trellis.focus</a></code> help page.
 </p>
 <p>The online documentation accompanying the package is complete, and
@@ -215,7 +215,7 @@ functions appear to behave like their traditional counterparts.
 However, the automatic plotting is suppressed when the high-level
 functions are called inside another function (most often
 <code>source</code>) or in other contexts where automatic printing is
-suppressed (e.g., <code><a href="base.html#Control">for</a></code> or <code><a href="base.html#Control">while</a></code> loops).  In
+suppressed (e.g., <code><a href="https://r-universe.dev/manuals/base.html#Control">for</a></code> or <code><a href="https://r-universe.dev/manuals/base.html#Control">while</a></code> loops).  In
 such situations, an explicit call to <code>print</code> or <code>plot</code> is
 required.
 </p>
@@ -335,7 +335,7 @@ appropriately.
 <dt>
 <code><a href="#levelplot">levelplot</a></code>:</dt>
 <dd>
-<p> Level plots (similar to <code><a href="graphics.html#image">image</a></code> plots). </p>
+<p> Level plots (similar to <code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code> plots). </p>
 </dd>
 <dt>
 <code><a href="#levelplot">contourplot</a></code>:</dt>
@@ -350,7 +350,7 @@ appropriately.
 <dt>
 <code><a href="#cloud">wireframe</a></code>:</dt>
 <dd>
-<p> Three-dimensional surface plots (similar to <code><a href="graphics.html#persp">persp</a></code> plots). </p>
+<p> Three-dimensional surface plots (similar to <code><a href="https://r-universe.dev/manuals/graphics.html#persp">persp</a></code> plots). </p>
 </dd>
 </dl>
 <p><b>Hypervariate:</b>
@@ -387,8 +387,8 @@ appropriately.
 themselves, but can be useful components of custom panel functions.
 These are documented in <code><a href="#panel.functions">panel.functions</a></code>.  Lattice also
 provides a collection of convenience functions that correspond to the
-traditional graphics primitives <code><a href="graphics.html#lines">lines</a></code>,
-<code><a href="graphics.html#points">points</a></code>, etc.  These are implemented using Grid graphics,
+traditional graphics primitives <code><a href="https://r-universe.dev/manuals/graphics.html#lines">lines</a></code>,
+<code><a href="https://r-universe.dev/manuals/graphics.html#points">points</a></code>, etc.  These are implemented using Grid graphics,
 but try to be as close to the traditional versions as possible in
 terms of their argument list.  These functions have names like
 <code><a href="#llines">llines</a></code> or <code><a href="#llines">panel.lines</a></code> and are often useful
@@ -583,7 +583,7 @@ This is essentially what the <code>groups</code> argument (see below)
 would produce, if <code>y1</code> and <code>y2</code> were concatenated to
 produce a longer vector, with the <code>groups</code> argument being an
 indicator of which rows come from which variable.  In fact, this is
-exactly what is done internally using the <code><a href="stats.html#reshape">reshape</a></code>
+exactly what is done internally using the <code><a href="https://r-universe.dev/manuals/stats.html#reshape">reshape</a></code>
 function. This feature cannot be used in conjunction with the
 <code>groups</code> argument.
 </p>
@@ -622,7 +622,7 @@ in any case, but instead be the first (unnamed) argument.
 
 <p>For the <code>formula</code> methods, a data frame (or more precisely,
 anything that is a valid <code>envir</code> argument in
-<code><a href="base.html#eval">eval</a></code>, e.g., a list or an environment) containing values
+<code><a href="https://r-universe.dev/manuals/base.html#eval">eval</a></code>, e.g., a list or an environment) containing values
 for any variables in the formula, as well as <code>groups</code> and
 <code>subset</code> if applicable.  If not found in <code>data</code>, or if
 <code>data</code> is unspecified, the variables are looked for in the
@@ -1148,13 +1148,13 @@ right/top axes separately.
 <dt><code>abbreviate</code></dt>
 <dd>
 <p>A logical flag, indicating whether to abbreviate the labels
-using the <code><a href="base.html#abbreviate">abbreviate</a></code> function.  Can be useful for
+using the <code><a href="https://r-universe.dev/manuals/base.html#abbreviate">abbreviate</a></code> function.  Can be useful for
 long labels (e.g., in factors), especially on the x-axis.
 </p>
 </dd>
 <dt><code>minlength</code></dt>
 <dd>
-<p>Argument passed to <code><a href="base.html#abbreviate">abbreviate</a></code> if
+<p>Argument passed to <code><a href="https://r-universe.dev/manuals/base.html#abbreviate">abbreviate</a></code> if
 <code>abbreviate=TRUE</code>.
 </p>
 </dd>
@@ -1205,7 +1205,7 @@ scale, and labeled in the form <code>"base^loc"</code>, where
 <dt><code>format</code></dt>
 <dd>
 <p>The <code>format</code> to use for POSIXct variables. See
-<code><a href="base.html#strptime">strptime</a></code> for description of valid values.
+<code><a href="https://r-universe.dev/manuals/base.html#strptime">strptime</a></code> for description of valid values.
 </p>
 </dd>
 <dt><code>axs</code></dt>
@@ -1284,7 +1284,7 @@ by prepanel calculations.
 
 <p>A logical flag indicating whether the unused levels of factors will
 be dropped, usually relevant when a subsetting operation is
-performed or an <code><a href="base.html#interaction">interaction</a></code> is created.  Unused levels
+performed or an <code><a href="https://r-universe.dev/manuals/base.html#interaction">interaction</a></code> is created.  Unused levels
 are usually dropped, but it is sometimes appropriate to suppress
 dropping to preserve a useful layout.  For finer control, this
 argument could also be list containing components <code>cond</code> and
@@ -1607,7 +1607,7 @@ background.
 <dd>
 <p>A character or numeric vector of length one or two giving
 horizontal and vertical justification for the placement of
-the legend.  See <code><a href="grid.html#grid.layout">grid.layout</a></code>
+the legend.  See <code><a href="https://r-universe.dev/manuals/grid.html#grid.layout">grid.layout</a></code>
 for more precise details.
 </p>
 </dd>
@@ -1685,7 +1685,7 @@ title to be placed on top of each page.  Defaults to
 is usually a character string or an expression that gets used as
 the label, but can also be a list that controls further details.
 Expressions are treated as specification of LaTeX-like markup as
-described in <code><a href="grDevices.html#plotmath">plotmath</a></code>.  The label can be a vector,
+described in <code><a href="https://r-universe.dev/manuals/grDevices.html#plotmath">plotmath</a></code>.  The label can be a vector,
 in which case the components will be spaced out horizontally (or
 vertically for <code>ylab</code>).  This feature can be used to
 provide column or row labels rather than a single axis label.
@@ -1696,10 +1696,10 @@ it is the first component).  The label can be missing, in which
 case the default will be used (<code>xlab</code> and <code>ylab</code>
 usually have defaults, but <code>main</code> and <code>sub</code> do not).
 Further named arguments are passed on to
-<code><a href="grid.html#grid.text">textGrob</a></code>; this can include
+<code><a href="https://r-universe.dev/manuals/grid.html#grid.text">textGrob</a></code>; this can include
 arguments controlling positioning like <code>just</code> and
 <code>rot</code> as well as graphical parameters such as <code>col</code>
-and <code>font</code> (see <code><a href="grid.html#gpar">gpar</a></code> for a full
+and <code>font</code> (see <code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a></code> for a full
 list).
 </p>
 <p><code>main</code>, <code>sub</code>, <code>xlab</code>, <code>ylab</code>,
@@ -1731,7 +1731,7 @@ large.
 space between multiple lines.  The labels can be abbreviated
 when shown by specifying <code>abbreviate = TRUE</code>, in which case
 the components <code>minlength</code> and <code>dot</code> (passed along to
-the <code><a href="base.html#abbreviate">abbreviate</a></code> function) can be specified to
+the <code><a href="https://r-universe.dev/manuals/base.html#abbreviate">abbreviate</a></code> function) can be specified to
 control the details of how this is done.
 </p>
 </dd>
@@ -1753,7 +1753,7 @@ of the given vector.  Any time the first value in the layout
 vector is 0, the second value is used as the desired number of
 panels per page and the actual layout is computed from this,
 taking into account the aspect ratio of the panels and the
-device dimensions (via <code><a href="graphics.html#par">par</a>("din")</code>).  If <code>NA</code>
+device dimensions (via <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a>("din")</code>).  If <code>NA</code>
 is specified for the number of rows or columns (but not both),
 that dimension will be filled out according to the number of
 panels.
@@ -1828,7 +1828,7 @@ conditioning variables specified in the formula.
 <code>perm.cond</code> can modify this order.  If the trellis display
 is thought of as an <code>n</code>-dimensional array, then during
 printing, its dimensions are permuted using <code>perm.cond</code> as
-the <code>perm</code> argument does in <code><a href="base.html#aperm">aperm</a></code>.
+the <code>perm</code> argument does in <code><a href="https://r-universe.dev/manuals/base.html#aperm">aperm</a></code>.
 </p>
 </dd>
 <dt>
@@ -1998,7 +1998,7 @@ with R</em>, Springer.  <a href="http://lmdvr.r-forge.r-project.org/" target="_b
 <code><a href="#print.trellis">print.trellis</a></code>,
 <code><a href="#shingles">shingle</a></code>,
 <code><a href="#banking">banking</a></code>,
-<code><a href="stats.html#reshape">reshape</a></code>,
+<code><a href="https://r-universe.dev/manuals/stats.html#reshape">reshape</a></code>,
 <code><a href="#panel.xyplot">panel.xyplot</a></code>,
 <code><a href="#panel.bwplot">panel.bwplot</a></code>,
 <code><a href="#panel.barchart">panel.barchart</a></code>,
@@ -2150,7 +2150,7 @@ xyplot<span class="token punctuation">(</span>x<span class="token punctuation">,
 <td><code>x</code></td>
 <td>
 
-<p>an object of class <code><a href="stats.html#ts">ts</a></code>, which may be multi-variate,
+<p>an object of class <code><a href="https://r-universe.dev/manuals/stats.html#ts">ts</a></code>, which may be multi-variate,
 i.e. have a matrix structure with multiple columns.
 </p>
 </td>
@@ -2346,8 +2346,8 @@ Visualization with R</em>, Springer.
 
 <p><code><a href="#xyplot">xyplot</a></code>,
 <code><a href="#panel.xyplot">panel.xyplot</a></code>,
-<code><a href="stats.html#plot.ts">plot.ts</a></code>,
-<code><a href="stats.html#ts">ts</a></code>,
+<code><a href="https://r-universe.dev/manuals/stats.html#plot.ts">plot.ts</a></code>,
+<code><a href="https://r-universe.dev/manuals/stats.html#ts">ts</a></code>,
 <code><a href="https://r-forge.r-universe.dev/zoo/zoo.html#xyplot.zoo">xyplot.zoo</a></code> in the <span class="pkg">zoo</span> package.
 </p>
 
@@ -2494,9 +2494,9 @@ The last dimension is optionally used as a grouping variable (to
 produce stacked barcharts by default).  All other dimensions are used
 as conditioning variables.  The order of these variables cannot be
 altered (except by permuting the original argument beforehand using
-<code><a href="base.html#t">t</a></code> or <code><a href="base.html#aperm">aperm</a></code>).  For more flexibility, use
+<code><a href="https://r-universe.dev/manuals/base.html#t">t</a></code> or <code><a href="https://r-universe.dev/manuals/base.html#aperm">aperm</a></code>).  For more flexibility, use
 the formula method after converting the table to a data frame using
-the relevant <code><a href="base.html#table">as.data.frame</a></code> method.
+the relevant <code><a href="https://r-universe.dev/manuals/base.html#table">as.data.frame</a></code> method.
 </p>
 
 
@@ -2517,8 +2517,8 @@ default) will plot it on an appropriate plotting device.
 
 <h3>See Also</h3>
 
-<p><code><a href="#xyplot">barchart</a></code>, <code><a href="base.html#t">t</a></code>, <code><a href="base.html#aperm">aperm</a></code>,
-<code><a href="base.html#table">table</a></code>, <code><a href="#panel.barchart">panel.barchart</a></code>,
+<p><code><a href="#xyplot">barchart</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#t">t</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#aperm">aperm</a></code>,
+<code><a href="https://r-universe.dev/manuals/base.html#table">table</a></code>, <code><a href="#panel.barchart">panel.barchart</a></code>,
 <code><a href="#Lattice">Lattice</a></code>
 </p>
 
@@ -2707,7 +2707,7 @@ this value is <code>NULL</code>, then the default is to use
 panels.  If the retrieved value is not <code>NULL</code>, or if
 <code>breaks</code> is explicitly specified, it affects the display in
 each panel independently.  Valid values are those accepted as the
-<code>breaks</code> argument in <code><a href="graphics.html#hist">hist</a></code>.  In particular, this
+<code>breaks</code> argument in <code><a href="https://r-universe.dev/manuals/graphics.html#hist">hist</a></code>.  In particular, this
 allows specification of <code>breaks</code> as an integer giving the
 number of bins (similar to <code>nint</code>), as a character string
 denoting a method, or as a function.
@@ -2735,7 +2735,7 @@ unequally spaced breakpoints).
 <td>
 
 <p>Integer, giving the number of points at which the kernel density is
-to be evaluated.  Passed on as an argument to <code><a href="stats.html#density">density</a></code>.
+to be evaluated.  Passed on as an argument to <code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code>.
 </p>
 </td>
 </tr>
@@ -2869,7 +2869,7 @@ so just bug the maintainer if you need this feature).
 <td>
 
 <p>Arguments controlling bandwidth.  Passed on as arguments to
-<code><a href="stats.html#density">density</a></code>.
+<code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code>.
 </p>
 </td>
 </tr>
@@ -2878,7 +2878,7 @@ so just bug the maintainer if you need this feature).
 <td>
 
 <p>The choice of kernel.  Passed on as arguments to
-<code><a href="stats.html#density">density</a></code>.  
+<code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code>.  
 </p>
 </td>
 </tr>
@@ -2886,7 +2886,7 @@ so just bug the maintainer if you need this feature).
 <td><code>give.Rkern</code></td>
 <td>
 
-<p>Logical flag, passed on as argument to <code><a href="stats.html#density">density</a></code>.
+<p>Logical flag, passed on as argument to <code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code>.
 This argument is made available only for ease of implementation, and
 will produce an error if <code>TRUE</code>.
 </p>
@@ -2897,7 +2897,7 @@ will produce an error if <code>TRUE</code>.
 <td>
  
 <p>Controls range over which density is evaluated.  Passed on as
-arguments to <code><a href="stats.html#density">density</a></code>.
+arguments to <code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code>.
 </p>
 </td>
 </tr>
@@ -2906,7 +2906,7 @@ arguments to <code><a href="stats.html#density">density</a></code>.
 <td>
 
 <p>Logical flag specifying whether <code>NA</code> values should be ignored.
-Passed on as argument to <code><a href="stats.html#density">density</a></code>, but unlike in
+Passed on as argument to <code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code>, but unlike in
 <code>density</code>, the default is <code>TRUE</code>.
 </p>
 </td>
@@ -2923,7 +2923,7 @@ Passed on as argument to <code><a href="stats.html#density">density</a></code>, 
 
 <p><code>histogram</code> draws Conditional Histograms, and <code>densityplot</code>
 draws Conditional Kernel Density Plots.  The default panel function
-uses the <code><a href="stats.html#density">density</a></code> function to compute the density
+uses the <code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code> function to compute the density
 estimate, and all arguments accepted by <code>density</code> can be
 specified in the call to <code>densityplot</code> to control the output.
 See documentation of <code>density</code> for details.
@@ -2977,7 +2977,7 @@ Visualization with R</em>, Springer.
 
 <p><code><a href="#xyplot">xyplot</a></code>,
 <code><a href="#panel.histogram">panel.histogram</a></code>,
-<code><a href="stats.html#density">density</a></code>,
+<code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code>,
 <code><a href="#panel.densityplot">panel.densityplot</a></code>,
 <code><a href="#panel.functions">panel.mathdensity</a></code>,
 <code><a href="#Lattice">Lattice</a></code> 
@@ -3077,10 +3077,10 @@ is.
 
 <p>A quantile function that takes a vector of probabilities as argument
 and produces the corresponding quantiles from a theoretical
-distribution.  Possible values are <code><a href="stats.html#Normal">qnorm</a></code>,
-<code><a href="stats.html#Uniform">qunif</a></code>, etc.  Distributions with other required
+distribution.  Possible values are <code><a href="https://r-universe.dev/manuals/stats.html#Normal">qnorm</a></code>,
+<code><a href="https://r-universe.dev/manuals/stats.html#Uniform">qunif</a></code>, etc.  Distributions with other required
 arguments need to be provided as user-defined functions (see example
-with <code><a href="stats.html#TDist">qt</a></code>).
+with <code><a href="https://r-universe.dev/manuals/stats.html#TDist">qt</a></code>).
 </p>
 </td>
 </tr>
@@ -3094,7 +3094,7 @@ integer (representing sample size) that returns such a numeric
 vector.  A typical value for this argument is the function
 <code>ppoints</code>, which is also the S-PLUS default.  If specified, the
 probabilities generated by this function is used for the plotted
-quantiles, through the <code><a href="stats.html#quantile">quantile</a></code> function for the
+quantiles, through the <code><a href="https://r-universe.dev/manuals/stats.html#quantile">quantile</a></code> function for the
 sample, and the function specified as the <code>distribution</code>
 argument for the theoretical distribution.
 </p>
@@ -3266,7 +3266,7 @@ default) will plot it on an appropriate plotting device.
 
 <p><code><a href="#xyplot">xyplot</a></code>, <code><a href="#panel.qqmath">panel.qqmath</a></code>,
 <code><a href="#panel.qqmathline">panel.qqmathline</a></code>, <code><a href="#prepanel.functions">prepanel.qqmathline</a></code>,
-<code><a href="#Lattice">Lattice</a></code>, <code><a href="stats.html#quantile">quantile</a></code>
+<code><a href="#Lattice">Lattice</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#quantile">quantile</a></code>
 </p>
 
 
@@ -3401,7 +3401,7 @@ supplied to the high-level function.
 <tr style="vertical-align: top;">
 <td><code>qtype</code></td>
 <td>
-<p> The <code>type</code> argument for <code><a href="stats.html#quantile">quantile</a></code>. </p>
+<p> The <code>type</code> argument for <code><a href="https://r-universe.dev/manuals/stats.html#quantile">quantile</a></code>. </p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -3650,7 +3650,7 @@ vectors respectively.  This is similar to the form used in
 <code>filled.contour</code> and <code>image</code>.  For higher-dimensional
 arrays and tables, further dimensions are used as conditioning
 variables.  Note that the dimnames may be duplicated; this is
-handled by calling <code><a href="base.html#make.unique">make.unique</a></code> to make the names
+handled by calling <code><a href="https://r-universe.dev/manuals/base.html#make.unique">make.unique</a></code> to make the names
 unique (although the original labels are used for the x- and
 y-axes).
 </p>
@@ -3809,7 +3809,7 @@ is interpreted, see the entry for <code>main</code> in
 should be specified as the <code>label</code> component (which may be
 unnamed if it is the first component), and the remaining
 arguments are used as appropriate in a call to
-<code><a href="grid.html#grid.text">textGrob</a></code>.
+<code><a href="https://r-universe.dev/manuals/grid.html#grid.text">textGrob</a></code>.
 </p>
 <p>Further control of the placement of the title is possible
 through the component <code>title.control</code>. In particular, if a
@@ -3864,7 +3864,7 @@ appropriate side of plot.
 <dd>
 <p> A logical flag indicating whether the
 colorkey should be rendered as a raster image using
-<code><a href="grid.html#grid.raster">grid.raster</a></code>.  See also
+<code><a href="https://r-universe.dev/manuals/grid.html#grid.raster">grid.raster</a></code>.  See also
 <code><a href="#panel.levelplot">panel.levelplot.raster</a></code>.
 </p>
 </dd>
@@ -3872,7 +3872,7 @@ colorkey should be rendered as a raster image using
 <code>interpolate</code>:</dt>
 <dd>
 <p> Logical flag, passed to
-<code><a href="grid.html#grid.raster">rasterGrob</a></code> when <code>raster=TRUE</code>. </p>
+<code><a href="https://r-universe.dev/manuals/grid.html#grid.raster">rasterGrob</a></code> when <code>raster=TRUE</code>. </p>
 </dd>
 <dt>
 <code>axis.line</code>:</dt>
@@ -5221,7 +5221,7 @@ col.whitebg<span class="token punctuation">(</span><span class="token punctuatio
 <td>
 <p> function (or the name of one as a character string)
 that starts a device.  Admissible values depend on the platform and
-how <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> was compiled (see <code><a href="grDevices.html#Devices">Devices</a></code>), but usually
+how <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> was compiled (see <code><a href="https://r-universe.dev/manuals/grDevices.html#Devices">Devices</a></code>), but usually
 <code>"pdf"</code>, <code>"postscript"</code>, <code>"png"</code>, <code>"jpeg"</code> and
 at least one of <code>"X11"</code>, <code>"windows"</code> and <code>"quartz"</code>
 will be available.
@@ -5305,9 +5305,9 @@ individual devices for admissible arguments.
 <p>Trellis Graphics functions obtain the default values of various
 graphical parameters (colors, line types, fonts, etc.) from a
 customizable “settings” list.  This functionality is analogous
-to <code><a href="graphics.html#par">par</a></code> for standard <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> graphics and, together with
-<code><a href="#lattice.options">lattice.options</a></code>, mostly supplants it (<code><a href="graphics.html#par">par</a></code>
-settings are mostly ignored by Lattice).  Unlike <code><a href="graphics.html#par">par</a></code>,
+to <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code> for standard <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> graphics and, together with
+<code><a href="#lattice.options">lattice.options</a></code>, mostly supplants it (<code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>
+settings are mostly ignored by Lattice).  Unlike <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>,
 Trellis settings can be controlled separately for each different
 device type (but not concurrently for different instances of the same
 device).  <code>standard.theme</code> and <code>col.whitebg</code> produce
@@ -5382,7 +5382,7 @@ Visualization with R</em>, Springer.
 
 <p><code><a href="#Lattice">Lattice</a></code> for an overview of the <code>lattice</code> package.
 </p>
-<p><code><a href="grDevices.html#Devices">Devices</a></code> for valid choices of <code>device</code> on your
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#Devices">Devices</a></code> for valid choices of <code>device</code> on your
 platform.
 </p>
 <p><code><a href="#trellis.par.get">trellis.par.get</a></code> and <code><a href="#trellis.par.get">trellis.par.set</a></code> can be
@@ -5620,14 +5620,14 @@ grid layout widths. </p>
 <h3>Note</h3>
 
 <p>In some ways, <code>trellis.par.get</code> and <code>trellis.par.set</code>
-together are a replacement for the <code><a href="graphics.html#par">par</a></code> function used in
+together are a replacement for the <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code> function used in
 traditional R graphics.  In particular, changing <code>par</code> settings
 has little (if any) effect on lattice output.  Since lattice plots are
 implemented using Grid graphics, its parameter system <em>does</em> have
 an effect unless overridden by a suitable lattice parameter setting.
 Such parameters can be specified as part of a lattice theme by
 including them in the <code>grid.pars</code> component (see
-<code><a href="grid.html#gpar">gpar</a></code> for a list of valid parameter names).
+<code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a></code> for a list of valid parameter names).
 </p>
 
 
@@ -5639,7 +5639,7 @@ including them in the <code>grid.pars</code> component (see
 <h3>See Also</h3>
 
 <p><code><a href="#trellis.device">trellis.device</a></code>, <code><a href="#Lattice">Lattice</a></code>,
-<code><a href="grid.html#gpar">gpar</a></code>
+<code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a></code>
 </p>
 
 
@@ -5868,7 +5868,7 @@ end-user.
 <dt><code>panel.error</code></dt>
 <dd>
 <p>A function, or <code>NULL</code>.  If the former, every call to the
-panel function will be wrapped inside <code><a href="base.html#conditions">tryCatch</a></code> with
+panel function will be wrapped inside <code><a href="https://r-universe.dev/manuals/base.html#conditions">tryCatch</a></code> with
 the specified function as an error handler.  The default is to use
 the <code><a href="#print.trellis">panel.error</a></code> function.  This prevents the plot
 from failing due to errors in a single panel, and leaving the grid
@@ -5892,7 +5892,7 @@ manipulation.  Defaults to <code>TRUE</code>.
 of the default space allocation in the grid layout created in the
 course of plotting a <code>"trellis"</code> object.  Each named
 component is a list of arguments to the <span class="pkg">grid</span> function
-<code><a href="grid.html#unit">unit</a></code> (<code>x</code>, <code>units</code>, and optionally
+<code><a href="https://r-universe.dev/manuals/grid.html#unit">unit</a></code> (<code>x</code>, <code>units</code>, and optionally
 <code>data</code>).
 </p>
 <p>Usually not of interest to the end-user, who should instead use
@@ -5933,7 +5933,7 @@ standard arguments: <code>as.table</code>, <code>aspect</code>,
 <dt><code>highlight.gpar</code></dt>
 <dd>
 <p> A list giving arguments to
-<code><a href="grid.html#gpar">gpar</a></code> used to highlight a viewport chosen using
+<code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a></code> used to highlight a viewport chosen using
 <code><a href="#interaction">trellis.focus</a></code>.
 </p>
 </dd>
@@ -5996,7 +5996,7 @@ list is returned.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#options">options</a></code>, <code><a href="#trellis.device">trellis.device</a></code>,
+<p><code><a href="https://r-universe.dev/manuals/base.html#options">options</a></code>, <code><a href="#trellis.device">trellis.device</a></code>,
 <code><a href="#trellis.par.get">trellis.par.get</a></code>, <code><a href="#Lattice">Lattice</a></code>
 </p>
 
@@ -6169,7 +6169,7 @@ assigned to a variable explicitly.  For more details, see
 
 <p>a function, or a character string naming a function, that is to be
 executed when an error occurs during the execution of the panel
-function.  The error is caught (using <code><a href="base.html#conditions">tryCatch</a></code>) and
+function.  The error is caught (using <code><a href="https://r-universe.dev/manuals/base.html#conditions">tryCatch</a></code>) and
 supplied as the only argument to <code>panel.error</code>.  The default
 behaviour (implemented as the <code>panel.error</code> function) is to
 print the corresponding error message in the panel and continue.  To
@@ -6200,7 +6200,7 @@ separator (currently <code>"::"</code>).
 <tr style="vertical-align: top;">
 <td><code>e</code></td>
 <td>
-<p> an error condition caught by <code><a href="base.html#conditions">tryCatch</a></code></p>
+<p> an error condition caught by <code><a href="https://r-universe.dev/manuals/base.html#conditions">tryCatch</a></code></p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -6254,7 +6254,7 @@ more details and a lattice level interface to these viewports, see
 
 <h3>See Also</h3>
 
-<p><code><a href="#Lattice">Lattice</a></code>, <code><a href="grid.html#unit">unit</a></code>,
+<p><code><a href="#Lattice">Lattice</a></code>, <code><a href="https://r-universe.dev/manuals/grid.html#unit">unit</a></code>,
 <code><a href="#update.trellis">update.trellis</a></code>, <code><a href="#interaction">trellis.focus</a></code>,
 <code><a href="#packet.panel.default">packet.panel.default</a></code>
 </p>
@@ -6654,7 +6654,7 @@ an object of class <code>"shingle"</code> for the others.
 <h3>See Also</h3>
 
 <p><code><a href="#xyplot">xyplot</a></code>,
-<code><a href="graphics.html#coplot">co.intervals</a></code>, <code><a href="#Lattice">Lattice</a></code> 
+<code><a href="https://r-universe.dev/manuals/graphics.html#coplot">co.intervals</a></code>, <code><a href="#Lattice">Lattice</a></code> 
 </p>
 
 
@@ -6816,7 +6816,7 @@ using their numeric codes) given a color scheme and breakpoints.
 <tr style="vertical-align: top;">
 <td><code>x</code></td>
 <td>
-<p> A numeric or <code><a href="base.html#factor">factor</a></code> variable. </p>
+<p> A numeric or <code><a href="https://r-universe.dev/manuals/base.html#factor">factor</a></code> variable. </p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -6860,8 +6860,8 @@ interval, and the return value is <code>NA</code> for such values.
 </p>
 <p>Colors are chosen by assigning a color to each of the n-1 intervals.
 If <code>col.regions</code> is a palette function (such as
-<code><a href="grDevices.html#palettes">topo.colors</a></code>, or the result of calling
-<code><a href="grDevices.html#colorRamp">colorRampPalette</a></code>), it is called with n-1 as an argument
+<code><a href="https://r-universe.dev/manuals/grDevices.html#palettes">topo.colors</a></code>, or the result of calling
+<code><a href="https://r-universe.dev/manuals/grDevices.html#colorRamp">colorRampPalette</a></code>), it is called with n-1 as an argument
 to obtain the colors.  Otherwise, if there are exactly n-1 colors in
 <code>col.regions</code>, these get assigned to the intervals.  If there are
 fewer than n-1 colors, <code>col.regions</code> gets recycled.  If there are
@@ -6886,7 +6886,7 @@ which interval the values of <code>x</code> fall in.
 
 <h3>See Also</h3>
 
- <p><code><a href="#levelplot">levelplot</a></code>, <code><a href="grDevices.html#colorRamp">colorRampPalette</a></code>.  </p>
+ <p><code><a href="#levelplot">levelplot</a></code>, <code><a href="https://r-universe.dev/manuals/grDevices.html#colorRamp">colorRampPalette</a></code>.  </p>
 
 
 <h3>Examples</h3>
@@ -6957,7 +6957,7 @@ came from
 </dd>
 </dl>
 <p>When all the input arguments are data frames, the result of
-<code><a href="base.html#cbind">rbind</a></code> applied to them, along with an additional
+<code><a href="https://r-universe.dev/manuals/base.html#cbind">rbind</a></code> applied to them, along with an additional
 <code>which</code> column as described above.
 </p>
 
@@ -7818,7 +7818,7 @@ supplied for <code>panel.link.splom</code>.
 </table>
 <h3>Details</h3>
 
-<p><code>panel.identify</code> is similar to <code><a href="graphics.html#identify">identify</a></code>.  When
+<p><code>panel.identify</code> is similar to <code><a href="https://r-universe.dev/manuals/graphics.html#identify">identify</a></code>.  When
 called, it waits for the user to identify points (in the panel being
 drawn) via mouse clicks.  Clicks other than left-clicks terminate the
 procedure.  Although it is possible to call it as part of the panel
@@ -7841,7 +7841,7 @@ to call them except in a context where default panel function
 arguments are available through <code>trellis.panelArgs</code> (see below).
 </p>
 <p>One way in which <code>panel.identify</code> etc. are different from
-<code><a href="graphics.html#identify">identify</a></code> is in how it uses the <code>subscripts</code>
+<code><a href="https://r-universe.dev/manuals/graphics.html#identify">identify</a></code> is in how it uses the <code>subscripts</code>
 argument.  In general, when one identifies points in a panel, one
 wants to identify the origin in the data frame used to produce the
 plot, and not within that particular panel.  This information is
@@ -7942,10 +7942,10 @@ was cancelled (by a right click), in which case the return value is
 <p>The viewports created by lattice are accessible to the user through
 <code>trellis.focus</code> as described above.  Functions from the grid
 package can also be used directly.  For example,
-<code><a href="grid.html#current.viewport">current.vpTree</a></code> can be used to
+<code><a href="https://r-universe.dev/manuals/grid.html#current.viewport">current.vpTree</a></code> can be used to
 inspect the current viewport tree and
-<code><a href="grid.html#viewports">seekViewport</a></code> or
-<code><a href="grid.html#viewports">downViewport</a></code> can be used to navigate to
+<code><a href="https://r-universe.dev/manuals/grid.html#viewports">seekViewport</a></code> or
+<code><a href="https://r-universe.dev/manuals/grid.html#viewports">downViewport</a></code> can be used to navigate to
 these viewports.  For such usage, <code>trellis.vpname</code> and
 <code>trellis.grobname</code> provides a portable way to access the
 appropriate viewports and grobs by name.
@@ -7963,10 +7963,10 @@ interctively.
 
 <h3>See Also</h3>
 
-<p><code><a href="graphics.html#identify">identify</a></code>, <code><a href="#Lattice">Lattice</a></code>,
+<p><code><a href="https://r-universe.dev/manuals/graphics.html#identify">identify</a></code>, <code><a href="#Lattice">Lattice</a></code>,
 <code><a href="#print.trellis">print.trellis</a></code>, <code><a href="#panel.number">trellis.currentLayout</a></code>,
-<code><a href="grid.html#current.viewport">current.vpTree</a></code>,
-<code><a href="grid.html#viewports">viewports</a></code>
+<code><a href="https://r-universe.dev/manuals/grid.html#current.viewport">current.vpTree</a></code>,
+<code><a href="https://r-universe.dev/manuals/grid.html#viewports">viewports</a></code>
 </p>
 
 
@@ -8282,7 +8282,7 @@ explanation.
 <p> graphical
 parameters controlling the dot.  <code>pch="|"</code> is treated
 specially, by replacing the dot with a line (similar to
-<code><a href="graphics.html#boxplot">boxplot</a></code>)
+<code><a href="https://r-universe.dev/manuals/graphics.html#boxplot">boxplot</a></code>)
 </p>
 </td>
 </tr>
@@ -8305,7 +8305,7 @@ to the number of points used in creating it.</p>
 <p> if <code>notch</code> is <code>TRUE</code>, a notch is drawn in each
 side of the boxes.  If the notches of two plots do not overlap this
 is ‘strong evidence’ that the two medians differ (Chambers et
-al., 1983, p. 62).  See <code><a href="grDevices.html#boxplot.stats">boxplot.stats</a></code> for the
+al., 1983, p. 62).  See <code><a href="https://r-universe.dev/manuals/grDevices.html#boxplot.stats">boxplot.stats</a></code> for the
 calculations used. </p>
 </td>
 </tr>
@@ -8319,7 +8319,7 @@ fraction of the box width that the notches should use. </p>
 <tr style="vertical-align: top;">
 <td><code>stats</code></td>
 <td>
-<p> a function, defaulting to <code><a href="grDevices.html#boxplot.stats">boxplot.stats</a></code>,
+<p> a function, defaulting to <code><a href="https://r-universe.dev/manuals/grDevices.html#boxplot.stats">boxplot.stats</a></code>,
 that accepts a numeric vector and returns a list similar to the
 return value of <code>boxplot.stats</code>.  The function must accept
 arguments <code>coef</code> and <code>do.out</code> even if they do not use
@@ -8383,7 +8383,7 @@ whiskers and <code>"plot.symbol"</code> for the outliers).
 
 <h3>See Also</h3>
 
-<p><code><a href="#xyplot">bwplot</a></code>, <code><a href="grDevices.html#boxplot.stats">boxplot.stats</a></code>
+<p><code><a href="#xyplot">bwplot</a></code>, <code><a href="https://r-universe.dev/manuals/grDevices.html#boxplot.stats">boxplot.stats</a></code>
 </p>
 
 
@@ -8937,7 +8937,7 @@ function. Typically, this should be a list with zero or more of the
 following components : <code>bw</code>, <code>adjust</code>, <code>kernel</code>,
 <code>window</code>, <code>width</code>, <code>give.Rkern</code>, <code>n</code>,
 <code>from</code>, <code>to</code>, <code>cut</code>, <code>na.rm</code> (see
-<code><a href="stats.html#density">density</a></code> for details)
+<code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code> for details)
 </p>
 </td>
 </tr>
@@ -8982,7 +8982,7 @@ to <code>x</code>.  </p>
 <td>
 
 <p>when <code>plot.points="jitter"</code>, the value to use as the
-<code>amount</code> argument to <code><a href="base.html#jitter">jitter</a></code>.
+<code>amount</code> argument to <code><a href="https://r-universe.dev/manuals/base.html#jitter">jitter</a></code>.
 </p>
 </td>
 </tr>
@@ -9022,7 +9022,7 @@ that are created by this panel function.
 <h3>See Also</h3>
 
 <p><code><a href="#histogram">densityplot</a></code>,
-<code><a href="base.html#jitter">jitter</a></code>
+<code><a href="https://r-universe.dev/manuals/base.html#jitter">jitter</a></code>
 </p>
 
 <hr>
@@ -9192,7 +9192,7 @@ vice versa
 <tr style="vertical-align: top;">
 <td><code>...</code></td>
 <td>
-<p> other arguments, passed to <code><a href="graphics.html#hist">hist</a></code> when
+<p> other arguments, passed to <code><a href="https://r-universe.dev/manuals/graphics.html#hist">hist</a></code> when
 deemed appropriate </p>
 </td>
 </tr>
@@ -9416,7 +9416,7 @@ for details on how the color assignment is done.
 <tr style="vertical-align: top;">
 <td><code>interpolate</code></td>
 <td>
-<p> logical, passed to <code><a href="grid.html#grid.raster">grid.raster</a></code>. </p>
+<p> logical, passed to <code><a href="https://r-universe.dev/manuals/grid.html#grid.raster">grid.raster</a></code>. </p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -9441,7 +9441,7 @@ calculate the contour lines.
 </p>
 <p><code>panel.levelplot.raster</code> is an alternative panel function that
 uses the raster drawing abilities in R 2.11.0 and higher (through
-<code><a href="grid.html#grid.raster">grid.raster</a></code>).  It has fewer options (e.g., can only
+<code><a href="https://r-universe.dev/manuals/grid.html#grid.raster">grid.raster</a></code>).  It has fewer options (e.g., can only
 render data on an equispaced grid), but can be more efficient.  When
 using <code>panel.levelplot.raster</code>, it may be desirable to render the
 color key in the same way.  This is possible, but must be done
@@ -9458,7 +9458,7 @@ separately; see <code><a href="#levelplot">levelplot</a></code> for details.
 
 <p><code><a href="#levelplot">levelplot</a></code>,
 <code><a href="#level.colors">level.colors</a></code>,
-<code><a href="grDevices.html#contourLines">contourLines</a></code>
+<code><a href="https://r-universe.dev/manuals/grDevices.html#contourLines">contourLines</a></code>
 </p>
 
 
@@ -9708,7 +9708,7 @@ variables in <code>x</code>. By default, the column names of <code>x</code>.
 <td><code>varname.col</code></td>
 <td>
 <p> Color for the variable name in each diagonal
-panel.  See <code><a href="grid.html#gpar">gpar</a></code> for details on this and the
+panel.  See <code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a></code> for details on this and the
 other graphical parameters listed below. </p>
 </td>
 </tr>
@@ -10037,7 +10037,7 @@ details.
 <td><code>qtype</code></td>
 <td>
 
-<p>The <code>type</code> argument to be used in <code><a href="stats.html#quantile">quantile</a></code>
+<p>The <code>type</code> argument to be used in <code><a href="https://r-universe.dev/manuals/stats.html#quantile">quantile</a></code>
 </p>
 </td>
 </tr>
@@ -10161,7 +10161,7 @@ overplotting.  The actual jittering is performed inside
 <tr style="vertical-align: top;">
 <td><code>factor, amount</code></td>
 <td>
-<p>amount of jittering, see <code><a href="base.html#jitter">jitter</a></code></p>
+<p>amount of jittering, see <code><a href="https://r-universe.dev/manuals/base.html#jitter">jitter</a></code></p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -10213,7 +10213,7 @@ for each level of <code>y</code> (or vice versa, depending on the value of
 
 <h3>See Also</h3>
 
-<p><code><a href="#xyplot">stripplot</a></code>, <code><a href="base.html#jitter">jitter</a></code></p>
+<p><code><a href="#xyplot">stripplot</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#jitter">jitter</a></code></p>
 
 <hr>
 </div>
@@ -10265,7 +10265,7 @@ has more than one element, an attempt is made to combine the effect
 of each of the components.
 </p>
 <p>The behaviour if any of the first six are included in <code>type</code> is
-similar to the effect of <code>type</code> in <code><a href="graphics.html#plot.default">plot</a></code> (type
+similar to the effect of <code>type</code> in <code><a href="https://r-universe.dev/manuals/graphics.html#plot.default">plot</a></code> (type
 <code>"b"</code> is actually the same as <code>"o"</code>).  <code>"r"</code> adds a
 linear regression line (same as <code><a href="#panel.functions">panel.lmline</a></code>, except
 for default graphical parameters). <code>"smooth"</code> adds a loess fit
@@ -10317,7 +10317,7 @@ subgroup </p>
 <td>
 
 <p>other graphical parameters.  <code>fill</code> serves the purpose of
-<code>bg</code> in <code><a href="graphics.html#points">points</a></code> for certain values of <code>pch</code>
+<code>bg</code> in <code><a href="https://r-universe.dev/manuals/graphics.html#points">points</a></code> for certain values of <code>pch</code>
 </p>
 </td>
 </tr>
@@ -10573,7 +10573,7 @@ panel.polygon<span class="token punctuation">(</span><span class="token ellipsis
 in terms of <code>unit</code>, which can be any valid grid unit as long as
 it doesn't need a <code>data</code> argument.  <code>unit</code> defaults to
 inches, which is the only option in the base version of the
-function, <code><a href="graphics.html#arrows">arrows</a></code>.  </p>
+function, <code><a href="https://r-universe.dev/manuals/graphics.html#arrows">arrows</a></code>.  </p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -10601,7 +10601,7 @@ fontfamily, fontface, col.line, col.symbol, border</code></td>
 <p> graphical
 parameters.  <code>fill</code> applies to points when <code>pch</code> is in
 <code>21:25</code> and specifies the fill color, similar to the <code>bg</code>
-argument in the base graphics function <code><a href="graphics.html#points">points</a></code>. For
+argument in the base graphics function <code><a href="https://r-universe.dev/manuals/graphics.html#points">points</a></code>. For
 devices that support alpha-transparency, a numeric argument
 <code>alpha</code> between 0 and 1 can controls transparency.  Be careful
 with this, since for devices that do not support alpha-transparency,
@@ -10610,7 +10610,7 @@ nothing will be drawn at all if this is set to anything other than
 </p>
 <p><code>fill</code>, <code>font</code> and <code>fontface</code> are included in
 <code>lrect</code>, <code>larrows</code>, <code>lpolygon</code>, and <code>lsegments</code>
-only to ensure that they are not passed down (as <code><a href="grid.html#gpar">gpar</a></code>
+only to ensure that they are not passed down (as <code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a></code>
 does not like them).
 </p>
 </td>
@@ -10625,14 +10625,14 @@ which lines drop down. </p>
 <tr style="vertical-align: top;">
 <td><code>xleft, ybottom, xright, ytop</code></td>
 <td>
-<p> see <code><a href="graphics.html#rect">rect</a></code></p>
+<p> see <code><a href="https://r-universe.dev/manuals/graphics.html#rect">rect</a></code></p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>width, height, just, hjust, vjust</code></td>
 <td>
 <p> finer control over
-rectangles, see <code><a href="grid.html#grid.rect">grid.rect</a></code> </p>
+rectangles, see <code><a href="https://r-universe.dev/manuals/grid.html#grid.rect">grid.rect</a></code> </p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -10694,8 +10694,8 @@ similar to <code>type="h"</code>, but with horizontal lines.
 
 <h3>See Also</h3>
 
-<p><code><a href="graphics.html#points">points</a></code>, <code><a href="graphics.html#lines">lines</a></code>, <code><a href="graphics.html#rect">rect</a></code>,
-<code><a href="graphics.html#text">text</a></code>, <code><a href="graphics.html#segments">segments</a></code>, <code><a href="graphics.html#arrows">arrows</a></code>,
+<p><code><a href="https://r-universe.dev/manuals/graphics.html#points">points</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#lines">lines</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#rect">rect</a></code>,
+<code><a href="https://r-universe.dev/manuals/graphics.html#text">text</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#segments">segments</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#arrows">arrows</a></code>,
 <code><a href="#Lattice">Lattice</a></code>
 </p>
 
@@ -10766,7 +10766,7 @@ panel.mathdensity<span class="token punctuation">(</span>dmath <span class="toke
 <td>
 <p> Variables defining the contents of the panel.
 In <code>panel.grid</code> these are optional and are used only to choose
-an appropriate method of <code><a href="base.html#pretty">pretty</a></code>.
+an appropriate method of <code><a href="https://r-universe.dev/manuals/base.html#pretty">pretty</a></code>.
 </p>
 </td>
 </tr>
@@ -10778,7 +10778,7 @@ an appropriate method of <code><a href="base.html#pretty">pretty</a></code>.
 representing the coefficients of the line to be added, in which case
 <code>b</code> should be missing.  <code>a</code> can also be an appropriate
 ‘regression’ object, i.e., an object which has a
-<code><a href="stats.html#coef">coef</a></code> method that returns a length 2 numeric vector.
+<code><a href="https://r-universe.dev/manuals/stats.html#coef">coef</a></code> method that returns a length 2 numeric vector.
 The corresponding line will be plotted.  The <code>reg</code> argument
 overrides <code>a</code> if specified.
 </p>
@@ -10795,7 +10795,7 @@ length 2.
 <tr style="vertical-align: top;">
 <td><code>reg</code></td>
 <td>
-<p> A (linear) regression object, with a <code><a href="stats.html#coef">coef</a></code>
+<p> A (linear) regression object, with a <code><a href="https://r-universe.dev/manuals/stats.html#coef">coef</a></code>
 method that gives the coefficints of the corresponding regression
 line. </p>
 </td>
@@ -10817,11 +10817,11 @@ label positions are chosen in the most common cases (but not for
 factor variables, for instance).  <code>h</code> and <code>v</code> can be
 negative numbers other than <code>-1</code>, in which case <code>-h</code> and
 <code>-v</code> (as appropriate) is supplied as the <code>n</code> argument to
-<code><a href="base.html#pretty">pretty</a></code>.
+<code><a href="https://r-universe.dev/manuals/base.html#pretty">pretty</a></code>.
 </p>
 <p>If <code>x</code> and/or <code>y</code> are specified in <code>panel.grid</code>, they
 will be used to select an appropriate method for
-<code><a href="base.html#pretty">pretty</a></code>.  This is particularly useful while plotting
+<code><a href="https://r-universe.dev/manuals/base.html#pretty">pretty</a></code>.  This is particularly useful while plotting
 date-time objects.
 </p>
 </td>
@@ -10934,7 +10934,7 @@ documentation of <code><a href="#xyplot">bwplot</a></code> for a fuller explanat
 <td><code>dmath</code></td>
 <td>
 <p> A vectorized function that produces density values given
-a numeric vector named <code>x</code>, e.g., <code><a href="stats.html#Normal">dnorm</a></code>.
+a numeric vector named <code>x</code>, e.g., <code><a href="https://r-universe.dev/manuals/stats.html#Normal">dnorm</a></code>.
 </p>
 </td>
 </tr>
@@ -10977,7 +10977,7 @@ defaults.
 </p>
 <p><code>panel.grid</code> draws a reference grid.
 </p>
-<p><code>panel.curve</code> adds a curve, similar to what <code><a href="graphics.html#curve">curve</a></code>
+<p><code>panel.curve</code> adds a curve, similar to what <code><a href="https://r-universe.dev/manuals/graphics.html#curve">curve</a></code>
 does with <code>add = TRUE</code>.  Graphical parameters for the curve are
 obtained from the “add.line” setting.
 </p>
@@ -10997,7 +10997,7 @@ density function.  This can be useful in conjunction with
 fit (note, however, that <code>qqmath</code> is more suitable for this).
 </p>
 <p><code>panel.rug</code> adds a <em>rug</em> representation of the (marginal)
-data to the panel, much like <code><a href="graphics.html#rug">rug</a></code>.
+data to the panel, much like <code><a href="https://r-universe.dev/manuals/graphics.html#rug">rug</a></code>.
 </p>
 <p><code>panel.lmline(x, y)</code> is equivalent to
 <code>panel.abline(lm(y ~ x))</code>.
@@ -11012,7 +11012,7 @@ data to the panel, much like <code><a href="graphics.html#rug">rug</a></code>.
 <h3>See Also</h3>
 
 <p><a href="#Lattice">Lattice</a>, <code><a href="#panel.axis">panel.axis</a></code>, <code><a href="#interaction">panel.identify</a></code>
-<code><a href="graphics.html#identify">identify</a></code>, <code><a href="#trellis.par.get">trellis.par.set</a></code>.
+<code><a href="https://r-universe.dev/manuals/graphics.html#identify">identify</a></code>, <code><a href="#trellis.par.get">trellis.par.set</a></code>.
 </p>
 
 
@@ -11094,7 +11094,7 @@ another function) does not affect the display.  </p>
 <td><code>span, degree, family, evaluation</code></td>
 <td>
 <p> Arguments to
-<code><a href="stats.html#scatter.smooth">loess.smooth</a></code>, for which <code>panel.loess</code> is
+<code><a href="https://r-universe.dev/manuals/stats.html#scatter.smooth">loess.smooth</a></code>, for which <code>panel.loess</code> is
 essentially a wrapper.
 </p>
 </td>
@@ -11133,7 +11133,7 @@ that are created by this panel function.
 </table>
 <h3>Value</h3>
 
-<p>The object returned by <code><a href="stats.html#scatter.smooth">loess.smooth</a></code>.
+<p>The object returned by <code><a href="https://r-universe.dev/manuals/stats.html#scatter.smooth">loess.smooth</a></code>.
 </p>
 
 
@@ -11145,7 +11145,7 @@ that are created by this panel function.
 <h3>See Also</h3>
 
 <p><a href="#Lattice">Lattice</a>,
-<code><a href="stats.html#scatter.smooth">loess.smooth</a></code>,
+<code><a href="https://r-universe.dev/manuals/stats.html#scatter.smooth">loess.smooth</a></code>,
 <code><a href="#prepanel.functions">prepanel.loess</a></code>  
 </p>
 
@@ -11216,7 +11216,7 @@ Corresponding quantile pairs define the line drawn.
 <td>
 
 <p>the <code>type</code> of quantile computation used in
-<code><a href="stats.html#quantile">quantile</a></code>
+<code><a href="https://r-universe.dev/manuals/stats.html#quantile">quantile</a></code>
 </p>
 </td>
 </tr>
@@ -11254,7 +11254,7 @@ that are created by this panel function.
 
 <p><code><a href="#prepanel.functions">prepanel.qqmathline</a></code>,
 <code><a href="#qqmath">qqmath</a></code>,
-<code><a href="stats.html#quantile">quantile</a></code>
+<code><a href="https://r-universe.dev/manuals/stats.html#quantile">quantile</a></code>
 </p>
 
 <hr>
@@ -11324,7 +11324,7 @@ grid points for the density estimation.</p>
 <p>Numeric vector: the smoothing bandwidth.  If missing,
 these functions come up with a more or less useful guess.  This
 parameter then gets passed on to the function
-<code><a href="KernSmooth.html#bkde2D">bkde2D</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/KernSmooth.html#bkde2D">bkde2D</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -11360,13 +11360,13 @@ If all points are to be plotted, choose <code>nrpoints = Inf</code>.</p>
 <tr style="vertical-align: top;">
 <td><code>range.x</code></td>
 <td>
-<p>see  <code><a href="KernSmooth.html#bkde2D">bkde2D</a></code> for details.</p>
+<p>see  <code><a href="https://r-universe.dev/manuals/KernSmooth.html#bkde2D">bkde2D</a></code> for details.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>col</code></td>
 <td>
-<p><code><a href="graphics.html#points">points</a></code> color parameter</p>
+<p><code><a href="https://r-universe.dev/manuals/graphics.html#points">points</a></code> color parameter</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -11503,12 +11503,12 @@ this argument, and originates from similar usage in
 <tr style="vertical-align: top;">
 <td><code>keep.data</code></td>
 <td>
-<p> Passed on to <code><a href="stats.html#smooth.spline">smooth.spline</a></code>.  The
+<p> Passed on to <code><a href="https://r-universe.dev/manuals/stats.html#smooth.spline">smooth.spline</a></code>.  The
 default here (<code>FALSE</code>) is different, and results in the
 original data not being retained in the fitted spline model.  It may
 be useful to set this to <code>TRUE</code> if the return value of
 <code>panel.spline</code>, which is the fitted model as returned by
-<code><a href="stats.html#smooth.spline">smooth.spline</a></code>, is to be used for subsequent
+<code><a href="https://r-universe.dev/manuals/stats.html#smooth.spline">smooth.spline</a></code>, is to be used for subsequent
 computations.  </p>
 </td>
 </tr>
@@ -11516,7 +11516,7 @@ computations.  </p>
 <td><code>...</code></td>
 <td>
 <p> Extra arguments, passed on to
-<code><a href="stats.html#smooth.spline">smooth.spline</a></code> and <code><a href="#llines">panel.lines</a></code> as
+<code><a href="https://r-universe.dev/manuals/stats.html#smooth.spline">smooth.spline</a></code> and <code><a href="#llines">panel.lines</a></code> as
 appropriate.  </p>
 </td>
 </tr>
@@ -11532,7 +11532,7 @@ that are created by this panel function.
 </table>
 <h3>Value</h3>
 
-<p>The fitted model as returned by <code><a href="stats.html#smooth.spline">smooth.spline</a></code>.
+<p>The fitted model as returned by <code><a href="https://r-universe.dev/manuals/stats.html#smooth.spline">smooth.spline</a></code>.
 </p>
 
 
@@ -11544,7 +11544,7 @@ that are created by this panel function.
 <h3>See Also</h3>
 
 <p><a href="#Lattice">Lattice</a>,
-<code><a href="stats.html#scatter.smooth">smooth.spline</a></code>,
+<code><a href="https://r-universe.dev/manuals/stats.html#scatter.smooth">smooth.spline</a></code>,
 <code><a href="#prepanel.functions">prepanel.spline</a></code>  
 </p>
 
@@ -11894,7 +11894,7 @@ have comparable scale.
 <td><code>bw, adjust, kernel, window, width, n, from, to, cut, na.rm</code></td>
 <td>
 
-<p>arguments to <code><a href="stats.html#density">density</a></code>, passed on as appropriate </p>
+<p>arguments to <code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code>, passed on as appropriate </p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -11930,7 +11930,7 @@ high-level (typically <code>bwplot</code>) call directly.
 
 <h3>See Also</h3>
 
-<p><code><a href="#xyplot">bwplot</a></code>, <code><a href="stats.html#density">density</a></code>
+<p><code><a href="#xyplot">bwplot</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code>
 </p>
 
 
@@ -12056,7 +12056,7 @@ panel.aspect, zoom</code></td>
 <tr style="vertical-align: top;">
 <td><code>darg</code></td>
 <td>
-<p> list of arguments passed to <code><a href="stats.html#density">density</a></code></p>
+<p> list of arguments passed to <code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code></p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -12068,7 +12068,7 @@ panel.aspect, zoom</code></td>
 <tr style="vertical-align: top;">
 <td><code>qtype</code></td>
 <td>
-<p> type of <code><a href="stats.html#quantile">quantile</a></code></p>
+<p> type of <code><a href="https://r-universe.dev/manuals/stats.html#quantile">quantile</a></code></p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -12147,7 +12147,7 @@ prepanel function in <code>qqmath</code>.
 <tr style="vertical-align: top;">
 <td><code>qtype</code></td>
 <td>
-<p> type of <code><a href="stats.html#quantile">quantile</a></code></p>
+<p> type of <code><a href="https://r-universe.dev/manuals/stats.html#quantile">quantile</a></code></p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -12165,7 +12165,7 @@ degrees as possible.
 <td><code>span, degree, family, evaluation</code></td>
 <td>
 <p> Arguments controlling the
-underlying <code><a href="stats.html#loess">loess</a></code> smooth. </p>
+underlying <code><a href="https://r-universe.dev/manuals/stats.html#loess">loess</a></code> smooth. </p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -12180,7 +12180,7 @@ function.
 <td><code>keep.data</code></td>
 <td>
 <p> Ignored. Present to capture argument of the same
-name in <code><a href="stats.html#smooth.spline">smooth.spline</a></code>. </p>
+name in <code><a href="https://r-universe.dev/manuals/stats.html#smooth.spline">smooth.spline</a></code>. </p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -12195,7 +12195,7 @@ then combined.  </p>
 <td><code>...</code></td>
 <td>
 <p> Other arguments.  These are passed on to other functions
-if appropriate (in particular, <code><a href="stats.html#smooth.spline">smooth.spline</a></code>), and
+if appropriate (in particular, <code><a href="https://r-universe.dev/manuals/stats.html#smooth.spline">smooth.spline</a></code>), and
 ignored otherwise. </p>
 </td>
 </tr>
@@ -12974,7 +12974,7 @@ for x- and y-axes.
 <td><code>text.col</code></td>
 <td>
 
-<p>Color for the axis label text.  See <code><a href="grid.html#gpar">gpar</a></code> for
+<p>Color for the axis label text.  See <code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a></code> for
 more details on this and the other graphical parameters listed
 below.
 </p>
@@ -13031,7 +13031,7 @@ below.
 <tr style="vertical-align: top;">
 <td><code>unit</code></td>
 <td>
-<p> Which grid <code><a href="grid.html#unit">unit</a></code> the values
+<p> Which grid <code><a href="https://r-universe.dev/manuals/grid.html#unit">unit</a></code> the values
 should be in. </p>
 </td>
 </tr>
@@ -13052,7 +13052,7 @@ well as for all the usual axis drawing by the print method for
 <p><code>current.panel.limits</code> returns a list with components <code>xlim</code>
 and <code>ylim</code>, which are both numeric vectors of length 2, giving
 the scales of the current panel (viewport).  The values correspond to
-the unit system specified by <code><a href="grid.html#unit">unit</a></code>, by default
+the unit system specified by <code><a href="https://r-universe.dev/manuals/grid.html#unit">unit</a></code>, by default
 <code>"native"</code>.
 </p>
 
@@ -13065,7 +13065,7 @@ the unit system specified by <code><a href="grid.html#unit">unit</a></code>, by 
 <h3>See Also</h3>
 
 <p><code><a href="#Lattice">Lattice</a></code>, <code><a href="#xyplot">xyplot</a></code>,
-<code><a href="#interaction">trellis.focus</a></code>, <code><a href="grid.html#unit">unit</a></code>
+<code><a href="#interaction">trellis.focus</a></code>, <code><a href="https://r-universe.dev/manuals/grid.html#unit">unit</a></code>
 </p>
 
 <hr>
@@ -13410,7 +13410,7 @@ York, 9th edition.
 
 <h3>See Also</h3>
 
-<p><code><a href="MASS.html#immer">immer</a></code> in the MASS package for data from the
+<p><code><a href="https://r-universe.dev/manuals/MASS.html#immer">immer</a></code> in the MASS package for data from the
 same experiment 
 (expressed as total yield for 3 blocks) for a subset of varieties.</p>
 
@@ -13652,7 +13652,7 @@ age-adjusted numbers of melanoma skin-cancer incidences per
 </dl>
 <h3>Note</h3>
 
-<p>This dataset is not related to the <code><a href="boot.html#melanoma">melanoma</a></code>
+<p>This dataset is not related to the <code><a href="https://r-universe.dev/manuals/boot.html#melanoma">melanoma</a></code>
 dataset in the <b>boot</b> package with the same name.
 </p>
 <p>The S-PLUS 6.2 help for the melanoma data says that the incidence rate is

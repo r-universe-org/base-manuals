@@ -264,8 +264,8 @@ palette<span class="token punctuation">(</span>opal<span class="token punctuatio
 
 <p>Expressions, calls and names (as used by <a href="#plotmath">plotmath</a>) are passed
 through unchanged.  All other objects with an explicit class (as
-determined by <code><a href="base.html#is.object">is.object</a></code>) are coerced by
-<code><a href="base.html#character">as.character</a></code> to character vectors.
+determined by <code><a href="https://r-universe.dev/manuals/base.html#is.object">is.object</a></code>) are coerced by
+<code><a href="https://r-universe.dev/manuals/base.html#character">as.character</a></code> to character vectors.
 </p>
 <p>All the <span class="pkg">graphics</span> and <span class="pkg">grid</span> functions which use this coerce
 calls and names to expressions internally.
@@ -352,12 +352,12 @@ values on black-to-white scale.
 possible to assign to a subset of a raster object.
 </p>
 <p>There is a method for converting a raster object to a
-<code><a href="base.html#matrix">matrix</a></code> (of colour strings).
+<code><a href="https://r-universe.dev/manuals/base.html#matrix">matrix</a></code> (of colour strings).
 </p>
 <p>Raster objects can be compared for equality or inequality (with each
 other or with a colour string).
 </p>
-<p>There is a <code><a href="base.html#NA">is.na</a></code> method which returns a logical matrix
+<p>There is a <code><a href="https://r-universe.dev/manuals/base.html#NA">is.na</a></code> method which returns a logical matrix
 of the same dimensions as the raster object.  Note that <code>NA</code>
 values are interpreted as the fully transparent colour by some (but
 not all) graphics devices.
@@ -461,7 +461,7 @@ use.</p>
 <td><code>axp</code></td>
 <td>
 <p>numeric vector of length 3, <code>c(mi, ma, n.)</code>, with
-identical meaning to <code><a href="graphics.html#par">par</a>("?axp")</code> (where <code>?</code> is
+identical meaning to <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a>("?axp")</code> (where <code>?</code> is
 <code>x</code> or <code>y</code>), namely “pretty” axis extents, and an
 integer <em>code</em> <code>n.</code>.
 
@@ -485,7 +485,7 @@ integer <em>code</em> <code>n.</code>.
 <p>Apart from that, <code><a href="#axisTicks">axisTicks</a>()</code> just calls the C function
 <code>CreateAtVector()</code> in ‘<span class="file">&lt;Rsrc&gt;/src/main/plot.c</span>’ which is also
 called by the base <span class="pkg">graphics</span> package function
-<code><a href="graphics.html#axis">axis</a>(side, *)</code> when its argument <code>at</code> is not
+<code><a href="https://r-universe.dev/manuals/graphics.html#axis">axis</a>(side, *)</code> when its argument <code>at</code> is not
 specified.
 </p>
 <p>Since <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.1.0, the underlying C <code>CreateAtVector()</code> has been tuned
@@ -498,7 +498,7 @@ to provide a considerably more balanced (symmetric) set of tick locations.
 <p><code>axisTicks()</code> returns a numeric vector of potential axis tick
 locations, of length approximately <code>nint+1</code>.
 </p>
-<p><code>.axisPars()</code> returns a <code><a href="base.html#list">list</a></code> with components
+<p><code>.axisPars()</code> returns a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with components
 </p>
 <table>
 <tr style="vertical-align: top;">
@@ -512,14 +512,14 @@ axis extents.</p>
 <td><code>n</code></td>
 <td>
 <p>integer (code), with the same meaning as
-<code><a href="graphics.html#par">par</a>("?axp")[3]</code>.</p>
+<code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a>("?axp")[3]</code>.</p>
 </td>
 </tr>
 </table>
 <h3>See Also</h3>
 
-<p><code><a href="graphics.html#axTicks">axTicks</a></code>,
-<code><a href="graphics.html#axis">axis</a></code>, and <code><a href="graphics.html#par">par</a></code> all from
+<p><code><a href="https://r-universe.dev/manuals/graphics.html#axTicks">axTicks</a></code>,
+<code><a href="https://r-universe.dev/manuals/graphics.html#axis">axis</a></code>, and <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code> all from
 the <span class="pkg">graphics</span> package.
 </p>
 
@@ -570,7 +570,7 @@ but may be invoked separately.
 <td><code>x</code></td>
 <td>
 <p>a numeric vector for which the boxplot will
-be constructed (<code><a href="base.html#NA">NA</a></code>s and <code><a href="base.html#is.finite">NaN</a></code>s are allowed
+be constructed (<code><a href="https://r-universe.dev/manuals/base.html#NA">NA</a></code>s and <code><a href="https://r-universe.dev/manuals/base.html#is.finite">NaN</a></code>s are allowed
 and omitted).</p>
 </td>
 </tr>
@@ -596,7 +596,7 @@ to extend to the data extremes (and no outliers be returned).</p>
 <h3>Details</h3>
 
 <p>The two ‘hinges’ are versions of the first and third quartile,
-i.e., close to <code><a href="stats.html#quantile">quantile</a>(x, c(1,3)/4)</code>.  The hinges equal
+i.e., close to <code><a href="https://r-universe.dev/manuals/stats.html#quantile">quantile</a>(x, c(1,3)/4)</code>.  The hinges equal
 the quartiles for odd <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code> (where <code>n &lt;- length(x)</code>) and
 differ for even <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code>.  Whereas the quartiles only equal observations
 for <code>n %% 4 == 1</code> (<code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≡</mo><mn>1</mn><mtext> </mtext><mo lspace="0.22em" rspace="0.22em"><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow></mo><mtext> </mtext><mn>4</mn></mrow><annotation encoding="application/x-tex">n\equiv 1 \bmod 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4637em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.0556em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin"><span class="mord"><span class="mord mathrm">mod</span></span></span><span class="mspace" style="margin-right:0.0556em;"></span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span></code>),
@@ -683,9 +683,9 @@ Wadsworth &amp; Brooks/Cole.
 
 <h3>See Also</h3>
 
-<p><code><a href="stats.html#fivenum">fivenum</a></code>,
-<code><a href="graphics.html#boxplot">boxplot</a></code>,
-<code><a href="graphics.html#bxp">bxp</a></code>.
+<p><code><a href="https://r-universe.dev/manuals/stats.html#fivenum">fivenum</a></code>,
+<code><a href="https://r-universe.dev/manuals/graphics.html#boxplot">boxplot</a></code>,
+<code><a href="https://r-universe.dev/manuals/graphics.html#bxp">bxp</a></code>.
 </p>
 
 
@@ -907,7 +907,7 @@ the things liable to trigger bitmap output (and will always do so for
 
 <p>Anti-aliasing is applied to both graphics and fonts.  It is generally
 preferable for lines and text, but can lead to undesirable effects for
-fills, e.g. for <code><a href="graphics.html#image">image</a></code> plots, and so is never used for
+fills, e.g. for <code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code> plots, and so is never used for
 fills.
 </p>
 <p><code>antialias = "default"</code> is in principle platform-dependent, but
@@ -950,7 +950,7 @@ graphics devices set out in the ‘R Internals’ manual.
 <h3>Warning</h3>
 
 <p>Support for all these devices are optional, so in packages they should
-be used conditionally after checking <code><a href="base.html#capabilities">capabilities</a>("cairo")</code>.
+be used conditionally after checking <code><a href="https://r-universe.dev/manuals/base.html#capabilities">capabilities</a>("cairo")</code>.
 </p>
 
 
@@ -968,7 +968,7 @@ distributed as part of the X11 system and hence that (for example, on
 <p><code><a href="#Devices">Devices</a></code>, <code><a href="#dev2">dev.print</a></code>, <code><a href="#pdf">pdf</a></code>,
 <code><a href="#postscript">postscript</a></code>
 </p>
-<p><code><a href="base.html#capabilities">capabilities</a></code> to see if cairo is supported.
+<p><code><a href="https://r-universe.dev/manuals/base.html#capabilities">capabilities</a></code> to see if cairo is supported.
 </p>
 
 <hr>
@@ -1055,7 +1055,7 @@ dev.off<span class="token punctuation">(</span><span class="token punctuation">)
 <h3>Description</h3>
 
 <p>Utility function for setting options with some consistency checks.
-The <code><a href="base.html#attributes">attributes</a></code> of the new settings in <code>new</code> are
+The <code><a href="https://r-universe.dev/manuals/base.html#attributes">attributes</a></code> of the new settings in <code>new</code> are
 checked for consistency with the <em>model</em> (often default)
 list in <code>name.opt</code>.
 </p>
@@ -1090,7 +1090,7 @@ default list.</p>
 <td>
 <p>logical; if <code>TRUE</code>, reset the options from
 <code>name.opt</code>.  If there is more than one <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object with name
-<code>name.opt</code>, remove the first one in the <code><a href="base.html#search">search</a>()</code> path.</p>
+<code>name.opt</code>, remove the first one in the <code><a href="https://r-universe.dev/manuals/base.html#search">search</a>()</code> path.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1102,8 +1102,8 @@ default list.</p>
 <tr style="vertical-align: top;">
 <td><code>envir</code></td>
 <td>
-<p>the <code><a href="base.html#environment">environment</a></code> used for <code><a href="base.html#get">get</a></code>
-and <code><a href="base.html#assign">assign</a></code>.</p>
+<p>the <code><a href="https://r-universe.dev/manuals/base.html#environment">environment</a></code> used for <code><a href="https://r-universe.dev/manuals/base.html#get">get</a></code>
+and <code><a href="https://r-universe.dev/manuals/base.html#assign">assign</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1225,7 +1225,7 @@ Algorithm 523: CONVEX, A new convex hull algorithm for planar sets [Z].
 <h3>See Also</h3>
 
 <p><code><a href="#xy.coords">xy.coords</a></code>,
-<code><a href="graphics.html#polygon">polygon</a></code>
+<code><a href="https://r-universe.dev/manuals/graphics.html#polygon">polygon</a></code>
 </p>
 
 
@@ -1315,7 +1315,7 @@ values should be returned.</p>
 </table>
 <h3>Details</h3>
 
-<p><code><a href="base.html#NA">NA</a></code> (as integer or character) and <code>"NA"</code> mean
+<p><code><a href="https://r-universe.dev/manuals/base.html#NA">NA</a></code> (as integer or character) and <code>"NA"</code> mean
 transparent, which can also be specified as <code>"transparent"</code>.
 </p>
 <p>Values of <code>col</code> not of one of these types are coerced: real
@@ -1478,7 +1478,7 @@ the colors produced with <code>space = "Lab"</code>.
 
 <h3>Value</h3>
 
-<p><code>colorRamp</code> returns a <code><a href="base.html#function">function</a></code> with argument a
+<p><code>colorRamp</code> returns a <code><a href="https://r-universe.dev/manuals/base.html#function">function</a></code> with argument a
 vector of values between 0 and 1 that are mapped to a numeric matrix
 of RGB color values with one row per color and 3 or 4 columns.
 </p>
@@ -1495,7 +1495,7 @@ vector of colors (see <code><a href="#rgb">rgb</a></code>) interpolating the giv
 and “diverging” ColorBrewer palettes in the
 <a href="https://CRAN.R-project.org/package=RColorBrewer" target="_blank"><span class="pkg">RColorBrewer</span></a> package.
 </p>
-<p><code><a href="stats.html#splinefun">splinefun</a></code> or <code><a href="stats.html#approxfun">approxfun</a></code> are used for
+<p><code><a href="https://r-universe.dev/manuals/stats.html#splinefun">splinefun</a></code> or <code><a href="https://r-universe.dev/manuals/stats.html#approxfun">approxfun</a></code> are used for
 interpolation.
 </p>
 
@@ -1685,13 +1685,13 @@ lines.</p>
 <p><code>contourLines</code> draws nothing, but returns a set of contour lines.
 </p>
 <p>There is currently no documentation about the algorithm.
-The source code is in ‘<span class="file"><var><a href="base.html#Rhome">R_HOME</a></var>/src/main/plot3d.c</span>’.
+The source code is in ‘<span class="file"><var><a href="https://r-universe.dev/manuals/base.html#Rhome">R_HOME</a></var>/src/main/plot3d.c</span>’.
 </p>
 
 
 <h3>Value</h3>
 
-<p>A <code><a href="base.html#list">list</a></code> of contours, each itself a <code>list</code> with elements:
+<p>A <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> of contours, each itself a <code>list</code> with elements:
 </p>
 <table>
 <tr style="vertical-align: top;">
@@ -1715,10 +1715,10 @@ The source code is in ‘<span class="file"><var><a href="base.html#Rhome">R_HOM
 </table>
 <h3>See Also</h3>
 
-<p><code><a href="base.html#options">options</a>("max.contour.segments")</code> for the maximal
+<p><code><a href="https://r-universe.dev/manuals/base.html#options">options</a>("max.contour.segments")</code> for the maximal
 complexity of a single contour line.
 </p>
-<p><code><a href="graphics.html#contour">contour</a></code>: Its ‘Examples’ demonstrate how
+<p><code><a href="https://r-universe.dev/manuals/graphics.html#contour">contour</a></code>: Its ‘Examples’ demonstrate how
 <code>contourLines()</code> can be drawn and are the same (as those from
 <code>contour()</code>).
 </p>
@@ -1950,7 +1950,7 @@ for details.  If supplied separately, they must be of the same length.</p>
 <p>numeric vector of length one (for both directions) or two
 (for x and y separately) specifying the number of equally spaced
 grid points for the density estimation; directly used as
-<code>gridsize</code> in <code><a href="KernSmooth.html#bkde2D">bkde2D</a>()</code>.</p>
+<code>gridsize</code> in <code><a href="https://r-universe.dev/manuals/KernSmooth.html#bkde2D">bkde2D</a>()</code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1958,7 +1958,7 @@ grid points for the density estimation; directly used as
 <td>
 <p>numeric vector (length 1 or 2) of smoothing bandwidth(s).
 If missing, a more or less useful default is used. <code>bandwidth</code>
-is subsequently passed to function <code><a href="KernSmooth.html#bkde2D">bkde2D</a></code>.</p>
+is subsequently passed to function <code><a href="https://r-universe.dev/manuals/KernSmooth.html#bkde2D">bkde2D</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1972,7 +1972,7 @@ returning <code>n</code> colors.</p>
 <h3>Details</h3>
 
 <p><code>densCols</code> computes and returns the set of colors that will be
-used in plotting, calling <code><a href="KernSmooth.html#bkde2D">bkde2D</a>(*,
+used in plotting, calling <code><a href="https://r-universe.dev/manuals/KernSmooth.html#bkde2D">bkde2D</a>(*,
   bandwidth, gridsize = nbin, ..)</code> from package <a href="https://CRAN.R-project.org/package=KernSmooth" target="_blank"><span class="pkg">KernSmooth</span></a>.
 </p>
 <p><code>blues9</code> is a set of 9 color shades of blue used as the default in
@@ -1995,8 +1995,8 @@ represents the local density around the corresponding point.
 
 <h3>See Also</h3>
 
-<p><code><a href="KernSmooth.html#bkde2D">bkde2D</a></code> from package <a href="https://CRAN.R-project.org/package=KernSmooth" target="_blank"><span class="pkg">KernSmooth</span></a>;
-further, <code><a href="graphics.html#smoothScatter">smoothScatter</a>()</code> (package <span class="pkg">graphics</span>) which
+<p><code><a href="https://r-universe.dev/manuals/KernSmooth.html#bkde2D">bkde2D</a></code> from package <a href="https://CRAN.R-project.org/package=KernSmooth" target="_blank"><span class="pkg">KernSmooth</span></a>;
+further, <code><a href="https://r-universe.dev/manuals/graphics.html#smoothScatter">smoothScatter</a>()</code> (package <span class="pkg">graphics</span>) which
 builds on the same computations as <code>densCols</code>.
 </p>
 
@@ -2064,7 +2064,7 @@ as <code>width</code> and <code>height</code>.</p>
 which all graphics operations occur.  There is a <code>"null device"</code>
 which is always open but is really a placeholder: any attempt to use
 it will open a new device specified by
-<code><a href="base.html#options">getOption</a>("device")</code>.
+<code><a href="https://r-universe.dev/manuals/base.html#options">getOption</a>("device")</code>.
 </p>
 <p>Devices are associated with a name (e.g., <code>"X11"</code> or
 <code>"postscript"</code>) and a number in the range 1 to 63; the
@@ -2089,7 +2089,7 @@ If <code>which = 1</code> it opens a new device and selects that.
 <p><code>dev.new</code> opens a new device.  Normally <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> will open a new device
 automatically when needed, but this enables you to open further
 devices in a platform-independent way.  (For which device is used see
-<code><a href="base.html#options">getOption</a>("device")</code>.)  Note that care is needed with
+<code><a href="https://r-universe.dev/manuals/base.html#options">getOption</a>("device")</code>.)  Note that care is needed with
 file-based devices such as <code><a href="#pdf">pdf</a></code> and
 <code><a href="#postscript">postscript</a></code> and in that case file names such as
 ‘<span class="file">Rplots.pdf</span>’, ‘<span class="file">Rplots1.pdf</span>’, ..., ‘<span class="file">Rplots999.pdf</span>’ are
@@ -2109,7 +2109,7 @@ is active.
 </p>
 <p><code>dev.list</code> returns the numbers of all open devices, except device
 1, the null device.  This is a numeric vector with a
-<code><a href="base.html#names">names</a></code> attribute giving the device names, or <code>NULL</code> is
+<code><a href="https://r-universe.dev/manuals/base.html#names">names</a></code> attribute giving the device names, or <code>NULL</code> is
 there is no open device.
 </p>
 <p><code>dev.next</code> and <code>dev.prev</code> return the number and name of the
@@ -2130,7 +2130,7 @@ invisible <code>NULL</code>.
 
 <p><code><a href="#Devices">Devices</a></code>, such as <code><a href="#postscript">postscript</a></code>, etc.
 </p>
-<p><code><a href="graphics.html#layout">layout</a></code> and its links for setting up plotting regions
+<p><code><a href="https://r-universe.dev/manuals/graphics.html#layout">layout</a></code> and its links for setting up plotting regions
 on the current device.
 </p>
 
@@ -2219,8 +2219,8 @@ semi-transparent colours?</p>
 <td><code>rasterImage</code></td>
 <td>
 <p>character: To what extent does the device support
-raster images as used by <code><a href="graphics.html#rasterImage">rasterImage</a></code> and
-<code><a href="grid.html#grid.raster">grid.raster</a></code>?  Possible values <code>"no"</code>, <code>"yes"</code> and
+raster images as used by <code><a href="https://r-universe.dev/manuals/graphics.html#rasterImage">rasterImage</a></code> and
+<code><a href="https://r-universe.dev/manuals/grid.html#grid.raster">grid.raster</a></code>?  Possible values <code>"no"</code>, <code>"yes"</code> and
 <code>"non-missing"</code> (support only for arrays without any missing
 values).</p>
 </td>
@@ -2229,14 +2229,14 @@ values).</p>
 <td><code>capture</code></td>
 <td>
 <p>logical:  Does the current device
-support raster capture as used by <code><a href="grid.html#grid.cap">grid.cap</a></code>?</p>
+support raster capture as used by <code><a href="https://r-universe.dev/manuals/grid.html#grid.cap">grid.cap</a></code>?</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>locator</code></td>
 <td>
 <p>logical:  Does the current device
-support <code><a href="graphics.html#locator">locator</a></code> and <code><a href="graphics.html#identify">identify</a></code>?</p>
+support <code><a href="https://r-universe.dev/manuals/graphics.html#locator">locator</a></code> and <code><a href="https://r-universe.dev/manuals/graphics.html#identify">identify</a></code>?</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -2439,8 +2439,8 @@ deviceIsInteractive<span class="token punctuation">(</span>name <span class="tok
 <td><code>orNone</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, the function also returns
-<code>TRUE</code> when <code><a href="base.html#dev">.Device</a> == "null device"</code> and
-<code><a href="base.html#options">getOption</a>("device")</code> is among the known
+<code>TRUE</code> when <code><a href="https://r-universe.dev/manuals/base.html#dev">.Device</a> == "null device"</code> and
+<code><a href="https://r-universe.dev/manuals/base.html#options">getOption</a>("device")</code> is among the known
 interactive devices.</p>
 </td>
 </tr>
@@ -2521,7 +2521,7 @@ device; a new device is opened if there is none, similarly to
 <h3>See Also</h3>
 
 <p>The size information in inches can be obtained by
-<code><a href="graphics.html#par">par</a>("din")</code>, but this provides a way to access it
+<code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a>("din")</code>, but this provides a way to access it
 independent of the graphics sub-system in use.  Note that
 <code>par("din")</code> is only updated when a new plot is started, whereas
 <code>dev.size</code> tracks the size as an on-screen device is resized.
@@ -2641,7 +2641,7 @@ from was opened with a <code>family</code> argument, a suitable
 <code>family</code> argument will need to be included in <code>...</code>.
 </p>
 <p>The default for <code>dev.print</code> is to produce and print a postscript
-copy.  This will not work unless <code><a href="base.html#options">options</a>("printcmd")</code> is
+copy.  This will not work unless <code><a href="https://r-universe.dev/manuals/base.html#options">options</a>("printcmd")</code> is
 set suitably and you have a PostScript printing system: see
 <code><a href="#postscript">postscript</a></code> for how to set this up.  Windows users may
 prefer to use <code>dev.print(win.print)</code>.
@@ -2854,7 +2854,7 @@ pixels, the default resolution of 72dpi is always used.
 </p>
 <p>On Windows only,
 paths for <code>file</code> and <span class="env">R_GSCMD</span> which contain spaces are
-mapped to short names <em>via</em> <code><a href="utils.html#shortPathName">shortPathName</a></code>.
+mapped to short names <em>via</em> <code><a href="https://r-universe.dev/manuals/utils.html#shortPathName">shortPathName</a></code>.
 </p>
 
 
@@ -2922,7 +2922,7 @@ record of the current plot.
 <p><code><a href="#postscript">postscript</a></code>, <code><a href="#pdf">pdf</a></code>, <code><a href="#png">png</a></code>,
 <code><a href="#png">jpeg</a></code>, <code><a href="#png">tiff</a></code> and  <code>bmp</code>.
 </p>
-<p>To display an array of data, see <code><a href="graphics.html#image">image</a></code>.
+<p>To display an array of data, see <code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code>.
 </p>
 
 <hr>
@@ -2960,7 +2960,7 @@ will in future be prompted before a new page of output is started.</p>
 change it.
 </p>
 <p>The default value when a device is opened is taken from the
-setting of <code><a href="base.html#options">options</a>("device.ask.default")</code>.
+setting of <code><a href="https://r-universe.dev/manuals/base.html#options">options</a>("device.ask.default")</code>.
 </p>
 <p>The precise circumstances when the user will be asked to confirm a new
 page depend on the graphics subsystem.  Obviously this needs to be an
@@ -2979,7 +2979,7 @@ Invisibly if <code>ask</code> is logical.
 
 <h3>See Also</h3>
 
-<p><code><a href="graphics.html#frame">plot.new</a></code>, <code><a href="grid.html#grid.newpage">grid.newpage</a></code>
+<p><code><a href="https://r-universe.dev/manuals/graphics.html#frame">plot.new</a></code>, <code><a href="https://r-universe.dev/manuals/grid.html#grid.newpage">grid.newpage</a></code>
 </p>
 
 <hr>
@@ -3090,7 +3090,7 @@ remote session.)</p>
 
 <p>If no device is open, calling any high-level graphics function will cause
 a device to be opened.  Which device is determined by
-<code><a href="base.html#options">options</a>("device")</code> which is initially set as the most
+<code><a href="https://r-universe.dev/manuals/base.html#options">options</a>("device")</code> which is initially set as the most
 appropriate for each platform: a screen device for most interactive use and
 <code><a href="#pdf">pdf</a></code> (or the setting of <span class="env">R_DEFAULT_DEVICE</span>)
 otherwise.  The exception is interactive use under Unix if no screen
@@ -3124,10 +3124,10 @@ customize devices.
 </p>
 <p><code><a href="#dev.interactive">dev.interactive</a></code>,
 <code><a href="#dev">dev.cur</a></code>, <code><a href="#dev2">dev.print</a></code>,
-<code><a href="#dev">graphics.off</a></code>, <code><a href="graphics.html#image">image</a></code>,
+<code><a href="#dev">graphics.off</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code>,
 <code><a href="#dev2bitmap">dev2bitmap</a></code>.
 </p>
-<p>On Unix-alikes only:<br><code><a href="base.html#capabilities">capabilities</a></code> to see if <code><a href="#x11">X11</a></code>,
+<p>On Unix-alikes only:<br><code><a href="https://r-universe.dev/manuals/base.html#capabilities">capabilities</a></code> to see if <code><a href="#x11">X11</a></code>,
 <code><a href="#png">jpeg</a></code>, <code><a href="#png">png</a></code>, <code><a href="#png">tiff</a></code>,
 <code><a href="#quartz">quartz</a></code> and the cairo-based devices are available.
 </p>
@@ -3284,7 +3284,7 @@ you can run the command by hand in a shell to look for problems.
 <td><code>r</code></td>
 <td>
 <p>numeric vector of length 2; defaults to the
-<code><a href="base.html#range">range</a></code> of <code>x</code>.</p>
+<code><a href="https://r-universe.dev/manuals/base.html#range">range</a></code> of <code>x</code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -3306,7 +3306,7 @@ one.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#range">range</a></code>; <code><a href="base.html#pretty">pretty</a></code> which can be
+<p><code><a href="https://r-universe.dev/manuals/base.html#range">range</a></code>; <code><a href="https://r-universe.dev/manuals/base.html#pretty">pretty</a></code> which can be
 considered a sophisticated extension of <code>extendrange</code>.
 </p>
 
@@ -3634,7 +3634,7 @@ grey<span class="token punctuation">(</span>level<span class="token punctuation"
 <h3>Details</h3>
 
 <p>The values returned by <code>gray</code> can be used with a <code>col=</code>
-specification in graphics functions or in <code><a href="graphics.html#par">par</a></code>.
+specification in graphics functions or in <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>.
 </p>
 <p><code>grey</code> is an alias for <code>gray</code>.
 </p>
@@ -3727,7 +3727,7 @@ be reversed.</p>
 gamma-corrected gray levels between <code>start</code> and <code>end</code>:
 <code>seq(start^gamma, end^gamma, length = n)^(1/gamma)</code>.
 The returned palette contains the corresponding gray colors.
-This palette is used in <code><a href="graphics.html#barplot">barplot.default</a></code>.
+This palette is used in <code><a href="https://r-universe.dev/manuals/graphics.html#barplot">barplot.default</a></code>.
 </p>
 <p><code>grey.colors</code> is an alias for <code>gray.colors</code>.
 </p>
@@ -3771,7 +3771,7 @@ The R Graphics Devices and Support for Colours and Fonts
 <h3>Details</h3>
 
 <p>This package contains functions which support both
-<a href="graphics.html#graphics-package">base</a> and <a href="grid.html#grid-package">grid</a> graphics.
+<a href="https://r-universe.dev/manuals/graphics.html#graphics-package">base</a> and <a href="https://r-universe.dev/manuals/grid.html#grid-package">grid</a> graphics.
 </p>
 <p>For a complete list of functions, use <code>library(help = "grDevices")</code>.
 </p>
@@ -3875,7 +3875,7 @@ reports its version as <code>"6.2"</code>, the IJG version from which it forked.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#extSoftVersion">extSoftVersion</a></code> for versions of non-graphics software.
+<p><code><a href="https://r-universe.dev/manuals/base.html#extSoftVersion">extSoftVersion</a></code> for versions of non-graphics software.
 </p>
 
 
@@ -4069,11 +4069,11 @@ demo<span class="token punctuation">(</span>hclColors<span class="token punctuat
 
 <h3>Description</h3>
 
-<p>If the <code>family</code> graphical parameter (see <code><a href="graphics.html#par">par</a></code>)
+<p>If the <code>family</code> graphical parameter (see <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>)
 has been set to one of the Hershey fonts (see ‘Details’)
 Hershey vector fonts are used to render text.
 </p>
-<p>When using the <code><a href="graphics.html#text">text</a></code> and <code><a href="graphics.html#contour">contour</a></code> functions
+<p>When using the <code><a href="https://r-universe.dev/manuals/graphics.html#text">text</a></code> and <code><a href="https://r-universe.dev/manuals/graphics.html#contour">contour</a></code> functions
 Hershey fonts may be selected via the <code>vfont</code> argument, which is
 a character vector of length 2 (see ‘Details’ for valid
 values).  This allows Cyrillic to be selected, which is not available
@@ -4436,8 +4436,8 @@ the available raw glyphs.
 
 <h3>See Also</h3>
 
- <p><code><a href="utils.html#demo">demo</a>(Hershey)</code>, <code><a href="graphics.html#par">par</a></code>,
-<code><a href="graphics.html#text">text</a></code>, <code><a href="graphics.html#contour">contour</a></code>.
+ <p><code><a href="https://r-universe.dev/manuals/utils.html#demo">demo</a>(Hershey)</code>, <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>,
+<code><a href="https://r-universe.dev/manuals/graphics.html#text">text</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#contour">contour</a></code>.
 </p>
 <p><code><a href="#Japanese">Japanese</a></code> for the Japanese characters in the Hershey fonts.
 </p>
@@ -4551,7 +4551,7 @@ by ‘<span class="samp">⁠\\#J242b⁠</span>’ and the Katakana character for
 produced by ‘<span class="samp">⁠\\#J252b⁠</span>’.  The Kanji ideograph for "one" is
 produced by ‘<span class="samp">⁠\\#J306c⁠</span>’ or ‘<span class="samp">⁠\\#N0001⁠</span>’.
 </p>
-<p>The output from <code><a href="utils.html#demo">demo</a>(Japanese)</code> shows tables of the escape
+<p>The output from <code><a href="https://r-universe.dev/manuals/utils.html#demo">demo</a>(Japanese)</code> shows tables of the escape
 sequences for the available Japanese characters.
 </p>
 
@@ -4564,7 +4564,7 @@ sequences for the available Japanese characters.
 
 <h3>See Also</h3>
 
-<p><code><a href="utils.html#demo">demo</a>(Japanese)</code>, <code><a href="#Hershey">Hershey</a></code>, <code><a href="graphics.html#text">text</a></code>
+<p><code><a href="https://r-universe.dev/manuals/utils.html#demo">demo</a>(Japanese)</code>, <code><a href="#Hershey">Hershey</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#text">text</a></code>
 </p>
 
 
@@ -4682,7 +4682,7 @@ be ignored and may be <code>...</code>.
 </p>
 <p>As of R 3.6.0 the built in color converters along with
 <code><a href="#convertColor">convertColor</a></code> were vectorized to process three column
-color matrices in one call, instead of row by row via <code><a href="base.html#apply">apply</a></code>.
+color matrices in one call, instead of row by row via <code><a href="https://r-universe.dev/manuals/base.html#apply">apply</a></code>.
 In order to maintain backwards compatibility, <code>colorConverter</code> wraps
 <code>fromXYZ</code> and <code>toXYZ</code> in a <code>apply</code> loop in case they do not
 also support matrix inputs.  If the <code>fromXYZ</code> and <code>toXYZ</code> functions
@@ -4809,7 +4809,7 @@ console (which only accepts the first three actions).
 
 <p>Easy setup for plotting multiple figures (in a rectangular layout) on
 one page.  This computes a sensible default for
-<code><a href="graphics.html#par">par</a>(mfrow)</code>.
+<code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a>(mfrow)</code>.
 </p>
 
 
@@ -4866,7 +4866,7 @@ optimization problems.
 
 <h3>See Also</h3>
 
-<p><code><a href="graphics.html#par">par</a></code>, <code><a href="graphics.html#layout">layout</a></code>.</p>
+<p><code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#layout">layout</a></code>.</p>
 
 
 <h3>Examples</h3>
@@ -4893,7 +4893,7 @@ sapply<span class="token punctuation">(</span><span class="token number">1</span
 
 <h3>Description</h3>
 
-<p>Compute the number of classes for a histogram, notably <code><a href="graphics.html#hist">hist</a>()</code>.
+<p>Compute the number of classes for a histogram, notably <code><a href="https://r-universe.dev/manuals/graphics.html#hist">hist</a>()</code>.
 </p>
 
 
@@ -4917,7 +4917,7 @@ nclass.FD<span class="token punctuation">(</span>x<span class="token punctuation
 <td><code>digits</code></td>
 <td>
 <p>number of <em>significant</em> digits to keep when rounding
-<code>x</code> before the <code><a href="stats.html#IQR">IQR</a></code> computation; see ‘Details’ below.</p>
+<code>x</code> before the <code><a href="https://r-universe.dev/manuals/stats.html#IQR">IQR</a></code> computation; see ‘Details’ below.</p>
 </td>
 </tr>
 </table>
@@ -4931,7 +4931,7 @@ the estimate of the standard error, unless that is zero where it
 returns <code>1</code>.
 </p>
 <p><code>nclass.FD</code> uses the Freedman-Diaconis choice based on the
-inter-quartile range (<code><a href="stats.html#IQR">IQR</a>(signif(x, digits))</code>) unless that's
+inter-quartile range (<code><a href="https://r-universe.dev/manuals/stats.html#IQR">IQR</a>(signif(x, digits))</code>) unless that's
 zero where it uses increasingly more extreme symmetric quantiles up to
 c(1,511)/512 and if that difference is still zero, reverts to using
 Scott's choice.  The default of <code>digits = 5</code> was chosen after a few
@@ -4976,8 +4976,8 @@ The choice of a class interval.
 
 <h3>See Also</h3>
 
-<p><code><a href="graphics.html#hist">hist</a></code> and <code><a href="MASS.html#truehist">truehist</a></code> (package
-<a href="https://CRAN.R-project.org/package=MASS" target="_blank"><span class="pkg">MASS</span></a>);  <code><a href="KernSmooth.html#dpih">dpih</a></code> (package
+<p><code><a href="https://r-universe.dev/manuals/graphics.html#hist">hist</a></code> and <code><a href="https://r-universe.dev/manuals/MASS.html#truehist">truehist</a></code> (package
+<a href="https://CRAN.R-project.org/package=MASS" target="_blank"><span class="pkg">MASS</span></a>);  <code><a href="https://r-universe.dev/manuals/KernSmooth.html#dpih">dpih</a></code> (package
 <a href="https://CRAN.R-project.org/package=KernSmooth" target="_blank"><span class="pkg">KernSmooth</span></a>) for a plugin bandwidth proposed by Wand(1995).
 </p>
 
@@ -5029,7 +5029,7 @@ palette.colors<span class="token punctuation">(</span>n <span class="token opera
 <td><code>n</code></td>
 <td>
 <p>the number of colors to select from a palette.  The default
-<code><a href="base.html#NULL">NULL</a></code> selects all colors of the given palette.</p>
+<code><a href="https://r-universe.dev/manuals/base.html#NULL">NULL</a></code> selects all colors of the given palette.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -5064,7 +5064,7 @@ palettes, and the <code>palette.colors()</code> function
 selects colors from the predefined palettes.
 </p>
 <p>The color palette and referring to colors by number (see
-e.g. <code><a href="graphics.html#par">par</a></code>) was provided for compatibility with S.
+e.g. <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>) was provided for compatibility with S.
 <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> extends and improves on the available set of palettes.
 </p>
 <p>If <code>value</code> has length 1, it is taken to be the name of a built-in
@@ -5093,7 +5093,7 @@ displaylist at the start of each page and when it is changed.
 
 <p><code>palette()</code> returns a character vector giving the colors from the
 palette which <em>was</em> in effect.
-This is <code><a href="base.html#invisible">invisible</a></code> unless the argument is omitted.
+This is <code><a href="https://r-universe.dev/manuals/base.html#invisible">invisible</a></code> unless the argument is omitted.
 </p>
 <p><code>palette.pals()</code> returns a character vector giving the names
 of predefined palettes.
@@ -5239,7 +5239,7 @@ upper vs. lower case, spaces, dashes, etc. in the matching.</p>
 <p>an alpha-transparency level in the range [0,1]
 (0 means transparent and 1 means opaque), see argument
 <code>alpha</code> in <code><a href="#hsv">hsv</a></code> and <code><a href="#hcl">hcl</a></code>, respectively.<br>
-Since <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.0.0, a <code><a href="base.html#missing">missing</a></code>, i.e., not explicitly specified
+Since <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.0.0, a <code><a href="https://r-universe.dev/manuals/base.html#missing">missing</a></code>, i.e., not explicitly specified
 <code>alpha</code> is equivalent to <code>alpha = NULL</code>, which does <em>not</em>
 add opacity codes (<code>"FF"</code>) to the individual color hex codes.</p>
 </td>
@@ -5532,7 +5532,7 @@ but the device may still be queried (e.g., for size of text).
 as <code>"Rplot%03d.pdf"</code> (the default in that case).
 (See <code><a href="#postscript">postscript</a></code> for further details.)
 </p>
-<p>Tilde expansion (see <code><a href="base.html#path.expand">path.expand</a></code>) is done. An input with
+<p>Tilde expansion (see <code><a href="https://r-universe.dev/manuals/base.html#path.expand">path.expand</a></code>) is done. An input with
 a marked encoding is converted to the native encoding or an error is
 given.
 </p>
@@ -5672,7 +5672,7 @@ setting text and calculating string widths?  Defaults to <code>TRUE</code>.</p>
 <td><code>fillOddEven</code></td>
 <td>
 <p>logical controlling the polygon fill mode:  see
-<code><a href="graphics.html#polygon">polygon</a></code> for details.  Defaults to <code>FALSE</code>.</p>
+<code><a href="https://r-universe.dev/manuals/graphics.html#polygon">polygon</a></code> for details.  Defaults to <code>FALSE</code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -5693,7 +5693,7 @@ arguments section.
 plot any graphics requested are sent to that file.
 </p>
 <p>The <code>file</code> argument is interpreted as a C integer format as used
-by <code><a href="base.html#sprintf">sprintf</a></code>, with integer argument the page number.
+by <code><a href="https://r-universe.dev/manuals/base.html#sprintf">sprintf</a></code>, with integer argument the page number.
 The default gives files ‘<span class="file">Rplot001.pdf</span>’, ..., ‘<span class="file">Rplot999.pdf</span>’,
 ‘<span class="file">Rplot1000.pdf</span>’, ....
 </p>
@@ -6054,7 +6054,7 @@ for historical interest only.
 <td><code>file</code></td>
 <td>
 <p>the file path where output will appear.
-Tilde expansion (see <code><a href="base.html#path.expand">path.expand</a></code>) is done. An input with
+Tilde expansion (see <code><a href="https://r-universe.dev/manuals/base.html#path.expand">path.expand</a></code>) is done. An input with
 a marked encoding is converted to the native encoding or an error is given.
 </p>
 </td>
@@ -6213,8 +6213,8 @@ unlink<span class="token punctuation">(</span><span class="token string">"Rplots
 <h3>Description</h3>
 
 <p>If the <code>text</code> argument to one of the text-drawing functions
-(<code><a href="graphics.html#text">text</a></code>, <code><a href="graphics.html#mtext">mtext</a></code>, <code><a href="graphics.html#axis">axis</a></code>,
-<code><a href="graphics.html#legend">legend</a></code>) in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> is an expression, the argument is
+(<code><a href="https://r-universe.dev/manuals/graphics.html#text">text</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#mtext">mtext</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#axis">axis</a></code>,
+<code><a href="https://r-universe.dev/manuals/graphics.html#legend">legend</a></code>) in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> is an expression, the argument is
 interpreted as a mathematical expression and the output will be
 formatted according to TeX-like rules.  Expressions can also be used
 for titles, subtitles and x- and y-axis labels (but not for axis
@@ -6756,7 +6756,7 @@ case mu can be obtained either by the special symbol <code>mu</code> or by
 special symbol name, for example, the universal, or forall, symbol is
 <code>symbol("\042")</code>.  To see what symbols are available in this way
 use <code>TestChars(font=5)</code> as given in the examples for
-<code><a href="graphics.html#points">points</a></code>: some are only available on some devices.
+<code><a href="https://r-universe.dev/manuals/graphics.html#points">points</a></code>: some are only available on some devices.
 </p>
 <p>Note to TeX users: TeX's ‘<span class="samp">⁠\Upsilon⁠</span>’ is <code>Upsilon1</code>, TeX's
 ‘<span class="samp">⁠\varepsilon⁠</span>’ is close to <code>epsilon</code>, and there is no
@@ -6770,8 +6770,8 @@ allowed as synonyms for <code>theta1</code>, <code>phi1</code> and <code>sigma1<
 strings in plotmath, unlike normal plotting.
 </p>
 <p>The fonts used are taken from the current font family, and so can be
-set by <code><a href="graphics.html#par">par</a>(family=)</code> in base graphics, and
-<code><a href="grid.html#gpar">gpar</a>(fontfamily=)</code> in package <span class="pkg">grid</span>.
+set by <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a>(family=)</code> in base graphics, and
+<code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a>(fontfamily=)</code> in package <span class="pkg">grid</span>.
 </p>
 <p>Note that <code>bold</code>, <code>italic</code> and <code>bolditalic</code> do not
 apply to symbols, and hence not to the Greek <em>symbols</em> such as
@@ -6786,7 +6786,7 @@ apply to numeric constants.
 available as part of the standard text font, and all of the symbols in
 the Adobe Symbol encoding are in principle available <em>via</em>
 changing the font face or (see ‘Details’) plotmath: see the
-examples section of <code><a href="graphics.html#points">points</a></code> for a function to display
+examples section of <code><a href="https://r-universe.dev/manuals/graphics.html#points">points</a></code> for a function to display
 them.  (‘In principle’ because some of the glyphs are missing
 from some implementations of the symbol font.)  Unfortunately,
 <code><a href="#postscript">postscript</a></code> and <code><a href="#pdf">pdf</a></code> have support for little
@@ -6813,7 +6813,7 @@ the languages for which the current encoding was intended.
 <dd>
 <p>Any Unicode character can be entered into a text string <em>via</em> a
 ‘<span class="samp">⁠\uxxxx⁠</span>’ escape, or used by number in a call to
-<code><a href="graphics.html#points">points</a></code>.  The <code><a href="#windows">windows</a></code> family of devices can
+<code><a href="https://r-universe.dev/manuals/graphics.html#points">points</a></code>.  The <code><a href="#windows">windows</a></code> family of devices can
 display such characters if they are available in the font in use.
 This can often be used to display Greek <em>letters</em> in bold or italic.
 </p>
@@ -6843,12 +6843,12 @@ the symbol codes can be found in decimal, octal and hex at
 <h3>See Also</h3>
 
 <p><code>demo(plotmath)</code>,
-<code><a href="graphics.html#axis">axis</a></code>,
-<code><a href="graphics.html#mtext">mtext</a></code>,
-<code><a href="graphics.html#text">text</a></code>,
-<code><a href="graphics.html#title">title</a></code>,
-<code><a href="base.html#substitute">substitute</a></code>
-<code><a href="base.html#substitute">quote</a></code>, <code><a href="base.html#bquote">bquote</a></code>
+<code><a href="https://r-universe.dev/manuals/graphics.html#axis">axis</a></code>,
+<code><a href="https://r-universe.dev/manuals/graphics.html#mtext">mtext</a></code>,
+<code><a href="https://r-universe.dev/manuals/graphics.html#text">text</a></code>,
+<code><a href="https://r-universe.dev/manuals/graphics.html#title">title</a></code>,
+<code><a href="https://r-universe.dev/manuals/base.html#substitute">substitute</a></code>
+<code><a href="https://r-universe.dev/manuals/base.html#substitute">quote</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#bquote">bquote</a></code>
 </p>
 
 
@@ -7052,7 +7052,7 @@ argument can be supplied.  See <code><a href="#x11">X11.options</a></code>.
 (some macOS builds) or <code>"cairo"</code>.  The latter will only be
 available if the system was compiled with support for cairo –
 otherwise <code>"Xlib"</code> will be used.  The default is set by
-<code><a href="base.html#options">getOption</a>("bitmapType")</code> – the ‘out of the box’
+<code><a href="https://r-universe.dev/manuals/base.html#options">getOption</a>("bitmapType")</code> – the ‘out of the box’
 default is <code>"quartz"</code> or <code>"cairo"</code> where available,
 otherwise <code>"Xlib"</code>.</p>
 </td>
@@ -7106,7 +7106,7 @@ them on a system where they are not supported.  For <code>type =
 the owner of the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> process.  <code>type = "cairo"</code> requires cairo 1.2
 or later.  <code>type = "quartz"</code> uses the <code><a href="#quartz">quartz</a></code> device
 and so is only available where that is (on some macOS builds: see
-<code><a href="base.html#capabilities">capabilities</a>("aqua")</code>).
+<code><a href="https://r-universe.dev/manuals/base.html#capabilities">capabilities</a>("aqua")</code>).
 </p>
 <p>By default no resolution is recorded in the file, except for BMP.
 Viewers will often assume a nominal resolution of 72 ppi when none is
@@ -7261,7 +7261,7 @@ See also <a href="https://en.wikipedia.org/wiki/TIFF" target="_blank">https://en
 
 <p><code><a href="#Devices">Devices</a></code>, <code><a href="#dev2">dev.print</a></code>
 </p>
-<p><code><a href="base.html#capabilities">capabilities</a></code> to see if these devices are
+<p><code><a href="https://r-universe.dev/manuals/base.html#capabilities">capabilities</a></code> to see if these devices are
 supported by this build of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, and if <code>type = "cairo"</code> is supported.
 </p>
 <p><code><a href="#dev2bitmap">bitmap</a></code> provides an alternative way to generate plots in many
@@ -7322,10 +7322,10 @@ command given by <code>cmd</code>.
 as <code>"Rplot%03d.ps"</code> (the default in that case).  The string
 should not otherwise contain a <code>%</code>: if it is really necessary,
 use <code>%%</code> in the string for <code>%</code> in the file name.
-A single integer format matching the <a href="base.html#regex">regular expression</a>
+A single integer format matching the <a href="https://r-universe.dev/manuals/base.html#regex">regular expression</a>
 <code>"%[#0 +=-]*[0-9.]*[diouxX]"</code> is allowed.
 </p>
-<p>Tilde expansion (see <code><a href="base.html#path.expand">path.expand</a></code>) is done. An input with
+<p>Tilde expansion (see <code><a href="https://r-universe.dev/manuals/base.html#path.expand">path.expand</a></code>) is done. An input with
 a marked encoding is converted to the native encoding or an error is
 given.
 </p>
@@ -7495,7 +7495,7 @@ setting text and calculating string widths?  Defaults to <code>TRUE</code>.</p>
 <td><code>fillOddEven</code></td>
 <td>
 <p>logical controlling the polygon fill mode:  see
-<code><a href="graphics.html#polygon">polygon</a></code> for details.  Default <code>FALSE</code>.</p>
+<code><a href="https://r-universe.dev/manuals/graphics.html#polygon">polygon</a></code> for details.  Default <code>FALSE</code>.</p>
 </td>
 </tr>
 </table>
@@ -7511,7 +7511,7 @@ file.  This file can then be printed on a suitable device to obtain
 hard copy.
 </p>
 <p>The <code>file</code> argument is interpreted as a C integer format as used
-by <code><a href="base.html#sprintf">sprintf</a></code>, with integer argument the page number.
+by <code><a href="https://r-universe.dev/manuals/base.html#sprintf">sprintf</a></code>, with integer argument the page number.
 The default gives files ‘<span class="file">Rplot001.ps</span>’, ..., ‘<span class="file">Rplot999.ps</span>’,
 ‘<span class="file">Rplot1000.ps</span>’, ....
 </p>
@@ -7522,7 +7522,7 @@ in this way you will probably want to use <code><a href="#ps.options">setEPS</a>
 set the defaults as <code>horizontal = FALSE, onefile = FALSE, paper =
     "special"</code>.  Note that the bounding box is for the <em>device</em>
 region: if you find the white space around the plot region excessive,
-reduce the margins of the figure region via <code><a href="graphics.html#par">par</a>(mar = )</code>.
+reduce the margins of the figure region via <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a>(mar = )</code>.
 </p>
 <p>Most of the PostScript prologue used is taken from the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> character
 vector <code>.ps.prolog</code>.  This is marked in the output, and can be
@@ -7555,12 +7555,12 @@ the case when printing onto coloured paper, though.
 
 <p>Font families are collections of fonts covering the five font faces,
 (conventionally plain, bold, italic, bold-italic and symbol) selected
-by the graphics parameter <code><a href="graphics.html#par">par</a>(font = )</code> or the grid
-parameter <code><a href="grid.html#gpar">gpar</a>(fontface = )</code>.  Font families can be
+by the graphics parameter <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a>(font = )</code> or the grid
+parameter <code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a>(fontface = )</code>.  Font families can be
 specified either as an initial/default font family for the device
 via the <code>family</code> argument or after the device is opened by
-the graphics parameter <code><a href="graphics.html#par">par</a>(family = )</code> or the grid
-parameter <code><a href="grid.html#gpar">gpar</a>(fontfamily = )</code>.  Families which will be
+the graphics parameter <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a>(family = )</code> or the grid
+parameter <code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a>(fontfamily = )</code>.  Families which will be
 used in addition to the initial family must be specified in the
 <code>fonts</code> argument when the device is opened.
 </p>
@@ -7608,7 +7608,7 @@ family: this may look uglier than <code>useKerning = FALSE</code>.
 
 <p>Encodings describe which glyphs are used to display the character codes
 (in the range 0–255).  Most commonly <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> uses ISOLatin1 encoding, and
-the examples for <code><a href="graphics.html#text">text</a></code> are in that encoding.  However,
+the examples for <code><a href="https://r-universe.dev/manuals/graphics.html#text">text</a></code> are in that encoding.  However,
 the encoding used on machines running <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> may well be different, and by
 using the <code>encoding</code> argument the glyphs can be matched to
 encoding in use.  This suffices for European and Cyrillic languages,
@@ -7921,8 +7921,8 @@ they add (or change) mappings.
 <p>A PostScript or PDF device is created with a default font family (see the
 documentation for <code><a href="#postscript">postscript</a></code>), but it is also possible
 to specify a font family when drawing to the device (for example, see
-the documentation for <code>"family"</code> in <code><a href="graphics.html#par">par</a></code> and for
-<code>"fontfamily"</code> in <code><a href="grid.html#gpar">gpar</a></code> in the <span class="pkg">grid</span> package).
+the documentation for <code>"family"</code> in <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code> and for
+<code>"fontfamily"</code> in <code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a></code> in the <span class="pkg">grid</span> package).
 </p>
 <p>The font family sent to the device is a simple string name, which must be
 mapped to a set of PostScript fonts.  Separate lists of mappings for
@@ -8265,7 +8265,7 @@ ignored.</p>
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#pretty">pretty</a></code> for the default method.
+<p><code><a href="https://r-universe.dev/manuals/base.html#pretty">pretty</a></code> for the default method.
 </p>
 
 
@@ -8542,7 +8542,7 @@ e.g. <code>Rplot%03d.png</code>.  (The result must be less than
 <code><a href="#postscript">postscript</a></code> for further details.)  If a <code>file</code>
 argument is not supplied, the default is <code>Rplots.pdf</code> or
 <code>Rplot%03d.<var>type</var></code>.  Tilde expansion
-(see <code><a href="base.html#path.expand">path.expand</a></code>) is done.
+(see <code><a href="https://r-universe.dev/manuals/base.html#path.expand">path.expand</a></code>) is done.
 </p>
 <p>If a device-independent <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> graphics font family is specified (e.g.,
 via <code>par(family =)</code> in the graphics package), the Quartz device
@@ -8567,7 +8567,7 @@ character string with an optional integer printf-style format that
 will be substituted by the device number.  It is also optionally used
 (without a format) to give a title to a PDF file.
 </p>
-<p>Calling <code>quartz()</code> sets <code><a href="base.html#dev">.Device</a></code> to <code>"quartz"</code>
+<p>Calling <code>quartz()</code> sets <code><a href="https://r-universe.dev/manuals/base.html#dev">.Device</a></code> to <code>"quartz"</code>
 for on-screen devices and to <code>"quartz_off_screen"</code> otherwise.
 </p>
 <p>The font family chosen needs to cover the characters to be used:
@@ -8694,7 +8694,7 @@ or new (named) mappings to define.</p>
 <p>A quartz device is created with a default font (see
 the documentation for <code>quartz</code>), but it is also possible
 to specify a font family when drawing to the device
-(for example, see the documentation for <code><a href="grid.html#gpar">gpar</a></code> in the
+(for example, see the documentation for <code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a></code> in the
 <span class="pkg">grid</span> package).
 </p>
 <p>The font family sent to the device is a simple string name, which must be
@@ -8758,7 +8758,7 @@ Intended <em>only</em> for expert use.
 <tr style="vertical-align: top;">
 <td><code>expr</code></td>
 <td>
-<p>object of mode <code><a href="base.html#expression">expression</a></code> or <code>call</code> or
+<p>object of mode <code><a href="https://r-universe.dev/manuals/base.html#expression">expression</a></code> or <code>call</code> or
 an unevaluated expression.</p>
 </td>
 </tr>
@@ -8772,7 +8772,7 @@ be evaluated.</p>
 <tr style="vertical-align: top;">
 <td><code>env</code></td>
 <td>
-<p>an <code><a href="base.html#environment">environment</a></code> specifying
+<p>an <code><a href="https://r-universe.dev/manuals/base.html#environment">environment</a></code> specifying
 where <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> looks for objects not found in <code>list</code>.</p>
 </td>
 </tr>
@@ -8812,7 +8812,7 @@ to performing assignments in the global environment.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#eval">eval</a></code> </p>
+<p><code><a href="https://r-universe.dev/manuals/base.html#eval">eval</a></code> </p>
 
 
 <h3>Examples</h3>
@@ -8886,8 +8886,8 @@ graphics device.  The returned object is of class
 method for that class.
 </p>
 <p>The returned object is stored as a pairlist, but the usual methods for
-examining <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects such as <code><a href="base.html#deparse">deparse</a></code> and
-<code><a href="utils.html#str">str</a></code> are liable to mislead.
+examining <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects such as <code><a href="https://r-universe.dev/manuals/base.html#deparse">deparse</a></code> and
+<code><a href="https://r-universe.dev/manuals/utils.html#str">str</a></code> are liable to mislead.
 </p>
 
 
@@ -8907,7 +8907,7 @@ storage format for <span style="font-family: Courier New, Courier; color: #66666
 </p>
 <p>As of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.3.0, it is possible (again)
 to replay a plot from another <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session using, for example,
-<code><a href="base.html#readRDS">saveRDS</a></code> and <code><a href="base.html#readRDS">readRDS</a></code>.
+<code><a href="https://r-universe.dev/manuals/base.html#readRDS">saveRDS</a></code> and <code><a href="https://r-universe.dev/manuals/base.html#readRDS">readRDS</a></code>.
 It is even possible to replay a plot from another <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> version,
 however, this will produce warnings, may produce errors,
 or something worse.
@@ -8925,8 +8925,8 @@ drawn with the package <a href="https://CRAN.R-project.org/package=ggplot2" targ
 the relevant package(s) before replaying the recorded plot.
 The <code>load</code> and <code>attach</code> arguments to <code>recordPlot</code>
 can be used to automate this - any packages named in <code>load</code>
-will be reloaded, via <code><a href="base.html#ns-load">loadNamespace</a></code>, and any packages
-named in <code>attach</code> will be reattached, via <code><a href="base.html#library">library</a></code>,
+will be reloaded, via <code><a href="https://r-universe.dev/manuals/base.html#ns-load">loadNamespace</a></code>, and any packages
+named in <code>attach</code> will be reattached, via <code><a href="https://r-universe.dev/manuals/base.html#library">library</a></code>,
 as long as <code>reloadPkgs</code> is <code>TRUE</code> in the call to
 <code>replayPlot</code>.  This is only relevant when attempting to
 replay in one R session a plot that was recorded in a different R session.
@@ -8960,7 +8960,7 @@ standard sRGB colorspace (IEC standard 61966).
 colors.
 </p>
 <p>The values returned by these functions can be used with a
-<code>col=</code> specification in graphics functions or in <code><a href="graphics.html#par">par</a></code>.
+<code>col=</code> specification in graphics functions or in <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>.
 </p>
 
 
@@ -9082,14 +9082,14 @@ into HSV space (hue/saturation/value).
 <tr style="vertical-align: top;">
 <td><code>g</code></td>
 <td>
-<p>vector of ‘green’ values, or <code><a href="base.html#NULL">NULL</a></code> when
+<p>vector of ‘green’ values, or <code><a href="https://r-universe.dev/manuals/base.html#NULL">NULL</a></code> when
 <code>r</code> is a matrix.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>b</code></td>
 <td>
-<p>vector of ‘blue’ values, or <code><a href="base.html#NULL">NULL</a></code> when
+<p>vector of ‘blue’ values, or <code><a href="https://r-universe.dev/manuals/base.html#NULL">NULL</a></code> when
 <code>r</code> is a matrix.</p>
 </td>
 </tr>
@@ -9284,7 +9284,7 @@ background colour is the canvas colour.
 
 <p>Projection of 3-dimensional to 2-dimensional points using a 4x4
 viewing transformation matrix.  Mainly for adding to
-perspective plots such as <code><a href="graphics.html#persp">persp</a></code>.
+perspective plots such as <code><a href="https://r-universe.dev/manuals/graphics.html#persp">persp</a></code>.
 </p>
 
 
@@ -9309,7 +9309,7 @@ perspective plots such as <code><a href="graphics.html#persp">persp</a></code>.
 <p>a <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>×</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">4 \times 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span></code> <em>viewing transformation matrix</em>,
 suitable for projecting the 3D coordinates <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo separator="true">,</mo><mi>z</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x,y,z)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span></code> into the 2D
 plane using homogeneous 4D coordinates <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo separator="true">,</mo><mi>z</mi><mo separator="true">,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x,y,z,t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></code>;
-such matrices are returned by <code><a href="graphics.html#persp">persp</a>()</code>.</p>
+such matrices are returned by <code><a href="https://r-universe.dev/manuals/graphics.html#persp">persp</a>()</code>.</p>
 </td>
 </tr>
 </table>
@@ -9325,7 +9325,7 @@ such matrices are returned by <code><a href="graphics.html#persp">persp</a>()</c
 </tr></table>
 <h3>See Also</h3>
 
- <p><code><a href="graphics.html#persp">persp</a></code> </p>
+ <p><code><a href="https://r-universe.dev/manuals/graphics.html#persp">persp</a></code> </p>
 
 
 <h3>Examples</h3>
@@ -9411,7 +9411,7 @@ provide this.</p>
 
 <p>For <code>Type1Fonts</code>, if four ‘<span class="file">.afm</span>’ files are supplied the
 fifth is taken to be <code>"Symbol.afm"</code>.  Relative paths are taken
-relative to the directory ‘<span class="file"><var><a href="base.html#Rhome">R_HOME</a></var>/library/grDevices/afm</span>’.
+relative to the directory ‘<span class="file"><var><a href="https://r-universe.dev/manuals/base.html#Rhome">R_HOME</a></var>/library/grDevices/afm</span>’.
 The fifth (symbol) font must be in <code>AdobeSym</code> encoding.
 However, the glyphs in the first four fonts are referenced by name
 and any encoding given within the ‘<span class="file">.afm</span>’ files is not used.
@@ -9581,7 +9581,7 @@ By default 1 (no additional gamma correction).</p>
 <p>integer.  Position of the top left of the window, in
 pixels.  Negative values are taken from the opposite edge of the
 monitor.  Missing values (the default) mean take the default from the
-‘<span class="file"><a href="utils.html#Rconsole">Rconsole</a></span>’ file, which in turn defaults to
+‘<span class="file"><a href="https://r-universe.dev/manuals/utils.html#Rconsole">Rconsole</a></span>’ file, which in turn defaults to
 <code>xpos = -25, ypos = 0</code>: this puts the right edge of the window 25
 pixels from the right edge of the monitor.</p>
 </td>
@@ -9609,7 +9609,7 @@ Windows metafile, usually given extension ‘<span class="file">.emf</span>’ o
 ‘<span class="file">.wmf</span>’.  Up to 511 characters are allowed. The page number is
 substituted if an integer format is included in the character
 string (see <code><a href="#postscript">postscript</a></code> for further details) and
-tilde-expansion (see <code><a href="base.html#path.expand">path.expand</a></code>) is performed. (The
+tilde-expansion (see <code><a href="https://r-universe.dev/manuals/base.html#path.expand">path.expand</a></code>) is performed. (The
 result must be less than 600 characters long.)  The default,
 <code>""</code>, means the clipboard.</p>
 </td>
@@ -9640,7 +9640,7 @@ the console.  Default <code>TRUE</code>.</p>
 <td><code>fillOddEven</code></td>
 <td>
 <p>logical controlling the polygon fill mode:  see
-<code><a href="graphics.html#polygon">polygon</a></code> for details.  Default <code>TRUE</code>.</p>
+<code><a href="https://r-universe.dev/manuals/graphics.html#polygon">polygon</a></code> for details.  Default <code>TRUE</code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -9690,8 +9690,8 @@ called for, but that background colour can be transparent (and is by
 default).  One difference between setting the canvas colour and the
 background colour is that when a plot is saved the background
 colour is copied but the canvas colour is not.  The argument <code>bg</code>
-sets the initial value of <code><a href="graphics.html#par">par</a>("bg")</code> in base graphics and
-<code><a href="grid.html#gpar">gpar</a>("fill")</code> in grid graphics
+sets the initial value of <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a>("bg")</code> in base graphics and
+<code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a>("fill")</code> in grid graphics
 </p>
 <p>Recorded plot histories are of class <code>"SavedPlots"</code>.  They have a
 <code>print</code> method, and a subset method.  As the individual plots are
@@ -9754,7 +9754,7 @@ the initially displayed portion is selected within these constraints,
 separately for width and height.  In MDI mode,
 the limit is 85% of the MDI client region.
 </p>
-<p>Using <code><a href="graphics.html#strwidth">strwidth</a></code> or <code><a href="graphics.html#strwidth">strheight</a></code> after a window
+<p>Using <code><a href="https://r-universe.dev/manuals/graphics.html#strwidth">strwidth</a></code> or <code><a href="https://r-universe.dev/manuals/graphics.html#strwidth">strheight</a></code> after a window
 has been rescaled (when using <code>"fit"</code>) gives dimensions in the
 original units, but only approximately as they are derived from the
 metrics of the rescaled fonts (which are in integer sizes)
@@ -9769,7 +9769,7 @@ application background colour.  Graphics parameters such as
 <h3>Fonts</h3>
 
 <p>The fonts used for text drawn in a Windows device may be controlled in
-two ways.  The file <code>R_HOME\etc\<a href="utils.html#Rconsole">Rdevga</a></code> can be used to
+two ways.  The file <code>R_HOME\etc\<a href="https://r-universe.dev/manuals/utils.html#Rconsole">Rdevga</a></code> can be used to
 specify mappings for <code>par(font =)</code> (or the <span class="pkg">grid</span> equivalent).
 Alternatively, a font family can be specified by a non-empty
 <code>family</code> argument (or by e.g. <code>par(family =)</code> in the graphics
@@ -9985,8 +9985,8 @@ or new (named) mappings to define.</p>
 <p>A windows device is created with a default font (see
 the documentation for <code>windows</code>), but it is also possible
 to specify a font family when drawing to the device (for example, see
-the documentation for <code>"family"</code> in <code><a href="graphics.html#par">par</a></code> and for
-<code>"fontfamily"</code> in <code><a href="grid.html#gpar">gpar</a></code> in the <span class="pkg">grid</span> package).
+the documentation for <code>"family"</code> in <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code> and for
+<code>"fontfamily"</code> in <code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a></code> in the <span class="pkg">grid</span> package).
 </p>
 <p>The font family sent to the device is a simple string name, which must be
 mapped to something more specific to windows fonts.  A list of
@@ -10252,7 +10252,7 @@ in non-UTF-8 locales).  The output should be locale-independent.
 buffering, and supports <code><a href="#dev.flush">dev.hold</a></code> and <code>dev.flush</code>.
 <code>type = "dbcairo"</code> buffers output and updates the screen about
 every 100ms (by default).  The refresh interval can be set (in units
-of seconds) by e.g. <code><a href="base.html#options">options</a>(X11updates = 0.25)</code>: the
+of seconds) by e.g. <code><a href="https://r-universe.dev/manuals/base.html#options">options</a>(X11updates = 0.25)</code>: the
 value is consulted when a device is opened.  Updates are only looked
 for every 50ms (at most), and during heavy graphics computations only
 every 500ms.
@@ -10321,8 +10321,8 @@ locale (e.g., Fedora Core 3 lacked one for <code>ru_RU.utf8</code>).
 
 <p>The cairographics-based devices work directly with font family names
 such as <code>"Helvetica"</code> which can be selected initially by the
-<code>family</code> argument and subsequently by <code><a href="graphics.html#par">par</a></code> or
-<code><a href="grid.html#gpar">gpar</a></code>.  There are mappings for the three
+<code>family</code> argument and subsequently by <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code> or
+<code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a></code>.  There are mappings for the three
 device-independent font families, <code>"sans"</code> for a sans-serif font
 (to <code>"Helvetica"</code>), <code>"serif"</code> for a serif font (to
 <code>"Times"</code>) and <code>"mono"</code> for a monospaced font (to
@@ -10456,7 +10456,7 @@ visual is encountered.
 <p>Anti-aliasing is only supported for cairographics-based devices, and
 applies to both graphics and fonts.  It is generally preferable for
 lines and text, but can lead to undesirable effects for fills,
-e.g. for <code><a href="graphics.html#image">image</a></code> plots, and so is never used for fills.
+e.g. for <code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code> plots, and so is never used for fills.
 </p>
 <p><code>antialias = "default"</code> is in principle platform-dependent, but
 seems most often equivalent to <code>antialias = "gray"</code>.
@@ -10502,7 +10502,7 @@ minimum one.
 
 <p>Support for all the Unix devices is optional, so in packages
 <code>X11()</code>  should be used conditionally after checking
-<code><a href="base.html#capabilities">capabilities</a>("X11")</code>.
+<code><a href="https://r-universe.dev/manuals/base.html#capabilities">capabilities</a>("X11")</code>.
 </p>
 
 
@@ -10567,8 +10567,8 @@ mechanism to select fonts.
 <p>Such a  device is created with a default font (see
 the documentation for <code><a href="#x11">X11</a></code>), but it is also possible
 to specify a font family when drawing to the device (for example, see
-the documentation for <code>"family"</code> in <code><a href="graphics.html#par">par</a></code> and for
-<code>"fontfamily"</code> in <code><a href="grid.html#gpar">gpar</a></code> in the <span class="pkg">grid</span> package).
+the documentation for <code>"family"</code> in <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code> and for
+<code>"fontfamily"</code> in <code><a href="https://r-universe.dev/manuals/grid.html#gpar">gpar</a></code> in the <span class="pkg">grid</span> package).
 </p>
 <p>The font family sent to the device is a simple string name, which must be
 mapped to something more specific to X11 fonts.  A list of
@@ -10591,7 +10591,7 @@ font).
 
 <h3>Note</h3>
 
-<p>Available only when <code><a href="base.html#capabilities">capabilities</a>()[["X11"]]</code> is true.
+<p>Available only when <code><a href="https://r-universe.dev/manuals/base.html#capabilities">capabilities</a>()[["X11"]]</code> is true.
 </p>
 
 
@@ -10664,7 +10664,7 @@ file number containing the page number.</p>
 <td>
 <p>The encoding in which to write text strings.  The
 default is not to re-encode.  This can be any encoding recognized by
-<code><a href="base.html#iconv">iconv</a></code>: in a Western UTF-8 locale you probably want to
+<code><a href="https://r-universe.dev/manuals/base.html#iconv">iconv</a></code>: in a Western UTF-8 locale you probably want to
 select an 8-bit encoding such as <code>latin1</code>, and in an East Asian
 locale an <code>EUC</code> encoding.  If re-encoding fails, the text
 strings will be written in the current encoding with a warning.</p>
@@ -10756,7 +10756,7 @@ format does not say how to separate or view them.  So
 <code>onefile = FALSE</code> is the default.
 </p>
 <p>The <code>file</code> argument is interpreted as a C integer format as used
-by <code><a href="base.html#sprintf">sprintf</a></code>, with integer argument the page number.
+by <code><a href="https://r-universe.dev/manuals/base.html#sprintf">sprintf</a></code>, with integer argument the page number.
 The default gives files ‘<span class="file">Rplot001.fig</span>’, ..., ‘<span class="file">Rplot999.fig</span>’,
 ‘<span class="file">Rplot1000.fig</span>’, ....
 </p>
@@ -10868,14 +10868,14 @@ Alternatively, a single argument <code>x</code> can be provided.</p>
 <td><code>log</code></td>
 <td>
 <p>character, <code>"x"</code>, <code>"y"</code> or both, as for
-<code><a href="graphics.html#plot.default">plot</a></code>.  Sets negative values to <code><a href="base.html#NA">NA</a></code> and
+<code><a href="https://r-universe.dev/manuals/graphics.html#plot.default">plot</a></code>.  Sets negative values to <code><a href="https://r-universe.dev/manuals/base.html#NA">NA</a></code> and
 gives a warning.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>recycle</code></td>
 <td>
-<p>logical; if <code>TRUE</code>, recycle (<code><a href="base.html#rep">rep</a></code>)
+<p>logical; if <code>TRUE</code>, recycle (<code><a href="https://r-universe.dev/manuals/base.html#rep">rep</a></code>)
 the shorter of <code>x</code> or <code>y</code> if their lengths differ.</p>
 </td>
 </tr>
@@ -10910,9 +10910,9 @@ used to define plotting coordinates.</p>
 <dt>time series:</dt>
 <dd>
 <p>the x values are taken to be
-<code><a href="stats.html#time">time</a>(x)</code> and the y values to be the time series.</p>
+<code><a href="https://r-universe.dev/manuals/stats.html#time">time</a>(x)</code> and the y values to be the time series.</p>
 </dd>
-<dt>matrix or <code><a href="base.html#data.frame">data.frame</a></code> with two or more
+<dt>matrix or <code><a href="https://r-universe.dev/manuals/base.html#data.frame">data.frame</a></code> with two or more
 columns:</dt>
 <dd>
 <p>the first is assumed to contain the x values and the
@@ -10965,8 +10965,8 @@ component is set to <code>"Index"</code> (if <code>setLab</code> is true as by d
 </table>
 <h3>See Also</h3>
 
-<p><code><a href="graphics.html#plot.default">plot.default</a></code>, <code><a href="graphics.html#lines">lines</a></code>, <code><a href="graphics.html#points">points</a></code>
-and <code><a href="stats.html#lowess">lowess</a></code> are examples of functions which use this mechanism.
+<p><code><a href="https://r-universe.dev/manuals/graphics.html#plot.default">plot.default</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#lines">lines</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#points">points</a></code>
+and <code><a href="https://r-universe.dev/manuals/stats.html#lowess">lowess</a></code> are examples of functions which use this mechanism.
 </p>
 
 
@@ -11017,7 +11017,7 @@ special kind of 2D binning.
 <td>
 <p>integer specifying the significant digits to be used for
 determining equality of coordinates.  These are compared after
-rounding them via <code><a href="base.html#Round">signif</a>(*, digits)</code>.</p>
+rounding them via <code><a href="https://r-universe.dev/manuals/base.html#Round">signif</a>(*, digits)</code>.</p>
 </td>
 </tr>
 </table>
@@ -11048,8 +11048,8 @@ rounding them via <code><a href="base.html#Round">signif</a>(*, digits)</code>.<
 </table>
 <h3>See Also</h3>
 
-<p><code><a href="graphics.html#sunflowerplot">sunflowerplot</a></code> which typically uses
-<code>xyTable()</code>; <code><a href="base.html#Round">signif</a></code>.
+<p><code><a href="https://r-universe.dev/manuals/graphics.html#sunflowerplot">sunflowerplot</a></code> which typically uses
+<code>xyTable()</code>; <code><a href="https://r-universe.dev/manuals/base.html#Round">signif</a></code>.
 </p>
 
 
@@ -11099,7 +11099,7 @@ plotting.
 variables;
 if the argument is a list containing components <code>x</code>,
 <code>y</code> and <code>z</code>, these are assumed to define plotting coordinates;
-if the argument is a matrix or <code><a href="base.html#data.frame">data.frame</a></code> with three
+if the argument is a matrix or <code><a href="https://r-universe.dev/manuals/base.html#data.frame">data.frame</a></code> with three
 or more columns, the first is
 assumed to contain the x values, the 2nd the y ones, and the 3rd the
 z ones – independently of any column names that <code>x</code> may have.
@@ -11121,13 +11121,13 @@ and the values plotted against their indices.
 <td><code>log</code></td>
 <td>
 <p>character, <code>"x"</code>, <code>"y"</code>, <code>"z"</code> or combinations.
-Sets negative values to <code><a href="base.html#NA">NA</a></code> and gives a warning.</p>
+Sets negative values to <code><a href="https://r-universe.dev/manuals/base.html#NA">NA</a></code> and gives a warning.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>recycle</code></td>
 <td>
-<p>logical; if <code>TRUE</code>, recycle (<code><a href="base.html#rep">rep</a></code>) the
+<p>logical; if <code>TRUE</code>, recycle (<code><a href="https://r-universe.dev/manuals/base.html#rep">rep</a></code>) the
 shorter ones of <code>x</code>, <code>y</code> or <code>z</code> if their lengths differ.</p>
 </td>
 </tr>
@@ -11148,7 +11148,7 @@ otherwise, the arguments <code>xlab</code> and <code>ylab</code> are used.</p>
 <tr style="vertical-align: top;">
 <td><code>x</code></td>
 <td>
-<p>numeric (i.e., <code><a href="base.html#double">double</a></code>) vector of abscissa values.</p>
+<p>numeric (i.e., <code><a href="https://r-universe.dev/manuals/base.html#double">double</a></code>) vector of abscissa values.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">

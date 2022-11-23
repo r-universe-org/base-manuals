@@ -233,7 +233,7 @@ model matrix.</a></li>
 <p> Performs hypothesis tests relating to one or more fitted
 <code>gam</code> objects. For a single fitted <code>gam</code> object, Wald tests of
 the significance of each parametric and smooth term are performed, so interpretation 
-is analogous to <code><a href="stats.html#add1">drop1</a></code> rather than <code>anova.lm</code> (i.e. it's like type III ANOVA, 
+is analogous to <code><a href="https://r-universe.dev/manuals/stats.html#add1">drop1</a></code> rather than <code>anova.lm</code> (i.e. it's like type III ANOVA, 
 rather than a sequential type I ANOVA). Otherwise the fitted models are compared using an analysis of deviance table or GLRT test: this latter approach should not be use to test the significance of terms which can be penalized 
 to zero. Models to be compared should be fitted to the same data using the same smoothing parameter selection method.
 </p>
@@ -326,7 +326,7 @@ penalized using the <code>paraPen</code> argument will not be good.
 <h3>Value</h3>
 
 <p>In the multi-model case <code>anova.gam</code> produces output identical to
-<code><a href="stats.html#anova.glm">anova.glm</a></code>, which it in fact uses.
+<code><a href="https://r-universe.dev/manuals/stats.html#anova.glm">anova.glm</a></code>, which it in fact uses.
 </p>
 <p>In the single model case an object of class <code>anova.gam</code> is produced,
 which is in fact an object returned from <code><a href="#summary.gam">summary.gam</a></code>.
@@ -396,7 +396,7 @@ The degree of smoothness of model terms is estimated as part of
 fitting. In use the function is much like <code><a href="#gam">gam</a></code>, except that the numerical methods
 are designed for datasets containing upwards of several tens of thousands of data (see Wood, Goude and Shaw, 2015). The advantage 
 of <code>bam</code> is much lower memory footprint than <code><a href="#gam">gam</a></code>, but it can also be much faster, 
-for large datasets. <code>bam</code> can also compute on a cluster set up by the <a href="parallel.html#parallel-package">parallel</a> package.
+for large datasets. <code>bam</code> can also compute on a cluster set up by the <a href="https://r-universe.dev/manuals/parallel.html#parallel-package">parallel</a> package.
 </p>
 <p>An alternative fitting approach (Wood et al. 2017, Li and Wood, 2019) is provided by the <code>discrete==TRUE</code> method. In this case a method based on discretization of covariate values and C code level parallelization (controlled by the <code>nthreads</code> argument instead of the <code>cluster</code> argument) is used. This extends both the data set and model size that are practical.
 </p>
@@ -431,7 +431,7 @@ to the right hand side to specify that the linear predictor depends on smooth fu
 <td>
 
 <p>This is a family object specifying the distribution and link to use in
-fitting etc. See <code><a href="stats.html#glm">glm</a></code> and <code><a href="stats.html#family">family</a></code> for more
+fitting etc. See <code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code> and <code><a href="https://r-universe.dev/manuals/stats.html#family">family</a></code> for more
 details. The extended families listed in <code><a href="#family.mgcv">family.mgcv</a></code> can also be used.
 </p>
 </td>
@@ -594,7 +594,7 @@ If <code>discrete</code> is <code>TRUE</code>, a number or a vector of numbers f
 <tr style="vertical-align: top;">
 <td><code>cluster</code></td>
 <td>
-<p><code>bam</code> can compute the computationally dominant QR decomposition in parallel using <a href="parallel.html#clusterApply">parLapply</a>
+<p><code>bam</code> can compute the computationally dominant QR decomposition in parallel using <a href="https://r-universe.dev/manuals/parallel.html#clusterApply">parLapply</a>
 from the <code>parallel</code> package, if it is supplied with a cluster on which to do this (a cluster here can be some cores of a 
 single machine). See details and example code. 
 </p>
@@ -690,7 +690,7 @@ datasets, this is unlikely to matter much.
 <p>Note also that it is possible to spend most of the computational time on basis evaluation, if an expensive basis is used. In practice this means that the default <code>"tp"</code> basis should be avoided: almost any other basis (e.g. <code>"cr"</code> or <code>"ps"</code>) 
 can be used in the 1D case, and tensor product smooths (<code>te</code>) are typically much less costly in the multi-dimensional case. 
 </p>
-<p>If <code>cluster</code> is provided as a cluster set up using <code><a href="parallel.html#makeCluster">makeCluster</a></code> (or <code><a href="parallel.html#makeCluster">makeForkCluster</a></code>) from the <code>parallel</code> package, then the rate limiting QR decomposition of the model matrix is performed in parallel using this cluster. Note that the speed ups are often not that great. On a multi-core machine it is usually best to set the cluster size to the number of physical cores, which is often less than what is reported by <code><a href="parallel.html#detectCores">detectCores</a></code>. Using more than the number of physical cores can result in no speed up at all (or even a slow down). Note that a highly parallel BLAS may negate all advantage from using a cluster of cores. Computing in parallel of course requires more memory than computing in series. See examples.
+<p>If <code>cluster</code> is provided as a cluster set up using <code><a href="https://r-universe.dev/manuals/parallel.html#makeCluster">makeCluster</a></code> (or <code><a href="https://r-universe.dev/manuals/parallel.html#makeCluster">makeForkCluster</a></code>) from the <code>parallel</code> package, then the rate limiting QR decomposition of the model matrix is performed in parallel using this cluster. Note that the speed ups are often not that great. On a multi-core machine it is usually best to set the cluster size to the number of physical cores, which is often less than what is reported by <code><a href="https://r-universe.dev/manuals/parallel.html#detectCores">detectCores</a></code>. Using more than the number of physical cores can result in no speed up at all (or even a slow down). Note that a highly parallel BLAS may negate all advantage from using a cluster of cores. Computing in parallel of course requires more memory than computing in series. See examples.
 </p>
 <p>When <code>discrete=TRUE</code> the covariate data are first discretized. Discretization takes place on a smooth by smooth basis, or in the case of tensor product smooths (or any smooth that can be represented as such, such as random effects), separately for each marginal smooth. The required spline bases are then evaluated at the discrete values, and stored, along with index vectors indicating which original observation they relate to. Fitting is by a version of performance oriented iteration/PQL using REML smoothing parameter selection on each iterative working model (as for the default method). The iteration is based on the derivatives of the REML score, without computing the score itself, allowing the expensive computations to be reduced to one parallel block Cholesky decomposition per iteration (plus two basic operations of equal cost, but easily parallelized). Unlike standard POI/PQL, only one step of the smoothing parameter update for the working model is taken at each step (rather than iterating to the optimal set of smoothing parameters for each working model). At each step a weighted model matrix crossproduct of the model matrix is required - this is efficiently computed from the pre-computed basis functions evaluated at the discretized covariate values. Efficient computation with tensor product terms means that some terms within a tensor product may be re-ordered for maximum efficiency. See Wood et al (2017) and Li and Wood (2019) for full details.
 </p>
@@ -1137,7 +1137,7 @@ plot<span class="token punctuation">(</span>bm<span class="token punctuation">,<
 
 <ol>
 <li>
-<p> The results of running <code><a href="utils.html#sessionInfo">sessionInfo</a></code> in the R session where the problem occurs. This provides platform details, R and package version numbers, etc.
+<p> The results of running <code><a href="https://r-universe.dev/manuals/utils.html#sessionInfo">sessionInfo</a></code> in the R session where the problem occurs. This provides platform details, R and package version numbers, etc.
 </p>
 </li>
 <li>
@@ -1994,7 +1994,7 @@ summary<span class="token punctuation">(</span>mg<span class="token punctuation"
 </p>
 <p>The trick is to generate an artificial Poisson observation for each subject in the risk set at each non-censored event time. The corresponding covariate values for each subject are whatever they are at the event time, while the Poisson response is zero for all subjects except those experiencing the event at that time (this corresponds to Peto's correction for ties). The linear predictor for the model must include an intercept for each event time (the cumulative sum of the exponential of these is the Breslow estimate of the baseline hazard). 
 </p>
-<p>Below is some example code employing this trick for the <code><a href="survival.html#pbcseq">pbcseq</a></code> data from the <code>survival</code> package. It uses <code><a href="#bam">bam</a></code> for fitting with the <code>discrete=TRUE</code> option for efficiency: there is some approximation involved in doing this, and the exact equivalent to what is done in <code><a href="#coxph">cox.ph</a></code> is rather obtained by using <code><a href="#gam">gam</a></code> with <code>method="REML"</code> (taking many times the computational time for the example below). An alternative fits the model as a conditional logistic model using stratified Cox PH with event times as strata (see example). This would be identical in the unpenalized case, but smoothing parameter estimates can differ.
+<p>Below is some example code employing this trick for the <code><a href="https://therneau.r-universe.dev/survival/survival.html#pbcseq">pbcseq</a></code> data from the <code>survival</code> package. It uses <code><a href="#bam">bam</a></code> for fitting with the <code>discrete=TRUE</code> option for efficiency: there is some approximation involved in doing this, and the exact equivalent to what is done in <code><a href="#coxph">cox.ph</a></code> is rather obtained by using <code><a href="#gam">gam</a></code> with <code>method="REML"</code> (taking many times the computational time for the example below). An alternative fits the model as a conditional logistic model using stratified Cox PH with event times as strata (see example). This would be identical in the unpenalized case, but smoothing parameter estimates can differ.
 </p>
 <p>The function <code>tdpois</code> in the example code uses crude piecewise constant interpolation for the covariates, in which the covariate value at an event time is taken to be whatever it was the previous time that it was measured. Obviously more sophisticated interpolation schemes might be preferable. 
 </p>
@@ -2438,7 +2438,7 @@ extract.lme.cov2<span class="token punctuation">(</span>b<span class="token punc
 <table><tr style="vertical-align: top;">
 <td><code>b</code></td>
 <td>
-<p> A fitted model object returned by a call to <code><a href="nlme.html#lme">lme</a></code></p>
+<p> A fitted model object returned by a call to <code><a href="https://r-universe.dev/manuals/nlme.html#lme">lme</a></code></p>
 </td>
 </tr></table>
 <p>.
@@ -2448,7 +2448,7 @@ extract.lme.cov2<span class="token punctuation">(</span>b<span class="token punc
 <td><code>data</code></td>
 <td>
 <p> The data frame/ model frame that was supplied to
-<code><a href="nlme.html#lme">lme</a></code>, but with any rows removed by the na action dropped. Uses
+<code><a href="https://r-universe.dev/manuals/nlme.html#lme">lme</a></code>, but with any rows removed by the na action dropped. Uses
 the data stored in the model object if not supplied.</p>
 </td>
 </tr>
@@ -2621,7 +2621,7 @@ summary<span class="token punctuation">(</span>bd<span class="token punctuation"
 
 <h3>Description</h3>
 
-<p>As well as the standard families documented in <code><a href="stats.html#family">family</a></code> (see also <code><a href="stats.html#glm">glm</a></code>) which can be used with functions <code><a href="#gam">gam</a></code>, <code><a href="#bam">bam</a></code> and <code><a href="#gamm">gamm</a></code>, <code>mgcv</code> also supplies some extra families, most of which are currently only usable with <code><a href="#gam">gam</a></code>, although some can also be used with <code><a href="#bam">bam</a></code>. These are described here.
+<p>As well as the standard families documented in <code><a href="https://r-universe.dev/manuals/stats.html#family">family</a></code> (see also <code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code>) which can be used with functions <code><a href="#gam">gam</a></code>, <code><a href="#bam">bam</a></code> and <code><a href="#gamm">gamm</a></code>, <code>mgcv</code> also supplies some extra families, most of which are currently only usable with <code><a href="#gam">gam</a></code>, although some can also be used with <code><a href="#bam">bam</a></code>. These are described here.
 </p>
 
 
@@ -3005,7 +3005,7 @@ Other <code>mgcv</code> modelling functions will not accept a list. The list for
 specifying several linear predictors, and allows these to share terms: see below.
 </p>
 <p>The formulae supplied to <code><a href="#gam">gam</a></code> are exactly like those supplied to 
-<code><a href="stats.html#glm">glm</a></code> except that smooth terms, <code><a href="#s">s</a></code>, <code><a href="#te">te</a></code>, <code><a href="#te">ti</a></code> and <code><a href="#t2">t2</a></code> can
+<code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code> except that smooth terms, <code><a href="#s">s</a></code>, <code><a href="#te">te</a></code>, <code><a href="#te">ti</a></code> and <code><a href="#t2">t2</a></code> can
 be added to the right hand side (and <code>.</code> is not supported in <code>gam</code> formulae).
 </p>
 <p>Smooth terms are specified by expressions of the form: <br><code>s(x1,x2,...,k=12,fx=FALSE,bs="tp",by=z,id=1)</code><br>
@@ -3301,7 +3301,7 @@ contour<span class="token punctuation">(</span>xm<span class="token punctuation"
 
 <p> Evaluates GCV/UBRE score for a GAM, given smoothing
 parameters. The routine calls <code><a href="#gam.fit">gam.fit</a></code> to fit the model, and is
-usually called by <code><a href="stats.html#nlm">nlm</a></code> to optimize the smoothing parameters. 
+usually called by <code><a href="https://r-universe.dev/manuals/stats.html#nlm">nlm</a></code> to optimize the smoothing parameters. 
 </p>
 <p>This is basically a service routine for <code><a href="#gam">gam</a></code>, and is not usually 
 called directly by users. It is only used in this context for GAMs fitted by
@@ -3425,7 +3425,7 @@ and <code><a href="#t2">t2</a></code>, can be added to the right hand side to sp
 <td>
 
 <p>This is a family object specifying the distribution and link to use in
-fitting etc (see <code><a href="stats.html#glm">glm</a></code> and <code><a href="stats.html#family">family</a></code>). See 
+fitting etc (see <code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code> and <code><a href="https://r-universe.dev/manuals/stats.html#family">family</a></code>). See 
 <code><a href="#family.mgcv">family.mgcv</a></code> for a full list of what is available, which goes well beyond exponential family.
 Note that <code>quasi</code> families actually result in the use of extended quasi-likelihood 
 if <code>method</code> is set to a RE/ML method (McCullagh and Nelder, 1989, 9.6).
@@ -3700,7 +3700,7 @@ the strictly parametric part of the model formula, and combining these to obtain
 complete model matrix (/design matrix) and a set of penalty matrices for the smooth terms. 
 The linear identifiability constraints are also obtained at this point. The model is 
 fit using <code><a href="#gam.fit">gam.fit</a></code>, <code><a href="#gam.fit3">gam.fit3</a></code> or variants, which are modifications 
-of <code><a href="stats.html#glm">glm.fit</a></code>. The GAM 
+of <code><a href="https://r-universe.dev/manuals/stats.html#glm">glm.fit</a></code>. The GAM 
 penalized likelihood maximization problem is solved by Penalized Iteratively 
 Re-weighted  Least Squares (P-IRLS) (see e.g. Wood 2000). 
 Smoothing parameter selection is possible in one of two ways. (i)
@@ -4311,14 +4311,14 @@ problem.</p>
 <tr style="vertical-align: top;">
 <td><code>nlm</code></td>
 <td>
-<p>list of control parameters to pass to <code><a href="stats.html#nlm">nlm</a></code> if this is
+<p>list of control parameters to pass to <code><a href="https://r-universe.dev/manuals/stats.html#nlm">nlm</a></code> if this is
 used for outer estimation of smoothing parameters (not default). See details.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>optim</code></td>
 <td>
-<p>list of control parameters to pass to <code><a href="stats.html#optim">optim</a></code> if this
+<p>list of control parameters to pass to <code><a href="https://r-universe.dev/manuals/stats.html#optim">optim</a></code> if this
 is used for outer estimation of smoothing parameters (not default). See details.</p>
 </td>
 </tr>
@@ -4404,9 +4404,9 @@ length allowed for an element of the Newton search direction (default 5);
 descent direction (only used if Newton fails - default 2); <code>maxHalf</code> is
 the maximum number of step halvings to permit before giving up (default 30).
 </p>
-<p>If outer iteration using <code><a href="stats.html#nlm">nlm</a></code> is used for fitting, then the control list
+<p>If outer iteration using <code><a href="https://r-universe.dev/manuals/stats.html#nlm">nlm</a></code> is used for fitting, then the control list
 <code>nlm</code> stores control arguments for calls to routine
-<code><a href="stats.html#nlm">nlm</a></code>. The list has the following named elements: (i) <code>ndigit</code> is
+<code><a href="https://r-universe.dev/manuals/stats.html#nlm">nlm</a></code>. The list has the following named elements: (i) <code>ndigit</code> is
 the number of significant digits in the GCV/UBRE score - by default this is
 worked out from <code>epsilon</code>; (ii) <code>gradtol</code> is the tolerance used to
 judge convergence of the gradient of the GCV/UBRE score to zero - by default
@@ -4419,7 +4419,7 @@ calculations should be checked numerically - defaults to <code>FALSE</code>. Any
 these which are not supplied and named in the list are set to their default
 values.
 </p>
-<p>Outer iteration using <code><a href="stats.html#optim">optim</a></code> is controlled using list
+<p>Outer iteration using <code><a href="https://r-universe.dev/manuals/stats.html#optim">optim</a></code> is controlled using list
 <code>optim</code>, which currently has one element: <code>factr</code> which takes
 default value 1e7.
 </p>
@@ -4445,7 +4445,7 @@ generalized additive models. J. Amer. Statist. Ass.99:673-686.
 
 <h3>See Also</h3>
 
-<p><code><a href="#gam">gam</a></code>, <code><a href="#gam.fit">gam.fit</a></code>, <code><a href="stats.html#glm.control">glm.control</a></code> </p>
+<p><code><a href="#gam">gam</a></code>, <code><a href="#gam.fit">gam.fit</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#glm.control">glm.control</a></code> </p>
 
 <hr>
 </div>
@@ -4783,7 +4783,7 @@ basis for the total penalty.</p>
 <tr style="vertical-align: top;">
 <td><code>control</code></td>
 <td>
-<p>control list as returned from <code><a href="stats.html#glm.control">glm.control</a></code></p>
+<p>control list as returned from <code><a href="https://r-universe.dev/manuals/stats.html#glm.control">glm.control</a></code></p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -4876,7 +4876,7 @@ number of rows of <code>X</code>.</p>
 </table>
 <h3>Details</h3>
 
-<p> This routine is basically <code><a href="stats.html#glm">glm.fit</a></code> with some
+<p> This routine is basically <code><a href="https://r-universe.dev/manuals/stats.html#glm">glm.fit</a></code> with some
 modifications to allow (i) for quadratic penalties on the log likelihood;
 (ii) derivatives of the model coefficients with respect to
 log smoothing parameters to be obtained by use of the implicit function theorem and 
@@ -4905,7 +4905,7 @@ of the families as described in <code><a href="#fix.family.link">fix.family.link
 <p> Simon N. Wood <a href="mailto:simon.wood@r-project.org">simon.wood@r-project.org</a>
 </p>
 <p>The routine has been modified from <code>glm.fit</code> in R 2.0.1, written
-by the R core (see <code><a href="stats.html#glm">glm.fit</a></code> for further credits).
+by the R core (see <code><a href="https://r-universe.dev/manuals/stats.html#glm">glm.fit</a></code> for further credits).
 </p>
 
 
@@ -5221,8 +5221,8 @@ unless there is a <code>by</code> variable present, in which case an assessment 
 the constraint is needed or not (see below).
 </p>
 <p>The following sections discuss specifying model structures for <code>gam</code>. 
-Specification of the distribution and link function is done using the <code><a href="stats.html#family">family</a></code> 
-argument to <code><a href="#gam">gam</a></code> and works in the same way as for <code><a href="stats.html#glm">glm</a></code>. 
+Specification of the distribution and link function is done using the <code><a href="https://r-universe.dev/manuals/stats.html#family">family</a></code> 
+argument to <code><a href="#gam">gam</a></code> and works in the same way as for <code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code>. 
 This page therefore concentrates on the model formula for <code>gam</code>.
 </p>
 
@@ -5298,15 +5298,15 @@ If a <code>by</code> variable is numeric, then its <code class="reqn"><span clas
 row of the model matrix corresponding to the smooth term concerned. 
 </p>
 <p>Factor smooth interactions (see also <code><a href="#factor.smooth">factor.smooth.interaction</a></code>).
-If a <code>by</code> variable is a <code><a href="base.html#factor">factor</a></code> then it 
+If a <code>by</code> variable is a <code><a href="https://r-universe.dev/manuals/base.html#factor">factor</a></code> then it 
 generates an indicator vector for each level 
-of the factor, unless it is an <code><a href="base.html#factor">ordered</a></code> factor.
+of the factor, unless it is an <code><a href="https://r-universe.dev/manuals/base.html#factor">ordered</a></code> factor.
 In the non-ordered case, the model matrix for the smooth term is then replicated for each factor level,
 and each copy has its rows multiplied by the corresponding rows of its
 indicator variable. The smoothness penalties are also duplicated for each
 factor level.  In short a different smooth is generated
 for each factor level (the <code>id</code> argument to <code><a href="#s">s</a></code> and <code><a href="#te">te</a></code> can be used to force all 
-such smooths to have the same smoothing parameter). <code><a href="base.html#factor">ordered</a></code> <code>by</code> variables are handled in the same 
+such smooths to have the same smoothing parameter). <code><a href="https://r-universe.dev/manuals/base.html#factor">ordered</a></code> <code>by</code> variables are handled in the same 
 way, except that no smooth is generated for the first level of the ordered factor (see <code>b3</code> example below). 
 This is useful for setting up 
 identifiable models when the same smooth occurs more than once in a model, with different factor <code>by</code> variables.
@@ -5940,7 +5940,7 @@ which to declare a term ‘negligible’ has to be made.
 terms to include in the model is to compare GCV/UBRE/ML scores for models with 
 and without the term (REML scores should not be used to compare models with 
 different fixed effects structures). When UBRE is the smoothness selection method this will
-give the same result as comparing by <code><a href="stats.html#AIC">AIC</a></code> (the AIC in this case
+give the same result as comparing by <code><a href="https://r-universe.dev/manuals/stats.html#AIC">AIC</a></code> (the AIC in this case
 uses the model EDF in place of the usual model DF). Similarly, comparison via
 GCV score and via AIC seldom yields different answers. Note that the negative
 binomial with estimated <code>theta</code> parameter is a special case: the GCV
@@ -6295,7 +6295,7 @@ models. Journal of the Royal Statistical Society (B) 73(1):3-36
 optimization of the UBRE/AIC or GCV score is outer to the penalized iteratively
 re-weighted least squares scheme used to estimate the model given smoothing 
 parameters. These functions evaluate the GCV/UBRE/AIC score of a GAM model, given
-smoothing parameters, in a manner suitable for use by <code><a href="stats.html#optim">optim</a></code> or <code><a href="stats.html#nlm">nlm</a></code>.
+smoothing parameters, in a manner suitable for use by <code><a href="https://r-universe.dev/manuals/stats.html#optim">optim</a></code> or <code><a href="https://r-universe.dev/manuals/stats.html#nlm">nlm</a></code>.
 Not normally called directly, but rather service routines for <code><a href="#gam.outer">gam.outer</a></code>.
 </p>
 
@@ -6332,11 +6332,11 @@ gam2derivative<span class="token punctuation">(</span>lsp<span class="token punc
 <h3>Details</h3>
 
  <p><code>gam2objective</code> and <code>gam2derivative</code> are functions suitable
-for calling by <code><a href="stats.html#optim">optim</a></code>, to evaluate the GCV/UBRE/AIC score and its
+for calling by <code><a href="https://r-universe.dev/manuals/stats.html#optim">optim</a></code>, to evaluate the GCV/UBRE/AIC score and its
 derivatives w.r.t. log smoothing parameters.
 </p>
 <p><code>gam4objective</code> is an equivalent to <code>gam2objective</code>, suitable for
-optimization by <code><a href="stats.html#nlm">nlm</a></code> - derivatives of the GCV/UBRE/AIC function are
+optimization by <code><a href="https://r-universe.dev/manuals/stats.html#nlm">nlm</a></code> - derivatives of the GCV/UBRE/AIC function are
 calculated and returned as attributes.
 </p>
 <p>The basic idea of optimizing smoothing parameters ‘outer’ to the P-IRLS loop
@@ -6658,7 +6658,7 @@ matrix for the coefficients of all the terms in the fixed effects formula,
 including the smooths.
 </p>
 <p>To use this function effectively it helps to be quite familiar with the use of
-<code><a href="#gam">gam</a></code> and <code><a href="nlme.html#lme">lme</a></code>.
+<code><a href="#gam">gam</a></code> and <code><a href="https://r-universe.dev/manuals/nlme.html#lme">lme</a></code>.
 </p>
 
 
@@ -6688,7 +6688,7 @@ can be added to the right hand side of the formula. Note that <code>id</code>s f
 <td><code>random</code></td>
 <td>
 <p>The (optional) random effects structure as specified in a call to 
-<code><a href="nlme.html#lme">lme</a></code>: only the <code>list</code> form is allowed, to facilitate 
+<code><a href="https://r-universe.dev/manuals/nlme.html#lme">lme</a></code>: only the <code>list</code> form is allowed, to facilitate 
 manipulation of the random effects structure within <code>gamm</code> in order to deal
 with smooth terms. See example below.</p>
 </td>
@@ -6697,8 +6697,8 @@ with smooth terms. See example below.</p>
 <td><code>correlation</code></td>
 <td>
 <p>An optional <code>corStruct</code> object 
-(see <code><a href="nlme.html#corClasses">corClasses</a></code>) as used to define correlation 
-structures in <code><a href="nlme.html#lme">lme</a></code>. Any grouping factors in the formula for
+(see <code><a href="https://r-universe.dev/manuals/nlme.html#corClasses">corClasses</a></code>) as used to define correlation 
+structures in <code><a href="https://r-universe.dev/manuals/nlme.html#lme">lme</a></code>. Any grouping factors in the formula for
 this object are assumed to be nested within any random effect grouping
 factors, without the need to make this explicit in the formula (this is 
 slightly different to the behaviour of <code>lme</code>). This 
@@ -6708,9 +6708,9 @@ is a GEE approach to correlation in the generalized case. See examples below.</p
 <tr style="vertical-align: top;">
 <td><code>family</code></td>
 <td>
-<p>A <code>family</code> as used in a call to <code><a href="stats.html#glm">glm</a></code> or <code><a href="#gam">gam</a></code>.
+<p>A <code>family</code> as used in a call to <code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code> or <code><a href="#gam">gam</a></code>.
 The default <code>gaussian</code> with identity link causes <code>gamm</code> to fit by a direct call to
-<code><a href="nlme.html#lme">lme</a></code> provided there is no offset term, otherwise
+<code><a href="https://r-universe.dev/manuals/nlme.html#lme">lme</a></code> provided there is no offset term, otherwise
 <code>gammPQL</code> is used.</p>
 </td>
 </tr>
@@ -6727,7 +6727,7 @@ which <code>gamm</code> is called.</p>
 <td><code>weights</code></td>
 <td>
 <p>In the generalized case, weights with the same meaning as
-<code><a href="stats.html#glm">glm</a></code> weights. An <code>lme</code> type weights argument may only be
+<code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code> weights. An <code>lme</code> type weights argument may only be
 used in the identity link gaussian case, with no offset (see documentation for <code>lme</code>
 for details of how to use such an argument).</p>
 </td>
@@ -6759,8 +6759,8 @@ Different terms can use different numbers of knots, unless they share a covariat
 <tr style="vertical-align: top;">
 <td><code>control</code></td>
 <td>
-<p>A list of fit control parameters for <code><a href="nlme.html#lme">lme</a></code> to replace the 
-defaults returned by <code><a href="nlme.html#lmeControl">lmeControl</a></code>. Note the setting 
+<p>A list of fit control parameters for <code><a href="https://r-universe.dev/manuals/nlme.html#lme">lme</a></code> to replace the 
+defaults returned by <code><a href="https://r-universe.dev/manuals/nlme.html#lmeControl">lmeControl</a></code>. Note the setting 
 for the number of EM iterations used by <code>lme</code>: smooths are set up using custom <code>pdMat</code> classes,
 which are currently not supported by the EM iteration code. If you supply a list of control values,
 it is advisable to include <code>niterEM=0</code>, as well, and only increase from 0
@@ -6901,7 +6901,7 @@ will occasionally fail. See details section for suggestions, or try the
 </p>
 <p><code>gamm</code> is usually much slower than <code>gam</code>, and on some platforms you may need to
 increase the memory available to R in order to use it with large data sets
-(see <code><a href="utils.html#memory.size">memory.limit</a></code>).
+(see <code><a href="https://r-universe.dev/manuals/utils.html#memory.size">memory.limit</a></code>).
 </p>
 <p>Note that the weights returned in the fitted GAM object are dummy, and not
 those used by the PQL iteration: this makes partial residual plots look odd.
@@ -7437,7 +7437,7 @@ convergence.
 <tr style="vertical-align: top;">
 <td><code>na.action</code></td>
 <td>
-<p>The <code><a href="stats.html#na.action">na.action</a></code> used in fitting.</p>
+<p>The <code><a href="https://r-universe.dev/manuals/stats.html#na.action">na.action</a></code> used in fitting.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -7471,7 +7471,7 @@ additive model.</p>
 <td>
 <p>If ‘outer’ iteration has been used to fit the model (see
 <code><a href="#gam">gam</a></code> argument <code>optimizer</code>) then this is present and contains whatever was
-returned by the optimization routine used (currently <code><a href="stats.html#nlm">nlm</a></code> or <code><a href="stats.html#optim">optim</a></code>). </p>
+returned by the optimization routine used (currently <code><a href="https://r-universe.dev/manuals/stats.html#nlm">nlm</a></code> or <code><a href="https://r-universe.dev/manuals/stats.html#optim">optim</a></code>). </p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -8794,7 +8794,7 @@ and <code><a href="#t2">t2</a></code> can be added to the right hand side to spe
 <td>
 
 <p>This is a family object specifying the distribution and link function to use. 
-See <code><a href="stats.html#glm">glm</a></code> and <code><a href="stats.html#family">family</a></code> for more
+See <code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code> and <code><a href="https://r-universe.dev/manuals/stats.html#family">family</a></code> for more
 details. Currently only gaussian, poisson, binomial and Gamma families are supported, 
 but the user can easily modify the assumed distribution in the JAGS code.
 </p>
@@ -8812,7 +8812,7 @@ which <code>jagam</code> is called.</p>
 <tr style="vertical-align: top;">
 <td><code>file</code></td>
 <td>
-<p>Name of the file to which JAGS model specification code should be written. See <code><a href="base.html#getwd">setwd</a></code> for setting and querying the current working directory.</p>
+<p>Name of the file to which JAGS model specification code should be written. See <code><a href="https://r-universe.dev/manuals/base.html#getwd">setwd</a></code> for setting and querying the current working directory.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -9640,7 +9640,7 @@ plot<span class="token punctuation">(</span>b<span class="token punctuation">,</
 
 <p> Function to extract the log-likelihood for a fitted <code>gam</code>
 model (note that the models are usually fitted by penalized likelihood maximization). 
-Used by <code><a href="stats.html#AIC">AIC</a></code>. See details for more information on AIC computation.  
+Used by <code><a href="https://r-universe.dev/manuals/stats.html#AIC">AIC</a></code>. See details for more information on AIC computation.  
 </p>
 
 
@@ -9672,13 +9672,13 @@ logLik<span class="token punctuation">(</span>object<span class="token punctuati
 <p> Modification of <code>logLik.glm</code> which corrects the degrees of
 freedom for use with <code>gam</code> objects. 
 </p>
-<p>The function is provided so that <code><a href="stats.html#AIC">AIC</a></code> functions correctly with
+<p>The function is provided so that <code><a href="https://r-universe.dev/manuals/stats.html#AIC">AIC</a></code> functions correctly with
 <code>gam</code> objects, and uses the appropriate degrees of freedom (accounting
 for penalization). See e.g. Wood, Pya and Saefken (2016) for a derivation of
 an appropriate AIC.
 </p>
-<p>For <code><a href="stats.html#family">gaussian</a></code> family models the MLE of the scale parameter is used. For other families
-with a scale parameter the estimated scale parameter is used. This is usually not exactly the MLE, and is not the simple deviance based estimator used with <code><a href="stats.html#glm">glm</a></code> models. This is because the simple deviance based estimator can be badly biased in some cases, for example when a Tweedie distribution is employed with low count data. 
+<p>For <code><a href="https://r-universe.dev/manuals/stats.html#family">gaussian</a></code> family models the MLE of the scale parameter is used. For other families
+with a scale parameter the estimated scale parameter is used. This is usually not exactly the MLE, and is not the simple deviance based estimator used with <code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code> models. This is because the simple deviance based estimator can be badly biased in some cases, for example when a Tweedie distribution is employed with low count data. 
 </p>
 <p>There are two possibile AIC's that might be considered for use with GAMs. Marginal
 AIC is based on the marginal likelihood of the GAM, that is the likelihood based on
@@ -9702,7 +9702,7 @@ an estimate of the covariance matrix of the log smoothing parameters).
 
 <h3>Value</h3>
 
-<p> Standard <code>logLik</code> object: see <code><a href="stats.html#logLik">logLik</a></code>.
+<p> Standard <code>logLik</code> object: see <code><a href="https://r-universe.dev/manuals/stats.html#logLik">logLik</a></code>.
 </p>
 
 
@@ -9728,7 +9728,7 @@ Journal of the American Statistical Association 111, 1548-1575
 
 <h3>See Also</h3>
 
-  <p><code><a href="stats.html#AIC">AIC</a></code></p>
+  <p><code><a href="https://r-universe.dev/manuals/stats.html#AIC">AIC</a></code></p>
 
 <hr>
 </div>
@@ -10450,7 +10450,7 @@ penalized regression spline approach, with automatic smoothness selection. A
 number of other functions  such as <code><a href="#summary.gam">summary.gam</a></code> and <code><a href="#anova.gam">anova.gam</a></code> 
 are also provided, for extracting information from a fitted <code><a href="#gamObject">gamObject</a></code>.
 </p>
-<p>Use of <code><a href="#gam">gam</a></code> is much like use of <code><a href="stats.html#glm">glm</a></code>, except that
+<p>Use of <code><a href="#gam">gam</a></code> is much like use of <code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code>, except that
 within a <code>gam</code> model formula, isotropic smooths of any number of predictors can be specified using
 <code><a href="#s">s</a></code> terms, while scale invariant smooths of any number of
 predictors can be specified using <code><a href="#te">te</a></code>,  <code><a href="#te">ti</a></code> or <code><a href="#t2">t2</a></code>  terms. 
@@ -10562,7 +10562,7 @@ CRC
 </p>
 <p><code><a href="#bam">bam</a></code> can use an openMP based parallelization approach alongside discretisation of covariates to achieve substantial speed ups. This is selected using the <code>discrete=TRUE</code> option to <code>bam</code>, withthe number of threads controlled via the <code>nthreads</code> argument. This is the approach that scales best. See example below.
 </p>
-<p>Alternatively, function <code><a href="#bam">bam</a></code> can use the facilities provided in the <a href="parallel.html#parallel-package">parallel</a> package. See examples below. Note that most multi-core machines are memory bandwidth limited, so parallel speed up tends to be rather variable. 
+<p>Alternatively, function <code><a href="#bam">bam</a></code> can use the facilities provided in the <a href="https://r-universe.dev/manuals/parallel.html#parallel-package">parallel</a> package. See examples below. Note that most multi-core machines are memory bandwidth limited, so parallel speed up tends to be rather variable. 
 </p>
 <p>Function <code><a href="#gam">gam</a></code> can use parallel threads on a (shared memory) multi-core 
 machine via <code>openMP</code> (where this is supported). To do this, set the desired number of threads by setting <code>nthreads</code> to the number of cores to use, in the <code>control</code> argument of <code><a href="#gam">gam</a></code>. Note that, for the most part, only the dominant <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><msup><mi>p</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(np^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></code> steps are parallelized (n is number of data, p number of parameters). For additive Gaussian models estimated by GCV, the speed up can be disappointing as these employ an <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>p</mi><mn>3</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(p^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></code> SVD step that can also have substantial cost in practice. 
@@ -11189,7 +11189,7 @@ Journal of the American Statistical Association 111, 1548-1575
 
 <h3>See Also</h3>
 
-<p><code><a href="stats.html#family">gaussian</a></code></p>
+<p><code><a href="https://r-universe.dev/manuals/stats.html#family">gaussian</a></code></p>
 
 
 <h3>Examples</h3>
@@ -11395,7 +11395,7 @@ rm<span class="token punctuation">(</span>dat<span class="token punctuation">)</
 <h3>Description</h3>
 
  <p><code><a href="#gamm">gamm</a></code> works by transforming a GAMM into something 
-that can be estimated by <code><a href="nlme.html#lme">lme</a></code>, but this involves creating new 
+that can be estimated by <code><a href="https://r-universe.dev/manuals/nlme.html#lme">lme</a></code>, but this involves creating new 
 variables, the names of which should not clash with the names of other 
 variables on which the model depends. This simple service routine checks a 
 suggested name against a list of those in use, and if neccesary modifies it 
@@ -11597,7 +11597,7 @@ notLog2<span class="token punctuation">(</span>x<span class="token punctuation">
 <td>
 <p>the range of <code>notExp2</code> runs from <code>exp(-d)</code> to
 <code>exp(d)</code>. To change the range used by <code>gamm</code> reset
-<code>mgcv.vc.logrange</code> using <code><a href="base.html#options">options</a></code>.</p>
+<code>mgcv.vc.logrange</code> using <code><a href="https://r-universe.dev/manuals/base.html#options">options</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -12694,7 +12694,7 @@ interpretation of plots.</p>
 <td><code>all.terms</code></td>
 <td>
 <p>if set to <code>TRUE</code> then the partial effects of parametric
-model components are also plotted, via a call to <code><a href="stats.html#termplot">termplot</a></code>. Only
+model components are also plotted, via a call to <code><a href="https://r-universe.dev/manuals/stats.html#termplot">termplot</a></code>. Only
 terms of order 1 can be plotted in this way. Also see warnings.</p>
 </td>
 </tr>
@@ -12771,7 +12771,7 @@ Usually the answer is no, they would be meaningless.</p>
 
 <p> Produces default plot showing the smooth components of a
 fitted GAM, and optionally parametric terms as well, when these can be
-handled by <code><a href="stats.html#termplot">termplot</a></code>.
+handled by <code><a href="https://r-universe.dev/manuals/stats.html#termplot">termplot</a></code>.
 </p>
 <p>For smooth  terms <code>plot.gam</code> actually calls plot method functions depending on the 
 class of the smooth. Currently <code><a href="#random.effects">random.effects</a></code>, Markov random fields (<code><a href="#smooth.construct.mrf.smooth.spec">mrf</a></code>), 
@@ -12804,14 +12804,14 @@ contour colour).
 See also <code><a href="#vis.gam">vis.gam</a></code>. 
 </p>
 <p>Fine control of plots for parametric terms can be obtained by calling
-<code><a href="stats.html#termplot">termplot</a></code> directly, taking care to use its <code>terms</code> argument.
+<code><a href="https://r-universe.dev/manuals/stats.html#termplot">termplot</a></code> directly, taking care to use its <code>terms</code> argument.
 </p>
 <p>Note that, if <code>seWithMean=TRUE</code>, the confidence bands include the uncertainty about the overall mean. In other words 
 although each smooth is shown centred, the confidence bands are obtained as if every other term in the model was 
 constrained to have average 0, (average taken over the covariate values), except for the smooth concerned. This seems to correspond more closely to how most users interpret componentwise intervals in practice, and also results in intervals with
 close to nominal (frequentist) coverage probabilities by an extension of Nychka's (1988) results presented in Marra and Wood (2012). There are two possible variants of this approach. In the default variant the extra uncertainty is in the mean of all other terms in the model (fixed and random, including uncentred smooths). Alternatively, if <code>seWithMean=2</code> then only the uncertainty in parametric fixed effects is included in the extra uncertainty (this latter option actually tends to lead to wider intervals when the model contains random effects).
 </p>
-<p>Several smooth plots methods using <code><a href="graphics.html#image">image</a></code> will accept an <code>hcolors</code> argument, which can be anything documented in <code><a href="grDevices.html#palettes">heat.colors</a></code> (in which case something like <code>hcolors=rainbow(50)</code> is appropriate), or the <code><a href="grDevices.html#gray">grey</a></code> function (in which case somthing like <code>hcolors=grey(0:50/50)</code> is needed). Another option is <code>contour.col</code> which will set the contour colour for some plots. These options are useful for producing grey scale pictures instead of colour.
+<p>Several smooth plots methods using <code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code> will accept an <code>hcolors</code> argument, which can be anything documented in <code><a href="https://r-universe.dev/manuals/grDevices.html#palettes">heat.colors</a></code> (in which case something like <code>hcolors=rainbow(50)</code> is appropriate), or the <code><a href="https://r-universe.dev/manuals/grDevices.html#gray">grey</a></code> function (in which case somthing like <code>hcolors=grey(0:50/50)</code> is needed). Another option is <code>contour.col</code> which will set the contour colour for some plots. These options are useful for producing grey scale pictures instead of colour.
 </p>
 <p>Sometimes you may want a small change to a default plot, and the arguments to <code>plot.gam</code> just won't let you do it. 
 In this case, the quickest option is sometimes to clone the <code>smooth.construct</code> and <code>Predict.matrix</code> methods for 
@@ -12839,7 +12839,7 @@ supporting data.
 </p>
 <p>Plots of 2-D smooths with standard error contours shown can not easily be customized.
 </p>
-<p><code>all.terms</code> uses <code><a href="stats.html#termplot">termplot</a></code> which looks for the original data in the environment of the fitted model object formula. Since <code>gam</code> resets this environment to avoid large saved model objects containing data in hidden environments, this can fail. 
+<p><code>all.terms</code> uses <code><a href="https://r-universe.dev/manuals/stats.html#termplot">termplot</a></code> which looks for the original data in the environment of the fitted model object formula. Since <code>gam</code> resets this environment to avoid large saved model objects containing data in hidden environments, this can fail. 
 </p>
 
 
@@ -13153,7 +13153,7 @@ determined from <code>object$na.action</code>.</p>
 <tr style="vertical-align: top;">
 <td><code>cluster</code></td>
 <td>
-<p><code>predict.bam</code> can compute in parallel using <a href="parallel.html#clusterApply">parLapply</a>
+<p><code>predict.bam</code> can compute in parallel using <a href="https://r-universe.dev/manuals/parallel.html#clusterApply">parLapply</a>
 from the <code>parallel</code> package, if it is supplied with a cluster on which to do this (a cluster here can be some cores of a 
 single machine). See details and example code for <code><a href="#bam">bam</a></code>. 
 </p>
@@ -13190,7 +13190,7 @@ single machine). See details and example code for <code><a href="#bam">bam</a></
 Bayesian posterior covariance matrix of the parameters <code>Vp</code> in the fitted
 bam object. 
 </p>
-<p>To facilitate plotting with <code><a href="stats.html#termplot">termplot</a></code>, if <code>object</code> possesses
+<p>To facilitate plotting with <code><a href="https://r-universe.dev/manuals/stats.html#termplot">termplot</a></code>, if <code>object</code> possesses
 an attribute <code>"para.only"</code> and <code>type=="terms"</code> then only parametric
 terms of order 1 are returned (i.e. those that <code>termplot</code> can handle).
 </p>
@@ -13410,7 +13410,7 @@ gam object.
 </p>
 <p>When predicting from models with <code><a href="#linear.functional.terms">linear.functional.terms</a></code> then there are two possibilities. If the summation convention is to be used in prediction, as it was in fitting, then <code>newdata</code> should be a list, with named matrix arguments corresponding to any variables that were matrices in fitting. Alternatively one might choose to simply evaluate the constitutent smooths at particular values in which case arguments that were matrices can be replaced by vectors (and <code>newdata</code> can be a dataframe). See <code><a href="#linear.functional.terms">linear.functional.terms</a></code> for example code.
 </p>
-<p>To facilitate plotting with <code><a href="stats.html#termplot">termplot</a></code>, if <code>object</code> possesses
+<p>To facilitate plotting with <code><a href="https://r-universe.dev/manuals/stats.html#termplot">termplot</a></code>, if <code>object</code> possesses
 an attribute <code>"para.only"</code> and <code>type=="terms"</code> then only parametric
 terms of order 1 are returned (i.e. those that <code>termplot</code> can handle).
 </p>
@@ -17849,7 +17849,7 @@ If not <code>"cc"</code> then a cyclic p-spline is used, and argument
 separate loops without an outer enclosing loop: if there are known boundary conditions 
 (identifiability constraints get awkward).
 </p>
-<p>Note that the function <code><a href="graphics.html#locator">locator</a></code> provides a simple means for defining boundaries
+<p>Note that the function <code><a href="https://r-universe.dev/manuals/graphics.html#locator">locator</a></code> provides a simple means for defining boundaries
 graphically, using something like <code>bnd &lt;-as.data.frame(locator(type="l"))</code>, 
 after producing a plot of the domain of interest (right click to stop). If the real boundary is 
 very complicated, it is probably better to use a simpler smooth boundary enclosing the true boundary, 
@@ -19383,7 +19383,7 @@ appropriate <code><a href="#smooth.construct">smooth.construct</a></code> method
 to be absorbed then the objects will have  attributes <code>"qrc"</code> and
 <code>"nCons"</code>. <code>"nCons"</code> is the number of constraints. <code>"qrc"</code> is
 usually the qr decomposition of the constraint matrix (returned by
-<code><a href="Matrix.html#qr-methods">qr</a></code>), but if it is a single positive integer it is the index of the 
+<code><a href="https://r-forge.r-universe.dev/Matrix/Matrix.html#qr-methods">qr</a></code>), but if it is a single positive integer it is the index of the 
 coefficient to set to zero, and if it is a negative number then this indicates that 
 the parameters are to sum to zero. 
 </p>
@@ -19714,7 +19714,7 @@ detach<span class="token punctuation">(</span>dat<span class="token punctuation"
 <h3>Description</h3>
 
 <p> Takes a fitted <code>gam</code> object produced by <code>gam()</code> and produces various useful
-summaries from it. (See <code><a href="base.html#sink">sink</a></code> to divert output to a file.)
+summaries from it. (See <code><a href="https://r-universe.dev/manuals/base.html#sink">sink</a></code> to divert output to a file.)
 </p>
 
 
@@ -21170,7 +21170,7 @@ A<span class="token operator">$</span>i3<span class="token punctuation">(</span>
 <h3>Description</h3>
 
 <p>Tweedie families, designed for use with <code><a href="#gam">gam</a></code> from the <code>mgcv</code> library.
-Restricted to variance function powers between 1 and 2. A useful alternative to <code><a href="stats.html#family">quasi</a></code> when a
+Restricted to variance function powers between 1 and 2. A useful alternative to <code><a href="https://r-universe.dev/manuals/stats.html#family">quasi</a></code> when a
 full likelihood is desirable. <code>Tweedie</code> is for use with fixed <code>p</code>. <code>tw</code> is for use when <code>p</code>
 is to be estimated during fitting. For fixed <code>p</code> between 1 and 2 the Tweedie is an exponential family 
 distribution with variance given by the mean to the power <code>p</code>.
@@ -21199,7 +21199,7 @@ be greater than 1 and less than or equal to 2. 1 would be Poisson, 2 is gamma. <
 <td><code>link</code></td>
 <td>
 <p>The link function: one of <code>"log"</code>, <code>"identity"</code>, <code>"inverse"</code>, <code>"sqrt"</code>, or a 
-<code><a href="stats.html#power">power</a></code> link (<code>Tweedie</code> only).</p>
+<code><a href="https://r-universe.dev/manuals/stats.html#power">power</a></code> link (<code>Tweedie</code> only).</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -21231,13 +21231,13 @@ positive reals with a point mass at zero. p=2 is a gamma distribution. As p gets
 distribution begins to converge on the discretely supported limit at p=1, and is therefore highly multimodal. 
 See <code><a href="#ldTweedie">ldTweedie</a></code> for more on this behaviour.
 </p>
-<p><code>Tweedie</code> is based partly on the <code><a href="stats.html#family">poisson</a></code> family, and partly on <code>tweedie</code> from the 
+<p><code>Tweedie</code> is based partly on the <code><a href="https://r-universe.dev/manuals/stats.html#family">poisson</a></code> family, and partly on <code>tweedie</code> from the 
 <code>statmod</code> package. It includes extra components to work with all <code>mgcv</code> GAM fitting methods as well as an <code>aic</code> function. 
 </p>
 <p>The Tweedie density involves a normalizing constant with no closed form, so this is evaluated using the series 
 evaluation method of Dunn and Smyth (2005), with extensions to also compute the derivatives w.r.t. <code>p</code> and the scale parameter. 
 Without restricting <code>p</code> to (1,2) the calculation of Tweedie densities is more difficult, and there does not 
-currently seem to be an implementation which offers any benefit over <code><a href="stats.html#family">quasi</a></code>. If you need  this 
+currently seem to be an implementation which offers any benefit over <code><a href="https://r-universe.dev/manuals/stats.html#family">quasi</a></code>. If you need  this 
 case then the <code>tweedie</code> package is the place to start.
 </p>
 
@@ -21381,7 +21381,7 @@ See <code><a href="#ldTweedie">ldTweedie</a></code> for more on this behaviour.
 <p>The Tweedie density involves a normalizing constant with no closed form, so this is evaluated using the series 
 evaluation method of Dunn and Smyth (2005), with extensions to also compute the derivatives w.r.t. <code>p</code> and the scale parameter. 
 Without restricting <code>p</code> to (1,2) the calculation of Tweedie densities is more difficult, and there does not 
-currently seem to be an implementation which offers any benefit over <code><a href="stats.html#family">quasi</a></code>. If you need  this 
+currently seem to be an implementation which offers any benefit over <code><a href="https://r-universe.dev/manuals/stats.html#family">quasi</a></code>. If you need  this 
 case then the <code>tweedie</code> package is the place to start.
 </p>
 
@@ -21487,15 +21487,15 @@ evaluating the number of unique combinations of covariates in a
 model. 
 </p>
 <p>When <code>x</code> has only one column then the routine
-uses <code><a href="base.html#unique">unique</a></code> and <code><a href="base.html#match">match</a></code> to get the index. When there are
-multiple columns then it uses <code><a href="base.html#paste">paste0</a></code> to produce labels for each row, 
+uses <code><a href="https://r-universe.dev/manuals/base.html#unique">unique</a></code> and <code><a href="https://r-universe.dev/manuals/base.html#match">match</a></code> to get the index. When there are
+multiple columns then it uses <code><a href="https://r-universe.dev/manuals/base.html#paste">paste0</a></code> to produce labels for each row, 
 which should be unique if the row is unique. Then <code>unique</code> and <code>match</code> 
 can be used as in the single column case. Obviously the pasting is inefficient, but 
 still quicker for large n than the C based code that used to be called by this routine, which 
 had O(nlog(n)) cost. In principle a hash table based solution in C 
 would be only O(n) and much quicker in the multicolumn case. 
 </p>
-<p><code><a href="base.html#unique">unique</a></code> and <code><a href="base.html#duplicated">duplicated</a></code>, can be used 
+<p><code><a href="https://r-universe.dev/manuals/base.html#unique">unique</a></code> and <code><a href="https://r-universe.dev/manuals/base.html#duplicated">duplicated</a></code>, can be used 
 in place of this, if the full index is not needed. Relative performance is variable. 
 </p>
 <p>If <code>x</code> is not a matrix or data frame on entry then an attempt is made to coerce 
@@ -21529,7 +21529,7 @@ then the routine is likely to fail.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#unique">unique</a></code>, <code><a href="base.html#duplicated">duplicated</a></code>, <code><a href="base.html#match">match</a></code>.</p>
+<p><code><a href="https://r-universe.dev/manuals/base.html#unique">unique</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#duplicated">duplicated</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#match">match</a></code>.</p>
 
 
 <h3>Examples</h3>
@@ -21795,8 +21795,8 @@ scale. <code>NULL</code> to choose automatically.</p>
 <tr style="vertical-align: top;">
 <td><code>...</code></td>
 <td>
-<p>other options to pass on to <code><a href="graphics.html#persp">persp</a></code>,
-<code><a href="graphics.html#image">image</a></code> or <code><a href="graphics.html#contour">contour</a></code>. In particular <code>ticktype="detailed"</code> will add proper axes 
+<p>other options to pass on to <code><a href="https://r-universe.dev/manuals/graphics.html#persp">persp</a></code>,
+<code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code> or <code><a href="https://r-universe.dev/manuals/graphics.html#contour">contour</a></code>. In particular <code>ticktype="detailed"</code> will add proper axes 
 labelling to the plots. </p>
 </td>
 </tr>
@@ -21837,7 +21837,7 @@ if the coerced variables are the first, otherwise suitable, variables encountere
 
 <h3>See Also</h3>
 
-<p><code><a href="graphics.html#persp">persp</a></code> and <code><a href="#gam">gam</a></code>.
+<p><code><a href="https://r-universe.dev/manuals/graphics.html#persp">persp</a></code> and <code><a href="#gam">gam</a></code>.
 </p>
 
 

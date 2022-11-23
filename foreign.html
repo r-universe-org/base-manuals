@@ -172,7 +172,7 @@ lookup.xport<span class="token punctuation">(</span><span class="token string">"
 <td><code>file</code></td>
 <td>
 <p>a character string with the name of the ARFF file to read
-from, or a <code><a href="base.html#connections">connection</a></code> which will be opened if
+from, or a <code><a href="https://r-universe.dev/manuals/base.html#connections">connection</a></code> which will be opened if
 necessary, and if so closed at the end of the function call.</p>
 </td>
 </tr></table>
@@ -261,7 +261,7 @@ incorrectly coded as numeric.
 <h3>Value</h3>
 
 <p>A data frame of data from the DBF file; note that the field names are
-adjusted to use in R using <code><a href="base.html#make.names">make.names</a>(unique=TRUE)</code>.
+adjusted to use in R using <code><a href="https://r-universe.dev/manuals/base.html#make.names">make.names</a>(unique=TRUE)</code>.
 </p>
 <p>There is an attribute <code>"data_type"</code> giving the single-character
 dBase types for each field.
@@ -445,9 +445,9 @@ help for <code>Stata.file</code>), function <code>read_dta</code> in package
 <span class="pkg">haven</span> and package <span class="pkg">readstata13</span>.
 </p>
 <p><code><a href="#write.dta">write.dta</a></code>,
-<code><a href="base.html#attributes">attributes</a></code>,
-<code><a href="base.html#Dates">Date</a></code>,
-<code><a href="base.html#factor">factor</a></code>
+<code><a href="https://r-universe.dev/manuals/base.html#attributes">attributes</a></code>,
+<code><a href="https://r-universe.dev/manuals/base.html#Dates">Date</a></code>,
+<code><a href="https://r-universe.dev/manuals/base.html#factor">factor</a></code>
 </p>
 
 
@@ -520,7 +520,7 @@ to the current year.</p>
 digits.  Dates with four-digit years are always converted to
 <code>Date</code> class.  With the <code>guess.broken.dates</code> option the function
 will attempt to convert two-digit years using the operating system's
-default method (see <a href="base.html#Dates">Date</a>) and will use the current
+default method (see <a href="https://r-universe.dev/manuals/base.html#Dates">Date</a>) and will use the current
 year or the <code>thisyear</code> argument for dates with no year
 information.
 </p>
@@ -551,7 +551,7 @@ format to store data. That may be readable with the <span class="pkg">RODBC</spa
 
 <h3>See Also</h3>
 
-<p><a href="base.html#DateTimeClasses">DateTimeClasses</a>
+<p><a href="https://r-universe.dev/manuals/base.html#DateTimeClasses">DateTimeClasses</a>
 </p>
 
 
@@ -770,7 +770,7 @@ missing values be used to set the corresponding values to <code>NA</code>?</p>
 <tr style="vertical-align: top;">
 <td><code>sub</code></td>
 <td>
-<p>character string: If not <code>NA</code> it is used by <code><a href="base.html#iconv">iconv</a></code> 
+<p>character string: If not <code>NA</code> it is used by <code><a href="https://r-universe.dev/manuals/base.html#iconv">iconv</a></code> 
 to replace any non-convertible bytes in character/factor input. 
 Default is <code>"."</code>. For back compatibility with <span class="pkg">foreign</span> 
 versions &lt;= 0.8-68 use <code>sub=NA</code>.</p>
@@ -820,7 +820,7 @@ if <code>duplicated.value.labels="append"</code>.</p>
 <tr style="vertical-align: top;">
 <td><code>...</code></td>
 <td>
-<p>passed to <code><a href="base.html#as.data.frame">as.data.frame</a></code> if <code>to.data.frame = TRUE</code>.</p>
+<p>passed to <code><a href="https://r-universe.dev/manuals/base.html#as.data.frame">as.data.frame</a></code> if <code>to.data.frame = TRUE</code>.</p>
 </td>
 </tr>
 </table>
@@ -832,7 +832,7 @@ if <code>duplicated.value.labels="append"</code>.</p>
 <p>If the filename appears to be a URL (of schemes ‘<span class="samp">⁠http:⁠</span>’,
 ‘<span class="samp">⁠ftp:⁠</span>’ or ‘<span class="samp">⁠https:⁠</span>’) the URL is first downloaded to a
 temporary file and then read.  (‘<span class="samp">⁠https:⁠</span>’ is supported where
-supported by <code><a href="utils.html#download.file">download.file</a></code> with its current default
+supported by <code><a href="https://r-universe.dev/manuals/utils.html#download.file">download.file</a></code> with its current default
 <code>method</code>.)
 </p>
 <p>Occasionally in SPSS, value labels will be added to some values of a
@@ -850,17 +850,17 @@ with spaces by SPSS, and so are read that way by <span style="font-family: Couri
 argument <code>trim_values=TRUE</code> causes trailing spaces to be ignored
 when matching to value labels, as examples have been seen where the
 strings and the value labels had different amounts of padding.  See
-the examples for <code><a href="base.html#grep">sub</a></code> for ways to remove trailing spaces
+the examples for <code><a href="https://r-universe.dev/manuals/base.html#grep">sub</a></code> for ways to remove trailing spaces
 in character data.
 </p>
 <p>URL <a href="https://learn.microsoft.com/en-us/windows/win32/intl/code-page-identifiers" target="_blank">https://learn.microsoft.com/en-us/windows/win32/intl/code-page-identifiers</a>
 provides a list of translations from Windows codepage numbers to
-encoding names that <code><a href="base.html#iconv">iconv</a></code> is likely to know about and so
+encoding names that <code><a href="https://r-universe.dev/manuals/base.html#iconv">iconv</a></code> is likely to know about and so
 suitable values for <code>reencode</code>.  Automatic re-encoding is
 attempted for apparent codepages of 200 or more in a UTF-8 or latin-1 locale:
 some other high-numbered codepages can be re-encoded on most systems,
 but the encoding names are platform-dependent (see
-<code><a href="base.html#iconv">iconvlist</a></code>).
+<code><a href="https://r-universe.dev/manuals/base.html#iconv">iconvlist</a></code>).
 </p>
 
 
@@ -1220,7 +1220,7 @@ file must be in SAS XPORT format.</p>
 <tr style="vertical-align: top;">
 <td><code>...</code></td>
 <td>
-<p>passed to <code><a href="base.html#as.data.frame">as.data.frame</a></code> when creating the data
+<p>passed to <code><a href="https://r-universe.dev/manuals/base.html#as.data.frame">as.data.frame</a></code> when creating the data
 frames.</p>
 </td>
 </tr>
@@ -1408,7 +1408,7 @@ If not, coercion to a data frame is attempted.</p>
 </table>
 <h3>Details</h3>
 
-<p><code>relation</code> will be passed through <code><a href="base.html#make.names">make.names</a></code> before
+<p><code>relation</code> will be passed through <code><a href="https://r-universe.dev/manuals/base.html#make.names">make.names</a></code> before
 writing to the file, in an attempt to it them acceptable to Weka, and
 column names what do not start with an alphabetic character will have
 <code>X</code> prepended.
@@ -1573,7 +1573,7 @@ unlink<span class="token punctuation">(</span>c<span class="token punctuation">(
 
 <p>Writes the data frame to file in the Stata binary
 format.  Does not write array variables unless they can be
-<code><a href="base.html#drop">drop</a></code>-ed to a vector.
+<code><a href="https://r-universe.dev/manuals/base.html#drop">drop</a></code>-ed to a vector.
 </p>
 <p>Frozen: will not support Stata formats after 10 (also used by Stata 11).
 </p>
@@ -1661,16 +1661,16 @@ name from <code>"val.labels"</code>) then these will be written out as well.
 as the dataset label otherwise the dataset label is <code>"Written by R."</code>.
 </p>
 <p>If the <code>"expansion.table"</code> attribute exists expansion fields are
-written.  This attribute should contain a <code><a href="base.html#list">list</a></code> where each element is
-<code><a href="base.html#character">character</a></code> vector of length three.  The first vector element contains the
+written.  This attribute should contain a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> where each element is
+<code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> vector of length three.  The first vector element contains the
 name of a variable or "_dta" (meaning the dataset). The second element
 contains the characeristic name. The third contains the associated data.
 </p>
-<p>If the <code>"val.labels"</code> attribute contains a <code><a href="base.html#character">character</a></code> vector with a
+<p>If the <code>"val.labels"</code> attribute contains a <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> vector with a
 string label for each value then this is written as the value
 labels.  Otherwise the variable names are used. 
 </p>
-<p>If the <code>"var.labels"</code> attribute contains a <code><a href="base.html#character">character</a></code> vector with a
+<p>If the <code>"var.labels"</code> attribute contains a <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> vector with a
 string label for each variable then this is written as the variable
 labels.  Otherwise the variable names are repeated as variable labels.
 </p>
@@ -1739,9 +1739,9 @@ and <a href="https://www.stata.com/help.cgi?dta_113" target="_blank">https://www
 <h3>See Also</h3>
 
 <p><code><a href="#read.dta">read.dta</a></code>,
-<code><a href="base.html#attributes">attributes</a></code>,
-<code><a href="base.html#DateTimeClasses">DateTimeClasses</a></code>,
-<code><a href="base.html#abbreviate">abbreviate</a></code>
+<code><a href="https://r-universe.dev/manuals/base.html#attributes">attributes</a></code>,
+<code><a href="https://r-universe.dev/manuals/base.html#DateTimeClasses">DateTimeClasses</a></code>,
+<code><a href="https://r-universe.dev/manuals/base.html#abbreviate">abbreviate</a></code>
 </p>
 
 

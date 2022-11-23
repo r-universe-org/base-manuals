@@ -141,7 +141,7 @@ Prepare Translations for a Package
 
 <h3>Description</h3>
 
-<p><code>.print.via.format</code> is a “prototype” <code><a href="base.html#print">print</a>()</code>
+<p><code>.print.via.format</code> is a “prototype” <code><a href="https://r-universe.dev/manuals/base.html#print">print</a>()</code>
 method, useful, at least as a start, by a simple
 </p>
 <pre>    print.&lt;myS3class&gt;  &lt;-  .print.via.format</pre>
@@ -164,23 +164,23 @@ method, useful, at least as a start, by a simple
 <tr style="vertical-align: top;">
 <td><code>...</code></td>
 <td>
-<p>optional further arguments, passed to <code><a href="base.html#format">format</a></code>.</p>
+<p>optional further arguments, passed to <code><a href="https://r-universe.dev/manuals/base.html#format">format</a></code>.</p>
 </td>
 </tr>
 </table>
 <h3>Value</h3>
 
-<p><code>x</code>, invisibly (by <code><a href="base.html#invisible">invisible</a>()</code>), as
-<code><a href="base.html#print">print</a></code> methods should.
+<p><code>x</code>, invisibly (by <code><a href="https://r-universe.dev/manuals/base.html#invisible">invisible</a>()</code>), as
+<code><a href="https://r-universe.dev/manuals/base.html#print">print</a></code> methods should.
 </p>
 
 
 <h3>See Also</h3>
 
-<p>The <code><a href="base.html#print">print</a></code> generic; its default method
-<code><a href="base.html#print.default">print.default</a></code> (used for many basic implicit classes such
-as <code>"numeric"</code>, <code>"character"</code> and <code><a href="base.html#array">array</a></code>s of
-them, <code><a href="base.html#list">list</a></code>s etc).
+<p>The <code><a href="https://r-universe.dev/manuals/base.html#print">print</a></code> generic; its default method
+<code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code> (used for many basic implicit classes such
+as <code>"numeric"</code>, <code>"character"</code> and <code><a href="https://r-universe.dev/manuals/base.html#array">array</a></code>s of
+them, <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code>s etc).
 </p>
 
 
@@ -203,7 +203,7 @@ Add a ‘<span class="file">datalist</span>’ File to a Source Package
 
 <h3>Description</h3>
 
-<p>The <code><a href="utils.html#data">data</a>()</code> command with no arguments lists all the
+<p>The <code><a href="https://r-universe.dev/manuals/utils.html#data">data</a>()</code> command with no arguments lists all the
 datasets available via <code>data</code> in attached packages, and to do so a
 per-package list is installed.  Creating that list at install time can
 be slow for packages with huge datasets, and can be expedited by a
@@ -253,7 +253,7 @@ packages itself (and maybe others).
 
 <h3>See Also</h3>
 
-<p><code><a href="utils.html#data">data</a></code>.
+<p><code><a href="https://r-universe.dev/manuals/utils.html#data">data</a></code>.
 </p>
 <p>The ‘Writing R Extensions’ manual.
 </p>
@@ -290,13 +290,13 @@ assertCondition<span class="token punctuation">(</span>expr<span class="token pu
 <td><code>expr</code></td>
 <td>
 <p>an unevaluated <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> expression which will be evaluated via
-<code><a href="base.html#conditions">tryCatch</a>(expr, ..)</code>.</p>
+<code><a href="https://r-universe.dev/manuals/base.html#conditions">tryCatch</a>(expr, ..)</code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>classes, ...</code></td>
 <td>
-<p><code><a href="base.html#character">character</a></code> strings corresponding to the
+<p><code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> strings corresponding to the
 classes of the conditions that would satisfy the assertion; e.g., <code>"error"</code> or
 <code>"warning"</code>.  If none are specified, any condition will
 satisfy the assertion.  See the details section. </p>
@@ -340,7 +340,7 @@ will be satisfied even if an error follows the warning.  See the examples.
 <h3>Value</h3>
 
 <p>If the assertion is satisfied, a list of all the condition objects
-signalled is returned, invisibly. See <code><a href="base.html#conditions">conditionMessage</a></code> for the
+signalled is returned, invisibly. See <code><a href="https://r-universe.dev/manuals/base.html#conditions">conditionMessage</a></code> for the
 interpretation of these objects.  Note that <em>all</em> conditions
 signalled during the evaluation are returned, whether or not they
 were among the requirements.
@@ -354,8 +354,8 @@ were among the requirements.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#stop">stop</a></code>, <code><a href="base.html#warning">warning</a></code>;
-<code><a href="base.html#conditions">signalCondition</a></code>, <code><a href="base.html#conditions">tryCatch</a></code>.
+<p><code><a href="https://r-universe.dev/manuals/base.html#stop">stop</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#warning">warning</a></code>;
+<code><a href="https://r-universe.dev/manuals/base.html#conditions">signalCondition</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#conditions">tryCatch</a></code>.
 </p>
 
 
@@ -404,7 +404,7 @@ assertCondition<span class="token punctuation">(</span> assertCondition<span cla
 <h3>Description</h3>
 
 <p>This function defines and registers styles for rendering
-<code><a href="utils.html#bibentry">bibentry</a></code> objects into ‘<span class="file">Rd</span>’ format, for later
+<code><a href="https://r-universe.dev/manuals/utils.html#bibentry">bibentry</a></code> objects into ‘<span class="file">Rd</span>’ format, for later
 conversion to text, HTML, etc.
 </p>
 
@@ -469,7 +469,7 @@ getBibstyle<span class="token punctuation">(</span>all <span class="token operat
 </table>
 <h3>Details</h3>
 
-<p>Rendering of <code><a href="utils.html#bibentry">bibentry</a></code> objects may be done using routines
+<p>Rendering of <code><a href="https://r-universe.dev/manuals/utils.html#bibentry">bibentry</a></code> objects may be done using routines
 modelled after those used by BibTeX.  This function allows environments
 to be created and manipulated to contain those routines.
 </p>
@@ -490,7 +490,7 @@ default style, but modifications will not be allowed.
 </p>
 <p>At a minimum, the environment should contain routines to render each
 of the 12 types of bibliographic entry supported by
-<code><a href="utils.html#bibentry">bibentry</a></code> as well as several other routines
+<code><a href="https://r-universe.dev/manuals/utils.html#bibentry">bibentry</a></code> as well as several other routines
 described below.
 The former must be named <code>formatArticle</code>,
 <code>formatBook</code>, <code>formatInbook</code>, <code>formatIncollection</code>,
@@ -498,19 +498,19 @@ The former must be named <code>formatArticle</code>,
 <code>formatMastersthesis</code>, <code>formatMisc</code>, <code>formatPhdthesis</code>,
 <code>formatProceedings</code>, <code>formatTechreport</code> and
 <code>formatUnpublished</code>.  Each of these takes one argument, a single
-<code><a href="base.html#class">unclass</a></code>'ed entry from the <code><a href="utils.html#bibentry">bibentry</a></code> vector
+<code><a href="https://r-universe.dev/manuals/base.html#class">unclass</a></code>'ed entry from the <code><a href="https://r-universe.dev/manuals/utils.html#bibentry">bibentry</a></code> vector
 passed to the renderer, and should produce a single element character
 vector (possibly containing newlines).
 </p>
 <p>The other routines are as follows.  <code>sortKeys</code>, a function to
 produce a sort key to sort the entries, is passed the original
-<code><a href="utils.html#bibentry">bibentry</a></code> vector and should produce a sortable vector of
+<code><a href="https://r-universe.dev/manuals/utils.html#bibentry">bibentry</a></code> vector and should produce a sortable vector of
 the same length to define the sort order.  Finally,
 the optional function <code>cite</code> should have the same argument list
-as <code>utils::<a href="utils.html#cite">cite</a></code>, and should produce a citation to be used
+as <code>utils::<a href="https://r-universe.dev/manuals/utils.html#cite">cite</a></code>, and should produce a citation to be used
 in text.
 </p>
-<p>The <code><a href="base.html#format">format</a></code> method for <code>"bibentry"</code> objects adds a
+<p>The <code><a href="https://r-universe.dev/manuals/base.html#format">format</a></code> method for <code>"bibentry"</code> objects adds a
 field named <code>".index"</code> to each entry after sorting and before
 formatting.  This is a 1-based index within the complete object that
 can be used in styles that require numbering.  Although the
@@ -537,7 +537,7 @@ style names.
 
 <h3>See Also</h3>
 
-<p><code><a href="utils.html#bibentry">bibentry</a></code>
+<p><code><a href="https://r-universe.dev/manuals/utils.html#bibentry">bibentry</a></code>
 </p>
 
 
@@ -573,8 +573,8 @@ print<span class="token punctuation">(</span>refs<span class="token punctuation"
 
 <h3>Description</h3>
 
-<p>Run <code><a href="utils.html#Sweave">Sweave</a></code> (or other custom weave function),
-<code><a href="#texi2dvi">texi2pdf</a></code>, and/or <code><a href="utils.html#Sweave">Stangle</a></code> 
+<p>Run <code><a href="https://r-universe.dev/manuals/utils.html#Sweave">Sweave</a></code> (or other custom weave function),
+<code><a href="#texi2dvi">texi2pdf</a></code>, and/or <code><a href="https://r-universe.dev/manuals/utils.html#Sweave">Stangle</a></code> 
 (or other custom tangle function) on one vignette.
 </p>
 <p>This is the workhorse of <code>R CMD Sweave</code>.
@@ -720,7 +720,7 @@ source.
 
 <h3>Description</h3>
 
-<p>Run <code><a href="utils.html#Sweave">Sweave</a></code> (or other custom weave function)
+<p>Run <code><a href="https://r-universe.dev/manuals/utils.html#Sweave">Sweave</a></code> (or other custom weave function)
 and <code><a href="#texi2dvi">texi2pdf</a></code> on all vignettes
 of a package, or list the vignettes.
 </p>
@@ -877,7 +877,7 @@ Adobe_glyphs</code></pre>
 <h3>Details</h3>
 
 <p><code>charset_to_Unicode</code> is an integer matrix of class
-<code>c("<a href="base.html#noquote">noquote</a>", "<a href="base.html#hexmode">hexmode</a>")</code> so prints in hexadecimal.
+<code>c("<a href="https://r-universe.dev/manuals/base.html#noquote">noquote</a>", "<a href="https://r-universe.dev/manuals/base.html#hexmode">hexmode</a>")</code> so prints in hexadecimal.
 The mappings are those used by <code>libiconv</code>: there are differences
 in the way quotes and minus/hyphen are mapped between sources (and the
 postscript encoding files use a different mapping).
@@ -886,7 +886,7 @@ postscript encoding files use a different mapping).
 to single Unicode characters.  It is sorted by Unicode code point and
 within a point alphabetically on the glyph (there can be more than one
 name for a Unicode code point).  The data are in the file
-‘<span class="file"><var><a href="base.html#Rhome">R_HOME</a></var>/share/encodings/Adobe_glyphlist</span>’.
+‘<span class="file"><var><a href="https://r-universe.dev/manuals/base.html#Rhome">R_HOME</a></var>/share/encodings/Adobe_glyphlist</span>’.
 </p>
 
 
@@ -1019,7 +1019,7 @@ reverse dependency sources.</p>
 <tr style="vertical-align: top;">
 <td><code>...</code></td>
 <td>
-<p>passed to <code><a href="base.html#readLines">readLines</a></code>, e.g. for reading log files 
+<p>passed to <code><a href="https://r-universe.dev/manuals/base.html#readLines">readLines</a></code>, e.g. for reading log files 
 produced in a different encoding; currently not used by 
 <code>check_packages_in_dir</code>.</p>
 </td>
@@ -1111,12 +1111,12 @@ dependencies are renamed by prefixing their base names with
 <code>summarize_check_packages_in_dir_timings</code>, respectively.
 </p>
 <p>Installation and checking is performed in parallel if <code>Ncpus</code> is
-greater than one: this will use <code><a href="parallel.html#mclapply">mclapply</a></code> on
-Unix and <code><a href="parallel.html#clusterApply">parLapply</a></code> on Windows.
+greater than one: this will use <code><a href="https://r-universe.dev/manuals/parallel.html#mclapply">mclapply</a></code> on
+Unix and <code><a href="https://r-universe.dev/manuals/parallel.html#clusterApply">parLapply</a></code> on Windows.
 </p>
 <p><code>check_packages_in_dir</code> returns an object inheriting from class
-<code>"check_packages_in_dir"</code> which has <code><a href="base.html#print">print</a></code> and
-<code><a href="base.html#summary">summary</a></code> methods.
+<code>"check_packages_in_dir"</code> which has <code><a href="https://r-universe.dev/manuals/base.html#print">print</a></code> and
+<code><a href="https://r-universe.dev/manuals/base.html#summary">summary</a></code> methods.
 </p>
 <p><code>check_packages_in_dir_changes</code> allows to analyze the effect of
 changing (some of) the sources.  With <code>dir</code> and <code>old</code> the
@@ -1180,7 +1180,7 @@ check_packages_in_dir<span class="token punctuation">(</span>dir<span class="tok
 
 <p>Performs checks on calls to compiled code from R code.  Currently only
 checks whether the interface functions such as <code>.C</code> and
-<code>.Fortran</code> are called with a <code>"<a href="base.html#getNativeSymbolInfo">NativeSymbolInfo</a>"</code>
+<code>.Fortran</code> are called with a <code>"<a href="https://r-universe.dev/manuals/base.html#getNativeSymbolInfo">NativeSymbolInfo</a>"</code>
 first argument or with argument <code>PACKAGE</code> specified, which is
 highly recommended to avoid name clashes in foreign function calls.
 </p>
@@ -1271,16 +1271,16 @@ specified in the ‘<span class="file">DESCRIPTION</span>’ file).
 
 <p>An object of class <code>"checkFF"</code>.
 </p>
-<p>There are <code><a href="base.html#format">format</a></code> and <code>print</code> methods to display the
+<p>There are <code><a href="https://r-universe.dev/manuals/base.html#format">format</a></code> and <code>print</code> methods to display the
 information contained in such objects.
 </p>
 
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#Foreign">.C</a></code>,
-<code><a href="base.html#Foreign">.Fortran</a></code>;
-<code><a href="base.html#Foreign">Foreign</a></code>.
+<p><code><a href="https://r-universe.dev/manuals/base.html#Foreign">.C</a></code>,
+<code><a href="https://r-universe.dev/manuals/base.html#Foreign">.Fortran</a></code>;
+<code><a href="https://r-universe.dev/manuals/base.html#Foreign">Foreign</a></code>.
 </p>
 
 
@@ -1405,7 +1405,7 @@ forms in a strict way.</p>
 in ‘<span class="file">.po</span>’ files.  In these files an ‘English’ message taken
 from the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> sources is followed by a translation into another
 language.  Many of these messages are format strings for C or <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
-<code><a href="base.html#sprintf">sprintf</a></code> and related functions.  In these cases, the
+<code><a href="https://r-universe.dev/manuals/base.html#sprintf">sprintf</a></code> and related functions.  In these cases, the
 translation must give a compatible format or an error will be
 generated when the message is displayed.
 </p>
@@ -1462,7 +1462,7 @@ the differences.
 <h3>See Also</h3>
 
 <p><code><a href="#update_pkg_po">update_pkg_po</a>()</code> which calls <code>checkPoFile()</code>;
-<code><a href="#xgettext">xgettext</a></code>, <code><a href="base.html#sprintf">sprintf</a></code>.
+<code><a href="#xgettext">xgettext</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#sprintf">sprintf</a></code>.
 </p>
 
 
@@ -1786,14 +1786,14 @@ this specifies a single directory, it is taken to refer to all
 <td><code>compress, compression_level</code></td>
 <td>
 <p>Type and level of compression: see
-<code><a href="base.html#save">save</a></code>.  Values of <code>compress</code> can be abbreviated.</p>
+<code><a href="https://r-universe.dev/manuals/base.html#save">save</a></code>.  Values of <code>compress</code> can be abbreviated.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>version</code></td>
 <td>
 <p>The format to be used when re-saving: see
-<code><a href="base.html#save">save</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/base.html#save">save</a></code>.</p>
 </td>
 </tr>
 </table>
@@ -1843,7 +1843,7 @@ means that if this is an <span style="font-family: Courier New, Courier; color: 
 <td><code>version</code></td>
 <td>
 <p>integer: positive with the version(s) of the
-<code><a href="base.html#save">save</a>()</code>, see there on which versions have been default in
+<code><a href="https://r-universe.dev/manuals/base.html#save">save</a>()</code>, see there on which versions have been default in
 which versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, and <code>NA</code> for non-Rda files.</p>
 </td>
 </tr>
@@ -1941,10 +1941,10 @@ contained in such objects.
 <h3>Description</h3>
 
 <p>Check all vignettes of a package by running
-<code><a href="utils.html#Sweave">Sweave</a></code> (or other custom weave function) and/or
-<code><a href="utils.html#Sweave">Stangle</a></code> (or other custom tangle function) on them.
+<code><a href="https://r-universe.dev/manuals/utils.html#Sweave">Sweave</a></code> (or other custom weave function) and/or
+<code><a href="https://r-universe.dev/manuals/utils.html#Sweave">Stangle</a></code> (or other custom tangle function) on them.
 All R source code files found after the tangling step are
-<code><a href="base.html#source">source</a></code>ed to check whether all code can be
+<code><a href="https://r-universe.dev/manuals/base.html#source">source</a></code>ed to check whether all code can be
 executed without errors.
 </p>
 
@@ -1989,7 +1989,7 @@ search for <code>package</code>.</p>
 <tr style="vertical-align: top;">
 <td><code>tangle</code></td>
 <td>
-<p>Perform a tangle and <code><a href="base.html#source">source</a></code> the extracted code?</p>
+<p>Perform a tangle and <code><a href="https://r-universe.dev/manuals/base.html#source">source</a></code> the extracted code?</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -2031,13 +2031,13 @@ ignored when <code>workdir != "tmp"</code>.</p>
 package vignettes, and in particular their vignette engines (see
 <code><a href="#vignetteEngine">vignetteEngine</a></code>).
 </p>
-<p>If <code>tangle</code> is true, it then runs <code><a href="utils.html#Sweave">Stangle</a></code> (or
+<p>If <code>tangle</code> is true, it then runs <code><a href="https://r-universe.dev/manuals/utils.html#Sweave">Stangle</a></code> (or
 other custom tangle function provided by the engine) to produce (one
-or more) <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code files from each vignette, then <code><a href="base.html#source">source</a></code>s
+or more) <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code files from each vignette, then <code><a href="https://r-universe.dev/manuals/base.html#source">source</a></code>s
 each code file in turn.
 </p>
 <p>If <code>weave</code> is true, the vignettes are run through
-<code><a href="utils.html#Sweave">Sweave</a></code> (or other custom weave function provided by the
+<code><a href="https://r-universe.dev/manuals/utils.html#Sweave">Sweave</a></code> (or other custom weave function provided by the
 engine).  If <code>latex</code> is also true and there is no ‘<span class="file">Makefile</span>’
 in the vignettes directory, <code><a href="#texi2dvi">texi2pdf</a></code> is run on the
 intermediate ‘<span class="file">.tex</span>’ files from weaving for those vignettes which
@@ -2152,11 +2152,11 @@ found is checked.)
 basic ‘structure’ of classes and data sets (similar to the usage
 sections for function synopses).  Variable names for data frames in
 documentation objects obtained by suitably editing ‘templates’
-created by <code><a href="utils.html#prompt">prompt</a></code> are recognized by <code>codocData</code>
+created by <code><a href="https://r-universe.dev/manuals/utils.html#prompt">prompt</a></code> are recognized by <code>codocData</code>
 and used provided that the documentation object is for a single data
 frame (i.e., only has one alias).  <code>codocClasses</code> analogously
 handles slot names for classes in documentation objects obtained by
-editing shells created by <code><a href="methods.html#promptClass">promptClass</a></code>.
+editing shells created by <code><a href="https://r-universe.dev/manuals/methods.html#promptClass">promptClass</a></code>.
 </p>
 <p>Help files named ‘<span class="file"><var>pkgname</var>-defunct.Rd</span>’ for the
 appropriate <var>pkgname</var> are checked more loosely, as they may
@@ -2425,7 +2425,7 @@ summarize_CRAN_check_status<span class="token punctuation">(</span>packages<span
 containing most ‘<span class="file">DESCRIPTION</span>’ metadata for the current packages
 in the CRAN package repository, including in particular the
 Description and Maintainer information not provided by
-<code>utils::<a href="utils.html#available.packages">available.packages</a>()</code>.
+<code>utils::<a href="https://r-universe.dev/manuals/utils.html#available.packages">available.packages</a>()</code>.
 </p>
 <p><code>CRAN_check_results()</code> returns a data frame with the basic
 <abbr><span class="acronym">CRAN</span></abbr> package check results including timings, with columns
@@ -2465,12 +2465,12 @@ integrated into that of <code>CRAN_check_issues()</code>.
 <p>The main functions access a <abbr><span class="acronym">CRAN</span></abbr> mirror specified by the
 environment variable <span class="env">R_CRAN_WEB</span>, defaulting to one specified in
 the <code>"repos"</code> option.  Otherwise the entry in the
-‘<span class="file">repositories</span>’ file (see <code><a href="utils.html#setRepositories">setRepositories</a></code>) is used:
+‘<span class="file">repositories</span>’ file (see <code><a href="https://r-universe.dev/manuals/utils.html#setRepositories">setRepositories</a></code>) is used:
 if that specifies <code>@CRAN@</code> (the default) or does not contain an
 entry for CRAN then <a href="https://CRAN.R-project.org" target="_blank">https://CRAN.R-project.org</a> is used.
 </p>
 <p>The mirror to be used is reported by
-<code>utils::<a href="utils.html#findCRANmirror">findCRANmirror</a>("web")</code>.
+<code>utils::<a href="https://r-universe.dev/manuals/utils.html#findCRANmirror">findCRANmirror</a>("web")</code>.
 </p>
 <p>Note that these functions access parts of <abbr><span class="acronym">CRAN</span></abbr> under
 ‘<span class="file">web/contrib</span>’ and ‘<span class="file">web/packages</span>’ so if you have specified a
@@ -2584,7 +2584,7 @@ characters) of the matched text (or <code class="reqn"><span class="katex"><span
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#grep">regexpr</a></code> for ‘simple’ pattern matching.
+<p><code><a href="https://r-universe.dev/manuals/base.html#grep">regexpr</a></code> for ‘simple’ pattern matching.
 </p>
 
 
@@ -2649,13 +2649,13 @@ dependencies (and so on) be included?</p>
 <td><code>lib.loc</code></td>
 <td>
 <p>a character vector of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> library trees, or <code>NULL</code>
-for all known trees (see <code><a href="base.html#libPaths">.libPaths</a></code>).</p>
+for all known trees (see <code><a href="https://r-universe.dev/manuals/base.html#libPaths">.libPaths</a></code>).</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>installed</code></td>
 <td>
-<p>a result of calling <code><a href="utils.html#installed.packages">installed.packages</a></code>.</p>
+<p>a result of calling <code><a href="https://r-universe.dev/manuals/utils.html#installed.packages">installed.packages</a></code>.</p>
 </td>
 </tr>
 </table>
@@ -2733,7 +2733,7 @@ the font in use.  Hyphen is mapped to ‘<span class="samp">⁠\-⁠</span>’.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#iconv">iconv</a></code>
+<p><code><a href="https://r-universe.dev/manuals/base.html#iconv">iconv</a></code>
 </p>
 
 
@@ -2864,7 +2864,7 @@ sets), <code>"demo"</code> (demos), <code>"docs"</code> (R documentation), and
 subdirectories to possibly include in the listing of R code and
 documentation files.  By default, the value of the environment
 variable <span class="env">R_OSTYPE</span>, or if this is empty, the value of
-<code><a href="base.html#Platform">.Platform</a>$OS.type</code>, is used.</p>
+<code><a href="https://r-universe.dev/manuals/base.html#Platform">.Platform</a>$OS.type</code>, is used.</p>
 </td>
 </tr>
 </table>
@@ -2876,7 +2876,7 @@ leading dot).
 </p>
 <p><code>file_path_as_absolute</code> turns a possibly relative file path
 absolute, performing tilde expansion if necessary.  This is a wrapper
-for <code><a href="base.html#normalizePath">normalizePath</a></code>.  Currently, <code>x</code> must be a single
+for <code><a href="https://r-universe.dev/manuals/base.html#normalizePath">normalizePath</a></code>.  Currently, <code>x</code> must be a single
 existing path.
 </p>
 <p><code>file_path_sans_ext</code> returns the file paths without extensions
@@ -2899,9 +2899,9 @@ returned, and that only visible files are used.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#file.path">file.path</a></code>,
-<code><a href="base.html#file.info">file.info</a></code>,
-<code><a href="base.html#list.files">list.files</a></code>
+<p><code><a href="https://r-universe.dev/manuals/base.html#file.path">file.path</a></code>,
+<code><a href="https://r-universe.dev/manuals/base.html#file.info">file.info</a></code>,
+<code><a href="https://r-universe.dev/manuals/base.html#list.files">list.files</a></code>
 </p>
 
 
@@ -3228,7 +3228,7 @@ default indicates no package.</p>
 <td><code>lib.loc</code></td>
 <td>
 <p>character vector describing the location of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> library
-trees to scan: the default indicates <code><a href="base.html#libPaths">.libPaths</a>()</code>.</p>
+trees to scan: the default indicates <code><a href="https://r-universe.dev/manuals/base.html#libPaths">.libPaths</a>()</code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -3347,7 +3347,7 @@ or ‘<span class="file">help/macros</span>’ subdirectories, and load those.
 <p>These functions each return an environment containing objects with the
 names of the newly defined macros from the last file processed.  The
 parent environment will be macros from the previous file, and so on.
-The first file processed will have <code><a href="base.html#environment">emptyenv</a>()</code> as its
+The first file processed will have <code><a href="https://r-universe.dev/manuals/base.html#environment">emptyenv</a>()</code> as its
 parent.
 </p>
 
@@ -3430,7 +3430,7 @@ e.g. <code>3.0.0-1</code> will be the default in <span style="font-family: Couri
 <p>This extracts the translations in a current <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> source distribution and
 packages them as a source package called <span class="pkg">translations</span> which can
 be distributed on CRAN and installed by
-<code><a href="utils.html#update.packages">update.packages</a></code>.  This allows e.g. the translations
+<code><a href="https://r-universe.dev/manuals/utils.html#update.packages">update.packages</a></code>.  This allows e.g. the translations
 shipped in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.x.y to be updated to those currently in
 ‘<span class="samp">⁠R-patched⁠</span>’, even by a user without administrative privileges.
 </p>
@@ -3665,7 +3665,7 @@ a 2001 release of <code>glibc</code>.
 <tr style="vertical-align: top;">
 <td><code>db</code></td>
 <td>
-<p>character matrix as from <code><a href="utils.html#available.packages">available.packages</a>()</code>
+<p>character matrix as from <code><a href="https://r-universe.dev/manuals/utils.html#available.packages">available.packages</a>()</code>
 (with the default <code>NULL</code> the results of this call)
 or data frame variants thereof.  Alternatively, a package database
 like the one available from
@@ -3948,7 +3948,7 @@ explicit (character string) <code>PACKAGE</code> argument.
 
 <h3>See Also</h3>
 
-<p><code><a href="utils.html#package.skeleton">package.skeleton</a></code>.
+<p><code><a href="https://r-universe.dev/manuals/utils.html#package.skeleton">package.skeleton</a></code>.
 </p>
 
 
@@ -4111,7 +4111,7 @@ will be returned with the result.
 </p>
 <p>The <code>permissive</code> argument allows text to be parsed that is
 not completely in Rd format.  Typically it would be LaTeX code,
-used in an Rd fragment, e.g. in a <code><a href="utils.html#bibentry">bibentry</a></code>.
+used in an Rd fragment, e.g. in a <code><a href="https://r-universe.dev/manuals/utils.html#bibentry">bibentry</a></code>.
 With <code>permissive = TRUE</code>, this will be passed through as plain
 text.  Since <code>parse_Rd</code> doesn't know how many arguments
 belong in LaTeX macros, it will guess based on the presence
@@ -4304,7 +4304,7 @@ SIGUSR2</code></pre>
 <td><code>pid</code></td>
 <td>
 <p>positive integers: one or more process IDs as returned by
-<code><a href="base.html#Sys.getpid">Sys.getpid</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/base.html#Sys.getpid">Sys.getpid</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -4533,8 +4533,8 @@ method.  As an exception, the first argument of a formula method
 by the generic.  The rules when <code>...</code> is involved are subtle:
 see the source code.  Functions recognized as S3 generics are those
 with a call to <code>UseMethod</code> in their body, internal S3 generics
-(see <a href="base.html#InternalMethods">InternalMethods</a>), and S3 group generics (see
-<code><a href="base.html#groupGeneric">Math</a></code>).  Possible dispatch under a
+(see <a href="https://r-universe.dev/manuals/base.html#InternalMethods">InternalMethods</a>), and S3 group generics (see
+<code><a href="https://r-universe.dev/manuals/base.html#groupGeneric">Math</a></code>).  Possible dispatch under a
 different name is not taken into account.  The generics are sought
 first in the given package, then in the <span class="pkg">base</span> package and
 (currently) the packages <span class="pkg">graphics</span>, <span class="pkg">stats</span>, and <span class="pkg">utils</span>
@@ -4545,14 +4545,14 @@ listed in the package's ‘<span class="file">DESCRIPTION</span>’ Depends fiel
 <p><code>checkRdContents()</code> checks Rd content, e.g., whether arguments of
 functions in the usage section have non empty descriptions.
 </p>
-<p><code>nonS3methods(package)</code> returns a <code><a href="base.html#character">character</a></code> vector with
+<p><code>nonS3methods(package)</code> returns a <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> vector with
 the names of the functions in <code>package</code> which ‘look’ like
 S3 methods, but are not.  Using <code>package = NULL</code> returns all
 known examples.
 </p>
 <p><code>langElts</code> is a character vector of names of “language
 elements” of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.  These are implemented as “very primitive”
-functions (no argument list; <code><a href="base.html#print">print</a>()</code>ing as
+functions (no argument list; <code><a href="https://r-universe.dev/manuals/base.html#print">print</a>()</code>ing as
 <code>.Primitive("&lt;name&gt;")</code>).
 </p>
 <p>If using an installed package, the checks needing access to all <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
@@ -4599,7 +4599,7 @@ contained in such objects.
 <tr style="vertical-align: top;">
 <td><code>...</code></td>
 <td>
-<p>arguments to be passed to <code><a href="base.html#system2">system2</a></code>.</p>
+<p>arguments to be passed to <code><a href="https://r-universe.dev/manuals/base.html#system2">system2</a></code>.</p>
 </td>
 </tr>
 </table>
@@ -4607,13 +4607,13 @@ contained in such objects.
 
 <p>Provides a portable convenience interface to the <code>R CMD</code>
 mechanism by invoking the corresponding system commands (using the
-version of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> currently used) via <code><a href="base.html#system2">system2</a></code>.
+version of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> currently used) via <code><a href="https://r-universe.dev/manuals/base.html#system2">system2</a></code>.
 </p>
 
 
 <h3>Value</h3>
 
-<p>See section “Value” in <code><a href="base.html#system2">system2</a></code>.
+<p>See section “Value” in <code><a href="https://r-universe.dev/manuals/base.html#system2">system2</a></code>.
 </p>
 
 <hr>
@@ -4667,7 +4667,7 @@ Rd2ex<span class="token punctuation">(</span>Rd<span class="token punctuation">,
 <td>
 <p>a filename or connection object to which to write the
 output.  The default <code>out = ""</code> is equivalent to
-<code>out = <a href="base.html#showConnections">stdout</a>()</code>.</p>
+<code>out = <a href="https://r-universe.dev/manuals/base.html#showConnections">stdout</a>()</code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -4707,7 +4707,7 @@ dynamic help system.</p>
 <td><code>no_links</code></td>
 <td>
 <p>logical: suppress hyperlinks to other help topics.
-Used by <code>R CMD <a href="base.html#RdUtils">Rdconv</a></code>.</p>
+Used by <code>R CMD <a href="https://r-universe.dev/manuals/base.html#RdUtils">Rdconv</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -4785,7 +4785,7 @@ out?</p>
 <p>These functions convert help documents: <code>Rd2HTML</code> produces HTML,
 <code>Rd2txt</code> produces plain text, <code>Rd2latex</code> produces LaTeX.
 <code>Rd2ex</code> extracts the examples in the format used by
-<code><a href="utils.html#example">example</a></code> and <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> utilities.
+<code><a href="https://r-universe.dev/manuals/utils.html#example">example</a></code> and <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> utilities.
 </p>
 <p>Each of the functions accepts a filename for an Rd file, and
 will use <code><a href="#parse_Rd">parse_Rd</a></code> to parse it before applying the
@@ -4803,9 +4803,9 @@ versions did not provide enough coverage of UTF-8 glyphs for a long time.
 <code>width</code>, with appropriate margins.  The default is to be close to
 the rendering in versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> &lt; 2.10.0.
 </p>
-<p><code>Rd2txt</code> will use directional quotes (see <code><a href="base.html#sQuote">sQuote</a></code>)
+<p><code>Rd2txt</code> will use directional quotes (see <code><a href="https://r-universe.dev/manuals/base.html#sQuote">sQuote</a></code>)
 if option <code>"useFancyQuotes"</code> is true (usually the default,
-see <code><a href="base.html#sQuote">sQuote</a></code>) and
+see <code><a href="https://r-universe.dev/manuals/base.html#sQuote">sQuote</a></code>) and
 the current encoding is UTF-8.
 </p>
 <p>Various aspects of formatting by <code>Rd2txt</code> are controlled by the
@@ -4845,7 +4845,7 @@ rendering.
 current system.
 </p>
 <p>If the text cannot be converted to the <code>outputEncoding</code>, byte
-substitution will be used (see <code><a href="base.html#iconv">iconv</a></code>): <code>Rd2latex</code>
+substitution will be used (see <code><a href="https://r-universe.dev/manuals/base.html#iconv">iconv</a></code>): <code>Rd2latex</code>
 and <code>Rd2ex</code> give a warning.
 </p>
 
@@ -4875,7 +4875,7 @@ page is converted to a readable format).
 </li>
 <li>
 <p> rendered on
-2022-11-23 at 10:55:41.
+2022-11-23 at 11:08:57.
 </p>
 </li>
 </ol>
@@ -5089,7 +5089,7 @@ differences found?</p>
 
 <p>The <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> startup banner and any timing information from <code>R CMD
     BATCH</code> are removed from both files, together with lines about
-loading packages.  UTF-8 fancy quotes (see <code><a href="base.html#sQuote">sQuote</a></code>) and
+loading packages.  UTF-8 fancy quotes (see <code><a href="https://r-universe.dev/manuals/base.html#sQuote">sQuote</a></code>) and
 on Windows, Windows' so-called ‘smart quotes’, are mapped to
 a simple quote.  Addresses of environments, compiled bytecode and
 other exotic types expressed as hex addresses
@@ -5283,7 +5283,7 @@ as in the original file.
 <p>This function parses the Rd file, then walks through it, element by
 element.  Items with tag <code>"TEXT"</code> are kept in the same position as
 they appeared in the original file, while other parts of the file are
-replaced with blanks, so a spell checker such as <code><a href="utils.html#aspell">aspell</a></code>
+replaced with blanks, so a spell checker such as <code><a href="https://r-universe.dev/manuals/utils.html#aspell">aspell</a></code>
 can check only the text and report the position in the original file.
 (If <code>keepSpacing</code> is <code>FALSE</code>, blank filling will not occur,
 and text will not be output in its original location.)
@@ -5323,7 +5323,7 @@ the Rd file is used to highlight just the start of a word.
 
 <h3>See Also</h3>
 
-<p><code><a href="utils.html#aspell">aspell</a></code>, for which this is an acceptable <code>filter</code>.
+<p><code><a href="https://r-universe.dev/manuals/utils.html#aspell">aspell</a></code>, for which this is an acceptable <code>filter</code>.
 </p>
 
 <hr>
@@ -5442,7 +5442,7 @@ packages.
 <p>the name of a file to read data values from.  If the
 specified file is <code>""</code>, then input is taken from the keyboard
 (in this case input can be terminated by a blank line).
-Alternatively, <code>file</code> can be a <code><a href="base.html#connections">connection</a></code>, which
+Alternatively, <code>file</code> can be a <code><a href="https://r-universe.dev/manuals/base.html#connections">connection</a></code>, which
 will be opened if necessary, and if so closed at the end of the
 function call.</p>
 </td>
@@ -5456,7 +5456,7 @@ function call.</p>
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#formatDL">formatDL</a></code> for the inverse operation of creating a
+<p><code><a href="https://r-universe.dev/manuals/base.html#formatDL">formatDL</a></code> for the inverse operation of creating a
 00Index-style file from items and their descriptions.
 </p>
 
@@ -5503,7 +5503,7 @@ files in packages.
 </p>
 <p>It prints all element of <code>x</code> which contain non-ASCII characters,
 preceded by the element number and with non-ASCII bytes highlighted
-<em>via</em> <code><a href="base.html#iconv">iconv</a>(sub = "byte")</code>.
+<em>via</em> <code><a href="https://r-universe.dev/manuals/base.html#iconv">iconv</a>(sub = "byte")</code>.
 </p>
 
 
@@ -5574,7 +5574,7 @@ make use of HTML help, although it might be the default for an <span style="font
 installation.
 </p>
 <p>If the server cannot be started or is disabled,
-<code><a href="utils.html#help.start">help.start</a></code> will be unavailable and requests for HTML
+<code><a href="https://r-universe.dev/manuals/utils.html#help.start">help.start</a></code> will be unavailable and requests for HTML
 help will give text help (with a warning).
 </p>
 <p>The browser in use does need to be able to connect to the loopback
@@ -5593,7 +5593,7 @@ if the server has been stopped).
 
 <h3>See Also</h3>
 
-<p><code><a href="utils.html#help.start">help.start</a></code> and <code><a href="utils.html#help">help</a>(help_type = "html")</code>
+<p><code><a href="https://r-universe.dev/manuals/utils.html#help.start">help.start</a></code> and <code><a href="https://r-universe.dev/manuals/utils.html#help">help</a>(help_type = "html")</code>
 will attempt to start the HTTP server if required
 </p>
 <p><code><a href="#Rd2HTML">Rd2HTML</a></code> is used to render the package help pages.
@@ -5632,7 +5632,7 @@ input file, for spell checking or other uses.
 <td><code>encoding</code></td>
 <td>
 
-<p>Text encoding to pass to <code><a href="base.html#readLines">readLines</a></code>.
+<p>Text encoding to pass to <code><a href="https://r-universe.dev/manuals/base.html#readLines">readLines</a></code>.
 </p>
 </td>
 </tr>
@@ -5661,7 +5661,7 @@ would duplicate the text elements of the original Sweave input file.
 
 <h3>See Also</h3>
 
-<p><code><a href="utils.html#aspell">aspell</a></code>, for which this is used with <code>filter = "Sweave"</code>.
+<p><code><a href="https://r-universe.dev/manuals/utils.html#aspell">aspell</a></code>, for which this is used with <code>filter = "Sweave"</code>.
 </p>
 
 <hr>
@@ -5704,7 +5704,7 @@ testInstalledBasic<span class="token punctuation">(</span>scope <span class="tok
 <td><code>lib.loc</code></td>
 <td>
 <p>library path(s) in which to look for the package.  See
-<code><a href="base.html#library">library</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/base.html#library">library</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -5875,8 +5875,8 @@ the LaTeX and bibtex input search paths.</p>
 </p>
 <p>Despite the name, this is used in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> to compile LaTeX files,
 specifically those generated from vignettes and by the
-<code><a href="base.html#RdUtils">Rd2pdf</a></code> script (used for package reference manuals).  It
-ensures that the ‘<span class="file"><var><a href="base.html#Rhome">R_HOME</a></var>/share/texmf</span>’ directory is
+<code><a href="https://r-universe.dev/manuals/base.html#RdUtils">Rd2pdf</a></code> script (used for package reference manuals).  It
+ensures that the ‘<span class="file"><var><a href="https://r-universe.dev/manuals/base.html#Rhome">R_HOME</a></var>/share/texmf</span>’ directory is
 in the <span class="env">TEXINPUTS</span> path, so <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> style files such as ‘<span class="file">Sweave</span>’
 and ‘<span class="file">Rd</span>’ will be found.  The TeX search path used is first the
 existing <span class="env">TEXINPUTS</span> setting (or the current directory if unset),
@@ -6046,8 +6046,8 @@ vignetteDepends<span class="token punctuation">(</span>vignette<span class="toke
 <h3>See Also</h3>
 
 <p><code><a href="#tools-deprecated">tools-deprecated</a></code>,
-<code><a href="base.html#Deprecated">Deprecated</a></code>,
-<code><a href="base.html#Defunct">Defunct</a></code>
+<code><a href="https://r-universe.dev/manuals/base.html#Deprecated">Deprecated</a></code>,
+<code><a href="https://r-universe.dev/manuals/base.html#Defunct">Defunct</a></code>
 </p>
 
 <hr>
@@ -6069,8 +6069,8 @@ next release.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#Deprecated">Deprecated</a></code>,
-<code><a href="base.html#Defunct">Defunct</a></code>
+<p><code><a href="https://r-universe.dev/manuals/base.html#Deprecated">Deprecated</a></code>,
+<code><a href="https://r-universe.dev/manuals/base.html#Defunct">Defunct</a></code>
 </p>
 
 <hr>
@@ -6136,7 +6136,7 @@ toRd<span class="token punctuation">(</span>obj<span class="token punctuation">,
 <td><code>style</code></td>
 <td>
 
-<p>The style to be used in converting a <code><a href="utils.html#bibentry">bibentry</a></code> object.
+<p>The style to be used in converting a <code><a href="https://r-universe.dev/manuals/utils.html#bibentry">bibentry</a></code> object.
 </p>
 </td>
 </tr>
@@ -6747,7 +6747,7 @@ R_user_dir<span class="token punctuation">(</span><span class="token string">"FO
 
 <h3>Description</h3>
 
-<p>Vignettes are normally processed by <code><a href="utils.html#Sweave">Sweave</a></code>, but package
+<p>Vignettes are normally processed by <code><a href="https://r-universe.dev/manuals/utils.html#Sweave">Sweave</a></code>, but package
 writers may choose to use a different engine (e.g., one provided by the
 <a href="https://CRAN.R-project.org/package=knitr" target="_blank"><span class="pkg">knitr</span></a>, <a href="https://CRAN.R-project.org/package=noweb" target="_blank"><span class="pkg">noweb</span></a> or <a href="https://CRAN.R-project.org/package=R.rsp" target="_blank"><span class="pkg">R.rsp</span></a> packages).  This function
 is used by those packages to register their engines, and internally by
@@ -6803,7 +6803,7 @@ is the package calling <code>vignetteEngine</code>.</p>
 <p>a list with element names <code>filter</code> and/or
 <code>control</code> giving the respective arguments to be used when spell
 checking the text in the vignette source file with
-<code><a href="utils.html#aspell">aspell</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/utils.html#aspell">aspell</a></code>.</p>
 </td>
 </tr>
 </table>
@@ -6819,7 +6819,7 @@ functions must be defined with argument lists compatible with
 <code>function(file, ...)</code>. Currently the <code>...</code> arguments may
 include logical argument <code>quiet</code> and character argument
 <code>encoding</code>; others may be added in future. These are described in
-the documentation for <code><a href="utils.html#Sweave">Sweave</a></code> and <code><a href="utils.html#Sweave">Stangle</a></code>.
+the documentation for <code><a href="https://r-universe.dev/manuals/utils.html#Sweave">Sweave</a></code> and <code><a href="https://r-universe.dev/manuals/utils.html#Sweave">Stangle</a></code>.
 </p>
 <p>The <code>weave</code> and <code>tangle</code> functions should return the
 filename of the output file that has been produced. Currently the
@@ -6886,7 +6886,7 @@ containing components
 
 <h3>See Also</h3>
 
-<p><code><a href="utils.html#Sweave">Sweave</a></code> and the ‘Writing R Extensions’ manual.
+<p><code><a href="https://r-universe.dev/manuals/utils.html#Sweave">Sweave</a></code> and the ‘Writing R Extensions’ manual.
 </p>
 
 
@@ -6921,14 +6921,14 @@ containing components
 </tr></table>
 <h3>Value</h3>
 
-<p>A <code><a href="base.html#list">list</a></code> with the following
-<code><a href="base.html#character">character</a></code> components:
+<p>A <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with the following
+<code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> components:
 </p>
 <table>
 <tr style="vertical-align: top;">
 <td><code>file</code></td>
 <td>
-<p>the <code><a href="base.html#basename">basename</a></code> of the file.</p>
+<p>the <code><a href="https://r-universe.dev/manuals/base.html#basename">basename</a></code> of the file.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -7016,7 +7016,7 @@ from and write them to.
 addition to the default ones, or <code>NULL</code> (default).
 </p>
 <p>The default corresponds to
-the fields needed by <code><a href="utils.html#available.packages">available.packages</a></code>:
+the fields needed by <code><a href="https://r-universe.dev/manuals/utils.html#available.packages">available.packages</a></code>:
 <code>"Package"</code>, <code>"Version"</code>, <code>"Priority"</code>,
 <code>"Depends"</code>, <code>"Imports"</code>, <code>"LinkingTo"</code>,
 <code>"Suggests"</code>, <code>"Enhances"</code>, <code>"OS_type"</code>,
@@ -7079,7 +7079,7 @@ available should only the latest version be included?</p>
 <td><code>rds_compress</code></td>
 <td>
 <p>The type of compression to be used for
-‘<span class="file">PACKAGES.rds</span>’: see <code><a href="base.html#readRDS">saveRDS</a></code>.  The default is the
+‘<span class="file">PACKAGES.rds</span>’: see <code><a href="https://r-universe.dev/manuals/base.html#readRDS">saveRDS</a></code>.  The default is the
 one found to give maximal compression, and is as used on <abbr><span class="acronym">CRAN</span></abbr>.</p>
 </td>
 </tr>
@@ -7099,7 +7099,7 @@ extracts information from each package's ‘<span class="file">DESCRIPTION</span
 writes this information into the ‘<span class="file">PACKAGES</span>’, ‘<span class="file">PACKAGES.gz</span>’
 and ‘<span class="file">PACKAGES.rds</span>’ files, where the first two represent the
 information in DCF format, and the third serializes it via
-<code><a href="base.html#readRDS">saveRDS</a></code>.
+<code><a href="https://r-universe.dev/manuals/base.html#readRDS">saveRDS</a></code>.
 </p>
 <p>Including non-latest versions of packages is only useful if they have
 less constraining version requirements, so for example
@@ -7113,17 +7113,17 @@ the ‘<span class="file">PACKAGES</span>’ files.
 </p>
 <p>Support for more general file names (e.g., other types of compression)
 <em>via</em> a <code>"File"</code> field in the ‘<span class="file">PACKAGES</span>’ files can be
-used by <code><a href="utils.html#download.packages">download.packages</a></code>.  If the file names are not of
+used by <code><a href="https://r-universe.dev/manuals/utils.html#download.packages">download.packages</a></code>.  If the file names are not of
 the standard form, use <code>addFiles = TRUE</code>.
 </p>
-<p><code>type = "win.binary"</code> uses <code><a href="base.html#connections">unz</a></code> connections to read
+<p><code>type = "win.binary"</code> uses <code><a href="https://r-universe.dev/manuals/base.html#connections">unz</a></code> connections to read
 all ‘<span class="file">DESCRIPTION</span>’ files contained in the (zipped) binary packages
 for Windows in the given directory <code>dir</code>, and builds files
 ‘<span class="file">PACKAGES</span>’, ‘<span class="file">PACKAGES.gz</span>’ and ‘<span class="file">PACKAGES.rds</span>’ files from
 this information.
 </p>
 <p>For a remote repository there is a tradeoff between download speed and
-time spent by <code><a href="utils.html#available.packages">available.packages</a></code> processing the
+time spent by <code><a href="https://r-universe.dev/manuals/utils.html#available.packages">available.packages</a></code> processing the
 downloaded file(s).  For large repositories it is likely to be
 beneficial to use <code>rds_compress = "xz"</code>.
 </p>
@@ -7156,7 +7156,7 @@ work on all OSes.
 
 <h3>See Also</h3>
 
-<p>See <code><a href="base.html#dcf">read.dcf</a></code> and <code><a href="base.html#dcf">write.dcf</a></code> for reading
+<p>See <code><a href="https://r-universe.dev/manuals/base.html#dcf">read.dcf</a></code> and <code><a href="https://r-universe.dev/manuals/base.html#dcf">write.dcf</a></code> for reading
 ‘<span class="file">DESCRIPTION</span>’ files and writing the ‘<span class="file">PACKAGES</span>’ and
 ‘<span class="file">PACKAGES.gz</span>’ files. See <code><a href="#updatePACKAGES">update_PACKAGES</a></code> for
 efficiently updating existing ‘<span class="file">PACKAGES</span>’ and ‘<span class="file">PACKAGES.gz</span>’
@@ -7189,13 +7189,13 @@ to these “message generating” calls;
 <dl>
 <dt>for <code>xgettext()</code>:</dt>
 <dd>
-<p>to <code><a href="base.html#stop">stop</a></code>, <code><a href="base.html#warning">warning</a></code>, <code><a href="base.html#message">message</a></code>,
-<code><a href="base.html#message">packageStartupMessage</a></code>, <code><a href="base.html#gettext">gettext</a></code> and
-<code><a href="base.html#sprintf">gettextf</a></code>,</p>
+<p>to <code><a href="https://r-universe.dev/manuals/base.html#stop">stop</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#warning">warning</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#message">message</a></code>,
+<code><a href="https://r-universe.dev/manuals/base.html#message">packageStartupMessage</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#gettext">gettext</a></code> and
+<code><a href="https://r-universe.dev/manuals/base.html#sprintf">gettextf</a></code>,</p>
 </dd>
 <dt>for <code>xngettext()</code>:</dt>
 <dd>
-<p>to <code><a href="base.html#gettext">ngettext</a></code>.</p>
+<p>to <code><a href="https://r-universe.dev/manuals/base.html#gettext">ngettext</a></code>.</p>
 </dd>
 </dl>
 <p><code>xgettext2pot()</code> calls both <code>xgettext()</code> and then <code>xngettext()</code>.
@@ -7275,7 +7275,7 @@ manual, but <code>msgfmt</code> complains if there is duplication between
 the sets.).
 </p>
 <p>If applied to the <span class="pkg">base</span> package, this also looks in the ‘<span class="file">.R</span>’
-files in ‘<span class="file"><var><a href="base.html#Rhome">R_HOME</a></var>/share/R</span>’.
+files in ‘<span class="file"><var><a href="https://r-universe.dev/manuals/base.html#Rhome">R_HOME</a></var>/share/R</span>’.
 </p>
 
 

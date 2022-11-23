@@ -366,10 +366,10 @@ class <code>"namedList"</code> be a union of character names and <code>NULL</cod
 
 <p>The basic classes include classes for the basic R types.  Note that
 objects of these types will not usually be S4 objects
-(<code><a href="base.html#isS4">isS4</a></code> will return <code>FALSE</code>), although objects from
+(<code><a href="https://r-universe.dev/manuals/base.html#isS4">isS4</a></code> will return <code>FALSE</code>), although objects from
 classes that contain the basic class will be S4 objects, still with
 the same type.  The type as
-returned by <code><a href="base.html#typeof">typeof</a></code> will sometimes differ from the class,
+returned by <code><a href="https://r-universe.dev/manuals/base.html#typeof">typeof</a></code> will sometimes differ from the class,
 either just from a choice of terminology (type <code>"symbol"</code> and
 class <code>"name"</code>, for example) or because there is not a one-to-one
 correspondence between class and type (most of the classes that
@@ -871,7 +871,7 @@ completely.</p>
 <h3>Details</h3>
 
 <p>The main use of <code>cbind2</code> (<code>rbind2</code>) is to be called
-recursively by <code><a href="base.html#cbind">cbind</a>()</code> (<code>rbind()</code>) when both of
+recursively by <code><a href="https://r-universe.dev/manuals/base.html#cbind">cbind</a>()</code> (<code>rbind()</code>) when both of
 these requirements are met:
 </p>
 
@@ -882,7 +882,7 @@ and
 </p>
 </li>
 <li>
-<p>S3 dispatch fails (see the Dispatch section under <a href="base.html#cbind">cbind</a>).
+<p>S3 dispatch fails (see the Dispatch section under <a href="https://r-universe.dev/manuals/base.html#cbind">cbind</a>).
 </p>
 </li>
 </ul>
@@ -909,9 +909,9 @@ may not be appropriate.
 
 <p>A matrix (or matrix like object) combining the columns (or rows) of
 <code>x</code> and <code>y</code>.  Note that methods must construct
-<code><a href="base.html#colnames">colnames</a></code> and <code><a href="base.html#colnames">rownames</a></code> from the
+<code><a href="https://r-universe.dev/manuals/base.html#colnames">colnames</a></code> and <code><a href="https://r-universe.dev/manuals/base.html#colnames">rownames</a></code> from the
 corresponding column and row names of <code>x</code> and <code>y</code> (but not
-from deparsing argument names such as in <code><a href="base.html#cbind">cbind</a>(...,
+from deparsing argument names such as in <code><a href="https://r-universe.dev/manuals/base.html#cbind">cbind</a>(...,
     deparse.level = d)</code> for <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">d \ge 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8304em;vertical-align:-0.136em;"></span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code>).
 </p>
 
@@ -933,8 +933,8 @@ for one argument using <span style="font-family: Courier New, Courier; color: #6
 </dl>
 <h3>See Also</h3>
 
-<p><code><a href="base.html#cbind">cbind</a></code>, <code><a href="base.html#cbind">rbind</a></code>;
-further, <code><a href="Matrix.html#cBind">cBind</a></code>, <code><a href="Matrix.html#cBind">rBind</a></code> in
+<p><code><a href="https://r-universe.dev/manuals/base.html#cbind">cbind</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#cbind">rbind</a></code>;
+further, <code><a href="https://r-forge.r-universe.dev/Matrix/Matrix.html#cBind">cBind</a></code>, <code><a href="https://r-forge.r-universe.dev/Matrix/Matrix.html#cBind">rBind</a></code> in
 the <a href="https://CRAN.R-project.org/package=Matrix" target="_blank"><span class="pkg">Matrix</span></a> package.
 </p>
 
@@ -1025,7 +1025,7 @@ the <em>slots</em> in the class definition.
 like components (that is, elements) of a
 list, these may be extracted and set, using the
 function <code><a href="#slot">slot</a>()</code> or more often the operator
-<code>"<a href="base.html#slotOp">@</a>"</code>.  However, they
+<code>"<a href="https://r-universe.dev/manuals/base.html#slotOp">@</a>"</code>.  However, they
 differ from list components in important ways.
 First, slots can only be referred to by name, not by position,
 and there is no partial matching of names as with list elements.
@@ -1189,7 +1189,7 @@ extends <a href="#setOldClass">oldClass</a>);
 <li>
 <p>One of the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object types, typically a vector type, which then
 defines the type of the S4 objects, but also a type such as
-<code><a href="base.html#environment">environment</a></code> that can not be used directly as a type
+<code><a href="https://r-universe.dev/manuals/base.html#environment">environment</a></code> that can not be used directly as a type
 for an S4 object.  See
 below.
 </p>
@@ -1210,7 +1210,7 @@ default computations in as consistent a form as possible.
 <p>As part of a general effort to make the S4 and S3 code in R more
 consistent, when objects from an S4 class are used as the first
 argument to a non-default S3 method, either for an S3 generic function
-(one that calls <code><a href="base.html#UseMethod">UseMethod</a></code>) or for one of the primitive
+(one that calls <code><a href="https://r-universe.dev/manuals/base.html#UseMethod">UseMethod</a></code>) or for one of the primitive
 functions that dispatches S3 methods, an effort is made to provide a
 valid object for that method.  In particular, if the S4 class extends
 an S3 class or <code>matrix</code> or <code>array</code>, and there is an S3
@@ -1221,8 +1221,8 @@ no formal definition of an S3 class.
 <p>For example, suppose <code>"myFrame"</code> is an S4 class that includes the
 S3 class <code>"data.frame"</code> in the <code>contains=</code> argument to
 <code><a href="#setClass">setClass</a></code>.  If an object from this S4 class is passed to
-a function, say <code><a href="base.html#matrix">as.matrix</a></code>, that has an S3 method for
-<code>"data.frame"</code>, the internal code for <code><a href="base.html#UseMethod">UseMethod</a></code>
+a function, say <code><a href="https://r-universe.dev/manuals/base.html#matrix">as.matrix</a></code>, that has an S3 method for
+<code>"data.frame"</code>, the internal code for <code><a href="https://r-universe.dev/manuals/base.html#UseMethod">UseMethod</a></code>
 will convert the object to a data frame; in particular, to an S3
 object whose class attribute will be the vector corresponding to the
 S3 class (possibly containing multiple class names). Similarly for an
@@ -1234,7 +1234,7 @@ passed to the default S3 method.  Some S3 generics attempt to deal
 with general objects, including S4 objects.  Also, no transformation
 is applied to S4 objects that do not correspond to a selected S3
 method; in particular, to objects from a class that does not contain
-either an S3 class or one of the basic types.  See <code><a href="base.html#isS4">asS4</a></code>
+either an S3 class or one of the basic types.  See <code><a href="https://r-universe.dev/manuals/base.html#isS4">asS4</a></code>
 for the transformation details.
 </p>
 <p>In addition to explicit S3 generic functions, S3 methods are
@@ -1266,7 +1266,7 @@ duplicated normally, the inheritance also determines the type of the
 object; if the class definition has a <code>.Data</code> slot
 corresponding to a normal type, the class of the
 slot determines the type of the object (that is, the value of
-<code><a href="base.html#typeof">typeof</a>(x)</code>).
+<code><a href="https://r-universe.dev/manuals/base.html#typeof">typeof</a>(x)</code>).
 For such classes,  <code>.Data</code> is a pseudo-slot; that
 is, extracting or setting it modifies the non-slot data in the
 object.  The functions <code><a href="#RClassUtils">getDataPart</a></code> and
@@ -1713,7 +1713,7 @@ in R help files are described here.</p>
 <p>You can ask for on-line help for class definitions, for specific
 methods for a generic function, and for general discussion of
 methods for a generic function.  These requests use the <code>?</code>
-operator (see <code><a href="utils.html#help">help</a></code> for a general description of
+operator (see <code><a href="https://r-universe.dev/manuals/utils.html#help">help</a></code> for a general description of
 the operator).  Of course, you are at the mercy of the implementer
 as to whether there <em>is</em> any documentation on the corresponding
 topics.
@@ -2126,7 +2126,7 @@ the newly created environment.
 <dt>coerce</dt>
 <dd>
 <p><code>signature(from = "ANY", to = "environment")</code>:
-calls <code><a href="base.html#as.environment">as.environment</a></code>. </p>
+calls <code><a href="https://r-universe.dev/manuals/base.html#as.environment">as.environment</a></code>. </p>
 </dd>
 <dt>initialize</dt>
 <dd>
@@ -2138,7 +2138,7 @@ Implements the assignments in the new environment.  Note that the
 </dl>
 <h3>See Also</h3>
 
- <p><code><a href="base.html#environment">new.env</a></code> </p>
+ <p><code><a href="https://r-universe.dev/manuals/base.html#environment">new.env</a></code> </p>
 
 <hr>
 </div>
@@ -2264,7 +2264,7 @@ Use Function Definitions from a Source File without Reinstalling a Package
 <h3>Description</h3>
 
 <p>Definitions of functions and/or methods from a source file are
-inserted into a package, using the <code><a href="base.html#trace">trace</a></code> mechanism.
+inserted into a package, using the <code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code> mechanism.
 Typically, this allows testing or debugging modified versions of a few
 functions without reinstalling a large package.
 </p>
@@ -2351,7 +2351,7 @@ later by <code>insertSource</code> using the trace mechanism.
 <td>
 
 <p>If <code>FALSE</code>, only functions currently in the environment will be
-redefined, using <code><a href="base.html#trace">trace</a></code>.  If <code>TRUE</code>, other
+redefined, using <code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code>.  If <code>TRUE</code>, other
 objects/functions will be simply assigned.  By default, <code>TRUE</code> if
 neither the <code>functions</code> nor the <code>methods</code> argument is supplied.
 </p>
@@ -2370,9 +2370,9 @@ in the source file.
 <p>From this environment, the objects are inserted into the package, into
 its namespace if it has one, for use during the current session or
 until reverting to the original version by a call to
-<code><a href="base.html#trace">untrace</a></code>.
+<code><a href="https://r-universe.dev/manuals/base.html#trace">untrace</a></code>.
 The insertion is done by calls to the internal version of
-<code><a href="base.html#trace">trace</a></code>, to make reversion possible.
+<code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code>, to make reversion possible.
 </p>
 <p>Because the trace mechanism is used, only function-type objects will
 be inserted, functions themselves or S4 methods.
@@ -2423,10 +2423,10 @@ and/or <code>methods</code> argument.
 
 <p>Once a function or method has been inserted into a package by
 <code>insertSource</code>, it can be studied by the standard debugging tools;
-for example, <code><a href="base.html#debug">debug</a></code> or the various versions of
-<code><a href="base.html#trace">trace</a></code>.
+for example, <code><a href="https://r-universe.dev/manuals/base.html#debug">debug</a></code> or the various versions of
+<code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code>.
 </p>
-<p>Calls to <code><a href="base.html#trace">trace</a></code> should take the extra argument <code>edit
+<p>Calls to <code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code> should take the extra argument <code>edit
 = env</code>, where <code>env</code> is the value returned by the call to
 <code>evalSource</code>.
 The trace mechanism has been used to install the revised version from
@@ -2460,7 +2460,7 @@ to which the source code corresponds.
 <code>dateCreated</code>:</dt>
 <dd>
 <p> The date and time that the source file was
-evaluated (usually from a call to <code><a href="base.html#Sys.time">Sys.time</a></code>).
+evaluated (usually from a call to <code><a href="https://r-universe.dev/manuals/base.html#Sys.time">Sys.time</a></code>).
 </p>
 </dd>
 <dt>
@@ -2478,10 +2478,10 @@ used.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#trace">trace</a></code> for the underlying mechanism, and also for the
+<p><code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code> for the underlying mechanism, and also for the
 <code>edit=</code> argument that can be used for somewhat similar purposes;
-that function and also <code><a href="base.html#debug">debug</a></code> and
-<code><a href="utils.html#findLineNum">setBreakpoint</a></code>, for techniques more oriented to
+that function and also <code><a href="https://r-universe.dev/manuals/base.html#debug">debug</a></code> and
+<code><a href="https://r-universe.dev/manuals/utils.html#findLineNum">setBreakpoint</a></code>, for techniques more oriented to
 traditional debugging styles.
 The present function is directly intended for the case that one is
 modifying some of the source for an existing package, although it can
@@ -2556,7 +2556,7 @@ the class to those defined in a particular package, set the
 <tr style="vertical-align: top;">
 <td><code>where</code></td>
 <td>
-<p>the <code><a href="base.html#environment">environment</a></code> in which to search for
+<p>the <code><a href="https://r-universe.dev/manuals/base.html#environment">environment</a></code> in which to search for
 the class definition.  Defaults to the top-level environment of the
 calling function.  When called from the command line, this has the
 effect of using all the package environments in the search list.
@@ -2572,7 +2572,7 @@ package is attached to the search list.
 <tr style="vertical-align: top;">
 <td><code>formal</code></td>
 <td>
-<p><code><a href="base.html#logical">logical</a></code> is a formal definition
+<p><code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> is a formal definition
 required? For S compatibility, and always treated as <code>TRUE</code>.</p>
 </td>
 </tr>
@@ -2711,7 +2711,7 @@ supplied and limited to those including one or more of the
 specified <code>classes</code> in the method signature if that argument is
 supplied.
 </p>
-<p>To see the actual table (an <code><a href="base.html#environment">environment</a></code>) used
+<p>To see the actual table (an <code><a href="https://r-universe.dev/manuals/base.html#environment">environment</a></code>) used
 for methods dispatch, call <code><a href="#MethodSupport">getMethodsForDispatch</a></code>.
 The names of the list returned by <code>findMethods</code> are the names of
 the objects in the table.
@@ -3065,7 +3065,7 @@ function and its methods.
 <dd>
 <p>Object of class <code>"function"</code>, the
 function definition of the generic, usually created
-automatically as a call to <code><a href="base.html#standardGeneric">standardGeneric</a></code>. </p>
+automatically as a call to <code><a href="https://r-universe.dev/manuals/base.html#standardGeneric">standardGeneric</a></code>. </p>
 </dd>
 <dt>
 <code>generic</code>:</dt>
@@ -3320,7 +3320,7 @@ function <code>f</code>.  It is an error to call
 <code>standardGeneric</code> anywhere except in the body of the
 corresponding generic function.
 </p>
-<p>Note that <code><a href="base.html#standardGeneric">standardGeneric</a></code> is a primitive function in
+<p>Note that <code><a href="https://r-universe.dev/manuals/base.html#standardGeneric">standardGeneric</a></code> is a primitive function in
 the <span class="pkg">base</span> package
 for efficiency 
 reasons, but rather documented here where it belongs naturally.
@@ -3341,11 +3341,11 @@ for <code>name</code> exists.  The returned value is <em>always</em> a
 list, use the first element to access the first visible version
 of the function.  See the example.
 </p>
-<p><em>NOTE:</em> Use this rather than <code><a href="utils.html#apropos">find</a></code> with
+<p><em>NOTE:</em> Use this rather than <code><a href="https://r-universe.dev/manuals/utils.html#apropos">find</a></code> with
 <code>mode="function"</code>, which is not as meaningful, and has a few
 subtle bugs from its use of regular expressions.  Also,
 <code>findFunction</code> works correctly in the code for a package
-when attaching the package via a call to <code><a href="base.html#library">library</a></code>.
+when attaching the package via a call to <code><a href="https://r-universe.dev/manuals/base.html#library">library</a></code>.
 </p>
 </dd>
 <dt>
@@ -3762,7 +3762,7 @@ confusion, if you're dealing with a generic that does something
 special with its signature.  In any case, the elements of the
 signature are matched to the formal signature by the same rules used
 in matching arguments in function calls (see
-<code><a href="base.html#match.call">match.call</a></code>).
+<code><a href="https://r-universe.dev/manuals/base.html#match.call">match.call</a></code>).
 </p>
 <p>The strings in the signature may be class names, <code>"missing"</code> or
 <code>"ANY"</code>.  See <a href="#Methods_Details">Methods_Details</a> for the meaning of these in method
@@ -3823,7 +3823,7 @@ table of methods including the one specified.
 </h3>
 
 <p>As its name suggests, this function is intended to behave like
-<code><a href="utils.html#apropos">find</a></code>, which produces a list of the packages on the
+<code><a href="https://r-universe.dev/manuals/utils.html#apropos">find</a></code>, which produces a list of the packages on the
 current search list which have, and have exported, the object named.
 That's what <code>findMethod</code> does also, by default.  The
 “exported” part in this case means that the package's namespace
@@ -3979,7 +3979,7 @@ definitions in environment <code>env</code>.</p>
 <h3>Details</h3>
 
 <p>Package names are normally installed during loading of the package,
-by the <a href="utils.html#INSTALL">INSTALL</a> script or by the <code><a href="base.html#library">library</a></code>
+by the <a href="https://r-universe.dev/manuals/utils.html#INSTALL">INSTALL</a> script or by the <code><a href="https://r-universe.dev/manuals/base.html#library">library</a></code>
 function.  (Currently, the name is stored as the object
 <code>.packageName</code> but don't trust this for the future.)
 </p>
@@ -3997,13 +3997,13 @@ an attribute, not a formal slot, but this may change someday).
 environment that would otherwise not have one.  This
 allows you to create classes and/or methods in an arbitrary
 environment, but it is usually preferable to create packages by the
-standard <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> programming tools (<code><a href="utils.html#package.skeleton">package.skeleton</a></code>, etc.)
+standard <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> programming tools (<code><a href="https://r-universe.dev/manuals/utils.html#package.skeleton">package.skeleton</a></code>, etc.)
 </p>
 
 
 <h3>See Also</h3>
 
- <p><code><a href="base.html#search">search</a></code>, <code><a href="utils.html#packageName">packageName</a></code> </p>
+ <p><code><a href="https://r-universe.dev/manuals/base.html#search">search</a></code>, <code><a href="https://r-universe.dev/manuals/utils.html#packageName">packageName</a></code> </p>
 
 
 <h3>Examples</h3>
@@ -4062,7 +4062,7 @@ formal argument.
 
 <h3>See Also</h3>
 
- <p><code><a href="base.html#missing">missing</a></code> </p>
+ <p><code><a href="https://r-universe.dev/manuals/base.html#missing">missing</a></code> </p>
 
 
 <h3>Examples</h3>
@@ -4282,7 +4282,7 @@ classes, rather than by this class' definition itself.
 </table>
 <h3>Value</h3>
 
-<p>character vector of slot names, or <code><a href="base.html#NULL">NULL</a></code>.
+<p>character vector of slot names, or <code><a href="https://r-universe.dev/manuals/base.html#NULL">NULL</a></code>.
 </p>
 
 
@@ -4364,13 +4364,13 @@ subclass arguments.
 <dd>
 <p>Objects of a class that extends <code>traceable</code> are used to
 implement debug tracing (see class <a href="#TraceClasses">traceable</a> and
-<code><a href="base.html#trace">trace</a></code>).
+<code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code>).
 </p>
 <p>The <code>initialize</code> method for these classes takes special
 arguments <code>def, tracer, exit, at, print</code>.  The first of these
 is the object to use as the original definition (e.g., a
 function).  The others correspond to the arguments to
-<code><a href="base.html#trace">trace</a></code>.
+<code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code>.
 </p>
 </dd>
 <dt>
@@ -4511,7 +4511,7 @@ the class by:
 <p><code>Pos(latitude = x, longitude = y, altitude = z)</code>
 </p>
 <p>The slots are accessed by the
-<code><a href="base.html#slotOp">@</a></code> operator; for example, if <code>g</code> is an object from
+<code><a href="https://r-universe.dev/manuals/base.html#slotOp">@</a></code> operator; for example, if <code>g</code> is an object from
 the class, <code>g@latitude</code>.
 </p>
 <p>In addition to returning a generator function the call to
@@ -4549,7 +4549,7 @@ the generic.
 <p><code>setMethod("plot", c("Pos", "missing"), function(x, y, ...) {
   plotPos(x, y) })</code>
 </p>
-<p>This method will match a call to <code><a href="graphics.html#plot.default">plot</a>()</code> if the first
+<p>This method will match a call to <code><a href="https://r-universe.dev/manuals/graphics.html#plot.default">plot</a>()</code> if the first
 argument is from class <code>"Pos"</code> or a subclass of that.
 The second argument must be missing; only a missing argument matches
 that class in the signature.
@@ -4673,7 +4673,7 @@ superclasses, similarly to
 returned to direct superclasses and/or to non-virtual classes.
 </p>
 <p>Either way, programming with the result, particularly using
-<code><a href="base.html#lapply">sapply</a></code>, can be useful.
+<code><a href="https://r-universe.dev/manuals/base.html#lapply">sapply</a></code>, can be useful.
 </p>
 <p>To find superclasses with more generally defined properties, one can program
 with the result returned by <code>extends</code> when called with one
@@ -4690,7 +4690,7 @@ the number of generations between the classes, given by the
 <code>"distance"</code> slot.
 </p>
 <p>Programming with the result of the call to <code>extends</code>, particularly using
-<code><a href="base.html#lapply">sapply</a></code>, can select superclasses.
+<code><a href="https://r-universe.dev/manuals/base.html#lapply">sapply</a></code>, can select superclasses.
 The programming technique is to define a test function that returns
 <code>TRUE</code> for superclasses or relationships obeying some
 requirement. For example, to find only next-to-direct superclasses,
@@ -4703,7 +4703,7 @@ with the simple vector of names:
 </p>
 <p><code>function(what) getClassDef(what)@package == "myPkg"</code>
 </p>
-<p>Giving such functions as an argument to <code><a href="base.html#lapply">sapply</a></code> called on the output of
+<p>Giving such functions as an argument to <code><a href="https://r-universe.dev/manuals/base.html#lapply">sapply</a></code> called on the output of
 <code>extends</code> allows you to find
 superclasses with desired properties.  See the examples below.
 </p>
@@ -4732,7 +4732,7 @@ Chapman &amp; Hall.
 
 <h3>See Also</h3>
 
-<p>Although <code><a href="base.html#class">inherits</a></code> is defined for S3 classes, it has
+<p>Although <code><a href="https://r-universe.dev/manuals/base.html#class">inherits</a></code> is defined for S3 classes, it has
 been modified so that the result returned is nearly always equivalent to
 <code>is</code>, both for S4 and non-S4 objects. Since it is implemented
 in C, it is somewhat faster.
@@ -4885,7 +4885,7 @@ isSealedMethod<span class="token punctuation">(</span><span class="token string"
 
 <p>  The virtual class <code>"language"</code> and the specific
 classes that extend it represent unevaluated objects, as produced for
-example by the parser or by functions such as <code><a href="base.html#substitute">quote</a></code>.
+example by the parser or by functions such as <code><a href="https://r-universe.dev/manuals/base.html#substitute">quote</a></code>.
 </p>
 
 
@@ -5352,7 +5352,7 @@ the top-level environment of the call to <code>method.skeleton</code>.</p>
 
 <h3>See Also</h3>
 
-<p><code><a href="#setMethod">setMethod</a></code>, <code><a href="utils.html#package.skeleton">package.skeleton</a></code>
+<p><code><a href="#setMethod">setMethod</a></code>, <code><a href="https://r-universe.dev/manuals/utils.html#package.skeleton">package.skeleton</a></code>
 </p>
 
 
@@ -5567,7 +5567,7 @@ function is called, rather than using lazy
 evaluation.  Therefore, it's important to <em>exclude</em>
 from the signature any arguments that need to be dealt with
 symbolically (such as the <code>expr</code> argument to function
-<code><a href="base.html#with">with</a></code>).  Note that only actual arguments are
+<code><a href="https://r-universe.dev/manuals/base.html#with">with</a></code>).  Note that only actual arguments are
 evaluated, not default expressions.
 A missing argument enters into the method selection as class
 <code>"missing"</code>.
@@ -5799,7 +5799,7 @@ be included in the signature of the generic function, since all
 arguments in the signature will be evaluated in order to select a
 method.
 For example, the argument <code>expr</code> to the function
-<code><a href="base.html#with">with</a></code> is treated literally and must therefore be excluded
+<code><a href="https://r-universe.dev/manuals/base.html#with">with</a></code> is treated literally and must therefore be excluded
 from the signature.
 </p>
 <p>One would also need to define an implicit generic if the existing
@@ -5963,18 +5963,18 @@ available in all these packages.
 selects it from the search list will usually <em>not</em> select methods.
 </p>
 <p>A an example, consider the function
-<code><a href="base.html#data.frame">data.frame</a>()</code> in the base package.
+<code><a href="https://r-universe.dev/manuals/base.html#data.frame">data.frame</a>()</code> in the base package.
 This function takes any number of objects as arguments and attempts to combine
 them as variables into a data frame object.
-It does this by calling <code><a href="base.html#as.data.frame">as.data.frame</a>()</code>, also in the
+It does this by calling <code><a href="https://r-universe.dev/manuals/base.html#as.data.frame">as.data.frame</a>()</code>, also in the
 base package, for each of the objects.
 </p>
 <p>A reasonable goal would be to extend the classes of objects that can
 be included in a data frame by defining methods for
-<code><a href="base.html#as.data.frame">as.data.frame</a>()</code>.
-But calls to <code><a href="base.html#data.frame">data.frame</a>()</code>,
+<code><a href="https://r-universe.dev/manuals/base.html#as.data.frame">as.data.frame</a>()</code>.
+But calls to <code><a href="https://r-universe.dev/manuals/base.html#data.frame">data.frame</a>()</code>,
 will still use the version of that function in the base package, which
-continues to call the non-generic <code><a href="base.html#as.data.frame">as.data.frame</a>()</code> in
+continues to call the non-generic <code><a href="https://r-universe.dev/manuals/base.html#as.data.frame">as.data.frame</a>()</code> in
 that package.
 </p>
 <p>The details of what happens and options for dealing with it depend on
@@ -5995,10 +5995,10 @@ So defining methods for these functions works as long as the relevant
 classes have been defined, which should always be the case.
 </p>
 <p>A function dispatches S3 methods by calling
-<code><a href="base.html#UseMethod">UseMethod</a>()</code>, which does <em>not</em> look for
+<code><a href="https://r-universe.dev/manuals/base.html#UseMethod">UseMethod</a>()</code>, which does <em>not</em> look for
 formal methods regardless of whether the first argument is an S4
 object or not.
-This applies to the <code><a href="base.html#as.data.frame">as.data.frame</a>()</code> example above.
+This applies to the <code><a href="https://r-universe.dev/manuals/base.html#as.data.frame">as.data.frame</a>()</code> example above.
 To have methods called in this situation, your package must also define the
 method as an S3 method, if possible. See section ‘S3
 “Generic” Functions’.
@@ -6007,9 +6007,9 @@ method as an S3 method, if possible. See section ‘S3
 of methods.
 For example, the base package has a number of functions that compute
 numerical decompositions of matrix arguments.
-Some, such as <code><a href="Matrix.html#chol">chol</a>()</code> and <code><a href="Matrix.html#qr-methods">qr</a>()</code>
+Some, such as <code><a href="https://r-forge.r-universe.dev/Matrix/Matrix.html#chol">chol</a>()</code> and <code><a href="https://r-forge.r-universe.dev/Matrix/Matrix.html#qr-methods">qr</a>()</code>
 are implemented to dispatch S3 methods; others, such as
-<code><a href="base.html#svd">svd</a>()</code> are implemented directly as a specific
+<code><a href="https://r-universe.dev/manuals/base.html#svd">svd</a>()</code> are implemented directly as a specific
 computation.
 A generic version of the latter functions can be written and called
 directly to define formal methods, but no code in another package that
@@ -6020,9 +6020,9 @@ function supplying arguments that should dispatch methods.
 This may require supplying new functions that dispatch methods and
 then call the function they replace.
 For example, if S3 methods did not work for
-<code><a href="base.html#as.data.frame">as.data.frame</a>()</code>, one could call a function that
+<code><a href="https://r-universe.dev/manuals/base.html#as.data.frame">as.data.frame</a>()</code>, one could call a function that
 applied the generic version to all its arguments and then called
-<code><a href="base.html#data.frame">data.frame</a>()</code> as a replacement for that function.
+<code><a href="https://r-universe.dev/manuals/base.html#data.frame">data.frame</a>()</code> as a replacement for that function.
 If all else fails, it might be necessary to copy over the relevant
 functions so that they would find the generic versions.
 </p>
@@ -6037,7 +6037,7 @@ generic function.
 The “signature” of an S3 method is identified  by the name to
 which the method is assigned, composed of the name of the
 generic function, followed by <code>"."</code>, followed by the name of the class.
-For details, see <code><a href="base.html#UseMethod">UseMethod</a></code>.
+For details, see <code><a href="https://r-universe.dev/manuals/base.html#UseMethod">UseMethod</a></code>.
 </p>
 <p>To implement a method for one of these functions corresponding to S4
 classes, there are two possibilities: either an S4 method or an S3 method with the
@@ -6075,7 +6075,7 @@ is detected, S3 method selection uses the contents of
 inheritance (the inheritance is cached after the first call).
 </p>
 <p>An existing S3 method may not behave as desired for an S4 subclass, in
-which case utilities such as <code><a href="base.html#isS4">asS3</a></code> and
+which case utilities such as <code><a href="https://r-universe.dev/manuals/base.html#isS4">asS3</a></code> and
 <code><a href="#S3Part">S3Part</a></code> may be useful.  If the S3 method fails on the S4
 object, <code>asS3(x)</code> may be passed instead; if the object returned
 by the S3 method needs to be incorporated in the S4 object, the
@@ -6243,7 +6243,7 @@ dispatch or in S4 class definitions.  See <code><a href="#setOldClass">setOldCla
 
 <p>The <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> evaluator will ‘dispatch’ a method from a function call
 either when the body of the function calls the special primitive
-<code><a href="base.html#UseMethod">UseMethod</a></code> or when the call is to one of the builtin
+<code><a href="https://r-universe.dev/manuals/base.html#UseMethod">UseMethod</a></code> or when the call is to one of the builtin
 primitives such as the <code>math</code> functions or the binary operators.
 </p>
 <p>S3 method dispatch looks at the class of the first
@@ -6254,7 +6254,7 @@ attribute or the implied class for a basic data type such as
 <code>"numeric"</code>.
 The first S3 method that matches a name in the class is called and the
 value of that call is the value of the original function call.
-For details, see <a href="base.html#UseMethod">S3Methods</a>.
+For details, see <a href="https://r-universe.dev/manuals/base.html#UseMethod">S3Methods</a>.
 </p>
 <p>In modern <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, a function <code>meth</code> in a package is registered as an S3 method
 for function <code>fun</code> and class <code>Class</code> by
@@ -6293,7 +6293,7 @@ applicable call to the function.
 <p>As an example, suppose an S4 class <code>"uncased"</code> is defined,
 extending <code>"character"</code> and intending to ignore upper- and
 lower-case.
-The base function <code><a href="base.html#unique">unique</a></code> dispatches S3 methods.
+The base function <code><a href="https://r-universe.dev/manuals/base.html#unique">unique</a></code> dispatches S3 methods.
 To define the class and a method for this function:
 </p>
 <p><code>setClass("uncased", contains = "character")</code>
@@ -6357,7 +6357,7 @@ is detected, S3 method selection uses the contents of
 inheritance (the inheritance is cached after the first call).
 </p>
 <p>For the details of S4 and S3
-dispatch see <a href="#Methods_Details">Methods_Details</a> and <a href="base.html#UseMethod">S3Methods</a>.
+dispatch see <a href="#Methods_Details">Methods_Details</a> and <a href="https://r-universe.dev/manuals/base.html#UseMethod">S3Methods</a>.
 </p>
 
 
@@ -6476,25 +6476,25 @@ longer used.
 <p><code>removeMethodsObject</code> removed the metadata object containing
 methods for <code>f</code>.
 </p>
-<p><code>seemsS4Object</code> was similar to <code><a href="base.html#isS4">isS4</a></code> and superseded
+<p><code>seemsS4Object</code> was similar to <code><a href="https://r-universe.dev/manuals/base.html#isS4">isS4</a></code> and superseded
 by the introduction of the S4 bit in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 2.4.0.
 </p>
 <p><code>allGenerics</code> is superseded by <code><a href="#GenericFunctions">getGenerics</a></code>.
 </p>
-<p><code>trySilent(ex)</code> was a deprecated equivalent of <code><a href="base.html#try">try</a>(e,
+<p><code>trySilent(ex)</code> was a deprecated equivalent of <code><a href="https://r-universe.dev/manuals/base.html#try">try</a>(e,
     silent=TRUE)</code>; in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> programming it is typically more efficient and
-flexible to work with something like <code><a href="base.html#conditions">tryCatch</a>(ex,
+flexible to work with something like <code><a href="https://r-universe.dev/manuals/base.html#conditions">tryCatch</a>(ex,
     error = function(e) e)</code> instead.
 </p>
 <p>The functions <code>traceOn</code> and <code>traceOff</code> have been replaced by
-extended versions of the functions <code><a href="base.html#trace">trace</a></code> and
-<code><a href="base.html#trace">untrace</a></code>.
+extended versions of the functions <code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code> and
+<code><a href="https://r-universe.dev/manuals/base.html#trace">untrace</a></code>.
 </p>
 
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#Defunct">Defunct</a></code>
+<p><code><a href="https://r-universe.dev/manuals/base.html#Defunct">Defunct</a></code>
 </p>
 
 <hr>
@@ -6524,7 +6524,7 @@ Functions in packages other than the methods package are listed in
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#Deprecated">Deprecated</a></code>, <code><a href="#methods-defunct">methods-defunct</a></code>
+<p><code><a href="https://r-universe.dev/manuals/base.html#Deprecated">Deprecated</a></code>, <code><a href="#methods-defunct">methods-defunct</a></code>
 </p>
 
 <hr>
@@ -6918,7 +6918,7 @@ only.
 <dt>
 <code>getMethodsForDispatch</code>:</dt>
 <dd>
-<p>Get the table of methods (an <code><a href="base.html#environment">environment</a></code> since R
+<p>Get the table of methods (an <code><a href="https://r-universe.dev/manuals/base.html#environment">environment</a></code> since R
 version 2.6.0) representing the methods for function <code>f</code>.
 </p>
 <p>For user code, the function <code><a href="#findMethods">findMethods</a></code> or
@@ -6992,7 +6992,7 @@ returns <code>NULL</code>).
 <code>elNamed</code>:</dt>
 <dd>
 <p>get the element of the vector corresponding to name.  Unlike the
-<code><a href="base.html#Extract">[</a></code>, <code><a href="base.html#Extract">[[</a></code>, and <code><a href="base.html#Extract">$</a></code> operators, this function
+<code><a href="https://r-universe.dev/manuals/base.html#Extract">[</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#Extract">[[</a></code>, and <code><a href="https://r-universe.dev/manuals/base.html#Extract">$</a></code> operators, this function
 requires <code>name</code> to match the element name exactly (no partial
 matching).
 </p>
@@ -7050,7 +7050,7 @@ length.  Basically used to turn the signatures of a
 <dt>
 <code>Quote</code>:</dt>
 <dd>
-<p>is a synonym of <code><a href="base.html#substitute">quote</a>()</code> and
+<p>is a synonym of <code><a href="https://r-universe.dev/manuals/base.html#substitute">quote</a>()</code> and
 considered deprecated.
 </p>
 </dd>
@@ -7184,7 +7184,7 @@ initialize<span class="token punctuation">(</span>.Object<span class="token punc
 <tr style="vertical-align: top;">
 <td><code>Class</code></td>
 <td>
-<p>either the name of a class, a <code><a href="base.html#character">character</a></code>
+<p>either the name of a class, a <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code>
 string, (the usual case) or the object describing the class (e.g.,
 the value returned by <code>getClass</code>). Note that the character
 string passed from a generating function includes the package name
@@ -7533,11 +7533,11 @@ Springer (For the original S4 version.)
 
 <h3>See Also</h3>
 
-<p><code><a href="utils.html#prompt">prompt</a></code> for documentation of functions,
+<p><code><a href="https://r-universe.dev/manuals/utils.html#prompt">prompt</a></code> for documentation of functions,
 <code><a href="#promptMethods">promptMethods</a></code> for documentation of method definitions.
 </p>
 <p>For processing of the edited documentation, either use
-<code>R CMD <a href="base.html#RdUtils">Rdconv</a></code>,
+<code>R CMD <a href="https://r-universe.dev/manuals/base.html#RdUtils">Rdconv</a></code>,
 or include the edited file in the ‘<span class="file">man</span>’ subdirectory of a
 package.
 </p>
@@ -7608,7 +7608,7 @@ containing methods for <code>f</code>.</p>
 <p>If <code>filename</code> is <code>FALSE</code>, the text created is returned,
 presumably to be inserted some other documentation file, such as the
 documentation of the generic function itself (see
-<code><a href="utils.html#prompt">prompt</a></code>).
+<code><a href="https://r-universe.dev/manuals/utils.html#prompt">prompt</a></code>).
 </p>
 <p>If <code>filename</code> is <code>NA</code>, a list-style representation of the
 documentation shell is created and returned.  Writing the shell to a
@@ -7643,7 +7643,7 @@ Springer (For the original S4 version.)
 
 <h3>See Also</h3>
 
-<p><code><a href="utils.html#prompt">prompt</a></code> and
+<p><code><a href="https://r-universe.dev/manuals/utils.html#prompt">prompt</a></code> and
 <code><a href="#promptClass">promptClass</a></code>
 </p>
 
@@ -7950,7 +7950,7 @@ and, if appropriate, the package from which the class came.
 <dd>
 <p>Returns the environment, typically a namespace, in which the
 <code>Class</code> has been defined.  <code>Class</code> should typically be
-the result of <code><a href="base.html#class">class</a>()</code> (and hence contain a
+the result of <code><a href="https://r-universe.dev/manuals/base.html#class">class</a>()</code> (and hence contain a
 <code>"package"</code> attribute) or <code><a href="#getClass">getClass</a></code> (or
 <code><a href="#getClass">getClassDef</a></code>).
 </p>
@@ -8027,8 +8027,8 @@ with the argument <code>check=FALSE</code>, to prevent the call to
 <dd>
 <p>The prototype for a class which will have slots, is not a virtual
 class, and does not extend one of the basic classes. Both its
-<code><a href="base.html#class">class</a></code> and its (<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> internal) type,
-<code><a href="base.html#typeof">typeof</a>()</code>, are <code>"S4"</code>.
+<code><a href="https://r-universe.dev/manuals/base.html#class">class</a></code> and its (<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> internal) type,
+<code><a href="https://r-universe.dev/manuals/base.html#typeof">typeof</a>()</code>, are <code>"S4"</code>.
 </p>
 </dd>
 <dt>
@@ -8189,7 +8189,7 @@ omitted in calls from a package's source code.
 </p>
 <p>For <code>getRefClass</code>, the environment from which to search for the definition.  If the
 package is not loaded or you need to be specific, use
-<code><a href="base.html#ns-internal">asNamespace</a></code> with the package name.
+<code><a href="https://r-universe.dev/manuals/base.html#ns-internal">asNamespace</a></code> with the package name.
 </p>
 </td>
 </tr>
@@ -8365,7 +8365,7 @@ discussion of method <code>$new(...)</code>
 in the section “Initialization Methods”.
 </p>
 <p>If a <code>finalize</code> method is defined, a function will be
-<a href="base.html#reg.finalizer">registered</a> to invoke it before the environment in
+<a href="https://r-universe.dev/manuals/base.html#reg.finalizer">registered</a> to invoke it before the environment in
 the object is discarded by the garbage collector; finalizers are
 registered with <code>atexit=TRUE</code>, and so are also run at the end of
 <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> sessions. See the matrix viewer example for both initialize and
@@ -8394,8 +8394,8 @@ corresponding to an individual object.  To declare that a method requires a
 particular other method, the first method should include a call
 to <code>$usingMethods()</code> 
 with the name of the other method as an argument.
-Declaring the methods this way is essential if the other method is used indirectly (e.g., via <code><a href="base.html#lapply">sapply</a>()</code>
-or <code><a href="base.html#do.call">do.call</a>()</code>).
+Declaring the methods this way is essential if the other method is used indirectly (e.g., via <code><a href="https://r-universe.dev/manuals/base.html#lapply">sapply</a>()</code>
+or <code><a href="https://r-universe.dev/manuals/base.html#do.call">do.call</a>()</code>).
 If it is called directly, code analysis will find it.
 Declaring the method is harmless in any case, however, and may aid
 readability of the source code.
@@ -8593,10 +8593,10 @@ method itself, refer to <code>methods::show()</code> explicitly.
 <dt>
 <code>$trace(what, ...)</code>, <code>$untrace(what)</code> </dt>
 <dd>
-<p>Apply the tracing and debugging facilities of the <code><a href="base.html#trace">trace</a></code>
+<p>Apply the tracing and debugging facilities of the <code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code>
 function to the reference method <code>what</code>.
 </p>
-<p>All the arguments of the <code><a href="base.html#trace">trace</a></code>
+<p>All the arguments of the <code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code>
 function can be supplied, except for <code>signature</code>, which is not
 meaningful.
 </p>
@@ -8854,7 +8854,7 @@ functions as described in the section on “Reference Objects”.
 type <code>"environment"</code>.
 Fields correspond to named objects in the environment.
 A field associated with a function is implemented as an
-<a href="base.html#bindenv">active binding</a>.
+<a href="https://r-universe.dev/manuals/base.html#bindenv">active binding</a>.
 In particular, fields with a specified class are implemented as a
 special form of active binding to enforce valid assignment to the
 field.
@@ -8877,7 +8877,7 @@ A field that is not locked can be set by an expression of the form
 <code>x$data &lt;- value</code>.
 Inside an internal method, a field can be assigned by an expression of the form
 <code>x &lt;&lt;- value</code>.
-Note the <a href="base.html#assignOps">non-local assignment</a> operator.
+Note the <a href="https://r-universe.dev/manuals/base.html#assignOps">non-local assignment</a> operator.
 The standard <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> interpretation of this operator works to assign it in
 the environment of the object.
 If the field has an accessor function defined, getting and setting
@@ -8920,12 +8920,12 @@ all members of the union likely to be reference classes).
 
 <p>The standard <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> debugging and tracing facilities can be applied to
 reference methods.
-Reference methods can be passed to <code><a href="base.html#debug">debug</a></code> and its
+Reference methods can be passed to <code><a href="https://r-universe.dev/manuals/base.html#debug">debug</a></code> and its
 relatives from an object to debug further method invocations on that
 object; for example, <code>debug(xx$edit)</code>. 
 </p>
 <p>Somewhat more flexible use is available for a reference method version
-of the <code><a href="base.html#trace">trace</a></code> function.
+of the <code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code> function.
 A corresponding <code>$trace()</code> 
 reference method is available for
 either an object or for the reference class generator
@@ -8938,7 +8938,7 @@ tracing version for all future objects from that class (and sometimes for
 existing objects from the class if the method is not declared or
 previously invoked).
 </p>
-<p>In either case, all the arguments to the standard  <code><a href="base.html#trace">trace</a></code>
+<p>In either case, all the arguments to the standard  <code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code>
 function are available, except for <code>signature=</code> which is
 meaningless since reference methods can not be S4 generic functions.
 This includes the typical style <code>trace(what, browser)</code> for
@@ -9300,7 +9300,7 @@ error or returns <code>NULL</code> according to the value of
 <code>mustFind</code>.  By default, searches in the top-level
 environment (normally the global environment, but adjusted to
 work correctly when package code is evaluated from the function
-<code><a href="base.html#library">library</a></code>).
+<code><a href="https://r-universe.dev/manuals/base.html#library">library</a></code>).
 </p>
 <p>Primitive functions are dealt with specially, since there is never
 a formal generic definition for them.  The value returned is the
@@ -9419,7 +9419,7 @@ the call</em> corresponding to the environment supplied (by default,
 environment of the call to <code>missingArg</code>).  If <code>eval</code> is
 true, the argument is evaluated to get the name of the symbol to
 test.  Note that <code>missingArg</code> is closer to the
-‘Blue Book’ sense of the <code><a href="base.html#missing">missing</a></code> function,
+‘Blue Book’ sense of the <code><a href="https://r-universe.dev/manuals/base.html#missing">missing</a></code> function,
 not that of the current R base package implementation.  But beware
 that it works reliably only if no assignment has yet been made to
 the argument.  (For method dispatch this is fine, because
@@ -9648,7 +9648,7 @@ the underlying S3 object.
 <tr style="vertical-align: top;">
 <td><code>S3Class</code></td>
 <td>
-<p>the <code><a href="base.html#character">character</a></code> vector to be stored as the
+<p>the <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> vector to be stored as the
 S3 class slot in the object.  Usually, and by default, retains
 the slot from <code>object</code>, but an S3 superclass is allowed.
 </p>
@@ -9704,7 +9704,7 @@ readers to understand.
 </p>
 <p><code>S3Class</code>:  Returns the character vector of S3 class(es) stored in
 the object, if the class has the corresponding <code>.S3Class</code> slot.
-Currently, the function defaults to <code><a href="base.html#class">class</a></code> otherwise.
+Currently, the function defaults to <code><a href="https://r-universe.dev/manuals/base.html#class">class</a></code> otherwise.
 </p>
 <p><code>isXS3Class</code>: Returns <code>TRUE</code> or <code>FALSE</code> according
 to whether the class defined by <code>ClassDef</code>
@@ -9731,8 +9731,8 @@ the documentation of <code><a href="#setOldClass">setOldClass</a></code>.
 <p>Registering an S3 class defines an S4 class.  Objects from this
 class are essentially identical in content to an object from the S3
 class, except for two differences.  The value returned by
-<code><a href="base.html#class">class</a>()</code> will always be a single string for the S4
-object, and <code><a href="base.html#isS4">isS4</a>()</code> will return <code>TRUE</code> or
+<code><a href="https://r-universe.dev/manuals/base.html#class">class</a>()</code> will always be a single string for the S4
+object, and <code><a href="https://r-universe.dev/manuals/base.html#isS4">isS4</a>()</code> will return <code>TRUE</code> or
 <code>FALSE</code> in the two cases.  See the example below.  It is barely
 possible that some S3 code will not work with the S4 object; if so,
 use <code>as(x, "S3")</code>.
@@ -9772,7 +9772,7 @@ Thus <code>as(x, "matrix")</code> rather than <code>as(x, "S3")</code> or <code>
 
 <p>Objects in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> have an internal bit that indicates whether or not to
 treat the object as coming from an S4 class.  This bit is tested by
-<code><a href="base.html#isS4">isS4</a></code> and can be set on or off by <code><a href="base.html#isS4">asS4</a></code>.
+<code><a href="https://r-universe.dev/manuals/base.html#isS4">isS4</a></code> and can be set on or off by <code><a href="https://r-universe.dev/manuals/base.html#isS4">asS4</a></code>.
 The latter function, however, does no checking or interpretation;
 you should only use it if you are very certain every detail has been
 handled correctly.
@@ -9929,7 +9929,7 @@ method selection, see <code><a href="#Methods_Details">Methods_Details</a></code
 </p>
 <p>There are also
 S3 groups <code>Math</code>, <code>Ops</code>, <code>Summary</code> and
-<code>Complex</code>, see <code>?<a href="base.html#groupGeneric">S3groupGeneric</a></code>,
+<code>Complex</code>, see <code>?<a href="https://r-universe.dev/manuals/base.html#groupGeneric">S3groupGeneric</a></code>,
 with no corresponding <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects, but these are irrelevant for S4
 group generic functions.
 </p>
@@ -9999,8 +9999,8 @@ formal methods for them, both individually and via the group generics.  It all w
 might expect, admittedly via a bit of trickery in the background.
 See <a href="#Methods_Details">Methods_Details</a> for details.
 </p>
-<p>Note that two members of the <code>Math</code> group, <code><a href="base.html#Log">log</a></code> and
-<code><a href="base.html#Round">trunc</a></code>, have ... as an extra formal argument.
+<p>Note that two members of the <code>Math</code> group, <code><a href="https://r-universe.dev/manuals/base.html#Log">log</a></code> and
+<code><a href="https://r-universe.dev/manuals/base.html#Round">trunc</a></code>, have ... as an extra formal argument.
 Since methods for <code>Math</code> will have only one formal argument,
 you must set a specific method for these functions in order to call
 them with the extra argument(s).
@@ -10029,7 +10029,7 @@ Springer. (Section 10.5)
 relevant when writing a method for a group generic.  See the
 examples below and in section 10.5 of <em>Software for Data Analysis</em>.
 </p>
-<p>See <a href="base.html#groupGeneric">S3groupGeneric</a> for S3 group generics.
+<p>See <a href="https://r-universe.dev/manuals/base.html#groupGeneric">S3groupGeneric</a> for S3 group generics.
 </p>
 
 
@@ -10224,14 +10224,14 @@ environment where the class definition of <code>Class</code> is found.</p>
 <tr style="vertical-align: top;">
 <td><code>ext</code></td>
 <td>
-<p>for <code>.selectSuperClasses()</code> only, a <code><a href="base.html#list">list</a></code>
+<p>for <code>.selectSuperClasses()</code> only, a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code>
 of class extensions, typically <code><a href="#getClass">getClassDef</a>(..)@contains</code>.</p>
 </td>
 </tr>
 </table>
 <h3>Value</h3>
 
-<p>a <code><a href="base.html#character">character</a></code> vector (if <code>namesOnly</code> is true, as per
+<p>a <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> vector (if <code>namesOnly</code> is true, as per
 default) or a list of class extensions (as the <code>contains</code> slot in
 the result of <code><a href="#getClass">getClass</a></code>).
 </p>
@@ -10821,7 +10821,7 @@ an S3 class, providing that class has been registered as an old class
 </p>
 <p>Broadly speaking, both S3 and S4 method dispatch try to behave
 sensibly with respect to inheritance in either system.
-Given an S4 object, S3 method dispatch and the <code><a href="base.html#class">inherits</a></code>
+Given an S4 object, S3 method dispatch and the <code><a href="https://r-universe.dev/manuals/base.html#class">inherits</a></code>
 function should use the S4 inheritance information.
 Given an S3 object, an S4 generic function will dispatch S4 methods
 using the S3 inheritance, provided that inheritance has been declared via
@@ -11240,7 +11240,7 @@ function is set to the location of the original function
 </p>
 <p>Two special types of non-generic should be noted.
 Functions that dispatch S3 methods by calling
-<code><a href="base.html#UseMethod">UseMethod</a></code> are ordinary functions, not objects from the
+<code><a href="https://r-universe.dev/manuals/base.html#UseMethod">UseMethod</a></code> are ordinary functions, not objects from the
 <code>"genericFunction"</code> class.  They are made generic like any
 other function, but some special considerations apply to ensure that
 S4 and S3 method dispatch is consistent (see <a href="#Methods_for_S3">Methods_for_S3</a>).
@@ -11390,7 +11390,7 @@ computations on existing data types.
 for the function in the current session.
 </p>
 <p>Note that S4 methods can only be set on those primitives which are
-‘<a href="base.html#InternalMethods">internal generic</a>’, plus <code>%*%</code>.
+‘<a href="https://r-universe.dev/manuals/base.html#InternalMethods">internal generic</a>’, plus <code>%*%</code>.
 </p>
 
 
@@ -12046,7 +12046,7 @@ to save information not available until load time, such as values
 obtained from a dynamically linked library.
 </p>
 <p>Load actions should be contrasted with user load hooks supplied by
-<code><a href="base.html#userhooks">setHook</a>()</code>.  User hooks are generally provided from
+<code><a href="https://r-universe.dev/manuals/base.html#userhooks">setHook</a>()</code>.  User hooks are generally provided from
 outside the package and are run after the namespace has been sealed.
 Load actions are normally part of the package code, and the list of
 actions is normally established when the package is installed.
@@ -12075,7 +12075,7 @@ name appears in the actions for this package.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#userhooks">setHook</a></code> for safer (since they are run after the
+<p><code><a href="https://r-universe.dev/manuals/base.html#userhooks">setHook</a></code> for safer (since they are run after the
 namespace is sealed) and more comprehensive versions in the
 base package.
 </p>
@@ -12627,7 +12627,7 @@ attributes, unlike slots, can not have value <code>NULL</code>.
 <p>One irregularity that is usually tolerated, however, is to optionally
 add other attributes to those guaranteed to exist (for example,
 <code>"terms"</code> in <code>"data.frame"</code> objects returned by
-<code><a href="stats.html#model.frame">model.frame</a></code>).  Validity checks by
+<code><a href="https://r-universe.dev/manuals/stats.html#model.frame">model.frame</a></code>).  Validity checks by
 <code><a href="#validObject">validObject</a></code> ignore extra attributes; even if this check
 is tightened in the future, classes extending S3 classes would likely
 be exempted because extra attributes are so common.
@@ -12729,7 +12729,7 @@ usually be invoked for automatic printing (see the details).
 call to <code>show</code>.  S4 objects that occur as attributes of S3
 objects will also be displayed in this form; conversely, S3 objects
 encountered as slots in S4 objects will be printed using the S3
-convention, as if by a call to <code><a href="base.html#print">print</a></code>.
+convention, as if by a call to <code><a href="https://r-universe.dev/manuals/base.html#print">print</a></code>.
 </p>
 <p>Methods defined for <code>show</code> will only be inherited  by simple
 inheritance, since otherwise the method would not receive the
@@ -12918,7 +12918,7 @@ anomalous results.
 
 <p>If <code>printTo</code> is <code>FALSE</code>, the character vector that would
 have been printed is returned; otherwise the value is the connection
-or filename, via <code><a href="base.html#invisible">invisible</a></code>.
+or filename, via <code><a href="https://r-universe.dev/manuals/base.html#invisible">invisible</a></code>.
 </p>
 
 
@@ -12941,7 +12941,7 @@ for other tools involving methods;
 <code><a href="#getMethod">selectMethod</a></code> will show you the method dispatched for a
 particular function and signature of classes for the arguments.
 </p>
-<p><code><a href="utils.html#methods">methods</a></code> provides method discovery tools for light-weight
+<p><code><a href="https://r-universe.dev/manuals/utils.html#methods">methods</a></code> provides method discovery tools for light-weight
 interactive use.
 </p>
 
@@ -13139,7 +13139,7 @@ and then stores it.
 for (or trying to set) a slot with an invalid name for that class
 generates an error.
 </p>
-<p>The <code><a href="base.html#slotOp">@</a></code> extraction operator and <code>slot</code>
+<p>The <code><a href="https://r-universe.dev/manuals/base.html#slotOp">@</a></code> extraction operator and <code>slot</code>
 function themselves do no checking against the class definition,
 simply matching the name in the object itself.
 The replacement forms do check (except for <code>slot</code> in the case
@@ -13151,7 +13151,7 @@ with no guarantees.  The obvious way is to assign a slot with
 <code>check=FALSE</code>.  Also, slots in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> are implemented as
 attributes, for the sake of some back compatibility.  The current
 implementation does not prevent attributes being assigned, via
-<code><a href="base.html#attr">attr&lt;-</a></code>, and such assignments are not checked for
+<code><a href="https://r-universe.dev/manuals/base.html#attr">attr&lt;-</a></code>, and such assignments are not checked for
 legitimate slot names.
 </p>
 <p>Note that the <code>"@"</code> operators for extraction and replacement are
@@ -13200,11 +13200,11 @@ Springer (For the original S4 version.)
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#slotOp">@</a></code>,
+<p><code><a href="https://r-universe.dev/manuals/base.html#slotOp">@</a></code>,
 <code><a href="#Classes_Details">Classes_Details</a></code>,
 <code><a href="#Methods_Details">Methods_Details</a></code>,
 <code><a href="#getClass">getClass</a></code>,
-<code><a href="base.html#names">names</a></code>.
+<code><a href="https://r-universe.dev/manuals/base.html#names">names</a></code>.
 </p>
 
 
@@ -13256,8 +13256,8 @@ are unusual, to put it mildly, and have been for some time.  Although
 they may appear to be objects from these classes, they do not have the
 internal structure of either an S3 or S4 class object.  In particular,
 they have no <code>"class"</code> attribute and are not recognized as
-objects with classes (that is, both <code><a href="base.html#is.object">is.object</a></code> and
-<code><a href="base.html#isS4">isS4</a></code> will return <code>FALSE</code> for such objects).
+objects with classes (that is, both <code><a href="https://r-universe.dev/manuals/base.html#is.object">is.object</a></code> and
+<code><a href="https://r-universe.dev/manuals/base.html#isS4">isS4</a></code> will return <code>FALSE</code> for such objects).
 However, methods (both S4 and S3) can be defined for these
 pseudo-classes and new classes (both S4 and S3) can inherit from them.
 </p>
@@ -13304,8 +13304,8 @@ definitions.
 </p>
 <p>All of these classes have special S4 methods for
 <code><a href="#new">initialize</a></code> that accept the same arguments as the basic
-generator functions, <code><a href="base.html#matrix">matrix</a></code>,
-<code><a href="base.html#array">array</a></code>, and <code><a href="stats.html#ts">ts</a></code>, in so far as possible.
+generator functions, <code><a href="https://r-universe.dev/manuals/base.html#matrix">matrix</a></code>,
+<code><a href="https://r-universe.dev/manuals/base.html#array">array</a></code>, and <code><a href="https://r-universe.dev/manuals/stats.html#ts">ts</a></code>, in so far as possible.
 The limitation is that a class that has more than one non-virtual
 superclass must accept objects from that superclass in the call to
 <code><a href="#new">new</a></code>; therefore, a such a class (what is called a
@@ -13407,7 +13407,7 @@ treats its first argument in the standard S way, by evaluating it.  In
 contrast, <code>substitute</code> does not evaluate its first argument.
 </p>
 <p>The goal is to replace this with an <code>eval=</code> argument to
-<code><a href="base.html#substitute">substitute</a></code>.
+<code><a href="https://r-universe.dev/manuals/base.html#substitute">substitute</a></code>.
 </p>
 
 
@@ -13576,8 +13576,8 @@ testInheritedMethods<span class="token punctuation">(</span><span class="token s
 <h3>Description</h3>
 
 <p> The classes described  here are used by the R function
-<code><a href="base.html#trace">trace</a></code> to create versions of functions and methods
-including browser calls, etc., and also to <code><a href="base.html#trace">untrace</a></code> the
+<code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code> to create versions of functions and methods
+including browser calls, etc., and also to <code><a href="https://r-universe.dev/manuals/base.html#trace">untrace</a></code> the
 same objects.</p>
 
 
@@ -13631,7 +13631,7 @@ addition to their new trace information.
 
 <h3>See Also</h3>
 
-<p> function <code><a href="base.html#trace">trace</a></code> </p>
+<p> function <code><a href="https://r-universe.dev/manuals/base.html#trace">trace</a></code> </p>
 
 <hr>
 </div>

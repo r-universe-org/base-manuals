@@ -184,7 +184,7 @@ The R Graphics Package
 <tr style="vertical-align: top;">
 <td><code>reg</code></td>
 <td>
-<p>an object with a <code><a href="stats.html#coef">coef</a></code> method.  See ‘Details’.</p>
+<p>an object with a <code><a href="https://r-universe.dev/manuals/stats.html#coef">coef</a></code> method.  See ‘Details’.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -217,7 +217,7 @@ at the specified coordinates.
 <p>The <code>coef</code> form specifies the line by a vector containing the
 slope and intercept.
 </p>
-<p><code>reg</code> is a regression object with a <code><a href="stats.html#coef">coef</a></code> method.
+<p><code>reg</code> is a regression object with a <code><a href="https://r-universe.dev/manuals/stats.html#coef">coef</a></code> method.
 If this returns a vector of length 1 then the value is taken to be the
 slope of a line through the origin, otherwise, the first 2 values are
 taken to be the intercept and slope.
@@ -522,7 +522,7 @@ The strucplot Framework: Visualizing Multi-Way Contingency Tables with
 
 <h3>See Also</h3>
 
-<p><code><a href="#mosaicplot">mosaicplot</a></code>, <code><a href="stats.html#chisq.test">chisq.test</a></code>.
+<p><code><a href="#mosaicplot">mosaicplot</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#chisq.test">chisq.test</a></code>.
 </p>
 
 
@@ -580,7 +580,7 @@ to be drawn on.  The axis is placed as follows: 1=below,
 <p>this can either be a logical value specifying whether
 (numerical) annotations are to be made at the tickmarks, or a
 character or expression vector of labels to be placed at the
-tickpoints.  (Other objects are coerced by <code><a href="grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.)
+tickpoints.  (Other objects are coerced by <code><a href="https://r-universe.dev/manuals/grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.)
 If this is not logical, <code>at</code> should also be supplied and of the
 same length.  If <code>labels</code> is of length zero after coercion,
 it has the same effect as supplying <code>TRUE</code>.</p>
@@ -726,7 +726,7 @@ the <code>plot</code> argument <code>asp</code> (see <code><a href="#plot.window
 </p>
 <p>If <code>labels</code> is not specified, the numeric values supplied or
 calculated for <code>at</code> are converted to character strings as if they
-were a numeric vector printed by <code><a href="base.html#print.default">print.default</a>(digits = 7)</code>.
+were a numeric vector printed by <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a>(digits = 7)</code>.
 </p>
 <p>The code tries hard not to draw overlapping tick labels, and so will
 omit labels where they would abut or overlap previously drawn labels.
@@ -778,7 +778,7 @@ Wadsworth &amp; Brooks/Cole.
 <p><code><a href="#zAxis">Axis</a></code> for a generic interface.
 </p>
 <p><code><a href="#axTicks">axTicks</a></code> returns the axis tick locations
-corresponding to <code>at = NULL</code>; <code><a href="base.html#pretty">pretty</a></code> is more flexible
+corresponding to <code>at = NULL</code>; <code><a href="https://r-universe.dev/manuals/base.html#pretty">pretty</a></code> is more flexible
 for computing pretty tick coordinates and does <em>not</em> depend on
 (nor adapt to) the coordinate system in use.
 </p>
@@ -959,7 +959,7 @@ axis.Date<span class="token punctuation">(</span>side<span class="token punctuat
 <tr style="vertical-align: top;">
 <td><code>format</code></td>
 <td>
-<p>See <code><a href="base.html#strptime">strptime</a></code>.</p>
+<p>See <code><a href="https://r-universe.dev/manuals/base.html#strptime">strptime</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -996,7 +996,7 @@ otherwise the current time zone.
 </p>
 <p>The way the date-times are rendered (especially month names) is
 controlled by the locale setting of category <code>"LC_TIME"</code> (see
-<code><a href="base.html#locales">Sys.setlocale</a></code>).
+<code><a href="https://r-universe.dev/manuals/base.html#locales">Sys.setlocale</a></code>).
 </p>
 
 
@@ -1008,7 +1008,7 @@ controlled by the locale setting of category <code>"LC_TIME"</code> (see
 
 <h3>See Also</h3>
 
-<p><a href="base.html#DateTimeClasses">DateTimeClasses</a>, <a href="base.html#Dates">Dates</a> for details of the classes.
+<p><a href="https://r-universe.dev/manuals/base.html#DateTimeClasses">DateTimeClasses</a>, <a href="https://r-universe.dev/manuals/base.html#Dates">Dates</a> for details of the classes.
 </p>
 <p><code><a href="#zAxis">Axis</a></code>.
 </p>
@@ -1124,11 +1124,11 @@ when <code>log</code> is <code>TRUE</code>; see the documentation on
 <p><code>axTicks()</code> may be seen as an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> implementation of the C function
 <code>CreateAtVector()</code> in ‘<span class="file">..../src/main/plot.c</span>’
 which is called by <code><a href="#axis">axis</a>(side, *)</code> when no argument
-<code>at</code> is specified or directly by <code><a href="grDevices.html#axisTicks">axisTicks</a>()</code> (in package
+<code>at</code> is specified or directly by <code><a href="https://r-universe.dev/manuals/grDevices.html#axisTicks">axisTicks</a>()</code> (in package
 <span class="pkg">grDevices</span>).
 <br>
 The delicate case, <code>log = TRUE</code>, now makes use of
-<code><a href="grDevices.html#axisTicks">axisTicks</a></code> unless <code>nintLog = Inf</code> which exists for back
+<code><a href="https://r-universe.dev/manuals/grDevices.html#axisTicks">axisTicks</a></code> unless <code>nintLog = Inf</code> which exists for back
 compatibility.
 </p>
 
@@ -1145,12 +1145,12 @@ are decreasing when <code>usr</code> is (“reverse axis” case).
 
 <h3>See Also</h3>
 
-<p><code><a href="#axis">axis</a></code>, <code><a href="#par">par</a></code>.  <code><a href="base.html#pretty">pretty</a></code>
+<p><code><a href="#axis">axis</a></code>, <code><a href="#par">par</a></code>.  <code><a href="https://r-universe.dev/manuals/base.html#pretty">pretty</a></code>
 uses the same algorithm (but independently of the graphics
 environment) and has more options.  However it is not available for
 <code>log = TRUE.</code>
 </p>
-<p><code><a href="grDevices.html#axisTicks">axisTicks</a>()</code> (package <span class="pkg">grDevices</span>).
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#axisTicks">axisTicks</a>()</code> (package <span class="pkg">grDevices</span>).
 </p>
 
 
@@ -1331,7 +1331,7 @@ degrees (counter-clockwise), for the bars or bar components.</p>
 <p>a vector of colors for the bars or bar components.
 By default, <code>"grey"</code> is used if <code>height</code> is a vector, and a
 gamma-corrected grey palette if <code>height</code> is a matrix;
-see <code><a href="grDevices.html#gray.colors">grey.colors</a></code>.</p>
+see <code><a href="https://r-universe.dev/manuals/grDevices.html#gray.colors">grey.colors</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1502,7 +1502,7 @@ to be used.</p>
 <td><code>na.action</code></td>
 <td>
 <p>a function which indicates what should happen when
-the data contain <code><a href="base.html#NA">NA</a></code> values.  The default is to ignore missing
+the data contain <code><a href="https://r-universe.dev/manuals/base.html#NA">NA</a></code> values.  The default is to ignore missing
 values in the given variables.</p>
 </td>
 </tr>
@@ -1779,14 +1779,14 @@ non-empty default.  Can be suppressed by <code>ann=FALSE</code>.</p>
 <tr style="vertical-align: top;">
 <td><code>ann</code></td>
 <td>
-<p><code><a href="base.html#logical">logical</a></code> indicating if axes should be annotated (by
+<p><code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> indicating if axes should be annotated (by
 <code>xlab</code> and <code>ylab</code>).</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>drop, sep, lex.order</code></td>
 <td>
-<p>passed to <code><a href="base.html#split">split.default</a></code>, see there.</p>
+<p>passed to <code><a href="https://r-universe.dev/manuals/base.html#split">split.default</a></code>, see there.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1796,7 +1796,7 @@ non-empty default.  Can be suppressed by <code>ann=FALSE</code>.</p>
 produced. Either a numeric vector, or a single list containing such
 vectors. Additional unnamed arguments specify further data
 as separate vectors (each corresponding to a component boxplot).
-<code><a href="base.html#NA">NA</a></code>s are allowed in the data.</p>
+<code><a href="https://r-universe.dev/manuals/base.html#NA">NA</a></code>s are allowed in the data.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1846,7 +1846,7 @@ of observations in the groups.</p>
 <p>if <code>notch</code> is <code>TRUE</code>, a notch is drawn in
 each side of the boxes.  If the notches of two plots do not
 overlap this is ‘strong evidence’ that the two medians differ
-(Chambers <em>et al</em>, 1983, p. 62).  See <code><a href="grDevices.html#boxplot.stats">boxplot.stats</a></code>
+(Chambers <em>et al</em>, 1983, p. 62).  See <code><a href="https://r-universe.dev/manuals/grDevices.html#boxplot.stats">boxplot.stats</a></code>
 for the calculations used.</p>
 </td>
 </tr>
@@ -1863,8 +1863,8 @@ not drawn (as points whereas S+ uses lines).</p>
 <td><code>names</code></td>
 <td>
 <p>group labels which will be printed under each boxplot.
-Can be a character vector or an <a href="base.html#expression">expression</a> (see
-<a href="grDevices.html#plotmath">plotmath</a>).</p>
+Can be a character vector or an <a href="https://r-universe.dev/manuals/base.html#expression">expression</a> (see
+<a href="https://r-universe.dev/manuals/grDevices.html#plotmath">plotmath</a>).</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1958,7 +1958,7 @@ defaults to <code>1:n</code> where <code>n</code> is the number of boxes.</p>
 <p>If multiple groups are supplied either as multiple arguments or via a
 formula, parallel boxplots will be plotted, in the order of the
 arguments or the order of the levels of the factor (see
-<code><a href="base.html#factor">factor</a></code>).
+<code><a href="https://r-universe.dev/manuals/base.html#factor">factor</a></code>).
 </p>
 <p>Missing values are ignored when forming boxplots.
 </p>
@@ -1981,7 +1981,7 @@ have the same class attribute, so will this component.</p>
 <tr style="vertical-align: top;">
 <td><code>n</code></td>
 <td>
-<p>a vector with the number of (non-<code><a href="base.html#NA">NA</a></code>) observations in each group.</p>
+<p>a vector with the number of (non-<code><a href="https://r-universe.dev/manuals/base.html#NA">NA</a></code>) observations in each group.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -2026,13 +2026,13 @@ Wadsworth &amp; Brooks/Cole.
 <em>R Graphics</em>.
 Chapman &amp; Hall/CRC Press.
 </p>
-<p>See also <code><a href="grDevices.html#boxplot.stats">boxplot.stats</a></code>.
+<p>See also <code><a href="https://r-universe.dev/manuals/grDevices.html#boxplot.stats">boxplot.stats</a></code>.
 </p>
 
 
 <h3>See Also</h3>
 
-<p><code><a href="grDevices.html#boxplot.stats">boxplot.stats</a></code> which does the computation,
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#boxplot.stats">boxplot.stats</a></code> which does the computation,
 <code><a href="#bxp">bxp</a></code> for the plotting and more examples;
 and <code><a href="#stripchart">stripchart</a></code> for an alternative (with small data
 sets).
@@ -2547,14 +2547,14 @@ the levels of the dependent variable should be plotted.</p>
 <tr style="vertical-align: top;">
 <td><code>bw, n, from, to, ...</code></td>
 <td>
-<p>arguments passed to <code><a href="stats.html#density">density</a></code></p>
+<p>arguments passed to <code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code></p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>col</code></td>
 <td>
 <p>a vector of fill colors of the same length as <code>levels(y)</code>.
-The default is to call <code><a href="grDevices.html#gray.colors">gray.colors</a></code>.</p>
+The default is to call <code><a href="https://r-universe.dev/manuals/grDevices.html#gray.colors">gray.colors</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -2599,7 +2599,7 @@ The densities are derived cumulatively over the levels of <code>y</code>.
 <p>This visualization technique is similar to spinograms (see <code><a href="#spineplot">spineplot</a></code>)
 and plots <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>y</mi><mi mathvariant="normal">∣</mi><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(y | x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord">∣</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></code> against <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></code>. The conditional probabilities
 are not derived by discretization (as in the spinogram), but using a smoothing
-approach via <code><a href="stats.html#density">density</a></code>.
+approach via <code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code>.
 </p>
 <p>Note, that the estimates of the conditional densities are more reliable for
 high-density regions of <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></code>. Conversely, the are less reliable in regions
@@ -2629,7 +2629,7 @@ conditional distributions</em>, Unpublished Manuscript.
 
 <h3>See Also</h3>
 
-<p><code><a href="#spineplot">spineplot</a></code>, <code><a href="stats.html#density">density</a></code>
+<p><code><a href="#spineplot">spineplot</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code>
 </p>
 
 
@@ -2700,7 +2700,7 @@ predict.  <code><a href="#frame">plot.new</a></code> always resets it.
 Functions such as <code><a href="#lines">lines</a></code> and <code><a href="#text">text</a></code> only
 reset it if <code><a href="#par">par</a>("xpd")</code> has been changed.  However,
 functions such as <code><a href="#box">box</a></code>, <code><a href="#mtext">mtext</a></code>,
-<code><a href="#title">title</a></code> and <code><a href="stats.html#dendrogram">plot.dendrogram</a></code> can manipulate
+<code><a href="#title">title</a></code> and <code><a href="https://r-universe.dev/manuals/stats.html#dendrogram">plot.dendrogram</a></code> can manipulate
 the <code>xpd</code> setting.
 </p>
 
@@ -2794,7 +2794,7 @@ lines.</p>
 <td>
 <p>a vector giving the labels for the contour lines.  If
 <code>NULL</code> then the levels are used as labels, otherwise this is
-coerced by <code><a href="base.html#character">as.character</a></code>.</p>
+coerced by <code><a href="https://r-universe.dev/manuals/base.html#character">as.character</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -2890,7 +2890,7 @@ contour line, with no labels overlapping).  The second and third may
 not draw a label on every contour line.
 </p>
 <p>For information about vector fonts, see the
-help for <code><a href="#text">text</a></code> and <code><a href="grDevices.html#Hershey">Hershey</a></code>.
+help for <code><a href="#text">text</a></code> and <code><a href="https://r-universe.dev/manuals/grDevices.html#Hershey">Hershey</a></code>.
 </p>
 <p>Notice that <code>contour</code> interprets the <code>z</code> matrix as a table of
 <code>f(x[i], y[j])</code> values, so that the x axis corresponds to row
@@ -2901,8 +2901,8 @@ layout.
 <p>Vector (of length <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">&gt; 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code>) <code>col</code>, <code>lty</code>, and <code>lwd</code> are
 applied along <code>levels</code> and recycled, see the Examples.
 </p>
-<p>Alternatively, use <code><a href="lattice.html#levelplot">contourplot</a></code> from the
-<a href="https://CRAN.R-project.org/package=lattice" target="_blank"><span class="pkg">lattice</span></a> package where the <code><a href="stats.html#formula">formula</a></code> notation allows
+<p>Alternatively, use <code><a href="https://deepayan.r-universe.dev/lattice/lattice.html#levelplot">contourplot</a></code> from the
+<a href="https://CRAN.R-project.org/package=lattice" target="_blank"><span class="pkg">lattice</span></a> package where the <code><a href="https://r-universe.dev/manuals/stats.html#formula">formula</a></code> notation allows
 to use vectors <code>x</code>, <code>y</code>, and <code>z</code> of the same length.
 </p>
 <p>There is limited control over the axes and frame as arguments
@@ -2922,13 +2922,13 @@ Wadsworth &amp; Brooks/Cole.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#options">options</a>("max.contour.segments")</code> for the maximal
+<p><code><a href="https://r-universe.dev/manuals/base.html#options">options</a>("max.contour.segments")</code> for the maximal
 complexity of a single contour line.
 </p>
-<p><code><a href="grDevices.html#contourLines">contourLines</a></code>, <code><a href="#filled.contour">filled.contour</a></code>
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#contourLines">contourLines</a></code>, <code><a href="#filled.contour">filled.contour</a></code>
 for color-filled contours,
-<code><a href="lattice.html#levelplot">contourplot</a></code> (and
-<code><a href="lattice.html#levelplot">levelplot</a></code>) from package <a href="https://CRAN.R-project.org/package=lattice" target="_blank"><span class="pkg">lattice</span></a>.
+<code><a href="https://deepayan.r-universe.dev/lattice/lattice.html#levelplot">contourplot</a></code> (and
+<code><a href="https://deepayan.r-universe.dev/lattice/lattice.html#levelplot">levelplot</a></code>) from package <a href="https://CRAN.R-project.org/package=lattice" target="_blank"><span class="pkg">lattice</span></a>.
 Further, <code><a href="#image">image</a></code> and the graphics demo which can be
 invoked as <code>demo(graphics)</code>.
 </p>
@@ -3077,7 +3077,7 @@ value 1.
 </p>
 <p>Device coordinates are those in which the device works: they are
 usually in pixels where that makes sense and in big points (1/72 inch)
-otherwise (e.g., <code><a href="grDevices.html#pdf">pdf</a></code> and <code><a href="grDevices.html#postscript">postscript</a></code>).
+otherwise (e.g., <code><a href="https://r-universe.dev/manuals/grDevices.html#pdf">pdf</a></code> and <code><a href="https://r-universe.dev/manuals/grDevices.html#postscript">postscript</a></code>).
 </p>
 
 
@@ -3169,7 +3169,7 @@ the result of <code>co.intervals</code> can be used directly as
 <tr style="vertical-align: top;">
 <td><code>panel</code></td>
 <td>
-<p>a <code><a href="base.html#function">function</a>(x, y, col, pch, ...)</code>
+<p>a <code><a href="https://r-universe.dev/manuals/base.html#function">function</a>(x, y, col, pch, ...)</code>
 which gives the action to be carried out in
 each panel of the display.  The default is <code>points</code>.</p>
 </td>
@@ -3254,7 +3254,7 @@ are factors.</p>
 <td>
 <p>integer; the number of conditioning intervals,
 for a and b, possibly of length 2.  It is only used if the
-corresponding conditioning variable is not a <code><a href="base.html#factor">factor</a></code>.</p>
+corresponding conditioning variable is not a <code><a href="https://r-universe.dev/manuals/base.html#factor">factor</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -3315,8 +3315,8 @@ are not panel functions.
 <h3>Value</h3>
 
 <p><code>co.intervals(., number, .)</code> returns a (<code>number</code> <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">×</span></span></span></span></code>
-2) <code><a href="base.html#matrix">matrix</a></code>, say <code>ci</code>,  where <code>ci[k,]</code> is
-the <code><a href="base.html#range">range</a></code> of <code>x</code> values for the <code>k</code>-th interval.
+2) <code><a href="https://r-universe.dev/manuals/base.html#matrix">matrix</a></code>, say <code>ci</code>,  where <code>ci[k,]</code> is
+the <code><a href="https://r-universe.dev/manuals/base.html#range">range</a></code> of <code>x</code> values for the <code>k</code>-th interval.
 </p>
 
 
@@ -3400,8 +3400,8 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 <tr style="vertical-align: top;">
 <td><code>expr</code></td>
 <td>
-<p>The name of a function, or a <a href="base.html#call">call</a> or an
-<a href="base.html#expression">expression</a> written as a function of <code>x</code> which will
+<p>The name of a function, or a <a href="https://r-universe.dev/manuals/base.html#call">call</a> or an
+<a href="https://r-universe.dev/manuals/base.html#expression">expression</a> written as a function of <code>x</code> which will
 evaluate to an object of the same length as <code>x</code>.</p>
 </td>
 </tr>
@@ -3507,13 +3507,13 @@ but can give bad results for functions which are not smooth.
 <p>For expensive-to-compute <code>expr</code>essions, you should use smarter tools.
 </p>
 <p>The way <code>curve</code> handles <code>expr</code> has caused confusion.  It
-first looks to see if <code>expr</code> is a <a href="base.html#name">name</a> (also known as a
+first looks to see if <code>expr</code> is a <a href="https://r-universe.dev/manuals/base.html#name">name</a> (also known as a
 symbol), in which case it is taken to be the name of a function, and
 <code>expr</code> is replaced by a call to <code>expr</code> with a single
 argument with name given by <code>xname</code>.  Otherwise it checks that
-<code>expr</code> is either a <a href="base.html#call">call</a> or an <a href="base.html#expression">expression</a>, and that
+<code>expr</code> is either a <a href="https://r-universe.dev/manuals/base.html#call">call</a> or an <a href="https://r-universe.dev/manuals/base.html#expression">expression</a>, and that
 it contains a reference to the variable given by <code>xname</code> (using
-<code><a href="base.html#allnames">all.vars</a></code>): anything else is an error.  Then <code>expr</code>
+<code><a href="https://r-universe.dev/manuals/base.html#allnames">all.vars</a></code>): anything else is an error.  Then <code>expr</code>
 is evaluated in an environment which supplies a vector of name given
 by <code>xname</code> of length <code>n</code>, and should evaluate to an object
 of length <code>n</code>.  Note that this means that <code>curve(x, ...)</code> is
@@ -3541,7 +3541,7 @@ you.  It is recommended to use <code>add</code> only with <code>curve</code>.
 
 <h3>See Also</h3>
 
-<p><code><a href="stats.html#splinefun">splinefun</a></code> for spline interpolation, <code><a href="#lines">lines</a></code>.
+<p><code><a href="https://r-universe.dev/manuals/stats.html#splinefun">splinefun</a></code> for spline interpolation, <code><a href="#lines">lines</a></code>.
 </p>
 
 
@@ -3604,9 +3604,9 @@ par<span class="token punctuation">(</span>op<span class="token punctuation">)</
 <p>either a vector or matrix of numeric values (<code>NA</code>s are
 allowed).  If <code>x</code> is a matrix the overall plot consists of
 juxtaposed dotplots for each row.  Inputs which satisfy
-<code><a href="base.html#numeric">is.numeric</a>(x)</code> but not
+<code><a href="https://r-universe.dev/manuals/base.html#numeric">is.numeric</a>(x)</code> but not
 <code>is.vector(x) || is.matrix(x)</code> are coerced by
-<code><a href="base.html#numeric">as.numeric</a></code>, with a warning.</p>
+<code><a href="https://r-universe.dev/manuals/base.html#numeric">as.numeric</a></code>, with a warning.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -3644,7 +3644,7 @@ hardwired to 0.4 before <span style="font-family: Courier New, Courier; color: #
 <tr style="vertical-align: top;">
 <td><code>ann</code></td>
 <td>
-<p>a <code><a href="base.html#logical">logical</a></code> value indicating whether the default annotation
+<p>a <code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> value indicating whether the default annotation
 (title and x and y axis labels) should appear on the plot.</p>
 </td>
 </tr>
@@ -4004,9 +4004,9 @@ Summit, New Jersey: Hobart.
 <h3>See Also</h3>
 
 <p><code><a href="#contour">contour</a></code>, <code><a href="#image">image</a></code>,
-<code><a href="grDevices.html#palettes">hcl.colors</a></code>, <code><a href="grDevices.html#gray.colors">gray.colors</a></code>,
-<code><a href="grDevices.html#palette">palette</a></code>; <code><a href="lattice.html#levelplot">contourplot</a></code>
-and <code><a href="lattice.html#levelplot">levelplot</a></code> from package <a href="https://CRAN.R-project.org/package=lattice" target="_blank"><span class="pkg">lattice</span></a>.
+<code><a href="https://r-universe.dev/manuals/grDevices.html#palettes">hcl.colors</a></code>, <code><a href="https://r-universe.dev/manuals/grDevices.html#gray.colors">gray.colors</a></code>,
+<code><a href="https://r-universe.dev/manuals/grDevices.html#palette">palette</a></code>; <code><a href="https://deepayan.r-universe.dev/lattice/lattice.html#levelplot">contourplot</a></code>
+and <code><a href="https://deepayan.r-universe.dev/lattice/lattice.html#levelplot">levelplot</a></code> from package <a href="https://CRAN.R-project.org/package=lattice" target="_blank"><span class="pkg">lattice</span></a>.
 </p>
 
 
@@ -4240,7 +4240,7 @@ with a <em>canvas</em> colour (the on-screen devices <code>X11</code>,
 canvas colour and then the background colour.
 </p>
 <p>There are two hooks called <code>"before.plot.new"</code> and
-<code>"plot.new"</code> (see <code><a href="base.html#userhooks">setHook</a></code>) called immediately
+<code>"plot.new"</code> (see <code><a href="https://r-universe.dev/manuals/base.html#userhooks">setHook</a></code>) called immediately
 before and after advancing the frame. The latter is used
 in the testing code to annotate the new page. The hook function(s) are
 called with no argument.  (If the value is a character string,
@@ -4299,7 +4299,7 @@ in Trellis (not implemented in <a href="https://CRAN.R-project.org/package=latti
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#Defunct">Defunct</a></code>
+<p><code><a href="https://r-universe.dev/manuals/base.html#Defunct">Defunct</a></code>
 </p>
 
 <hr>
@@ -4320,7 +4320,7 @@ The R Graphics Package
 
 <p>This package contains functions for ‘base’ graphics.  Base graphics
 are traditional S-like graphics, as opposed to the more recent
-<a href="grid.html#grid-package">grid</a> graphics.
+<a href="https://r-universe.dev/manuals/grid.html#grid-package">grid</a> graphics.
 </p>
 <p>For a complete list of functions with individual help pages,
 use <code>library(help = "graphics")</code>.
@@ -4372,7 +4372,7 @@ existing plot.
 <p>number of cells of the grid in x and y direction.  When
 <code>NULL</code>, as per default, the grid aligns with the tick marks on
 the corresponding <em>default</em> axis (i.e., tickmarks as computed by
-<code><a href="#axTicks">axTicks</a></code>).  When <code><a href="base.html#NA">NA</a></code>, no grid lines are
+<code><a href="#axTicks">axTicks</a></code>).  When <code><a href="https://r-universe.dev/manuals/base.html#NA">NA</a></code>, no grid lines are
 drawn in the corresponding direction.</p>
 </td>
 </tr>
@@ -4453,7 +4453,7 @@ par<span class="token punctuation">(</span>op<span class="token punctuation">)</
 
 <p>The generic function <code>hist</code> computes a histogram of the given
 data values.  If <code>plot = TRUE</code>, the resulting object of
-<a href="base.html#class">class</a> <code>"histogram"</code> is plotted by
+<a href="https://r-universe.dev/manuals/base.html#class">class</a> <code>"histogram"</code> is plotted by
 <code><a href="#plothistogram">plot.histogram</a></code>, before it is returned.
 </p>
 
@@ -4513,7 +4513,7 @@ number of cells (see ‘Details’),
 </li>
 </ul>
 <p>In the last three cases the number is a suggestion only; as the
-breakpoints will be set to <code><a href="base.html#pretty">pretty</a></code> values, the number
+breakpoints will be set to <code><a href="https://r-universe.dev/manuals/base.html#pretty">pretty</a></code> values, the number
 is limited to <code>1e6</code> (with a warning if it was larger).  If
 <code>breaks</code> is a function, the <code>x</code> vector is supplied to it
 as the only argument (and the number of breaks is only limited by
@@ -4685,10 +4685,10 @@ included in the reported <code>breaks</code> nor in the calculation of
 <code>density</code>.
 </p>
 <p>The default for <code>breaks</code> is <code>"Sturges"</code>: see
-<code><a href="grDevices.html#nclass">nclass.Sturges</a></code>.  Other names for which algorithms
+<code><a href="https://r-universe.dev/manuals/grDevices.html#nclass">nclass.Sturges</a></code>.  Other names for which algorithms
 are supplied are <code>"Scott"</code> and <code>"FD"</code> /
 <code>"Freedman-Diaconis"</code> (with corresponding functions
-<code><a href="grDevices.html#nclass">nclass.scott</a></code> and <code><a href="grDevices.html#nclass">nclass.FD</a></code>).
+<code><a href="https://r-universe.dev/manuals/grDevices.html#nclass">nclass.scott</a></code> and <code><a href="https://r-universe.dev/manuals/grDevices.html#nclass">nclass.FD</a></code>).
 Case is ignored and partial matching is used.
 Alternatively, a function can be supplied which
 will compute the intended number of breaks or the actual breakpoints
@@ -4757,8 +4757,8 @@ Wadsworth &amp; Brooks/Cole.
 
 <h3>See Also</h3>
 
-<p><code><a href="grDevices.html#nclass">nclass.Sturges</a></code>, <code><a href="#stem">stem</a></code>,
-<code><a href="stats.html#density">density</a></code>,  <code><a href="MASS.html#truehist">truehist</a></code> in package
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#nclass">nclass.Sturges</a></code>, <code><a href="#stem">stem</a></code>,
+<code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code>,  <code><a href="https://r-universe.dev/manuals/MASS.html#truehist">truehist</a></code> in package
 <a href="https://CRAN.R-project.org/package=MASS" target="_blank"><span class="pkg">MASS</span></a>.
 </p>
 <p>Typical plots with vertical bars are <em>not</em> histograms.  Consider
@@ -4823,8 +4823,8 @@ curve<span class="token punctuation">(</span>dchisq<span class="token punctuatio
 
 <h3>Description</h3>
 
-<p>Methods for <code><a href="#hist">hist</a></code> applied to date (class <code>"<a href="base.html#Dates">Date</a>"</code>)
-or date-time (class  <code>"<a href="base.html#DateTimeClasses">POSIXt</a>"</code>) objects.
+<p>Methods for <code><a href="#hist">hist</a></code> applied to date (class <code>"<a href="https://r-universe.dev/manuals/base.html#Dates">Date</a>"</code>)
+or date-time (class  <code>"<a href="https://r-universe.dev/manuals/base.html#DateTimeClasses">POSIXt</a>"</code>) objects.
 </p>
 
 
@@ -4849,8 +4849,8 @@ hist<span class="token punctuation">(</span>x<span class="token punctuation">,</
 <tr style="vertical-align: top;">
 <td><code>x</code></td>
 <td>
-<p>an object inheriting from class <code>"<a href="base.html#DateTimeClasses">POSIXt</a>"</code>
-or <code>"<a href="base.html#Dates">Date</a>"</code>.</p>
+<p>an object inheriting from class <code>"<a href="https://r-universe.dev/manuals/base.html#DateTimeClasses">POSIXt</a>"</code>
+or <code>"<a href="https://r-universe.dev/manuals/base.html#Dates">Date</a>"</code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -4906,7 +4906,7 @@ week start on Mondays or Sundays?</p>
 <tr style="vertical-align: top;">
 <td><code>format</code></td>
 <td>
-<p>for the x-axis labels. See <code><a href="base.html#strptime">strptime</a></code>.</p>
+<p>for the x-axis labels. See <code><a href="https://r-universe.dev/manuals/base.html#strptime">strptime</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -4941,7 +4941,7 @@ interval shown in each bar.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#seq.POSIXt">seq.POSIXt</a></code>, <code><a href="#axis.POSIXct">axis.POSIXct</a></code>, <code><a href="#hist">hist</a></code>
+<p><code><a href="https://r-universe.dev/manuals/base.html#seq.POSIXt">seq.POSIXt</a></code>, <code><a href="#axis.POSIXct">axis.POSIXct</a></code>, <code><a href="#hist">hist</a></code>
 </p>
 
 
@@ -5000,7 +5000,7 @@ identify<span class="token punctuation">(</span>x<span class="token punctuation"
 <td>
 <p>coordinates of points in a scatter plot.  Alternatively, any
 object which defines coordinates (a plotting structure, time
-series etc: see <code><a href="grDevices.html#xy.coords">xy.coords</a></code>) can be given as <code>x</code>,
+series etc: see <code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code>) can be given as <code>x</code>,
 and <code>y</code> left missing.</p>
 </td>
 </tr>
@@ -5008,7 +5008,7 @@ and <code>y</code> left missing.</p>
 <td><code>labels</code></td>
 <td>
 <p>an optional character vector giving labels for the
-points.  Will be coerced using <code><a href="base.html#character">as.character</a></code>, and
+points.  Will be coerced using <code><a href="https://r-universe.dev/manuals/base.html#character">as.character</a></code>, and
 recycled if necessary to the length of <code>x</code>.  Excess labels will
 be discarded, with a warning.</p>
 </td>
@@ -5096,15 +5096,15 @@ relative to the point.  If <code>atpen</code> is true, the
 labels are placed with the bottom left of the string's box at the
 pointer.
 </p>
-<p>For the usual <code><a href="grDevices.html#x11">X11</a></code> device the identification process is
+<p>For the usual <code><a href="https://r-universe.dev/manuals/grDevices.html#x11">X11</a></code> device the identification process is
 terminated by pressing any mouse button other than the first.
-For the <code><a href="grDevices.html#quartz">quartz</a></code> device the process is terminated by
+For the <code><a href="https://r-universe.dev/manuals/grDevices.html#quartz">quartz</a></code> device the process is terminated by
 pressing either the pop-up menu equivalent (usually second mouse
 button or <code>Ctrl</code>-click) or the <code>ESC</code> key.
 </p>
 <p>On most devices which support <code>identify</code>, successful selection of
 a point is indicated by a bell sound unless
-<code><a href="base.html#options">options</a>(locatorBell = FALSE)</code> has been set.
+<code><a href="https://r-universe.dev/manuals/base.html#options">options</a>(locatorBell = FALSE)</code> has been set.
 </p>
 <p>If the window is resized or hidden and then exposed before the identification
 process has terminated, any labels drawn by <code>identify</code>
@@ -5173,7 +5173,7 @@ Wadsworth &amp; Brooks/Cole.
 
 <p><code><a href="#locator">locator</a></code>, <code><a href="#text">text</a></code>.
 </p>
-<p><code><a href="grDevices.html#dev.capabilities">dev.capabilities</a></code> to see if it is supported.
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#dev.capabilities">dev.capabilities</a></code> to see if it is supported.
 </p>
 
 
@@ -5216,7 +5216,7 @@ This is a generic function.
 <p><em>NOTE:</em> the grid is drawn as a set of rectangles by default;
 see the <code>useRaster</code> argument to draw the grid as a raster image.
 </p>
-<p>The function <code><a href="grDevices.html#palettes">hcl.colors</a></code> provides a broad range of sequential
+<p>The function <code><a href="https://r-universe.dev/manuals/grDevices.html#palettes">hcl.colors</a></code> provides a broad range of sequential
 color palettes that are suitable for displaying ordered data, with
 <code>n</code> giving the number of colors desired.
 </p>
@@ -5278,7 +5278,7 @@ defaulting to the ranges of <code>x</code> and <code>y</code>.</p>
 <td><code>col</code></td>
 <td>
 <p>a list of colors such as that generated by
-<code><a href="grDevices.html#palettes">hcl.colors</a></code>, <code><a href="grDevices.html#gray.colors">gray.colors</a></code> or similar
+<code><a href="https://r-universe.dev/manuals/grDevices.html#palettes">hcl.colors</a></code>, <code><a href="https://r-universe.dev/manuals/grDevices.html#gray.colors">gray.colors</a></code> or similar
 functions.</p>
 </td>
 </tr>
@@ -5358,7 +5358,7 @@ painted in <code>par("bg")</code> will show through and if that is
 transparent, the canvas colour will be seen).
 </p>
 <p>If <code>breaks</code> is specified then <code>zlim</code> is unused and the
-algorithm used follows <code><a href="base.html#cut">cut</a></code>, so intervals are closed on
+algorithm used follows <code><a href="https://r-universe.dev/manuals/base.html#cut">cut</a></code>, so intervals are closed on
 the right and open on the left except for the lowest interval which is
 closed at both ends.
 </p>
@@ -5388,8 +5388,8 @@ default settings.)
 this option.
 </p>
 <p>If <code>useRaster</code> is not specified, raster images are used when the
-<code><a href="base.html#options">getOption</a>("preferRaster")</code> is true, the grid is regular
-and either <code><a href="grDevices.html#dev.capabilities">dev.capabilities</a>("rasterImage")$rasterImage</code>
+<code><a href="https://r-universe.dev/manuals/base.html#options">getOption</a>("preferRaster")</code> is true, the grid is regular
+and either <code><a href="https://r-universe.dev/manuals/grDevices.html#dev.capabilities">dev.capabilities</a>("rasterImage")$rasterImage</code>
 is <code>"yes"</code> or it is <code>"non-missing"</code> and there are no missing
 values.
 </p>
@@ -5403,16 +5403,16 @@ values.
 
 <h3>See Also</h3>
 
-<p><code><a href="#filled.contour">filled.contour</a></code> or <code><a href="stats.html#heatmap">heatmap</a></code> which can
+<p><code><a href="#filled.contour">filled.contour</a></code> or <code><a href="https://r-universe.dev/manuals/stats.html#heatmap">heatmap</a></code> which can
 look nicer (but are less modular),
 <code><a href="#contour">contour</a></code>;
 The <a href="https://CRAN.R-project.org/package=lattice" target="_blank"><span class="pkg">lattice</span></a> equivalent of <code>image</code> is
-<code><a href="lattice.html#levelplot">levelplot</a></code>.
+<code><a href="https://deepayan.r-universe.dev/lattice/lattice.html#levelplot">levelplot</a></code>.
 </p>
-<p><code><a href="grDevices.html#palettes">hcl.colors</a></code>, <code><a href="grDevices.html#gray.colors">gray.colors</a></code>,
-<code><a href="grDevices.html#hcl">hcl</a></code>, <code><a href="grDevices.html#hsv">hsv</a></code>, <code><a href="#par">par</a></code>.
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#palettes">hcl.colors</a></code>, <code><a href="https://r-universe.dev/manuals/grDevices.html#gray.colors">gray.colors</a></code>,
+<code><a href="https://r-universe.dev/manuals/grDevices.html#hcl">hcl</a></code>, <code><a href="https://r-universe.dev/manuals/grDevices.html#hsv">hsv</a></code>, <code><a href="#par">par</a></code>.
 </p>
-<p><code><a href="grDevices.html#dev.capabilities">dev.capabilities</a></code> to see if <code>useRaster = TRUE</code> is
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#dev.capabilities">dev.capabilities</a></code> to see if <code>useRaster = TRUE</code> is
 supported on the current device.
 </p>
 
@@ -5659,15 +5659,15 @@ and <code>y</code> arguments.
 <td>
 <p>the x and y co-ordinates to be used to position the legend.
 They can be specified by keyword or in any way which is accepted by
-<code><a href="grDevices.html#xy.coords">xy.coords</a></code>: See ‘Details’.</p>
+<code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code>: See ‘Details’.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>legend</code></td>
 <td>
-<p>a character or <a href="base.html#expression">expression</a> vector
+<p>a character or <a href="https://r-universe.dev/manuals/base.html#expression">expression</a> vector
 of length <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\ge 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code> to appear in the legend.  Other
-objects will be coerced by <code><a href="grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.</p>
+objects will be coerced by <code><a href="https://r-universe.dev/manuals/grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -5804,7 +5804,7 @@ A vector with one element for each row of the legend can be used.</p>
 <td>
 <p>numeric of length 1 or 2; the string adjustment for legend
 text.  Useful for y-adjustment when <code>labels</code> are
-<a href="grDevices.html#plotmath">plotmath</a> expressions.</p>
+<a href="https://r-universe.dev/manuals/grDevices.html#plotmath">plotmath</a> expressions.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -5871,7 +5871,7 @@ specification).</p>
 <td>
 <p>a character string or length-one expression giving a
 title to be placed at the top of the legend.  Other objects will be
-coerced by <code><a href="grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.</p>
+coerced by <code><a href="https://r-universe.dev/manuals/grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -5931,7 +5931,7 @@ numeric, it is assumed that the second argument is intended to be
 <code>legend</code> and that the first argument specifies the coordinates.
 </p>
 <p>The coordinates can be specified in any way which is accepted by
-<code><a href="grDevices.html#xy.coords">xy.coords</a></code>.  If this gives the coordinates of one point,
+<code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code>.  If this gives the coordinates of one point,
 it is used as the top-left coordinate of the rectangle containing the
 legend.  If it gives the coordinates of two points, these specify
 opposite corners of the rectangle (either pair of corners, in any
@@ -6225,7 +6225,7 @@ and <code>lmitre</code>.</p>
 
 <p>The coordinates can be passed in a plotting structure
 (a list with <code>x</code> and <code>y</code> components), a two-column matrix, a
-time series, ....  See <code><a href="grDevices.html#xy.coords">xy.coords</a></code>.  If supplied
+time series, ....  See <code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code>.  If supplied
 separately, they must be of the same length.
 </p>
 <p>The coordinates can contain <code>NA</code> values. If a point contains
@@ -6322,9 +6322,9 @@ call will do nothing.
 <p>Unless the process is terminated prematurely by the user (see below)
 at most <code>n</code> positions are determined.
 </p>
-<p>For the usual <code><a href="grDevices.html#x11">X11</a></code> device the identification process is
+<p>For the usual <code><a href="https://r-universe.dev/manuals/grDevices.html#x11">X11</a></code> device the identification process is
 terminated by pressing any mouse button other than the first.
-For the <code><a href="grDevices.html#quartz">quartz</a></code> device the process is terminated by
+For the <code><a href="https://r-universe.dev/manuals/grDevices.html#quartz">quartz</a></code> device the process is terminated by
 pressing the <code>ESC</code> key.
 </p>
 <p>The current graphics parameters apply just as if <code>plot.default</code>
@@ -6334,7 +6334,7 @@ current clipping rectangle will be returned.
 </p>
 <p>On most devices which support <code>locator</code>, successful selection of
 a point is indicated by a bell sound unless
-<code><a href="base.html#options">options</a>(locatorBell = FALSE)</code> has been set.
+<code><a href="https://r-universe.dev/manuals/base.html#options">options</a>(locatorBell = FALSE)</code> has been set.
 </p>
 <p>If the window is resized or hidden and then exposed before the input
 process has terminated, any lines or points drawn by <code>locator</code>
@@ -6365,10 +6365,10 @@ Wadsworth &amp; Brooks/Cole.
 <h3>See Also</h3>
 
 <p><code><a href="#identify">identify</a></code>.
-<code><a href="grid.html#grid.locator">grid.locator</a></code> is the corresponding <span class="pkg">grid</span>
+<code><a href="https://r-universe.dev/manuals/grid.html#grid.locator">grid.locator</a></code> is the corresponding <span class="pkg">grid</span>
 package function.
 </p>
-<p><code><a href="grDevices.html#dev.capabilities">dev.capabilities</a></code> to see if it is supported.
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#dev.capabilities">dev.capabilities</a></code> to see if it is supported.
 </p>
 
 <hr>
@@ -6409,8 +6409,8 @@ matlines <span class="token punctuation">(</span>x<span class="token punctuation
 rows should match.  If one of them are missing, the other is taken
 as <code>y</code> and an <code>x</code> vector of <code>1:n</code> is used.
 Missing values (<code>NA</code>s) are allowed.  Since <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.0.0,
-<code><a href="base.html#class">class</a>(.)</code>es of <code>x</code> and <code>y</code> such as
-<code>"<a href="base.html#Dates">Date</a>"</code> are typically preserved.</p>
+<code><a href="https://r-universe.dev/manuals/base.html#class">class</a>(.)</code>es of <code>x</code> and <code>y</code> such as
+<code>"<a href="https://r-universe.dev/manuals/base.html#Dates">Date</a>"</code> are typically preserved.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -6524,7 +6524,7 @@ subsequent columns.
 </p>
 </li>
 </ol>
-<p>Since <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.0.0, care is taken to keep the <code><a href="base.html#class">class</a>(.)</code> of
+<p>Since <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.0.0, care is taken to keep the <code><a href="https://r-universe.dev/manuals/base.html#class">class</a>(.)</code> of
 <code>x</code> and <code>y</code>, such that the corresponding <code>plot()</code> and
 <code>lines()</code> <em>methods</em> will be called.
 </p>
@@ -6563,7 +6563,7 @@ Wadsworth &amp; Brooks/Cole.
 <h3>See Also</h3>
 
 <p><code><a href="#plot.default">plot</a></code>, <code><a href="#points">points</a></code>, <code><a href="#lines">lines</a></code>,
-<code><a href="base.html#matrix">matrix</a></code>, <code><a href="#par">par</a></code>.
+<code><a href="https://r-universe.dev/manuals/base.html#matrix">matrix</a></code>, <code><a href="#par">par</a></code>.
 </p>
 
 
@@ -6721,7 +6721,7 @@ vertical split.</p>
 <p>logical or (recycling) vector of colors for color
 shading, used only when <code>shade</code> is <code>FALSE</code>, or <code>NULL</code>
 (default).  By default, grey boxes are drawn.  <code>color = TRUE</code>
-uses <code><a href="grDevices.html#gray.colors">grey.colors</a></code> for a gamma-corrected grey palette.
+uses <code><a href="https://r-universe.dev/manuals/grDevices.html#gray.colors">grey.colors</a></code> for a gamma-corrected grey palette.
 <code>color = FALSE</code> gives empty boxes with no shading.</p>
 </td>
 </tr>
@@ -6741,7 +6741,7 @@ created.  Using <code>shade = TRUE</code> cuts absolute values at 2 and
 <td>
 <p>a list of vectors with the marginal totals to be fit in
 the log-linear model.  By default, an independence model is fitted.
-See <code><a href="stats.html#loglin">loglin</a></code> for further information.</p>
+See <code><a href="https://r-universe.dev/manuals/stats.html#loglin">loglin</a></code> for further information.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -6890,7 +6890,7 @@ The strucplot Framework: Visualizing Multi-Way Contingency Tables with
 <h3>See Also</h3>
 
 <p><code><a href="#assocplot">assocplot</a></code>,
-<code><a href="stats.html#loglin">loglin</a></code>.
+<code><a href="https://r-universe.dev/manuals/stats.html#loglin">loglin</a></code>.
 </p>
 
 
@@ -6948,9 +6948,9 @@ or one of the outer margins of the device region.
 <tr style="vertical-align: top;">
 <td><code>text</code></td>
 <td>
-<p>a character or <a href="base.html#expression">expression</a> vector specifying
+<p>a character or <a href="https://r-universe.dev/manuals/base.html#expression">expression</a> vector specifying
 the <em>text</em> to be written.  Other objects are coerced by
-<code><a href="grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -7084,7 +7084,7 @@ Wadsworth &amp; Brooks/Cole.
 
 <p><code><a href="#title">title</a></code>, <code><a href="#text">text</a></code>, <code><a href="#plot.default">plot</a></code>,
 <code><a href="#par">par</a></code>;
-<code><a href="grDevices.html#plotmath">plotmath</a></code> for details on mathematical annotation.
+<code><a href="https://r-universe.dev/manuals/grDevices.html#plotmath">plotmath</a></code> for details on mathematical annotation.
 </p>
 
 
@@ -7141,7 +7141,7 @@ pairs<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <td>
 <p>the coordinates of points given as numeric columns of a
 matrix or data frame.  Logical and factor columns are converted to
-numeric in the same way that <code><a href="base.html#data.matrix">data.matrix</a></code> does.
+numeric in the same way that <code><a href="https://r-universe.dev/manuals/base.html#data.matrix">data.matrix</a></code> does.
 </p>
 </td>
 </tr>
@@ -7278,7 +7278,7 @@ logarithmic axes for all variables.</p>
 <tr style="vertical-align: top;">
 <td><code>horOdd, verOdd</code></td>
 <td>
-<p><code><a href="base.html#logical">logical</a></code> (or integer) determining
+<p><code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> (or integer) determining
 how the horizontal and vertical axis labeling happens.  If true, the
 axis labelling starts at the first (from top left) row or column,
 respectively.</p>
@@ -7294,7 +7294,7 @@ off-diagonal panel functions are passed the appropriate columns of
 <code>x</code> as <code>x</code> and <code>y</code>: the diagonal panel function (if
 any) is passed a single column, and the <code>text.panel</code> function is
 passed a single <code>(x, y)</code> location and the column name.
-Setting some of these panel functions to <code><a href="base.html#NULL">NULL</a></code> is
+Setting some of these panel functions to <code><a href="https://r-universe.dev/manuals/base.html#NULL">NULL</a></code> is
 equivalent to <em>not</em> drawing anything there.
 </p>
 <p>The <a href="#par">graphical parameters</a> <code>pch</code> and <code>col</code> can be used
@@ -7429,14 +7429,14 @@ smooths.</p>
 <tr style="vertical-align: top;">
 <td><code>span</code></td>
 <td>
-<p>smoothing parameter <code>f</code> for <code><a href="stats.html#lowess">lowess</a></code>, see
+<p>smoothing parameter <code>f</code> for <code><a href="https://r-universe.dev/manuals/stats.html#lowess">lowess</a></code>, see
 there.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>iter</code></td>
 <td>
-<p>number of robustness iterations for <code><a href="stats.html#lowess">lowess</a></code>.</p>
+<p>number of robustness iterations for <code><a href="https://r-universe.dev/manuals/stats.html#lowess">lowess</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -7450,7 +7450,7 @@ there.</p>
 
 <p><code><a href="#coplot">coplot</a></code> and <code><a href="#pairs">pairs</a></code> where <code>panel.smooth</code>
 is typically used;
-<code><a href="stats.html#lowess">lowess</a></code> which does the smoothing.
+<code><a href="https://r-universe.dev/manuals/stats.html#lowess">lowess</a></code> which does the smoothing.
 </p>
 
 
@@ -7506,7 +7506,7 @@ subsequent <code>par()</code> call <em>on the same device</em>.</p>
 <p>Each device has its own set of graphical parameters.  If the current
 device is the null device, <code>par</code> will open a new device before
 querying/setting parameters.  (What device is controlled by
-<code><a href="base.html#options">options</a>("device")</code>.)
+<code><a href="https://r-universe.dev/manuals/base.html#options">options</a>("device")</code>.)
 </p>
 <p>Parameters are queried by giving one or more character vectors of
 parameter names to <code>par</code>.
@@ -7640,7 +7640,7 @@ packages <span class="pkg">grid</span> and <a href="https://CRAN.R-project.org/p
 non-screen devices but may have no effect there.
 </p>
 <p>This not really a graphics parameter, and its use is deprecated in
-favour of <code><a href="grDevices.html#devAskNewPage">devAskNewPage</a></code>.
+favour of <code><a href="https://r-universe.dev/manuals/grDevices.html#devAskNewPage">devAskNewPage</a></code>.
 </p>
 </dd>
 <dt><code>bg</code></dt>
@@ -7768,7 +7768,7 @@ a given string <code>ch</code> is usually much more precise.</p>
 <dd>
 <p><em><b>R.O.</b></em>; the device dimensions,
 <code>(width, height)</code>, in inches.  See also
-<code><a href="grDevices.html#dev.size">dev.size</a></code>, which is updated immediately when an
+<code><a href="https://r-universe.dev/manuals/grDevices.html#dev.size">dev.size</a></code>, which is updated immediately when an
 on-screen device windows is re-sized.</p>
 </dd>
 <dt><code>err</code></dt>
@@ -7786,7 +7786,7 @@ font description.  The default value is <code>""</code> which means that
 the default device fonts will be used (and what those are should
 be listed on the help page for the device).  Standard values are
 <code>"serif"</code>, <code>"sans"</code> and <code>"mono"</code>, and the
-<a href="grDevices.html#Hershey">Hershey</a> font families are also available.  (Devices may
+<a href="https://r-universe.dev/manuals/grDevices.html#Hershey">Hershey</a> font families are also available.  (Devices may
 define others, and some devices will ignore this setting
 completely.  Names starting with <code>"Hershey"</code> are treated
 specially and should only be used for the built-in Hershey font
@@ -8272,12 +8272,12 @@ but currently <code>0.2</code> for all of <span style="font-family: Courier New,
 <p>Colors can be specified in several different ways. The simplest way is
 with a character string giving the color name (e.g., <code>"red"</code>).  A
 list of the possible colors can be obtained with the function
-<code><a href="grDevices.html#colors">colors</a></code>.  Alternatively, colors can be specified directly
+<code><a href="https://r-universe.dev/manuals/grDevices.html#colors">colors</a></code>.  Alternatively, colors can be specified directly
 in terms of their RGB components with a string of the form
 <code>"#RRGGBB"</code> where each of the pairs <code>RR</code>, <code>GG</code>,
 <code>BB</code> consist of two hexadecimal digits giving a value in the
 range <code>00</code> to <code>FF</code>.  Colors can also be specified by giving
-an index into a small table of colors, the <code><a href="grDevices.html#palette">palette</a></code>:
+an index into a small table of colors, the <code><a href="https://r-universe.dev/manuals/grDevices.html#palette">palette</a></code>:
 indices wrap round so with the default palette of size 8, <code>10</code> is
 the same as <code>2</code>.  This provides compatibility with S.  Index
 <code>0</code> corresponds to the background color.  Note that the palette
@@ -8294,8 +8294,8 @@ is equivalent to <code>"transparent"</code> (but not for
 <p>Semi-transparent colors are available for use on devices that support
 them.
 </p>
-<p>The functions <code><a href="grDevices.html#rgb">rgb</a></code>, <code><a href="grDevices.html#hsv">hsv</a></code>, <code><a href="grDevices.html#hcl">hcl</a></code>,
-<code><a href="grDevices.html#gray">gray</a></code> and <code><a href="grDevices.html#palettes">rainbow</a></code> provide additional ways
+<p>The functions <code><a href="https://r-universe.dev/manuals/grDevices.html#rgb">rgb</a></code>, <code><a href="https://r-universe.dev/manuals/grDevices.html#hsv">hsv</a></code>, <code><a href="https://r-universe.dev/manuals/grDevices.html#hcl">hcl</a></code>,
+<code><a href="https://r-universe.dev/manuals/grDevices.html#gray">gray</a></code> and <code><a href="https://r-universe.dev/manuals/grDevices.html#palettes">rainbow</a></code> provide additional ways
 of generating colors.
 </p>
 
@@ -8347,9 +8347,9 @@ Wadsworth &amp; Brooks/Cole.
 <h3>See Also</h3>
 
 <p><code><a href="#plot.default">plot.default</a></code> for some high-level plotting parameters;
-<code><a href="grDevices.html#colors">colors</a></code>; <code><a href="#clip">clip</a></code>;
-<code><a href="base.html#options">options</a></code> for other setup parameters;
-graphic devices <code><a href="grDevices.html#x11">x11</a></code>, <code><a href="grDevices.html#postscript">postscript</a></code> and
+<code><a href="https://r-universe.dev/manuals/grDevices.html#colors">colors</a></code>; <code><a href="#clip">clip</a></code>;
+<code><a href="https://r-universe.dev/manuals/base.html#options">options</a></code> for other setup parameters;
+graphic devices <code><a href="https://r-universe.dev/manuals/grDevices.html#x11">x11</a></code>, <code><a href="https://r-universe.dev/manuals/grDevices.html#postscript">postscript</a></code> and
 setting up device regions by <code><a href="#layout">layout</a></code> and
 <code><a href="#screen">split.screen</a></code>.
 </p>
@@ -8621,7 +8621,7 @@ the viewing direction is directly down the negative y axis.
 Changing <code>theta</code> will vary the azimuth and changing <code>phi</code>
 the colatitude.
 </p>
-<p>There is a hook called <code>"persp"</code> (see <code><a href="base.html#userhooks">setHook</a></code>)
+<p>There is a hook called <code>"persp"</code> (see <code><a href="https://r-universe.dev/manuals/base.html#userhooks">setHook</a></code>)
 called after the plot is completed, which is used in the
 testing code to annotate the plot page.  The hook function(s) are
 called with no argument.
@@ -8653,7 +8653,7 @@ coordinates <code class="reqn"><span class="katex"><span class="katex-mathml"><m
 coordinates <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo separator="true">,</mo><mi>z</mi><mo separator="true">,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x,y,z,t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></code>.  It can be used to superimpose
 additional graphical elements on the 3D plot, by
 <code><a href="#lines">lines</a>()</code> or <code><a href="#points">points</a>()</code>, using the
-function <code><a href="grDevices.html#trans3d">trans3d</a>()</code>.
+function <code><a href="https://r-universe.dev/manuals/grDevices.html#trans3d">trans3d</a>()</code>.
 </p>
 
 
@@ -8667,7 +8667,7 @@ Wadsworth &amp; Brooks/Cole.
 
 <h3>See Also</h3>
 
-<p><code><a href="#contour">contour</a></code> and <code><a href="#image">image</a></code>; <code><a href="grDevices.html#trans3d">trans3d</a></code>.
+<p><code><a href="#contour">contour</a></code> and <code><a href="#image">image</a></code>; <code><a href="https://r-universe.dev/manuals/grDevices.html#trans3d">trans3d</a></code>.
 </p>
 <p>Rotatable 3D plots can be produced by package <a href="https://CRAN.R-project.org/package=rgl" target="_blank"><span class="pkg">rgl</span></a>: other
 ways to produce static perspective plots are available in packages
@@ -8776,7 +8776,7 @@ The values in <code>x</code> are displayed as the areas of pie slices.</p>
 <td>
 <p>one or more expressions or character strings giving
 names for the slices.  Other objects are coerced by
-<code><a href="grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.  For empty or <code>NA</code>
+<code><a href="https://r-universe.dev/manuals/grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.  For empty or <code>NA</code>
 (after coercion to character) labels, no label nor pointing line
 is drawn.</p>
 </td>
@@ -8957,7 +8957,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 <h3>Details</h3>
 
 <p>This is intended for data frames with <em>numeric</em> columns. For more
-than two columns it first calls <code><a href="base.html#data.matrix">data.matrix</a></code> to convert
+than two columns it first calls <code><a href="https://r-universe.dev/manuals/base.html#data.matrix">data.matrix</a></code> to convert
 the data frame to a numeric matrix and then calls <code><a href="#pairs">pairs</a></code>
 to produce a scatterplot matrix.  This can fail and may well be
 inappropriate: for example numerical conversion of dates will lose
@@ -8974,7 +8974,7 @@ single column.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#data.frame">data.frame</a></code>
+<p><code><a href="https://r-universe.dev/manuals/base.html#data.frame">data.frame</a></code>
 </p>
 
 
@@ -9020,7 +9020,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 <td>
 <p>the <code>x</code> and <code>y</code> arguments provide the x and y
 coordinates for the plot.  Any reasonable way of defining the
-coordinates is acceptable.  See the function <code><a href="grDevices.html#xy.coords">xy.coords</a></code>
+coordinates is acceptable.  See the function <code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code>
 for details.  If supplied separately, they must be of the same length.</p>
 </td>
 </tr>
@@ -9045,7 +9045,7 @@ following values are possible, for details, see <code><a href="#plot.default">pl
 is allowed and leads to a ‘reversed axis’.
 </p>
 <p>The default value, <code>NULL</code>, indicates that the range of the
-<a href="base.html#is.finite">finite</a> values to be plotted should be used.</p>
+<a href="https://r-universe.dev/manuals/base.html#is.finite">finite</a> values to be plotted should be used.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -9232,7 +9232,7 @@ Monterey, CA: Wadsworth.
 
 <h3>See Also</h3>
 
-<p><code><a href="#plot.default">plot</a></code>, <code><a href="#plot.window">plot.window</a></code>, <code><a href="grDevices.html#xy.coords">xy.coords</a></code>.
+<p><code><a href="#plot.default">plot</a></code>, <code><a href="#plot.window">plot.window</a></code>, <code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code>.
 For thousands of points, consider using <code><a href="#smoothScatter">smoothScatter</a></code>
 instead.
 </p>
@@ -9286,8 +9286,8 @@ par<span class="token punctuation">(</span>op<span class="token punctuation">)</
 
 <h3>Description</h3>
 
-<p>Plot univariate effects of one or more <code><a href="base.html#factor">factor</a></code>s,
-typically for a designed experiment as analyzed by <code><a href="stats.html#aov">aov</a>()</code>.
+<p>Plot univariate effects of one or more <code><a href="https://r-universe.dev/manuals/base.html#factor">factor</a></code>s,
+typically for a designed experiment as analyzed by <code><a href="https://r-universe.dev/manuals/stats.html#aov">aov</a>()</code>.
 </p>
 
 
@@ -9306,8 +9306,8 @@ typically for a designed experiment as analyzed by <code><a href="stats.html#aov
 <td><code>x</code></td>
 <td>
 <p>either a data frame containing the design factors and
-optionally the response, or a <code><a href="stats.html#formula">formula</a></code> or
-<code><a href="stats.html#terms">terms</a></code> object.</p>
+optionally the response, or a <code><a href="https://r-universe.dev/manuals/stats.html#formula">formula</a></code> or
+<code><a href="https://r-universe.dev/manuals/stats.html#terms">terms</a></code> object.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -9429,7 +9429,7 @@ Springer Verlag.
 
 <h3>See Also</h3>
 
-<p><code><a href="stats.html#interaction.plot">interaction.plot</a></code> for a ‘standard graphic’
+<p><code><a href="https://r-universe.dev/manuals/stats.html#interaction.plot">interaction.plot</a></code> for a ‘standard graphic’
 of designed experiments.</p>
 
 
@@ -9462,7 +9462,7 @@ par<span class="token punctuation">(</span>op<span class="token punctuation">)</
 <h3>Description</h3>
 
 <p>This functions implements a scatterplot method for
-<code><a href="base.html#factor">factor</a></code> arguments of the <em>generic</em>
+<code><a href="https://r-universe.dev/manuals/base.html#factor">factor</a></code> arguments of the <em>generic</em>
 <code><a href="#plot.default">plot</a></code> function.
 </p>
 <p>If <code>y</code> is missing <code><a href="#barplot">barplot</a></code> is produced.
@@ -9563,7 +9563,7 @@ text<span class="token punctuation">(</span>formula<span class="token punctuatio
 <tr style="vertical-align: top;">
 <td><code>formula</code></td>
 <td>
-<p>a <code><a href="stats.html#formula">formula</a></code>, such as <code>y ~ x</code>.</p>
+<p>a <code><a href="https://r-universe.dev/manuals/stats.html#formula">formula</a></code>, such as <code>y ~ x</code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -9627,14 +9627,14 @@ collected into a data frame, subsetted if specified, and displayed by
 <p>Missing values are not considered in these methods, and in particular
 cases with missing values are not removed.
 </p>
-<p>If <code>y</code> is an object (i.e., has a <code><a href="base.html#class">class</a></code> attribute)
+<p>If <code>y</code> is an object (i.e., has a <code><a href="https://r-universe.dev/manuals/base.html#class">class</a></code> attribute)
 then <code>plot.formula</code> looks for a plot method for that class first.
 Otherwise, the class of <code>x</code> will determine the type of the plot.
 For factors this will be a parallel boxplot, and argument
 <code>horizontal = TRUE</code> can be specified (see <code><a href="#boxplot">boxplot</a></code>).
 </p>
 <p>Note that some arguments will need to be protected from premature
-evaluation by enclosing them in <code><a href="base.html#substitute">quote</a></code>: currently this is
+evaluation by enclosing them in <code><a href="https://r-universe.dev/manuals/base.html#substitute">quote</a></code>: currently this is
 done automatically for <code>main</code>, <code>sub</code> and <code>xlab</code>.  For
 example, it is needed for the <code>panel.first</code> and <code>panel.last</code>
 arguments passed to <code><a href="#plot.default">plot.default</a></code>.
@@ -9703,7 +9703,7 @@ lines<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <tr style="vertical-align: top;">
 <td><code>x</code></td>
 <td>
-<p>a <code>histogram</code> object, or a <code><a href="base.html#list">list</a></code> with components
+<p>a <code>histogram</code> object, or a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with components
 <code>density</code>, <code>mid</code>, etc, see <code><a href="#hist">hist</a></code> for
 information about the components of <code>x</code>.</p>
 </td>
@@ -9804,7 +9804,7 @@ current plot.  This is what <code>lines.histogram(*)</code> does.</p>
 
 <p><code><a href="#hist">hist</a></code>,
 <code><a href="#stem">stem</a></code>,
-<code><a href="stats.html#density">density</a></code>.
+<code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code>.
 </p>
 
 
@@ -9919,7 +9919,7 @@ plot<span class="token punctuation">(</span>r<span class="token punctuation">,</
 <h3>Description</h3>
 
 <p>This is a method of the generic <code>plot</code> function for
-(contingency) <code><a href="base.html#table">table</a></code> objects.  Whereas for two- and more
+(contingency) <code><a href="https://r-universe.dev/manuals/base.html#table">table</a></code> objects.  Whereas for two- and more
 dimensional tables, a <code><a href="#mosaicplot">mosaicplot</a></code> is drawn,
 one-dimensional ones are plotted as bars.
 </p>
@@ -9942,7 +9942,7 @@ lines<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <tr style="vertical-align: top;">
 <td><code>x</code></td>
 <td>
-<p>a <code><a href="base.html#table">table</a></code> (like) object.</p>
+<p>a <code><a href="https://r-universe.dev/manuals/base.html#table">table</a></code> (like) object.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -9980,7 +9980,7 @@ lines<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <td>
 <p>logical indicating if a frame (<code><a href="#box">box</a></code>)
 should be drawn in the 1D case.  Defaults to true when <code>x</code> has
-<code><a href="base.html#dimnames">dimnames</a></code> coerce-able to numbers.</p>
+<code><a href="https://r-universe.dev/manuals/base.html#dimnames">dimnames</a></code> coerce-able to numbers.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -10104,7 +10104,7 @@ arguments.
 
 <h3>See Also</h3>
 
-<p><code><a href="grDevices.html#xy.coords">xy.coords</a></code>,
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code>,
 <code><a href="#plot.xy">plot.xy</a></code>,
 <code><a href="#plot.default">plot.default</a></code>.
 </p>
@@ -10152,7 +10152,7 @@ arguments.
 <td><code>xy</code></td>
 <td>
 <p>A four-element list as results from
-<code><a href="grDevices.html#xy.coords">xy.coords</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -10178,8 +10178,8 @@ arguments.
 <tr style="vertical-align: top;">
 <td><code>col</code></td>
 <td>
-<p>color code or name, see <code><a href="grDevices.html#colors">colors</a></code>,
-<code><a href="grDevices.html#palette">palette</a></code>.  Here <code>NULL</code> means colour 0.</p>
+<p>color code or name, see <code><a href="https://r-universe.dev/manuals/grDevices.html#colors">colors</a></code>,
+<code><a href="https://r-universe.dev/manuals/grDevices.html#palette">palette</a></code>.  Here <code>NULL</code> means colour 0.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -10287,7 +10287,7 @@ arguments.  See ‘Details’.</p>
 
 <p>The coordinates can be passed in a plotting structure
 (a list with <code>x</code> and <code>y</code> components), a two-column matrix, a
-time series, ....  See <code><a href="grDevices.html#xy.coords">xy.coords</a></code>.  If supplied
+time series, ....  See <code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code>.  If supplied
 separately, they must be of the same length.
 </p>
 <p>Graphical parameters commonly used are
@@ -10305,8 +10305,8 @@ available with <code>pch = 0:18</code>, see the examples below.
 <p>Value <code>pch = "."</code> (equivalently <code>pch = 46</code>) is handled
 specially.  It is a rectangle of side 0.01 inch (scaled by
 <code>cex</code>).  In addition, if <code>cex = 1</code> (the default), each
-side is at least one pixel (1/72 inch on the <code><a href="grDevices.html#pdf">pdf</a></code>,
-<code><a href="grDevices.html#postscript">postscript</a></code> and <code><a href="grDevices.html#xfig">xfig</a></code> devices).
+side is at least one pixel (1/72 inch on the <code><a href="https://r-universe.dev/manuals/grDevices.html#pdf">pdf</a></code>,
+<code><a href="https://r-universe.dev/manuals/grDevices.html#postscript">postscript</a></code> and <code><a href="https://r-universe.dev/manuals/grDevices.html#xfig">xfig</a></code> devices).
 </p>
 <p>For other text symbols, <code>cex = 1</code> corresponds to the default
 fontsize of the device, often specified by an argument
@@ -10420,7 +10420,7 @@ and <code>bg</code> the background color
 <p>Note that all of these both fill the shape and draw a border.  Some
 care in interpretation is needed when semi-transparent colours are
 used for both fill and border (and the result might be device-specific
-and even viewer-specific for <code><a href="grDevices.html#pdf">pdf</a></code>).
+and even viewer-specific for <code><a href="https://r-universe.dev/manuals/grDevices.html#pdf">pdf</a></code>).
 </p>
 <p>The difference between <code>pch = 16</code> and <code>pch = 19</code> is that the
 latter uses a border and so is perceptibly larger when <code>lwd</code> is
@@ -10662,7 +10662,7 @@ below for details.  Default <code>FALSE</code>.</p>
 
 <p>The coordinates can be passed in a plotting structure
 (a list with <code>x</code> and <code>y</code> components), a two-column matrix,
-....  See <code><a href="grDevices.html#xy.coords">xy.coords</a></code>.
+....  See <code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code>.
 </p>
 <p>It is assumed that the polygon is to be closed by joining the last
 point to the first point.
@@ -10689,8 +10689,8 @@ axis is on log scale then shading is omitted, with a warning.
 the polygon border encircles it an odd or non-zero number of times,
 respectively.  Shading lines are handled internally by <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> according
 to the <code>fillOddEven</code> argument, but device-based solid fills
-depend on the graphics device.  The <code>windows</code>, <code><a href="grDevices.html#pdf">pdf</a></code>
-and <code><a href="grDevices.html#postscript">postscript</a></code> devices have their own <code>fillOddEven</code>
+depend on the graphics device.  The <code>windows</code>, <code><a href="https://r-universe.dev/manuals/grDevices.html#pdf">pdf</a></code>
+and <code><a href="https://r-universe.dev/manuals/grDevices.html#postscript">postscript</a></code> devices have their own <code>fillOddEven</code>
 argument to control this.
 </p>
 
@@ -10835,7 +10835,7 @@ and <code>TRUE</code> is equivalent to <code>NULL</code> (use the foreground col
 
 <p>The coordinates can be passed in a plotting structure
 (a list with <code>x</code> and <code>y</code> components), a two-column matrix,
-....  See <code><a href="grDevices.html#xy.coords">xy.coords</a></code>.
+....  See <code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code>.
 </p>
 <p>It is assumed that the path is to be closed by joining the last point to
 the first point.
@@ -10941,7 +10941,7 @@ par<span class="token punctuation">(</span>op<span class="token punctuation">)</
 <td><code>image</code></td>
 <td>
 <p>a <code>raster</code> object, or an object that can be
-coerced to one by <code><a href="grDevices.html#as.raster">as.raster</a></code>.</p>
+coerced to one by <code><a href="https://r-universe.dev/manuals/grDevices.html#as.raster">as.raster</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -11015,7 +11015,7 @@ device is re-sized: whether it is is device-dependent.
 <code><a href="#polygon">polygon</a></code>, and <code><a href="#segments">segments</a></code> and others
 for flexible ways to draw shapes.
 </p>
-<p><code><a href="grDevices.html#dev.capabilities">dev.capabilities</a></code> to see if it is supported.
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#dev.capabilities">dev.capabilities</a></code> to see if it is supported.
 </p>
 
 
@@ -11280,7 +11280,7 @@ Wadsworth &amp; Brooks/Cole.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#jitter">jitter</a></code> which you may want for ties in <code>x</code>.</p>
+<p><code><a href="https://r-universe.dev/manuals/base.html#jitter">jitter</a></code> which you may want for ties in <code>x</code>.</p>
 
 
 <h3>Examples</h3>
@@ -11437,7 +11437,7 @@ Wadsworth &amp; Brooks/Cole.
 
 <h3>See Also</h3>
 
-<p><code><a href="#par">par</a></code>, <code><a href="#layout">layout</a></code>, <code><a href="grDevices.html#Devices">Devices</a></code>,
+<p><code><a href="#par">par</a></code>, <code><a href="#layout">layout</a></code>, <code><a href="https://r-universe.dev/manuals/grDevices.html#Devices">Devices</a></code>,
 <code>dev.*</code>
 </p>
 
@@ -11595,7 +11595,7 @@ density estimate.
 <td>
 <p>the <code>x</code> and <code>y</code> arguments provide the x and y
 coordinates for the plot.  Any reasonable way of defining the
-coordinates is acceptable.  See the function <code><a href="grDevices.html#xy.coords">xy.coords</a></code>
+coordinates is acceptable.  See the function <code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code>
 for details.  If supplied separately, they must be of the same length.</p>
 </td>
 </tr>
@@ -11605,7 +11605,7 @@ for details.  If supplied separately, they must be of the same length.</p>
 <p>numeric vector of length one (for both directions) or two
 (for x and y separately) specifying the number of equally spaced
 grid points for the density estimation; directly used as
-<code>gridsize</code> in <code><a href="KernSmooth.html#bkde2D">bkde2D</a>()</code>.</p>
+<code>gridsize</code> in <code><a href="https://r-universe.dev/manuals/KernSmooth.html#bkde2D">bkde2D</a>()</code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -11614,7 +11614,7 @@ grid points for the density estimation; directly used as
 <p>numeric vector (length 1 or 2) of smoothing bandwidth(s).
 If missing, a more or less useful default is used. <code>bandwidth</code>
 is subsequently passed to function
-<code><a href="KernSmooth.html#bkde2D">bkde2D</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/KernSmooth.html#bkde2D">bkde2D</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -11637,7 +11637,7 @@ plotted, choose <code>nrpoints = Inf</code>.</p>
 <tr style="vertical-align: top;">
 <td><code>ret.selection</code></td>
 <td>
-<p><code><a href="base.html#logical">logical</a></code> indicating to return the
+<p><code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> indicating to return the
 ordered indices of “low density” points if <code>nrpoints &gt; 0</code>.</p>
 </td>
 </tr>
@@ -11687,7 +11687,7 @@ e.g., <code>add=TRUE</code> or <code>useRaster=TRUE</code>.</p>
 
 <p><code>smoothScatter</code> produces a smoothed version of a scatter plot.
 Two dimensional (kernel density) smoothing is performed by
-<code><a href="KernSmooth.html#bkde2D">bkde2D</a></code> from package <a href="https://CRAN.R-project.org/package=KernSmooth" target="_blank"><span class="pkg">KernSmooth</span></a>.
+<code><a href="https://r-universe.dev/manuals/KernSmooth.html#bkde2D">bkde2D</a></code> from package <a href="https://CRAN.R-project.org/package=KernSmooth" target="_blank"><span class="pkg">KernSmooth</span></a>.
 See the examples for how to use this function together with
 <code><a href="#pairs">pairs</a></code>.
 </p>
@@ -11709,11 +11709,11 @@ points drawn, ordered with lowest density first.
 
 <h3>See Also</h3>
 
-<p><code><a href="KernSmooth.html#bkde2D">bkde2D</a></code> from package <a href="https://CRAN.R-project.org/package=KernSmooth" target="_blank"><span class="pkg">KernSmooth</span></a>;
-<code><a href="grDevices.html#densCols">densCols</a></code> which uses the same smoothing computations and
-<code><a href="grDevices.html#densCols">blues9</a></code> in package <span class="pkg">grDevices</span>.
+<p><code><a href="https://r-universe.dev/manuals/KernSmooth.html#bkde2D">bkde2D</a></code> from package <a href="https://CRAN.R-project.org/package=KernSmooth" target="_blank"><span class="pkg">KernSmooth</span></a>;
+<code><a href="https://r-universe.dev/manuals/grDevices.html#densCols">densCols</a></code> which uses the same smoothing computations and
+<code><a href="https://r-universe.dev/manuals/grDevices.html#densCols">blues9</a></code> in package <span class="pkg">grDevices</span>.
 </p>
-<p><code><a href="stats.html#scatter.smooth">scatter.smooth</a></code> adds a <code><a href="stats.html#loess">loess</a></code>
+<p><code><a href="https://r-universe.dev/manuals/stats.html#scatter.smooth">scatter.smooth</a></code> adds a <code><a href="https://r-universe.dev/manuals/stats.html#loess">loess</a></code>
 regression smoother to a scatter plot.
 </p>
 
@@ -11852,7 +11852,7 @@ the levels of the dependent variable should be plotted.</p>
 <td><code>col</code></td>
 <td>
 <p>a vector of fill colors of the same length as <code>levels(y)</code>.
-The default is to call <code><a href="grDevices.html#gray.colors">gray.colors</a></code>.</p>
+The default is to call <code><a href="https://r-universe.dev/manuals/grDevices.html#gray.colors">gray.colors</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -12665,9 +12665,9 @@ strheight<span class="token punctuation">(</span>s<span class="token punctuation
 <tr style="vertical-align: top;">
 <td><code>s</code></td>
 <td>
-<p>a character or <a href="base.html#expression">expression</a> vector whose dimensions
+<p>a character or <a href="https://r-universe.dev/manuals/base.html#expression">expression</a> vector whose dimensions
 are to be determined.  Other objects are coerced by
-<code><a href="grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -12701,7 +12701,7 @@ see <code><a href="#text">text</a></code>.</p>
 number of linefeeds (<code>"\n"</code>, aka “newline”s) it contains: it is the (number of
 linefeeds - 1) times the line spacing plus the height of <code>"M"</code> in
 the selected font.  For an expression it is the height of the
-bounding box as computed by <a href="grDevices.html#plotmath">plotmath</a>.  Thus in both cases it is
+bounding box as computed by <a href="https://r-universe.dev/manuals/grDevices.html#plotmath">plotmath</a>.  Thus in both cases it is
 an estimate of how far <b>above</b> the final baseline the typeset
 object extends.  (It may also extend below the baseline.)  The
 inter-line spacing is controlled by <code>cex</code>,
@@ -12724,7 +12724,7 @@ width and height 0 (as they are not plotted).
 
 <h3>See Also</h3>
 
-<p><code><a href="#text">text</a></code>, <code><a href="base.html#nchar">nchar</a></code>
+<p><code><a href="#text">text</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#nchar">nchar</a></code>
 </p>
 
 
@@ -12796,7 +12796,7 @@ sunflowerplot<span class="token punctuation">(</span>formula<span class="token p
 <td>
 <p>numeric vector of <code>x</code>-coordinates of length <code>n</code>,
 say, or another valid plotting structure, as for
-<code><a href="#plot.default">plot.default</a></code>, see also <code><a href="grDevices.html#xy.coords">xy.coords</a></code>.</p>
+<code><a href="#plot.default">plot.default</a></code>, see also <code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -12812,7 +12812,7 @@ say, or another valid plotting structure, as for
 of replicates for <code>(x[i], y[i])</code>, may be 0.<br>
 Default (<code>missing(number)</code>): compute the exact multiplicity of
 the points <code>x[], y[]</code>, via
-<code><a href="grDevices.html#xyTable">xyTable</a>()</code>.</p>
+<code><a href="https://r-universe.dev/manuals/grDevices.html#xyTable">xyTable</a>()</code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -12917,7 +12917,7 @@ sunflowers leaves, see <code><a href="#par">par</a>(col=)</code>;
 <tr style="vertical-align: top;">
 <td><code>formula</code></td>
 <td>
-<p>a <code><a href="stats.html#formula">formula</a></code>, such as <code>y ~ x</code>.</p>
+<p>a <code><a href="https://r-universe.dev/manuals/stats.html#formula">formula</a></code>, such as <code>y ~ x</code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -12954,7 +12954,7 @@ emanate from it.
 </p>
 <p>If <code>rotate = TRUE</code> and <code>number[i] &gt;= 2</code>, a random direction
 is chosen (instead of the y-axis) for the first ray.  The goal is to
-<code><a href="base.html#jitter">jitter</a></code> the orientations of the sunflowers in order to
+<code><a href="https://r-universe.dev/manuals/base.html#jitter">jitter</a></code> the orientations of the sunflowers in order to
 prevent artefactual visual impressions.
 </p>
 
@@ -12983,7 +12983,7 @@ prevent artefactual visual impressions.
 </td>
 </tr>
 </table>
-<p>Use <code><a href="grDevices.html#xyTable">xyTable</a>()</code> (from package
+<p>Use <code><a href="https://r-universe.dev/manuals/grDevices.html#xyTable">xyTable</a>()</code> (from package
 <span class="pkg">grDevices</span>) if you are only interested in this return value.
 </p>
 
@@ -13021,7 +13021,7 @@ Chapman &amp; Hall/CRC Press.
 
 <h3>See Also</h3>
 
-<p><code><a href="stats.html#density">density</a></code>, <code><a href="grDevices.html#xyTable">xyTable</a></code>
+<p><code><a href="https://r-universe.dev/manuals/stats.html#density">density</a></code>, <code><a href="https://r-universe.dev/manuals/grDevices.html#xyTable">xyTable</a></code>
 </p>
 
 
@@ -13086,7 +13086,7 @@ parameters.
 <td>
 <p>the x and y co-ordinates for the centres of the symbols.
 They can be specified in any way which is accepted by
-<code><a href="grDevices.html#xy.coords">xy.coords</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -13172,7 +13172,7 @@ The default is to leave the symbols unfilled.</p>
 <td><code>xlab</code></td>
 <td>
 <p>the x label of the plot if <code>add</code> is not true.
-Defaults to the <code><a href="base.html#deparse">deparse</a></code>d expression used for <code>x</code>.</p>
+Defaults to the <code><a href="https://r-universe.dev/manuals/base.html#deparse">deparse</a></code>d expression used for <code>x</code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -13296,7 +13296,7 @@ palette<span class="token punctuation">(</span>op<span class="token punctuation"
 
 <p><code>text</code> draws the strings given in the vector <code>labels</code> at the
 coordinates given by <code>x</code> and <code>y</code>.
-<code>y</code> may be missing since <code><a href="grDevices.html#xy.coords">xy.coords</a>(x, y)</code> is used for
+<code>y</code> may be missing since <code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a>(x, y)</code> is used for
 construction of the coordinates.
 </p>
 
@@ -13325,10 +13325,10 @@ construction of the coordinates.
 <tr style="vertical-align: top;">
 <td><code>labels</code></td>
 <td>
-<p>a character vector or <a href="base.html#expression">expression</a> specifying
+<p>a character vector or <a href="https://r-universe.dev/manuals/base.html#expression">expression</a> specifying
 the <em>text</em> to be written.  An attempt is made to coerce other
 language objects (names and calls) to expressions, and vectors and
-other classed objects to character vectors by <code><a href="base.html#character">as.character</a></code>.
+other classed objects to character vectors by <code><a href="https://r-universe.dev/manuals/base.html#character">as.character</a></code>.
 If <code>labels</code> is longer than <code>x</code> and
 <code>y</code>, the coordinates are recycled to the length of <code>labels</code>.</p>
 </td>
@@ -13396,8 +13396,8 @@ such as <code>srt</code>, <code>family</code> and <code>xpd</code>.</p>
 </table>
 <h3>Details</h3>
 
-<p><code>labels</code> must be of type <code><a href="base.html#character">character</a></code> or
-<code><a href="base.html#expression">expression</a></code> (or be coercible to such a type).
+<p><code>labels</code> must be of type <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> or
+<code><a href="https://r-universe.dev/manuals/base.html#expression">expression</a></code> (or be coercible to such a type).
 In the latter case, quite a bit of
 mathematical notation is available such as sub- and superscripts,
 greek letters, fractions, etc.
@@ -13456,12 +13456,12 @@ versions of Adobe symbol fonts it is character 160, so <code>text(x,
   y, "\xA0", font = 5)</code> may work. People using Western European locales
 on Unix-alikes can probably select ISO-8895-15 (Latin-9) which has the
 Euro as character 165: this can also be used for
-<code><a href="grDevices.html#postscript">postscript</a></code> and <code><a href="grDevices.html#pdf">pdf</a></code>. It is ‘<span class="samp">⁠\u20ac⁠</span>’ in
+<code><a href="https://r-universe.dev/manuals/grDevices.html#postscript">postscript</a></code> and <code><a href="https://r-universe.dev/manuals/grDevices.html#pdf">pdf</a></code>. It is ‘<span class="samp">⁠\u20ac⁠</span>’ in
 Unicode, which can be used in UTF-8 locales.
 </p>
-<p>The Euro should be rendered correctly by <code><a href="grDevices.html#x11">X11</a></code> in UTF-8
+<p>The Euro should be rendered correctly by <code><a href="https://r-universe.dev/manuals/grDevices.html#x11">X11</a></code> in UTF-8
 locales, but the corresponding single-byte encoding in
-<code><a href="grDevices.html#postscript">postscript</a></code> and <code><a href="grDevices.html#pdf">pdf</a></code> will need to be selected
+<code><a href="https://r-universe.dev/manuals/grDevices.html#postscript">postscript</a></code> and <code><a href="https://r-universe.dev/manuals/grDevices.html#pdf">pdf</a></code> will need to be selected
 as <code>ISOLatin9.enc</code> (and the font will need to contain the Euro
 glyph, which for example older printers may not).
 </p>
@@ -13481,8 +13481,8 @@ Wadsworth &amp; Brooks/Cole.
 
 <p><code><a href="#plot.formula">text.formula</a></code> for the formula method;
 <code><a href="#mtext">mtext</a></code>, <code><a href="#title">title</a></code>,
-<code><a href="grDevices.html#Hershey">Hershey</a></code> for details on Hershey vector fonts,
-<code><a href="grDevices.html#plotmath">plotmath</a></code> for details and more examples on
+<code><a href="https://r-universe.dev/manuals/grDevices.html#Hershey">Hershey</a></code> for details on Hershey vector fonts,
+<code><a href="https://r-universe.dev/manuals/grDevices.html#plotmath">plotmath</a></code> for details and more examples on
 mathematical annotation.
 </p>
 
@@ -13523,10 +13523,10 @@ text<span class="token punctuation">(</span><span class="token number">5</span><
 
 <p>This function can be used to add labels to a plot.  Its first four
 principal arguments can also be used as arguments in most high-level
-plotting functions.  They must be of type <code><a href="base.html#character">character</a></code> or
-<code><a href="base.html#expression">expression</a></code>. In the latter case, quite a bit of
+plotting functions.  They must be of type <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> or
+<code><a href="https://r-universe.dev/manuals/base.html#expression">expression</a></code>. In the latter case, quite a bit of
 mathematical notation is available such as sub- and superscripts,
-greek letters, fractions, etc: see <a href="grDevices.html#plotmath">plotmath</a>
+greek letters, fractions, etc: see <a href="https://r-universe.dev/manuals/grDevices.html#plotmath">plotmath</a>
 </p>
 
 
@@ -13602,7 +13602,7 @@ language objects (names, calls or expressions), or a list
 containing the string to be plotted, and a selection of the optional
 modifying <a href="#par">graphical parameters</a> <code>cex=</code>, <code>col=</code> and
 <code>font=</code>.  Other objects will be coerced by
-<code><a href="grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.
+<code><a href="https://r-universe.dev/manuals/grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.
 </p>
 <p>The position of <code>main</code> defaults to being vertically centered in
 (outer) margin 3 and justified horizontally according to
@@ -13629,7 +13629,7 @@ Wadsworth &amp; Brooks/Cole.
 <h3>See Also</h3>
 
 <p><code><a href="#mtext">mtext</a></code>, <code><a href="#text">text</a></code>;
-<code><a href="grDevices.html#plotmath">plotmath</a></code> for details on mathematical annotation.
+<code><a href="https://r-universe.dev/manuals/grDevices.html#plotmath">plotmath</a></code> for details on mathematical annotation.
 </p>
 
 
@@ -13749,7 +13749,7 @@ with<span class="token punctuation">(</span>mtcars<span class="token punctuation
 <td><code>x,y</code></td>
 <td>
 <p>vectors containing the coordinates of the vertices
-of the polygon. See <code><a href="grDevices.html#xy.coords">xy.coords</a></code> for alternatives.</p>
+of the polygon. See <code><a href="https://r-universe.dev/manuals/grDevices.html#xy.coords">xy.coords</a></code> for alternatives.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">

@@ -200,13 +200,13 @@ beware of partial matching to earlier arguments.</p>
 <tr style="vertical-align: top;">
 <td><code>simplify, USE.NAMES</code></td>
 <td>
-<p>logical; see <code><a href="base.html#lapply">sapply</a></code>.</p>
+<p>logical; see <code><a href="https://r-universe.dev/manuals/base.html#lapply">sapply</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>SIMPLIFY</code></td>
 <td>
-<p>logical; see <code><a href="base.html#mapply">mapply</a></code>.</p>
+<p>logical; see <code><a href="https://r-universe.dev/manuals/base.html#mapply">mapply</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -223,7 +223,7 @@ dynamic load-balancing used?</p>
 arguments <code>...</code> on each node.
 </p>
 <p><code>clusterEvalQ</code> evaluates a literal expression on each cluster
-node.  It is a parallel version of <code><a href="base.html#eval">evalq</a></code>, and is a
+node.  It is a parallel version of <code><a href="https://r-universe.dev/manuals/base.html#eval">evalq</a></code>, and is a
 convenience function invoking <code>clusterCall</code>.
 </p>
 <p><code>clusterApply</code> calls <code>fun</code> on the first node with
@@ -243,7 +243,7 @@ executes a particular job is non-deterministic. This means that
 simulations that assign RNG streams to nodes will not be reproducible.
 </p>
 <p><code>clusterMap</code> is a multi-argument version of <code>clusterApply</code>,
-analogous to <code><a href="base.html#mapply">mapply</a></code> and <code><a href="base.html#funprog">Map</a></code>.  If
+analogous to <code><a href="https://r-universe.dev/manuals/base.html#mapply">mapply</a></code> and <code><a href="https://r-universe.dev/manuals/base.html#funprog">Map</a></code>.  If
 <code>RECYCLE</code> is true shorter arguments are recycled (and either none
 or all must be of length zero); otherwise, the result length is the
 length of the shortest argument.  Nodes are recycled if the length of
@@ -298,14 +298,14 @@ list with one element per node.
 <p>For <code>clusterApply</code> and <code>clusterApplyLB</code>, a list the same
 length as <code>x</code>.
 </p>
-<p><code>clusterMap</code> follows <code><a href="base.html#mapply">mapply</a></code>.
+<p><code>clusterMap</code> follows <code><a href="https://r-universe.dev/manuals/base.html#mapply">mapply</a></code>.
 </p>
 <p><code>clusterExport</code> returns nothing.
 </p>
 <p><code>parLapply</code> returns a list the length of <code>X</code>.
 </p>
-<p><code>parSapply</code> and <code>parApply</code> follow <code><a href="base.html#lapply">sapply</a></code> and
-<code><a href="base.html#apply">apply</a></code> respectively.
+<p><code>parSapply</code> and <code>parApply</code> follow <code><a href="https://r-universe.dev/manuals/base.html#lapply">sapply</a></code> and
+<code><a href="https://r-universe.dev/manuals/base.html#apply">apply</a></code> respectively.
 </p>
 <p><code>parRapply</code> and <code>parCapply</code> always return a vector.  If
 <code>FUN</code> always returns a scalar result this will be of length the
@@ -322,8 +322,8 @@ error.
 <p>These functions are almost identical to those in package <a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a>.
 </p>
 <p>Two exceptions: <code>parLapply</code> has argument <code>X</code>
-not <code>x</code> for consistency with <code><a href="base.html#lapply">lapply</a></code>, and
-<code>parSapply</code> has been updated to match <code><a href="base.html#lapply">sapply</a></code>.
+not <code>x</code> for consistency with <code><a href="https://r-universe.dev/manuals/base.html#lapply">lapply</a></code>, and
+<code>parSapply</code> has been updated to match <code><a href="https://r-universe.dev/manuals/base.html#lapply">sapply</a></code>.
 </p>
 
 
@@ -610,8 +610,8 @@ minutes.  The waiting time before the next attempt starts at
 </dd>
 <dt><code>outfile</code></dt>
 <dd>
-<p>Where to direct the <code><a href="base.html#showConnections">stdout</a></code> and
-<code><a href="base.html#showConnections">stderr</a></code> connection output from the workers.
+<p>Where to direct the <code><a href="https://r-universe.dev/manuals/base.html#showConnections">stdout</a></code> and
+<code><a href="https://r-universe.dev/manuals/base.html#showConnections">stderr</a></code> connection output from the workers.
 <code>""</code> indicates no redirection (which may only be useful for
 workers on the local machine).
 Defaults to ‘<span class="file">/dev/null</span>’ (‘<span class="file">nul:</span>’ on Windows).  The other
@@ -636,7 +636,7 @@ arguments for <code>Rscript</code> such as <span class="option">--no-environ</sp
 <dd>
 <p>A numerical ‘niceness’ to set for the
 worker processes, e.g. <code>15</code> for a low priority.
-OS-dependent: see <code><a href="tools.html#psnice">psnice</a></code> for details.</p>
+OS-dependent: see <code><a href="https://r-universe.dev/manuals/tools.html#psnice">psnice</a></code> for details.</p>
 </dd>
 <dt><code>rshcmd</code></dt>
 <dd>
@@ -895,7 +895,7 @@ process ID (pid)</p>
 <td>
 <p>integer: signal to send.  Values of 2 (SIGINT), 9
 (SIGKILL) and 15 (SIGTERM) are pretty much portable, but for maximal
-portability use <code>tools::<a href="tools.html#pskill">SIGTERM</a></code> and so on.</p>
+portability use <code>tools::<a href="https://r-universe.dev/manuals/tools.html#pskill">SIGTERM</a></code> and so on.</p>
 </td>
 </tr>
 </table>
@@ -920,7 +920,7 @@ specify <code>child</code> as a list or a vector of process IDs.
 <p><code>sendMaster</code> sends data from the child to the master process.
 </p>
 <p><code>mckill</code> sends a signal to a child process: it is equivalent to
-<code><a href="tools.html#pskill">pskill</a></code> in package <span class="pkg">tools</span>.
+<code><a href="https://r-universe.dev/manuals/tools.html#pskill">pskill</a></code> in package <span class="pkg">tools</span>.
 </p>
 
 
@@ -1153,7 +1153,7 @@ unserialize<span class="token punctuation">(</span>parallel<span class="token op
 
 <h3>Description</h3>
 
-<p><code>mclapply</code> is a parallelized version of <code><a href="base.html#lapply">lapply</a></code>,
+<p><code>mclapply</code> is a parallelized version of <code><a href="https://r-universe.dev/manuals/base.html#lapply">lapply</a></code>,
 it returns a list of the same length as <code>X</code>, each element of
 which is the result of applying <code>FUN</code> to the corresponding
 element of <code>X</code>.
@@ -1161,8 +1161,8 @@ element of <code>X</code>.
 <p>It relies on forking and hence is not available on Windows unless
 <code>mc.cores = 1</code>.
 </p>
-<p><code>mcmapply</code> is a parallelized version of <code><a href="base.html#mapply">mapply</a></code>, and
-<code>mcMap</code> corresponds to <code><a href="base.html#funprog">Map</a></code>.
+<p><code>mcmapply</code> is a parallelized version of <code><a href="https://r-universe.dev/manuals/base.html#mapply">mapply</a></code>, and
+<code>mcMap</code> corresponds to <code><a href="https://r-universe.dev/manuals/base.html#funprog">Map</a></code>.
 </p>
 
 
@@ -1190,7 +1190,7 @@ mcMap<span class="token punctuation">(</span>f<span class="token punctuation">,<
 <td>
 <p>a vector (atomic or list) or an expressions vector.  Other
 objects (including classed objects) will be coerced by
-<code><a href="base.html#list">as.list</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/base.html#list">as.list</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1211,13 +1211,13 @@ element of <code>X</code> or (<code>mcmapply</code>) in parallel to <code>...</c
 <td>
 <p>For <code>mclapply</code>, optional arguments to <code>FUN</code>.
 For <code>mcmapply</code> and <code>mcMap</code>, vector or list inputs: see
-<code><a href="base.html#mapply">mapply</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/base.html#mapply">mapply</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>MoreArgs, SIMPLIFY, USE.NAMES</code></td>
 <td>
-<p>see <code><a href="base.html#mapply">mapply</a></code>.</p>
+<p>see <code><a href="https://r-universe.dev/manuals/base.html#mapply">mapply</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1290,7 +1290,7 @@ prescheduling has to be deactivated (<code>mc.preschedule = FALSE</code>).</p>
 </table>
 <h3>Details</h3>
 
-<p><code>mclapply</code> is a parallelized version of <code><a href="base.html#lapply">lapply</a></code>,
+<p><code>mclapply</code> is a parallelized version of <code><a href="https://r-universe.dev/manuals/base.html#lapply">lapply</a></code>,
 provided <code>mc.cores &gt; 1</code>: for <code>mc.cores == 1</code> (and the
 <code>affinity.list</code> is <code>NULL</code>) it simply calls <code>lapply</code>.
 </p>
@@ -1318,7 +1318,7 @@ than 100 cores or so (see <code>ulimit -n</code> or similar in your OS
 documentation) unless you raise the limit of permissible open file
 descriptors (fork will fail with error <code>"unable to create a pipe"</code>).
 </p>
-<p>Prior to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.4.0 and on a 32-bit platform, the <a href="base.html#serialize">serialize</a>d
+<p>Prior to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.4.0 and on a 32-bit platform, the <a href="https://r-universe.dev/manuals/base.html#serialize">serialize</a>d
 result from each forked process is limited to <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{31} - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code>
 bytes.  (Returning very large results via serialization is
 inefficient and should be avoided.)
@@ -1339,7 +1339,7 @@ with the number of CPU ids used in the affinity masks.
 by <code>X</code>.
 </p>
 <p>For <code>mcmapply</code>, a list, vector or array: see
-<code><a href="base.html#mapply">mapply</a></code>.
+<code><a href="https://r-universe.dev/manuals/base.html#mapply">mapply</a></code>.
 </p>
 <p>For <code>mcMap</code>, a list.
 </p>
@@ -1395,7 +1395,7 @@ Derived from the <span class="pkg">multicore</span> package formerly on <abbr><s
 <p><code><a href="#mcparallel">mcparallel</a></code>, <code><a href="#pvec">pvec</a></code>,
 <code><a href="#clusterApply">parLapply</a></code>, <code><a href="#clusterApply">clusterMap</a></code>.
 </p>
-<p><code><a href="base.html#lapply">simplify2array</a></code> for results like <code><a href="base.html#lapply">sapply</a></code>.
+<p><code><a href="https://r-universe.dev/manuals/base.html#lapply">simplify2array</a></code> for results like <code><a href="https://r-universe.dev/manuals/base.html#lapply">sapply</a></code>.
 </p>
 
 
@@ -1633,7 +1633,7 @@ random-number stream from the current session and any other child
 process.
 </p>
 <p>The behaviour with <code>mc.set.seed = TRUE</code> is different only if
-<code><a href="base.html#Random">RNGkind</a>("L'Ecuyer-CMRG")</code> has been selected.  Then each
+<code><a href="https://r-universe.dev/manuals/base.html#Random">RNGkind</a>("L'Ecuyer-CMRG")</code> has been selected.  Then each
 time a child is forked it is given the next stream (see
 <code><a href="#RngStream">nextRNGStream</a></code>).  So if you select that generator, set a
 seed and call <code><a href="#RngStream">mc.reset.stream</a></code> just before the first use
@@ -1645,7 +1645,7 @@ forked process.
 
 <h3>Note</h3>
 
-<p>Prior to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.4.0 and on a 32-bit platform, the <a href="base.html#serialize">serialize</a>d
+<p>Prior to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.4.0 and on a 32-bit platform, the <a href="https://r-universe.dev/manuals/base.html#serialize">serialize</a>d
 result from each forked process is limited to <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{31} - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code> bytes.  (Returning very large results via serialization is
 inefficient and should be avoided.)
 </p>
@@ -1705,7 +1705,7 @@ Support for Parallel Computation
 <p>This package was first included with <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 2.14.0 in 2011.
 </p>
 <p>There is support for multiple RNG streams with the
-‘<span class="samp">⁠"L'Ecuyer-CMRG"⁠</span>’ <a href="base.html#Random">RNG</a>: see <code><a href="#RngStream">nextRNGStream</a></code>.
+‘<span class="samp">⁠"L'Ecuyer-CMRG"⁠</span>’ <a href="https://r-universe.dev/manuals/base.html#Random">RNG</a>: see <code><a href="#RngStream">nextRNGStream</a></code>.
 </p>
 <p>It contains functionality derived from and pretty much equivalent to
 that contained in packages <span class="pkg">multicore</span> (formerly on
@@ -1734,7 +1734,7 @@ socket clusters by forking (not Windows).
 <h3>See Also</h3>
 
 <p>Parallel computation involves launching worker processes: functions
-<code><a href="tools.html#psnice">psnice</a></code> and <code><a href="tools.html#pskill">pskill</a></code> in package <span class="pkg">tools</span>
+<code><a href="https://r-universe.dev/manuals/tools.html#psnice">psnice</a></code> and <code><a href="https://r-universe.dev/manuals/tools.html#pskill">pskill</a></code> in package <span class="pkg">tools</span>
 provide means to manage such processes.
 </p>
 
@@ -1938,7 +1938,7 @@ mc.reset.stream<span class="token punctuation">(</span><span class="token punctu
 <td>
 <p>An integer vector of length 7 as given by
 <code>.Random.seed</code> when the ‘<span class="samp">⁠"L'Ecuyer-CMRG"⁠</span>’ RNG is in use.
-See <code><a href="base.html#Random">RNG</a></code> for the valid values.</p>
+See <code><a href="https://r-universe.dev/manuals/base.html#Random">RNG</a></code> for the valid values.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1951,7 +1951,7 @@ See <code><a href="base.html#Random">RNG</a></code> for the valid values.</p>
 <tr style="vertical-align: top;">
 <td><code>iseed</code></td>
 <td>
-<p>An integer to be supplied to <code><a href="base.html#Random">set.seed</a></code>, or
+<p>An integer to be supplied to <code><a href="https://r-universe.dev/manuals/base.html#Random">set.seed</a></code>, or
 <code>NULL</code> not to set reproducible seeds.</p>
 </td>
 </tr>
@@ -2032,7 +2032,7 @@ and substreams.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#Random">RNG</a></code> for fuller details of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s built-in random number
+<p><code><a href="https://r-universe.dev/manuals/base.html#Random">RNG</a></code> for fuller details of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s built-in random number
 generators.
 </p>
 <p>The vignette for package <span class="pkg">parallel</span>.

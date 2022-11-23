@@ -1289,13 +1289,13 @@ different for a PNG device compared to a PDF device).
 </tr>
 </table>
 <p>For more details of many of these, see the help for the corresponding
-graphical parameter <code><a href="graphics.html#par">par</a></code> in base graphics.  (This may
+graphical parameter <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code> in base graphics.  (This may
 have a slightly different name, e.g. <code>lend</code>, <code>ljoin</code>,
 <code>lmitre</code>, <code>family</code>.)
 </p>
 <p>Colours can be specified in one of the forms returned by
-<code><a href="grDevices.html#rgb">rgb</a></code>, as a name (see <code><a href="grDevices.html#colors">colors</a></code>) or as a
-non-negative integer index into the current <a href="grDevices.html#palette">palette</a> (with zero
+<code><a href="https://r-universe.dev/manuals/grDevices.html#rgb">rgb</a></code>, as a name (see <code><a href="https://r-universe.dev/manuals/grDevices.html#colors">colors</a></code>) or as a
+non-negative integer index into the current <a href="https://r-universe.dev/manuals/grDevices.html#palette">palette</a> (with zero
 being taken as transparent).  (Negative integer values are now an
 error.)
 </p>
@@ -1354,7 +1354,7 @@ notice of the first parameter value.)
 
 <h3>See Also</h3>
 
-<p><code><a href="grDevices.html#Hershey">Hershey</a></code>.
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#Hershey">Hershey</a></code>.
 </p>
 
 
@@ -1907,7 +1907,7 @@ support for interaction.
 S-style graphics (see the <span class="pkg">graphics</span> package).
 </p>
 <p>Further information is available in the following
-<a href="utils.html#vignette">vignettes</a>:
+<a href="https://r-universe.dev/manuals/utils.html#vignette">vignettes</a>:
 </p>
 
 <table>
@@ -2321,7 +2321,7 @@ Capture a raster image
 
 <p><code><a href="#grid.raster">grid.raster</a></code>
 </p>
-<p><code><a href="grDevices.html#dev.capabilities">dev.capabilities</a></code> to see if it is supported.
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#dev.capabilities">dev.capabilities</a></code> to see if it is supported.
 </p>
 
 
@@ -3092,7 +3092,7 @@ grid.delay<span class="token punctuation">(</span>expr<span class="token punctua
 <tr style="vertical-align: top;">
 <td><code>expr</code></td>
 <td>
-<p>object of mode <code><a href="base.html#expression">expression</a></code> or <code>call</code> or
+<p>object of mode <code><a href="https://r-universe.dev/manuals/base.html#expression">expression</a></code> or <code>call</code> or
 an unevaluated expression.</p>
 </td>
 </tr>
@@ -3158,7 +3158,7 @@ about using <code>recordGraphics</code> responsibly also apply here.
 
 <h3>See Also</h3>
 
- <p><code><a href="grDevices.html#recordGraphics">recordGraphics</a></code> </p>
+ <p><code><a href="https://r-universe.dev/manuals/grDevices.html#recordGraphics">recordGraphics</a></code> </p>
 
 
 <h3>Examples</h3>
@@ -4926,7 +4926,7 @@ Layouts: A Mechanism for Arranging Plots on a Page.
 <p><a href="#Grid">Grid</a>,
 <code><a href="#grid.show.layout">grid.show.layout</a></code>,
 <code><a href="#viewport">viewport</a></code>,
-<code><a href="graphics.html#layout">layout</a></code></p>
+<code><a href="https://r-universe.dev/manuals/graphics.html#layout">layout</a></code></p>
 
 
 <h3>Examples</h3>
@@ -5171,9 +5171,9 @@ current viewport, in the specified coordinate system.
 <h3>See Also</h3>
 
  <p><code><a href="#viewport">viewport</a></code>, <code><a href="#unit">unit</a></code>,
-<code><a href="graphics.html#locator">locator</a></code> in package <span class="pkg">graphics</span>, and for an application
-see <code><a href="lattice.html#interaction">trellis.focus</a></code> and
-<code><a href="lattice.html#interaction">panel.identify</a></code> in package
+<code><a href="https://r-universe.dev/manuals/graphics.html#locator">locator</a></code> in package <span class="pkg">graphics</span>, and for an application
+see <code><a href="https://deepayan.r-universe.dev/lattice/lattice.html#interaction">trellis.focus</a></code> and
+<code><a href="https://deepayan.r-universe.dev/lattice/lattice.html#interaction">panel.identify</a></code> in package
 <a href="https://CRAN.R-project.org/package=lattice" target="_blank"><span class="pkg">lattice</span></a>.
 </p>
 
@@ -5581,7 +5581,7 @@ with a <em>canvas</em> colour (the on-screen devices <code>X11</code>,
 canvas colour and then the background colour.
 </p>
 <p>There are two hooks called <code>"before.grid.newpage"</code> and
-<code>"grid.newpage"</code> (see <code><a href="base.html#userhooks">setHook</a></code>).  The latter
+<code>"grid.newpage"</code> (see <code><a href="https://r-universe.dev/manuals/base.html#userhooks">setHook</a></code>).  The latter
 is used in the testing code to annotate the new page.  The hook
 function(s) are called with no argument.  (If the value is a character
 string, <code>get</code> is called on it from within the <span class="pkg">grid</span>
@@ -6298,7 +6298,7 @@ pointsGrob<span class="token punctuation">(</span>x <span class="token operator"
 <td><code>pch</code></td>
 <td>
 <p>numeric or character vector indicating what sort of
-plotting symbol to use.  See <code><a href="graphics.html#points">points</a></code> for the
+plotting symbol to use.  See <code><a href="https://r-universe.dev/manuals/graphics.html#points">points</a></code> for the
 interpretation of these values, and note <code>fill</code> below.</p>
 </td>
 </tr>
@@ -6327,7 +6327,7 @@ if <code>x</code> or <code>y</code> are only given as numeric vectors.</p>
 <p>an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object of class <code>"gpar"</code>, typically the output
 from a call to the function <code><a href="#gpar">gpar</a></code>.  This is basically
 a list of graphical parameter settings; note that <code>fill</code> (and
-not <code>bg</code> as in package <span class="pkg">graphics</span> <code><a href="graphics.html#points">points</a></code>) is
+not <code>bg</code> as in package <span class="pkg">graphics</span> <code><a href="https://r-universe.dev/manuals/graphics.html#points">points</a></code>) is
 used to “fill”, i.e., color the background of symbols with
 <code>pch = 21:25</code>.</p>
 </td>
@@ -6518,7 +6518,7 @@ range given.
 </p>
 <p>This is a direct interface to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s graphical engine <code>GEpretty()</code>
 function, which also underlies base <span class="pkg">graphics</span>' package
-<code><a href="graphics.html#axis">axis</a>()</code>, <code><a href="graphics.html#axTicks">axTicks</a>()</code>, etc.
+<code><a href="https://r-universe.dev/manuals/graphics.html#axis">axis</a>()</code>, <code><a href="https://r-universe.dev/manuals/graphics.html#axTicks">axTicks</a>()</code>, etc.
 </p>
 
 
@@ -6534,7 +6534,7 @@ function, which also underlies base <span class="pkg">graphics</span>' package
 <td><code>range</code></td>
 <td>
 <p>a numeric vector of length at least two, as e.g., returned
-by <code><a href="base.html#range">range</a>()</code>.</p>
+by <code><a href="https://r-universe.dev/manuals/base.html#range">range</a>()</code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -6698,7 +6698,7 @@ that the image will be distorted.
 <p>Not all graphics devices are capable of rendering raster images
 and some may not be able to produce rotated images (i.e., if
 a raster object is rendered within a rotated viewport).  See also the
-comments under <code><a href="graphics.html#rasterImage">rasterImage</a></code>.
+comments under <code><a href="https://r-universe.dev/manuals/graphics.html#rasterImage">rasterImage</a></code>.
 </p>
 <p>All graphical parameter settings in <code>gp</code> will be ignored,
 including <code>alpha</code>.
@@ -6719,9 +6719,9 @@ including <code>alpha</code>.
 
 <h3>See Also</h3>
 
-<p><code><a href="grDevices.html#as.raster">as.raster</a></code>.
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#as.raster">as.raster</a></code>.
 </p>
-<p><code><a href="grDevices.html#dev.capabilities">dev.capabilities</a></code> to see if it is supported.
+<p><code><a href="https://r-universe.dev/manuals/grDevices.html#dev.capabilities">dev.capabilities</a></code> to see if it is supported.
 </p>
 
 
@@ -6772,7 +6772,7 @@ grid.record<span class="token punctuation">(</span>expr<span class="token punctu
 <tr style="vertical-align: top;">
 <td><code>expr</code></td>
 <td>
-<p>object of mode <code><a href="base.html#expression">expression</a></code> or <code>call</code> or
+<p>object of mode <code><a href="https://r-universe.dev/manuals/base.html#expression">expression</a></code> or <code>call</code> or
 an unevaluated expression.</p>
 </td>
 </tr>
@@ -6830,7 +6830,7 @@ about using <code>recordGraphics</code> responsibly also apply here.
 
 <h3>See Also</h3>
 
- <p><code><a href="grDevices.html#recordGraphics">recordGraphics</a></code> </p>
+ <p><code><a href="https://r-universe.dev/manuals/grDevices.html#recordGraphics">recordGraphics</a></code> </p>
 
 
 <h3>Examples</h3>
@@ -7046,14 +7046,14 @@ specifies a descendant of the specified <code>gTree</code>.</p>
 <tr style="vertical-align: top;">
 <td><code>strict</code></td>
 <td>
-<p>a <code><a href="base.html#logical">logical</a></code> indicating whether the <code>gPath</code> must be
+<p>a <code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> indicating whether the <code>gPath</code> must be
 matched exactly.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>grep</code></td>
 <td>
-<p>a <code><a href="base.html#logical">logical</a></code> indicating whether the <code>gPath</code> should
+<p>a <code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> indicating whether the <code>gPath</code> should
 be treated as a regular expression.  Values are recycled across
 elements of the <code>gPath</code> (e.g., <code>c(TRUE, FALSE)</code> means
 that every odd element of the <code>gPath</code> will be treated as
@@ -7064,7 +7064,7 @@ a regular expression).
 <tr style="vertical-align: top;">
 <td><code>global</code></td>
 <td>
-<p>a <code><a href="base.html#logical">logical</a></code> indicating whether the function should affect
+<p>a <code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> indicating whether the function should affect
 just the first match of the <code>gPath</code>, or whether all matches
 should be affected.
 </p>
@@ -7073,7 +7073,7 @@ should be affected.
 <tr style="vertical-align: top;">
 <td><code>allDevices</code></td>
 <td>
-<p>a <code><a href="base.html#logical">logical</a></code> indicating whether all open
+<p>a <code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> indicating whether all open
 devices should be searched for matches, or just the current device.
 NOT YET IMPLEMENTED.
 </p>
@@ -7881,7 +7881,7 @@ grid.fill<span class="token punctuation">(</span>circleGrob<span class="token pu
 
 <h3>Description</h3>
 
-<p>These functions create and draw text and <a href="grDevices.html#plotmath">plotmath</a> expressions.
+<p>These functions create and draw text and <a href="https://r-universe.dev/manuals/grDevices.html#plotmath">plotmath</a> expressions.
 </p>
 
 
@@ -7904,8 +7904,8 @@ textGrob<span class="token punctuation">(</span>label<span class="token punctuat
 <tr style="vertical-align: top;">
 <td><code>label</code></td>
 <td>
-<p>A character or <a href="base.html#expression">expression</a> vector.  Other
-objects are coerced by <code><a href="grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.</p>
+<p>A character or <a href="https://r-universe.dev/manuals/base.html#expression">expression</a> vector.  Other
+objects are coerced by <code><a href="https://r-universe.dev/manuals/grDevices.html#as.graphicsAnnot">as.graphicsAnnot</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -8388,7 +8388,7 @@ in <em>Proceedings of SIGGRAPH 95</em>, pp. 377–386.
 <code><a href="#viewport">viewport</a></code>,
 <code><a href="#arrow">arrow</a></code>.
 </p>
-<p><code><a href="graphics.html#xspline">xspline</a></code>.
+<p><code><a href="https://r-universe.dev/manuals/graphics.html#xspline">xspline</a></code>.
 </p>
 
 
@@ -8991,7 +8991,7 @@ first and hence in a plain “below” legend symbols.</p>
 <td><code>pch</code></td>
 <td>
 <p>legend symbol, numeric or character, passed to
-<code><a href="#grid.points">pointsGrob</a>()</code>; see also <code><a href="graphics.html#points">points</a></code> for
+<code><a href="#grid.points">pointsGrob</a>()</code>; see also <code><a href="https://r-universe.dev/manuals/graphics.html#points">points</a></code> for
 interpretation of the numeric codes.</p>
 </td>
 </tr>
@@ -9990,7 +9990,7 @@ stringDescent<span class="token punctuation">(</span>string<span class="token pu
 <td><code>string</code></td>
 <td>
 <p>A character vector or a language object (as used for
-‘<a href="grDevices.html#plotmath">plotmath</a>’ calls).</p>
+‘<a href="https://r-universe.dev/manuals/grDevices.html#plotmath">plotmath</a>’ calls).</p>
 </td>
 </tr></table>
 <h3>Value</h3>
@@ -10427,7 +10427,7 @@ the generic <code>rep</code> function.
 <tr style="vertical-align: top;">
 <td><code>...</code></td>
 <td>
-<p>arguments to be passed to <code><a href="base.html#rep">rep</a></code> such as
+<p>arguments to be passed to <code><a href="https://r-universe.dev/manuals/base.html#rep">rep</a></code> such as
 <code>times</code> and <code>length.out</code>.</p>
 </td>
 </tr>
@@ -10445,7 +10445,7 @@ the generic <code>rep</code> function.
 
 <h3>See Also</h3>
 
-<p><code><a href="base.html#rep">rep</a></code>
+<p><code><a href="https://r-universe.dev/manuals/base.html#rep">rep</a></code>
 </p>
 
 

@@ -92,7 +92,7 @@ Class "profile.mle"; Profiling information for "mle" object
 <dt><code>signature(object = "ANY")</code></dt>
 <dd>
 <p>Generic function: see
-<code><a href="stats.html#coef">coef</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/stats.html#coef">coef</a></code>.</p>
 </dd>
 <dt><code>signature(object = "mle")</code></dt>
 <dd>
@@ -125,7 +125,7 @@ fit.</p>
 <dt><code>signature(object = "ANY")</code></dt>
 <dd>
 <p>Generic function: see
-<code><a href="stats.html#confint">confint</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/stats.html#confint">confint</a></code>.</p>
 </dd>
 <dt><code>signature(object = "mle")</code></dt>
 <dd>
@@ -158,7 +158,7 @@ intervals based on likelihood profile.</p>
 <dt><code>signature(object = "ANY")</code></dt>
 <dd>
 <p>Generic function: see
-<code><a href="stats.html#logLik">logLik</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/stats.html#logLik">logLik</a></code>.</p>
 </dd>
 <dt><code>signature(object = "mle")</code></dt>
 <dd>
@@ -170,7 +170,7 @@ the fit.</p>
 
 <p>The <code>mle</code> method does not know about the number of observations
 unless <code>nobs</code> was specified on the call and so may not be
-suitable for use with <code><a href="stats.html#AIC">BIC</a></code>.
+suitable for use with <code><a href="https://r-universe.dev/manuals/stats.html#AIC">BIC</a></code>.
 </p>
 
 <hr>
@@ -218,7 +218,7 @@ for optimizer. By default taken from the default arguments of <code>minuslogl</c
 <tr style="vertical-align: top;">
 <td><code>method</code></td>
 <td>
-<p>Optimization method to use. See <code><a href="stats.html#optim">optim</a></code>.</p>
+<p>Optimization method to use. See <code><a href="https://r-universe.dev/manuals/stats.html#optim">optim</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -232,19 +232,19 @@ optimization.</p>
 <td><code>nobs</code></td>
 <td>
 <p>optional integer: the number of observations, to be used for
-e.g. computing <code><a href="stats.html#AIC">BIC</a></code>.</p>
+e.g. computing <code><a href="https://r-universe.dev/manuals/stats.html#AIC">BIC</a></code>.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>lower, upper</code></td>
 <td>
-<p>Named lists of vectors or single vectors. Bounds for <code><a href="stats.html#optim">optim</a></code>, if relevant.</p>
+<p>Named lists of vectors or single vectors. Bounds for <code><a href="https://r-universe.dev/manuals/stats.html#optim">optim</a></code>, if relevant.</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td><code>...</code></td>
 <td>
-<p>Further arguments to pass to <code><a href="stats.html#optim">optim</a></code>.</p>
+<p>Further arguments to pass to <code><a href="https://r-universe.dev/manuals/stats.html#optim">optim</a></code>.</p>
 </td>
 </tr>
 </table>
@@ -253,7 +253,7 @@ e.g. computing <code><a href="stats.html#AIC">BIC</a></code>.</p>
 <p>The <code>optim</code> optimizer is used to find the minimum of the
 negative log-likelihood.  An approximate covariance matrix for the
 parameters is obtained by inverting the Hessian matrix at the optimum.
-By default,  <code><a href="stats.html#optim">optim</a></code> from the <code>stats</code> package is used; other
+By default,  <code><a href="https://r-universe.dev/manuals/stats.html#optim">optim</a></code> from the <code>stats</code> package is used; other
 optimizers need to be plug-compatible, both with respect to arguments
 and return values.
 </p>
@@ -479,8 +479,8 @@ of objective function.</p>
 <dt>
 <code>details</code>:</dt>
 <dd>
-<p>a <code>"<a href="base.html#list">list</a>"</code>, as returned from
-<code><a href="stats.html#optim">optim</a></code>.</p>
+<p>a <code>"<a href="https://r-universe.dev/manuals/base.html#list">list</a>"</code>, as returned from
+<code><a href="https://r-universe.dev/manuals/stats.html#optim">optim</a></code>.</p>
 </dd>
 <dt>
 <code>minuslogl</code>:</dt>
@@ -491,7 +491,7 @@ negative loglikelihood function.</p>
 <dt>
 <code>nobs</code>:</dt>
 <dd>
-<p><code>"<a href="base.html#integer">integer</a>"</code> of length one.  The
+<p><code>"<a href="https://r-universe.dev/manuals/base.html#integer">integer</a>"</code> of length one.  The
 number of observations (often <code>NA</code>, when not set in call
 explicitly).</p>
 </dd>
@@ -617,7 +617,7 @@ Defaults to <code>TRUE</code>.</p>
 <dt><code>signature(x = "ANY", y = "ANY")</code></dt>
 <dd>
 <p>Generic function: see
-<code><a href="graphics.html#plot.default">plot</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/graphics.html#plot.default">plot</a></code>.</p>
 </dd>
 <dt><code>signature(x = "profile.mle", y = "missing")</code></dt>
 <dd>
@@ -725,7 +725,7 @@ might level off.
 <dt><code>signature(fitted = "ANY")</code></dt>
 <dd>
 <p>Generic function: see
-<code><a href="stats.html#profile">profile</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/stats.html#profile">profile</a></code>.</p>
 </dd>
 <dt><code>signature(fitted = "mle")</code></dt>
 <dd>
@@ -835,12 +835,12 @@ coefficients and standard errors, and <code class="reqn"><span class="katex"><sp
 <h3>Details</h3>
 
 <p>This package contains functions and classes for statistics
-using the <a href="methods.html#methods-package">S version 4</a> class system.
+using the <a href="https://r-universe.dev/manuals/methods.html#methods-package">S version 4</a> class system.
 </p>
 <p>The methods currently support maximum likelihood (function
 <code><a href="#mle">mle</a>()</code> returning class <code>"<a href="#mle-class">mle</a>"</code>),
 including methods for <code><a href="#logLik-methods">logLik</a></code> for use
-with <code><a href="stats.html#AIC">AIC</a></code>.
+with <code><a href="https://r-universe.dev/manuals/stats.html#AIC">AIC</a></code>.
 </p>
 
 
@@ -937,7 +937,7 @@ contents of the <code>coef</code> slot</p>
 </dl>
 <h3>See Also</h3>
 
-<p><code><a href="base.html#summary">summary</a></code>, <code><a href="#mle">mle</a></code>, <code><a href="#mle-class">mle-class</a></code>
+<p><code><a href="https://r-universe.dev/manuals/base.html#summary">summary</a></code>, <code><a href="#mle">mle</a></code>, <code><a href="#mle-class">mle-class</a></code>
 </p>
 
 <hr>
@@ -989,7 +989,7 @@ changed values. Use <code>name = NULL</code> to remove the argument <code>name</
 <dt><code>signature(object = "ANY")</code></dt>
 <dd>
 <p>Generic function: see
-<code><a href="stats.html#update">update</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/stats.html#update">update</a></code>.</p>
 </dd>
 <dt><code>signature(object = "mle")</code></dt>
 <dd>
@@ -1027,7 +1027,7 @@ objects.
 <dt><code>signature(object = "ANY")</code></dt>
 <dd>
 <p>Generic function: see
-<code><a href="stats.html#vcov">vcov</a></code>.</p>
+<code><a href="https://r-universe.dev/manuals/stats.html#vcov">vcov</a></code>.</p>
 </dd>
 <dt><code>signature(object = "mle")</code></dt>
 <dd>

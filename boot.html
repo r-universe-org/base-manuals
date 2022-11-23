@@ -1412,12 +1412,12 @@ reproducible.  Resampling is done in the worker processes by
 default behaviour is that each worker chooses a separate seed,
 non-reproducibly.  However, with <code>parallel = "multicore"</code> or
 <code>parallel = "snow"</code> using the default cluster, a second approach
-is used if <code><a href="base.html#Random">RNGkind</a>("L'Ecuyer-CMRG")</code> has been selected.
+is used if <code><a href="https://r-universe.dev/manuals/base.html#Random">RNGkind</a>("L'Ecuyer-CMRG")</code> has been selected.
 In that approach each worker gets a different subsequence of the RNG
 stream based on the seed at the time the worker is spawned and so the
 results will be reproducible if <code>ncpus</code> is unchanged, and for
-<code>parallel = "multicore"</code> if <code>parallel::<a href="parallel.html#RngStream">mc.reset.stream</a>()</code> is
-called: see the examples for <code><a href="parallel.html#mclapply">mclapply</a></code>.
+<code>parallel = "multicore"</code> if <code>parallel::<a href="https://r-universe.dev/manuals/parallel.html#RngStream">mc.reset.stream</a>()</code> is
+called: see the examples for <code><a href="https://r-universe.dev/manuals/parallel.html#mclapply">mclapply</a></code>.
 </p>
 <p>Note that loading the <span class="pkg">parallel</span> namespace may change the random
 seed, so for maximum reproducibility this should be done before
@@ -2427,7 +2427,7 @@ Weight Data for Domestic Cats
 <p>144 adult (over 2kg in weight) cats used for experiments with the drug
 digitalis had their heart and body weight recorded.  47 of the cats were
 female and 97 were male.  The <code>catsM</code> data frame consists of the data for
-the male cats.  The full data are in dataset <code><a href="MASS.html#cats">cats</a></code>
+the male cats.  The full data are in dataset <code><a href="https://r-universe.dev/manuals/MASS.html#cats">cats</a></code>
 in package <code>MASS</code>.
 </p>
 
@@ -2481,7 +2481,7 @@ between a part and the whole. <em>Biometrics</em>, <b>3</b>, 65–68.
 
 <h3>See Also</h3>
 
-<p><code><a href="MASS.html#cats">cats</a></code>
+<p><code><a href="https://r-universe.dev/manuals/MASS.html#cats">cats</a></code>
 </p>
 
 <hr>
@@ -2956,7 +2956,7 @@ NSF-241, Dept. of Statistics, Stanford University.
 <h3>See Also</h3>
 
 <p><code><a href="#boot">boot</a></code>, 
-<code><a href="survival.html#coxph">coxph</a></code>, <code><a href="survival.html#survfit">survfit</a></code>
+<code><a href="https://therneau.r-universe.dev/survival/survival.html#coxph">coxph</a></code>, <code><a href="https://therneau.r-universe.dev/survival/survival.html#survfit">survfit</a></code>
 </p>
 
 
@@ -3594,7 +3594,7 @@ simulation. <em>Biometrika</em>, <b>73</b>, 555–566.
 
 <h3>See Also</h3>
 
-<p><code><a href="#boot">boot</a></code>, <code><a href="#empinf">empinf</a></code>, <code><a href="#k3.linear">k3.linear</a></code>, <code><a href="#linear.approx">linear.approx</a></code>, <code><a href="#saddle.distn">saddle.distn</a></code>, <code><a href="stats.html#smooth.spline">smooth.spline</a></code>, <code><a href="#var.linear">var.linear</a></code>
+<p><code><a href="#boot">boot</a></code>, <code><a href="#empinf">empinf</a></code>, <code><a href="#k3.linear">k3.linear</a></code>, <code><a href="#linear.approx">linear.approx</a></code>, <code><a href="#saddle.distn">saddle.distn</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#smooth.spline">smooth.spline</a></code>, <code><a href="#var.linear">var.linear</a></code>
 </p>
 
 
@@ -3673,7 +3673,7 @@ statistic in this form to find ABC intervals.
 
 <h3>See Also</h3>
 
-<p><code><a href="stats.html#cor">cor</a></code>
+<p><code><a href="https://r-universe.dev/manuals/stats.html#cor">cor</a></code>
 </p>
 
 <hr>
@@ -3904,7 +3904,7 @@ predictions (with Discussion).
 
 <h3>See Also</h3>
 
-<p><code><a href="stats.html#glm">glm</a></code>, <code><a href="#glm.diag">glm.diag</a></code>, <code><a href="stats.html#predict">predict</a></code>
+<p><code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code>, <code><a href="#glm.diag">glm.diag</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#predict">predict</a></code>
 </p>
 
 
@@ -4860,7 +4860,7 @@ this is the vector of the corresponding <code>theta</code> values.
 
 <h3>See Also</h3>
 
-<p><code><a href="#empinf">empinf</a></code>, <code><a href="#Imp.Estimates">imp.prob</a></code>, <code><a href="#Imp.Estimates">imp.quantile</a></code>, <code><a href="stats.html#optim">optim</a></code>, <code><a href="#smooth.f">smooth.f</a></code>, <code><a href="#tilt.boot">tilt.boot</a></code>
+<p><code><a href="#empinf">empinf</a></code>, <code><a href="#Imp.Estimates">imp.prob</a></code>, <code><a href="#Imp.Estimates">imp.quantile</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#optim">optim</a></code>, <code><a href="#smooth.f">smooth.f</a></code>, <code><a href="#tilt.boot">tilt.boot</a></code>
 </p>
 
 
@@ -5161,7 +5161,7 @@ D.V. Hinkley, N. Reid and E.J. Snell (editors), 83–106.  Chapman and Hall.
 
 <h3>See Also</h3>
 
-<p><code><a href="stats.html#glm">glm</a></code>, <code><a href="#glm.diag.plots">glm.diag.plots</a></code>, <code><a href="stats.html#summary.glm">summary.glm</a></code>
+<p><code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code>, <code><a href="#glm.diag.plots">glm.diag.plots</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#summary.glm">summary.glm</a></code>
 </p>
 
 <hr>
@@ -5306,7 +5306,7 @@ D.V. Hinkley, N. Reid, and E.J. Snell (editors), 83–106. Chapman and Hall.
 
 <h3>See Also</h3>
 
-<p><code><a href="stats.html#glm">glm</a></code>, <code><a href="#glm.diag">glm.diag</a></code>, <code><a href="graphics.html#identify">identify</a></code>
+<p><code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code>, <code><a href="#glm.diag">glm.diag</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#identify">identify</a></code>
 </p>
 
 
@@ -5828,7 +5828,7 @@ input values.
 
 <h3>See Also</h3>
 
-<p><code><a href="#logit">logit</a></code>, <code><a href="stats.html#Logistic">plogis</a></code> for which this is a wrapper.
+<p><code><a href="#logit">logit</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#Logistic">plogis</a></code> for which this is a wrapper.
 </p>
 
 <hr>
@@ -6516,7 +6516,7 @@ values.
 
 <h3>See Also</h3>
 
-<p><code><a href="#inv.logit">inv.logit</a></code>, <code><a href="stats.html#Logistic">qlogis</a></code> for which this is a wrapper.
+<p><code><a href="#inv.logit">inv.logit</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#Logistic">qlogis</a></code> for which this is a wrapper.
 </p>
 
 <hr>
@@ -6681,7 +6681,7 @@ Data from a Simulated Motorcycle Accident
 
 <p>The <code>motor</code> data frame has 94 rows and 4 columns.  The rows are
 obtained by removing replicate values of <code>time</code> from the dataset 
-<code><a href="MASS.html#mcycle">mcycle</a></code>.  Two extra columns are added to allow for strata with
+<code><a href="https://r-universe.dev/manuals/MASS.html#mcycle">mcycle</a></code>.  Two extra columns are added to allow for strata with
 a different residual variance in each stratum.
 </p>
 
@@ -6743,7 +6743,7 @@ non-parametric curve fitting.
 
 <h3>See Also</h3>
 
-<p><code><a href="MASS.html#mcycle">mcycle</a></code>
+<p><code><a href="https://r-universe.dev/manuals/MASS.html#mcycle">mcycle</a></code>
 </p>
 
 <hr>
@@ -8513,7 +8513,7 @@ Symposium on the Interface</em> 248–253.
 <h3>See Also</h3>
 
 <p><code><a href="#lines.saddle.distn">lines.saddle.distn</a></code>, <code><a href="#saddle">saddle</a></code>,
-<code><a href="#saddle.distn.object">saddle.distn.object</a></code>, <code><a href="stats.html#smooth.spline">smooth.spline</a></code>
+<code><a href="#saddle.distn.object">saddle.distn.object</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#smooth.spline">smooth.spline</a></code>
 </p>
 
 
@@ -8570,7 +8570,7 @@ approximations by a call to <code>saddle.distn</code>.
 <h3>Methods</h3>
 
 <p>The class <code>"saddle.distn"</code> has methods for the functions
-<code><a href="graphics.html#lines">lines</a></code> and <code><a href="base.html#print">print</a></code>.
+<code><a href="https://r-universe.dev/manuals/graphics.html#lines">lines</a></code> and <code><a href="https://r-universe.dev/manuals/base.html#print">print</a></code>.
 </p>
 
 
@@ -9823,7 +9823,7 @@ second argument to <code>ran.gen</code> is always the value <code>n.sim</code>, 
 the third argument is <code>ran.args</code>, which is used to supply any other
 objects needed by <code>ran.gen</code>.  If <code>sim</code> is <code>"model"</code> then
 the generation of the replicate time series will be done in
-<code>ran.gen</code> (for example through use of <code><a href="stats.html#arima.sim">arima.sim</a></code>).
+<code>ran.gen</code> (for example through use of <code><a href="https://r-universe.dev/manuals/stats.html#arima.sim">arima.sim</a></code>).
 For the other simulation types <code>ran.gen</code> is used for
 ‘post-blackening’.  The default is that the function simply returns
 the time series passed to it.
@@ -10020,7 +10020,7 @@ observations. <em>Annals of Statistics</em>, <b>17</b>, 1217–1241.
 
 <h3>See Also</h3>
 
-<p><code><a href="#boot">boot</a></code>, <code><a href="stats.html#arima.sim">arima.sim</a></code>
+<p><code><a href="#boot">boot</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#arima.sim">arima.sim</a></code>
 </p>
 
 
