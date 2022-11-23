@@ -5915,7 +5915,7 @@ three step preconditioning.
 
 <p>The <a href="https://CRAN.R-project.org/package=expm" target="_blank"><span class="pkg">expm</span></a> package contains newer (partly faster and more
 accurate) algorithms for <code>expm()</code> and includes
-<code><a href="https://r-forge.r-universe.dev/expm/expm.html#logm" target="_blank">logm</a></code> and <code><a href="https://r-forge.r-universe.dev/expm/expm.html#sqrtm" target="_blank">sqrtm</a></code>.
+<code><a href="https://r-forge.r-universe.dev/expm/expm.html#logm">logm</a></code> and <code><a href="https://r-forge.r-universe.dev/expm/expm.html#sqrtm">sqrtm</a></code>.
 </p>
 
 
@@ -5945,7 +5945,7 @@ From MathWorld, <a href="https://mathworld.wolfram.com/MatrixExponential.html" t
 <h3>See Also</h3>
 
 <p><code><a href="#Schur">Schur</a></code>; additionally,
-<code><a href="https://r-forge.r-universe.dev/expm/expm.html#expm" target="_blank">expm</a></code>, <code><a href="https://r-forge.r-universe.dev/expm/expm.html#logm" target="_blank">logm</a></code>, etc in package <a href="https://CRAN.R-project.org/package=expm" target="_blank"><span class="pkg">expm</span></a>.
+<code><a href="https://r-forge.r-universe.dev/expm/expm.html#expm">expm</a></code>, <code><a href="https://r-forge.r-universe.dev/expm/expm.html#logm">logm</a></code>, etc in package <a href="https://CRAN.R-project.org/package=expm" target="_blank"><span class="pkg">expm</span></a>.
 </p>
 
 
@@ -6872,7 +6872,7 @@ may be created from it.</p>
 
 <p><code><a href="#Xtrct-methods">[-methods</a></code>, and
 
-<code><a href="../help/Subassign-methods.html">Subassign-methods</a></code>, also for examples.
+<code><a href="#Subassign-methods">Subassign-methods</a></code>, also for examples.
 </p>
 
 
@@ -9695,7 +9695,7 @@ component should be a <span class="pkg">base</span> <code><a href="base.html#mat
 <td><code>do2eigen</code></td>
 <td>
 <p>logical indicating if a
-<code><a href="https://mmaechler.r-universe.dev/sfsmisc/sfsmisc.html#posdefify" target="_blank">posdefify</a>()</code> eigen step should be applied to
+<code><a href="https://mmaechler.r-universe.dev/sfsmisc/sfsmisc.html#posdefify">posdefify</a>()</code> eigen step should be applied to
 the result of the Higham algorithm.</p>
 </td>
 </tr>
@@ -9780,7 +9780,7 @@ should be traced.</p>
 
 <p>This implements the algorithm of Higham (2002), and then (if
 <code>do2eigen</code> is true) forces positive definiteness using code from
-<code><a href="https://mmaechler.r-universe.dev/sfsmisc/sfsmisc.html#posdefify" target="_blank">posdefify</a></code>.  The algorithm of Knol and ten
+<code><a href="https://mmaechler.r-universe.dev/sfsmisc/sfsmisc.html#posdefify">posdefify</a></code>.  The algorithm of Knol and ten
 Berge (1989) (not implemented here) is more general in that it
 allows constraints to (1) fix some rows (and columns) of the matrix and
 (2) force the smallest eigenvalue to have a certain value.
@@ -9871,9 +9871,9 @@ Computing the nearest correlation matrix - a problem from finance;
 <h3>See Also</h3>
 
 <p>A first version of this (with non-optional <code>corr=TRUE</code>)
-has been available as <code><a href="https://mmaechler.r-universe.dev/sfsmisc/sfsmisc.html#nearcor" target="_blank">nearcor</a>()</code>; and
+has been available as <code><a href="https://mmaechler.r-universe.dev/sfsmisc/sfsmisc.html#nearcor">nearcor</a>()</code>; and
 more simple versions with a similar purpose
-<code><a href="https://mmaechler.r-universe.dev/sfsmisc/sfsmisc.html#posdefify" target="_blank">posdefify</a>()</code>, both from package <span class="pkg">sfsmisc</span>.
+<code><a href="https://mmaechler.r-universe.dev/sfsmisc/sfsmisc.html#posdefify">posdefify</a>()</code>, both from package <span class="pkg">sfsmisc</span>.
 </p>
 
 
@@ -11760,7 +11760,7 @@ typically inheriting from <code><a href="base.html#class">class</a></code> <code
 <td>
 <p><code><a href="base.html#logical">logical</a></code> indicating if <code>qr</code> is resulting
 from <span class="pkg">base</span> <code><a href="base.html#qr">qr</a>()</code>.  (Otherwise, it is typically
-from <span class="pkg">Matrix</span> package sparse <code><a href="../help/qr.html">qr</a></code>.)</p>
+from <span class="pkg">Matrix</span> package sparse <code><a href="#qr-methods">qr</a></code>.)</p>
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -12125,7 +12125,7 @@ may be created from it.</p>
 <h3>See Also</h3>
 
 
-<p><code><a href="../help/Subassign-methods.html">Subassign-methods</a></code>, also for examples.
+<p><code><a href="#Subassign-methods">Subassign-methods</a></code>, also for examples.
 </p>
 
 
@@ -13073,10 +13073,10 @@ when <code>fp[2]</code> is true, the original (“dummy”)
 components with the corresponding transposed model matrix, where the
 corresponding <code>factorPatt12</code> is true.
 </p>
-<p>Note that <code><a href="https://r-forge.r-universe.dev/MatrixModels/MatrixModels.html#model.Matrix" target="_blank">model.Matrix</a>(*, sparse=TRUE)</code>
+<p>Note that <code><a href="https://r-forge.r-universe.dev/MatrixModels/MatrixModels.html#model.Matrix">model.Matrix</a>(*, sparse=TRUE)</code>
 from package <span class="pkg">MatrixModels</span> may be often be preferable to
 <code>sparse.model.matrix()</code> nowadays, as <code>model.Matrix()</code>
-returns <code><a href="https://r-forge.r-universe.dev/MatrixModels/MatrixModels.html#modelMatrix-class" target="_blank">modelMatrix</a></code>
+returns <code><a href="https://r-forge.r-universe.dev/MatrixModels/MatrixModels.html#modelMatrix-class">modelMatrix</a></code>
 objects with additional slots <code>assign</code> and <code>contrasts</code> which
 relate back to the variables used.
 </p>
@@ -13095,7 +13095,7 @@ Hesterberg.
 
 <h3>See Also</h3>
 
-<p><code><a href="stats.html#model.matrix">model.matrix</a></code> in standard <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s package <span class="pkg">stats</span>.<br><code><a href="https://r-forge.r-universe.dev/MatrixModels/MatrixModels.html#model.Matrix" target="_blank">model.Matrix</a></code> which calls
+<p><code><a href="stats.html#model.matrix">model.matrix</a></code> in standard <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s package <span class="pkg">stats</span>.<br><code><a href="https://r-forge.r-universe.dev/MatrixModels/MatrixModels.html#model.Matrix">model.Matrix</a></code> which calls
 <code>sparse.model.matrix</code> or <code>model.matrix</code> depending on its
 <code>sparse</code> argument may be preferred to <code>sparse.model.matrix</code>.
 </p>
@@ -15384,12 +15384,12 @@ transformed to a symmetric matrix (see Ord (1975), p. 125).
 
 <h3>Details</h3>
 
-<p>The data were read into <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> using <code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#read.gal" target="_blank">read.gal</a></code>, and
+<p>The data were read into <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> using <code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#read.gal">read.gal</a></code>, and
 row-standardised and transformed to symmetry using
-<code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#nb2listw" target="_blank">nb2listw</a></code> and <code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#similar.listw" target="_blank">similar.listw</a></code>.
+<code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#nb2listw">nb2listw</a></code> and <code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#similar.listw">similar.listw</a></code>.
 This spatial weights object was converted to class
 <code><a href="#dsCMatrix-class">dsCMatrix</a></code> using
-<code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#as_dsTMatrix_listw" target="_blank">as_dsTMatrix_listw</a></code> and coercion.
+<code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#as_dsTMatrix_listw">as_dsTMatrix_listw</a></code> and coercion.
 </p>
 
 
@@ -15473,23 +15473,23 @@ matrix (see Ord (1975), p. 125).
 ‘SpatialPixels’ object containing approximately one-degree grid
 cells for land areas only (world excluding Antarctica), using package
 <a href="https://CRAN.R-project.org/package=spdep" target="_blank"><span class="pkg">spdep</span></a>'s
-<code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#dnearneigh" target="_blank">dnearneigh</a></code> with a cutoff distance of <code>sqrt(2)</code>,
+<code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#dnearneigh">dnearneigh</a></code> with a cutoff distance of <code>sqrt(2)</code>,
 and row-standardised and transformed to symmetry using
-<code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#nb2listw" target="_blank">nb2listw</a></code> and <code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#similar.listw" target="_blank">similar.listw</a></code>.
+<code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#nb2listw">nb2listw</a></code> and <code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#similar.listw">similar.listw</a></code>.
 This spatial weights object was converted to a <code><a href="#dsCMatrix-class">dsTMatrix</a></code>
-using <code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#as_dsTMatrix_listw" target="_blank">as_dsTMatrix_listw</a></code> and then coerced
+using <code><a href="https://r-spatial.r-universe.dev/spdep/spdep.html#as_dsTMatrix_listw">as_dsTMatrix_listw</a></code> and then coerced
 (column-compressed).
 </p>
 
 
 <h3>Source</h3>
 
-<p>The shoreline data was read into <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> using <code><a href="https://r-forge.r-universe.dev/maptools/maptools.html#Rgshhs" target="_blank">Rgshhs</a></code>
+<p>The shoreline data was read into <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> using <code><a href="https://r-forge.r-universe.dev/maptools/maptools.html#Rgshhs">Rgshhs</a></code>
 from the GSHHS coarse shoreline database distributed with the
 <a href="https://CRAN.R-project.org/package=maptools" target="_blank"><span class="pkg">maptools</span></a> package, omitting Antarctica.  A matching approximately
 one-degree grid was generated using
-<code><a href="https://r-forge.r-universe.dev/maptools/maptools.html#Sobj_SpatialGrid" target="_blank">Sobj_SpatialGrid</a></code>, and the grids on land were
-found using the appropriate <code><a href="https://edzer.r-universe.dev/sp/sp.html#over" target="_blank">over</a></code>
+<code><a href="https://r-forge.r-universe.dev/maptools/maptools.html#Sobj_SpatialGrid">Sobj_SpatialGrid</a></code>, and the grids on land were
+found using the appropriate <code><a href="https://edzer.r-universe.dev/sp/sp.html#over">over</a></code>
 method for the ‘SpatialPolygons’ and ‘SpatialGrid’ objects,
 yielding a ‘SpatialPixels’ one containing only the grid cells with
 centres on land.
