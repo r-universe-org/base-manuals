@@ -1995,7 +1995,7 @@ summary<span class="token punctuation">(</span>mg<span class="token punctuation"
 </p>
 <p>The trick is to generate an artificial Poisson observation for each subject in the risk set at each non-censored event time. The corresponding covariate values for each subject are whatever they are at the event time, while the Poisson response is zero for all subjects except those experiencing the event at that time (this corresponds to Peto's correction for ties). The linear predictor for the model must include an intercept for each event time (the cumulative sum of the exponential of these is the Breslow estimate of the baseline hazard). 
 </p>
-<p>Below is some example code employing this trick for the <code><a href="https://therneau.r-universe.dev/survival/survival.html#pbcseq">pbcseq</a></code> data from the <code>survival</code> package. It uses <code><a href="#bam">bam</a></code> for fitting with the <code>discrete=TRUE</code> option for efficiency: there is some approximation involved in doing this, and the exact equivalent to what is done in <code><a href="#coxph">cox.ph</a></code> is rather obtained by using <code><a href="#gam">gam</a></code> with <code>method="REML"</code> (taking many times the computational time for the example below). An alternative fits the model as a conditional logistic model using stratified Cox PH with event times as strata (see example). This would be identical in the unpenalized case, but smoothing parameter estimates can differ.
+<p>Below is some example code employing this trick for the <code><a href="https://therneau.r-universe.dev/manual/survival.html#pbcseq">pbcseq</a></code> data from the <code>survival</code> package. It uses <code><a href="#bam">bam</a></code> for fitting with the <code>discrete=TRUE</code> option for efficiency: there is some approximation involved in doing this, and the exact equivalent to what is done in <code><a href="#coxph">cox.ph</a></code> is rather obtained by using <code><a href="#gam">gam</a></code> with <code>method="REML"</code> (taking many times the computational time for the example below). An alternative fits the model as a conditional logistic model using stratified Cox PH with event times as strata (see example). This would be identical in the unpenalized case, but smoothing parameter estimates can differ.
 </p>
 <p>The function <code>tdpois</code> in the example code uses crude piecewise constant interpolation for the covariates, in which the covariate value at an event time is taken to be whatever it was the previous time that it was measured. Obviously more sophisticated interpolation schemes might be preferable. 
 </p>
@@ -19384,7 +19384,7 @@ appropriate <code><a href="#smooth.construct">smooth.construct</a></code> method
 to be absorbed then the objects will have  attributes <code>"qrc"</code> and
 <code>"nCons"</code>. <code>"nCons"</code> is the number of constraints. <code>"qrc"</code> is
 usually the qr decomposition of the constraint matrix (returned by
-<code><a href="https://r-forge.r-universe.dev/Matrix/Matrix.html#qr-methods">qr</a></code>), but if it is a single positive integer it is the index of the 
+<code><a href="https://r-forge.r-universe.dev/manual/Matrix.html#qr-methods">qr</a></code>), but if it is a single positive integer it is the index of the 
 coefficient to set to zero, and if it is a negative number then this indicates that 
 the parameters are to sum to zero. 
 </p>
