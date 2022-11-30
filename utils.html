@@ -940,7 +940,7 @@ left as-is for the default choice.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span> <span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     askYesNo<span class="token punctuation">(</span><span class="token string">"Do you want to use askYesNo?"</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -1106,7 +1106,9 @@ method) with the information about possibly misspelled words.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## To check all Rd files in a directory, (additionally) skipping the</span><span class="token comment">## \references sections.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## To check all Rd files in a directory, (additionally) skipping the</span>
+<span class="token comment">## \references sections.</span>
 files <span class="token operator">&lt;-</span> Sys.glob<span class="token punctuation">(</span><span class="token string">"*.Rd"</span><span class="token punctuation">)</span>
 aspell<span class="token punctuation">(</span>files<span class="token punctuation">,</span> filter <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token string">"Rd"</span><span class="token punctuation">,</span> drop <span class="token operator">=</span> <span class="token string">"\\references"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
@@ -1527,7 +1529,8 @@ set up a repository.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## Count package licenses</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## Count package licenses</span>
 db <span class="token operator">&lt;-</span> available.packages<span class="token punctuation">(</span>filters <span class="token operator">=</span> <span class="token string">"duplicates"</span><span class="token punctuation">)</span>
 table<span class="token punctuation">(</span>db<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token string">"License"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
@@ -2218,7 +2221,8 @@ package (from <a href="https://www.bioconductor.org" target="_blank">https://www
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment">## create some interesting objects :</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">## create some interesting objects :</span>
    ofa <span class="token operator">&lt;-</span> ordered<span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">)</span>
    ex1 <span class="token operator">&lt;-</span> expression<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">9</span><span class="token punctuation">)</span>
    ex3 <span class="token operator">&lt;-</span> expression<span class="token punctuation">(</span>u<span class="token punctuation">,</span> v<span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">+</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">9</span><span class="token punctuation">)</span>
@@ -2364,7 +2368,8 @@ both browser and OS.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## for KDE users who want to open files in a new tab</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## for KDE users who want to open files in a new tab</span>
 options<span class="token punctuation">(</span>browser <span class="token operator">=</span> <span class="token string">"kfmclient newTab"</span><span class="token punctuation">)</span>
 
 browseURL<span class="token punctuation">(</span><span class="token string">"https://www.r-project.org"</span><span class="token punctuation">)</span>
@@ -3236,7 +3241,7 @@ initially selected.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span> .Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span> <span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> .Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">)</span>
         choose.dir<span class="token punctuation">(</span>getwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"Choose a suitable folder"</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -3353,7 +3358,7 @@ files by pattern.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span> .Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span> <span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> .Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">)</span>
        choose.files<span class="token punctuation">(</span>filters <span class="token operator">=</span> Filters<span class="token punctuation">[</span>c<span class="token punctuation">(</span><span class="token string">"zip"</span><span class="token punctuation">,</span> <span class="token string">"All"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -5281,7 +5286,8 @@ width of any field is limited to
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># call data entry with variables x and y</span><span class="token comment">## Not run: data.entry(x, y)</span></code></pre>
+<pre class="language-r"><code class="language-r"><span class="token comment"># call data entry with variables x and y</span>
+<span class="token comment">## Not run: data.entry(x, y)</span></code></pre>
 
 <hr>
 </div>
@@ -5355,7 +5361,9 @@ will not work.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## Evaluate call after setting debugging</span><span class="token comment">## </span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## Evaluate call after setting debugging</span>
+<span class="token comment">## </span>
 f <span class="token operator">&lt;-</span> factor<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span>
 res <span class="token operator">&lt;-</span> eval<span class="token punctuation">(</span>debugcall<span class="token punctuation">(</span>summary<span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
 
@@ -5713,7 +5721,7 @@ corresponding string is empty.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"windows"</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
   DLL.version<span class="token punctuation">(</span>file.path<span class="token punctuation">(</span>R.home<span class="token punctuation">(</span><span class="token string">"bin"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"R.dll"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
   DLL.version<span class="token punctuation">(</span>file.path<span class="token punctuation">(</span>R.home<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"library/stats/libs"</span><span class="token punctuation">,</span> .Platform<span class="token operator">$</span>r_arch<span class="token punctuation">,</span> <span class="token string">"stats.dll"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
@@ -6340,7 +6348,8 @@ being on the path. This is system-dependent.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment"># use xedit on the function mean and assign the changes</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment"># use xedit on the function mean and assign the changes</span>
 mean <span class="token operator">&lt;-</span> edit<span class="token punctuation">(</span>mean<span class="token punctuation">,</span> editor <span class="token operator">=</span> <span class="token string">"xedit"</span><span class="token punctuation">)</span>
 
 <span class="token comment"># use vi on mean and write the result to file mean.out</span>
@@ -6875,7 +6884,8 @@ UTF-8-encoded paths not valid in the current locale can be used.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment"># open two R scripts for editing</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment"># open two R scripts for editing</span>
 file.edit<span class="token punctuation">(</span><span class="token string">"script1.R"</span><span class="token punctuation">,</span> <span class="token string">"script2.R"</span><span class="token punctuation">)</span>
 
 <span class="token comment">## End(Not run)</span></code></pre>
@@ -7125,7 +7135,8 @@ side effect of calling <code><a href="https://r-universe.dev/manuals/base.html#t
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment"># Find what function was defined in the file mysource.R at line 100:</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment"># Find what function was defined in the file mysource.R at line 100:</span>
 findLineNum<span class="token punctuation">(</span><span class="token string">"mysource.R#100"</span><span class="token punctuation">)</span>
 
 <span class="token comment"># Set a breakpoint in both copies of that function, assuming one is in the</span>
@@ -7190,7 +7201,8 @@ a data frame or matrix.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## Assume 'my.fun' is a user defined function :</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+ <span class="token comment">## Assume 'my.fun' is a user defined function :</span>
  fix<span class="token punctuation">(</span>my.fun<span class="token punctuation">)</span>
  <span class="token comment">## now my.fun is changed</span>
  <span class="token comment">## Also,</span>
@@ -7960,7 +7972,7 @@ through this function.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"windows"</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">)</span>
   print<span class="token punctuation">(</span> getWindowsHandle<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -8075,7 +8087,7 @@ whose title text matches (according to <code><a href="https://r-universe.dev/man
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"windows"</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
   getWindowsHandles<span class="token punctuation">(</span><span class="token punctuation">)</span>
   getWindowsHandles<span class="token punctuation">(</span><span class="token string">"all"</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
@@ -8298,7 +8310,11 @@ version the information is stored at the package level.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## assume your package has some code that assigns ".obj1" and ".obj2"</span><span class="token comment">## but not in a way that codetools can find.</span><span class="token comment">## In the same source file (to remind you that you did it) add:</span><span class="token keyword">if</span><span class="token punctuation">(</span>getRversion<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&gt;=</span><span class="token string">"2.15.1"</span><span class="token punctuation">)</span>  utils<span class="token operator">::</span>globalVariables<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">".obj1"</span><span class="token punctuation">,</span> <span class="token string">"obj2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## assume your package has some code that assigns ".obj1" and ".obj2"</span>
+<span class="token comment">## but not in a way that codetools can find.</span>
+<span class="token comment">## In the same source file (to remind you that you did it) add:</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>getRversion<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token string">"2.15.1"</span><span class="token punctuation">)</span>  utils<span class="token operator">::</span>globalVariables<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">".obj1"</span><span class="token punctuation">,</span> <span class="token string">"obj2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token comment">## To suppress messages about a run-time calculated native symbol, </span>
 <span class="token comment">## save it to a local variable.</span>
@@ -10467,7 +10483,8 @@ set up a repository.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## A Linux example for Fedora's layout of udunits2 headers.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## A Linux example for Fedora's layout of udunits2 headers.</span>
 install.packages<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"ncdf4"</span><span class="token punctuation">,</span> <span class="token string">"RNetCDF"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   configure.args <span class="token operator">=</span> c<span class="token punctuation">(</span>RNetCDF <span class="token operator">=</span> <span class="token string">"--with-netcdf-include=/usr/include/udunits2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
@@ -10799,7 +10816,8 @@ bundle, e.g. an <code>R-devel</code> RPM.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: ## examples of front-ends linked against R.</span><span class="token comment">## First a C program</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: ## examples of front-ends linked against R.</span>
+<span class="token comment">## First a C program</span>
 CC<span class="token operator">=</span>`R CMD config CC`
 R CMD LINK <span class="token operator">$</span>CC <span class="token operator">-</span>o foo foo.o `R CMD config <span class="token operator">-</span><span class="token operator">-</span>ldflags`
 
@@ -12012,7 +12030,7 @@ if BSD networking is not supported, including the header file
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"unix"</span><span class="token punctuation">)</span><span class="token comment"># includes Mac</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"unix"</span><span class="token punctuation">)</span> <span class="token comment"># includes Mac</span>
   print<span class="token punctuation">(</span> nsl<span class="token punctuation">(</span><span class="token string">"www.r-project.org"</span><span class="token punctuation">)</span> <span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -15537,7 +15555,8 @@ CSV files (which requires comma as separator and CRLF line endings).
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## using count.fields to handle unknown maximum number of fields</span><span class="token comment">## when fill = TRUE</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## using count.fields to handle unknown maximum number of fields</span>
+<span class="token comment">## when fill = TRUE</span>
 test1 <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token string">"6,7"</span><span class="token punctuation">,</span> <span class="token string">"8,9,10"</span><span class="token punctuation">)</span>
 tf <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span>
 writeLines<span class="token punctuation">(</span>test1<span class="token punctuation">,</span> tf<span class="token punctuation">)</span>
@@ -15641,7 +15660,7 @@ precede subkeys, and both the latter sets are sorted alphabetically.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"windows"</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
   <span class="token comment">## only in HLM if set in an admin-mode install.</span>
   try<span class="token punctuation">(</span>readRegistry<span class="token punctuation">(</span><span class="token string">"SOFTWARE\\R-core"</span><span class="token punctuation">,</span> maxdepth <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
@@ -16205,7 +16224,8 @@ Accessed September 29, 2006.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## First five roman 'numbers'.</span><span class="token punctuation">(</span>y <span class="token operator">&lt;-</span> as.roman<span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## First five roman 'numbers'.</span>
+<span class="token punctuation">(</span>y <span class="token operator">&lt;-</span> as.roman<span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment">## Middle one.</span>
 y<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
 <span class="token comment">## Current year as a roman number.</span>
@@ -16506,7 +16526,8 @@ memory use.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: Rprof()</span><span class="token comment">## some code to be profiled</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: Rprof()</span>
+<span class="token comment">## some code to be profiled</span>
 Rprof<span class="token punctuation">(</span><span class="token keyword">NULL</span><span class="token punctuation">)</span>
 <span class="token comment">## some code NOT to be profiled</span>
 Rprof<span class="token punctuation">(</span>append <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
@@ -16604,7 +16625,8 @@ memory information.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## not supported unless R is compiled to support it.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## not supported unless R is compiled to support it.</span>
 Rprofmem<span class="token punctuation">(</span><span class="token string">"Rprofmem.out"</span><span class="token punctuation">,</span> threshold <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">)</span>
 example<span class="token punctuation">(</span>glm<span class="token punctuation">)</span>
 Rprofmem<span class="token punctuation">(</span><span class="token keyword">NULL</span><span class="token punctuation">)</span>
@@ -16955,7 +16977,8 @@ including the query string.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># need Internet connection</span><span class="token comment">## for phrase searching you may use (escaped) double quotes or brackets</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># need Internet connection</span>
+<span class="token comment">## for phrase searching you may use (escaped) double quotes or brackets</span>
 RSiteSearch<span class="token punctuation">(</span><span class="token string">"{logistic regression} \"glm object\""</span><span class="token punctuation">)</span>
 RSiteSearch<span class="token punctuation">(</span><span class="token string">'"logistic regression"'</span><span class="token punctuation">)</span>
 
@@ -17827,7 +17850,7 @@ to a file.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"windows"</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
   ruser <span class="token operator">&lt;-</span> Sys.getenv<span class="token punctuation">(</span><span class="token string">"R_USER"</span><span class="token punctuation">)</span>
   cat<span class="token punctuation">(</span><span class="token string">"\n\nLocation for personal configuration files is\n   R_USER = "</span><span class="token punctuation">,</span>
       ruser<span class="token punctuation">,</span> <span class="token string">"\n\n"</span><span class="token punctuation">,</span> sep <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span>
@@ -17998,7 +18021,9 @@ workspace), you can put a call to <code>savehistory()</code> in
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## Save the history in the home directory: note that it is not</span><span class="token comment">## (by default) read from there but from the current directory</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## Save the history in the home directory: note that it is not</span>
+<span class="token comment">## (by default) read from there but from the current directory</span>
 .Last <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> try<span class="token punctuation">(</span>savehistory<span class="token punctuation">(</span><span class="token string">"~/.Rhistory"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
@@ -18520,7 +18545,7 @@ the title is not visible (but can be set and gotten), and in a version of
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"windows"</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
 <span class="token comment">## show the current working directory in the title, saving the old one</span>
 oldtitle <span class="token operator">&lt;-</span> setWindowTitle<span class="token punctuation">(</span>getwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 Sys.sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span>
@@ -18633,7 +18658,8 @@ bundle, e.g., an <code>R-devel</code> RPM.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment"># To link against a library not on the system library paths:</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment"># To link against a library not on the system library paths:</span>
 R CMD SHLIB <span class="token operator">-</span>o mylib.so a.f b.f <span class="token operator">-</span>L<span class="token operator">/</span>opt<span class="token operator">/</span>acml3.<span class="token number">5.0</span><span class="token operator">/</span>gnu64<span class="token operator">/</span>lib <span class="token operator">-</span>lacml
 
 <span class="token comment">## End(Not run)</span></code></pre>
@@ -18695,7 +18721,7 @@ replaced by backslashes.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"windows"</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
 
   cat<span class="token punctuation">(</span>shortPathName<span class="token punctuation">(</span>c<span class="token punctuation">(</span>R.home<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> tempdir<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sep <span class="token operator">=</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
 
@@ -19583,7 +19609,8 @@ of the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b>
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## Rprof() is not available on all platforms</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## Rprof() is not available on all platforms</span>
 Rprof<span class="token punctuation">(</span>tmp <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 example<span class="token punctuation">(</span>glm<span class="token punctuation">)</span>
 Rprof<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -21862,7 +21889,7 @@ as 8). If the API call reports 8, this function returns
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"windows"</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">)</span>
    print<span class="token punctuation">(</span>win.version<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -22357,7 +22384,8 @@ are all of the same class, consider using a matrix instead.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## To write a CSV file for input to Excel one might use</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## To write a CSV file for input to Excel one might use</span>
 x <span class="token operator">&lt;-</span> data.frame<span class="token punctuation">(</span>a <span class="token operator">=</span> I<span class="token punctuation">(</span><span class="token string">"a \" quote"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> b <span class="token operator">=</span> pi<span class="token punctuation">)</span>
 write.table<span class="token punctuation">(</span>x<span class="token punctuation">,</span> file <span class="token operator">=</span> <span class="token string">"foo.csv"</span><span class="token punctuation">,</span> sep <span class="token operator">=</span> <span class="token string">","</span><span class="token punctuation">,</span> col.names <span class="token operator">=</span> <span class="token keyword">NA</span><span class="token punctuation">,</span>
             qmethod <span class="token operator">=</span> <span class="token string">"double"</span><span class="token punctuation">)</span>

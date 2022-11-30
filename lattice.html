@@ -402,7 +402,10 @@ available in the <span class="pkg">latticeExtra</span> package.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## Show brief history of changes to lattice, including</span><span class="token comment">## a summary of new features.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+
+<span class="token comment">## Show brief history of changes to lattice, including</span>
+<span class="token comment">## a summary of new features.</span>
 
 RShowDoc<span class="token punctuation">(</span><span class="token string">"NEWS"</span><span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">"lattice"</span><span class="token punctuation">)</span>
 
@@ -13418,7 +13421,8 @@ same experiment
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># Graphic suggesting the Morris data switched the years 1931 and 1932</span><span class="token comment"># Figure 1.1 from Cleveland</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># Graphic suggesting the Morris data switched the years 1931 and 1932</span>
+<span class="token comment"># Figure 1.1 from Cleveland</span>
 dotplot<span class="token punctuation">(</span>variety <span class="token operator">~</span> yield <span class="token operator">|</span> site<span class="token punctuation">,</span> data <span class="token operator">=</span> barley<span class="token punctuation">,</span> groups <span class="token operator">=</span> year<span class="token punctuation">,</span>
         key <span class="token operator">=</span> simpleKey<span class="token punctuation">(</span>levels<span class="token punctuation">(</span>barley<span class="token operator">$</span>year<span class="token punctuation">)</span><span class="token punctuation">,</span> space <span class="token operator">=</span> <span class="token string">"right"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         xlab <span class="token operator">=</span> <span class="token string">"Barley Yield (bushels/acre) "</span><span class="token punctuation">,</span>

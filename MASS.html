@@ -1312,7 +1312,9 @@ Springer, equation (5.5) on page 130.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># The function is currently defined as</span><span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># The function is currently defined as</span>
+<span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
     r <span class="token operator">&lt;-</span> quantile<span class="token punctuation">(</span>x<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">0.25</span><span class="token punctuation">,</span> <span class="token number">0.75</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     h <span class="token operator">&lt;-</span> <span class="token punctuation">(</span>r<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">-</span> r<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">1.34</span>
     <span class="token number">4</span> <span class="token operator">*</span> <span class="token number">1.06</span> <span class="token operator">*</span> min<span class="token punctuation">(</span>sqrt<span class="token punctuation">(</span>var<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> h<span class="token punctuation">)</span> <span class="token operator">*</span> length<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token operator">^</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">/</span><span class="token number">5</span><span class="token punctuation">)</span>
@@ -2196,7 +2198,8 @@ columns the hair colours (fair, red, medium, dark, black).
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## IGNORE_RDIFF_BEGIN</span><span class="token comment">## The signs can vary by platform</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## IGNORE_RDIFF_BEGIN</span>
+<span class="token comment">## The signs can vary by platform</span>
 corresp<span class="token punctuation">(</span>caith<span class="token punctuation">)</span>
 <span class="token comment">## IGNORE_RDIFF_END</span>
 dimnames<span class="token punctuation">(</span>caith<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token string">"F"</span><span class="token punctuation">,</span> <span class="token string">"R"</span><span class="token punctuation">,</span> <span class="token string">"M"</span><span class="token punctuation">,</span> <span class="token string">"D"</span><span class="token punctuation">,</span> <span class="token string">"B"</span><span class="token punctuation">)</span>
@@ -3021,7 +3024,9 @@ and column scores.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## IGNORE_RDIFF_BEGIN</span><span class="token comment">## The signs can vary by platform</span><span class="token punctuation">(</span>ct <span class="token operator">&lt;-</span> corresp<span class="token punctuation">(</span><span class="token operator">~</span> Age <span class="token operator">+</span> Eth<span class="token punctuation">,</span> data <span class="token operator">=</span> quine<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## IGNORE_RDIFF_BEGIN</span>
+<span class="token comment">## The signs can vary by platform</span>
+<span class="token punctuation">(</span>ct <span class="token operator">&lt;-</span> corresp<span class="token punctuation">(</span><span class="token operator">~</span> Age <span class="token operator">+</span> Eth<span class="token punctuation">,</span> data <span class="token operator">=</span> quine<span class="token punctuation">)</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>ct<span class="token punctuation">)</span>
 
 corresp<span class="token punctuation">(</span>caith<span class="token punctuation">)</span>
@@ -7858,7 +7863,10 @@ estimates.  The deviances will normally continue to be correct, though.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># The data frames  Cars93, minn38 and quine are available</span><span class="token comment"># in the MASS package.</span><span class="token comment"># Case 1: frequencies specified as an array.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># The data frames  Cars93, minn38 and quine are available</span>
+<span class="token comment"># in the MASS package.</span>
+
+<span class="token comment"># Case 1: frequencies specified as an array.</span>
 sapply<span class="token punctuation">(</span>minn38<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> length<span class="token punctuation">(</span>levels<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment">## hs phs fol sex f</span>
 <span class="token comment">##  3   4   7   2 0</span>
@@ -9303,7 +9311,9 @@ generalized linear model.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># Fitting a Negative Binomial model to the quine data</span><span class="token comment">#   with theta = 2 assumed known.</span><span class="token comment">#</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># Fitting a Negative Binomial model to the quine data</span>
+<span class="token comment">#   with theta = 2 assumed known.</span>
+<span class="token comment">#</span>
 glm<span class="token punctuation">(</span>Days <span class="token operator">~</span> .<span class="token operator">^</span><span class="token number">4</span><span class="token punctuation">,</span> family <span class="token operator">=</span> negative.binomial<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> data <span class="token operator">=</span> quine<span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -9664,7 +9674,9 @@ maximal rank.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># The function is currently defined as</span><span class="token keyword">function</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># The function is currently defined as</span>
+<span class="token keyword">function</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
     tmp <span class="token operator">&lt;-</span> qr<span class="token punctuation">(</span>M<span class="token punctuation">)</span>
     set <span class="token operator">&lt;-</span> <span class="token keyword">if</span><span class="token punctuation">(</span>tmp<span class="token operator">$</span>rank <span class="token operator">==</span> <span class="token number">0L</span><span class="token punctuation">)</span> seq_len<span class="token punctuation">(</span>ncol<span class="token punctuation">(</span>M<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">else</span>  <span class="token operator">-</span>seq_len<span class="token punctuation">(</span>tmp<span class="token operator">$</span>rank<span class="token punctuation">)</span>
     qr.Q<span class="token punctuation">(</span>tmp<span class="token punctuation">,</span> complete <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">,</span> set<span class="token punctuation">,</span> drop <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">]</span>
@@ -10716,7 +10728,9 @@ elliptical.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## see ?profile.glm for an example using glm fits.</span><span class="token comment">## a version of example(profile.nls) from R &gt;= 2.8.0</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## see ?profile.glm for an example using glm fits.</span>
+
+<span class="token comment">## a version of example(profile.nls) from R &gt;= 2.8.0</span>
 fm1 <span class="token operator">&lt;-</span> nls<span class="token punctuation">(</span>demand <span class="token operator">~</span> SSasympOrig<span class="token punctuation">(</span>Time<span class="token punctuation">,</span> A<span class="token punctuation">,</span> lrc<span class="token punctuation">)</span><span class="token punctuation">,</span> data <span class="token operator">=</span> BOD<span class="token punctuation">)</span>
 pr1 <span class="token operator">&lt;-</span> profile<span class="token punctuation">(</span>fm1<span class="token punctuation">,</span> alpha <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">)</span>
 MASS<span class="token operator">::</span><span class="token operator">:</span>plot.profile<span class="token punctuation">(</span>pr1<span class="token punctuation">)</span>

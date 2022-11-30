@@ -1665,7 +1665,10 @@ more general two-phase designs. <a href="http://faculty.washington.edu/tlumley/s
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## The complete Wilms Tumor Data </span><span class="token comment">## (Breslow and Chatterjee, Applied Statistics, 1999)</span><span class="token comment">## subcohort selected by simple random sampling.</span><span class="token comment">##</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## The complete Wilms Tumor Data </span>
+<span class="token comment">## (Breslow and Chatterjee, Applied Statistics, 1999)</span>
+<span class="token comment">## subcohort selected by simple random sampling.</span>
+<span class="token comment">##</span>
 
 subcoh <span class="token operator">&lt;-</span> nwtco<span class="token operator">$</span><span class="token keyword">in</span>.subcohort
 selccoh <span class="token operator">&lt;-</span> with<span class="token punctuation">(</span>nwtco<span class="token punctuation">,</span> rel<span class="token operator">==</span><span class="token number">1</span><span class="token operator">|</span>subcoh<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span>
@@ -2165,7 +2168,13 @@ Am J Sociology 89:324-349, 1983.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: clogit(case ~ spontaneous + induced + strata(stratum), data=infert)</span><span class="token comment"># A multinomial response recoded to use clogit</span><span class="token comment">#  The revised data set has one copy per possible outcome level, with new</span><span class="token comment">#  variable tocc = target occupation for this copy, and case = whether</span><span class="token comment">#  that is the actual outcome for each subject.</span><span class="token comment"># See the reference below for the data.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: clogit(case ~ spontaneous + induced + strata(stratum), data=infert)</span>
+
+<span class="token comment"># A multinomial response recoded to use clogit</span>
+<span class="token comment">#  The revised data set has one copy per possible outcome level, with new</span>
+<span class="token comment">#  variable tocc = target occupation for this copy, and case = whether</span>
+<span class="token comment">#  that is the actual outcome for each subject.</span>
+<span class="token comment"># See the reference below for the data.</span>
 resp <span class="token operator">&lt;-</span> levels<span class="token punctuation">(</span>logan<span class="token operator">$</span>occupation<span class="token punctuation">)</span>
 n <span class="token operator">&lt;-</span> nrow<span class="token punctuation">(</span>logan<span class="token punctuation">)</span>
 indx <span class="token operator">&lt;-</span> rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span>n<span class="token punctuation">,</span> length<span class="token punctuation">(</span>resp<span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -9596,7 +9605,8 @@ routine, if any.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># Look at progression rates jointly by calendar date and age</span><span class="token comment"># </span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># Look at progression rates jointly by calendar date and age</span>
+<span class="token comment"># </span>
 temp.yr  <span class="token operator">&lt;-</span> tcut<span class="token punctuation">(</span>mgus<span class="token operator">$</span>dxyr<span class="token punctuation">,</span> <span class="token number">55</span><span class="token operator">:</span><span class="token number">92</span><span class="token punctuation">,</span> labels<span class="token operator">=</span>as.character<span class="token punctuation">(</span><span class="token number">55</span><span class="token operator">:</span><span class="token number">91</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
 temp.age <span class="token operator">&lt;-</span> tcut<span class="token punctuation">(</span>mgus<span class="token operator">$</span>age<span class="token punctuation">,</span> <span class="token number">34</span><span class="token operator">:</span><span class="token number">101</span><span class="token punctuation">,</span> labels<span class="token operator">=</span>as.character<span class="token punctuation">(</span><span class="token number">34</span><span class="token operator">:</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 ptime <span class="token operator">&lt;-</span> ifelse<span class="token punctuation">(</span>is.na<span class="token punctuation">(</span>mgus<span class="token operator">$</span>pctime<span class="token punctuation">)</span><span class="token punctuation">,</span> mgus<span class="token operator">$</span>futime<span class="token punctuation">,</span> mgus<span class="token operator">$</span>pctime<span class="token punctuation">)</span>
@@ -10906,7 +10916,8 @@ in Medicine, 16:2029-2047, 1997.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># Build the start-stop data set for analysis, and</span><span class="token comment">#  replicate line 2 of table 8.13</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># Build the start-stop data set for analysis, and</span>
+<span class="token comment">#  replicate line 2 of table 8.13</span>
 first <span class="token operator">&lt;-</span> subset<span class="token punctuation">(</span>rhDNase<span class="token punctuation">,</span> <span class="token operator">!</span>duplicated<span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#first row for each subject</span>
 dnase <span class="token operator">&lt;-</span> tmerge<span class="token punctuation">(</span>first<span class="token punctuation">,</span> first<span class="token punctuation">,</span> id<span class="token operator">=</span>id<span class="token punctuation">,</span> tstop<span class="token operator">=</span>as.numeric<span class="token punctuation">(</span>end.dt <span class="token operator">-</span>entry.dt<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
@@ -11472,7 +11483,8 @@ pad type A6 and the other 3 with pad type A3.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># The balanced subset used by Chambers and Hastie</span><span class="token comment">#   contains the first 180 of each mask and deletes mask A6. </span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># The balanced subset used by Chambers and Hastie</span>
+<span class="token comment">#   contains the first 180 of each mask and deletes mask A6. </span>
 index <span class="token operator">&lt;-</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span>nrow<span class="token punctuation">(</span>solder<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span> match<span class="token punctuation">(</span>solder<span class="token operator">$</span>Mask<span class="token punctuation">,</span> solder<span class="token operator">$</span>Mask<span class="token punctuation">)</span>
 solder.balance <span class="token operator">&lt;-</span> droplevels<span class="token punctuation">(</span>subset<span class="token punctuation">(</span>solder<span class="token punctuation">,</span> Mask <span class="token operator">!=</span> <span class="token string">"A6"</span> <span class="token operator">&amp;</span> index <span class="token operator">&lt;=</span> <span class="token number">180</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
@@ -13922,7 +13934,10 @@ Background mortality in clinical survival studies.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># </span><span class="token comment"># Stanford heart transplant data</span><span class="token comment">#  We don't have sex in the data set, but know it to be nearly all males.</span><span class="token comment"># Estimate of conditional survival  </span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># </span>
+<span class="token comment"># Stanford heart transplant data</span>
+<span class="token comment">#  We don't have sex in the data set, but know it to be nearly all males.</span>
+<span class="token comment"># Estimate of conditional survival  </span>
 fit1 <span class="token operator">&lt;-</span> survexp<span class="token punctuation">(</span>futime <span class="token operator">~</span> <span class="token number">1</span><span class="token punctuation">,</span> rmap<span class="token operator">=</span>list<span class="token punctuation">(</span>sex<span class="token operator">=</span><span class="token string">"male"</span><span class="token punctuation">,</span> year<span class="token operator">=</span>accept.dt<span class="token punctuation">,</span>   
           age<span class="token operator">=</span><span class="token punctuation">(</span>accept.dt<span class="token operator">-</span>birth.dt<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> method<span class="token operator">=</span><span class="token string">'conditional'</span><span class="token punctuation">,</span> data<span class="token operator">=</span>jasa<span class="token punctuation">)</span>
 summary<span class="token punctuation">(</span>fit1<span class="token punctuation">,</span> times<span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token operator">*</span><span class="token number">182.5</span><span class="token punctuation">,</span> scale<span class="token operator">=</span><span class="token number">365</span><span class="token punctuation">)</span> <span class="token comment">#expected survival by 1/2 years</span>
@@ -16619,7 +16634,8 @@ vector of character strings if not.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># An invalid distribution (it should have "init =" on line 2)</span><span class="token comment">#  surveg would give an error message</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># An invalid distribution (it should have "init =" on line 2)</span>
+<span class="token comment">#  surveg would give an error message</span>
 mycauchy <span class="token operator">&lt;-</span> list<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'Cauchy'</span><span class="token punctuation">,</span>
                  init<span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> weights<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span> 
                       c<span class="token punctuation">(</span>median<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> mad<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -16849,7 +16865,8 @@ levels<span class="token punctuation">(</span>x<span class="token punctuation">)
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># For pyears, all time variable need to be on the same scale; but</span><span class="token comment"># futime is in months and age is in years</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># For pyears, all time variable need to be on the same scale; but</span>
+<span class="token comment"># futime is in months and age is in years</span>
 test <span class="token operator">&lt;-</span> mgus2
 test<span class="token operator">$</span>years <span class="token operator">&lt;-</span> test<span class="token operator">$</span>futime<span class="token operator">/</span><span class="token number">30.5</span>   <span class="token comment"># follow-up in years</span>
 
@@ -17061,7 +17078,13 @@ become invalid if for instance a subset were selected.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># The pbc data set contains baseline data and follow-up status</span><span class="token comment"># for a set of subjects with primary biliary cirrhosis, while the</span><span class="token comment"># pbcseq data set contains repeated laboratory values for those</span><span class="token comment"># subjects.  </span><span class="token comment"># The first data set contains data on 312 subjects in a clinical trial plus</span><span class="token comment"># 106 that agreed to be followed off protocol, the second data set has data</span><span class="token comment"># only on the trial subjects.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># The pbc data set contains baseline data and follow-up status</span>
+<span class="token comment"># for a set of subjects with primary biliary cirrhosis, while the</span>
+<span class="token comment"># pbcseq data set contains repeated laboratory values for those</span>
+<span class="token comment"># subjects.  </span>
+<span class="token comment"># The first data set contains data on 312 subjects in a clinical trial plus</span>
+<span class="token comment"># 106 that agreed to be followed off protocol, the second data set has data</span>
+<span class="token comment"># only on the trial subjects.</span>
 temp <span class="token operator">&lt;-</span> subset<span class="token punctuation">(</span>pbc<span class="token punctuation">,</span> id <span class="token operator">&lt;=</span> <span class="token number">312</span><span class="token punctuation">,</span> select<span class="token operator">=</span>c<span class="token punctuation">(</span>id<span class="token operator">:</span>sex<span class="token punctuation">,</span> stage<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># baseline data</span>
 pbc2 <span class="token operator">&lt;-</span> tmerge<span class="token punctuation">(</span>temp<span class="token punctuation">,</span> temp<span class="token punctuation">,</span> id<span class="token operator">=</span>id<span class="token punctuation">,</span> endpt <span class="token operator">=</span> event<span class="token punctuation">(</span>time<span class="token punctuation">,</span> status<span class="token punctuation">)</span><span class="token punctuation">)</span>
 pbc2 <span class="token operator">&lt;-</span> tmerge<span class="token punctuation">(</span>pbc2<span class="token punctuation">,</span> pbcseq<span class="token punctuation">,</span> id<span class="token operator">=</span>id<span class="token punctuation">,</span> ascites <span class="token operator">=</span> tdc<span class="token punctuation">(</span>day<span class="token punctuation">,</span> ascites<span class="token punctuation">)</span><span class="token punctuation">,</span>

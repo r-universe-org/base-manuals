@@ -2751,7 +2751,8 @@ colour.  This will do nothing if the background is transparent
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## dataset not in R</span><span class="token comment">## Not run: </span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## dataset not in R</span>
+<span class="token comment">## Not run: </span>
 z.survey <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>market.survey<span class="token punctuation">)</span> <span class="token comment"># grow the rpart object</span>
 plot<span class="token punctuation">(</span>z.survey<span class="token punctuation">)</span> <span class="token comment"># plot the tree</span>
 z.survey2 <span class="token operator">&lt;-</span> snip.rpart<span class="token punctuation">(</span>z.survey<span class="token punctuation">,</span> toss <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment"># trim subtree at node 2</span>

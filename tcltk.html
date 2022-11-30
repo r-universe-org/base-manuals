@@ -617,7 +617,7 @@ does not actually use it (e.g., during installation).
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> tk_choose.dir<span class="token punctuation">(</span>getwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"Choose a suitable folder"</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span> <span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> tk_choose.dir<span class="token punctuation">(</span>getwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"Choose a suitable folder"</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div>
@@ -1068,7 +1068,9 @@ With a few exceptions, the pattern is that Tk subcommands like
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## These cannot be run by examples() but should be OK when pasted</span><span class="token comment">## into an interactive R session with the tcltk package loaded</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## These cannot be run by examples() but should be OK when pasted</span>
+<span class="token comment">## into an interactive R session with the tcltk package loaded</span>
 
 tt <span class="token operator">&lt;-</span> tktoplevel<span class="token punctuation">(</span><span class="token punctuation">)</span>
 tkpack<span class="token punctuation">(</span>l1 <span class="token operator">&lt;-</span> tklabel<span class="token punctuation">(</span>tt<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"Heave"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> l2 <span class="token operator">&lt;-</span> tklabel<span class="token punctuation">(</span>tt<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"Ho"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -1436,7 +1438,9 @@ possibly with subcommands like
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## These cannot be run by examples() but should be OK when pasted</span><span class="token comment">## into an interactive R session with the tcltk package loaded</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## These cannot be run by examples() but should be OK when pasted</span>
+<span class="token comment">## into an interactive R session with the tcltk package loaded</span>
 
 tt <span class="token operator">&lt;-</span> tktoplevel<span class="token punctuation">(</span><span class="token punctuation">)</span>
 tkpack<span class="token punctuation">(</span>txt.w <span class="token operator">&lt;-</span> tktext<span class="token punctuation">(</span>tt<span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -1548,7 +1552,9 @@ full.  Please refer to the Tcl/Tk documentation.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## These cannot be run by examples() but should be OK when pasted</span><span class="token comment">## into an interactive R session with the tcltk package loaded</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## These cannot be run by examples() but should be OK when pasted</span>
+<span class="token comment">## into an interactive R session with the tcltk package loaded</span>
 
 tt <span class="token operator">&lt;-</span> tktoplevel<span class="token punctuation">(</span><span class="token punctuation">)</span>
 label.widget <span class="token operator">&lt;-</span> tklabel<span class="token punctuation">(</span>tt<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token string">"Hello, World!"</span><span class="token punctuation">)</span>

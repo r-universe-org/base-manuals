@@ -187,7 +187,8 @@ them, <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></co
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## The function is simply defined as</span><span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token ellipsis">...</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## The function is simply defined as</span>
+ <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     writeLines<span class="token punctuation">(</span>format<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     invisible<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
  <span class="token punctuation">}</span>
@@ -1152,7 +1153,8 @@ future versions.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## Check packages in dir without reverse dependencies:</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## Check packages in dir without reverse dependencies:</span>
 check_packages_in_dir<span class="token punctuation">(</span>dir<span class="token punctuation">)</span>
 <span class="token comment">## Check packages in dir and their reverse dependencies using the</span>
 <span class="token comment">## defaults (all repositories in getOption("repos"), all "strong"</span>
@@ -1851,7 +1853,8 @@ which versions of <span style="font-family: Courier New, Courier; color: #666666
 </table>
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## from a package top-level source directory</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## from a package top-level source directory</span>
 paths <span class="token operator">&lt;-</span> sort<span class="token punctuation">(</span>Sys.glob<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"data/*.rda"</span><span class="token punctuation">,</span> <span class="token string">"data/*.RData"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">(</span>res <span class="token operator">&lt;-</span> checkRdaFiles<span class="token punctuation">(</span>paths<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment">## pick out some that may need attention</span>
@@ -2486,7 +2489,8 @@ need to set <span class="env">R_CRAN_WEB</span> to point to a full mirror.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## This can be rather slow  with a non-local CRAN mirror</span><span class="token comment">## and might fail (slowly) without Internet access in that case.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## This can be rather slow  with a non-local CRAN mirror</span>
+<span class="token comment">## and might fail (slowly) without Internet access in that case.</span>
 
 set.seed<span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span>  <span class="token comment"># but the packages chosen will change as soon as CRAN does.</span>
 pdb <span class="token operator">&lt;-</span> CRAN_package_db<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -2676,7 +2680,8 @@ for all known trees (see <code><a href="https://r-universe.dev/manuals/base.html
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## there are few dependencies in a vanilla R installation:</span><span class="token comment">## lattice may not be installed</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## there are few dependencies in a vanilla R installation:</span>
+<span class="token comment">## lattice may not be installed</span>
 dependsOnPkgs<span class="token punctuation">(</span><span class="token string">"lattice"</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -2971,7 +2976,9 @@ one was found, otherwise an empty string.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## Suppose a Solaris system has GhostScript 9.00 on the path and</span><span class="token comment">## 9.07 in /opt/csw/bin.  Then one might set</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## Suppose a Solaris system has GhostScript 9.00 on the path and</span>
+<span class="token comment">## 9.07 in /opt/csw/bin.  Then one might set</span>
 Sys.setenv<span class="token punctuation">(</span>R_GSCMD <span class="token operator">=</span> <span class="token string">"/opt/csw/bin/gs"</span><span class="token punctuation">)</span>
 
 <span class="token comment">## End(Not run)</span></code></pre>
@@ -3955,7 +3962,8 @@ explicit (character string) <code>PACKAGE</code> argument.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## with a completed splines/DESCRIPTION file,</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## with a completed splines/DESCRIPTION file,</span>
 tools<span class="token operator">::</span>package_native_routine_registration_skeleton<span class="token punctuation">(</span><span class="token string">'splines'</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 <span class="token comment">## produces</span>
 <span class="token comment">#include &lt;R.h&gt;</span>
@@ -4876,7 +4884,7 @@ page is converted to a readable format).
 </li>
 <li>
 <p> rendered on
-2022-11-29 at 13:57:13.
+2022-11-30 at 18:22:48.
 </p>
 </li>
 </ol>
@@ -4900,7 +4908,8 @@ page is converted to a readable format).
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## Simulate install and rendering of this page in HTML and text format:</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## Simulate install and rendering of this page in HTML and text format:</span>
 
 Rd <span class="token operator">&lt;-</span> file.path<span class="token punctuation">(</span><span class="token string">"src/library/tools/man/Rd2HTML.Rd"</span><span class="token punctuation">)</span>
 
@@ -7299,7 +7308,9 @@ which are themselves lists of length-2 character vectors.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: ## in a source-directory build (not typical!) of R;</span><span class="token comment">## otherwise, download and unpack the R sources, and replace</span><span class="token comment">## R.home()  by  "&lt;my_path_to_source_R&gt;" :</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: ## in a source-directory build (not typical!) of R;</span>
+<span class="token comment">## otherwise, download and unpack the R sources, and replace</span>
+<span class="token comment">## R.home()  by  "&lt;my_path_to_source_R&gt;" :</span>
 xgettext<span class="token punctuation">(</span>file.path<span class="token punctuation">(</span>R.home<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"src"</span><span class="token punctuation">,</span> <span class="token string">"library"</span><span class="token punctuation">,</span> <span class="token string">"splines"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token comment">## End(Not run)</span>

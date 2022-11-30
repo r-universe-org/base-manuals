@@ -334,7 +334,40 @@ definitions, and to be extended by new classes.</p>
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">### The following are all basic vector classes.</span><span class="token comment">### They can appear as class names in method signatures,</span><span class="token comment">### in calls to as(), is(), and new().</span><span class="token string">"character"</span><span class="token string">"complex"</span><span class="token string">"double"</span><span class="token string">"expression"</span><span class="token string">"integer"</span><span class="token string">"list"</span><span class="token string">"logical"</span><span class="token string">"numeric"</span><span class="token string">"single"</span><span class="token string">"raw"</span><span class="token comment">### the class</span><span class="token string">"vector"</span><span class="token comment">### is a virtual class, extended by all the above</span><span class="token comment">### the class</span><span class="token string">"S4"</span><span class="token comment">### is an object type for S4 objects that do not extend</span><span class="token comment">### any of the basic vector classes.  It is a virtual class.</span><span class="token comment">### The following are additional basic classes</span><span class="token string">"NULL"</span><span class="token comment">#  NULL objects</span><span class="token string">"function"</span><span class="token comment">#  function objects, including primitives</span><span class="token string">"externalptr"</span><span class="token comment"># raw external pointers for use in C code</span><span class="token string">"ANY"</span><span class="token comment"># virtual classes used by the methods package itself</span><span class="token string">"VIRTUAL"</span><span class="token string">"missing"</span><span class="token string">"namedList"</span><span class="token comment"># the alternative to "list" that preserves</span><span class="token comment"># the names attribute</span></code></pre>
+<pre class="language-r"><code class="language-r"><span class="token comment">### The following are all basic vector classes.</span>
+<span class="token comment">### They can appear as class names in method signatures,</span>
+<span class="token comment">### in calls to as(), is(), and new().</span>
+<span class="token string">"character"</span>
+<span class="token string">"complex"</span>
+<span class="token string">"double"</span>
+<span class="token string">"expression"</span>
+<span class="token string">"integer"</span>
+<span class="token string">"list"</span>
+<span class="token string">"logical"</span>
+<span class="token string">"numeric"</span>
+<span class="token string">"single"</span>
+<span class="token string">"raw"</span>
+
+<span class="token comment">### the class</span>
+<span class="token string">"vector"</span>
+<span class="token comment">### is a virtual class, extended by all the above</span>
+
+<span class="token comment">### the class</span>
+<span class="token string">"S4"</span>
+<span class="token comment">### is an object type for S4 objects that do not extend</span>
+<span class="token comment">### any of the basic vector classes.  It is a virtual class.</span>
+
+<span class="token comment">### The following are additional basic classes</span>
+<span class="token string">"NULL"</span>     <span class="token comment">#  NULL objects</span>
+<span class="token string">"function"</span> <span class="token comment">#  function objects, including primitives</span>
+<span class="token string">"externalptr"</span> <span class="token comment"># raw external pointers for use in C code</span>
+
+<span class="token string">"ANY"</span>  <span class="token comment"># virtual classes used by the methods package itself</span>
+<span class="token string">"VIRTUAL"</span>
+<span class="token string">"missing"</span>
+
+<span class="token string">"namedList"</span> <span class="token comment"># the alternative to "list" that preserves</span>
+            <span class="token comment"># the names attribute</span></code></pre>
 
 
 <h3>Objects from the Classes</h3>
@@ -481,7 +514,9 @@ of method dispatch
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## the method for group generic function Ops</span><span class="token comment">## for signature( e1="structure", e2="vector")</span><span class="token keyword">function</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## the method for group generic function Ops</span>
+<span class="token comment">## for signature( e1="structure", e2="vector")</span>
+<span class="token keyword">function</span> <span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     value <span class="token operator">&lt;-</span> callGeneric<span class="token punctuation">(</span>e1<span class="token operator">@</span>.Data<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>length<span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">==</span> length<span class="token punctuation">(</span>e1<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -642,7 +677,9 @@ current dispatch rules (typically for a group generic function);
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## callNextMethod() used for the Math, Math2 group generic functions</span><span class="token comment">## A class to automatically round numeric results to "d" digits</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## callNextMethod() used for the Math, Math2 group generic functions</span>
+
+<span class="token comment">## A class to automatically round numeric results to "d" digits</span>
 
 rnum <span class="token operator">&lt;-</span> setClass<span class="token punctuation">(</span><span class="token string">"rnum"</span><span class="token punctuation">,</span> slots <span class="token operator">=</span> c<span class="token punctuation">(</span>d <span class="token operator">=</span> <span class="token string">"integer"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> contains <span class="token operator">=</span> <span class="token string">"numeric"</span><span class="token punctuation">)</span>
 
@@ -1422,7 +1459,8 @@ definition.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## the super- and subclasses of "standardGeneric"</span><span class="token comment">## and "derivedDefaultMethod"</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## the super- and subclasses of "standardGeneric"</span>
+<span class="token comment">## and "derivedDefaultMethod"</span>
 am <span class="token operator">&lt;-</span> classesToAM<span class="token punctuation">(</span>list<span class="token punctuation">(</span>class<span class="token punctuation">(</span>show<span class="token punctuation">)</span><span class="token punctuation">,</span> class<span class="token punctuation">(</span>getMethod<span class="token punctuation">(</span>show<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 am
 
@@ -2066,7 +2104,12 @@ All these are for internal use.</p>
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## class described below</span><span class="token string">"EmptyMethodsList"</span><span class="token comment">### Other, virtual classes used in method dispatch</span><span class="token string">"OptionalMethods"</span><span class="token string">"PossibleMethod"</span></code></pre>
+<pre class="language-r"><code class="language-r"><span class="token comment">## class described below</span>
+<span class="token string">"EmptyMethodsList"</span>
+
+<span class="token comment">### Other, virtual classes used in method dispatch</span>
+<span class="token string">"OptionalMethods"</span>
+<span class="token string">"PossibleMethod"</span></code></pre>
 
 
 <h3>Slots</h3>
@@ -2495,7 +2538,10 @@ file need not be the same one in the original package source.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## Suppose package P0 has a source file "all.R"</span><span class="token comment">## First, evaluate the source, and from it</span><span class="token comment">## insert the revised version of methods for summary()</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## Suppose package P0 has a source file "all.R"</span>
+<span class="token comment">## First, evaluate the source, and from it</span>
+<span class="token comment">## insert the revised version of methods for summary()</span>
   env <span class="token operator">&lt;-</span> insertSource<span class="token punctuation">(</span><span class="token string">"./P0/R/all.R"</span><span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">"P0"</span><span class="token punctuation">,</span>
      methods <span class="token operator">=</span> <span class="token string">"summary"</span><span class="token punctuation">)</span>
 <span class="token comment">## now test one of the methods, tracing  the version from the source</span>
@@ -4227,7 +4273,12 @@ A call to <code>implicitGeneric()</code> will show the generic version.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">### How we would make the function with() into a generic:</span><span class="token comment">## Since the second argument, 'expr' is used literally, we want</span><span class="token comment">## with() to only have "data" in the signature.</span><span class="token comment">## Not run: </span>
+<pre class="language-r"><code class="language-r"><span class="token comment">### How we would make the function with() into a generic:</span>
+
+<span class="token comment">## Since the second argument, 'expr' is used literally, we want</span>
+<span class="token comment">## with() to only have "data" in the signature.</span>
+
+<span class="token comment">## Not run: </span>
 setGeneric<span class="token punctuation">(</span><span class="token string">"with"</span><span class="token punctuation">,</span> signature <span class="token operator">=</span> <span class="token string">"data"</span><span class="token punctuation">)</span>
 <span class="token comment">## Now we could predefine methods for "with" if we wanted to.</span>
 
@@ -4744,7 +4795,8 @@ which should rarely be encountered.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## this example can be run if package XRPython from CRAN is installed.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## this example can be run if package XRPython from CRAN is installed.</span>
 supers <span class="token operator">&lt;-</span> extends<span class="token punctuation">(</span><span class="token string">"PythonInterface"</span><span class="token punctuation">)</span>
 <span class="token comment">## find all the superclasses from package XR</span>
 fromXR <span class="token operator">&lt;-</span> sapply<span class="token punctuation">(</span>supers<span class="token punctuation">,</span>
@@ -4892,7 +4944,23 @@ example by the parser or by functions such as <code><a href="https://r-universe.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">### each of these classes corresponds to an unevaluated object</span><span class="token comment">### in the S language.</span><span class="token comment">### The class name can appear in method signatures,</span><span class="token comment">### and in a few other contexts (such as some calls to as()).</span><span class="token string">"("</span><span class="token string">"&lt;-"</span><span class="token string">"call"</span><span class="token string">"for"</span><span class="token string">"if"</span><span class="token string">"repeat"</span><span class="token string">"while"</span><span class="token string">"name"</span><span class="token string">"{"</span><span class="token comment">### Each of the classes above extends the virtual class</span><span class="token string">"language"</span></code></pre>
+<pre class="language-r"><code class="language-r"><span class="token comment">### each of these classes corresponds to an unevaluated object</span>
+<span class="token comment">### in the S language.</span>
+<span class="token comment">### The class name can appear in method signatures,</span>
+<span class="token comment">### and in a few other contexts (such as some calls to as()).</span>
+
+<span class="token string">"("</span>
+<span class="token string">"&lt;-"</span>
+<span class="token string">"call"</span>
+<span class="token string">"for"</span>
+<span class="token string">"if"</span>
+<span class="token string">"repeat"</span>
+<span class="token string">"while"</span>
+<span class="token string">"name"</span>
+<span class="token string">"{"</span>
+
+<span class="token comment">### Each of the classes above extends the virtual class</span>
+<span class="token string">"language"</span></code></pre>
 
 
 <h3>Objects from the Class</h3>
@@ -5132,7 +5200,9 @@ be difficult to guarantee success under arbitrary circumstances.)
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## class "myIter" has a BigData field for the real (big) data</span><span class="token comment">## and a "twiddle" field for some parameters that it twiddles</span><span class="token comment">## ( for some reason)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## class "myIter" has a BigData field for the real (big) data</span>
+<span class="token comment">## and a "twiddle" field for some parameters that it twiddles</span>
+<span class="token comment">## ( for some reason)</span>
 
 myIter <span class="token operator">&lt;-</span> setRefClass<span class="token punctuation">(</span><span class="token string">"myIter"</span><span class="token punctuation">,</span> contains <span class="token operator">=</span> <span class="token string">"localRefClass"</span><span class="token punctuation">,</span>
   fields <span class="token operator">=</span> list<span class="token punctuation">(</span>BigData <span class="token operator">=</span> <span class="token string">"numeric"</span><span class="token punctuation">,</span> twiddle <span class="token operator">=</span> <span class="token string">"numeric"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -6101,7 +6171,8 @@ that work for both S3 and S4 dispatch.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## A class that extends a registered S3 class inherits that class' S3</span><span class="token comment">## methods.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## A class that extends a registered S3 class inherits that class' S3</span>
+<span class="token comment">## methods.</span>
 
 setClass<span class="token punctuation">(</span><span class="token string">"myFrame"</span><span class="token punctuation">,</span> contains <span class="token operator">=</span> <span class="token string">"data.frame"</span><span class="token punctuation">,</span>
          slots <span class="token operator">=</span> c<span class="token punctuation">(</span>timestamps <span class="token operator">=</span> <span class="token string">"POSIXt"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -7269,7 +7340,11 @@ Chapman &amp; Hall.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## using the definition of class "track" from \link{setClass}</span><span class="token comment">## a new object with two slots specified</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## using the definition of class "track" from \link{setClass}</span>
+
+
+
+<span class="token comment">## a new object with two slots specified</span>
 t1 <span class="token operator">&lt;-</span> new<span class="token punctuation">(</span><span class="token string">"track"</span><span class="token punctuation">,</span> x <span class="token operator">=</span> seq_along<span class="token punctuation">(</span>ydata<span class="token punctuation">)</span><span class="token punctuation">,</span> y <span class="token operator">=</span> ydata<span class="token punctuation">)</span>
 
 <span class="token comment"># a new object including an object from a superclass, plus a slot</span>
@@ -8959,7 +9034,8 @@ Chapman &amp; Hall.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## a simple editor for matrix objects.  Method  $edit() changes some</span><span class="token comment">## range of values; method $undo() undoes the last edit.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## a simple editor for matrix objects.  Method  $edit() changes some</span>
+<span class="token comment">## range of values; method $undo() undoes the last edit.</span>
 mEdit <span class="token operator">&lt;-</span> setRefClass<span class="token punctuation">(</span><span class="token string">"mEdit"</span><span class="token punctuation">,</span>
       fields <span class="token operator">=</span> list<span class="token punctuation">(</span> data <span class="token operator">=</span> <span class="token string">"matrix"</span><span class="token punctuation">,</span>
         edits <span class="token operator">=</span> <span class="token string">"list"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -9199,7 +9275,8 @@ Springer (For the original S4 version.)
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## representation for a new class with a directly define slot "smooth"</span><span class="token comment">## which should be a "numeric" object, and extending class "track"</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## representation for a new class with a directly define slot "smooth"</span>
+<span class="token comment">## which should be a "numeric" object, and extending class "track"</span>
 representation<span class="token punctuation">(</span><span class="token string">"track"</span><span class="token punctuation">,</span> smooth <span class="token operator">=</span><span class="token string">"numeric"</span><span class="token punctuation">)</span>
 
 
@@ -11543,7 +11620,8 @@ Chapman &amp; Hall
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## the definition of the "Logic" group generic in the methods package</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## the definition of the "Logic" group generic in the methods package</span>
 setGroupGeneric<span class="token punctuation">(</span><span class="token string">"Logic"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
     knownMembers <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"&amp;"</span><span class="token punctuation">,</span> <span class="token string">"|"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
@@ -11855,7 +11933,15 @@ Chapman &amp; Hall.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Two examples of setIs() with coerce= and replace= arguments</span><span class="token comment">## The first one works fairly well, because neither class has many</span><span class="token comment">## inherited methods do be disturbed by the new inheritance</span><span class="token comment">## The second example does NOT work well, because the new superclass,</span><span class="token comment">## "factor", causes methods to be inherited that should not be.</span><span class="token comment">## First example:</span><span class="token comment">## a class definition (see \link{setClass} for class "track")</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Two examples of setIs() with coerce= and replace= arguments</span>
+<span class="token comment">## The first one works fairly well, because neither class has many</span>
+<span class="token comment">## inherited methods do be disturbed by the new inheritance</span>
+
+<span class="token comment">## The second example does NOT work well, because the new superclass,</span>
+<span class="token comment">## "factor", causes methods to be inherited that should not be.</span>
+
+<span class="token comment">## First example:</span>
+<span class="token comment">## a class definition (see \link{setClass} for class "track")</span>
 setClass<span class="token punctuation">(</span><span class="token string">"trackCurve"</span><span class="token punctuation">,</span> contains <span class="token operator">=</span> <span class="token string">"track"</span><span class="token punctuation">,</span>
          slots <span class="token operator">=</span> c<span class="token punctuation">(</span> smooth <span class="token operator">=</span> <span class="token string">"numeric"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment">## A class similar to "trackCurve", but with different structure</span>
@@ -12084,7 +12170,10 @@ base package.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## in the code for some package</span><span class="token comment">## ... somewhere else</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## in the code for some package</span>
+
+<span class="token comment">## ... somewhere else</span>
 setLoadActions<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>ns<span class="token punctuation">)</span>
    cat<span class="token punctuation">(</span><span class="token string">"Loaded package"</span><span class="token punctuation">,</span> sQuote<span class="token punctuation">(</span>getNamespaceName<span class="token punctuation">(</span>ns<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
        <span class="token string">"at"</span><span class="token punctuation">,</span> format<span class="token punctuation">(</span>Sys.time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -12366,7 +12455,14 @@ older S3 methods.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## examples for a simple class with two numeric slots.</span><span class="token comment">## (Run example(setMethod) to see the class and function definitions)</span><span class="token comment">## methods for plotting track objects </span><span class="token comment">##</span><span class="token comment">## First, with only one object as argument, plot the two slots</span><span class="token comment">##  y must be included in the signature, it would default to "ANY"</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## examples for a simple class with two numeric slots.</span>
+<span class="token comment">## (Run example(setMethod) to see the class and function definitions)</span>
+
+
+<span class="token comment">## methods for plotting track objects </span>
+<span class="token comment">##</span>
+<span class="token comment">## First, with only one object as argument, plot the two slots</span>
+<span class="token comment">##  y must be included in the signature, it would default to "ANY"</span>
 setMethod<span class="token punctuation">(</span><span class="token string">"plot"</span><span class="token punctuation">,</span> signature<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">"track"</span><span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token string">"missing"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>  y<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span> plot<span class="token punctuation">(</span>x<span class="token operator">@</span>x<span class="token punctuation">,</span> x<span class="token operator">@</span>y<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token punctuation">)</span>
@@ -13238,7 +13334,15 @@ as arrays and time-series.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## The following class names can appear in method signatures,</span><span class="token comment">## as the class in as() and is() expressions, and, except for</span><span class="token comment">## the classes commented as VIRTUAL, in calls to new()</span><span class="token string">"matrix"</span><span class="token string">"array"</span><span class="token string">"ts"</span><span class="token string">"structure"</span><span class="token comment">## VIRTUAL</span></code></pre>
+<pre class="language-r"><code class="language-r"><span class="token comment">## The following class names can appear in method signatures,</span>
+<span class="token comment">## as the class in as() and is() expressions, and, except for</span>
+<span class="token comment">## the classes commented as VIRTUAL, in calls to new()</span>
+
+<span class="token string">"matrix"</span>
+<span class="token string">"array"</span>
+<span class="token string">"ts"</span>
+
+<span class="token string">"structure"</span> <span class="token comment">## VIRTUAL</span></code></pre>
 
 
 <h3>Objects from the Classes</h3>
@@ -13565,7 +13669,9 @@ Springer.  (Section 10.6 for basics of method selection.)
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## if no other attached packages have methods for `+` or its group</span><span class="token comment">## generic functions, this returns a 16 by 2 matrix of selection</span><span class="token comment">## patterns (in R 2.9.0)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## if no other attached packages have methods for `+` or its group</span>
+<span class="token comment">## generic functions, this returns a 16 by 2 matrix of selection</span>
+<span class="token comment">## patterns (in R 2.9.0)</span>
 testInheritedMethods<span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -13584,7 +13690,20 @@ same objects.</p>
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">### Objects from the following classes are generated</span><span class="token comment">### by calling trace() on an object from the corresponding</span><span class="token comment">### class without the "WithTrace" in the name.</span><span class="token string">"functionWithTrace"</span><span class="token string">"MethodDefinitionWithTrace"</span><span class="token string">"MethodWithNextWithTrace"</span><span class="token string">"genericFunctionWithTrace"</span><span class="token string">"groupGenericFunctionWithTrace"</span><span class="token comment">### the following is a virtual class extended by each of the</span><span class="token comment">### classes above</span><span class="token string">"traceable"</span></code></pre>
+<pre class="language-r"><code class="language-r"><span class="token comment">### Objects from the following classes are generated</span>
+<span class="token comment">### by calling trace() on an object from the corresponding</span>
+<span class="token comment">### class without the "WithTrace" in the name.</span>
+
+<span class="token string">"functionWithTrace"</span>
+<span class="token string">"MethodDefinitionWithTrace"</span>
+<span class="token string">"MethodWithNextWithTrace"</span>
+<span class="token string">"genericFunctionWithTrace"</span>
+<span class="token string">"groupGenericFunctionWithTrace"</span>
+
+<span class="token comment">### the following is a virtual class extended by each of the</span>
+<span class="token comment">### classes above</span>
+
+<span class="token string">"traceable"</span></code></pre>
 
 
 <h3>Objects from the Class</h3>

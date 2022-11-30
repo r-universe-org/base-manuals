@@ -527,7 +527,8 @@ the <span class="pkg">graphics</span> package.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">##--- Demonstrating correspondence between graphics'</span><span class="token comment">##--- axis() and the graphics-engine agnostic  axisTicks() :</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">##--- Demonstrating correspondence between graphics'</span>
+<span class="token comment">##--- axis() and the graphics-engine agnostic  axisTicks() :</span>
 
 require<span class="token punctuation">(</span><span class="token string">"graphics"</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">(</span>pu <span class="token operator">&lt;-</span> par<span class="token punctuation">(</span><span class="token string">"usr"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -1034,7 +1035,8 @@ have glyphs mapped to the Private Use Area and some fonts
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## If a font uses PUA, we can just specify the font name ...</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## If a font uses PUA, we can just specify the font name ...</span>
 cairo_pdf<span class="token punctuation">(</span>symbolfamily<span class="token operator">=</span><span class="token string">"OpenSymbol"</span><span class="token punctuation">)</span>
 dev.off<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment">## ... or equivalently ...</span>
@@ -3136,7 +3138,10 @@ customize devices.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## open the default screen device on this platform if no device is</span><span class="token comment">## open</span><span class="token keyword">if</span><span class="token punctuation">(</span>dev.cur<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> dev.new<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## open the default screen device on this platform if no device is</span>
+<span class="token comment">## open</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>dev.cur<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> dev.new<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
@@ -3536,7 +3541,9 @@ event environment for the graphics device.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># This currently only works on the Windows, X11(type = "Xlib"), and</span><span class="token comment"># X11(type = "cairo") screen devices...</span><span class="token comment">## Not run: </span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># This currently only works on the Windows, X11(type = "Xlib"), and</span>
+<span class="token comment"># X11(type = "cairo") screen devices...</span>
+<span class="token comment">## Not run: </span>
 savepar <span class="token operator">&lt;-</span> par<span class="token punctuation">(</span>ask <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 dragplot <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">,</span> xlim <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> ylim <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> xaxs <span class="token operator">=</span> <span class="token string">"r"</span><span class="token punctuation">,</span> yaxs <span class="token operator">=</span> <span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     plot<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">,</span> xlim <span class="token operator">=</span> xlim<span class="token punctuation">,</span> ylim <span class="token operator">=</span> ylim<span class="token punctuation">,</span> xaxs <span class="token operator">=</span> xaxs<span class="token punctuation">,</span> yaxs <span class="token operator">=</span> yaxs<span class="token punctuation">)</span>
@@ -7273,7 +7280,11 @@ depend on having GhostScript installed.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## these examples will work only if the devices are available</span><span class="token comment">## and cairo or an X11 display or a macOS display is available.</span><span class="token comment">## copy current plot to a (large) PNG file</span><span class="token comment">## Not run: dev.print(png, file = "myplot.png", width = 1024, height = 768)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## these examples will work only if the devices are available</span>
+<span class="token comment">## and cairo or an X11 display or a macOS display is available.</span>
+
+<span class="token comment">## copy current plot to a (large) PNG file</span>
+<span class="token comment">## Not run: dev.print(png, file = "myplot.png", width = 1024, height = 768)</span>
 
 png<span class="token punctuation">(</span>file <span class="token operator">=</span> <span class="token string">"myplot.png"</span><span class="token punctuation">,</span> bg <span class="token operator">=</span> <span class="token string">"transparent"</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span>
@@ -8272,7 +8283,8 @@ ignored.</p>
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## time-dependent ==&gt; ignore diffs:</span><span class="token comment">## IGNORE_RDIFF_BEGIN</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## time-dependent ==&gt; ignore diffs:</span>
+<span class="token comment">## IGNORE_RDIFF_BEGIN</span>
 pretty<span class="token punctuation">(</span>Sys.Date<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 pretty<span class="token punctuation">(</span>Sys.time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span>
 <span class="token comment">## IGNORE_RDIFF_END</span>
@@ -8641,7 +8653,9 @@ via <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></s
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## Only on a Mac,</span><span class="token comment">## put something like this is your .Rprofile to customize the defaults</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## Only on a Mac,</span>
+<span class="token comment">## put something like this is your .Rprofile to customize the defaults</span>
 setHook<span class="token punctuation">(</span>packageEvent<span class="token punctuation">(</span><span class="token string">"grDevices"</span><span class="token punctuation">,</span> <span class="token string">"onLoad"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span> grDevices<span class="token operator">::</span>quartz.options<span class="token punctuation">(</span>width <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> height <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">,</span>
                                                 pointsize <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -8720,7 +8734,7 @@ font and <code>"mono"</code> for a monospaced font.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"unix"</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment"># includes Mac</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"unix"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment"># includes Mac</span>
 
  utils<span class="token operator">::</span>str<span class="token punctuation">(</span> quartzFonts<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token comment"># a list(serif = .., sans = .., mono = ..)</span>
  quartzFonts<span class="token punctuation">(</span><span class="token string">"mono"</span><span class="token punctuation">)</span> <span class="token comment"># the list(mono = ..) sublist of quartzFonts()</span>
@@ -9137,7 +9151,8 @@ C code mainly by Nicholas Lewin-Koh <a href="mailto:nikko@hailmail.net">nikko@ha
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## These (saturated, bright ones) only differ by hue</span><span class="token punctuation">(</span>rc <span class="token operator">&lt;-</span> col2rgb<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"red"</span><span class="token punctuation">,</span> <span class="token string">"yellow"</span><span class="token punctuation">,</span><span class="token string">"green"</span><span class="token punctuation">,</span><span class="token string">"cyan"</span><span class="token punctuation">,</span> <span class="token string">"blue"</span><span class="token punctuation">,</span> <span class="token string">"magenta"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## These (saturated, bright ones) only differ by hue</span>
+<span class="token punctuation">(</span>rc <span class="token operator">&lt;-</span> col2rgb<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"red"</span><span class="token punctuation">,</span> <span class="token string">"yellow"</span><span class="token punctuation">,</span><span class="token string">"green"</span><span class="token punctuation">,</span><span class="token string">"cyan"</span><span class="token punctuation">,</span> <span class="token string">"blue"</span><span class="token punctuation">,</span> <span class="token string">"magenta"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">(</span>hc <span class="token operator">&lt;-</span> rgb2hsv<span class="token punctuation">(</span>rc<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token number">6</span> <span class="token operator">*</span> hc<span class="token punctuation">[</span><span class="token string">"h"</span><span class="token punctuation">,</span><span class="token punctuation">]</span> <span class="token comment"># the hues are equispaced</span>
 
@@ -9331,7 +9346,8 @@ such matrices are returned by <code><a href="https://r-universe.dev/manuals/grap
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## See  help(persp) {after attaching the 'graphics' package}</span><span class="token comment">##      -----------</span></code></pre>
+<pre class="language-r"><code class="language-r"><span class="token comment">## See  help(persp) {after attaching the 'graphics' package}</span>
+<span class="token comment">##      -----------</span></code></pre>
 
 <hr>
 </div>
@@ -9855,7 +9871,8 @@ for Unix-alikes (where they also have more arguments).
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: ## A series of plots written to a sequence of metafiles</span><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"windows"</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: ## A series of plots written to a sequence of metafiles</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">)</span>
    win.metafile<span class="token punctuation">(</span><span class="token string">"Rplot%02d.wmf"</span><span class="token punctuation">,</span> pointsize <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span>
 
 <span class="token comment">## End(Not run)</span></code></pre>
@@ -9932,7 +9949,8 @@ flag turned off.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token comment">## put something like this is your .Rprofile to customize the defaults</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment">## put something like this is your .Rprofile to customize the defaults</span>
 setHook<span class="token punctuation">(</span>packageEvent<span class="token punctuation">(</span><span class="token string">"grDevices"</span><span class="token punctuation">,</span> <span class="token string">"onLoad"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
             grDevices<span class="token operator">::</span>windows.options<span class="token punctuation">(</span>width <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> height <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">,</span>
@@ -10014,7 +10032,7 @@ font and <code>"mono"</code> for a monospaced font.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"windows"</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
   windowsFonts<span class="token punctuation">(</span><span class="token punctuation">)</span>
   windowsFonts<span class="token punctuation">(</span><span class="token string">"mono"</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -10515,7 +10533,9 @@ minimum one.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span><span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span><span class="token string">"unix"</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment"># Only on unix-alikes, possibly Mac,</span><span class="token comment">## put something like this is your .Rprofile to customize the defaults</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>.Platform<span class="token operator">$</span>OS.type <span class="token operator">==</span> <span class="token string">"unix"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment"># Only on unix-alikes, possibly Mac,</span>
+<span class="token comment">## put something like this is your .Rprofile to customize the defaults</span>
 setHook<span class="token punctuation">(</span>packageEvent<span class="token punctuation">(</span><span class="token string">"grDevices"</span><span class="token punctuation">,</span> <span class="token string">"onLoad"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span> grDevices<span class="token operator">::</span>X11.options<span class="token punctuation">(</span>width <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> height <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">,</span> xpos <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
                                              pointsize <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -10604,7 +10624,8 @@ font).
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## IGNORE_RDIFF_BEGIN</span><span class="token keyword">if</span><span class="token punctuation">(</span>capabilities<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"X11"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## IGNORE_RDIFF_BEGIN</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>capabilities<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"X11"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> withAutoprint<span class="token punctuation">(</span><span class="token punctuation">{</span>
 X11Fonts<span class="token punctuation">(</span><span class="token punctuation">)</span>
 X11Fonts<span class="token punctuation">(</span><span class="token string">"mono"</span><span class="token punctuation">)</span>
 utopia <span class="token operator">&lt;-</span> X11Font<span class="token punctuation">(</span><span class="token string">"-*-utopia-*-*-*-*-*-*-*-*-*-*-*-*"</span><span class="token punctuation">)</span>

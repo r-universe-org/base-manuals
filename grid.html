@@ -359,7 +359,8 @@ Cairo-based devices only support alpha masks.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## NOTE: on devices without support for masks normal line segments </span><span class="token comment">##       will be drawn</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## NOTE: on devices without support for masks normal line segments </span>
+<span class="token comment">##       will be drawn</span>
 grid.newpage<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment">## Alpha mask</span>
 grid.segments<span class="token punctuation">(</span>y0<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> y1<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> gp<span class="token operator">=</span>gpar<span class="token punctuation">(</span>col<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> lwd<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -3940,7 +3941,9 @@ line parameterized by <code>intercept</code> and <code>slope</code>.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># abline</span><span class="token comment"># NOTE: in ROOT viewport on screen, (0, 0) at top-left</span><span class="token comment">#       and "native" is pixels!</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># abline</span>
+    <span class="token comment"># NOTE: in ROOT viewport on screen, (0, 0) at top-left</span>
+    <span class="token comment">#       and "native" is pixels!</span>
     grid.<span class="token keyword">function</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> list<span class="token punctuation">(</span>x<span class="token operator">=</span>x<span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token number">0</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token operator">*</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token comment"># a more "normal" viewport with default normalized "native" coords</span>
     grid.newpage<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -4356,7 +4359,9 @@ attribute <code>"vpPath"</code>.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># A gTree, called "grandparent", with child gTree,</span><span class="token comment"># called "parent", with childrenvp vpStack (vp2 within vp1)</span><span class="token comment"># and child grob, called "child", with vp vpPath (down to vp2)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># A gTree, called "grandparent", with child gTree,</span>
+<span class="token comment"># called "parent", with childrenvp vpStack (vp2 within vp1)</span>
+<span class="token comment"># and child grob, called "child", with vp vpPath (down to vp2)</span>
 sampleGTree <span class="token operator">&lt;-</span> gTree<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"grandparent"</span><span class="token punctuation">,</span>
                      children<span class="token operator">=</span>gList<span class="token punctuation">(</span>gTree<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"parent"</span><span class="token punctuation">,</span>
                           children<span class="token operator">=</span>gList<span class="token punctuation">(</span>grob<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"child"</span><span class="token punctuation">,</span> vp<span class="token operator">=</span><span class="token string">"vp1::vp2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -4768,7 +4773,8 @@ the <code>pdf()</code> device).
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## NOTE: on devices without support for groups (or masks or patterns),</span><span class="token comment">##       there will only be two overlapping opaque circles </span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## NOTE: on devices without support for groups (or masks or patterns),</span>
+<span class="token comment">##       there will only be two overlapping opaque circles </span>
 grid.newpage<span class="token punctuation">(</span><span class="token punctuation">)</span>
 pat <span class="token operator">&lt;-</span> pattern<span class="token punctuation">(</span>rasterGrob<span class="token punctuation">(</span>matrix<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">.5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nrow<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                           width<span class="token operator">=</span>unit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"cm"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -5181,7 +5187,8 @@ see <code><a href="https://deepayan.r-universe.dev/manual/lattice.html#interacti
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span><span class="token punctuation">(</span>dev.interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment">## Need to write a more sophisticated unit as.character method</span>
+<pre class="language-r"><code class="language-r"><span class="token keyword">if</span> <span class="token punctuation">(</span>dev.interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">## Need to write a more sophisticated unit as.character method</span>
   unittrim <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>unit<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     sub<span class="token punctuation">(</span><span class="token string">"^([0-9]+|[0-9]+[.][0-9])[0-9]*"</span><span class="token punctuation">,</span> <span class="token string">"\\1"</span><span class="token punctuation">,</span> as.character<span class="token punctuation">(</span>unit<span class="token punctuation">)</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
@@ -5385,7 +5392,8 @@ more advanced customisations.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># A gTree, called "parent", with childrenvp vpTree (vp2 within vp1)</span><span class="token comment"># and child grob, called "child", with vp vpPath (down to vp2)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># A gTree, called "parent", with childrenvp vpTree (vp2 within vp1)</span>
+<span class="token comment"># and child grob, called "child", with vp vpPath (down to vp2)</span>
 sampleGTree <span class="token operator">&lt;-</span> gTree<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"parent"</span><span class="token punctuation">,</span>
                      children<span class="token operator">=</span>gList<span class="token punctuation">(</span>grob<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"child"</span><span class="token punctuation">,</span> vp<span class="token operator">=</span><span class="token string">"vp1::vp2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                      childrenvp<span class="token operator">=</span>vpTree<span class="token punctuation">(</span>parent<span class="token operator">=</span>viewport<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"vp1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -7869,7 +7877,8 @@ specifying a clipping path for a viewport (see <code><a href="#viewport">viewpor
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## NOTE: on devices without support for stroking and filling</span><span class="token comment">##       nothing will be drawn</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## NOTE: on devices without support for stroking and filling</span>
+<span class="token comment">##       nothing will be drawn</span>
 grid.newpage<span class="token punctuation">(</span><span class="token punctuation">)</span>
 grid.stroke<span class="token punctuation">(</span>textGrob<span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span> gp<span class="token operator">=</span>gpar<span class="token punctuation">(</span>cex<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 grid.fill<span class="token punctuation">(</span>circleGrob<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">,</span> r<span class="token operator">=</span><span class="token number">.3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> gp<span class="token operator">=</span>gpar<span class="token punctuation">(</span>fill<span class="token operator">=</span>rgb<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>

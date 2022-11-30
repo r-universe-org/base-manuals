@@ -455,7 +455,8 @@ Discussion).
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># 90% and 95% confidence intervals for the correlation </span><span class="token comment"># coefficient between the columns of the bigcity data</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># 90% and 95% confidence intervals for the correlation </span>
+<span class="token comment"># coefficient between the columns of the bigcity data</span>
 
 abc.ci<span class="token punctuation">(</span>bigcity<span class="token punctuation">,</span> corr<span class="token punctuation">,</span> conf<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token number">0.90</span><span class="token punctuation">,</span><span class="token number">0.95</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
@@ -3911,7 +3912,8 @@ predictions (with Discussion).
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># leave-one-out and 6-fold cross-validation prediction error for </span><span class="token comment"># the mammals data set.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># leave-one-out and 6-fold cross-validation prediction error for </span>
+<span class="token comment"># the mammals data set.</span>
 data<span class="token punctuation">(</span>mammals<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
 mammals.glm <span class="token operator">&lt;-</span> glm<span class="token punctuation">(</span>log<span class="token punctuation">(</span>brain<span class="token punctuation">)</span> <span class="token operator">~</span> log<span class="token punctuation">(</span>body<span class="token punctuation">)</span><span class="token punctuation">,</span> data <span class="token operator">=</span> mammals<span class="token punctuation">)</span>
 <span class="token punctuation">(</span>cv.err <span class="token operator">&lt;-</span> cv.glm<span class="token punctuation">(</span>mammals<span class="token punctuation">,</span> mammals.glm<span class="token punctuation">)</span><span class="token operator">$</span>delta<span class="token punctuation">)</span>
@@ -4496,7 +4498,8 @@ Lecture Notes in Statistics, <b>19</b>, Springer-Verlag.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># The empirical influence values for the ratio of means in</span><span class="token comment"># the city data.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># The empirical influence values for the ratio of means in</span>
+<span class="token comment"># the city data.</span>
 ratio <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span> w<span class="token punctuation">)</span> sum<span class="token punctuation">(</span>d<span class="token operator">$</span>x <span class="token operator">*</span>w<span class="token punctuation">)</span><span class="token operator">/</span>sum<span class="token punctuation">(</span>d<span class="token operator">$</span>u<span class="token operator">*</span>w<span class="token punctuation">)</span>
 empinf<span class="token punctuation">(</span>data <span class="token operator">=</span> city<span class="token punctuation">,</span> statistic <span class="token operator">=</span> ratio<span class="token punctuation">)</span>
 city.boot <span class="token operator">&lt;-</span> boot<span class="token punctuation">(</span>city<span class="token punctuation">,</span> ratio<span class="token punctuation">,</span> <span class="token number">499</span><span class="token punctuation">,</span> stype<span class="token operator">=</span><span class="token string">"w"</span><span class="token punctuation">)</span>
@@ -4690,7 +4693,9 @@ overall envelopes.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># Testing whether the final series of measurements of the gravity data</span><span class="token comment"># may come from a normal distribution.  This is done in Examples 4.7 </span><span class="token comment"># and 4.8 of Davison and Hinkley (1997).</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># Testing whether the final series of measurements of the gravity data</span>
+<span class="token comment"># may come from a normal distribution.  This is done in Examples 4.7 </span>
+<span class="token comment"># and 4.8 of Davison and Hinkley (1997).</span>
 grav1 <span class="token operator">&lt;-</span> gravity<span class="token operator">$</span>g<span class="token punctuation">[</span>gravity<span class="token operator">$</span>series <span class="token operator">==</span> <span class="token number">8</span><span class="token punctuation">]</span>
 grav.z <span class="token operator">&lt;-</span> <span class="token punctuation">(</span>grav1 <span class="token operator">-</span> mean<span class="token punctuation">(</span>grav1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span>sqrt<span class="token punctuation">(</span>var<span class="token punctuation">(</span>grav1<span class="token punctuation">)</span><span class="token punctuation">)</span>
 grav.gen <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>dat<span class="token punctuation">,</span> mle<span class="token punctuation">)</span> rnorm<span class="token punctuation">(</span>length<span class="token punctuation">(</span>dat<span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -4867,7 +4872,9 @@ this is the vector of the corresponding <code>theta</code> values.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># Example 9.8 of Davison and Hinkley (1997) requires tilting the resampling</span><span class="token comment"># distribution of the studentized statistic to be centred at the observed</span><span class="token comment"># value of the test statistic 1.84.  This can be achieved as follows.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># Example 9.8 of Davison and Hinkley (1997) requires tilting the resampling</span>
+<span class="token comment"># distribution of the studentized statistic to be centred at the observed</span>
+<span class="token comment"># value of the test statistic 1.84.  This can be achieved as follows.</span>
 grav1 <span class="token operator">&lt;-</span> gravity<span class="token punctuation">[</span>as.numeric<span class="token punctuation">(</span>gravity<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span><span class="token number">7</span> <span class="token punctuation">,</span> <span class="token punctuation">]</span>
 grav.fun <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>dat<span class="token punctuation">,</span> w<span class="token punctuation">,</span> orig<span class="token punctuation">)</span> <span class="token punctuation">{</span>
      strata <span class="token operator">&lt;-</span> tapply<span class="token punctuation">(</span>dat<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> as.numeric<span class="token punctuation">(</span>dat<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -5313,7 +5320,8 @@ D.V. Hinkley, N. Reid, and E.J. Snell (editors), 83–106. Chapman and Hall.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># In this example we look at the leukaemia data which was looked at in </span><span class="token comment"># Example 7.1 of Davison and Hinkley (1997)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># In this example we look at the leukaemia data which was looked at in </span>
+<span class="token comment"># Example 7.1 of Davison and Hinkley (1997)</span>
 data<span class="token punctuation">(</span>leuk<span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">"MASS"</span><span class="token punctuation">)</span>
 leuk.mod <span class="token operator">&lt;-</span> glm<span class="token punctuation">(</span>time <span class="token operator">~</span> ag<span class="token operator">-</span><span class="token number">1</span><span class="token operator">+</span>log10<span class="token punctuation">(</span>wbc<span class="token punctuation">)</span><span class="token punctuation">,</span> family <span class="token operator">=</span> Gamma<span class="token punctuation">(</span>log<span class="token punctuation">)</span><span class="token punctuation">,</span> data <span class="token operator">=</span> leuk<span class="token punctuation">)</span>
 leuk.diag <span class="token operator">&lt;-</span> glm.diag<span class="token punctuation">(</span>leuk.mod<span class="token punctuation">)</span>
@@ -5647,7 +5655,11 @@ mixture distributions. <em>Technometrics</em>, <b>37</b>, 185–194.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># Example 9.8 of Davison and Hinkley (1997) requires tilting the </span><span class="token comment"># resampling distribution of the studentized statistic to be centred </span><span class="token comment"># at the observed value of the test statistic, 1.84.  In this example</span><span class="token comment"># we show how certain estimates can be found using resamples taken from</span><span class="token comment"># the tilted distribution.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># Example 9.8 of Davison and Hinkley (1997) requires tilting the </span>
+<span class="token comment"># resampling distribution of the studentized statistic to be centred </span>
+<span class="token comment"># at the observed value of the test statistic, 1.84.  In this example</span>
+<span class="token comment"># we show how certain estimates can be found using resamples taken from</span>
+<span class="token comment"># the tilted distribution.</span>
 grav1 <span class="token operator">&lt;-</span> gravity<span class="token punctuation">[</span>as.numeric<span class="token punctuation">(</span>gravity<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token punctuation">]</span>
 grav.fun <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>dat<span class="token punctuation">,</span> w<span class="token punctuation">,</span> orig<span class="token punctuation">)</span> <span class="token punctuation">{</span>
      strata <span class="token operator">&lt;-</span> tapply<span class="token punctuation">(</span>dat<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> as.numeric<span class="token punctuation">(</span>dat<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -6064,7 +6076,8 @@ functions (with Discussion).
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">#  To draw the jackknife-after-bootstrap plot for the head size data as in</span><span class="token comment">#  Example 3.24 of Davison and Hinkley (1997)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">#  To draw the jackknife-after-bootstrap plot for the head size data as in</span>
+<span class="token comment">#  Example 3.24 of Davison and Hinkley (1997)</span>
 frets.fun <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     pcorr <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
     <span class="token comment">#  Function to find the correlations and partial correlations between</span>
@@ -6283,7 +6296,9 @@ statistic of interest for each of the bootstrap samples.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># Using the city data let us look at the linear approximation to the </span><span class="token comment"># ratio statistic and its logarithm. We compare these with the </span><span class="token comment"># corresponding plots for the bigcity data </span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># Using the city data let us look at the linear approximation to the </span>
+<span class="token comment"># ratio statistic and its logarithm. We compare these with the </span>
+<span class="token comment"># corresponding plots for the bigcity data </span>
 
 ratio <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span> w<span class="token punctuation">)</span> sum<span class="token punctuation">(</span>d<span class="token operator">$</span>x <span class="token operator">*</span> w<span class="token punctuation">)</span><span class="token operator">/</span>sum<span class="token punctuation">(</span>d<span class="token operator">$</span>u <span class="token operator">*</span> w<span class="token punctuation">)</span>
 city.boot <span class="token operator">&lt;-</span> boot<span class="token punctuation">(</span>city<span class="token punctuation">,</span> ratio<span class="token punctuation">,</span> R <span class="token operator">=</span> <span class="token number">499</span><span class="token punctuation">,</span> stype <span class="token operator">=</span> <span class="token string">"w"</span><span class="token punctuation">)</span>
@@ -6451,7 +6466,9 @@ curve.  When <code>dens=TRUE</code> the spline is on the log scale and when
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># In this example we show how a plot such as that in Figure 9.9 of</span><span class="token comment"># Davison and Hinkley (1997) may be produced.  Note the large number of</span><span class="token comment"># bootstrap replicates required in this example.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># In this example we show how a plot such as that in Figure 9.9 of</span>
+<span class="token comment"># Davison and Hinkley (1997) may be produced.  Note the large number of</span>
+<span class="token comment"># bootstrap replicates required in this example.</span>
 expdata <span class="token operator">&lt;-</span> rexp<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span>
 vfun <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
      n <span class="token operator">&lt;-</span> length<span class="token punctuation">(</span>d<span class="token punctuation">)</span>
@@ -7140,7 +7157,8 @@ used without doing any bootstrap calculations as long as <code>t0</code> and
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">#  In Example 5.1 of Davison and Hinkley (1997), normal approximation </span><span class="token comment">#  confidence intervals are found for the air-conditioning data.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">#  In Example 5.1 of Davison and Hinkley (1997), normal approximation </span>
+<span class="token comment">#  confidence intervals are found for the air-conditioning data.</span>
 air.mean <span class="token operator">&lt;-</span> mean<span class="token punctuation">(</span>aircondit<span class="token operator">$</span>hours<span class="token punctuation">)</span>
 air.n <span class="token operator">&lt;-</span> nrow<span class="token punctuation">(</span>aircondit<span class="token punctuation">)</span>
 air.v <span class="token operator">&lt;-</span> air.mean<span class="token operator">^</span><span class="token number">2</span><span class="token operator">/</span>air.n
@@ -7484,7 +7502,9 @@ termination of this function.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># We fit an exponential model to the air-conditioning data and use</span><span class="token comment"># that for a parametric bootstrap.  Then we look at plots of the</span><span class="token comment"># resampled means.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># We fit an exponential model to the air-conditioning data and use</span>
+<span class="token comment"># that for a parametric bootstrap.  Then we look at plots of the</span>
+<span class="token comment"># resampled means.</span>
 air.rg <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> mle<span class="token punctuation">)</span> rexp<span class="token punctuation">(</span>length<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">/</span>mle<span class="token punctuation">)</span>
 
 air.boot <span class="token operator">&lt;-</span> boot<span class="token punctuation">(</span>aircondit<span class="token operator">$</span>hours<span class="token punctuation">,</span> mean<span class="token punctuation">,</span> R <span class="token operator">=</span> <span class="token number">999</span><span class="token punctuation">,</span> sim <span class="token operator">=</span> <span class="token string">"parametric"</span><span class="token punctuation">,</span>
@@ -8236,7 +8256,8 @@ approximations to resampling distributions.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># To evaluate the bootstrap distribution of the mean failure time of </span><span class="token comment"># air-conditioning equipment at 80 hours</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># To evaluate the bootstrap distribution of the mean failure time of </span>
+<span class="token comment"># air-conditioning equipment at 80 hours</span>
 saddle<span class="token punctuation">(</span>A <span class="token operator">=</span> aircondit<span class="token operator">$</span>hours<span class="token operator">/</span><span class="token number">12</span><span class="token punctuation">,</span> u <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">)</span>
 
 <span class="token comment"># Alternatively this can be done using a conditional poisson</span>
@@ -8520,7 +8541,8 @@ Symposium on the Interface</em> 248–253.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">#  The bootstrap distribution of the mean of the air-conditioning </span><span class="token comment">#  failure data: fails to find value on R (and probably on S too)</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">#  The bootstrap distribution of the mean of the air-conditioning </span>
+<span class="token comment">#  failure data: fails to find value on R (and probably on S too)</span>
 air.t0 <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span>mean<span class="token punctuation">(</span>aircondit<span class="token operator">$</span>hours<span class="token punctuation">)</span><span class="token punctuation">,</span> sqrt<span class="token punctuation">(</span>var<span class="token punctuation">(</span>aircondit<span class="token operator">$</span>hours<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment">## Not run: saddle.distn(A = aircondit$hours/12, t0 = air.t0)</span>
 
@@ -9129,7 +9151,10 @@ construction of bootstrap likelihoods. <em>Statistics and Computing</em>,
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># Example 9.8 of Davison and Hinkley (1997) requires tilting the resampling</span><span class="token comment"># distribution of the studentized statistic to be centred at the observed</span><span class="token comment"># value of the test statistic 1.84.  In the book exponential tilting was used</span><span class="token comment"># but it is also possible to use smooth.f.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># Example 9.8 of Davison and Hinkley (1997) requires tilting the resampling</span>
+<span class="token comment"># distribution of the studentized statistic to be centred at the observed</span>
+<span class="token comment"># value of the test statistic 1.84.  In the book exponential tilting was used</span>
+<span class="token comment"># but it is also possible to use smooth.f.</span>
 grav1 <span class="token operator">&lt;-</span> gravity<span class="token punctuation">[</span>as.numeric<span class="token punctuation">(</span>gravity<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token punctuation">]</span>
 grav.fun <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>dat<span class="token punctuation">,</span> w<span class="token punctuation">,</span> orig<span class="token punctuation">)</span> <span class="token punctuation">{</span>
      strata <span class="token operator">&lt;-</span> tapply<span class="token punctuation">(</span>dat<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> as.numeric<span class="token punctuation">(</span>dat<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -9651,7 +9676,9 @@ for the bootstrap. <em>Annals of Statistics</em>, <b>21</b>, 286–298.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># Note that these examples can take a while to run.</span><span class="token comment"># Example 9.9 of Davison and Hinkley (1997).</span>
+<pre class="language-r"><code class="language-r"><span class="token comment"># Note that these examples can take a while to run.</span>
+
+<span class="token comment"># Example 9.9 of Davison and Hinkley (1997).</span>
 grav1 <span class="token operator">&lt;-</span> gravity<span class="token punctuation">[</span>as.numeric<span class="token punctuation">(</span>gravity<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token punctuation">]</span>
 grav.fun <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>dat<span class="token punctuation">,</span> w<span class="token punctuation">,</span> orig<span class="token punctuation">)</span> <span class="token punctuation">{</span>
      strata <span class="token operator">&lt;-</span> tapply<span class="token punctuation">(</span>dat<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> as.numeric<span class="token punctuation">(</span>dat<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
