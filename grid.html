@@ -77,8 +77,6 @@ Explode a path into its components.
 <li class="help-index-item"><a href="#gPath"> Concatenate Grob Names </a></li>
 <li class="help-index-item"><a href="#Grid">Grid Graphics</a></li>
 <li class="help-index-item"><a href="#viewport">Create a Grid Viewport</a></li>
-<li class="help-index-item"><a href="#grid-defunct">Defunct Functions in Package grid</a></li>
-<li class="help-index-item"><a href="#grid-internal">Internal Grid Functions</a></li>
 <li class="help-index-item"><a href="#grid-package">
 The Grid Graphics Package
 </a></li>
@@ -1827,66 +1825,6 @@ pushViewport<span class="token punctuation">(</span>tree<span class="token punct
             just<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token string">"left"</span><span class="token punctuation">,</span> <span class="token string">"top"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
             gp<span class="token operator">=</span>gpar<span class="token punctuation">(</span>fontsize<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="grid-defunct">
-
-<a href="#grid-defunct" class="help-page-title"><h2>Defunct Functions in Package <span class="pkg">grid</span>
-</h2></a>
-
-<h3>Description</h3>
-
-<p>The functions or variables listed here are no longer part of <span class="pkg">grid</span>.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">grid.grob<span class="token punctuation">(</span>list.struct<span class="token punctuation">,</span> cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> draw <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span> 
-grid.arrows<span class="token punctuation">(</span>x <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0.25</span><span class="token punctuation">,</span> <span class="token number">0.75</span><span class="token punctuation">)</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">,</span> default.units <span class="token operator">=</span> <span class="token string">"npc"</span><span class="token punctuation">,</span>
-            grob <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
-            angle <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">,</span> length <span class="token operator">=</span> unit<span class="token punctuation">(</span><span class="token number">0.25</span><span class="token punctuation">,</span> <span class="token string">"inches"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            ends <span class="token operator">=</span> <span class="token string">"last"</span><span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"open"</span><span class="token punctuation">,</span> name <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
-            gp <span class="token operator">=</span> gpar<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> draw <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> vp <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
-
-arrowsGrob<span class="token punctuation">(</span>x <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0.25</span><span class="token punctuation">,</span> <span class="token number">0.75</span><span class="token punctuation">)</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">,</span> default.units <span class="token operator">=</span> <span class="token string">"npc"</span><span class="token punctuation">,</span>
-           grob <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
-           angle <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">,</span> length <span class="token operator">=</span> unit<span class="token punctuation">(</span><span class="token number">0.25</span><span class="token punctuation">,</span> <span class="token string">"inches"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-           ends <span class="token operator">=</span> <span class="token string">"last"</span><span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"open"</span><span class="token punctuation">,</span> name <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
-           gp <span class="token operator">=</span> gpar<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> vp <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
-grid.convertX<span class="token punctuation">(</span>x<span class="token punctuation">,</span> unitTo<span class="token punctuation">,</span> valueOnly <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
-grid.convertY<span class="token punctuation">(</span>x<span class="token punctuation">,</span> unitTo<span class="token punctuation">,</span> valueOnly <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
-grid.convertWidth<span class="token punctuation">(</span>x<span class="token punctuation">,</span> unitTo<span class="token punctuation">,</span> valueOnly <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
-grid.convertHeight<span class="token punctuation">(</span>x<span class="token punctuation">,</span> unitTo<span class="token punctuation">,</span> valueOnly <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
-grid.convert<span class="token punctuation">(</span>x<span class="token punctuation">,</span> unitTo<span class="token punctuation">,</span>
-             axisFrom <span class="token operator">=</span> <span class="token string">"x"</span><span class="token punctuation">,</span> typeFrom <span class="token operator">=</span> <span class="token string">"location"</span><span class="token punctuation">,</span>
-             axisTo <span class="token operator">=</span> axisFrom<span class="token punctuation">,</span> typeTo <span class="token operator">=</span> typeFrom<span class="token punctuation">,</span>
-             valueOnly <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
-grid.collection<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">,</span> gp<span class="token operator">=</span>gpar<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> draw<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span> vp<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">)</span>
-push.viewport<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">,</span> recording<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span>
-pop.viewport<span class="token punctuation">(</span>n<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> recording<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span>
-viewport.transform<span class="token punctuation">(</span>vp<span class="token punctuation">)</span>
-draw.details<span class="token punctuation">(</span>x<span class="token punctuation">,</span> recording<span class="token punctuation">)</span>
-convertNative<span class="token punctuation">(</span>unit<span class="token punctuation">,</span> dimension<span class="token operator">=</span><span class="token string">"x"</span><span class="token punctuation">,</span> type<span class="token operator">=</span><span class="token string">"location"</span><span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="grid-internal">
-
-<a href="#grid-internal" class="help-page-title"><h2>Internal Grid Functions</h2></a>
-
-<h3>Description</h3>
-
-<p>Internal Grid functions
-</p>
-
-
-<h3>Details</h3>
-
-<p>These are not to be called by the user (or in some cases are just
-waiting for proper documentation to be written :).
-</p>
 
 <hr>
 </div>

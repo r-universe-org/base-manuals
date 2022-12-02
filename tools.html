@@ -91,7 +91,6 @@ Find a GhostScript Executable
 <li class="help-index-item"><a href="#HTMLlinks">Collect HTML Links from Package Documentation</a></li>
 <li class="help-index-item"><a href="#loadRdMacros">Load User-defined Rd Help System Macros</a></li>
 <li class="help-index-item"><a href="#make_translations_pkg">Package the Current Translations in the R Sources</a></li>
-<li class="help-index-item"><a href="#makeLazyLoading">Lazy Loading of Packages</a></li>
 <li class="help-index-item"><a href="#makevars">User and Site Compilation Variables</a></li>
 <li class="help-index-item"><a href="#md5sum">Compute MD5 Checksums</a></li>
 <li class="help-index-item"><a href="#package_dependencies">Computations on the Dependency Hierarchy of Packages</a></li>
@@ -117,7 +116,6 @@ Write Skeleton for Adding Native Routine Registration to a Package
 <li class="help-index-item"><a href="#testInstalledPackage">Test Installed Packages</a></li>
 <li class="help-index-item"><a href="#texi2dvi">Compile LaTeX Files</a></li>
 <li class="help-index-item"><a href="#toHTML">Display an Object in HTML</a></li>
-<li class="help-index-item"><a href="#tools-defunct">Defunct Objects in Package tools</a></li>
 <li class="help-index-item"><a href="#tools-deprecated">Deprecated Objects in Package tools</a></li>
 <li class="help-index-item"><a href="#tools-package">Tools for Package Development</a></li>
 <li class="help-index-item"><a href="#toRd">Generic Function to Convert Object to a Fragment of Rd Code</a></li>
@@ -3448,83 +3446,6 @@ shipped in <span style="font-family: Courier New, Courier; color: #666666;"><b>R
 
 <hr>
 </div>
-<div class="container manual-page" id="makeLazyLoading">
-
-<a href="#makeLazyLoading" class="help-page-title"><h2>Lazy Loading of Packages</h2></a>
-
-<h3>Description</h3>
-
-<p>Tools for lazy loading of packages from a database.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">makeLazyLoading<span class="token punctuation">(</span>package<span class="token punctuation">,</span> lib.loc <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> compress <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
-                keep.source <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"keep.source.pkgs"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                keep.parse.data <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"keep.parse.data.pkgs"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                set.install.dir <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
-<td>
-<p>package name string</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>lib.loc</code></td>
-<td>
-<p>library trees, as in <code>library</code></p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>keep.source</code></td>
-<td>
-<p>logical; should sources be kept when saving from source</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>keep.parse.data</code></td>
-<td>
-<p>logical; should parse data be kept with sources
-when <code>keep.source</code> is <code>TRUE</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>compress</code></td>
-<td>
-<p>logical; whether to compress entries on the database.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>set.install.dir</code></td>
-<td>
-<p>character or null; if not null, set installation
-directory to this value before serializing internal data structures
-(for internal use, staged installation)</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p>A tool to set up packages for lazy loading from a database.  For
-packages other than <span class="pkg">base</span> you can use
-<code>makeLazyLoading(package)</code> to convert them to use lazy loading.
-</p>
-<p>This is done when a package is installed.
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>Luke Tierney and Brian Ripley</p>
-
-<hr>
-</div>
 <div class="container manual-page" id="makevars">
 
 <a href="#makevars" class="help-page-title"><h2>User and Site Compilation Variables</h2></a>
@@ -4884,7 +4805,7 @@ page is converted to a readable format).
 </li>
 <li>
 <p> rendered on
-2022-11-30 at 18:22:48.
+2022-12-02 at 13:54:37.
 </p>
 </li>
 </ol>
@@ -6016,49 +5937,6 @@ is designed to display lists in the <span style="font-family: Courier New, Couri
 <h3>Examples</h3>
 
 <pre class="language-r"><code class="language-r">cat<span class="token punctuation">(</span>toHTML<span class="token punctuation">(</span>demo<span class="token punctuation">(</span>package <span class="token operator">=</span> <span class="token string">"base"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sep <span class="token operator">=</span> <span class="token string">"\n"</span><span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="tools-defunct">
-
-<a href="#tools-defunct" class="help-page-title"><h2>Defunct Objects in Package <span class="pkg">tools</span>
-</h2></a>
-
-<h3>Description</h3>
-
-<p>The functions or variables listed here are no longer part of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> as
-they are not needed (any more).
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment"># Defunct in R 2.10.0, removed in R 3.0.0</span>
-Rd_parse<span class="token punctuation">(</span>file<span class="token punctuation">,</span> text <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
-
-<span class="token comment"># Defunct in R 3.1.0,  removed in R 4.1.0</span>
-readNEWS<span class="token punctuation">(</span>file <span class="token operator">=</span> file.path<span class="token punctuation">(</span>R.home<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"NEWS"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> trace <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
-         chop <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"first"</span><span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">,</span> <span class="token string">"par1"</span><span class="token punctuation">,</span> <span class="token string">"keepAll"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-checkNEWS<span class="token punctuation">(</span>file <span class="token operator">=</span> file.path<span class="token punctuation">(</span>R.home<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"NEWS"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment"># Defunct in R 4.1.0</span>
-package.dependencies<span class="token punctuation">(</span>x<span class="token punctuation">,</span> check <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
-                     depLevel <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"Depends"</span><span class="token punctuation">,</span> <span class="token string">"Imports"</span><span class="token punctuation">,</span> <span class="token string">"Suggests"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-getDepList<span class="token punctuation">(</span>depMtrx<span class="token punctuation">,</span> instPkgs<span class="token punctuation">,</span> recursive <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> local <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
-           reduce <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> lib.loc <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
-pkgDepends<span class="token punctuation">(</span>pkg<span class="token punctuation">,</span> recursive <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> local <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> reduce <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
-           lib.loc <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
-installFoundDepends<span class="token punctuation">(</span>depPkgList<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-vignetteDepends<span class="token punctuation">(</span>vignette<span class="token punctuation">,</span> recursive <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> reduce <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
-                local <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> lib.loc <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#tools-deprecated">tools-deprecated</a></code>,
-<code><a href="https://r-universe.dev/manuals/base.html#Deprecated">Deprecated</a></code>,
-<code><a href="https://r-universe.dev/manuals/base.html#Defunct">Defunct</a></code>
-</p>
 
 <hr>
 </div>

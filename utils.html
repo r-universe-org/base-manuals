@@ -147,7 +147,6 @@ Show Package Maintainer
 </a></li>
 <li class="help-index-item"><a href="#make.packages.html">Update HTML Package List</a></li>
 <li class="help-index-item"><a href="#make.socket">Create a Socket Connection</a></li>
-<li class="help-index-item"><a href="#memory.size">Report on Memory Allocation (no longer supported)</a></li>
 <li class="help-index-item"><a href="#menu">Menu Interaction Function</a></li>
 <li class="help-index-item"><a href="#methods">List Methods for S3 Generic Functions or Classes</a></li>
 <li class="help-index-item"><a href="#mirrorAdmin">Managing Repository Mirrors</a></li>
@@ -208,7 +207,6 @@ Source Reference Utilities
 <li class="help-index-item"><a href="#summaryRprof">Summarise Output of R Sampling Profiler</a></li>
 <li class="help-index-item"><a href="#Sweave">Automatic Generation of Reports</a></li>
 <li class="help-index-item"><a href="#SweaveSyntConv">Convert Sweave Syntax</a></li>
-<li class="help-index-item"><a href="#SweaveUtils">Sweave Driver Utilities</a></li>
 <li class="help-index-item"><a href="#tar">
 Create a Tar Archive
 </a></li>
@@ -224,7 +222,6 @@ Extract or List Zip Archives
 <li class="help-index-item"><a href="#update.packages">Compare Installed Packages with CRAN-like Repositories</a></li>
 <li class="help-index-item"><a href="#url.show">Display a Text URL</a></li>
 <li class="help-index-item"><a href="#URLencode">Encode or Decode (partial) URLs</a></li>
-<li class="help-index-item"><a href="#utils-defunct">Defunct Functions in Package utils</a></li>
 <li class="help-index-item"><a href="#utils-deprecated">Deprecated Functions in Package utils</a></li>
 <li class="help-index-item"><a href="#utils-package">
 The R Utils Package
@@ -11329,28 +11326,6 @@ based on code from Robbins and Robbins “Practical UNIX Programming”.
 
 <hr>
 </div>
-<div class="container manual-page" id="memory.size">
-
-<a href="#memory.size" class="help-page-title"><h2>Report on Memory Allocation (no longer supported)</h2></a>
-
-<h3>Description</h3>
-
-
-<p>These functions are currently stubs which report infinity
-(<code><a href="https://r-universe.dev/manuals/base.html#is.finite">Inf</a></code>) with a warning on all platforms.  OS's own facilities
-can be used on some systems to limit memory allocation.
-
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">memory.size<span class="token punctuation">(</span>max <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
-
-memory.limit<span class="token punctuation">(</span>size <span class="token operator">=</span> <span class="token keyword">NA</span><span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
 <div class="container manual-page" id="menu">
 
 <a href="#menu" class="help-page-title"><h2>Menu Interaction Function</h2></a>
@@ -19872,46 +19847,6 @@ Sweave<span class="token punctuation">(</span><span class="token string">"Sweave
 
 <hr>
 </div>
-<div class="container manual-page" id="SweaveUtils">
-
-<a href="#SweaveUtils" class="help-page-title"><h2>Sweave Driver Utilities</h2></a>
-
-<h3>Description</h3>
-
-<p>These functions are handy for writing Sweave drivers and are
-considered internal and hence not documented.  Look at the source code
-of the Sweave Latex driver (in this
-package) or the HTML driver (in the R2HTML package from CRAN) to see
-how they can be used.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">RtangleWritedoc<span class="token punctuation">(</span>object<span class="token punctuation">,</span> chunk<span class="token punctuation">)</span>
-RweaveChunkPrefix<span class="token punctuation">(</span>options<span class="token punctuation">)</span>
-RweaveEvalWithOpt<span class="token punctuation">(</span>expr<span class="token punctuation">,</span> options<span class="token punctuation">)</span>
-RweaveLatexFinish<span class="token punctuation">(</span>object<span class="token punctuation">,</span> error <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
-RtangleFinish<span class="token punctuation">(</span>object<span class="token punctuation">,</span> error <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
-RweaveLatexOptions<span class="token punctuation">(</span>options<span class="token punctuation">)</span>
-RweaveTryStop<span class="token punctuation">(</span>err<span class="token punctuation">,</span> options<span class="token punctuation">)</span>
-SweaveHooks<span class="token punctuation">(</span>options<span class="token punctuation">,</span> run <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> envir <span class="token operator">=</span> .GlobalEnv<span class="token punctuation">)</span>
-makeRweaveLatexCodeRunner<span class="token punctuation">(</span>evalFunc <span class="token operator">=</span> RweaveEvalWithOpt<span class="token punctuation">)</span>
-RtangleRuncode<span class="token punctuation">(</span>object<span class="token punctuation">,</span> chunk<span class="token punctuation">,</span> options<span class="token punctuation">)</span></code></pre>
-
-
-<h3>Author(s)</h3>
-
-<p>Friedrich Leisch, with contributions by Seth Falcon</p>
-
-
-<h3>See Also</h3>
-
-<p>The <code><a href="#Sweave">Sweave</a></code>, <code><a href="#RweaveLatex">RweaveLatex</a></code> help pages.
-</p>
-
-<hr>
-</div>
 <div class="container manual-page" id="tar">
 
 <a href="#tar" class="help-page-title"><h2>
@@ -21374,40 +21309,6 @@ c<span class="token punctuation">(</span>URLencode<span class="token punctuation
 
 <span class="token comment">## both functions support character vectors of length &gt; 1</span>
 y <span class="token operator">&lt;-</span> URLdecode<span class="token punctuation">(</span>URLencode<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"url with space"</span><span class="token punctuation">,</span> <span class="token string">"another one"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="utils-defunct">
-
-<a href="#utils-defunct" class="help-page-title"><h2>Defunct Functions in Package <span class="pkg">utils</span>
-</h2></a>
-
-<h3>Description</h3>
-
-<p>The functions or variables listed here are no longer part of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> as
-they are not needed (any more).
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment"># Defunct in R 2.0.0</span>
-package.contents<span class="token punctuation">(</span>pkg<span class="token punctuation">,</span> lib.loc <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
-
-<span class="token comment"># Defunct in R 2.2.0</span>
-CRAN.packages<span class="token punctuation">(</span>CRAN <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"repos"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> method<span class="token punctuation">,</span>
-              contriburl <span class="token operator">=</span> contrib.url<span class="token punctuation">(</span>CRAN<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment"># Defunct in R 2.14.0</span>
-zip.file.extract<span class="token punctuation">(</span>file<span class="token punctuation">,</span> zipname <span class="token operator">=</span> <span class="token string">"R.zip"</span><span class="token punctuation">,</span>
-                 unzip <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"unzip"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dir <span class="token operator">=</span> tempdir<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>See Also</h3>
-
-
-<p><code><a href="https://r-universe.dev/manuals/base.html#Deprecated">Deprecated</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#Defunct">Defunct</a></code>
-</p>
 
 <hr>
 </div>

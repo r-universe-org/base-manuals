@@ -284,9 +284,6 @@ Ridge Regression
 <li class="help-index-item"><a href="#loglm">
 Fit Log-Linear Models by Iterative Proportional Scaling
 </a></li>
-<li class="help-index-item"><a href="#loglm1">
-Fit Log-Linear Models by Iterative Proportional Scaling – Internal function
-</a></li>
 <li class="help-index-item"><a href="#logtrans">
 Estimate log Transformation Parameter
 </a></li>
@@ -296,7 +293,6 @@ Resistant Regression
 <li class="help-index-item"><a href="#mammals">
 Brain and Body Weights for 62 Species of Land Mammals
 </a></li>
-<li class="help-index-item"><a href="#MASS-internal">Internal MASS functions</a></li>
 <li class="help-index-item"><a href="#mca">
 Multiple Correspondence Analysis
 </a></li>
@@ -7903,103 +7899,6 @@ c<span class="token punctuation">(</span>fm<span class="token operator">$</span>
 
 <hr>
 </div>
-<div class="container manual-page" id="loglm1">
-
-<a href="#loglm1" class="help-page-title"><h2>
-Fit Log-Linear Models by Iterative Proportional Scaling – Internal function
-</h2></a>
-
-<h3>Description</h3>
-
-<p><code>loglm1</code> is an internal function used by <code><a href="#loglm">loglm</a></code>.
-It is a generic function dispatching on the <code>data</code> argument.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">loglm1<span class="token punctuation">(</span>formula<span class="token punctuation">,</span> data<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-
-<span class="token comment">## S3 method for class 'xtabs'</span>
-loglm1<span class="token punctuation">(</span>formula<span class="token punctuation">,</span> data<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-
-<span class="token comment">## S3 method for class 'data.frame'</span>
-loglm1<span class="token punctuation">(</span>formula<span class="token punctuation">,</span> data<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-
-<span class="token comment">## Default S3 method:</span>
-loglm1<span class="token punctuation">(</span>formula<span class="token punctuation">,</span> data<span class="token punctuation">,</span> start <span class="token operator">=</span> rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> length<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> fitted <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
-       keep.frequencies <span class="token operator">=</span> fitted<span class="token punctuation">,</span> param <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> eps <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">/</span><span class="token number">10</span><span class="token punctuation">,</span>
-       iter <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">,</span> print <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr style="vertical-align: top;">
-<td><code>formula</code></td>
-<td>
-
-<p>A linear model formula specifying the log-linear model.
-See <code><a href="#loglm">loglm</a></code> for its interpretation.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>data</code></td>
-<td>
-
-<p>Numeric array or data frame (or list or environment).
-In the first case it specifies the
-array of frequencies; in then second it provides the data frame
-from which the variables occurring in the formula are
-preferentially obtained in the usual way.
-</p>
-<p>This argument may also be the result of a call to <code><a href="https://r-universe.dev/manuals/stats.html#xtabs">xtabs</a></code>.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>start, param, eps, iter, print</code></td>
-<td>
-<p>Arguments passed to
-<code><a href="https://r-universe.dev/manuals/stats.html#loglin">loglin</a></code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>fitted</code></td>
-<td>
-<p>logical: should the fitted values be returned?</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>keep.frequencies</code></td>
-<td>
-
-<p>If <code>TRUE</code> specifies that the (possibly constructed) array of
-frequencies is to be retained as part of the fitted model object.  The
-default action is to use the same value as that used for <code>fitted</code>.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
-<td>
-<p>arguments passed to the default method.</p>
-</td>
-</tr>
-</table>
-<h3>Value</h3>
-
-<p>An object of class <code>"loglm"</code>. 
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#loglm">loglm</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#loglin">loglin</a></code>
-</p>
-
-<hr>
-</div>
 <div class="container manual-page" id="logtrans">
 
 <a href="#logtrans" class="help-page-title"><h2>
@@ -8498,35 +8397,6 @@ Sleep in mammals: ecological and constitutional correlates.
 
 <p>Venables, W. N. and Ripley, B. D. (2002)
 <em>Modern Applied Statistics with S-PLUS.</em> Fourth Edition. Springer.
-</p>
-
-<hr>
-</div>
-<div class="container manual-page" id="MASS-internal">
-
-<a href="#MASS-internal" class="help-page-title"><h2>Internal MASS functions</h2></a>
-
-<h3>Description</h3>
-
-<p>Internal MASS functions.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">enlist<span class="token punctuation">(</span>vec<span class="token punctuation">)</span>
-fbeta<span class="token punctuation">(</span>x<span class="token punctuation">,</span> alpha<span class="token punctuation">,</span> beta<span class="token punctuation">)</span>
-frequency.polygon<span class="token punctuation">(</span>x<span class="token punctuation">,</span> nclass <span class="token operator">=</span> nclass.freq<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> xlab<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">,</span> ylab<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-nclass.freq<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-neg.bin<span class="token punctuation">(</span>theta <span class="token operator">=</span> stop<span class="token punctuation">(</span><span class="token string">"'theta' must be given"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-negexp.SSival<span class="token punctuation">(</span>mCall<span class="token punctuation">,</span> data<span class="token punctuation">,</span> LHS<span class="token punctuation">)</span></code></pre>
-
-
-<h3>Details</h3>
-
-<p>These are not intended to be called by the user.
-Some are for compatibility
-with earlier versions of MASS (the book).
 </p>
 
 <hr>

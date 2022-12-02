@@ -103,9 +103,6 @@ Residuals From a Fitted Rpart Object
 <li class="help-index-item"><a href="#rpart">
 Recursive Partitioning and Regression Trees
 </a></li>
-<li class="help-index-item"><a href="#rpart-internal">
-Internal Functions 
-</a></li>
 <li class="help-index-item"><a href="#rpart.control">
 Control for Rpart Fits
 </a></li>
@@ -2074,121 +2071,6 @@ text<span class="token punctuation">(</span>fit<span class="token punctuation">,
 plot<span class="token punctuation">(</span>fit2<span class="token punctuation">)</span>
 text<span class="token punctuation">(</span>fit2<span class="token punctuation">,</span> use.n <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="rpart-internal">
-
-<a href="#rpart-internal" class="help-page-title"><h2>
-Internal Functions 
-</h2></a>
-
-<h3>Description</h3>
-
-<p>Internal functions, only used by packages <span class="pkg">rpart</span> and <span class="pkg">ipred</span>.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">pred.rpart<span class="token punctuation">(</span>fit<span class="token punctuation">,</span> x<span class="token punctuation">)</span>
-rpart.anova<span class="token punctuation">(</span>y<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> parms<span class="token punctuation">,</span> wt<span class="token punctuation">)</span>
-rpart.class<span class="token punctuation">(</span>y<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> parms<span class="token punctuation">,</span> wt<span class="token punctuation">)</span>
-rpart.matrix<span class="token punctuation">(</span>frame<span class="token punctuation">)</span>
-rpart.poisson<span class="token punctuation">(</span>y<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> parms<span class="token punctuation">,</span> wt<span class="token punctuation">)</span>
-rpartco<span class="token punctuation">(</span>tree<span class="token punctuation">,</span> parms<span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr style="vertical-align: top;">
-<td><code>fit</code></td>
-<td>
-<p>a tree fitted by <code>rpart</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
-<td>
-<p>a matrix of predictors.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>y</code></td>
-<td>
-<p>the responses.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>offset</code></td>
-<td>
-<p>an offset, or <code>NULL</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>parms</code></td>
-<td>
-<p>a list of parameters, usually empty.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>wt</code></td>
-<td>
-<p>case weights.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>frame</code></td>
-<td>
-<p>model frame (from call to <code>rpart</code>)</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>tree</code></td>
-<td>
-<p>a tree fitted by <code>rpart</code>.</p>
-</td>
-</tr>
-</table>
-<h3>Value</h3>
-
-<p>For <code>rpartco</code> the x,y plotting coordinates of the nodes.
-</p>
-<p><code>rpart.anova</code>, <code>rpart.class</code> and
-<code>rpart.poisson</code> return a list with components
-</p>
-<table>
-<tr style="vertical-align: top;">
-<td><code>y</code></td>
-<td>
-<p>(adjusting for <code>offset</code> if necessary),</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>parms</code></td>
-<td>
-<p>as input,</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>numresp</code></td>
-<td>
-<p>the number of responses,</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>summary</code></td>
-<td>
-<p>a function to be invoked by <code><a href="#summary.rpart">summary.rpart</a></code>,</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>text</code></td>
-<td>
-<p>a function to be invoked by <code><a href="#text.rpart">text.rpart</a></code>.</p>
-</td>
-</tr>
-</table>
 <hr>
 </div>
 <div class="container manual-page" id="rpart.control">

@@ -264,7 +264,6 @@ Convert the format of a survfit object.
 A direct interface to the ‘computational engine’ of survfit.coxph
 </a></li>
 <li class="help-index-item"><a href="#survival-deprecated">Deprecated functions in package survival</a></li>
-<li class="help-index-item"><a href="#survival-internal">Internal survival functions</a></li>
 <li class="help-index-item"><a href="#survobrien">
 O'Brien's Test for Association of a Single Variable with Survival
 </a></li>
@@ -15775,68 +15774,6 @@ vectors for the direct call</p>
 
 <p><code><a href="https://r-universe.dev/manuals/base.html#Deprecated">Deprecated</a></code>
 </p>
-
-<hr>
-</div>
-<div class="container manual-page" id="survival-internal">
-
-<a href="#survival-internal" class="help-page-title"><h2>Internal survival functions</h2></a>
-
-<h3>Description</h3>
-
-<p>Internal survival functions</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">survreg.fit<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> weights<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> init<span class="token punctuation">,</span> controlvals<span class="token punctuation">,</span> dist<span class="token punctuation">,</span> scale <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
-    nstrat <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> strata<span class="token punctuation">,</span> parms <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>assign<span class="token punctuation">)</span>
-survpenal.fit<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> weights<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> init<span class="token punctuation">,</span> controlvals<span class="token punctuation">,</span> dist<span class="token punctuation">,</span> scale <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
-    nstrat <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> strata<span class="token punctuation">,</span> pcols<span class="token punctuation">,</span> pattr<span class="token punctuation">,</span> assign<span class="token punctuation">,</span> parms <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
-survdiff.fit<span class="token punctuation">(</span>y<span class="token punctuation">,</span> x<span class="token punctuation">,</span> strat<span class="token punctuation">,</span> rho <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
-match.ratetable<span class="token punctuation">(</span>R<span class="token punctuation">,</span> ratetable<span class="token punctuation">)</span>
-<span class="token comment">## S3 method for class 'ratetable'</span>
-as.matrix<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-<span class="token comment">## S3 method for class 'coxph.penalty'</span>
-is.na<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-coxpenal.df<span class="token punctuation">(</span>hmat<span class="token punctuation">,</span> hinv<span class="token punctuation">,</span> fdiag<span class="token punctuation">,</span> assign.list<span class="token punctuation">,</span> ptype<span class="token punctuation">,</span> nvar<span class="token punctuation">,</span> pen1<span class="token punctuation">,</span>
-    pen2<span class="token punctuation">,</span> sparse<span class="token punctuation">)</span>
-coxpenal.fit<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> strata<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> init<span class="token punctuation">,</span> control<span class="token punctuation">,</span> weights<span class="token punctuation">,</span> method<span class="token punctuation">,</span>
-    rownames<span class="token punctuation">,</span> pcols<span class="token punctuation">,</span> pattr<span class="token punctuation">,</span> assign<span class="token punctuation">,</span> nocenter<span class="token punctuation">)</span>
-coxph.wtest<span class="token punctuation">(</span>var<span class="token punctuation">,</span> b<span class="token punctuation">,</span> toler.chol <span class="token operator">=</span> <span class="token number">1e-09</span><span class="token punctuation">)</span>
-agexact.fit<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> strata<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> init<span class="token punctuation">,</span> control<span class="token punctuation">,</span> weights<span class="token punctuation">,</span> method<span class="token punctuation">,</span>
-    rownames<span class="token punctuation">,</span> resid<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span> nocenter<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">)</span> 
-survfitCI<span class="token punctuation">(</span>X<span class="token punctuation">,</span> Y<span class="token punctuation">,</span> weights<span class="token punctuation">,</span>  id<span class="token punctuation">,</span> cluster<span class="token punctuation">,</span> robust<span class="token punctuation">,</span> istate<span class="token punctuation">,</span>
-                       stype<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> ctype<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> 
-                       se.fit<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span>
-                       conf.int<span class="token operator">=</span> <span class="token number">.95</span><span class="token punctuation">,</span>
-                       conf.type<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token string">'log'</span><span class="token punctuation">,</span>  <span class="token string">'log-log'</span><span class="token punctuation">,</span>  <span class="token string">'plain'</span><span class="token punctuation">,</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
-                                   <span class="token string">'logit'</span><span class="token punctuation">,</span> <span class="token string">'arcsin'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                       conf.lower<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token string">'usual'</span><span class="token punctuation">,</span> <span class="token string">'peto'</span><span class="token punctuation">,</span> <span class="token string">'modified'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                       influence<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span> start.time<span class="token punctuation">,</span> p0<span class="token punctuation">,</span> type<span class="token punctuation">)</span>
-survfitKM<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> weights<span class="token operator">=</span>rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>length<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                       stype<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> ctype<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> 
-                       se.fit<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span>
-                       conf.int<span class="token operator">=</span> <span class="token number">.95</span><span class="token punctuation">,</span>
-                       conf.type<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token string">'log'</span><span class="token punctuation">,</span>  <span class="token string">'log-log'</span><span class="token punctuation">,</span>  <span class="token string">'plain'</span><span class="token punctuation">,</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
-                                   <span class="token string">'logit'</span><span class="token punctuation">,</span> <span class="token string">'arcsin'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                       conf.lower<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token string">'usual'</span><span class="token punctuation">,</span> <span class="token string">'peto'</span><span class="token punctuation">,</span> <span class="token string">'modified'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                       start.time<span class="token punctuation">,</span> id<span class="token punctuation">,</span> cluster<span class="token punctuation">,</span> robust<span class="token punctuation">,</span>
-                       influence<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span> type<span class="token punctuation">)</span> 
-survfitTurnbull<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> weights<span class="token punctuation">,</span>
-                       type<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token string">'kaplan-meier'</span><span class="token punctuation">,</span> <span class="token string">'fleming-harrington'</span><span class="token punctuation">,</span> <span class="token string">'fh2'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                       error<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token string">'greenwood'</span><span class="token punctuation">,</span> <span class="token string">"tsiatis"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> se.fit<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span>
-                       conf.int<span class="token operator">=</span> <span class="token number">.95</span><span class="token punctuation">,</span>
-                       conf.type<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token string">'log'</span><span class="token punctuation">,</span>  <span class="token string">'log-log'</span><span class="token punctuation">,</span>  <span class="token string">'plain'</span><span class="token punctuation">,</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
-                                   <span class="token string">'logit'</span><span class="token punctuation">,</span> <span class="token string">'arcsin'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                       conf.lower<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token string">'usual'</span><span class="token punctuation">,</span> <span class="token string">'peto'</span><span class="token punctuation">,</span> <span class="token string">'modified'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                       start.time<span class="token punctuation">,</span> robust<span class="token punctuation">,</span> cluster<span class="token punctuation">)</span></code></pre>
-
-
-<h3>Details</h3>
-
-<p>The arguments to these routines are not guaranteed to stay the
-same from release to release – call them at your own risk!</p>
 
 <hr>
 </div>

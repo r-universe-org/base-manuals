@@ -159,7 +159,6 @@
 <li class="help-index-item"><a href="#getResponseFormula">Extract Formula Specifying Response Variable</a></li>
 <li class="help-index-item"><a href="#getVarCov">Extract variance-covariance matrix</a></li>
 <li class="help-index-item"><a href="#gls">Fit Linear Model Using Generalized Least Squares</a></li>
-<li class="help-index-item"><a href="#gls-internal">Auxiliary functions used by gls</a></li>
 <li class="help-index-item"><a href="#glsControl">Control Values for gls Fit</a></li>
 <li class="help-index-item"><a href="#glsObject">Fitted gls Object</a></li>
 <li class="help-index-item"><a href="#glsStruct">Generalized Least Squares Structure</a></li>
@@ -9155,65 +9154,6 @@ fm1 <span class="token operator">&lt;-</span> gls<span class="token punctuation"
 <span class="token comment"># variance increases as a power of the absolute fitted values</span>
 fm2 <span class="token operator">&lt;-</span> update<span class="token punctuation">(</span>fm1<span class="token punctuation">,</span> weights <span class="token operator">=</span> varPower<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="gls-internal">
-
-<a href="#gls-internal" class="help-page-title"><h2>Auxiliary functions used by gls</h2></a>
-
-<h3>Description</h3>
-
-<p>These are functions used by <code>gls</code> to call its compiled C
-code. They are exported to allow experimentation with modified versions.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">glsApVar<span class="token punctuation">(</span>glsSt<span class="token punctuation">,</span> sigma<span class="token punctuation">,</span> conLin <span class="token operator">=</span> attr<span class="token punctuation">(</span>glsSt<span class="token punctuation">,</span> <span class="token string">"conLin"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-         .relStep <span class="token operator">=</span> .Machine<span class="token operator">$</span>double.eps<span class="token operator">^</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> minAbsPar <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> natural <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
-glsEstimate<span class="token punctuation">(</span>object<span class="token punctuation">,</span> conLin <span class="token operator">=</span> attr<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token string">"conLin"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            control <span class="token operator">=</span> list<span class="token punctuation">(</span>singular.ok <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr style="vertical-align: top;">
-<td><code>glsSt, object</code></td>
-<td>
-<p>An object inheriting from  class
-<code>"<a href="#glsStruct">glsStruct</a>"</code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>sigma</code></td>
-<td>
-<p>the estimated residual standard error: see
-<code><a href="#glsObject">glsObject</a></code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>conLin</code></td>
-<td>
-<p>A ‘condensed linear model’: see
-<code><a href="#logLik.glsStruct">logLik.glsStruct</a></code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>.relStep, minAbsPar, natural</code></td>
-<td>
-<p>Control values: see 
-<code><a href="#glsControl">glsControl</a></code>.</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td><code>control</code></td>
-<td>
-<p>The relevant part of a <code><a href="#glsControl">glsControl</a></code> return value.</p>
-</td>
-</tr>
-</table>
 <hr>
 </div>
 <div class="container manual-page" id="glsControl">
