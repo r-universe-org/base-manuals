@@ -56,6 +56,9 @@
 
     <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
     <ul id="help-index-list">
+<li class="help-index-item"><a href="#splines-package">
+Regression Spline Functions and Classes
+</a></li>
 <li class="help-index-item"><a href="#asVector">Coerce an Object to a Vector</a></li>
 <li class="help-index-item"><a href="#backSpline">Monotone Inverse Spline</a></li>
 <li class="help-index-item"><a href="#bs">B-Spline Basis for Polynomial Splines</a></li>
@@ -68,14 +71,43 @@
 <li class="help-index-item"><a href="#splineDesign">Design Matrix for B-splines</a></li>
 <li class="help-index-item"><a href="#splineKnots">Knot Vector from a Spline</a></li>
 <li class="help-index-item"><a href="#splineOrder">Determine the Order of a Spline</a></li>
-<li class="help-index-item"><a href="#splines-package">
-Regression Spline Functions and Classes
-</a></li>
 <li class="help-index-item"><a href="#xyVector">Construct an xyVector Object</a></li>
 </ul>
 
     <hr>
     <div class="manual-pages-content">
+<div class="container manual-page" id="splines-package">
+
+<a href="#splines-package" class="help-page-title"><h2>
+Regression Spline Functions and Classes
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Regression spline functions and classes.
+</p>
+
+
+<h3>Details</h3>
+
+<p>This package provides functions for working with regression
+splines using the B-spline basis, <code><a href="#bs">bs</a></code>, and the
+natural cubic spline basis, <code><a href="#ns">ns</a></code>.
+</p>
+<p>For a complete list of functions, use <code>library(help = "splines")</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Douglas M. Bates <a href="mailto:bates@stat.wisc.edu">bates@stat.wisc.edu</a> and William N. Venables
+<a href="mailto:Bill.Venables@csiro.au">Bill.Venables@csiro.au</a>
+</p>
+<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
+</p>
+
+<hr>
+</div>
 <div class="container manual-page" id="asVector">
 
 <a href="#asVector" class="help-page-title"><h2>Coerce an Object to a Vector</h2></a>
@@ -1146,38 +1178,6 @@ order 4.
 <h3>Examples</h3>
 
 <pre class="language-r"><code class="language-r">splineOrder<span class="token punctuation">(</span> interpSpline<span class="token punctuation">(</span> weight <span class="token operator">~</span> height<span class="token punctuation">,</span> women <span class="token punctuation">)</span> <span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="splines-package">
-
-<a href="#splines-package" class="help-page-title"><h2>
-Regression Spline Functions and Classes
-</h2></a>
-
-<h3>Description</h3>
-
-<p>Regression spline functions and classes.
-</p>
-
-
-<h3>Details</h3>
-
-<p>This package provides functions for working with regression
-splines using the B-spline basis, <code><a href="#bs">bs</a></code>, and the
-natural cubic spline basis, <code><a href="#ns">ns</a></code>.
-</p>
-<p>For a complete list of functions, use <code>library(help = "splines")</code>.
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>Douglas M. Bates <a href="mailto:bates@stat.wisc.edu">bates@stat.wisc.edu</a> and William N. Venables
-<a href="mailto:Bill.Venables@csiro.au">Bill.Venables@csiro.au</a>
-</p>
-<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
-</p>
 
 <hr>
 </div>

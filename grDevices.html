@@ -55,6 +55,9 @@
 
     <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
     <ul id="help-index-list">
+<li class="help-index-item"><a href="#grDevices-package">
+The R Graphics Devices and Support for Colours and Fonts
+</a></li>
 <li class="help-index-item"><a href="#adjustcolor">Adjust Colors in One or More Directions Conveniently.</a></li>
 <li class="help-index-item"><a href="#as.graphicsAnnot">Coerce an Object for Graphics Annotation</a></li>
 <li class="help-index-item"><a href="#as.raster">Create a Raster Object</a></li>
@@ -91,9 +94,6 @@ Hold or Flush Output on an On-Screen Graphics Device.
 <li class="help-index-item"><a href="#getGraphicsEvent">Wait for a mouse or keyboard event from a graphics window</a></li>
 <li class="help-index-item"><a href="#gray">Gray Level Specification</a></li>
 <li class="help-index-item"><a href="#gray.colors">Gray Color Palette</a></li>
-<li class="help-index-item"><a href="#grDevices-package">
-The R Graphics Devices and Support for Colours and Fonts
-</a></li>
 <li class="help-index-item"><a href="#grSoftVersion">Report Versions of Graphics Software</a></li>
 <li class="help-index-item"><a href="#hcl">HCL Color Specification</a></li>
 <li class="help-index-item"><a href="#Hershey">Hershey Vector Fonts in R</a></li>
@@ -136,6 +136,36 @@ The R Graphics Devices and Support for Colours and Fonts
 
     <hr>
     <div class="manual-pages-content">
+<div class="container manual-page" id="grDevices-package">
+
+<a href="#grDevices-package" class="help-page-title"><h2>
+The R Graphics Devices and Support for Colours and Fonts
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Graphics devices and support for base and grid graphics
+</p>
+
+
+<h3>Details</h3>
+
+<p>This package contains functions which support both
+<a href="https://r-universe.dev/manuals/graphics.html#graphics-package">base</a> and <a href="https://r-universe.dev/manuals/grid.html#grid-package">grid</a> graphics.
+</p>
+<p>For a complete list of functions, use <code>library(help = "grDevices")</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>R Core Team and contributors worldwide
+</p>
+<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
+</p>
+
+<hr>
+</div>
 <div class="container manual-page" id="adjustcolor">
 
 <a href="#adjustcolor" class="help-page-title"><h2>Adjust Colors in One or More Directions Conveniently.</h2></a>
@@ -3761,36 +3791,6 @@ This palette is used in <code><a href="https://r-universe.dev/manuals/graphics.h
 
 pie<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">,</span> col <span class="token operator">=</span> gray.colors<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 barplot<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">12</span><span class="token punctuation">,</span> col <span class="token operator">=</span> gray.colors<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="grDevices-package">
-
-<a href="#grDevices-package" class="help-page-title"><h2>
-The R Graphics Devices and Support for Colours and Fonts
-</h2></a>
-
-<h3>Description</h3>
-
-<p>Graphics devices and support for base and grid graphics
-</p>
-
-
-<h3>Details</h3>
-
-<p>This package contains functions which support both
-<a href="https://r-universe.dev/manuals/graphics.html#graphics-package">base</a> and <a href="https://r-universe.dev/manuals/grid.html#grid-package">grid</a> graphics.
-</p>
-<p>For a complete list of functions, use <code>library(help = "grDevices")</code>.
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>R Core Team and contributors worldwide
-</p>
-<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
-</p>
 
 <hr>
 </div>

@@ -56,6 +56,9 @@
 
     <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
     <ul id="help-index-list">
+<li class="help-index-item"><a href="#methods-package">
+Formal Methods and Classes
+</a></li>
 <li class="help-index-item"><a href="#zBasicFunsList">List of Builtin and Special Functions</a></li>
 <li class="help-index-item"><a href="#as">Force an Object to Belong to a Class</a></li>
 <li class="help-index-item"><a href="#BasicClasses">Classes Corresponding to Basic Data Types </a></li>
@@ -105,9 +108,6 @@ Use Function Definitions from a Source File without Reinstalling a Package
 <li class="help-index-item"><a href="#Methods_Details">General Information on Methods</a></li>
 <li class="help-index-item"><a href="#Methods_for_Nongenerics">Methods for Non-Generic Functions in Other Packages</a></li>
 <li class="help-index-item"><a href="#Methods_for_S3">Methods For S3 and S4 Dispatch</a></li>
-<li class="help-index-item"><a href="#methods-package">
-Formal Methods and Classes
-</a></li>
 <li class="help-index-item"><a href="#MethodsList-class">Class MethodsList, Defunct Representation of Methods </a></li>
 <li class="help-index-item"><a href="#MethodWithNext-class">Class MethodWithNext </a></li>
 <li class="help-index-item"><a href="#new"> Generate an Object from a Class </a></li>
@@ -147,6 +147,94 @@ Test for and Report about  Selection of Inherited Methods
 
     <hr>
     <div class="manual-pages-content">
+<div class="container manual-page" id="methods-package">
+
+<a href="#methods-package" class="help-page-title"><h2>
+Formal Methods and Classes
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Formally defined methods and classes for R objects, plus
+other programming tools, as described in the references.
+</p>
+
+
+<h3>Details</h3>
+
+<p>This package provides the “S4” or “S version 4”
+approach to methods and classes in a functional language.
+</p>
+<p>For basic use of the techniques, start with <a href="#Introduction">Introduction</a> and
+follow the links there to the key functions for programming, notably
+<code><a href="#setClass">setClass</a></code> and <code><a href="#setMethod">setMethod</a></code>.
+</p>
+<p>Some specific topics:
+</p>
+
+<dl>
+<dt>Classes:</dt>
+<dd>
+<p> Creating one, see <code><a href="#setClass">setClass</a></code>;
+examining definitions, see <code><a href="#getClass">getClassDef</a></code> and
+<a href="#classRepresentation-class">classRepresentation</a>; inheritance and coercing,
+see <code><a href="#is">is</a></code> and <code><a href="#as">as</a></code>
+</p>
+</dd>
+<dt>Generic functions:</dt>
+<dd>
+<p>  Basic programming, see
+<code><a href="#setGeneric">setGeneric</a></code>; the class of objects, see
+<a href="#genericFunction-class">genericFunction</a>; other functions to examine or
+manipulate them, see <a href="#GenericFunctions">GenericFunctions</a>.
+</p>
+</dd>
+<dt>S3:</dt>
+<dd>
+<p>Using classes, see <code><a href="#setOldClass">setOldClass</a></code>; methods,
+see <a href="#Methods_for_S3">Methods_for_S3</a>.
+</p>
+</dd>
+<dt>Reference classes:</dt>
+<dd>
+<p>See <a href="#refClass">ReferenceClasses</a>.
+</p>
+</dd>
+<dt>Class unions; virtual classes</dt>
+<dd>
+<p>See <code><a href="#setClassUnion">setClassUnion</a></code>.
+</p>
+</dd>
+</dl>
+<p>These pages will have additional links to related topics.
+</p>
+<p>For a complete
+list of functions and classes, use <code>library(help="methods")</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>R Core Team
+</p>
+<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, John M. (2016)
+<em>Extending R</em>,
+Chapman &amp; Hall.
+(Chapters 9 and 10.)
+</p>
+<p>Chambers, John M. (2008)
+<em>Software for Data Analysis: Programming with R</em>
+Springer.  (Chapter 10 has some additional details.)
+</p>
+
+<hr>
+</div>
 <div class="container manual-page" id="zBasicFunsList">
 
 <a href="#zBasicFunsList" class="help-page-title"><h2>List of Builtin and Special Functions</h2></a>
@@ -6313,94 +6401,6 @@ dispatch see <a href="#Methods_Details">Methods_Details</a> and <a href="https:/
 <em>Extending R</em>,
 Chapman &amp; Hall.
 (Chapters 9 and 10.)
-</p>
-
-<hr>
-</div>
-<div class="container manual-page" id="methods-package">
-
-<a href="#methods-package" class="help-page-title"><h2>
-Formal Methods and Classes
-</h2></a>
-
-<h3>Description</h3>
-
-<p>Formally defined methods and classes for R objects, plus
-other programming tools, as described in the references.
-</p>
-
-
-<h3>Details</h3>
-
-<p>This package provides the “S4” or “S version 4”
-approach to methods and classes in a functional language.
-</p>
-<p>For basic use of the techniques, start with <a href="#Introduction">Introduction</a> and
-follow the links there to the key functions for programming, notably
-<code><a href="#setClass">setClass</a></code> and <code><a href="#setMethod">setMethod</a></code>.
-</p>
-<p>Some specific topics:
-</p>
-
-<dl>
-<dt>Classes:</dt>
-<dd>
-<p> Creating one, see <code><a href="#setClass">setClass</a></code>;
-examining definitions, see <code><a href="#getClass">getClassDef</a></code> and
-<a href="#classRepresentation-class">classRepresentation</a>; inheritance and coercing,
-see <code><a href="#is">is</a></code> and <code><a href="#as">as</a></code>
-</p>
-</dd>
-<dt>Generic functions:</dt>
-<dd>
-<p>  Basic programming, see
-<code><a href="#setGeneric">setGeneric</a></code>; the class of objects, see
-<a href="#genericFunction-class">genericFunction</a>; other functions to examine or
-manipulate them, see <a href="#GenericFunctions">GenericFunctions</a>.
-</p>
-</dd>
-<dt>S3:</dt>
-<dd>
-<p>Using classes, see <code><a href="#setOldClass">setOldClass</a></code>; methods,
-see <a href="#Methods_for_S3">Methods_for_S3</a>.
-</p>
-</dd>
-<dt>Reference classes:</dt>
-<dd>
-<p>See <a href="#refClass">ReferenceClasses</a>.
-</p>
-</dd>
-<dt>Class unions; virtual classes</dt>
-<dd>
-<p>See <code><a href="#setClassUnion">setClassUnion</a></code>.
-</p>
-</dd>
-</dl>
-<p>These pages will have additional links to related topics.
-</p>
-<p>For a complete
-list of functions and classes, use <code>library(help="methods")</code>.
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>R Core Team
-</p>
-<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
-</p>
-
-
-<h3>References</h3>
-
-<p>Chambers, John M. (2016)
-<em>Extending R</em>,
-Chapman &amp; Hall.
-(Chapters 9 and 10.)
-</p>
-<p>Chambers, John M. (2008)
-<em>Software for Data Analysis: Programming with R</em>
-Springer.  (Chapter 10 has some additional details.)
 </p>
 
 <hr>

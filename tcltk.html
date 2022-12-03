@@ -55,11 +55,11 @@
 
     <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
     <ul id="help-index-list">
-<li class="help-index-item"><a href="#TclInterface">Low-level Tcl/Tk Interface</a></li>
-<li class="help-index-item"><a href="#tclServiceMode"> Allow Tcl events to be serviced or not </a></li>
 <li class="help-index-item"><a href="#tcltk-package">
 Tcl/Tk Interface
 </a></li>
+<li class="help-index-item"><a href="#TclInterface">Low-level Tcl/Tk Interface</a></li>
+<li class="help-index-item"><a href="#tclServiceMode"> Allow Tcl events to be serviced or not </a></li>
 <li class="help-index-item"><a href="#tk_choose.dir">Choose a Folder Interactively</a></li>
 <li class="help-index-item"><a href="#tk_choose.files">Choose a List of Files Interactively</a></li>
 <li class="help-index-item"><a href="#tk_messageBox">Tk Message Box</a></li>
@@ -74,6 +74,46 @@ Tcl/Tk Interface
 
     <hr>
     <div class="manual-pages-content">
+<div class="container manual-page" id="tcltk-package">
+
+<a href="#tcltk-package" class="help-page-title"><h2>
+Tcl/Tk Interface
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Interface and language bindings to Tcl/Tk GUI elements.
+</p>
+
+
+<h3>Details</h3>
+
+<p>This package provides access to the platform-independent Tcl scripting
+language and Tk GUI elements.  See <a href="#TkWidgets">TkWidgets</a> for a list of
+supported widgets, <a href="#TkWidgetcmds">TkWidgetcmds</a> for commands to work with them,
+and references in those files for more.
+</p>
+<p>The Tcl/Tk documentation is in
+the system man pages.
+</p>
+<p>For a complete list of functions, use <code>ls("package:tcltk")</code>.
+</p>
+<p>Note that Tk will not be initialized if there is no <code>DISPLAY</code>
+variable set, but Tcl can still be used.  This is most useful to allow
+the loading of a package which depends on <span class="pkg">tcltk</span> in a session that
+does not actually use it (e.g., during installation).
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>R Core Team
+</p>
+<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
+</p>
+
+<hr>
+</div>
 <div class="container manual-page" id="TclInterface">
 
 <a href="#TclInterface" class="help-page-title"><h2>Low-level Tcl/Tk Interface</h2></a>
@@ -476,46 +516,6 @@ oldmode <span class="token operator">&lt;-</span> tclServiceMode<span class="tok
 <span class="token comment"># Nothing will be displayed until...</span>
 tclServiceMode<span class="token punctuation">(</span>oldmode<span class="token punctuation">)</span>
 <span class="token comment">## another idea is to use tkwm.withdraw() ... tkwm.deiconify()</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="tcltk-package">
-
-<a href="#tcltk-package" class="help-page-title"><h2>
-Tcl/Tk Interface
-</h2></a>
-
-<h3>Description</h3>
-
-<p>Interface and language bindings to Tcl/Tk GUI elements.
-</p>
-
-
-<h3>Details</h3>
-
-<p>This package provides access to the platform-independent Tcl scripting
-language and Tk GUI elements.  See <a href="#TkWidgets">TkWidgets</a> for a list of
-supported widgets, <a href="#TkWidgetcmds">TkWidgetcmds</a> for commands to work with them,
-and references in those files for more.
-</p>
-<p>The Tcl/Tk documentation is in
-the system man pages.
-</p>
-<p>For a complete list of functions, use <code>ls("package:tcltk")</code>.
-</p>
-<p>Note that Tk will not be initialized if there is no <code>DISPLAY</code>
-variable set, but Tcl can still be used.  This is most useful to allow
-the loading of a package which depends on <span class="pkg">tcltk</span> in a session that
-does not actually use it (e.g., during installation).
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>R Core Team
-</p>
-<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
-</p>
 
 <hr>
 </div>
