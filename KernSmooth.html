@@ -49,7 +49,7 @@
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2022-10-31 22:33:21 UTC</td>
+<td class="description-date">2023-04-21 21:43:01 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -86,7 +86,7 @@ Estimate Functions Using Local Polynomials
     <div class="manual-pages-content">
 <div class="container manual-page" id="bkde">
 
-<a href="#bkde" class="help-page-title"><h2>
+<a href="#bkde" class="help-page-title"><h2 id="bkde">
 Compute a Binned Kernel Density Estimate
 </h2></a>
 
@@ -107,8 +107,8 @@ density of the data.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="bkde_:_x">x</code></td>
 <td>
 
 <p>numeric vector of observations from the distribution whose density is to
@@ -116,8 +116,8 @@ be estimated.  Missing values are not allowed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>bandwidth</code></td>
+<tr>
+<td><code id="bkde_:_bandwidth">bandwidth</code></td>
 <td>
 
 <p>the kernel bandwidth smoothing parameter.  Larger values of
@@ -129,8 +129,8 @@ computed from the variance of <code>x</code>, specifically the
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>kernel</code></td>
+<tr>
+<td><code id="bkde_:_kernel">kernel</code></td>
 <td>
 
 <p>character string which determines the smoothing kernel.
@@ -144,24 +144,24 @@ This can be abbreviated to any unique abbreviation.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>canonical</code></td>
+<tr>
+<td><code id="bkde_:_canonical">canonical</code></td>
 <td>
 
 <p>length-one logical vector: if <code>TRUE</code>, canonically scaled kernels are used.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>gridsize</code></td>
+<tr>
+<td><code id="bkde_:_gridsize">gridsize</code></td>
 <td>
 
 <p>the number of equally spaced points at which to estimate the density.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>range.x</code></td>
+<tr>
+<td><code id="bkde_:_range.x">range.x</code></td>
 <td>
 
 <p>vector containing the minimum and maximum values of <code>x</code>
@@ -171,8 +171,8 @@ support of the kernel.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>truncate</code></td>
+<tr>
+<td><code id="bkde_:_truncate">truncate</code></td>
 <td>
 
 <p>logical flag: if <code>TRUE</code>, data with <code>x</code> values outside the
@@ -196,7 +196,7 @@ This sum, after a normalization, is the corresponding <code>y</code> value in th
 <p>a list containing the following components:
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>x</code></td>
 <td>
 
@@ -204,7 +204,7 @@ This sum, after a normalization, is the corresponding <code>y</code> value in th
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>y</code></td>
 <td>
 
@@ -250,7 +250,7 @@ plot<span class="token punctuation">(</span>est<span class="token punctuation">,
 </div>
 <div class="container manual-page" id="bkde2D">
 
-<a href="#bkde2D" class="help-page-title"><h2>
+<a href="#bkde2D" class="help-page-title"><h2 id="bkde2D">
 Compute a 2D Binned Kernel Density Estimate
 </h2></a>
 
@@ -271,8 +271,8 @@ density.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="bkde2D_:_x">x</code></td>
 <td>
 
 <p>a two-column numeric matrix containing the observations from the  
@@ -281,8 +281,8 @@ Missing values are not allowed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>bandwidth</code></td>
+<tr>
+<td><code id="bkde2D_:_bandwidth">bandwidth</code></td>
 <td>
 
 <p>numeric vector oflength 2, containing the bandwidth to be used in each coordinate
@@ -290,8 +290,8 @@ direction.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>gridsize</code></td>
+<tr>
+<td><code id="bkde2D_:_gridsize">gridsize</code></td>
 <td>
 
 <p>vector containing the number of equally spaced points in each direction
@@ -299,8 +299,8 @@ over which the density is to be estimated.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>range.x</code></td>
+<tr>
+<td><code id="bkde2D_:_range.x">range.x</code></td>
 <td>
 
 <p>a list containing two vectors, where each vector 
@@ -314,8 +314,8 @@ that direction
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>truncate</code></td>
+<tr>
+<td><code id="bkde2D_:_truncate">truncate</code></td>
 <td>
 
 <p>logical flag: if TRUE, data with <code>x</code> values outside the
@@ -329,7 +329,7 @@ range specified by <code>range.x</code> are ignored.
 <p>a list containing the following components:
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>x1</code></td>
 <td>
 
@@ -338,7 +338,7 @@ direction at which the estimate was computed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>x2</code></td>
 <td>
 
@@ -347,7 +347,7 @@ direction at which the estimate was computed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>fhat</code></td>
 <td>
 
@@ -401,7 +401,7 @@ persp<span class="token punctuation">(</span>est<span class="token operator">$</
 </div>
 <div class="container manual-page" id="bkfe">
 
-<a href="#bkfe" class="help-page-title"><h2>
+<a href="#bkfe" class="help-page-title"><h2 id="bkfe">
 Compute a Binned Kernel Functional Estimate 
 </h2></a>
 
@@ -422,8 +422,8 @@ The kernel is the standard normal density.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="bkfe_:_x">x</code></td>
 <td>
 
 <p>numeric vector of observations from the distribution whose density is to
@@ -432,8 +432,8 @@ Missing values are not allowed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>drv</code></td>
+<tr>
+<td><code id="bkfe_:_drv">drv</code></td>
 <td>
 
 <p>order of derivative in the density functional. Must be a
@@ -441,16 +441,16 @@ non-negative even integer.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>bandwidth</code></td>
+<tr>
+<td><code id="bkfe_:_bandwidth">bandwidth</code></td>
 <td>
 
 <p>the kernel bandwidth smoothing parameter.  Must be supplied.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>gridsize</code></td>
+<tr>
+<td><code id="bkfe_:_gridsize">gridsize</code></td>
 <td>
 
 <p>the number of equally-spaced points over which binning is
@@ -458,8 +458,8 @@ performed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>range.x</code></td>
+<tr>
+<td><code id="bkfe_:_range.x">range.x</code></td>
 <td>
 
 <p>vector containing the minimum and maximum values of <code>x</code>
@@ -469,8 +469,8 @@ support of the kernel.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>binned</code></td>
+<tr>
+<td><code id="bkfe_:_binned">binned</code></td>
 <td>
 
 <p>logical flag: if <code>TRUE</code>, then <code>x</code> and <code>y</code> are taken to be grid counts
@@ -478,8 +478,8 @@ rather than raw data.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>truncate</code></td>
+<tr>
+<td><code id="bkfe_:_truncate">truncate</code></td>
 <td>
 
 <p>logical flag: if <code>TRUE</code>, data with <code>x</code> values outside the
@@ -535,7 +535,7 @@ est <span class="token operator">&lt;-</span> bkfe<span class="token punctuation
 </div>
 <div class="container manual-page" id="dpih">
 
-<a href="#dpih" class="help-page-title"><h2>
+<a href="#dpih" class="help-page-title"><h2 id="dpih">
 Select a Histogram Bin Width 
 </h2></a>
 
@@ -555,8 +555,8 @@ a histogram.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="dpih_:_x">x</code></td>
 <td>
 
 <p>numeric vector containing the sample on which the
@@ -564,8 +564,8 @@ histogram is to be constructed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>scalest</code></td>
+<tr>
+<td><code id="dpih_:_scalest">scalest</code></td>
 <td>
 
 <p>estimate of scale.
@@ -578,8 +578,8 @@ histogram is to be constructed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>level</code></td>
+<tr>
+<td><code id="dpih_:_level">level</code></td>
 <td>
 
 <p>number of levels of functional estimation used in the
@@ -587,8 +587,8 @@ plug-in rule.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>gridsize</code></td>
+<tr>
+<td><code id="dpih_:_gridsize">gridsize</code></td>
 <td>
 
 <p>number of grid points used in the binned approximations
@@ -596,8 +596,8 @@ to functional estimates.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>range.x</code></td>
+<tr>
+<td><code id="dpih_:_range.x">range.x</code></td>
 <td>
 
 <p>range over which functional estimates are obtained.
@@ -605,8 +605,8 @@ The default is the minimum and maximum data values.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>truncate</code></td>
+<tr>
+<td><code id="dpih_:_truncate">truncate</code></td>
 <td>
 
 <p>if <code>truncate</code> is <code>TRUE</code> then observations outside
@@ -680,7 +680,7 @@ hist<span class="token punctuation">(</span>x<span class="token punctuation">,</
 </div>
 <div class="container manual-page" id="dpik">
 
-<a href="#dpik" class="help-page-title"><h2>
+<a href="#dpik" class="help-page-title"><h2 id="dpik">
 Select a Bandwidth for Kernel Density Estimation
 </h2></a>
 
@@ -701,8 +701,8 @@ of a kernel density estimate.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="dpik_:_x">x</code></td>
 <td>
 
 <p>numeric vector containing the sample on which the
@@ -710,8 +710,8 @@ kernel density estimate is to be constructed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>scalest</code></td>
+<tr>
+<td><code id="dpik_:_scalest">scalest</code></td>
 <td>
 
 <p>estimate of scale.
@@ -724,8 +724,8 @@ kernel density estimate is to be constructed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>level</code></td>
+<tr>
+<td><code id="dpik_:_level">level</code></td>
 <td>
 
 <p>number of levels of functional estimation used in the
@@ -733,8 +733,8 @@ plug-in rule.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>kernel</code></td>
+<tr>
+<td><code id="dpik_:_kernel">kernel</code></td>
 <td>
 
 <p>character string which determines the smoothing kernel.
@@ -748,16 +748,16 @@ This can be abbreviated to any unique abbreviation.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>canonical</code></td>
+<tr>
+<td><code id="dpik_:_canonical">canonical</code></td>
 <td>
 
 <p>logical flag: if <code>TRUE</code>, canonically scaled kernels are used
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>gridsize</code></td>
+<tr>
+<td><code id="dpik_:_gridsize">gridsize</code></td>
 <td>
 
 <p>the number of equally-spaced points over which binning is 
@@ -765,8 +765,8 @@ performed to obtain kernel functional approximation.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>range.x</code></td>
+<tr>
+<td><code id="dpik_:_range.x">range.x</code></td>
 <td>
 
 <p>vector containing the minimum and maximum values of <code>x</code>
@@ -775,8 +775,8 @@ The default is the minimum and maximum data values.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>truncate</code></td>
+<tr>
+<td><code id="dpik_:_truncate">truncate</code></td>
 <td>
 
 <p>logical flag: if <code>TRUE</code>, data with <code>x</code> values outside the
@@ -844,7 +844,7 @@ plot<span class="token punctuation">(</span>est<span class="token punctuation">,
 </div>
 <div class="container manual-page" id="dpill">
 
-<a href="#dpill" class="help-page-title"><h2>
+<a href="#dpill" class="help-page-title"><h2 id="dpill">
 Select a Bandwidth for Local Linear Regression
 </h2></a>
 
@@ -865,8 +865,8 @@ by Ruppert, Sheather and Wand (1995).
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="dpill_:_x">x</code></td>
 <td>
 
 <p>numeric vector of x data.
@@ -874,8 +874,8 @@ Missing values are not accepted.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>y</code></td>
+<tr>
+<td><code id="dpill_:_y">y</code></td>
 <td>
 
 <p>numeric vector of y data.
@@ -884,8 +884,8 @@ missing values are not accepted.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>blockmax</code></td>
+<tr>
+<td><code id="dpill_:_blockmax">blockmax</code></td>
 <td>
 
 <p>the maximum number of blocks of the data for construction
@@ -893,8 +893,8 @@ of an initial parametric estimate.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>divisor</code></td>
+<tr>
+<td><code id="dpill_:_divisor">divisor</code></td>
 <td>
 
 <p>the value that the sample size is divided by to determine
@@ -903,8 +903,8 @@ construction of an initial parametric estimate.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>trim</code></td>
+<tr>
+<td><code id="dpill_:_trim">trim</code></td>
 <td>
 
 <p>the proportion of the sample trimmed from each end in the
@@ -912,8 +912,8 @@ construction of an initial parametric estimate.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>proptrun</code></td>
+<tr>
+<td><code id="dpill_:_proptrun">proptrun</code></td>
 <td>
 
 <p>the proportion of the range of <code>x</code> at each end truncated in the
@@ -921,8 +921,8 @@ functional estimates.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>gridsize</code></td>
+<tr>
+<td><code id="dpill_:_gridsize">gridsize</code></td>
 <td>
 
 <p>number of equally-spaced grid points over which the
@@ -930,8 +930,8 @@ function is to be estimated.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>range.x</code></td>
+<tr>
+<td><code id="dpill_:_range.x">range.x</code></td>
 <td>
 
 <p>vector containing the minimum and maximum values of <code>x</code> at which to
@@ -942,8 +942,8 @@ For regression estimation the default is the minimum and maximum data values.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>truncate</code></td>
+<tr>
+<td><code id="dpill_:_truncate">truncate</code></td>
 <td>
 
 <p>logical flag: if <code>TRUE</code>, data with <code>x</code> values outside the
@@ -1015,7 +1015,7 @@ lines<span class="token punctuation">(</span>fit<span class="token punctuation">
 </div>
 <div class="container manual-page" id="locpoly">
 
-<a href="#locpoly" class="help-page-title"><h2>
+<a href="#locpoly" class="help-page-title"><h2 id="locpoly">
 Estimate Functions Using Local Polynomials
 </h2></a>
 
@@ -1038,8 +1038,8 @@ over an equally-spaced grid is used.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="locpoly_:_x">x</code></td>
 <td>
 
 <p>numeric vector of x data.
@@ -1047,8 +1047,8 @@ Missing values are not accepted.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>bandwidth</code></td>
+<tr>
+<td><code id="locpoly_:_bandwidth">bandwidth</code></td>
 <td>
 
 <p>the kernel bandwidth smoothing parameter.
@@ -1059,8 +1059,8 @@ estimation.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>y</code></td>
+<tr>
+<td><code id="locpoly_:_y">y</code></td>
 <td>
 
 <p>vector of y data.
@@ -1069,16 +1069,16 @@ missing values are not accepted.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>drv</code></td>
+<tr>
+<td><code id="locpoly_:_drv">drv</code></td>
 <td>
 
 <p>order of derivative to be estimated.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>degree</code></td>
+<tr>
+<td><code id="locpoly_:_degree">degree</code></td>
 <td>
 
 <p>degree of local polynomial used. Its value
@@ -1088,16 +1088,16 @@ of <code>drv</code>. The default value is of <code>degree</code> is
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>kernel</code></td>
+<tr>
+<td><code id="locpoly_:_kernel">kernel</code></td>
 <td>
 
 <p><code>"normal"</code> - the Gaussian density function.  Currently ignored.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>gridsize</code></td>
+<tr>
+<td><code id="locpoly_:_gridsize">gridsize</code></td>
 <td>
 
 <p>number of equally-spaced grid points over which the 
@@ -1105,8 +1105,8 @@ function is to be estimated.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>bwdisc</code></td>
+<tr>
+<td><code id="locpoly_:_bwdisc">bwdisc</code></td>
 <td>
 
 <p>number of logarithmically-equally-spaced bandwidths
@@ -1115,8 +1115,8 @@ computation.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>range.x</code></td>
+<tr>
+<td><code id="locpoly_:_range.x">range.x</code></td>
 <td>
 
 <p>vector containing the minimum and maximum values of <code>x</code> at which to
@@ -1124,8 +1124,8 @@ compute the estimate.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>binned</code></td>
+<tr>
+<td><code id="locpoly_:_binned">binned</code></td>
 <td>
 
 <p>logical flag: if <code>TRUE</code>, then <code>x</code> and <code>y</code> are taken to be grid counts
@@ -1133,8 +1133,8 @@ rather than raw data.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>truncate</code></td>
+<tr>
+<td><code id="locpoly_:_truncate">truncate</code></td>
 <td>
 
 <p>logical flag: if <code>TRUE</code>, data with <code>x</code> values outside the range specified
@@ -1153,7 +1153,7 @@ of <code>x</code> (or its derivative) is computed.
 <p>a list containing the following components:
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>x</code></td>
 <td>
 
@@ -1161,7 +1161,7 @@ of <code>x</code> (or its derivative) is computed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>y</code></td>
 <td>
 
@@ -1217,6 +1217,6 @@ lines<span class="token punctuation">(</span>fit<span class="token punctuation">
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.0.9000</p></footer>
+    <footer><p>Rendered with postdoc 1.2.1</p></footer>
   </body>
 </html>

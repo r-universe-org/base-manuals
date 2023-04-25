@@ -21,7 +21,7 @@
     <table class="description-table">
       <tr>
 <th>Title:</th>
-<td class="description-title">Support for Parallel computation in R</td>
+<td class="description-title">Support for Parallel Computation in R</td>
 </tr>
       <tr>
 <th>Description:</th>
@@ -39,15 +39,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.2.2</td>
+<td class="description-license">Part of R 4.3.0</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.2.2</td>
+<td class="description-version">4.3.0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2022-10-31 22:33:07 UTC</td>
+<td class="description-date">2023-04-21 21:42:45 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -79,7 +79,7 @@ Create a Parallel Socket Cluster
     <div class="manual-pages-content">
 <div class="container manual-page" id="parallel-package">
 
-<a href="#parallel-package" class="help-page-title"><h2>
+<a href="#parallel-package" class="help-page-title"><h2 id="parallel-package">
 Support for Parallel Computation
 </h2></a>
 
@@ -91,7 +91,7 @@ Support for Parallel Computation
 
 <h3>Details</h3>
 
-<p>This package was first included with <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 2.14.0 in 2011.
+<p>This package was first included with <span class="rlang"><b>R</b></span> 2.14.0 in 2011.
 </p>
 <p>There is support for multiple RNG streams with the
 ‘<span class="samp">⁠"L'Ecuyer-CMRG"⁠</span>’ <a href="https://r-universe.dev/manuals/base.html#Random">RNG</a>: see <code><a href="#RngStream">nextRNGStream</a></code>.
@@ -131,7 +131,7 @@ provide means to manage such processes.
 </div>
 <div class="container manual-page" id="clusterApply">
 
-<a href="#clusterApply" class="help-page-title"><h2>Apply Operations using Clusters</h2></a>
+<a href="#clusterApply" class="help-page-title"><h2 id="clusterApply">Apply Operations using Clusters</h2></a>
 
 <h3>Description</h3>
 
@@ -167,103 +167,107 @@ parSapplyLB<span class="token punctuation">(</span>cl <span class="token operato
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>cl</code></td>
+<tr>
+<td><code id="clusterApply_:_cl">cl</code></td>
 <td>
 <p>a cluster object, created by this package or by package
 <a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a>.  If <code>NULL</code>, use the registered default cluster.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>fun, FUN</code></td>
+<tr>
+<td>
+<code id="clusterApply_:_fun">fun</code>, <code id="clusterApply_:_FUN">FUN</code>
+</td>
 <td>
 <p>function or character string naming a function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>expr</code></td>
+<tr>
+<td><code id="clusterApply_:_expr">expr</code></td>
 <td>
 <p>expression to evaluate.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>seq</code></td>
+<tr>
+<td><code id="clusterApply_:_seq">seq</code></td>
 <td>
 <p>vector to split.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>varlist</code></td>
+<tr>
+<td><code id="clusterApply_:_varlist">varlist</code></td>
 <td>
 <p>character vector of names of objects to export.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>envir</code></td>
+<tr>
+<td><code id="clusterApply_:_envir">envir</code></td>
 <td>
 <p>environment from which t export variables</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="clusterApply_:_x">x</code></td>
 <td>
 <p>a vector for <code>clusterApply</code> and <code>clusterApplyLB</code>, a
 matrix for <code>parRapply</code> and <code>parCapply</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="clusterApply_:_...">...</code></td>
 <td>
 <p>additional arguments to pass to <code>fun</code> or <code>FUN</code>:
 beware of partial matching to earlier arguments.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>MoreArgs</code></td>
+<tr>
+<td><code id="clusterApply_:_MoreArgs">MoreArgs</code></td>
 <td>
 <p>additional arguments for <code>fun</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>RECYCLE</code></td>
+<tr>
+<td><code id="clusterApply_:_RECYCLE">RECYCLE</code></td>
 <td>
 <p>logical; if true shorter arguments are recycled.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>X</code></td>
+<tr>
+<td><code id="clusterApply_:_X">X</code></td>
 <td>
 <p>A vector (atomic or list) for <code>parLapply</code> and
 <code>parSapply</code>, an array for <code>parApply</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>chunk.size</code></td>
+<tr>
+<td><code id="clusterApply_:_chunk.size">chunk.size</code></td>
 <td>
 <p>scalar number; number of invocations of <code>fun</code> or
 <code>FUN</code> in one chunk; a chunk is a unit for scheduling.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>MARGIN</code></td>
+<tr>
+<td><code id="clusterApply_:_MARGIN">MARGIN</code></td>
 <td>
 <p>vector specifying the dimensions to use.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>simplify, USE.NAMES</code></td>
+<tr>
+<td>
+<code id="clusterApply_:_simplify">simplify</code>, <code id="clusterApply_:_USE.NAMES">USE.NAMES</code>
+</td>
 <td>
 <p>logical; see <code><a href="https://r-universe.dev/manuals/base.html#lapply">sapply</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>SIMPLIFY</code></td>
+<tr>
+<td><code id="clusterApply_:_SIMPLIFY">SIMPLIFY</code></td>
 <td>
 <p>logical; see <code><a href="https://r-universe.dev/manuals/base.html#mapply">mapply</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>.scheduling</code></td>
+<tr>
+<td><code id="clusterApply_:_.scheduling">.scheduling</code></td>
 <td>
 <p>should tasks be statically allocated to nodes or
 dynamic load-balancing used?</p>
@@ -304,7 +308,7 @@ the result is greater than the number of nodes.  (<code>mapply</code> always
 uses <code>RECYCLE = TRUE</code>, and has argument <code>SIMPLIFY = TRUE</code>.
 <code>Map</code> always uses <code>RECYCLE = TRUE</code>.)
 </p>
-<p><code>clusterExport</code> assigns the values on the master <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> process of
+<p><code>clusterExport</code> assigns the values on the master <span class="rlang"><b>R</b></span> process of
 the variables named in <code>varlist</code> to variables of the same names
 in the global environment (aka ‘workspace’) of each node.  The
 environment on the master from which variables are exported defaults
@@ -324,8 +328,8 @@ intended for use when applying <code>FUN</code> to different elements of
 <code>X</code> takes quite variable amounts of time, and either the function is
 deterministic or reproducible results are not required.  Chunks of
 computation are allocated dynamically to nodes using
-<code>clusterApplyLB</code>.  From <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.5.0, the default number of chunks is
-twice the number of nodes. Before <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.5.0, the (fixed) number of chunks
+<code>clusterApplyLB</code>.  From <span class="rlang"><b>R</b></span> 3.5.0, the default number of chunks is
+twice the number of nodes. Before <span class="rlang"><b>R</b></span> 3.5.0, the (fixed) number of chunks
 was the same as the number of nodes.  As for <code>clusterApplyLB</code>,
 with load balancing the node that executes a particular job is
 non-deterministic and simulations that assign RNG streams to nodes
@@ -442,7 +446,7 @@ stopCluster<span class="token punctuation">(</span>cl<span class="token punctuat
 </div>
 <div class="container manual-page" id="detectCores">
 
-<a href="#detectCores" class="help-page-title"><h2>Detect the Number of CPU Cores</h2></a>
+<a href="#detectCores" class="help-page-title"><h2 id="detectCores">Detect the Number of CPU Cores</h2></a>
 
 <h3>Description</h3>
 
@@ -458,14 +462,14 @@ stopCluster<span class="token punctuation">(</span>cl<span class="token punctuat
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>all.tests</code></td>
+<tr>
+<td><code id="detectCores_:_all.tests">all.tests</code></td>
 <td>
 <p>Logical: if true apply all known tests.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>logical</code></td>
+<tr>
+<td><code id="detectCores_:_logical">logical</code></td>
 <td>
 <p>Logical: if possible, use the number of physical CPUs/cores
 (if <code>FALSE</code>) or logical CPUs (if <code>TRUE</code>).  Currently this
@@ -494,14 +498,6 @@ cores or packages.
 <p>Under macOS there is a further distinction between ‘available in
 the current power management mode’ and ‘could be available
 this boot’, and this function returns the first.
-</p>
-<p>On Windows:
-Only versions of Windows since XP SP3 are supported.  Microsoft
-documents that with <code>logical = FALSE</code> it will report the number of
-cores on Vista or later, but the number of physical CPU packages on XP
-or Server 2003: however it reported correctly on the XP systems we
-tested.
-
 </p>
 <p>On Sparc Solaris <code>logical = FALSE</code> returns the number of physical
 cores and <code>logical = TRUE</code> returns the number of available
@@ -544,13 +540,13 @@ detectCores<span class="token punctuation">(</span>logical <span class="token op
 </div>
 <div class="container manual-page" id="makeCluster">
 
-<a href="#makeCluster" class="help-page-title"><h2>
+<a href="#makeCluster" class="help-page-title"><h2 id="makeCluster">
 Create a Parallel Socket Cluster
 </h2></a>
 
 <h3>Description</h3>
 
-<p>Creates a set of copies of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> running in parallel and communicating
+<p>Creates a set of copies of <span class="rlang"><b>R</b></span> running in parallel and communicating
 over sockets.
 </p>
 
@@ -570,41 +566,41 @@ getDefaultCluster<span class="token punctuation">(</span><span class="token punc
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>spec</code></td>
+<tr>
+<td><code id="makeCluster_:_spec">spec</code></td>
 <td>
 <p>A specification appropriate to the type of cluster.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>names</code></td>
+<tr>
+<td><code id="makeCluster_:_names">names</code></td>
 <td>
 <p>Either a character vector of host names on which to run
-the worker copies of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, or a positive integer (in which case
+the worker copies of <span class="rlang"><b>R</b></span>, or a positive integer (in which case
 that number of copies is run on ‘<span class="samp">⁠localhost⁠</span>’).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>nnodes</code></td>
+<tr>
+<td><code id="makeCluster_:_nnodes">nnodes</code></td>
 <td>
 <p>The number of nodes to be forked.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>type</code></td>
+<tr>
+<td><code id="makeCluster_:_type">type</code></td>
 <td>
 <p>One of the supported types: see ‘Details’.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="makeCluster_:_...">...</code></td>
 <td>
 <p>Options to be passed to the function spawning the workers.
 See ‘Details’.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>cl</code></td>
+<tr>
+<td><code id="makeCluster_:_cl">cl</code></td>
 <td>
 <p>an object of class <code>"cluster"</code>.</p>
 </td>
@@ -726,7 +722,7 @@ workers will be started in parallel during cluster setup when this is
 possible, which is now for homogeneous <code>"PSOCK"</code> clusters with
 all workers started automatically (<code>manual = FALSE</code>) on the local
 machine.  Workers will be started sequentially on other clusters, on
-all clusters with <code>setup_strategy = "sequential"</code> and on <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.6.0
+all clusters with <code>setup_strategy = "sequential"</code> and on <span class="rlang"><b>R</b></span> 3.6.0
 and older.  This option is for expert use only (e.g.  debugging) and
 may be removed in future versions of R.</p>
 </dd>
@@ -741,7 +737,7 @@ See <code><a href="#mcfork">mcfork</a></code> for details.
 <p>It is good practice to shut down the workers by calling
 <code><a href="#makeCluster">stopCluster</a></code>: however the workers will terminate
 themselves once the socket on which they are listening for commands
-becomes unavailable, which it should if the master <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session is
+becomes unavailable, which it should if the master <span class="rlang"><b>R</b></span> session is
 completed (or its process dies).
 </p>
 <p>Function <code>setDefaultCluster</code> registers a cluster as the default one
@@ -771,7 +767,7 @@ by the code.
 <code>Rscript</code> can be launched using the same path on each worker.
 That path is given by the option <code>rscript</code> and defaults to the
 full path to <code>Rscript</code> on the master.  (The workers are not
-required to be running the same version of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> as the master, nor even
+required to be running the same version of <span class="rlang"><b>R</b></span> as the master, nor even
 as each other.)
 </p>
 <p>For <code>homogeneous = FALSE</code>, <code>Rscript</code> on the workers is
@@ -793,7 +789,7 @@ single multi-core host, the default settings are the appropriate ones.
 </div>
 <div class="container manual-page" id="mcaffinity">
 
-<a href="#mcaffinity" class="help-page-title"><h2>Get or Set CPU Affinity Mask of the Current Process</h2></a>
+<a href="#mcaffinity" class="help-page-title"><h2 id="mcaffinity">Get or Set CPU Affinity Mask of the Current Process</h2></a>
 
 <h3>Description</h3>
 
@@ -811,8 +807,8 @@ hyperthread unit.)
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>affinity</code></td>
+<table><tr>
+<td><code id="mcaffinity_:_affinity">affinity</code></td>
 <td>
 <p>specification of the CPUs to lock this process to
 (numeric vector) or <code>NULL</code> if no change is requested</p>
@@ -857,7 +853,7 @@ this process (this may be different than <code>affinity</code>).
 </div>
 <div class="container manual-page" id="children">
 
-<a href="#children" class="help-page-title"><h2>Low-level Functions for Management of Forked Processes</h2></a>
+<a href="#children" class="help-page-title"><h2 id="mcchildren">Low-level Functions for Management of Forked Processes</h2></a>
 
 <h3>Description</h3>
 
@@ -882,38 +878,38 @@ mckill<span class="token punctuation">(</span>process<span class="token punctuat
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>select</code></td>
+<tr>
+<td><code id="mcchildren_:_select">select</code></td>
 <td>
 <p>if omitted, all active children are returned, otherwise
 <code>select</code> should be a list of processes and only those from the
 list that are active will be returned.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>child</code></td>
+<tr>
+<td><code id="mcchildren_:_child">child</code></td>
 <td>
 <p>child process (object of the class <code>"childProcess"</code>) or a
 process ID (pid).  See also ‘Details’.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>timeout</code></td>
+<tr>
+<td><code id="mcchildren_:_timeout">timeout</code></td>
 <td>
 <p>timeout (in seconds, fractions supported) to wait
 for a response before giving up.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>children</code></td>
+<tr>
+<td><code id="mcchildren_:_children">children</code></td>
 <td>
 <p>list of child processes or a single child process
 object or a vector of process IDs or <code>NULL</code>.  If <code>NULL</code>
 behaves as if all currently known children were supplied.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>what</code></td>
+<tr>
+<td><code id="mcchildren_:_what">what</code></td>
 <td>
 <p>For <code>sendChildStdin</code>:<br>
 Character or raw vector.  In the former case elements are
@@ -926,8 +922,8 @@ a raw vector, it will be serialized into a raw vector.  Do NOT
 send an empty raw vector – that is reserved for internal use.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>raw.asis</code></td>
+<tr>
+<td><code id="mcchildren_:_raw.asis">raw.asis</code></td>
 <td>
 <p>logical, if <code>TRUE</code> and <code>what</code> is a raw
 vector then it is sent directly as-is to the master (default,
@@ -936,15 +932,15 @@ are serialized before sending just as any other objects
 (suitable for passing evaluation results).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>process</code></td>
+<tr>
+<td><code id="mcchildren_:_process">process</code></td>
 <td>
 <p>process (object of the class <code>process</code>) or a
 process ID (pid)</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>signal</code></td>
+<tr>
+<td><code id="mcchildren_:_signal">signal</code></td>
 <td>
 <p>integer: signal to send.  Values of 2 (SIGINT), 9
 (SIGKILL) and 15 (SIGTERM) are pretty much portable, but for maximal
@@ -1005,10 +1001,10 @@ each member of <code>child</code>) or throws an error.
 <h3>Warning</h3>
 
 <p>This is a very low-level interface for expert use only: it not
-regarded as part of the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> API and subject to change without notice.
+regarded as part of the <span class="rlang"><b>R</b></span> API and subject to change without notice.
 </p>
 <p><code>sendMaster</code>, <code>readChild</code> and <code>sendChildStdin</code> did not
-support long vectors prior to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.4.0 and so were limited to
+support long vectors prior to <span class="rlang"><b>R</b></span> 3.4.0 and so were limited to
 <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{31} - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code> bytes (and still are on 32-bit platforms).
 </p>
 
@@ -1040,14 +1036,14 @@ mccollect<span class="token punctuation">(</span>p<span class="token punctuation
 </div>
 <div class="container manual-page" id="mcfork">
 
-<a href="#mcfork" class="help-page-title"><h2>Fork a Copy of the Current R Process</h2></a>
+<a href="#mcfork" class="help-page-title"><h2 id="mcfork">Fork a Copy of the Current R Process</h2></a>
 
 <h3>Description</h3>
 
 <p>These are low-level functions, not available on Windows, and not
 exported from the namespace.
 </p>
-<p><code>mcfork</code> creates a new child process as a copy of the current <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> process.
+<p><code>mcfork</code> creates a new child process as a copy of the current <span class="rlang"><b>R</b></span> process.
 </p>
 <p><code>mcexit</code> closes the current child process, informing the master
 process as necessary.
@@ -1064,23 +1060,23 @@ mcexit<span class="token punctuation">(</span>exit.code <span class="token opera
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>estranged</code></td>
+<tr>
+<td><code id="mcfork_:_estranged">estranged</code></td>
 <td>
 <p>logical, if <code>TRUE</code> then the new process has
 no ties to the parent process, will not show in the list of
 children and will not be killed on exit.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>exit.code</code></td>
+<tr>
+<td><code id="mcfork_:_exit.code">exit.code</code></td>
 <td>
 <p>process exit code.  By convention <code>0L</code> signifies
 a clean exit, <code>1L</code> an error.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>send</code></td>
+<tr>
+<td><code id="mcfork_:_send">send</code></td>
 <td>
 <p>if not <code>NULL</code> send this data before exiting
 (equivalent to using <code><a href="#children">sendMaster</a></code>).</p>
@@ -1098,7 +1094,7 @@ re-mapped to another pipe held by the master process (see
 </p>
 <p>If you are not familiar with the <code>fork</code> system call, do not use
 this function directly as it leads to very complex inter-process
-interactions amongst the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> processes involved.
+interactions amongst the <span class="rlang"><b>R</b></span> processes involved.
 </p>
 <p>In a nutshell <code>fork</code> spawns a copy (child) of the current
 process, that can work in parallel to the master (parent)
@@ -1202,7 +1198,7 @@ unserialize<span class="token punctuation">(</span>parallel<span class="token op
 </div>
 <div class="container manual-page" id="mclapply">
 
-<a href="#mclapply" class="help-page-title"><h2>Parallel Versions of <code>lapply</code> and <code>mapply</code> using Forking</h2></a>
+<a href="#mclapply" class="help-page-title"><h2 id="mclapply">Parallel Versions of <code>lapply</code> and <code>mapply</code> using Forking</h2></a>
 
 <h3>Description</h3>
 
@@ -1238,43 +1234,45 @@ mcMap<span class="token punctuation">(</span>f<span class="token punctuation">,<
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>X</code></td>
+<tr>
+<td><code id="mclapply_:_X">X</code></td>
 <td>
 <p>a vector (atomic or list) or an expressions vector.  Other
 objects (including classed objects) will be coerced by
 <code><a href="https://r-universe.dev/manuals/base.html#list">as.list</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>FUN</code></td>
+<tr>
+<td><code id="mclapply_:_FUN">FUN</code></td>
 <td>
 <p>the function to be applied to (<code>mclapply</code>) each
 element of <code>X</code> or (<code>mcmapply</code>) in parallel to <code>...</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>f</code></td>
+<tr>
+<td><code id="mclapply_:_f">f</code></td>
 <td>
 <p>the function to be applied in parallel to <code>...</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="mclapply_:_...">...</code></td>
 <td>
 <p>For <code>mclapply</code>, optional arguments to <code>FUN</code>.
 For <code>mcmapply</code> and <code>mcMap</code>, vector or list inputs: see
 <code><a href="https://r-universe.dev/manuals/base.html#mapply">mapply</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>MoreArgs, SIMPLIFY, USE.NAMES</code></td>
+<tr>
+<td>
+<code id="mclapply_:_MoreArgs">MoreArgs</code>, <code id="mclapply_:_SIMPLIFY">SIMPLIFY</code>, <code id="mclapply_:_USE.NAMES">USE.NAMES</code>
+</td>
 <td>
 <p>see <code><a href="https://r-universe.dev/manuals/base.html#mapply">mapply</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mc.preschedule</code></td>
+<tr>
+<td><code id="mclapply_:_mc.preschedule">mc.preschedule</code></td>
 <td>
 <p>if set to <code>TRUE</code> then the computation is
 first divided to (at most) as many jobs are there are cores and then
@@ -1286,22 +1284,22 @@ have high variance of completion time and not too many values of
 <code>X</code> compared to <code>mc.cores</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mc.set.seed</code></td>
+<tr>
+<td><code id="mclapply_:_mc.set.seed">mc.set.seed</code></td>
 <td>
 <p>See <code><a href="#mcparallel">mcparallel</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mc.silent</code></td>
+<tr>
+<td><code id="mclapply_:_mc.silent">mc.silent</code></td>
 <td>
 <p>if set to <code>TRUE</code> then all output on
 ‘<span class="file">stdout</span>’ will be suppressed for all parallel processes forked
 (‘<span class="file">stderr</span>’ is not affected).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mc.cores</code></td>
+<tr>
+<td><code id="mclapply_:_mc.cores">mc.cores</code></td>
 <td>
 <p>The number of cores to use, i.e. at most how many
 child processes will be run simultaneously.   The option is
@@ -1309,8 +1307,8 @@ initialized from environment variable <span class="env">MC_CORES</span> if set. 
 be at least one, and parallelization requires at least two cores.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mc.cleanup</code></td>
+<tr>
+<td><code id="mclapply_:_mc.cleanup">mc.cleanup</code></td>
 <td>
 <p>if set to <code>TRUE</code> then all children that have
 been forked by this function will be killed (by sending
@@ -1323,15 +1321,15 @@ argument can be set to the number of the signal that should be used
 to kill the children instead of <code>SIGTERM</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mc.allow.recursive</code></td>
+<tr>
+<td><code id="mclapply_:_mc.allow.recursive">mc.allow.recursive</code></td>
 <td>
 <p>Unless true, calling <code>mclapply</code> in a
 child process will use the child and not fork again.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>affinity.list</code></td>
+<tr>
+<td><code id="mclapply_:_affinity.list">affinity.list</code></td>
 <td>
 <p>a vector (atomic or list) containing the CPU
 affinity mask for each element of <code>X</code>.  The CPU affinity mask
@@ -1371,7 +1369,7 @@ than 100 cores or so (see <code>ulimit -n</code> or similar in your OS
 documentation) unless you raise the limit of permissible open file
 descriptors (fork will fail with error <code>"unable to create a pipe"</code>).
 </p>
-<p>Prior to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.4.0 and on a 32-bit platform, the <a href="https://r-universe.dev/manuals/base.html#serialize">serialize</a>d
+<p>Prior to <span class="rlang"><b>R</b></span> 3.4.0 and on a 32-bit platform, the <a href="https://r-universe.dev/manuals/base.html#serialize">serialize</a>d
 result from each forked process is limited to <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{31} - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code>
 bytes.  (Returning very large results via serialization is
 inefficient and should be avoided.)
@@ -1404,7 +1402,7 @@ hence a <code>"try-error"</code> object will be returned for all the values
 involved in the failure, even if not all of them failed. If any forked
 process is killed or fails to deliver a result for any reason, values
 involved in the failure will be <code>NULL</code>. To allow detection of such
-errors, <code>FUN</code> should not return <code>NULL</code>. As of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.0, the
+errors, <code>FUN</code> should not return <code>NULL</code>. As of <span class="rlang"><b>R</b></span> 4.0, the
 return value of <code>mcmapply</code> is always a list when it needs to contain
 <code>"try-error"</code> objects (<code>SIMPLIFY</code> is overridden to <code>FALSE</code>).
 </p>
@@ -1497,13 +1495,13 @@ mclapply<span class="token punctuation">(</span>X<span class="token punctuation"
 </div>
 <div class="container manual-page" id="mcparallel">
 
-<a href="#mcparallel" class="help-page-title"><h2>Evaluate an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> Expression Asynchronously in a Separate Process</h2></a>
+<a href="#mcparallel" class="help-page-title"><h2 id="mcparallel">Evaluate an <span class="rlang"><b>R</b></span> Expression Asynchronously in a Separate Process</h2></a>
 
 <h3>Description</h3>
 
 <p>These functions are based on forking and so are not available on Windows.
 </p>
-<p><code>mcparallel</code> starts a parallel <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> process which evaluates the
+<p><code>mcparallel</code> starts a parallel <span class="rlang"><b>R</b></span> process which evaluates the
 given expression.
 </p>
 <p><code>mccollect</code> collects results from one or more parallel processes.
@@ -1522,8 +1520,8 @@ mccollect<span class="token punctuation">(</span>jobs<span class="token punctuat
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>expr</code></td>
+<tr>
+<td><code id="mcparallel_:_expr">expr</code></td>
 <td>
 <p>expression to evaluate (do <em>not</em> use any on-screen
 devices or GUI elements in this code, see <code><a href="#mcfork">mcfork</a></code> for
@@ -1534,36 +1532,36 @@ e.g. to a list holding a raw vector. <code>NULL</code> should not be returned
 because it is used by <code>mccollect</code> to signal an error. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>name</code></td>
+<tr>
+<td><code id="mcparallel_:_name">name</code></td>
 <td>
 <p>an optional name (character vector of length one) that can
 be associated with the job.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mc.set.seed</code></td>
+<tr>
+<td><code id="mcparallel_:_mc.set.seed">mc.set.seed</code></td>
 <td>
 <p>logical: see section ‘Random numbers’.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>silent</code></td>
+<tr>
+<td><code id="mcparallel_:_silent">silent</code></td>
 <td>
 <p>if set to <code>TRUE</code> then all output on stdout will be
 suppressed (stderr is not affected).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mc.affinity</code></td>
+<tr>
+<td><code id="mcparallel_:_mc.affinity">mc.affinity</code></td>
 <td>
 <p>either a numeric vector specifying CPUs to restrict
 the child process to (1-based) or <code>NULL</code> to not modify the CPU
 affinity</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mc.interactive</code></td>
+<tr>
+<td><code id="mcparallel_:_mc.interactive">mc.interactive</code></td>
 <td>
 <p>logical, if <code>TRUE</code> or <code>FALSE</code> then the
 child process will be set as interactive or non-interactive
@@ -1571,16 +1569,16 @@ respectively. If <code>NA</code> then the child process will inherit the
 interactive flag from the parent.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>detached</code></td>
+<tr>
+<td><code id="mcparallel_:_detached">detached</code></td>
 <td>
 <p>logical, if <code>TRUE</code> then the job is detached from
 the current session and cannot deliver any results back - it is used
 for the code side-effect only.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>jobs</code></td>
+<tr>
+<td><code id="mcparallel_:_jobs">jobs</code></td>
 <td>
 <p>list of jobs (or a single job) to collect results
 for.  Alternatively <code>jobs</code> can also be an integer vector of
@@ -1588,23 +1586,23 @@ process IDs.  If omitted <code>collect</code> will wait for all currently
 existing children.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>wait</code></td>
+<tr>
+<td><code id="mcparallel_:_wait">wait</code></td>
 <td>
 <p>if set to <code>FALSE</code> it checks for any results that are
 available within <code>timeout</code> seconds from now, otherwise it waits
 for all specified jobs to finish.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>timeout</code></td>
+<tr>
+<td><code id="mcparallel_:_timeout">timeout</code></td>
 <td>
 <p>timeout (in seconds) to check for job results – applies
 only if <code>wait</code> is <code>FALSE</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>intermediate</code></td>
+<tr>
+<td><code id="mcparallel_:_intermediate">intermediate</code></td>
 <td>
 <p><code>FALSE</code> or a function which will be called while
 <code>collect</code> waits for results.  The function will be called with one
@@ -1615,7 +1613,7 @@ parameter which is the list of results received so far.</p>
 <h3>Details</h3>
 
 <p><code>mcparallel</code> evaluates the <code>expr</code> expression in parallel to
-the current <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> process.  Everything is shared read-only (or in fact
+the current <span class="rlang"><b>R</b></span> process.  Everything is shared read-only (or in fact
 copy-on-write) between the parallel process and the current process,
 i.e. no side-effects of the expression affect the main process.  The
 result of the parallel execution can be collected using
@@ -1676,7 +1674,7 @@ specified children are still running, it returns <code>NULL</code>.
 <h3>Random numbers</h3>
 
 <p>If <code>mc.set.seed = FALSE</code>, the child process has the same initial
-random number generator (RNG) state as the current <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session.  If the
+random number generator (RNG) state as the current <span class="rlang"><b>R</b></span> session.  If the
 RNG has been used (or <code>.Random.seed</code> was restored from a saved
 workspace), the child will start drawing random numbers at the same
 point as the current session.  If the RNG has not yet been used, the
@@ -1698,7 +1696,7 @@ forked process.
 
 <h3>Note</h3>
 
-<p>Prior to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.4.0 and on a 32-bit platform, the <a href="https://r-universe.dev/manuals/base.html#serialize">serialize</a>d
+<p>Prior to <span class="rlang"><b>R</b></span> 3.4.0 and on a 32-bit platform, the <a href="https://r-universe.dev/manuals/base.html#serialize">serialize</a>d
 result from each forked process is limited to <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{31} - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code> bytes.  (Returning very large results via serialization is
 inefficient and should be avoided.)
 </p>
@@ -1743,7 +1741,7 @@ mccollect<span class="token punctuation">(</span>jobs<span class="token punctuat
 </div>
 <div class="container manual-page" id="pvec">
 
-<a href="#pvec" class="help-page-title"><h2>Parallelize a Vector Map Function using Forking</h2></a>
+<a href="#pvec" class="help-page-title"><h2 id="pvec">Parallelize a Vector Map Function using Forking</h2></a>
 
 <h3>Description</h3>
 
@@ -1767,40 +1765,40 @@ doesn't depend on the partition of the vector.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>v</code></td>
+<tr>
+<td><code id="pvec_:_v">v</code></td>
 <td>
 <p>vector to operate on</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>FUN</code></td>
+<tr>
+<td><code id="pvec_:_FUN">FUN</code></td>
 <td>
 <p>function to call on each part of the vector</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="pvec_:_...">...</code></td>
 <td>
 <p>any further arguments passed to <code>FUN</code> after the vector</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mc.set.seed</code></td>
+<tr>
+<td><code id="pvec_:_mc.set.seed">mc.set.seed</code></td>
 <td>
 <p>See <code><a href="#mcparallel">mcparallel</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mc.silent</code></td>
+<tr>
+<td><code id="pvec_:_mc.silent">mc.silent</code></td>
 <td>
 <p>if set to <code>TRUE</code> then all output on ‘<span class="file">stdout</span>’ will
 be suppressed for all parallel processes forked (‘<span class="file">stderr</span>’ is not
 affected).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mc.cores</code></td>
+<tr>
+<td><code id="pvec_:_mc.cores">mc.cores</code></td>
 <td>
 <p>The number of cores to use, i.e. at most how many
 child processes will be run simultaneously.  Must be at least one,
@@ -1808,8 +1806,8 @@ and at least two for parallel operation.  The option is initialized
 from environment variable <span class="env">MC_CORES</span> if set.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mc.cleanup</code></td>
+<tr>
+<td><code id="pvec_:_mc.cleanup">mc.cleanup</code></td>
 <td>
 <p>See the description of this argument in
 <code><a href="#mclapply">mclapply</a></code>.</p>
@@ -1913,11 +1911,11 @@ stopifnot<span class="token punctuation">(</span>all<span class="token punctuati
 </div>
 <div class="container manual-page" id="RngStream">
 
-<a href="#RngStream" class="help-page-title"><h2>Implementation of Pierre L'Ecuyer's RngStreams</h2></a>
+<a href="#RngStream" class="help-page-title"><h2 id="RNGstreams">Implementation of Pierre L'Ecuyer's RngStreams</h2></a>
 
 <h3>Description</h3>
 
-<p>This is an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> re-implementation of Pierre L'Ecuyer's ‘RngStreams’
+<p>This is an <span class="rlang"><b>R</b></span> re-implementation of Pierre L'Ecuyer's ‘RngStreams’
 multiple streams of pseudo-random numbers.
 </p>
 
@@ -1934,23 +1932,23 @@ mc.reset.stream<span class="token punctuation">(</span><span class="token punctu
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>seed</code></td>
+<tr>
+<td><code id="RNGstreams_:_seed">seed</code></td>
 <td>
 <p>An integer vector of length 7 as given by
 <code>.Random.seed</code> when the ‘<span class="samp">⁠"L'Ecuyer-CMRG"⁠</span>’ RNG is in use.
 See <code><a href="https://r-universe.dev/manuals/base.html#Random">RNG</a></code> for the valid values.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>cl</code></td>
+<tr>
+<td><code id="RNGstreams_:_cl">cl</code></td>
 <td>
 <p>A cluster from this package or package <a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a>, or (if
 <code>NULL</code>) the registered cluster.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>iseed</code></td>
+<tr>
+<td><code id="RNGstreams_:_iseed">iseed</code></td>
 <td>
 <p>An integer to be supplied to <code><a href="https://r-universe.dev/manuals/base.html#Random">set.seed</a></code>, or
 <code>NULL</code> not to set reproducible seeds.</p>
@@ -1976,7 +1974,7 @@ numbers generated never get into to sync) and the parallel
 computations can themselves use substreams if required.  The original
 interface stores the original seed of the first stream, the original
 seed of the current stream and the current seed: this could be
-implemented in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, but it is as easy to work by saving the relevant
+implemented in <span class="rlang"><b>R</b></span>, but it is as easy to work by saving the relevant
 values of <code>.Random.seed</code>: see the examples.
 </p>
 <p><code>clusterSetRNGStream</code> selects the <code>"L'Ecuyer-CMRG"</code> RNG and
@@ -2033,7 +2031,7 @@ and substreams.
 
 <h3>See Also</h3>
 
-<p><code><a href="https://r-universe.dev/manuals/base.html#Random">RNG</a></code> for fuller details of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s built-in random number
+<p><code><a href="https://r-universe.dev/manuals/base.html#Random">RNG</a></code> for fuller details of <span class="rlang"><b>R</b></span>'s built-in random number
 generators.
 </p>
 <p>The vignette for package <span class="pkg">parallel</span>.
@@ -2053,7 +2051,7 @@ nextRNGSubStream<span class="token punctuation">(</span>s<span class="token punc
 </div>
 <div class="container manual-page" id="splitIndices">
 
-<a href="#splitIndices" class="help-page-title"><h2>Divide Tasks for Distribution in a Cluster</h2></a>
+<a href="#splitIndices" class="help-page-title"><h2 id="splitIndices">Divide Tasks for Distribution in a Cluster</h2></a>
 
 <h3>Description</h3>
 
@@ -2072,14 +2070,14 @@ equal size, as a way to allocate tasks to nodes in a cluster.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>nx</code></td>
+<tr>
+<td><code id="splitIndices_:_nx">nx</code></td>
 <td>
 <p>Number of tasks.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>ncl</code></td>
+<tr>
+<td><code id="splitIndices_:_ncl">ncl</code></td>
 <td>
 <p>Number of cluster nodes.</p>
 </td>
@@ -2098,6 +2096,6 @@ equal size, as a way to allocate tasks to nodes in a cluster.
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.0.9000</p></footer>
+    <footer><p>Rendered with postdoc 1.2.1</p></footer>
   </body>
 </html>

@@ -41,11 +41,11 @@
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">0.2-18</td>
+<td class="description-version">0.2-19</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2022-10-31 22:33:21 UTC</td>
+<td class="description-date">2023-04-21 21:43:01 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -65,7 +65,7 @@
     <div class="manual-pages-content">
 <div class="container manual-page" id="checkUsage">
 
-<a href="#checkUsage" class="help-page-title"><h2>Check R Code for Possible Problems</h2></a>
+<a href="#checkUsage" class="help-page-title"><h2 id="checkUsage">Check R Code for Possible Problems</h2></a>
 
 <h3>Description</h3>
 
@@ -88,106 +88,106 @@ checkUsagePackage<span class="token punctuation">(</span>pack<span class="token 
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>fun</code></td>
+<tr>
+<td><code id="checkUsage_:_fun">fun</code></td>
 <td>
 <p>closure.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>name</code></td>
+<tr>
+<td><code id="checkUsage_:_name">name</code></td>
 <td>
 <p>character; name of closure.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>env</code></td>
+<tr>
+<td><code id="checkUsage_:_env">env</code></td>
 <td>
 <p>environment containing closures to check.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>pack</code></td>
+<tr>
+<td><code id="checkUsage_:_pack">pack</code></td>
 <td>
 <p>character naming package to check.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="checkUsage_:_...">...</code></td>
 <td>
 <p>options to be passed to <code>checkUsage</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>report</code></td>
+<tr>
+<td><code id="checkUsage_:_report">report</code></td>
 <td>
 <p>function to use to report possible problems.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>all</code></td>
+<tr>
+<td><code id="checkUsage_:_all">all</code></td>
 <td>
 <p>logical; report all possible problems if TRUE.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>suppressLocal</code></td>
+<tr>
+<td><code id="checkUsage_:_suppressLocal">suppressLocal</code></td>
 <td>
 <p>suppress all local variable warnings.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>suppressParamAssigns</code></td>
+<tr>
+<td><code id="checkUsage_:_suppressParamAssigns">suppressParamAssigns</code></td>
 <td>
 <p>suppress warnings about assignments to formal
 parameters.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>suppressParamUnused</code></td>
+<tr>
+<td><code id="checkUsage_:_suppressParamUnused">suppressParamUnused</code></td>
 <td>
 <p>suppress warnings about unused formal
 parameters.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>suppressFundefMismatch</code></td>
+<tr>
+<td><code id="checkUsage_:_suppressFundefMismatch">suppressFundefMismatch</code></td>
 <td>
 <p>suppress warnings about multiple local
 function definitions with different formal
 argument lists</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>suppressLocalUnused</code></td>
+<tr>
+<td><code id="checkUsage_:_suppressLocalUnused">suppressLocalUnused</code></td>
 <td>
 <p>suppress warnings about unused local variables</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>suppressNoLocalFun</code></td>
+<tr>
+<td><code id="checkUsage_:_suppressNoLocalFun">suppressNoLocalFun</code></td>
 <td>
 <p>suppress warnings about using local variables
 as functions with no apparent local function
 definition</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>skipWith</code></td>
+<tr>
+<td><code id="checkUsage_:_skipWith">skipWith</code></td>
 <td>
 <p>logical; if true, do no examine code portion of
 <code>with</code> expressions.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>suppressUndefined</code></td>
+<tr>
+<td><code id="checkUsage_:_suppressUndefined">suppressUndefined</code></td>
 <td>
 <p>suppress warnings about undefined global
 functions and variables.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>suppressPartialMatchArgs</code></td>
+<tr>
+<td><code id="checkUsage_:_suppressPartialMatchArgs">suppressPartialMatchArgs</code></td>
 <td>
 <p>suppress warnings about partial
 argument matching</p>
@@ -227,7 +227,7 @@ checkUsagePackage<span class="token punctuation">(</span><span class="token stri
 </div>
 <div class="container manual-page" id="codetools">
 
-<a href="#codetools" class="help-page-title"><h2>Low Level Code Analysis Tools for R</h2></a>
+<a href="#codetools" class="help-page-title"><h2 id="codetools">Low Level Code Analysis Tools for R</h2></a>
 
 <h3>Description</h3>
 
@@ -249,6 +249,8 @@ flattenAssignment<span class="token punctuation">(</span>e<span class="token pun
 getAssignedVar<span class="token punctuation">(</span>e<span class="token punctuation">)</span> 
 isConstantValue<span class="token punctuation">(</span>v<span class="token punctuation">,</span> w<span class="token punctuation">)</span> 
 makeCodeWalker<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">,</span> handler<span class="token punctuation">,</span> call<span class="token punctuation">,</span> leaf<span class="token punctuation">)</span> 
+makeConstantFolder<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">,</span> leaf<span class="token punctuation">,</span> handler<span class="token punctuation">,</span> call<span class="token punctuation">,</span> exit<span class="token punctuation">,</span> isLocal<span class="token punctuation">,</span> foldable<span class="token punctuation">,</span>
+                   isConstant<span class="token punctuation">,</span> signal<span class="token punctuation">)</span>
 makeLocalsCollector<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">,</span> leaf<span class="token punctuation">,</span> handler<span class="token punctuation">,</span> isLocal<span class="token punctuation">,</span> exit<span class="token punctuation">,</span> collect<span class="token punctuation">)</span> 
 makeUsageCollector<span class="token punctuation">(</span>fun<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> enterLocal<span class="token punctuation">,</span> enterGlobal<span class="token punctuation">,</span> enterInternal<span class="token punctuation">,</span>
                    startCollectLocals<span class="token punctuation">,</span> finishCollectLocals<span class="token punctuation">,</span> warn<span class="token punctuation">,</span>
@@ -259,152 +261,164 @@ walkCode<span class="token punctuation">(</span>e<span class="token punctuation"
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>e</code></td>
+<tr>
+<td><code id="codetools_:_e">e</code></td>
 <td>
 <p>R expression.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>elist</code></td>
+<tr>
+<td><code id="codetools_:_elist">elist</code></td>
 <td>
 <p>list of R expressions.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>v</code></td>
+<tr>
+<td><code id="codetools_:_v">v</code></td>
 <td>
 <p>R object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>fun</code></td>
+<tr>
+<td><code id="codetools_:_fun">fun</code></td>
 <td>
 <p>closure.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>formals</code></td>
+<tr>
+<td><code id="codetools_:_formals">formals</code></td>
 <td>
 <p>formal arguments of a closure.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>body</code></td>
+<tr>
+<td><code id="codetools_:_body">body</code></td>
 <td>
 <p>body of a closure.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>name</code></td>
+<tr>
+<td><code id="codetools_:_name">name</code></td>
 <td>
 <p>character.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>env</code></td>
+<tr>
+<td><code id="codetools_:_env">env</code></td>
 <td>
 <p>character.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>envir</code></td>
+<tr>
+<td><code id="codetools_:_envir">envir</code></td>
 <td>
 <p>environment.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>w</code></td>
+<tr>
+<td><code id="codetools_:_w">w</code></td>
 <td>
 <p>code walker.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="codetools_:_...">...</code></td>
 <td>
 <p>extra elements for code walker.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>collect</code></td>
+<tr>
+<td><code id="codetools_:_collect">collect</code></td>
 <td>
 <p>function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>fail</code></td>
+<tr>
+<td><code id="codetools_:_fail">fail</code></td>
 <td>
 <p>function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>handler</code></td>
+<tr>
+<td><code id="codetools_:_handler">handler</code></td>
 <td>
 <p>function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>call</code></td>
+<tr>
+<td><code id="codetools_:_call">call</code></td>
 <td>
 <p>function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>leaf</code></td>
+<tr>
+<td><code id="codetools_:_leaf">leaf</code></td>
 <td>
 <p>function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>isLocal</code></td>
+<tr>
+<td><code id="codetools_:_isLocal">isLocal</code></td>
 <td>
 <p>function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>exit</code></td>
+<tr>
+<td><code id="codetools_:_exit">exit</code></td>
 <td>
 <p>function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>enterLocal</code></td>
+<tr>
+<td><code id="codetools_:_enterLocal">enterLocal</code></td>
 <td>
 <p>function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>enterGlobal</code></td>
+<tr>
+<td><code id="codetools_:_enterGlobal">enterGlobal</code></td>
 <td>
 <p>function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>enterInternal</code></td>
+<tr>
+<td><code id="codetools_:_enterInternal">enterInternal</code></td>
 <td>
 <p>function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>startCollectLocals</code></td>
+<tr>
+<td><code id="codetools_:_startCollectLocals">startCollectLocals</code></td>
 <td>
 <p>function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>finishCollectLocals</code></td>
+<tr>
+<td><code id="codetools_:_finishCollectLocals">finishCollectLocals</code></td>
 <td>
 <p>function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>warn</code></td>
+<tr>
+<td><code id="codetools_:_warn">warn</code></td>
 <td>
 <p>function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>signal</code></td>
+<tr>
+<td><code id="codetools_:_signal">signal</code></td>
+<td>
+<p>function.</p>
+</td>
+</tr>
+<tr>
+<td><code id="codetools_:_isConstant">isConstant</code></td>
+<td>
+<p>function.</p>
+</td>
+</tr>
+<tr>
+<td><code id="codetools_:_foldable">foldable</code></td>
 <td>
 <p>function.</p>
 </td>
@@ -418,7 +432,7 @@ walkCode<span class="token punctuation">(</span>e<span class="token punctuation"
 </div>
 <div class="container manual-page" id="findGlobals">
 
-<a href="#findGlobals" class="help-page-title"><h2>Find Global Functions and Variables Used by a Closure</h2></a>
+<a href="#findGlobals" class="help-page-title"><h2 id="findGlobals">Find Global Functions and Variables Used by a Closure</h2></a>
 
 <h3>Description</h3>
 
@@ -434,14 +448,14 @@ walkCode<span class="token punctuation">(</span>e<span class="token punctuation"
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>fun</code></td>
+<tr>
+<td><code id="findGlobals_:_fun">fun</code></td>
 <td>
 <p>function object; usually a closure.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>merge</code></td>
+<tr>
+<td><code id="findGlobals_:_merge">merge</code></td>
 <td>
 <p>logical</p>
 </td>
@@ -477,7 +491,7 @@ findGlobals<span class="token punctuation">(</span>findGlobals<span class="token
 </div>
 <div class="container manual-page" id="showTree">
 
-<a href="#showTree" class="help-page-title"><h2>Print Lisp-Style Representation of R Expression</h2></a>
+<a href="#showTree" class="help-page-title"><h2 id="showTree">Print Lisp-Style Representation of R Expression</h2></a>
 
 <h3>Description</h3>
 
@@ -494,14 +508,14 @@ useful for understanding how some things are parsed.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>e</code></td>
+<tr>
+<td><code id="showTree_:_e">e</code></td>
 <td>
 <p>R expression.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>write</code></td>
+<tr>
+<td><code id="showTree_:_write">write</code></td>
 <td>
 <p>function of one argument to write the result.</p>
 </td>
@@ -521,6 +535,6 @@ showTree<span class="token punctuation">(</span>quote<span class="token punctuat
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.0.9000</p></footer>
+    <footer><p>Rendered with postdoc 1.2.1</p></footer>
   </body>
 </html>

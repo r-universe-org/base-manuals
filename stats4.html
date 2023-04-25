@@ -37,15 +37,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.2.2</td>
+<td class="description-license">Part of R 4.3.0</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.2.2</td>
+<td class="description-version">4.3.0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2022-10-31 22:33:05 UTC</td>
+<td class="description-date">2023-04-21 21:42:43 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -77,7 +77,7 @@ Class "profile.mle"; Profiling information for "mle" object
     <div class="manual-pages-content">
 <div class="container manual-page" id="stats4-package">
 
-<a href="#stats4-package" class="help-page-title"><h2>Statistical Functions using S4 Classes</h2></a>
+<a href="#stats4-package" class="help-page-title"><h2 id="stats4-package">Statistical Functions using S4 Classes</h2></a>
 
 <h3>Description</h3>
 
@@ -108,7 +108,7 @@ with <code><a href="https://r-universe.dev/manuals/stats.html#AIC">AIC</a></code
 </div>
 <div class="container manual-page" id="coef-methods">
 
-<a href="#coef-methods" class="help-page-title"><h2>Methods for Function <code>coef</code> in Package <span class="pkg">stats4</span>
+<a href="#coef-methods" class="help-page-title"><h2 id="coef-methods">Methods for Function <code>coef</code> in Package <span class="pkg">stats4</span>
 </h2></a>
 
 <h3>Description</h3>
@@ -142,7 +142,7 @@ fit.</p>
 </div>
 <div class="container manual-page" id="confint-methods">
 
-<a href="#confint-methods" class="help-page-title"><h2>Methods for Function <code>confint</code> in Package <span class="pkg">stats4</span>
+<a href="#confint-methods" class="help-page-title"><h2 id="confint-methods">Methods for Function <code>confint</code> in Package <span class="pkg">stats4</span>
 </h2></a>
 
 <h3>Description</h3>
@@ -174,7 +174,7 @@ intervals based on likelihood profile.</p>
 </div>
 <div class="container manual-page" id="logLik-methods">
 
-<a href="#logLik-methods" class="help-page-title"><h2>Methods for Function <code>logLik</code> in Package <span class="pkg">stats4</span>
+<a href="#logLik-methods" class="help-page-title"><h2 id="logLik-methods">Methods for Function <code>logLik</code> in Package <span class="pkg">stats4</span>
 </h2></a>
 
 <h3>Description</h3>
@@ -209,7 +209,7 @@ suitable for use with <code><a href="https://r-universe.dev/manuals/stats.html#A
 </div>
 <div class="container manual-page" id="mle">
 
-<a href="#mle" class="help-page-title"><h2>Maximum Likelihood Estimation</h2></a>
+<a href="#mle" class="help-page-title"><h2 id="mle">Maximum Likelihood Estimation</h2></a>
 
 <h3>Description</h3>
 
@@ -228,53 +228,55 @@ suitable for use with <code><a href="https://r-universe.dev/manuals/stats.html#A
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>minuslogl</code></td>
+<tr>
+<td><code id="mle_:_minuslogl">minuslogl</code></td>
 <td>
 <p>Function to calculate negative log-likelihood.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>start</code></td>
+<tr>
+<td><code id="mle_:_start">start</code></td>
 <td>
 <p>Named list of vectors or single vector. Initial values
 for optimizer. By default taken from the default arguments of <code>minuslogl</code></p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>optim</code></td>
+<tr>
+<td><code id="mle_:_optim">optim</code></td>
 <td>
 <p>Optimizer function. (Experimental)</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>method</code></td>
+<tr>
+<td><code id="mle_:_method">method</code></td>
 <td>
 <p>Optimization method to use. See <code><a href="https://r-universe.dev/manuals/stats.html#optim">optim</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>fixed</code></td>
+<tr>
+<td><code id="mle_:_fixed">fixed</code></td>
 <td>
 <p>Named list of vectors or single vector.  Parameter values to keep fixed during
 optimization.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>nobs</code></td>
+<tr>
+<td><code id="mle_:_nobs">nobs</code></td>
 <td>
 <p>optional integer: the number of observations, to be used for
 e.g. computing <code><a href="https://r-universe.dev/manuals/stats.html#AIC">BIC</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lower, upper</code></td>
+<tr>
+<td>
+<code id="mle_:_lower">lower</code>, <code id="mle_:_upper">upper</code>
+</td>
 <td>
 <p>Named lists of vectors or single vectors. Bounds for <code><a href="https://r-universe.dev/manuals/stats.html#optim">optim</a></code>, if relevant.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="mle_:_...">...</code></td>
 <td>
 <p>Further arguments to pass to <code><a href="https://r-universe.dev/manuals/stats.html#optim">optim</a></code>.</p>
 </td>
@@ -453,7 +455,7 @@ options<span class="token punctuation">(</span>od<span class="token punctuation"
 </div>
 <div class="container manual-page" id="mle-class">
 
-<a href="#mle-class" class="help-page-title"><h2>Class <code>"mle"</code> for Results of Maximum Likelihood Estimation</h2></a>
+<a href="#mle-class" class="help-page-title"><h2 id="mle-class">Class <code>"mle"</code> for Results of Maximum Likelihood Estimation</h2></a>
 
 <h3>Description</h3>
 
@@ -580,7 +582,7 @@ variance-covariance matrix.</p>
 </div>
 <div class="container manual-page" id="plot-methods">
 
-<a href="#plot-methods" class="help-page-title"><h2>Methods for Function <code>plot</code> in Package <span class="pkg">stats4</span>
+<a href="#plot-methods" class="help-page-title"><h2 id="plot-methods">Methods for Function <code>plot</code> in Package <span class="pkg">stats4</span>
 </h2></a>
 
 <h3>Description</h3>
@@ -599,44 +601,44 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="plot-methods_:_x">x</code></td>
 <td>
 <p>an object of class <code>"profile.mle"</code> </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>levels</code></td>
+<tr>
+<td><code id="plot-methods_:_levels">levels</code></td>
 <td>
 <p>levels, on the scale of the absolute value of a t
 statistic, at which to interpolate intervals.  Usually <code>conf</code>
 is used instead of giving <code>levels</code> explicitly.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>conf</code></td>
+<tr>
+<td><code id="plot-methods_:_conf">conf</code></td>
 <td>
 <p>a numeric vector of confidence levels for profile-based
 confidence intervals on the parameters.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>nseg</code></td>
+<tr>
+<td><code id="plot-methods_:_nseg">nseg</code></td>
 <td>
 <p>an integer value giving the number of segments to use in
 the spline interpolation of the profile t curves.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>absVal</code></td>
+<tr>
+<td><code id="plot-methods_:_absVal">absVal</code></td>
 <td>
 <p>a logical value indicating whether or not the plots
 should be on the scale of the absolute value of the profile t.
 Defaults to <code>TRUE</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="plot-methods_:_...">...</code></td>
 <td>
 <p>other arguments to the <code>plot</code> function can be passed here.</p>
 </td>
@@ -661,7 +663,7 @@ likelihood profiles for <code>x</code>.</p>
 </div>
 <div class="container manual-page" id="profile-methods">
 
-<a href="#profile-methods" class="help-page-title"><h2>Methods for Function <code>profile</code> in Package <span class="pkg">stats4</span>
+<a href="#profile-methods" class="help-page-title"><h2 id="profile-methods">Methods for Function <code>profile</code> in Package <span class="pkg">stats4</span>
 </h2></a>
 
 <h3>Description</h3>
@@ -680,52 +682,52 @@ profile<span class="token punctuation">(</span>fitted<span class="token punctuat
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>fitted</code></td>
+<tr>
+<td><code id="profile-methods_:_fitted">fitted</code></td>
 <td>
 <p>Object to be profiled</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>which</code></td>
+<tr>
+<td><code id="profile-methods_:_which">which</code></td>
 <td>
 <p>Optionally select subset of parameters to profile.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>maxsteps</code></td>
+<tr>
+<td><code id="profile-methods_:_maxsteps">maxsteps</code></td>
 <td>
 <p>Maximum number of steps to bracket <code>zmax</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>alpha</code></td>
+<tr>
+<td><code id="profile-methods_:_alpha">alpha</code></td>
 <td>
 <p>Significance level corresponding to <code>zmax</code>, based on
 a Scheffe-style multiple testing interval.  Ignored
 if <code>zmax</code> is specified.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>zmax</code></td>
+<tr>
+<td><code id="profile-methods_:_zmax">zmax</code></td>
 <td>
 <p>Cutoff for the profiled value of the signed root-likelihood.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>del</code></td>
+<tr>
+<td><code id="profile-methods_:_del">del</code></td>
 <td>
 <p>Initial stepsize on root-likelihood scale.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>trace</code></td>
+<tr>
+<td><code id="profile-methods_:_trace">trace</code></td>
 <td>
 <p>Logical. Print intermediate results.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="profile-methods_:_...">...</code></td>
 <td>
 <p>Currently unused.</p>
 </td>
@@ -769,7 +771,7 @@ the vicinity of the optimum of an <code>"mle"</code> object.</p>
 </div>
 <div class="container manual-page" id="profile.mle-class">
 
-<a href="#profile.mle-class" class="help-page-title"><h2>
+<a href="#profile.mle-class" class="help-page-title"><h2 id="profile.mle-class">
 Class <code>"profile.mle"</code>; Profiling information for <code>"mle"</code> object
 </h2></a>
 
@@ -829,7 +831,7 @@ profiles for each parameter.</p>
 </div>
 <div class="container manual-page" id="show-methods">
 
-<a href="#show-methods" class="help-page-title"><h2>Methods for Function <code>show</code> in Package <span class="pkg">stats4</span>
+<a href="#show-methods" class="help-page-title"><h2 id="show-methods">Methods for Function <code>show</code> in Package <span class="pkg">stats4</span>
 </h2></a>
 
 <h3>Description</h3>
@@ -856,7 +858,7 @@ coefficients and standard errors, and <code class="reqn"><span class="katex"><sp
 </div>
 <div class="container manual-page" id="summary-methods">
 
-<a href="#summary-methods" class="help-page-title"><h2>Methods for Function <code>summary</code> in Package <span class="pkg">stats4</span>
+<a href="#summary-methods" class="help-page-title"><h2 id="summary-methods">Methods for Function <code>summary</code> in Package <span class="pkg">stats4</span>
 </h2></a>
 
 <h3>Description</h3>
@@ -883,7 +885,7 @@ asymptotic SE, and value of <code class="reqn"><span class="katex"><span class="
 </div>
 <div class="container manual-page" id="summary.mle-class">
 
-<a href="#summary.mle-class" class="help-page-title"><h2>Class <code>"summary.mle"</code>, Summary of <code>"mle"</code> Objects</h2></a>
+<a href="#summary.mle-class" class="help-page-title"><h2 id="summary.mle-class">Class <code>"summary.mle"</code>, Summary of <code>"mle"</code> Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -945,7 +947,7 @@ contents of the <code>coef</code> slot</p>
 </div>
 <div class="container manual-page" id="update-methods">
 
-<a href="#update-methods" class="help-page-title"><h2>Methods for Function <code>update</code> in Package <span class="pkg">stats4</span>
+<a href="#update-methods" class="help-page-title"><h2 id="update-methods">Methods for Function <code>update</code> in Package <span class="pkg">stats4</span>
 </h2></a>
 
 <h3>Description</h3>
@@ -963,21 +965,21 @@ update<span class="token punctuation">(</span>object<span class="token punctuati
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>object</code></td>
+<tr>
+<td><code id="update-methods_:_object">object</code></td>
 <td>
 <p>An existing fit.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="update-methods_:_...">...</code></td>
 <td>
 <p>Additional arguments to the call, or arguments with
 changed values. Use <code>name = NULL</code> to remove the argument <code>name</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>evaluate</code></td>
+<tr>
+<td><code id="update-methods_:_evaluate">evaluate</code></td>
 <td>
 <p>If true evaluate the new call else return the call.</p>
 </td>
@@ -1011,7 +1013,7 @@ update<span class="token punctuation">(</span>fit<span class="token punctuation"
 </div>
 <div class="container manual-page" id="vcov-methods">
 
-<a href="#vcov-methods" class="help-page-title"><h2>Methods for Function <code>vcov</code> in Package <span class="pkg">stats4</span>
+<a href="#vcov-methods" class="help-page-title"><h2 id="vcov-methods">Methods for Function <code>vcov</code> in Package <span class="pkg">stats4</span>
 </h2></a>
 
 <h3>Description</h3>
@@ -1039,6 +1041,6 @@ variance-covariance matrix for the estimated parameters (if any).</p>
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.0.9000</p></footer>
+    <footer><p>Rendered with postdoc 1.2.1</p></footer>
   </body>
 </html>

@@ -58,11 +58,11 @@
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">0.8-83</td>
+<td class="description-version">0.8-84</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2022-10-31 22:33:21 UTC</td>
+<td class="description-date">2023-04-21 21:43:01 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -94,7 +94,7 @@
     <div class="manual-pages-content">
 <div class="container manual-page" id="lookup.xport">
 
-<a href="#lookup.xport" class="help-page-title"><h2>Lookup Information on a SAS XPORT Format Library</h2></a>
+<a href="#lookup.xport" class="help-page-title"><h2 id="lookup.xport">Lookup Information on a SAS XPORT Format Library</h2></a>
 
 <h3>Description</h3>
 
@@ -110,8 +110,8 @@ containing information about the SAS library.
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>file</code></td>
+<table><tr>
+<td><code id="lookup.xport_:_file">file</code></td>
 <td>
 <p>character variable with the name of the file to read.  The
 file must be in SAS XPORT format.</p>
@@ -154,7 +154,7 @@ lookup.xport<span class="token punctuation">(</span><span class="token string">"
 </div>
 <div class="container manual-page" id="read.arff">
 
-<a href="#read.arff" class="help-page-title"><h2>Read Data from ARFF Files</h2></a>
+<a href="#read.arff" class="help-page-title"><h2 id="read.arff">Read Data from ARFF Files</h2></a>
 
 <h3>Description</h3>
 
@@ -169,8 +169,8 @@ lookup.xport<span class="token punctuation">(</span><span class="token string">"
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>file</code></td>
+<table><tr>
+<td><code id="read.arff_:_file">file</code></td>
 <td>
 <p>a character string with the name of the ARFF file to read
 from, or a <code><a href="https://r-universe.dev/manuals/base.html#connections">connection</a></code> which will be opened if
@@ -202,7 +202,7 @@ or from factors.
 </div>
 <div class="container manual-page" id="read.dbf">
 
-<a href="#read.dbf" class="help-page-title"><h2>Read a DBF File</h2></a>
+<a href="#read.dbf" class="help-page-title"><h2 id="read.dbf">Read a DBF File</h2></a>
 
 <h3>Description</h3>
 
@@ -222,14 +222,14 @@ guarantee this will read all DBF files.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="read.dbf_:_file">file</code></td>
 <td>
 <p>name of input file</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>as.is</code></td>
+<tr>
+<td><code id="read.dbf_:_as.is">as.is</code></td>
 <td>
 <p>should character vectors not be converted to factors?</p>
 </td>
@@ -250,7 +250,7 @@ II, III or 4 (later owned by Borland).
 ‘XBASE’ specification.  It can convert fields of type
 <code>"L"</code> (logical), <code>"N"</code> and <code>"F"</code> (numeric and float)
 and <code>"D"</code> (dates): all other field types are read as-is as
-character vectors.  A numeric field is read as an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> integer vector if
+character vectors.  A numeric field is read as an <span class="rlang"><b>R</b></span> integer vector if
 it is encoded to have no decimals, otherwise as a numeric vector.  However,
 if the numbers are too large to fit into an integer vector, it is
 changed to numeric.  Note that is possible to read integers that cannot be
@@ -307,7 +307,7 @@ summary<span class="token punctuation">(</span>x<span class="token punctuation">
 </div>
 <div class="container manual-page" id="read.dta">
 
-<a href="#read.dta" class="help-page-title"><h2>Read Stata Binary Files</h2></a>
+<a href="#read.dta" class="help-page-title"><h2 id="read.dta">Read Stata Binary Files</h2></a>
 
 <h3>Description</h3>
 
@@ -327,42 +327,42 @@ summary<span class="token punctuation">(</span>x<span class="token punctuation">
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="read.dta_:_file">file</code></td>
 <td>
 <p>a filename or URL as a character string.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>convert.dates</code></td>
+<tr>
+<td><code id="read.dta_:_convert.dates">convert.dates</code></td>
 <td>
 <p>Convert Stata dates to <code>Date</code> class, and
 date-times to <code>POSIXct</code> class?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>convert.factors</code></td>
+<tr>
+<td><code id="read.dta_:_convert.factors">convert.factors</code></td>
 <td>
 <p>Use Stata value labels to create factors?
 (Version 6.0 or later).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>missing.type</code></td>
+<tr>
+<td><code id="read.dta_:_missing.type">missing.type</code></td>
 <td>
 <p>For version 8 or later, store information about
 different types of missing data?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>convert.underscore</code></td>
+<tr>
+<td><code id="read.dta_:_convert.underscore">convert.underscore</code></td>
 <td>
 <p>Convert <code>"_"</code> in Stata variable names
 to <code>"."</code> in R names?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>warn.missing.labels</code></td>
+<tr>
+<td><code id="read.dta_:_warn.missing.labels">warn.missing.labels</code></td>
 <td>
 <p>Warn if a variable is specified with value
 labels and those value labels are not present in the file.</p>
@@ -381,7 +381,7 @@ frame.  Missing values are correctly handled.  The data label,
 variable labels, timestamp, and variable/dataset characteristics
 are stored as attributes of the data frame.
 </p>
-<p>By default Stata dates (%d and %td formats) are converted to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s
+<p>By default Stata dates (%d and %td formats) are converted to <span class="rlang"><b>R</b></span>'s
 <code>Date</code> class, and variables with Stata value labels are
 converted to factors.  Ordinarily, <code>read.dta</code> will not convert
 a variable to a factor unless a label is present for every level.  Use
@@ -461,7 +461,7 @@ read.dta<span class="token punctuation">(</span>swissfile<span class="token punc
 </div>
 <div class="container manual-page" id="read.epiinfo">
 
-<a href="#read.epiinfo" class="help-page-title"><h2>Read Epi Info Data Files</h2></a>
+<a href="#read.epiinfo" class="help-page-title"><h2 id="read.epiinfo">Read Epi Info Data Files</h2></a>
 
 <h3>Description</h3>
 
@@ -481,35 +481,35 @@ and EpiData is a freely available data entry and validation system.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="read.epiinfo_:_file">file</code></td>
 <td>
 <p>A filename, URL, or connection.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>read.deleted</code></td>
+<tr>
+<td><code id="read.epiinfo_:_read.deleted">read.deleted</code></td>
 <td>
 <p>Deleted records are read if <code>TRUE</code>, omitted
 if <code>FALSE</code> or replaced with <code>NA</code> if <code>NA</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>guess.broken.dates</code></td>
+<tr>
+<td><code id="read.epiinfo_:_guess.broken.dates">guess.broken.dates</code></td>
 <td>
 <p>Attempt to convert dates with 0 or 2 digit
 year information (see ‘Details’).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>thisyear</code></td>
+<tr>
+<td><code id="read.epiinfo_:_thisyear">thisyear</code></td>
 <td>
 <p>A 4-digit year to use for dates with no year. Defaults
 to the current year.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lower.case.names</code></td>
+<tr>
+<td><code id="read.epiinfo_:_lower.case.names">lower.case.names</code></td>
 <td>
 <p>Convert variable names to lowercase?</p>
 </td>
@@ -567,7 +567,7 @@ read.epiinfo<span class="token punctuation">(</span><span class="token string">"
 </div>
 <div class="container manual-page" id="read.mtp">
 
-<a href="#read.mtp" class="help-page-title"><h2>Read a Minitab Portable Worksheet</h2></a>
+<a href="#read.mtp" class="help-page-title"><h2 id="read.mtp">Read a Minitab Portable Worksheet</h2></a>
 
 <h3>Description</h3>
 
@@ -583,8 +583,8 @@ Worksheet.
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>file</code></td>
+<table><tr>
+<td><code id="read.mtp_:_file">file</code></td>
 <td>
 <p>character variable with the name of the file to read.  The
 file must be in Minitab Portable Worksheet format.</p>
@@ -626,7 +626,7 @@ read.mtp<span class="token punctuation">(</span><span class="token string">"ex1-
 </div>
 <div class="container manual-page" id="read.octave">
 
-<a href="#read.octave" class="help-page-title"><h2>Read Octave Text Data Files</h2></a>
+<a href="#read.octave" class="help-page-title"><h2 id="read.octave">Read Octave Text Data Files</h2></a>
 
 <h3>Description</h3>
 
@@ -641,8 +641,8 @@ read.mtp<span class="token punctuation">(</span><span class="token string">"ex1-
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>file</code></td>
+<table><tr>
+<td><code id="read.octave_:_file">file</code></td>
 <td>
 <p>a character string with the name of the file to read.</p>
 </td>
@@ -685,7 +685,7 @@ facilities as an intermediary step.
 </div>
 <div class="container manual-page" id="read.spss">
 
-<a href="#read.spss" class="help-page-title"><h2>Read an SPSS Data File</h2></a>
+<a href="#read.spss" class="help-page-title"><h2 id="read.spss">Read an SPSS Data File</h2></a>
 
 <h3>Description</h3>
 
@@ -710,50 +710,50 @@ in SPSS formats since (which have not been many).
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="read.spss_:_file">file</code></td>
 <td>
 <p>character string: the name of the file or URL to read.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>use.value.labels</code></td>
+<tr>
+<td><code id="read.spss_:_use.value.labels">use.value.labels</code></td>
 <td>
 <p>logical: convert variables with value labels
-into <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> factors with those levels?  This is only done if there are
+into <span class="rlang"><b>R</b></span> factors with those levels?  This is only done if there are
 at least as many labels as values of the variable (when values
 without a matching label are returned as <code>NA</code>).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>to.data.frame</code></td>
+<tr>
+<td><code id="read.spss_:_to.data.frame">to.data.frame</code></td>
 <td>
 <p>logical: return a data frame?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>max.value.labels</code></td>
+<tr>
+<td><code id="read.spss_:_max.value.labels">max.value.labels</code></td>
 <td>
 <p>logical: only variables with value labels and
 at most this many unique values will be converted to factors if
 <code>TRUE</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>trim.factor.names</code></td>
+<tr>
+<td><code id="read.spss_:_trim.factor.names">trim.factor.names</code></td>
 <td>
 <p>logical: trim trailing spaces from factor levels?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>trim_values</code></td>
+<tr>
+<td><code id="read.spss_:_trim_values">trim_values</code></td>
 <td>
 <p>logical: should values and value labels have
 trailing spaces ignored when matching for <code>use.value.labels = TRUE</code>?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>reencode</code></td>
+<tr>
+<td><code id="read.spss_:_reencode">reencode</code></td>
 <td>
 <p>logical: should character strings be re-encoded to the
 current locale.  The default, <code>NA</code>, means to do so in UTF-8 or latin-1
@@ -761,15 +761,15 @@ locales, only.  Alternatively a character string specifying an encoding to
 assume for the file.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>use.missings</code></td>
+<tr>
+<td><code id="read.spss_:_use.missings">use.missings</code></td>
 <td>
 <p>logical: should information on user-defined
 missing values be used to set the corresponding values to <code>NA</code>?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>sub</code></td>
+<tr>
+<td><code id="read.spss_:_sub">sub</code></td>
 <td>
 <p>character string: If not <code>NA</code> it is used by <code><a href="https://r-universe.dev/manuals/base.html#iconv">iconv</a></code> 
 to replace any non-convertible bytes in character/factor input. 
@@ -777,8 +777,8 @@ Default is <code>"."</code>. For back compatibility with <span class="pkg">forei
 versions &lt;= 0.8-68 use <code>sub=NA</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>add.undeclared.levels</code></td>
+<tr>
+<td><code id="read.spss_:_add.undeclared.levels">add.undeclared.levels</code></td>
 <td>
 <p>character: 
 specify how to handle variables with at least one value label and further 
@@ -795,8 +795,8 @@ For back compatibility with <span class="pkg">foreign</span> versions &lt;= 0.8-
 values with missing corresponding value labels to <code>NA</code>).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>duplicated.value.labels</code></td>
+<tr>
+<td><code id="read.spss_:_duplicated.value.labels">duplicated.value.labels</code></td>
 <td>
 <p>character: what to do with duplicated value 
 labels for different levels.
@@ -810,16 +810,16 @@ R versions &gt;= 3.4.0 no longer support duplicated factor labels.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>duplicated.value.labels.infix</code></td>
+<tr>
+<td><code id="read.spss_:_duplicated.value.labels.infix">duplicated.value.labels.infix</code></td>
 <td>
 <p>character: the infix used for labels of 
 factor levels with duplicated value labels in SPSS (default <code>"_duplicated_"</code>) 
 if <code>duplicated.value.labels="append"</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="read.spss_:_...">...</code></td>
 <td>
 <p>passed to <code><a href="https://r-universe.dev/manuals/base.html#as.data.frame">as.data.frame</a></code> if <code>to.data.frame = TRUE</code>.</p>
 </td>
@@ -847,7 +847,7 @@ they have value labels.
 <code>"variable.labels"</code> attribute of the answer.
 </p>
 <p>Fixed length strings (including value labels) are padded on the right
-with spaces by SPSS, and so are read that way by <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.  The default
+with spaces by SPSS, and so are read that way by <span class="rlang"><b>R</b></span>.  The default
 argument <code>trim_values=TRUE</code> causes trailing spaces to be ignored
 when matching to value labels, as examples have been seen where the
 strings and the value labels had different amounts of padding.  See
@@ -886,7 +886,7 @@ elements the long names.
 variable.  Each element has an element <code>type</code>, a length-one
 character vector giving the type of missingness, and may also have an
 element <code>value</code> with the values corresponding to missingness.
-This is a complex subject (where the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> and C source code for
+This is a complex subject (where the <span class="rlang"><b>R</b></span> and C source code for
 <code>read.spss</code> is the main documentation), but the simplest cases
 are types <code>"one"</code>, <code>"two"</code> and <code>"three"</code> with a
 corresponding number of (real or string) values whose labels can be
@@ -987,7 +987,7 @@ cat.long.string<span class="token punctuation">(</span>long.string<span class="t
 </div>
 <div class="container manual-page" id="read.ssd">
 
-<a href="#read.ssd" class="help-page-title"><h2>Obtain a Data Frame from a SAS Permanent Dataset, via read.xport </h2></a>
+<a href="#read.ssd" class="help-page-title"><h2 id="read.ssd">Obtain a Data Frame from a SAS Permanent Dataset, via read.xport </h2></a>
 
 <h3>Description</h3>
 
@@ -1005,15 +1005,15 @@ and then uses <code>read.xport</code> to obtain a data frame.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>libname</code></td>
+<tr>
+<td><code id="read.ssd_:_libname">libname</code></td>
 <td>
 <p>character string defining the SAS library (usually a
 directory reference)</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>sectionnames</code></td>
+<tr>
+<td><code id="read.ssd_:_sectionnames">sectionnames</code></td>
 <td>
 <p>character vector giving member names.  These are
 files in the <code>libname</code> directory. They will usually have a
@@ -1022,16 +1022,16 @@ omitted.  Use of ASCII names of at most 8 characters is strongly
 recommended.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>tmpXport</code></td>
+<tr>
+<td><code id="read.ssd_:_tmpXport">tmpXport</code></td>
 <td>
 <p>character  string: location where temporary xport
 format archive should reside – defaults to a randomly named file
 in the session temporary directory, which will be removed.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>tmpProgLoc</code></td>
+<tr>
+<td><code id="read.ssd_:_tmpProgLoc">tmpProgLoc</code></td>
 <td>
 <p>character  string: location where temporary
 conversion SAS program should reside – defaults to a randomly named
@@ -1039,8 +1039,8 @@ file in session temporary directory, which will be removed on
 successful operation.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>sascmd</code></td>
+<tr>
+<td><code id="read.ssd_:_sascmd">sascmd</code></td>
 <td>
 <p>character string giving full path to SAS executable.</p>
 </td>
@@ -1110,7 +1110,7 @@ read.ssd<span class="token punctuation">(</span>file.path<span class="token punc
 </div>
 <div class="container manual-page" id="read.systat">
 
-<a href="#read.systat" class="help-page-title"><h2>Obtain a Data Frame from a Systat File</h2></a>
+<a href="#read.systat" class="help-page-title"><h2 id="read.systat">Obtain a Data Frame from a Systat File</h2></a>
 
 <h3>Description</h3>
 
@@ -1128,14 +1128,14 @@ read.ssd<span class="token punctuation">(</span>file.path<span class="token punc
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="read.systat_:_file">file</code></td>
 <td>
 <p>character variable with the name of the file to read</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>to.data.frame</code></td>
+<tr>
+<td><code id="read.systat_:_to.data.frame">to.data.frame</code></td>
 <td>
 <p>return a data frame (otherwise a list)</p>
 </td>
@@ -1196,7 +1196,7 @@ summary<span class="token punctuation">(</span>iris.s<span class="token punctuat
 </div>
 <div class="container manual-page" id="read.xport">
 
-<a href="#read.xport" class="help-page-title"><h2>Read a SAS XPORT Format Library</h2></a>
+<a href="#read.xport" class="help-page-title"><h2 id="read.xport">Read a SAS XPORT Format Library</h2></a>
 
 <h3>Description</h3>
 
@@ -1213,15 +1213,15 @@ data.frames.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="read.xport_:_file">file</code></td>
 <td>
 <p>character variable with the name of the file to read.  The
 file must be in SAS XPORT format.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="read.xport_:_...">...</code></td>
 <td>
 <p>passed to <code><a href="https://r-universe.dev/manuals/base.html#as.data.frame">as.data.frame</a></code> when creating the data
 frames.</p>
@@ -1235,11 +1235,11 @@ list of data frames, otherwise a data frame.  The columns of the data
 frames will be either numeric (corresponding to numeric in SAS) or
 factor (corresponding to character in SAS).  All SAS numeric missing
 values (including special missing values represented by <code>._</code>,
-<code>.A</code> to <code>.Z</code> by SAS) are mapped to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> <code>NA</code>.
+<code>.A</code> to <code>.Z</code> by SAS) are mapped to <span class="rlang"><b>R</b></span> <code>NA</code>.
 </p>
 <p>Trailing blanks are removed from character columns before conversion to
 a factor.  Some sources claim that character missing values in SAS are
-represented by <code>' '</code> or <code>''</code>: these are not treated as <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+represented by <code>' '</code> or <code>''</code>: these are not treated as <span class="rlang"><b>R</b></span>
 missing values.
 </p>
 
@@ -1275,7 +1275,7 @@ read.xport<span class="token punctuation">(</span><span class="token string">"te
 </div>
 <div class="container manual-page" id="read.S">
 
-<a href="#read.S" class="help-page-title"><h2>Read an S3 Binary or data.dump File</h2></a>
+<a href="#read.S" class="help-page-title"><h2 id="S3+20read+20functions">Read an S3 Binary or data.dump File</h2></a>
 
 <h3>Description</h3>
 
@@ -1293,29 +1293,29 @@ in S version 3.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="S3+20read+20functions_:_file">file</code></td>
 <td>
 <p>the filename of the S-PLUS <code>data.dump</code> or binary
 file.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>print</code></td>
+<tr>
+<td><code id="S3+20read+20functions_:_print">print</code></td>
 <td>
 <p>whether to print the name of each object as read from the
 file.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>verbose</code></td>
+<tr>
+<td><code id="S3+20read+20functions_:_verbose">verbose</code></td>
 <td>
 <p>whether to print the name of every subitem within each
 object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>env</code></td>
+<tr>
+<td><code id="S3+20read+20functions_:_env">env</code></td>
 <td>
 <p>environment within which to create the restored object(s).</p>
 </td>
@@ -1367,7 +1367,7 @@ data.restore<span class="token punctuation">(</span><span class="token string">"
 </div>
 <div class="container manual-page" id="write.arff">
 
-<a href="#write.arff" class="help-page-title"><h2>Write Data into ARFF Files</h2></a>
+<a href="#write.arff" class="help-page-title"><h2 id="write.arff">Write Data into ARFF Files</h2></a>
 
 <h3>Description</h3>
 
@@ -1383,28 +1383,28 @@ data.restore<span class="token punctuation">(</span><span class="token string">"
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="write.arff_:_x">x</code></td>
 <td>
 <p>the data to be written, preferably a matrix or data frame.
 If not, coercion to a data frame is attempted.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="write.arff_:_file">file</code></td>
 <td>
 <p>either a character string naming a file, or a connection.
 <code>""</code> indicates output to the standard output connection.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>eol</code></td>
+<tr>
+<td><code id="write.arff_:_eol">eol</code></td>
 <td>
 <p>the character(s) to print at the end of each line (row).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>relation</code></td>
+<tr>
+<td><code id="write.arff_:_relation">relation</code></td>
 <td>
 <p>The name of the relation to be written in the file.</p>
 </td>
@@ -1446,7 +1446,7 @@ or from factors.
 </div>
 <div class="container manual-page" id="write.dbf">
 
-<a href="#write.dbf" class="help-page-title"><h2>Write a DBF File</h2></a>
+<a href="#write.dbf" class="help-page-title"><h2 id="write.dbf">Write a DBF File</h2></a>
 
 <h3>Description</h3>
 
@@ -1462,27 +1462,27 @@ or from factors.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>dataframe</code></td>
+<tr>
+<td><code id="write.dbf_:_dataframe">dataframe</code></td>
 <td>
 <p>a data frame object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="write.dbf_:_file">file</code></td>
 <td>
 <p>a file name to be written to.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>factor2char</code></td>
+<tr>
+<td><code id="write.dbf_:_factor2char">factor2char</code></td>
 <td>
 <p>logical, default <code>TRUE</code>, convert factor columns to
 character: otherwise they are written as the internal integer codes.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>max_nchar</code></td>
+<tr>
+<td><code id="write.dbf_:_max_nchar">max_nchar</code></td>
 <td>
 <p>The maximum number of characters allowed in a
 character field.  Strings which exceed this will be truncated with a
@@ -1571,7 +1571,7 @@ unlink<span class="token punctuation">(</span>c<span class="token punctuation">(
 </div>
 <div class="container manual-page" id="write.dta">
 
-<a href="#write.dta" class="help-page-title"><h2>Write Files in Stata Binary Format</h2></a>
+<a href="#write.dta" class="help-page-title"><h2 id="write.dta">Write Files in Stata Binary Format</h2></a>
 
 <h3>Description</h3>
 
@@ -1593,40 +1593,40 @@ format.  Does not write array variables unless they can be
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>dataframe</code></td>
+<tr>
+<td><code id="write.dta_:_dataframe">dataframe</code></td>
 <td>
 <p>a data frame.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="write.dta_:_file">file</code></td>
 <td>
 <p>character string giving filename.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>version</code></td>
+<tr>
+<td><code id="write.dta_:_version">version</code></td>
 <td>
 <p>integer: Stata version: 6, 7, 8 and 10 are supported,
 and 9 is mapped to 8, 11 to 10.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>convert.dates</code></td>
+<tr>
+<td><code id="write.dta_:_convert.dates">convert.dates</code></td>
 <td>
 <p>logical: convert <code>Date</code> and <code>POSIXct</code>
 objects: see section ‘Dates’.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>tz</code></td>
+<tr>
+<td><code id="write.dta_:_tz">tz</code></td>
 <td>
 <p>timezone for date conversion.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>convert.factors</code></td>
+<tr>
+<td><code id="write.dta_:_convert.factors">convert.factors</code></td>
 <td>
 <p>how to handle factors.</p>
 </td>
@@ -1680,11 +1680,11 @@ labels.  Otherwise the variable names are repeated as variable labels.
 </p>
 <p>For Stata 8 or later use the default <code>version = 7</code> – the only
 advantage of Stata 8 format over 7 is that it can represent multiple
-different missing value types, and <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> doesn't have them.  Stata 10/11
-allows longer format lists, but <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> does not make use of them.
+different missing value types, and <span class="rlang"><b>R</b></span> doesn't have them.  Stata 10/11
+allows longer format lists, but <span class="rlang"><b>R</b></span> does not make use of them.
 </p>
 <p>Note that the Stata formats are documented to use ASCII strings –
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> does not enforce this, but use of non-ASCII character strings will
+<span class="rlang"><b>R</b></span> does not enforce this, but use of non-ASCII character strings will
 not be portable as the encoding is not recorded.  Up to 244 bytes are
 allowed in character data, and longer strings will be truncated with a
 warning.
@@ -1704,7 +1704,7 @@ greater than <code>2147483620</code> and doubles greater than
 
 <h3>Dates</h3>
 
-<p>Unless disabled by argument <code>convert.dates = FALSE</code>, <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> date and
+<p>Unless disabled by argument <code>convert.dates = FALSE</code>, <span class="rlang"><b>R</b></span> date and
 date-time objects (<code>POSIXt</code> classes) are converted into the Stata
 date format, the number of days since 1960-01-01.  (For date-time
 objects this may lose information.)  Stata can be told that these are
@@ -1720,7 +1720,7 @@ either an object of class <code>POSICct</code> can be passed to Stata with
 before passing to <code>write.dta</code> and assigning format <code>%tc</code>.
 Stata's comments on the first route are at
 <a href="https://www.stata.com/manuals13/ddatetime.pdf" target="_blank">https://www.stata.com/manuals13/ddatetime.pdf</a>, but at the time of
-writing were wrong: <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> uses POSIX conventions and hence does not count
+writing were wrong: <span class="rlang"><b>R</b></span> uses POSIX conventions and hence does not count
 leap seconds.
 </p>
 
@@ -1758,7 +1758,7 @@ read.dta<span class="token punctuation">(</span>swissfile<span class="token punc
 </div>
 <div class="container manual-page" id="write.foreign">
 
-<a href="#write.foreign" class="help-page-title"><h2>Write Text Files and Code to Read Them</h2></a>
+<a href="#write.foreign" class="help-page-title"><h2 id="write.foreign">Write Text Files and Code to Read Them</h2></a>
 
 <h3>Description</h3>
 
@@ -1777,32 +1777,32 @@ instructions for the other package to read the data.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>df</code></td>
+<tr>
+<td><code id="write.foreign_:_df">df</code></td>
 <td>
 <p>A data frame</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>datafile</code></td>
+<tr>
+<td><code id="write.foreign_:_datafile">datafile</code></td>
 <td>
 <p>Name of file for data output</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>codefile</code></td>
+<tr>
+<td><code id="write.foreign_:_codefile">codefile</code></td>
 <td>
 <p>Name of file for code output</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="write.foreign_:_package">package</code></td>
 <td>
 <p>Name of package</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="write.foreign_:_...">...</code></td>
 <td>
 <p>Other arguments for the individual <code>writeForeign</code>
 functions</p>
@@ -1870,6 +1870,6 @@ unlink<span class="token punctuation">(</span>codefile<span class="token punctua
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.0.9000</p></footer>
+    <footer><p>Rendered with postdoc 1.2.1</p></footer>
   </body>
 </html>

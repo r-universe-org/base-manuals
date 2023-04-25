@@ -38,15 +38,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.2.2</td>
+<td class="description-license">Part of R 4.3.0</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.2.2</td>
+<td class="description-version">4.3.0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2022-10-31 22:32:49 UTC</td>
+<td class="description-date">2023-04-21 21:42:26 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -149,7 +149,7 @@ Test for and Report about  Selection of Inherited Methods
     <div class="manual-pages-content">
 <div class="container manual-page" id="methods-package">
 
-<a href="#methods-package" class="help-page-title"><h2>
+<a href="#methods-package" class="help-page-title"><h2 id="methods-package">
 Formal Methods and Classes
 </h2></a>
 
@@ -237,7 +237,7 @@ Springer.  (Chapter 10 has some additional details.)
 </div>
 <div class="container manual-page" id="zBasicFunsList">
 
-<a href="#zBasicFunsList" class="help-page-title"><h2>List of Builtin and Special Functions</h2></a>
+<a href="#zBasicFunsList" class="help-page-title"><h2 id=".BasicFunsList">List of Builtin and Special Functions</h2></a>
 
 <h3>Description</h3>
 
@@ -277,7 +277,7 @@ list <code>(x, ...)</code>  is assumed.
 </div>
 <div class="container manual-page" id="as">
 
-<a href="#as" class="help-page-title"><h2>Force an Object to Belong to a Class</h2></a>
+<a href="#as" class="help-page-title"><h2 id="as">Force an Object to Belong to a Class</h2></a>
 
 <h3>Description</h3>
 
@@ -295,21 +295,21 @@ as<span class="token punctuation">(</span>object<span class="token punctuation">
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>object</code></td>
+<tr>
+<td><code id="as_:_object">object</code></td>
 <td>
-<p>any <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object.</p>
+<p>any <span class="rlang"><b>R</b></span> object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>Class</code></td>
+<tr>
+<td><code id="as_:_Class">Class</code></td>
 <td>
 <p>the name of the class to which <code>object</code> should be
 coerced. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>strict</code></td>
+<tr>
+<td><code id="as_:_strict">strict</code></td>
 <td>
 <p>logical flag.  If <code>TRUE</code>, the returned object
 must be strictly from the target class (unless that class is a
@@ -322,8 +322,8 @@ will be returned, without further change.  A simple extension is,
 roughly, one that just adds slots to an existing class.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>value</code></td>
+<tr>
+<td><code id="as_:_value">value</code></td>
 <td>
 <p>The value to use to modify <code>object</code> (see the
 discussion below).  You should supply an object with class
@@ -331,8 +331,8 @@ discussion below).  You should supply an object with class
 it.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>ext</code></td>
+<tr>
+<td><code id="as_:_ext">ext</code></td>
 <td>
 <p>an optional object
 defining how <code>Class</code> is extended by the class of the
@@ -401,7 +401,7 @@ showMethods<span class="token punctuation">(</span><span class="token string">"c
 </div>
 <div class="container manual-page" id="BasicClasses">
 
-<a href="#BasicClasses" class="help-page-title"><h2>Classes Corresponding to Basic Data Types </h2></a>
+<a href="#BasicClasses" class="help-page-title"><h2 id="BasicClasses">Classes Corresponding to Basic Data Types </h2></a>
 
 <h3>Description</h3>
 
@@ -510,7 +510,7 @@ example, <code>as(x, "numeric")</code> calls <code>as.numeric(x)</code>. </p>
 </div>
 <div class="container manual-page" id="callGeneric">
 
-<a href="#callGeneric" class="help-page-title"><h2>Call the Current Generic Function from a Method</h2></a>
+<a href="#callGeneric" class="help-page-title"><h2 id="callGeneric">Call the Current Generic Function from a Method</h2></a>
 
 <h3>Description</h3>
 
@@ -529,8 +529,8 @@ used in methods for group generic functions.
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>...</code></td>
+<table><tr>
+<td><code id="callGeneric_:_...">...</code></td>
 <td>
 
 <p>Optionally, the arguments to the function in its next call.
@@ -614,7 +614,7 @@ showMethods<span class="token punctuation">(</span><span class="token string">"O
 </div>
 <div class="container manual-page" id="NextMethod">
 
-<a href="#NextMethod" class="help-page-title"><h2>Call an Inherited Method</h2></a>
+<a href="#NextMethod" class="help-page-title"><h2 id="callNextMethod">Call an Inherited Method</h2></a>
 
 <h3>Description</h3>
 
@@ -633,8 +633,8 @@ value of <code>callNextMethod</code>.
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>...</code></td>
+<table><tr>
+<td><code id="callNextMethod_:_...">...</code></td>
 <td>
 
 <p>Optionally, the arguments to the function in its next call
@@ -889,7 +889,7 @@ tryCatch<span class="token punctuation">(</span>f<span class="token punctuation"
 </div>
 <div class="container manual-page" id="canCoerce">
 
-<a href="#canCoerce" class="help-page-title"><h2>Can an Object be Coerced to a Certain S4 Class?</h2></a>
+<a href="#canCoerce" class="help-page-title"><h2 id="canCoerce">Can an Object be Coerced to a Certain S4 Class?</h2></a>
 
 <h3>Description</h3>
 
@@ -907,14 +907,14 @@ Maybe useful inside <code>if()</code> to ensure that calling
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>object</code></td>
+<tr>
+<td><code id="canCoerce_:_object">object</code></td>
 <td>
-<p>any <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object, typically of a formal S4 class.</p>
+<p>any <span class="rlang"><b>R</b></span> object, typically of a formal S4 class.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>Class</code></td>
+<tr>
+<td><code id="canCoerce_:_Class">Class</code></td>
 <td>
 <p>an S4 class (see <code><a href="#findClass">isClass</a></code>).</p>
 </td>
@@ -945,11 +945,11 @@ canCoerce<span class="token punctuation">(</span>m<span class="token punctuation
 </div>
 <div class="container manual-page" id="cbind2">
 
-<a href="#cbind2" class="help-page-title"><h2>Combine two Objects by Columns or Rows</h2></a>
+<a href="#cbind2" class="help-page-title"><h2 id="cbind2">Combine two Objects by Columns or Rows</h2></a>
 
 <h3>Description</h3>
 
-<p>Combine two matrix-like <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects by columns (<code>cbind2</code>)
+<p>Combine two matrix-like <span class="rlang"><b>R</b></span> objects by columns (<code>cbind2</code>)
 or rows (<code>rbind2</code>).  These are (S4) generic functions with default
 methods.
 </p>
@@ -964,21 +964,21 @@ rbind2<span class="token punctuation">(</span>x<span class="token punctuation">,
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="cbind2_:_x">x</code></td>
 <td>
-<p>any <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object, typically matrix-like.</p>
+<p>any <span class="rlang"><b>R</b></span> object, typically matrix-like.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>y</code></td>
+<tr>
+<td><code id="cbind2_:_y">y</code></td>
 <td>
-<p>any <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object, typically similar to <code>x</code>, or missing
+<p>any <span class="rlang"><b>R</b></span> object, typically similar to <code>x</code>, or missing
 completely.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="cbind2_:_...">...</code></td>
 <td>
 <p>optional arguments for methods.</p>
 </td>
@@ -1039,18 +1039,18 @@ from deparsing argument names such as in <code><a href="https://r-universe.dev/m
 <dt><code>signature(x = "ANY", y = "ANY")</code></dt>
 <dd>
 <p>the default method
-using <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s internal code.</p>
+using <span class="rlang"><b>R</b></span>'s internal code.</p>
 </dd>
 <dt><code>signature(x = "ANY", y = "missing")</code></dt>
 <dd>
 <p>the default method
-for one argument using <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s internal code.</p>
+for one argument using <span class="rlang"><b>R</b></span>'s internal code.</p>
 </dd>
 </dl>
 <h3>See Also</h3>
 
 <p><code><a href="https://r-universe.dev/manuals/base.html#cbind">cbind</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#cbind">rbind</a></code>;
-further, <code><a href="https://r-forge.r-universe.dev/manual/Matrix.html#cBind">cBind</a></code>, <code><a href="https://r-forge.r-universe.dev/manual/Matrix.html#cBind">rBind</a></code> in
+further, <code><a href="https://r-universe.dev/manuals/Matrix.html#cBind">cBind</a></code>, <code><a href="https://r-universe.dev/manuals/Matrix.html#cBind">rBind</a></code> in
 the <a href="https://CRAN.R-project.org/package=Matrix" target="_blank"><span class="pkg">Matrix</span></a> package.
 </p>
 
@@ -1083,7 +1083,7 @@ untrace<span class="token punctuation">(</span><span class="token string">"cbind
 </div>
 <div class="container manual-page" id="Classes">
 
-<a href="#Classes" class="help-page-title"><h2>S4 Class Documentation</h2></a>
+<a href="#Classes" class="help-page-title"><h2 id="Classes">S4 Class Documentation</h2></a>
 
 <h3>Description</h3>
 
@@ -1107,12 +1107,12 @@ Chapman &amp; Hall.
 </div>
 <div class="container manual-page" id="Classes_Details">
 
-<a href="#Classes_Details" class="help-page-title"><h2>Class Definitions</h2></a>
+<a href="#Classes_Details" class="help-page-title"><h2 id="Classes_Details">Class Definitions</h2></a>
 
 <h3>Description</h3>
 
 <p>Class definitions are objects that contain the formal definition of a
-class of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects, usually referred to as an S4 class, to
+class of <span class="rlang"><b>R</b></span> objects, usually referred to as an S4 class, to
 distinguish them from the informal S3 classes.
 This document gives an overview of S4 classes; for
 details of the class representation objects, see help for the class
@@ -1151,7 +1151,7 @@ names; specifically, the slot names that are contained in the
 class definition.  Each slot in each object always is an object
 of  the
 class specified for this slot in the definition of the current class.
-The word “is” corresponds to the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> function of the same
+The word “is” corresponds to the <span class="rlang"><b>R</b></span> function of the same
 name (<code><a href="#is">is</a></code>), meaning that the class of the object in
 the slot must be the same as the class specified in the
 definition, or some class that extends the one in the
@@ -1160,7 +1160,7 @@ definition (a <em>subclass</em>).
 <p>A special slot name, <code>.Data</code>, stands for the
 ‘data part’ of the object.  An object from a class with a
 data part is defined by specifying that the class contains one
-of the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object types or one of the special pseudo-classes,
+of the <span class="rlang"><b>R</b></span> object types or one of the special pseudo-classes,
 <code>matrix</code> or <code>array</code>, usually because the definition of
 the class, or of one of its superclasses, has included the type
 or pseudo-class in its <code>contains</code> argument.  A second
@@ -1171,7 +1171,7 @@ for details on the representation and
 for the behavior of S3 methods with objects from these classes.
 </p>
 <p>Some slot names correspond to attributes used in old-style S3
-objects and in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects without an explicit class, for
+objects and in <span class="rlang"><b>R</b></span> objects without an explicit class, for
 example, the <code>names</code> attribute.  If you define a class for
 which that attribute will be set, such as a subclass of named
 vectors, you should include <code>"names"</code> as a slot.  See the
@@ -1257,7 +1257,7 @@ valid object for any of the slots.
 <h3>Basic classes</h3>
 
 <p>There are a number of ‘basic’ classes, corresponding to the
-ordinary kinds of data occurring in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.  For example,
+ordinary kinds of data occurring in <span class="rlang"><b>R</b></span>.  For example,
 <code>"numeric"</code> is a class corresponding to numeric vectors.
 The other vector basic classes are <code>"logical"</code>, <code>"integer"</code>,
 <code>"complex"</code>, <code>"character"</code>,  <code>"raw"</code>, <code>"list"</code>
@@ -1303,7 +1303,7 @@ extends <a href="#setOldClass">oldClass</a>);
 </p>
 </li>
 <li>
-<p>One of the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object types, typically a vector type, which then
+<p>One of the <span class="rlang"><b>R</b></span> object types, typically a vector type, which then
 defines the type of the S4 objects, but also a type such as
 <code><a href="https://r-universe.dev/manuals/base.html#environment">environment</a></code> that can not be used directly as a type
 for an S4 object.  See
@@ -1374,7 +1374,7 @@ corresponding details for inheritance
 from S3 classes, see <code><a href="#setOldClass">setOldClass</a></code>.
 </p>
 <p>An object from a class that directly and simply contains one
-of the basic object types in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, has implicitly a corresponding
+of the basic object types in <span class="rlang"><b>R</b></span>, has implicitly a corresponding
 <code>.Data</code> slot of that type, allowing computations to extract
 or replace the data part while leaving other slots
 unchanged. If the type is one that can accept attributes and is
@@ -1432,7 +1432,7 @@ Chapman &amp; Hall.
 </div>
 <div class="container manual-page" id="classesToAM">
 
-<a href="#classesToAM" class="help-page-title"><h2>
+<a href="#classesToAM" class="help-page-title"><h2 id="classesToAM">
 Compute an Adjacency Matrix for Superclasses of Class Definitions
 </h2></a>
 
@@ -1460,8 +1460,8 @@ and other software to construct graph representations of relationships.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>classes</code></td>
+<tr>
+<td><code id="classesToAM_:_classes">classes</code></td>
 <td>
 
 <p>Either a character vector of class names or a list, whose
@@ -1471,8 +1471,8 @@ the class name. See the examples.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>includeSubclasses</code></td>
+<tr>
+<td><code id="classesToAM_:_includeSubclasses">includeSubclasses</code></td>
 <td>
 
 <p>A logical flag; if <code>TRUE</code>, then the matrix will include all
@@ -1483,8 +1483,8 @@ but not all the classes.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>abbreviate</code></td>
+<tr>
+<td><code id="classesToAM_:_abbreviate">abbreviate</code></td>
 <td>
 
 <p>Control of the abbreviation of the row and/or  column labels of
@@ -1567,7 +1567,7 @@ plotInheritance<span class="token punctuation">(</span>getClasses<span class="to
 </div>
 <div class="container manual-page" id="className">
 
-<a href="#className" class="help-page-title"><h2>
+<a href="#className" class="help-page-title"><h2 id="className">
 Class names including the corresponding package
 </h2></a>
 
@@ -1597,8 +1597,10 @@ multipleClasses<span class="token punctuation">(</span>details <span class="toke
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>class, package</code></td>
+<tr>
+<td>
+<code id="className_:_class">class</code>, <code id="className_:_package">package</code>
+</td>
 <td>
 
 <p>The character string name of a class and, optionally, of the package
@@ -1615,8 +1617,8 @@ warning printed giving the other possibilities.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>details</code></td>
+<tr>
+<td><code id="className_:_details">details</code></td>
 <td>
 
 <p>If <code>FALSE</code>, the default, <code>multipleClasses()</code> returns a
@@ -1645,7 +1647,7 @@ packages happen to have used the same name, independently.
 </p>
 <p>Overriding a class definition in another package with the same name deliberately is usually a bad
 idea.
-Although <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> attempts to keep and use the two definitions (as of
+Although <span class="rlang"><b>R</b></span> attempts to keep and use the two definitions (as of
 version 2.14.0), ambiguities are always possible.  It is more
 sensible to define a new class that extends an existing class but has
 a different name.
@@ -1686,7 +1688,7 @@ className<span class="token punctuation">(</span><span class="token string">"An 
 </div>
 <div class="container manual-page" id="classRepresentation-class">
 
-<a href="#classRepresentation-class" class="help-page-title"><h2>Class Objects </h2></a>
+<a href="#classRepresentation-class" class="help-page-title"><h2 id="classRepresentation-class">Class Objects </h2></a>
 
 <h3>Description</h3>
 
@@ -1814,7 +1816,7 @@ See <a href="#Classes_Details">Classes_Details</a> for a more basic discussion o
 </div>
 <div class="container manual-page" id="Documentation">
 
-<a href="#Documentation" class="help-page-title"><h2>Using and Creating On-line Documentation for Classes and
+<a href="#Documentation" class="help-page-title"><h2 id="Documentation">Using and Creating On-line Documentation for Classes and
 Methods</h2></a>
 
 <h3>Description</h3>
@@ -1969,13 +1971,13 @@ a particular R documentation file, insert the appropriate alias.
 </div>
 <div class="container manual-page" id="dotsMethods">
 
-<a href="#dotsMethods" class="help-page-title"><h2>The Use of <code>...</code> in Method Signatures</h2></a>
+<a href="#dotsMethods" class="help-page-title"><h2 id="dotsMethods">The Use of <code>...</code> in Method Signatures</h2></a>
 
 <h3>Description</h3>
 
-<p>The “...” argument in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> functions is treated specially, in that it
+<p>The “...” argument in <span class="rlang"><b>R</b></span> functions is treated specially, in that it
 matches zero, one or more actual arguments (and so, objects).  A
-mechanism has been added to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> to allow “...” as the signature of a
+mechanism has been added to <span class="rlang"><b>R</b></span> to allow “...” as the signature of a
 generic function.  Methods defined for such functions will be
 selected and called when <em>all</em>  the arguments matching “...”
 are from the specified class or from some subclass of that class.
@@ -1984,7 +1986,7 @@ are from the specified class or from some subclass of that class.
 
 <h3>Using "..." in a Signature</h3>
 
-<p>Beginning with version 2.8.0 of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, S4 methods can be dispatched
+<p>Beginning with version 2.8.0 of <span class="rlang"><b>R</b></span>, S4 methods can be dispatched
 (selected and called) corresponding to the special argument “...”.
 Currently, “...” cannot be mixed with other formal arguments:
 either the signature of the generic function is “...” only, or it
@@ -2058,7 +2060,7 @@ smaller than the number of arguments when the latter is large.
 <h3>Implementation Details</h3>
 
 <p>Methods dispatching on “...” were introduced in version 2.8.0 of
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.  The initial implementation of the corresponding selection and
+<span class="rlang"><b>R</b></span>.  The initial implementation of the corresponding selection and
 dispatch is in an R function, for flexibility while the new
 mechanism is being studied.  In this implementation, a local version
 of <code>standardGeneric</code> is inserted in the generic function's
@@ -2170,7 +2172,7 @@ stopifnot<span class="token punctuation">(</span>identical<span class="token pun
 </div>
 <div class="container manual-page" id="EnvironmentClass">
 
-<a href="#EnvironmentClass" class="help-page-title"><h2>Class <code>"environment"</code>
+<a href="#EnvironmentClass" class="help-page-title"><h2 id="environment-class">Class <code>"environment"</code>
 </h2></a>
 
 <h3>Description</h3>
@@ -2211,7 +2213,7 @@ Implements the assignments in the new environment.  Note that the
 </div>
 <div class="container manual-page" id="stdRefClass">
 
-<a href="#stdRefClass" class="help-page-title"><h2>Class <code>"envRefClass"</code>
+<a href="#stdRefClass" class="help-page-title"><h2 id="envRefClass-class">Class <code>"envRefClass"</code>
 </h2></a>
 
 <h3>Description</h3>
@@ -2223,10 +2225,10 @@ Implements the assignments in the new environment.  Note that the
 <h3>NOTE:</h3>
 
 <p>The software described here is an initial version.  The eventual goal
-is to support reference-style classes with software in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> itself
-or using inter-system interfaces.  The current implementation (<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+is to support reference-style classes with software in <span class="rlang"><b>R</b></span> itself
+or using inter-system interfaces.  The current implementation (<span class="rlang"><b>R</b></span>
 version 2.12.0) is preliminary and subject to change, and currently
-includes only the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>-only implementation.  Developers are encouraged
+includes only the <span class="rlang"><b>R</b></span>-only implementation.  Developers are encouraged
 to experiment with the software, but the description here is more than
 usually subject to change.
 </p>
@@ -2234,7 +2236,7 @@ usually subject to change.
 
 <h3>Purpose of the Class</h3>
 
-<p>This class implements basic reference-style semantics for <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+<p>This class implements basic reference-style semantics for <span class="rlang"><b>R</b></span>
 objects.  Objects normally do not come directly from this class, but
 from subclasses defined by a call to <code><a href="#refClass">setRefClass</a></code>.
 The documentation below is technical background describing the implementation, but applications
@@ -2246,7 +2248,7 @@ described there.
 
 <h3>A Basic Reference Class</h3>
 
-<p>The design of reference classes for <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> divides those classes up
+<p>The design of reference classes for <span class="rlang"><b>R</b></span> divides those classes up
 according to the mechanism used for implementing references, fields,
 and class methods.
 Each version of this mechanism is defined by a <em>basic reference
@@ -2270,10 +2272,10 @@ objects.
 Other basic reference classes may use an interface to a language such
 as Java or C++ using reference semantics for classes.
 </p>
-<p>Usually, the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>  user will be able to invoke class methods on the
+<p>Usually, the <span class="rlang"><b>R</b></span>  user will be able to invoke class methods on the
 class, using the <code>$</code> operator.  The basic reference class
 method for <code>$</code> needs to make this possible.  Essentially, the
-operator must return an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> function corresponding to the object and
+operator must return an <span class="rlang"><b>R</b></span> function corresponding to the object and
 the class method name.
 </p>
 <p>Class methods may include an implementation of data abstraction, in
@@ -2302,7 +2304,7 @@ The mechanism used currently by <code>envRefClass</code> is described below.
 defined using the reference class mechanism described here;
 <code>is(x, "refObject")</code> tests whether the object has reference
 semantics generally, including the previous classes and also classes
-inheriting from the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> types with reference semantics, such as
+inheriting from the <span class="rlang"><b>R</b></span> types with reference semantics, such as
 <code>"environment"</code>.
 </p>
 <p>Installed class methods are <code>"classMethodDefinition"</code> objects,
@@ -2324,7 +2326,7 @@ not needed in order to use existing reference classes.
 </div>
 <div class="container manual-page" id="evalSource">
 
-<a href="#evalSource" class="help-page-title"><h2>
+<a href="#evalSource" class="help-page-title"><h2 id="evalSource">
 Use Function Definitions from a Source File without Reinstalling a Package
 </h2></a>
 
@@ -2348,8 +2350,8 @@ insertSource<span class="token punctuation">(</span>source<span class="token pun
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>source</code></td>
+<tr>
+<td><code id="evalSource_:_source">source</code></td>
 <td>
 
 <p>A file to be parsed and evaluated by <code>evalSource</code> to find the new
@@ -2363,8 +2365,8 @@ the section on the class for details.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="evalSource_:_package">package</code></td>
 <td>
 
 <p>Optionally, the name of the package to which the new code corresponds
@@ -2376,8 +2378,10 @@ be supplied.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>functions, methods</code></td>
+<tr>
+<td>
+<code id="evalSource_:_functions">functions</code>, <code id="evalSource_:_methods">methods</code>
+</td>
 <td>
 
 <p>Optionally, the character-string names of the functions to be
@@ -2395,8 +2399,10 @@ will be compared to the contents of the package (see the details section).
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lock, cache</code></td>
+<tr>
+<td>
+<code id="evalSource_:_lock">lock</code>, <code id="evalSource_:_cache">cache</code>
+</td>
 <td>
 
 <p>Optional arguments to control the actions taken by <code>evalSource</code>.
@@ -2413,8 +2419,8 @@ later by <code>insertSource</code> using the trace mechanism.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>force</code></td>
+<tr>
+<td><code id="evalSource_:_force">force</code></td>
 <td>
 
 <p>If <code>FALSE</code>, only functions currently in the environment will be
@@ -2582,7 +2588,7 @@ file need not be the same one in the original package source.
 </div>
 <div class="container manual-page" id="findClass">
 
-<a href="#findClass" class="help-page-title"><h2>Find Class Definitions</h2></a>
+<a href="#findClass" class="help-page-title"><h2 id="findClass">Find Class Definitions</h2></a>
 
 <h3>Description</h3>
 
@@ -2614,8 +2620,8 @@ sealClass<span class="token punctuation">(</span>Class<span class="token punctua
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>Class</code></td>
+<tr>
+<td><code id="findClass_:_Class">Class</code></td>
 <td>
 <p>character string name for the class.  The functions will
 usually take a class definition instead of the string.  To restrict
@@ -2623,8 +2629,8 @@ the class to those defined in a particular package, set the
 <code><a href="#getPackageName">packageSlot</a></code> of the character string.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="findClass_:_where">where</code></td>
 <td>
 <p>the <code><a href="https://r-universe.dev/manuals/base.html#environment">environment</a></code> in which to search for
 the class definition.  Defaults to the top-level environment of the
@@ -2639,15 +2645,15 @@ package is attached to the search list.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>formal</code></td>
+<tr>
+<td><code id="findClass_:_formal">formal</code></td>
 <td>
 <p><code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> is a formal definition
 required? For S compatibility, and always treated as <code>TRUE</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>unique</code></td>
+<tr>
+<td><code id="findClass_:_unique">unique</code></td>
 <td>
 <p>if <code>findClass</code> expects a unique location for the
 class, <code>unique</code> is a character string explaining the purpose
@@ -2657,8 +2663,8 @@ returns a list.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>inherits</code></td>
+<tr>
+<td><code id="findClass_:_inherits">inherits</code></td>
 <td>
 <p>in a call to <code>getClasses</code>, should the value
 returned include all parent environments of <code>where</code>, or that
@@ -2667,8 +2673,8 @@ omitted, and to <code>FALSE</code> otherwise.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>classDef</code></td>
+<tr>
+<td><code id="findClass_:_classDef">classDef</code></td>
 <td>
 <p> For <code>resetClass</code>, the optional class
 definition.
@@ -2703,7 +2709,7 @@ in any of the environments on the search list).  The
 which a class definition of <code>Class</code> is found.  If
 <code>where</code> is supplied, a list is still returned, either empty
 or containing the environment corresponding to <code>where</code>.
-By default when called from the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session, the global
+By default when called from the <span class="rlang"><b>R</b></span> session, the global
 environment and all the currently
 attached packages are searched.
 </p>
@@ -2766,7 +2772,7 @@ Springer. (Chapter 9 has some details not in the later reference.)
 </div>
 <div class="container manual-page" id="findMethods">
 
-<a href="#findMethods" class="help-page-title"><h2>Description of the Methods Defined for a Generic Function</h2></a>
+<a href="#findMethods" class="help-page-title"><h2 id="findMethods">Description of the Methods Defined for a Generic Function</h2></a>
 
 <h3>Description</h3>
 
@@ -2821,14 +2827,14 @@ getMethods<span class="token punctuation">(</span>f<span class="token punctuatio
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>f</code></td>
+<tr>
+<td><code id="findMethods_:_f">f</code></td>
 <td>
 <p>A generic function or the character-string name of one.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="findMethods_:_where">where</code></td>
 <td>
 <p>Optionally, an environment or position on the search list
 to look for methods metadata.
@@ -2839,8 +2845,8 @@ table of methods in the generic function itself, and
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>table</code></td>
+<tr>
+<td><code id="findMethods_:_table">table</code></td>
 <td>
 <p> If <code>TRUE</code> in a call to <code>getMethods</code> the
 returned value is the table used for dispatch, including
@@ -2850,16 +2856,16 @@ the default will likely be changed at some point.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>classes</code></td>
+<tr>
+<td><code id="findMethods_:_classes">classes</code></td>
 <td>
 <p>If supplied, only methods whose signatures contain at
 least one of the supplied classes will be included in the value
 returned.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>inherited</code></td>
+<tr>
+<td><code id="findMethods_:_inherited">inherited</code></td>
 <td>
 <p>Logical flag; if <code>TRUE</code>, the table of all
 methods, inherited or defined directly, will be used; otherwise,
@@ -2867,15 +2873,15 @@ only the methods explicitly defined.  Option <code>TRUE</code> is
 meaningful only if <code>where</code> is missing.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="findMethods_:_...">...</code></td>
 <td>
 <p>In the call to <code>findMethodSignatures</code>, any arguments
 that might be given to <code>findMethods</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>target</code></td>
+<tr>
+<td><code id="findMethods_:_target">target</code></td>
 <td>
 <p>Optional flag to <code>findMethodSignatures</code>; if
 <code>TRUE</code>, the signatures used are the target signatures (the
@@ -2884,8 +2890,8 @@ they will be the signatures are defined.  The difference is only
 meaningful if <code>inherited</code> is <code>TRUE</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>methods</code></td>
+<tr>
+<td><code id="findMethods_:_methods">methods</code></td>
 <td>
 <p>In the call to <code>findMethodSignatures</code>, an optional
 list of methods, presumably returned by a previous call to
@@ -2893,8 +2899,8 @@ list of methods, presumably returned by a previous call to
 ... arguments.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="findMethods_:_package">package</code></td>
 <td>
 <p>In a call to <code>hasMethods</code>, the package name for
 the generic function (e.g., <code>"base"</code> for primitives).  If
@@ -3011,7 +3017,7 @@ findMethodSignatures<span class="token punctuation">(</span>methods <span class=
 </div>
 <div class="container manual-page" id="fixPrevious">
 
-<a href="#fixPrevious" class="help-page-title"><h2>Fix Objects Saved from R Versions Previous to 1.8</h2></a>
+<a href="#fixPrevious" class="help-page-title"><h2 id="fixPre1.8">Fix Objects Saved from R Versions Previous to 1.8</h2></a>
 
 <h3>Description</h3>
 
@@ -3031,15 +3037,15 @@ version of R.)
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>names</code></td>
+<tr>
+<td><code id="fixPre1.8_:_names">names</code></td>
 <td>
 <p> Character vector of the names of all the objects to be
 fixed and re-assigned.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="fixPre1.8_:_where">where</code></td>
 <td>
 <p>The environment from which to look for the objects, and
 for class definitions.  Defaults to the top environment of the
@@ -3102,7 +3108,7 @@ occur in R.
 </div>
 <div class="container manual-page" id="genericFunction-class">
 
-<a href="#genericFunction-class" class="help-page-title"><h2>Generic Function Objects </h2></a>
+<a href="#genericFunction-class" class="help-page-title"><h2 id="genericFunction-class">Generic Function Objects </h2></a>
 
 <h3>Description</h3>
 
@@ -3213,7 +3219,7 @@ generic.
 </div>
 <div class="container manual-page" id="GenericFunctions">
 
-<a href="#GenericFunctions" class="help-page-title"><h2>Tools for Managing Generic Functions</h2></a>
+<a href="#GenericFunctions" class="help-page-title"><h2 id="GenericFunctions">Tools for Managing Generic Functions</h2></a>
 
 <h3>Description</h3>
 
@@ -3244,14 +3250,14 @@ getGenerics<span class="token punctuation">(</span>where<span class="token punct
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>f</code></td>
+<tr>
+<td><code id="GenericFunctions_:_f">f</code></td>
 <td>
 <p> The character string naming the function. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="GenericFunctions_:_where">where</code></td>
 <td>
 <p> The environment, namespace, or search-list position
 from which to search for objects.  By default, start at the
@@ -3262,8 +3268,8 @@ argument when calling any of these functions indirectly.  With
 package namespaces, the default is likely to be wrong in such calls.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>signature</code></td>
+<tr>
+<td><code id="GenericFunctions_:_signature">signature</code></td>
 <td>
 <p> The class signature of the relevant method.  A
 signature is a named or unnamed vector of character strings.  If
@@ -3276,50 +3282,50 @@ section of the <code><a href="#setMethod">setMethod</a></code> documentation).
 was used internally in previous implementations).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="GenericFunctions_:_file">file</code></td>
 <td>
 <p> The file or connection on which to dump method definitions. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>def</code></td>
+<tr>
+<td><code id="GenericFunctions_:_def">def</code></td>
 <td>
 <p> The function object defining the method; if omitted, the
 current method definition corresponding to the signature. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="GenericFunctions_:_...">...</code></td>
 <td>
 <p>Named or unnamed arguments to form a signature.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>generic</code></td>
+<tr>
+<td><code id="GenericFunctions_:_generic">generic</code></td>
 <td>
 <p>In testing or finding functions, should generic
 functions be included.  Supply as <code>FALSE</code> to get only
 non-generic functions.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>fdef</code></td>
+<tr>
+<td><code id="GenericFunctions_:_fdef">fdef</code></td>
 <td>
 <p>Optional, the generic function definition.
 </p>
 <p>Usually omitted in calls to <code>isGeneric</code></p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>getName</code></td>
+<tr>
+<td><code id="GenericFunctions_:_getName">getName</code></td>
 <td>
 <p>If <code>TRUE</code>, <code>isGeneric</code> returns the name of
 the generic.  By default, it returns <code>TRUE</code>. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>methods</code></td>
+<tr>
+<td><code id="GenericFunctions_:_methods">methods</code></td>
 <td>
 
 <p>The methods object containing the methods to be dumped.  By default,
@@ -3328,15 +3334,15 @@ the methods defined for this generic (optionally on the specified
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>all</code></td>
+<tr>
+<td><code id="GenericFunctions_:_all">all</code></td>
 <td>
 <p>in <code>removeMethods</code>, logical indicating if all
 (default) or only the first method found should be removed.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>searchForm</code></td>
+<tr>
+<td><code id="GenericFunctions_:_searchForm">searchForm</code></td>
 <td>
 <p>In <code>getGenerics</code>, if <code>TRUE</code>, the
 <code>package</code> slot of the returned result is in the form used
@@ -3603,7 +3609,7 @@ stopifnot<span class="token punctuation">(</span>is<span class="token punctuatio
 </div>
 <div class="container manual-page" id="getClass">
 
-<a href="#getClass" class="help-page-title"><h2>Get Class Definition </h2></a>
+<a href="#getClass" class="help-page-title"><h2 id="getClass">Get Class Definition </h2></a>
 
 <h3>Description</h3>
 
@@ -3620,30 +3626,30 @@ getClassDef<span class="token punctuation">(</span>Class<span class="token punct
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>Class</code></td>
+<tr>
+<td><code id="getClass_:_Class">Class</code></td>
 <td>
 <p> the character-string name of the class, often with a
 <code>"package"</code> attribute as noted below under <code>package</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>.Force</code></td>
+<tr>
+<td><code id="getClass_:_.Force">.Force</code></td>
 <td>
 <p> if <code>TRUE</code>, return <code>NULL</code> if the class is
 undefined; otherwise, an undefined class results in an error.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="getClass_:_where">where</code></td>
 <td>
 <p> environment from which to begin the search for the definition; by default,
 start at the top-level (global) environment and proceed through
 the search list.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="getClass_:_package">package</code></td>
 <td>
 <p> the name or environment of the package asserted to hold the
 definition.  If it is a non-empty string it is used instead of
@@ -3655,8 +3661,8 @@ used, if any.  There will usually be a package attribute if
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>inherits</code></td>
+<tr>
+<td><code id="getClass_:_inherits">inherits</code></td>
 <td>
 <p>logical; should the class definition be retrieved from
 any enclosing environment and also from the cache?  If <code>FALSE</code>
@@ -3731,7 +3737,7 @@ try<span class="token punctuation">(</span>getClassDef<span class="token punctua
 </div>
 <div class="container manual-page" id="getMethod">
 
-<a href="#getMethod" class="help-page-title"><h2>Get or Test for the Definition of a Method</h2></a>
+<a href="#getMethod" class="help-page-title"><h2 id="getMethod">Get or Test for the Definition of a Method</h2></a>
 
 <h3>Description</h3>
 
@@ -3774,21 +3780,21 @@ without using inheritance or group generics.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>f</code></td>
+<tr>
+<td><code id="getMethod_:_f">f</code></td>
 <td>
 <p>a generic function or the character-string name of one.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>signature</code></td>
+<tr>
+<td><code id="getMethod_:_signature">signature</code></td>
 <td>
 <p>the signature of classes to match to the arguments
 of <code>f</code>.  See the details below.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="getMethod_:_where">where</code></td>
 <td>
 <p>the environment in which to look for the
 method(s).  By default, if the call comes from the command line, the table of methods defined in the generic
@@ -3796,16 +3802,18 @@ function itself is used, except for <code>findMethod</code> (see the
 section below).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>optional</code></td>
+<tr>
+<td><code id="getMethod_:_optional">optional</code></td>
 <td>
 <p>if the selection in <code>selectMethod</code> does not find
 a valid method an error is generated, unless <code>optional</code> is
 <code>TRUE</code>,  in which case the value returned is <code>NULL</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mlist, fdef, useInherited, verbose, doCache</code></td>
+<tr>
+<td>
+<code id="getMethod_:_mlist">mlist</code>, <code id="getMethod_:_fdef">fdef</code>, <code id="getMethod_:_useInherited">useInherited</code>, <code id="getMethod_:_verbose">verbose</code>, <code id="getMethod_:_doCache">doCache</code>
+</td>
 <td>
 <p>optional arguments
 to  <code>getMethod</code> and <code>selectMethod</code> for internal use.  Avoid
@@ -3931,7 +3939,7 @@ by defining methods for the generic function <code><a href="#setAs">coerce</a>(f
 to)</code>,
 which can not be called directly.
 </p>
-<p>The <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> evaluator selects
+<p>The <span class="rlang"><b>R</b></span> evaluator selects
 methods for this purpose using a different form of inheritance.  While
 methods can be inherited for the object being coerced, they cannot
 inherit for the target class, since the result would not be a valid
@@ -3984,7 +3992,7 @@ hasMethod<span class="token punctuation">(</span><span class="token string">"tes
 </div>
 <div class="container manual-page" id="getPackageName">
 
-<a href="#getPackageName" class="help-page-title"><h2>The Name associated with a Given Package</h2></a>
+<a href="#getPackageName" class="help-page-title"><h2 id="getPackageName">The Name associated with a Given Package</h2></a>
 
 <h3>Description</h3>
 
@@ -4007,28 +4015,28 @@ packageSlot<span class="token punctuation">(</span>object<span class="token punc
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="getPackageName_:_where">where</code></td>
 <td>
 <p>the environment or position on the search list
 associated with the desired package.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>object</code></td>
+<tr>
+<td><code id="getPackageName_:_object">object</code></td>
 <td>
 <p>object providing a character string name, plus the
 package in which this object is to be found.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>value</code></td>
+<tr>
+<td><code id="getPackageName_:_value">value</code></td>
 <td>
 <p>the name of the package.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>create</code></td>
+<tr>
+<td><code id="getPackageName_:_create">create</code></td>
 <td>
 <p>flag, should a package name be created if none can be
 inferred?  If <code>TRUE</code> and no non-empty package name is found,
@@ -4037,8 +4045,10 @@ warning is issued. The created name is stored in the environment
 if that environment is not locked.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>pkg, env</code></td>
+<tr>
+<td>
+<code id="getPackageName_:_pkg">pkg</code>, <code id="getPackageName_:_env">env</code>
+</td>
 <td>
 <p>make the string in <code>pkg</code> the internal
 package name for all computations that set class and method
@@ -4067,7 +4077,7 @@ an attribute, not a formal slot, but this may change someday).
 environment that would otherwise not have one.  This
 allows you to create classes and/or methods in an arbitrary
 environment, but it is usually preferable to create packages by the
-standard <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> programming tools (<code><a href="https://r-universe.dev/manuals/utils.html#package.skeleton">package.skeleton</a></code>, etc.)
+standard <span class="rlang"><b>R</b></span> programming tools (<code><a href="https://r-universe.dev/manuals/utils.html#package.skeleton">package.skeleton</a></code>, etc.)
 </p>
 
 
@@ -4088,7 +4098,7 @@ getPackageName<span class="token punctuation">(</span><span class="token string"
 </div>
 <div class="container manual-page" id="hasArg">
 
-<a href="#hasArg" class="help-page-title"><h2>Look for an Argument in the Call</h2></a>
+<a href="#hasArg" class="help-page-title"><h2 id="hasArg">Look for an Argument in the Call</h2></a>
 
 <h3>Description</h3>
 
@@ -4105,8 +4115,8 @@ call, either a formal argument to the function, or a component of
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>name</code></td>
+<table><tr>
+<td><code id="hasArg_:_name">name</code></td>
 <td>
 <p>The name of a potential argument, as an unquoted name or
 character string.</p>
@@ -4149,7 +4159,7 @@ ftest<span class="token punctuation">(</span>y2 <span class="token operator">=</
 </div>
 <div class="container manual-page" id="implicitGeneric">
 
-<a href="#implicitGeneric" class="help-page-title"><h2>Manage Implicit Versions of Generic Functions</h2></a>
+<a href="#implicitGeneric" class="help-page-title"><h2 id="implicitGeneric">Manage Implicit Versions of Generic Functions</h2></a>
 
 <h3>Description</h3>
 
@@ -4185,35 +4195,35 @@ registerImplicitGenerics<span class="token punctuation">(</span>what<span class=
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>name</code></td>
+<tr>
+<td><code id="implicitGeneric_:_name">name</code></td>
 <td>
 <p> Character string name of the function.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="implicitGeneric_:_where">where</code></td>
 <td>
 <p> Package or environment in which to register the implicit
 generics.  When using the functions from the top level of your own
 package source, this argument should be omitted.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>generic</code></td>
+<tr>
+<td><code id="implicitGeneric_:_generic">generic</code></td>
 <td>
 <p> Obsolete, and likely to be deprecated.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>restore</code></td>
+<tr>
+<td><code id="implicitGeneric_:_restore">restore</code></td>
 <td>
 <p>Should the non-generic version of the function be
 restored?.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>what</code></td>
+<tr>
+<td><code id="implicitGeneric_:_what">what</code></td>
 <td>
 <p>Optional table of
 the implicit generics to register, but nearly always omitted, when
@@ -4276,7 +4286,7 @@ useful.
 <h3>Implicit Generics for Base Functions</h3>
 
 <p>Implicit generic versions exist for some functions in the packages
-supplied in the distribution of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> itself.  These are stored in the
+supplied in the distribution of <span class="rlang"><b>R</b></span> itself.  These are stored in the
 ‘methods’ package itself and will always be available.
 </p>
 <p>As emphasized repeatedly in the documentation,
@@ -4320,7 +4330,7 @@ implicitGeneric<span class="token punctuation">(</span><span class="token string
 </div>
 <div class="container manual-page" id="inheritedSlotNames">
 
-<a href="#inheritedSlotNames" class="help-page-title"><h2>Names of Slots Inherited From a Super Class</h2></a>
+<a href="#inheritedSlotNames" class="help-page-title"><h2 id="inheritedSlotNames">Names of Slots Inherited From a Super Class</h2></a>
 
 <h3>Description</h3>
 
@@ -4339,16 +4349,16 @@ classes, rather than by this class' definition itself.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>Class</code></td>
+<tr>
+<td><code id="inheritedSlotNames_:_Class">Class</code></td>
 <td>
 <p>character string or
 <code><a href="#classRepresentation-class">classRepresentation</a></code>, i.e., resulting from
 <code><a href="#getClass">getClass</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="inheritedSlotNames_:_where">where</code></td>
 <td>
 <p>environment, to be passed further to
 <code><a href="#findClass">isClass</a></code> and <code><a href="#getClass">getClass</a></code>.</p>
@@ -4394,7 +4404,7 @@ inheritedSlotNames<span class="token punctuation">(</span><span class="token str
 </div>
 <div class="container manual-page" id="initialize-methods">
 
-<a href="#initialize-methods" class="help-page-title"><h2>Methods to Initialize New Objects from a Class</h2></a>
+<a href="#initialize-methods" class="help-page-title"><h2 id="initialize-methods">Methods to Initialize New Objects from a Class</h2></a>
 
 <h3>Description</h3>
 
@@ -4519,11 +4529,11 @@ interpreting <code>x</code>, and then calling the next method.
 </div>
 <div class="container manual-page" id="Introduction">
 
-<a href="#Introduction" class="help-page-title"><h2>Basic use of S4 Methods and Classes</h2></a>
+<a href="#Introduction" class="help-page-title"><h2 id="Introduction">Basic use of S4 Methods and Classes</h2></a>
 
 <h3>Description</h3>
 
-<p>The majority of applications using methods and classes will be in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+<p>The majority of applications using methods and classes will be in <span class="rlang"><b>R</b></span>
 packages implementing new computations for an application, using new <em>classes</em>
 of objects that represent the data and results.
 Computations will be implemented using <em>methods</em> that implement
@@ -4532,20 +4542,20 @@ from these classes.
 </p>
 <p>Calls to the functions <code><a href="#setClass">setClass</a>()</code> define the new classes;
 calls to <code><a href="#setMethod">setMethod</a></code> define the methods.
-These, along with ordinary <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> computations, are sufficient to get
+These, along with ordinary <span class="rlang"><b>R</b></span> computations, are sufficient to get
 started for most applications.
 </p>
 <p>Classes are defined in terms of the data in them and what other
 classes of data they inherit from.
 Section ‘Defining Classes’ outlines the basic design of new classes.
 </p>
-<p>Methods are <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> functions, often implementing basic computations as
+<p>Methods are <span class="rlang"><b>R</b></span> functions, often implementing basic computations as
 they apply to the new classes of objects.
 Section ‘Defining Methods’ discusses basic requirements and
 special tools for defining methods.
 </p>
 <p>The classes discussed here are the original functional classes.
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> also supports formal classes and methods similar to those in other
+<span class="rlang"><b>R</b></span> also supports formal classes and methods similar to those in other
 languages such as Python, in which methods are part of class
 definitions and invoked on an object.
 These are more appropriate when computations expect references to
@@ -4557,7 +4567,7 @@ choice between these and S4 classes.
 
 <h3>Defining Classes</h3>
 
-<p>All objects in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> belong to a class; ordinary vectors and other basic
+<p>All objects in <span class="rlang"><b>R</b></span> belong to a class; ordinary vectors and other basic
 objects are built-in (<a href="#BasicClasses">builtin-class</a>).
 A new class is defined in terms of the named <em>slots</em> that is has
 and/or in terms of existing classes that it inherits from, or
@@ -4567,7 +4577,7 @@ define it.
 </p>
 <p>For example, suppose we want a class of objects to represent a
 collection of positions, perhaps from GPS readings.
-A natural way to think of these in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> would have vectors of numeric values for
+A natural way to think of these in <span class="rlang"><b>R</b></span> would have vectors of numeric values for
 latitude, longitude and altitude.
 A class with three corresponding slots could be defined by:
 </p>
@@ -4592,7 +4602,7 @@ the class, <code>g@latitude</code>.
 <p>In addition to returning a generator function the call to
 <code><a href="#setClass">setClass</a>()</code> assigns a definition of the class in a
 special metadata object in the package's namespace.
-When the package is loaded into an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session, the class definition is
+When the package is loaded into an <span class="rlang"><b>R</b></span> session, the class definition is
 added to a table of known classes.
 </p>
 <p>To make the class and the generating function publicly available, the
@@ -4605,7 +4615,7 @@ package should include <code>POS</code> in <code>exportClasses()</code> and
 
 <h3>Defining Methods</h3>
 
-<p>Defining methods for an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> function makes that function
+<p>Defining methods for an <span class="rlang"><b>R</b></span> function makes that function
 <em>generic</em>.
 Instead of a call to the function always being carried out by the same
 method, there will be several alternatives.
@@ -4654,7 +4664,7 @@ If it had not been, the application package should contain:
 </p>
 <p><code>setOldClass("POSIXt")</code>
 </p>
-<p>Inheriting from one of the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> types is special.  Objects from the new
+<p>Inheriting from one of the <span class="rlang"><b>R</b></span> types is special.  Objects from the new
 class will have the same type.  A class
 <code>Currency</code> that contains numeric data plus a slot <code>"unit"</code>
 would be created by
@@ -4683,7 +4693,7 @@ Chapman &amp; Hall.
 </div>
 <div class="container manual-page" id="is">
 
-<a href="#is" class="help-page-title"><h2>Is an Object from a Class?</h2></a>
+<a href="#is" class="help-page-title"><h2 id="is">Is an Object from a Class?</h2></a>
 
 <h3>Description</h3>
 
@@ -4702,14 +4712,16 @@ extends<span class="token punctuation">(</span>class1<span class="token punctuat
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>object</code></td>
+<tr>
+<td><code id="is_:_object">object</code></td>
 <td>
-<p>any <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object.</p>
+<p>any <span class="rlang"><b>R</b></span> object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>class1, class2</code></td>
+<tr>
+<td>
+<code id="is_:_class1">class1</code>, <code id="is_:_class2">class2</code>
+</td>
 <td>
 
 <p>character strings giving the names of each of the two classes
@@ -4717,8 +4729,8 @@ between which <code>is</code> relations are to be examined, or (more
 efficiently) the class definition objects for the classes.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>fullInfo</code></td>
+<tr>
+<td><code id="is_:_fullInfo">fullInfo</code></td>
 <td>
 
 <p>In a call to <code>extends</code>, with <code>class2</code> missing,
@@ -4729,8 +4741,8 @@ be useful in practice; see the ‘Selecting Superclasses’ section;
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>maybe</code></td>
+<tr>
+<td><code id="is_:_maybe">maybe</code></td>
 <td>
 
 <p>What to return for conditional inheritance.  But such
@@ -4790,7 +4802,7 @@ unfortunately for this purpose, the list returned by <code>extends</code> includ
 
 <h3>Note</h3>
 
-<p>Prior to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.2.0 the code used the first elements of <code>class1</code>
+<p>Prior to <span class="rlang"><b>R</b></span> 4.2.0 the code used the first elements of <code>class1</code>
 and <code>class2</code>, silently,  These are now required to be length-one
 character vectors.
 </p>
@@ -4841,7 +4853,7 @@ names<span class="token punctuation">(</span>superRelations<span class="token pu
 </div>
 <div class="container manual-page" id="isSealedMethod">
 
-<a href="#isSealedMethod" class="help-page-title"><h2> Check for a Sealed Method or Class </h2></a>
+<a href="#isSealedMethod" class="help-page-title"><h2 id="isSealedMethod"> Check for a Sealed Method or Class </h2></a>
 
 <h3>Description</h3>
 
@@ -4860,34 +4872,34 @@ isSealedClass<span class="token punctuation">(</span>Class<span class="token pun
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>f</code></td>
+<tr>
+<td><code id="isSealedMethod_:_f">f</code></td>
 <td>
 <p> The quoted name of the generic function. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>signature</code></td>
+<tr>
+<td><code id="isSealedMethod_:_signature">signature</code></td>
 <td>
 <p> The class names in the method's signature, as
 they would be supplied to <code><a href="#setMethod">setMethod</a></code>. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>fdef</code></td>
+<tr>
+<td><code id="isSealedMethod_:_fdef">fdef</code></td>
 <td>
 <p> Optional, and usually omitted:  the generic function
 definition for <code>f</code>. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>Class</code></td>
+<tr>
+<td><code id="isSealedMethod_:_Class">Class</code></td>
 <td>
 <p>The quoted name of the class.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="isSealedMethod_:_where">where</code></td>
 <td>
 <p>where to search for the method or class definition.  By
 default, searches from the top environment of the call to
@@ -4899,7 +4911,7 @@ to one of the functions.</p>
 </table>
 <h3>Details</h3>
 
-<p>In the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> implementation of classes and methods, it is possible to
+<p>In the <span class="rlang"><b>R</b></span> implementation of classes and methods, it is possible to
 seal the definition of either a class or a method.  The basic
 classes (numeric and other types of vectors, matrix and array data)
 are sealed.  So also are the methods for the primitive functions on
@@ -4955,7 +4967,7 @@ isSealedMethod<span class="token punctuation">(</span><span class="token string"
 </div>
 <div class="container manual-page" id="LanguageClasses">
 
-<a href="#LanguageClasses" class="help-page-title"><h2>Classes to Represent Unevaluated Language Objects</h2></a>
+<a href="#LanguageClasses" class="help-page-title"><h2 id="language-class">Classes to Represent Unevaluated Language Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -5021,7 +5033,7 @@ is<span class="token punctuation">(</span> quote<span class="token punctuation">
 </div>
 <div class="container manual-page" id="LinearMethodsList-class">
 
-<a href="#LinearMethodsList-class" class="help-page-title"><h2>Class "LinearMethodsList"</h2></a>
+<a href="#LinearMethodsList-class" class="help-page-title"><h2 id="LinearMethodsList-class">Class "LinearMethodsList"</h2></a>
 
 <h3>Description</h3>
 
@@ -5092,7 +5104,7 @@ form.
 </div>
 <div class="container manual-page" id="localRefClass">
 
-<a href="#localRefClass" class="help-page-title"><h2>Localized Objects based on Reference Classes</h2></a>
+<a href="#localRefClass" class="help-page-title"><h2 id="LocalReferenceClasses">Localized Objects based on Reference Classes</h2></a>
 
 <h3>Description</h3>
 
@@ -5100,7 +5112,7 @@ form.
 isolate the objects to the local frame.  Therefore, they do <em>not</em>
 propagate changes back to the calling environment.   At the same time,
 they use the reference field semantics locally, avoiding the automatic
-duplication applied to standard <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects.
+duplication applied to standard <span class="rlang"><b>R</b></span> objects.
 </p>
 <p>The current implementation has no special construction.  To create a
 local reference class, call <code><a href="#refClass">setRefClass</a>()</code> with a
@@ -5108,7 +5120,7 @@ local reference class, call <code><a href="#refClass">setRefClass</a>()</code> w
 the example below.
 </p>
 <p>Local reference classes operate essentially as do regular, functional
-classes in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>; that is, changes are made by assignment and take place
+classes in <span class="rlang"><b>R</b></span>; that is, changes are made by assignment and take place
 in the local frame.
 The essential difference is that replacement operations (like the
 change to the <code>twiddle</code> field in the example) do not cause
@@ -5190,7 +5202,7 @@ stopifnot<span class="token punctuation">(</span>identical<span class="token pun
 </div>
 <div class="container manual-page" id="setSClass">
 
-<a href="#setSClass" class="help-page-title"><h2>Create a Class Definition</h2></a>
+<a href="#setSClass" class="help-page-title"><h2 id="makeClassRepresentation">Create a Class Definition</h2></a>
 
 <h3>Description</h3>
 
@@ -5211,75 +5223,75 @@ call it to create a class definition without assigning it, as
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>name</code></td>
+<tr>
+<td><code id="makeClassRepresentation_:_name">name</code></td>
 <td>
 <p>character string name for the class</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>slots</code></td>
+<tr>
+<td><code id="makeClassRepresentation_:_slots">slots</code></td>
 <td>
 <p>named list of slot classes as would be supplied to
 <code>setClass</code>, but <em>without</em> the unnamed arguments for
 superClasses if any.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>superClasses</code></td>
+<tr>
+<td><code id="makeClassRepresentation_:_superClasses">superClasses</code></td>
 <td>
 <p>what classes does this class extend</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>prototype</code></td>
+<tr>
+<td><code id="makeClassRepresentation_:_prototype">prototype</code></td>
 <td>
 <p>an object providing the default data for the class,
 e.g., the result of a call to <code><a href="#representation">prototype</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="makeClassRepresentation_:_package">package</code></td>
 <td>
 <p>The character string name for the package in which
 the class will be stored; see <code><a href="#getPackageName">getPackageName</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>validity</code></td>
+<tr>
+<td><code id="makeClassRepresentation_:_validity">validity</code></td>
 <td>
 <p>Optional validity method.  See
 <code><a href="#validObject">validObject</a></code>, and the discussion of validity methods in
 the reference.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>access</code></td>
+<tr>
+<td><code id="makeClassRepresentation_:_access">access</code></td>
 <td>
 <p>Access information.  Not currently used.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>version</code></td>
+<tr>
+<td><code id="makeClassRepresentation_:_version">version</code></td>
 <td>
 <p>Optional version key for version control.  Currently
 generated, but not used.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>sealed</code></td>
+<tr>
+<td><code id="makeClassRepresentation_:_sealed">sealed</code></td>
 <td>
 <p>Is the class sealed? See <code><a href="#setClass">setClass</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>virtual</code></td>
+<tr>
+<td><code id="makeClassRepresentation_:_virtual">virtual</code></td>
 <td>
 <p>Is this known to be a virtual class?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="makeClassRepresentation_:_where">where</code></td>
 <td>
 <p>The environment from which to look for class
 definitions needed (e.g., for slots or superclasses). See the
@@ -5308,7 +5320,7 @@ Springer (For the original S4 version.)
 </div>
 <div class="container manual-page" id="method.skeleton">
 
-<a href="#method.skeleton" class="help-page-title"><h2>Create a Skeleton File for a New Method</h2></a>
+<a href="#method.skeleton" class="help-page-title"><h2 id="method.skeleton">Create a Skeleton File for a New Method</h2></a>
 
 <h3>Description</h3>
 
@@ -5327,8 +5339,8 @@ in the call, but can be made an external (previously assigned) function.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>generic</code></td>
+<tr>
+<td><code id="method.skeleton_:_generic">generic</code></td>
 <td>
 <p>the character string name of the generic function, or
 the generic function itself.  In the first case, the function
@@ -5336,29 +5348,27 @@ need not currently be a generic, as it would not for the
 resulting call to <code><a href="#setMethod">setMethod</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>signature</code></td>
+<tr>
+<td><code id="method.skeleton_:_signature">signature</code></td>
 <td>
 <p>the method signature, as it would be given to <code><a href="#setMethod">setMethod</a></code></p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="method.skeleton_:_file">file</code></td>
 <td>
 <p>a character string name for the output file, or a
 writable connection.  By default the generic function name and
 the classes in the signature are concatenated, with separating
-underscore characters.  The file name should normally end in <code>".R"</code>. </p>
-</td>
-</tr>
-</table>
+underscore characters.  The file name should normally end in <code>".R"</code>.
+</p>
 <p>To write multiple method skeletons to one file, open the file
 connection first and then pass it to <code>method.skeleton()</code> in
-multiple calls.
-</p>
-<table>
-<tr style="vertical-align: top;">
-<td><code>external</code></td>
+multiple calls.</p>
+</td>
+</tr>
+<tr>
+<td><code id="method.skeleton_:_external">external</code></td>
 <td>
 <p>flag to control whether the function definition for
 the method should be a separate external object assigned in the
@@ -5369,8 +5379,8 @@ for the external function; by default the name concatenates the
 generic and signature names, with separating underscores.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="method.skeleton_:_where">where</code></td>
 <td>
 <p>The environment in which to look for the function; by default,
 the top-level environment of the call to <code>method.skeleton</code>.</p>
@@ -5406,7 +5416,7 @@ close<span class="token punctuation">(</span>con<span class="token punctuation">
 </div>
 <div class="container manual-page" id="MethodDefinition-class">
 
-<a href="#MethodDefinition-class" class="help-page-title"><h2>Classes to Represent Method Definitions</h2></a>
+<a href="#MethodDefinition-class" class="help-page-title"><h2 id="MethodDefinition-class">Classes to Represent Method Definitions</h2></a>
 
 <h3>Description</h3>
 
@@ -5489,7 +5499,7 @@ Class <code><a href="#MethodWithNext-class">MethodWithNext</a></code> for an ext
 </div>
 <div class="container manual-page" id="Methods">
 
-<a href="#Methods" class="help-page-title"><h2>S4 Class Documentation</h2></a>
+<a href="#Methods" class="help-page-title"><h2 id="Methods">S4 Class Documentation</h2></a>
 
 <h3>Description</h3>
 
@@ -5513,12 +5523,12 @@ Chapman &amp; Hall.
 </div>
 <div class="container manual-page" id="Methods_Details">
 
-<a href="#Methods_Details" class="help-page-title"><h2>General Information on Methods</h2></a>
+<a href="#Methods_Details" class="help-page-title"><h2 id="Methods_Details">General Information on Methods</h2></a>
 
 <h3>Description</h3>
 
 <p>This documentation covers some general topics on how methods
-work and how the <span class="pkg">methods</span> package interacts with the rest of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.  The
+work and how the <span class="pkg">methods</span> package interacts with the rest of <span class="rlang"><b>R</b></span>.  The
 information is usually not needed to get started with methods and
 classes, but may be helpful for moderately ambitious projects, or when
 something doesn't work as expected.
@@ -5543,7 +5553,7 @@ A generic function is identified by its name and by the package to
 which it correspond.  Unlike ordinary functions, the generic has a
 slot that specifies its package.
 </p>
-<p>In an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session, there is one version of each such generic,
+<p>In an <span class="rlang"><b>R</b></span> session, there is one version of each such generic,
 regardless of where the call to that generic originated, and
 the generic function has a table of all the methods currently
 available for it; that is, all the methods
@@ -5555,11 +5565,11 @@ for example, for function <code>plot()</code> in
 package <span class="pkg">graphics</span>.
 An identical version of the corresponding generic function may exist
 in several packages.  All methods will be dispatched consistently
-from the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session.
+from the <span class="rlang"><b>R</b></span> session.
 </p>
-<p>Each <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> package with a call to <code><a href="#setMethod">setMethod</a></code> in its source code
+<p>Each <span class="rlang"><b>R</b></span> package with a call to <code><a href="#setMethod">setMethod</a></code> in its source code
 will include  a methods metadata object for that generic.
-When the package is loaded into an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session, the methods for each
+When the package is loaded into an <span class="rlang"><b>R</b></span> session, the methods for each
 generic function are <em>cached</em>, that is, added to the
 environment of the generic function.  This merged table of methods is used to
 dispatch or select methods from the generic, using class inheritance
@@ -5573,7 +5583,7 @@ identically with respect to method selection.
 </p>
 <p>In contrast, it is possible for the same function name to refer to
 more than one generic function, when these have different
-<code>package</code> slots.  In the latter case, <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> considers the
+<code>package</code> slots.  In the latter case, <span class="rlang"><b>R</b></span> considers the
 functions unrelated:  A generic function is defined by the
 combination of name and package.  See the “Generic Functions”
 section below.
@@ -5644,7 +5654,7 @@ Superclasses specified by either mechanism are the <em>direct</em> superclasses.
 <p>Inheritance specified in either of these forms is <em>simple</em> in the
 sense that all the information needed for the superclass is asserted
 to be directly available from the object.
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> inherited from S a more general form of inheritance in which
+<span class="rlang"><b>R</b></span> inherited from S a more general form of inheritance in which
 inheritance may require some transformation or be conditional on a
 test.
 This more general form has not proved to be useful in general
@@ -5657,7 +5667,7 @@ have  direct superclasses and
 similarly through further generations.  Putting all this information together produces
 the full list of superclasses for this class.
 The superclass list is included in the definition of the class that is
-cached during the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session.
+cached during the <span class="rlang"><b>R</b></span> session.
 The <em>distance</em> between the two classes is defined to be the
 number of generations:
 <code>1</code> for direct superclasses (regardless of which mechanism
@@ -5752,7 +5762,7 @@ The argument objects will be copied to the second context, but not any
 local objects created in a nonstandard generic function.
 The other important distinction is that the parent
 (“enclosing”) environment of the second context is the environment
-of the method as a function, so that all <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> programming techniques
+of the method as a function, so that all <span class="rlang"><b>R</b></span> programming techniques
 using such environments apply to method definitions as ordinary functions.
 </p>
 <p>For further discussion of method selection and dispatch,  see the
@@ -5775,15 +5785,15 @@ selection.
 <p>The slots <code>"generic"</code> and  <code>"package"</code> in the object are the
 character string names of the generic function itself and of the
 package from which the  function is defined.
-As with classes, generic functions are uniquely defined in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> by the
+As with classes, generic functions are uniquely defined in <span class="rlang"><b>R</b></span> by the
 combination of the two names.
 There can be generic functions of the same name associated with
 different packages (although inevitably keeping such functions cleanly
 distinguished is not always easy).
-On the other hand, <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> will enforce that only one definition of a
+On the other hand, <span class="rlang"><b>R</b></span> will enforce that only one definition of a
 generic function can be associated with a particular combination of
 function and package name, in the current session or other active
-version of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
+version of <span class="rlang"><b>R</b></span>.
 </p>
 <p>Tables of methods for a particular generic function, in this sense,
 will often be spread over several other packages.
@@ -5792,7 +5802,7 @@ during a session, as additional packages are loaded.
 Each table must be consistent in the signature assumed for the generic
 function.
 </p>
-<p><span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> distinguishes <em>standard</em> and <em>nonstandard</em> generic
+<p><span class="rlang"><b>R</b></span> distinguishes <em>standard</em> and <em>nonstandard</em> generic
 functions, with the former having a function body that does nothing
 but dispatch a method.
 For the most part, the distinction is just one of simplicity:  knowing
@@ -5802,7 +5812,7 @@ efficiencies and also removes some uncertainties.
 <p>In most cases, the generic function is the visible function
 corresponding to that name, in the corresponding package.
 There are two exceptions, <em>implicit</em> generic
-functions and the special computations required to deal with <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s
+functions and the special computations required to deal with <span class="rlang"><b>R</b></span>'s
 <em>primitive</em> functions.
 Packages can contain a table of implicit generic versions of functions
 in the package, if the package wishes to leave a function non-generic
@@ -5812,7 +5822,7 @@ the package, essentially by defining the generic function and
 possibly methods for it, and then reverting the function to its
 non-generic form. (See <a href="#implicitGeneric">implicitGeneric</a> for how this is done.)
 The mechanism is mainly used for functions in the older packages in
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, which may prefer to ignore S4 methods.
+<span class="rlang"><b>R</b></span>, which may prefer to ignore S4 methods.
 Even in this case, the actual mechanism is only needed if something
 special has to be specified.
 All functions have a corresponding implicit generic version defined
@@ -5851,8 +5861,8 @@ functions implemented as <em>primitive</em> functions in the base
 package.
 Primitive functions look like ordinary functions when printed but are
 in fact not function objects but objects of two types interpreted by
-the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> evaluator to call underlying C code directly.
-Since their entire justification is efficiency, <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> refuses to hide
+the <span class="rlang"><b>R</b></span> evaluator to call underlying C code directly.
+Since their entire justification is efficiency, <span class="rlang"><b>R</b></span> refuses to hide
 primitives behind a generic function object.
 Methods may be defined for most primitives, and corresponding metadata
 objects will be created to store them.
@@ -5867,7 +5877,7 @@ You can test whether methods have been detected by calling
 the generic function by calling <code><a href="#RMethodUtils">getGeneric</a></code>, whether or
 not methods have been detected.
 For more on generic functions, see the references and also section 2
-of the <em>R Internals</em> document supplied with <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
+of the <em>R Internals</em> document supplied with <span class="rlang"><b>R</b></span>.
 </p>
 
 
@@ -5875,7 +5885,7 @@ of the <em>R Internals</em> document supplied with <span style="font-family: Cou
 
 <p>All method definitions are stored as objects from the
 <code><a href="#MethodDefinition-class">MethodDefinition</a></code> class.
-Like the class of generic functions, this class extends ordinary <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+Like the class of generic functions, this class extends ordinary <span class="rlang"><b>R</b></span>
 functions with some additional slots: <code>"generic"</code>, containing the
 name and package of the generic function, and two signature slots,
 <code>"defined"</code> and <code>"target"</code>, the first being the signature supplied when
@@ -5918,11 +5928,11 @@ Springer. (Section 10.5 for some details.)
 </div>
 <div class="container manual-page" id="Methods_for_Nongenerics">
 
-<a href="#Methods_for_Nongenerics" class="help-page-title"><h2>Methods for Non-Generic Functions in Other Packages</h2></a>
+<a href="#Methods_for_Nongenerics" class="help-page-title"><h2 id="Methods_for_Nongenerics">Methods for Non-Generic Functions in Other Packages</h2></a>
 
 <h3>Description</h3>
 
-<p>In writing methods for an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> package, it's common for these methods to
+<p>In writing methods for an <span class="rlang"><b>R</b></span> package, it's common for these methods to
 apply to a function (in another package) that is not  generic in that
 package; that is, there are no formal methods for the function in its
 own package, although it may have S3 methods.
@@ -5977,7 +5987,7 @@ will also not dispatch methods.
 This section considers the reason and how one might deal with the
 consequences.
 </p>
-<p>The reason is simply the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> namespace mechanism and its role in
+<p>The reason is simply the <span class="rlang"><b>R</b></span> namespace mechanism and its role in
 evaluating function calls.
 When a name (such as the name of a function) needs to be evaluated in
 a call to a function from some package, the evaluator looks first in the frame of the call,
@@ -6012,9 +6022,9 @@ that package.
 </p>
 <p>The details of what happens and options for dealing with it depend on
 the form of the function:  a primitive function; a function that
-dispatches S3 methods; or an ordinary <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> function.
+dispatches S3 methods; or an ordinary <span class="rlang"><b>R</b></span> function.
 </p>
-<p>Primitive functions are not actual <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> function objects.
+<p>Primitive functions are not actual <span class="rlang"><b>R</b></span> function objects.
 They go directly to internal C code.
 Some of them, however, have been implemented to recognize methods.
 These functions dispatch both S4 and S3 methods from
@@ -6040,7 +6050,7 @@ method as an S3 method, if possible. See section ‘S3
 of methods.
 For example, the base package has a number of functions that compute
 numerical decompositions of matrix arguments.
-Some, such as <code><a href="https://r-forge.r-universe.dev/manual/Matrix.html#chol">chol</a>()</code> and <code><a href="https://r-forge.r-universe.dev/manual/Matrix.html#qr-methods">qr</a>()</code>
+Some, such as <code><a href="https://r-universe.dev/manuals/Matrix.html#chol">chol</a>()</code> and <code><a href="https://r-universe.dev/manuals/Matrix.html#qr-methods">qr</a>()</code>
 are implemented to dispatch S3 methods; others, such as
 <code><a href="https://r-universe.dev/manuals/base.html#svd">svd</a>()</code> are implemented directly as a specific
 computation.
@@ -6253,18 +6263,18 @@ logIris <span class="token operator">&lt;-</span> log<span class="token punctuat
 </div>
 <div class="container manual-page" id="Methods_for_S3">
 
-<a href="#Methods_for_S3" class="help-page-title"><h2>Methods For S3 and S4 Dispatch</h2></a>
+<a href="#Methods_for_S3" class="help-page-title"><h2 id="Methods_for_S3">Methods For S3 and S4 Dispatch</h2></a>
 
 <h3>Description</h3>
 
-<p>The S3 and S4 software in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> are two generations implementing
+<p>The S3 and S4 software in <span class="rlang"><b>R</b></span> are two generations implementing
 functional object-oriented programming.
 S3 is the original, simpler for initial programming but less general,
 less formal and less open to validation.
 The S4 formal methods and classes provide these features but require
 more programming.
 </p>
-<p>In modern <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, the two versions attempt to work together.  This
+<p>In modern <span class="rlang"><b>R</b></span>, the two versions attempt to work together.  This
 documentation outlines how to write methods for both systems by
 defining an S4 method for a function that dispatches S3 methods.
 </p>
@@ -6275,7 +6285,7 @@ dispatch or in S4 class definitions.  See <code><a href="#setOldClass">setOldCla
 
 <h3>S3 Method Dispatch</h3>
 
-<p>The <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> evaluator will ‘dispatch’ a method from a function call
+<p>The <span class="rlang"><b>R</b></span> evaluator will ‘dispatch’ a method from a function call
 either when the body of the function calls the special primitive
 <code><a href="https://r-universe.dev/manuals/base.html#UseMethod">UseMethod</a></code> or when the call is to one of the builtin
 primitives such as the <code>math</code> functions or the binary operators.
@@ -6290,7 +6300,7 @@ The first S3 method that matches a name in the class is called and the
 value of that call is the value of the original function call.
 For details, see <a href="https://r-universe.dev/manuals/base.html#UseMethod">S3Methods</a>.
 </p>
-<p>In modern <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, a function <code>meth</code> in a package is registered as an S3 method
+<p>In modern <span class="rlang"><b>R</b></span>, a function <code>meth</code> in a package is registered as an S3 method
 for function <code>fun</code> and class <code>Class</code> by
 including in the package's <code>NAMESPACE</code> file the directive
 </p>
@@ -6305,7 +6315,7 @@ class.
 <p>As with S4 methods, a method that has been registered will be added to
 a table of methods for this function when the corresponding package is
 loaded into the session.
-Older versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, copying the mechanism in S, looked for the
+Older versions of <span class="rlang"><b>R</b></span>, copying the mechanism in S, looked for the
 method in the current search list, but packages should now always
 register S3 methods rather than requiring the package to be attached.
 </p>
@@ -6407,7 +6417,7 @@ Chapman &amp; Hall.
 </div>
 <div class="container manual-page" id="MethodsList-class">
 
-<a href="#MethodsList-class" class="help-page-title"><h2>Class MethodsList, Defunct Representation of Methods </h2></a>
+<a href="#MethodsList-class" class="help-page-title"><h2 id="MethodsList-class">Class MethodsList, Defunct Representation of Methods </h2></a>
 
 <h3>Description</h3>
 
@@ -6484,7 +6494,7 @@ any inherited methods.  Ignored when methods tables are used for dispatch (see <
 </div>
 <div class="container manual-page" id="MethodWithNext-class">
 
-<a href="#MethodWithNext-class" class="help-page-title"><h2>Class MethodWithNext </h2></a>
+<a href="#MethodWithNext-class" class="help-page-title"><h2 id="MethodWithNext-class">Class MethodWithNext </h2></a>
 
 <h3>Description</h3>
 
@@ -6578,7 +6588,7 @@ class <code><a href="#MethodDefinition-class">MethodDefinition</a></code>.
 </div>
 <div class="container manual-page" id="new">
 
-<a href="#new" class="help-page-title"><h2> Generate an Object from a Class </h2></a>
+<a href="#new" class="help-page-title"><h2 id="new"> Generate an Object from a Class </h2></a>
 
 <h3>Description</h3>
 
@@ -6606,8 +6616,8 @@ initialize<span class="token punctuation">(</span>.Object<span class="token punc
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>Class</code></td>
+<tr>
+<td><code id="new_:_Class">Class</code></td>
 <td>
 <p>either the name of a class, a <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code>
 string, (the usual case) or the object describing the class (e.g.,
@@ -6617,15 +6627,15 @@ as an attribute, avoiding ambiguity if two packages have identically
 named classes.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="new_:_...">...</code></td>
 <td>
 <p>arguments to specify properties of the new object, to
 be passed to <code>initialize()</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>.Object</code></td>
+<tr>
+<td><code id="new_:_.Object">.Object</code></td>
 <td>
 <p> An object:  see the “Initialize Methods” section.</p>
 </td>
@@ -6733,7 +6743,7 @@ setMethod<span class="token punctuation">(</span><span class="token string">"ini
 </div>
 <div class="container manual-page" id="nonStructure-class">
 
-<a href="#nonStructure-class" class="help-page-title"><h2>A non-structure S4 Class for basic types </h2></a>
+<a href="#nonStructure-class" class="help-page-title"><h2 id="nonStructure-class">A non-structure S4 Class for basic types </h2></a>
 
 <h3>Description</h3>
 
@@ -6788,7 +6798,7 @@ sample<span class="token punctuation">(</span>xx<span class="token punctuation">
 </div>
 <div class="container manual-page" id="ObjectsWithPackage-class">
 
-<a href="#ObjectsWithPackage-class" class="help-page-title"><h2>A Vector of Object Names, with associated Package Names </h2></a>
+<a href="#ObjectsWithPackage-class" class="help-page-title"><h2 id="ObjectsWithPackage-class">A Vector of Object Names, with associated Package Names </h2></a>
 
 <h3>Description</h3>
 
@@ -6836,7 +6846,7 @@ Class <code>"vector"</code>, by class <code>"character"</code>.
 </div>
 <div class="container manual-page" id="promptClass">
 
-<a href="#promptClass" class="help-page-title"><h2>Generate a Shell for Documentation of a Formal Class</h2></a>
+<a href="#promptClass" class="help-page-title"><h2 id="promptClass">Generate a Shell for Documentation of a Formal Class</h2></a>
 
 <h3>Description</h3>
 
@@ -6855,14 +6865,14 @@ minimal markup for Rd processing; no QC facilities at present.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>clName</code></td>
+<tr>
+<td><code id="promptClass_:_clName">clName</code></td>
 <td>
 <p>a character string naming the class to be documented.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>filename</code></td>
+<tr>
+<td><code id="promptClass_:_filename">filename</code></td>
 <td>
 <p>usually, a connection or a character string giving the
 name of the file to which the documentation shell should be written.
@@ -6871,22 +6881,22 @@ the class documentation, followed by <code>".Rd"</code>.  Can also be
 <code>NA</code> (see below).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>type</code></td>
+<tr>
+<td><code id="promptClass_:_type">type</code></td>
 <td>
 <p>the documentation type to be declared in the output file.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>keywords</code></td>
+<tr>
+<td><code id="promptClass_:_keywords">keywords</code></td>
 <td>
 <p>the keywords to include in the shell of the
 documentation.  The keyword <code>"classes"</code> should be one of
 them.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="promptClass_:_where">where</code></td>
 <td>
 <p>where to look for the definition of the class and of
 methods that use it.
@@ -6894,8 +6904,8 @@ methods that use it.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>generatorName</code></td>
+<tr>
+<td><code id="promptClass_:_generatorName">generatorName</code></td>
 <td>
 <p>the name for a generator function for this
 class; only required if a generator function was created
@@ -6984,7 +6994,7 @@ file <span class="token string">"track-class.Rd"</span>.
 </div>
 <div class="container manual-page" id="promptMethods">
 
-<a href="#promptMethods" class="help-page-title"><h2> Generate a Shell for Documentation of Formal Methods </h2></a>
+<a href="#promptMethods" class="help-page-title"><h2 id="promptMethods"> Generate a Shell for Documentation of Formal Methods </h2></a>
 
 <h3>Description</h3>
 
@@ -7001,15 +7011,15 @@ function.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>f</code></td>
+<tr>
+<td><code id="promptMethods_:_f">f</code></td>
 <td>
 <p>a character string naming the generic function whose methods
 are to be documented.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>filename</code></td>
+<tr>
+<td><code id="promptMethods_:_filename">filename</code></td>
 <td>
 <p>usually, a connection or a character string giving the
 name of the file to which the documentation shell should be written.
@@ -7018,8 +7028,8 @@ The default corresponds to the coded topic name for these methods
 <code>FALSE</code> or <code>NA</code> (see below).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>methods</code></td>
+<tr>
+<td><code id="promptMethods_:_methods">methods</code></td>
 <td>
 <p>optional <code>"<a href="#findMethods">listOfMethods</a>"</code> object giving the methods to be
 documented.  By default, the first methods object for this generic
@@ -7080,7 +7090,7 @@ Springer (For the original S4 version.)
 </div>
 <div class="container manual-page" id="refClass">
 
-<a href="#refClass" class="help-page-title"><h2>Objects With Fields Treated by Reference (OOP-style)</h2></a>
+<a href="#refClass" class="help-page-title"><h2 id="ReferenceClasses">Objects With Fields Treated by Reference (OOP-style)</h2></a>
 
 <h3>Description</h3>
 
@@ -7093,10 +7103,10 @@ functions.
 Methods for reference classes are “encapsulated” in the class definition.
 </p>
 <p>Computations with objects from reference classes invoke methods on them and
-extract or set their fields, using  the <code>`$`</code> operator in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
+extract or set their fields, using  the <code>`$`</code> operator in <span class="rlang"><b>R</b></span>.
 The field and method computations potentially modify the object.
 All computations referring to the objects see the modifications, in contrast to
-the usual functional programming model in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
+the usual functional programming model in <span class="rlang"><b>R</b></span>.
 </p>
 <p>A call to
 <code>setRefClass</code> in the source code for a package defines the class and returns a generator object.
@@ -7105,7 +7115,7 @@ method of the generator will define methods for the class.
 As with functional classes, if the class is exported from the package,
 it will be available when the package is loaded.
 </p>
-<p>Methods are <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> functions.  In their usual implementation, they refer to fields
+<p>Methods are <span class="rlang"><b>R</b></span> functions.  In their usual implementation, they refer to fields
 and other methods of the class directly by name. See the section on
 “Writing Reference Methods”.
 </p>
@@ -7127,8 +7137,8 @@ getRefClass<span class="token punctuation">(</span>Class<span class="token punct
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>Class</code></td>
+<tr>
+<td><code id="ReferenceClasses_:_Class">Class</code></td>
 <td>
 
 <p>character string name for the class.
@@ -7138,8 +7148,8 @@ object from the relevant class.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>fields</code></td>
+<tr>
+<td><code id="ReferenceClasses_:_fields">fields</code></td>
 <td>
 
 <p>either a character vector of field names or
@@ -7158,8 +7168,8 @@ the note on slots in the
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>contains</code></td>
+<tr>
+<td><code id="ReferenceClasses_:_contains">contains</code></td>
 <td>
 
 <p>optional vector of superclasses for this class.  If a superclass is
@@ -7167,8 +7177,8 @@ also a reference class, the fields and class-based methods will be inherited.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>methods</code></td>
+<tr>
+<td><code id="ReferenceClasses_:_methods">methods</code></td>
 <td>
 
 <p>a named list of function definitions that can be invoked on objects
@@ -7178,8 +7188,8 @@ See the section on “Writing Reference Methods” for details.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="ReferenceClasses_:_where">where</code></td>
 <td>
 
 <p>for <code>setRefClass</code>, the environment in which to store the class definition.  Should be
@@ -7191,8 +7201,8 @@ package is not loaded or you need to be specific, use
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>inheritPackage</code></td>
+<tr>
+<td><code id="ReferenceClasses_:_inheritPackage">inheritPackage</code></td>
 <td>
 
 <p>Should objects from the new class inherit the package environment of a
@@ -7201,8 +7211,8 @@ and External Methods”.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="ReferenceClasses_:_...">...</code></td>
 <td>
 
 <p>other arguments to be passed to <code><a href="#setClass">setClass</a></code>.
@@ -7238,15 +7248,15 @@ find the class if necessary.
 
 <h3>Reference Objects</h3>
 
-<p>Normal objects in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> are passed as arguments in function calls consistently with
+<p>Normal objects in <span class="rlang"><b>R</b></span> are passed as arguments in function calls consistently with
 functional programming semantics; that is, changes made to an object
 passed as an argument are local to the function call.  The object that
 supplied the argument is unchanged.
 </p>
 <p>The functional model (sometimes called pass-by-value, although this is
-inaccurate for <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>) is
+inaccurate for <span class="rlang"><b>R</b></span>) is
 suitable for many statistical computations and is implicit, for
-example, in the basic <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> software for fitting statistical models.
+example, in the basic <span class="rlang"><b>R</b></span> software for fitting statistical models.
 In some other situations, one would like all the code dealing with an
 object to see the exact same content, so that changes made in any
 computation would be reflected everywhere.
@@ -7258,7 +7268,7 @@ others, support a version of classes and methods assuming reference
 semantics.
 The corresponding programming mechanism
 is to invoke a method on an object.
-In the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> syntax we use <code>"$"</code> 
+In the <span class="rlang"><b>R</b></span> syntax we use <code>"$"</code> 
 for this operation; one invokes a method,
 <code>m1</code> say, on an object <code>x</code> by the expression
 <code>x$m1(...)</code>. 
@@ -7266,14 +7276,14 @@ for this operation; one invokes a method,
 <p>Methods in this paradigm are associated with the object, or more
 precisely with the class of the object, as opposed to methods in a
 function-based class/method system, which are fundamentally associated
-with the function (in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, for example, a generic function in an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+with the function (in <span class="rlang"><b>R</b></span>, for example, a generic function in an <span class="rlang"><b>R</b></span>
 session has a table of all its currently known methods).
 In this document “methods for a class” as opposed to
 “methods for a function” will make the distinction.
 </p>
 <p>Objects in this paradigm usually have named fields on which
 the methods operate.
-In the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> implementation, the fields are defined when the class is
+In the <span class="rlang"><b>R</b></span> implementation, the fields are defined when the class is
 created.
 The field itself can optionally have a specified class, meaning that only objects
 from this class or one of its subclasses can be assigned to the field.
@@ -7285,13 +7295,13 @@ the fields.
 </p>
 <p>Programming for such classes involves writing new methods for a
 particular class.
-In the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> implementation, these methods are <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> functions, with zero or
+In the <span class="rlang"><b>R</b></span> implementation, these methods are <span class="rlang"><b>R</b></span> functions, with zero or
 more formal arguments.
 For standard reference methods, the object itself is not an explicit
 argument to the method.
 Instead, fields and methods for the class can be referred to by name
 in the method definition.
-The implementation uses <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> environments to make fields and other methods
+The implementation uses <span class="rlang"><b>R</b></span> environments to make fields and other methods
 available by name within the method.
 Specifically, the parent environment of the method is the object itself.
 See the section on “Writing
@@ -7302,8 +7312,8 @@ as the whole object, and the method follows the standard rules for any
 function in a package.  See the section on “External Methods”
 </p>
 <p>The goal of the software described here is to provide a uniform
-programming style in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> for software dealing with reference classes, whether
-implemented directly in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> or through an interface to one of the OOP
+programming style in <span class="rlang"><b>R</b></span> for software dealing with reference classes, whether
+implemented directly in <span class="rlang"><b>R</b></span> or through an interface to one of the OOP
 languages.
 </p>
 
@@ -7317,7 +7327,7 @@ on a generator object <code>g</code> or as
 the argument <code>methods</code> in a call to <code>setRefClass</code>.
 The two mechanisms have the same effect, but the first makes the code more readable.
 </p>
-<p>Methods are written as ordinary <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> functions but have some special
+<p>Methods are written as ordinary <span class="rlang"><b>R</b></span> functions but have some special
 features and restrictions in their usual form.
 In contrast to some other languages (e.g., Python), the object itself
 does not need to be an argument in the method definition.
@@ -7342,12 +7352,12 @@ non-local assignment operator, <code>&lt;&lt;-</code>, as in the <code>$edit</co
 methods in the example below.
 Note that non-local assignment is required:  a local assignment with
 the <code>&lt;-</code> operator just creates a local object in the function
-call, as it would in any <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> function.
+call, as it would in any <span class="rlang"><b>R</b></span> function.
 When methods are installed, a heuristic check is made for local
 assignments to field names and a warning issued if any are detected.
 </p>
 <p>Reference methods should be kept simple; if they need to do some
-specialized <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> computation, that computation should use a separate <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+specialized <span class="rlang"><b>R</b></span> computation, that computation should use a separate <span class="rlang"><b>R</b></span>
 function that is called from the reference method.
 Specifically, methods can not use special features of the
 enclosing environment mechanism, since the method's environment is
@@ -7366,7 +7376,7 @@ in the section “Initialization Methods”.
 <a href="https://r-universe.dev/manuals/base.html#reg.finalizer">registered</a> to invoke it before the environment in
 the object is discarded by the garbage collector; finalizers are
 registered with <code>atexit=TRUE</code>, and so are also run at the end of
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> sessions. See the matrix viewer example for both initialize and
+<span class="rlang"><b>R</b></span> sessions. See the matrix viewer example for both initialize and
 finalize methods.
 </p>
 <p>Reference methods can not themselves be generic functions; if you want
@@ -7401,7 +7411,7 @@ readability of the source code.
 <p>Documentation for the methods can be obtained by the <code>$help</code> 
 method for the generator object.
 Methods for classes are not documented in the <code>Rd</code> format used
-for <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> functions.
+for <span class="rlang"><b>R</b></span> functions.
 Instead, the <code>$help</code> 
 method prints the calling sequence of the method, followed by
 self-documentation from the method definition, in the style of Python.
@@ -7461,7 +7471,7 @@ additional fields.
 <h3>Inheritance</h3>
 
 <p>Reference classes inherit from other reference classes by using the
-standard <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> inheritance; that is, by including the superclasses in the
+standard <span class="rlang"><b>R</b></span> inheritance; that is, by including the superclasses in the
 <code>contains=</code> argument when creating the new class.
 The names of the reference superclasses are in slot
 <code>refSuperClasses</code> of the class definition.
@@ -7510,7 +7520,7 @@ functional methods.
 <dt><code>$copy(shallow = FALSE)</code></dt>
 <dd> 
 <p>Creates a copy of the object.  With reference classes, unlike ordinary
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects, merely assigning the object with a different name does not
+<span class="rlang"><b>R</b></span> objects, merely assigning the object with a different name does not
 create an independent copy.  If <code>shallow</code> is <code>FALSE</code>, any
 field that is itself a reference object will also be copied, and
 similarly recursively for its fields.  Otherwise, while reassigning a
@@ -7876,7 +7886,7 @@ A field that is not locked can be set by an expression of the form
 Inside an internal method, a field can be assigned by an expression of the form
 <code>x &lt;&lt;- value</code>.
 Note the <a href="https://r-universe.dev/manuals/base.html#assignOps">non-local assignment</a> operator.
-The standard <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> interpretation of this operator works to assign it in
+The standard <span class="rlang"><b>R</b></span> interpretation of this operator works to assign it in
 the environment of the object.
 If the field has an accessor function defined, getting and setting
 will call that function.
@@ -7890,7 +7900,7 @@ S4 class (see <code><a href="#validObject">setValidity</a></code>).
 Such methods are often a good idea; they will be called by calling
 <code><a href="#validObject">validObject</a></code> and a validity method, if one is defined,
 will be called when a reference object is created (from version 3.4 of
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> on).
+<span class="rlang"><b>R</b></span> on).
 Just remember that these are S4 methods.  The function will be called
 with the <code>object</code> as its argument.  Fields and methods must be
 accessed using <code>$</code>.
@@ -7916,7 +7926,7 @@ all members of the union likely to be reference classes).
 
 <h3>Debugging</h3>
 
-<p>The standard <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> debugging and tracing facilities can be applied to
+<p>The standard <span class="rlang"><b>R</b></span> debugging and tracing facilities can be applied to
 reference methods.
 Reference methods can be passed to <code><a href="https://r-universe.dev/manuals/base.html#debug">debug</a></code> and its
 relatives from an object to debug further method invocations on that
@@ -8065,7 +8075,7 @@ mEdit<span class="token operator">$</span>trace<span class="token punctuation">(
 </div>
 <div class="container manual-page" id="removeMethod">
 
-<a href="#removeMethod" class="help-page-title"><h2> Remove a Method </h2></a>
+<a href="#removeMethod" class="help-page-title"><h2 id="removeMethod"> Remove a Method </h2></a>
 
 <h3>Description</h3>
 
@@ -8083,8 +8093,10 @@ that were defined in other packages.
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>f, signature, where</code></td>
+<table><tr>
+<td>
+<code id="removeMethod_:_f">f</code>, <code id="removeMethod_:_signature">signature</code>, <code id="removeMethod_:_where">where</code>
+</td>
 <td>
 <p>  As for <code><a href="#setMethod">setMethod</a>()</code>.
 </p>
@@ -8109,7 +8121,7 @@ Chapman &amp; Hall.
 </div>
 <div class="container manual-page" id="representation">
 
-<a href="#representation" class="help-page-title"><h2> Construct a Representation or a Prototype for a Class Definition</h2></a>
+<a href="#representation" class="help-page-title"><h2 id="representation"> Construct a Representation or a Prototype for a Class Definition</h2></a>
 
 <h3>Description</h3>
 
@@ -8133,8 +8145,8 @@ prototype<span class="token punctuation">(</span><span class="token ellipsis">..
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>...</code></td>
+<table><tr>
+<td><code id="representation_:_...">...</code></td>
 <td>
 
 <p>The call to representation takes arguments that are single character
@@ -8221,7 +8233,7 @@ setClass<span class="token punctuation">(</span><span class="token string">"num1
 </div>
 <div class="container manual-page" id="S3Part">
 
-<a href="#S3Part" class="help-page-title"><h2> S4 Classes that Contain S3 Classes</h2></a>
+<a href="#S3Part" class="help-page-title"><h2 id="S3Part"> S4 Classes that Contain S3 Classes</h2></a>
 
 <h3>Description</h3>
 
@@ -8229,7 +8241,7 @@ setClass<span class="token punctuation">(</span><span class="token string">"num1
 <code><a href="#setOldClass">setOldClass</a></code>).  The functions described here provide
 information about contained S3 classes.  See the section ‘Functions’.
 </p>
-<p>In modern <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, these functions are not
+<p>In modern <span class="rlang"><b>R</b></span>, these functions are not
 usually needed to program with objects from the S4 class.  Standard computations work as expected, including method selection
 for both S4 and S3.  To coerce an object to its contained S3 class,
 use either of the expressions:
@@ -8265,8 +8277,8 @@ S3Class<span class="token punctuation">(</span>object<span class="token punctuat
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>object</code></td>
+<tr>
+<td><code id="S3Part_:_object">object</code></td>
 <td>
 <p>an object from some class that extends a registered
 S3 class, or a basic
@@ -8277,8 +8289,8 @@ with the interpretation that it is its own S3 part.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>strictS3</code></td>
+<tr>
+<td><code id="S3Part_:_strictS3">strictS3</code></td>
 <td>
 <p>If <code>TRUE</code>, the value returned by
 <code>S3Part</code> will be an S3 object, with all the S4 slots
@@ -8289,8 +8301,8 @@ the underlying S3 object.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>S3Class</code></td>
+<tr>
+<td><code id="S3Part_:_S3Class">S3Class</code></td>
 <td>
 <p>the <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> vector to be stored as the
 S3 class slot in the object.  Usually, and by default, retains
@@ -8298,8 +8310,8 @@ the slot from <code>object</code>, but an S3 superclass is allowed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>classDef</code></td>
+<tr>
+<td><code id="S3Part_:_classDef">classDef</code></td>
 <td>
 <p>a class definition object, as returned by
 <code><a href="#getClass">getClass</a></code>.
@@ -8309,15 +8321,15 @@ which are not recommended.</em>
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>needClass</code></td>
+<tr>
+<td><code id="S3Part_:_needClass">needClass</code></td>
 <td>
 <p>Require that the replacement value be this class or a
 subclass of it.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>value</code></td>
+<tr>
+<td><code id="S3Part_:_value">value</code></td>
 <td>
 <p>For <code>S3Part&lt;-</code>, the replacement value for the
 S3 part of the object.
@@ -8401,7 +8413,7 @@ For example, an S4 class might contain the S3 class <code>"lm"</code>, but
 an object from the class might contain an object from class
 <code>"mlm"</code>, as in the <code>"xlm"</code>example below.
 </p>
-<p><span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> is somewhat arbitrary about what
+<p><span class="rlang"><b>R</b></span> is somewhat arbitrary about what
 it treats as an S3 class: <code>"ts"</code> is, but <code>"matrix"</code> and <code>"array"</code>
 are not.
 For classes that extend
@@ -8414,7 +8426,7 @@ Thus <code>as(x, "matrix")</code> rather than <code>as(x, "S3")</code> or <code>
 
 <h3>S3 and S4 Objects: Conversion Mechanisms</h3>
 
-<p>Objects in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> have an internal bit that indicates whether or not to
+<p>Objects in <span class="rlang"><b>R</b></span> have an internal bit that indicates whether or not to
 treat the object as coming from an S4 class.  This bit is tested by
 <code><a href="https://r-universe.dev/manuals/base.html#isS4">isS4</a></code> and can be set on or off by <code><a href="https://r-universe.dev/manuals/base.html#isS4">asS4</a></code>.
 The latter function, however, does no checking or interpretation;
@@ -8496,7 +8508,7 @@ xfit<span class="token operator">@</span>.S3Class <span class="token comment"># 
 </div>
 <div class="container manual-page" id="S4groupGeneric">
 
-<a href="#S4groupGeneric" class="help-page-title"><h2>S4 Group Generic Functions</h2></a>
+<a href="#S4groupGeneric" class="help-page-title"><h2 id="S4groupGeneric">S4 Group Generic Functions</h2></a>
 
 <h3>Description</h3>
 
@@ -8532,26 +8544,28 @@ Complex<span class="token punctuation">(</span>z<span class="token punctuation">
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x, z, e1, e2</code></td>
+<tr>
+<td>
+<code id="S4groupGeneric_:_x">x</code>, <code id="S4groupGeneric_:_z">z</code>, <code id="S4groupGeneric_:_e1">e1</code>, <code id="S4groupGeneric_:_e2">e2</code>
+</td>
 <td>
 <p>objects.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>digits</code></td>
+<tr>
+<td><code id="S4groupGeneric_:_digits">digits</code></td>
 <td>
 <p>number of digits to be used in <code>round</code> or <code>signif</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="S4groupGeneric_:_...">...</code></td>
 <td>
 <p>further arguments passed to or from methods.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>na.rm</code></td>
+<tr>
+<td><code id="S4groupGeneric_:_na.rm">na.rm</code></td>
 <td>
 <p>logical: should missing values be removed?</p>
 </td>
@@ -8574,7 +8588,7 @@ method selection, see <code><a href="#Methods_Details">Methods_Details</a></code
 <p>There are also
 S3 groups <code>Math</code>, <code>Ops</code>, <code>Summary</code> and
 <code>Complex</code>, see <code>?<a href="https://r-universe.dev/manuals/base.html#groupGeneric">S3groupGeneric</a></code>,
-with no corresponding <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects, but these are irrelevant for S4
+with no corresponding <span class="rlang"><b>R</b></span> objects, but these are irrelevant for S4
 group generic functions.
 </p>
 <p>The members of the group defined by a particular generic can be
@@ -8637,7 +8651,7 @@ as follows:
 <p>Note that <code>Ops</code> merely consists of three sub groups.
 </p>
 <p>All the functions in these groups (other than the group generics
-themselves) are basic functions in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.  They are not by default S4 generic
+themselves) are basic functions in <span class="rlang"><b>R</b></span>.  They are not by default S4 generic
 functions, and many of them are defined as primitives.  However, you can still define
 formal methods for them, both individually and via the group generics.  It all works more or less as you
 might expect, admittedly via a bit of trickery in the background.
@@ -8695,7 +8709,7 @@ stopifnot<span class="token punctuation">(</span>identical<span class="token pun
 </div>
 <div class="container manual-page" id="SClassExtension-class">
 
-<a href="#SClassExtension-class" class="help-page-title"><h2>Class to Represent Inheritance (Extension) Relations </h2></a>
+<a href="#SClassExtension-class" class="help-page-title"><h2 id="SClassExtension-class">Class to Represent Inheritance (Extension) Relations </h2></a>
 
 <h3>Description</h3>
 
@@ -8798,7 +8812,7 @@ signature.
 </div>
 <div class="container manual-page" id="selectSuperClasses">
 
-<a href="#selectSuperClasses" class="help-page-title"><h2>Super Classes (of Specific Kinds) of a Class</h2></a>
+<a href="#selectSuperClasses" class="help-page-title"><h2 id="selectSuperClasses">Super Classes (of Specific Kinds) of a Class</h2></a>
 
 <h3>Description</h3>
 
@@ -8823,50 +8837,50 @@ with the <code>contains</code> slot of the corresponding class definitions.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>Class</code></td>
+<tr>
+<td><code id="selectSuperClasses_:_Class">Class</code></td>
 <td>
 <p>name of the class or (more efficiently) the class
 definition object (see <code><a href="#getClass">getClass</a></code>).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dropVirtual</code></td>
+<tr>
+<td><code id="selectSuperClasses_:_dropVirtual">dropVirtual</code></td>
 <td>
 <p>logical indicating if only non-virtual superclasses
 should be returned.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>namesOnly</code></td>
+<tr>
+<td><code id="selectSuperClasses_:_namesOnly">namesOnly</code></td>
 <td>
 <p>logical indicating if only a vector names instead of
 a named list class-extensions should be returned.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>directOnly</code></td>
+<tr>
+<td><code id="selectSuperClasses_:_directOnly">directOnly</code></td>
 <td>
 <p>logical indicating if only a <em>direct</em> super
 classes should be returned.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>simpleOnly</code></td>
+<tr>
+<td><code id="selectSuperClasses_:_simpleOnly">simpleOnly</code></td>
 <td>
 <p>logical indicating if only simple class extensions
 should be returned.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="selectSuperClasses_:_where">where</code></td>
 <td>
 <p>(only used when <code>Class</code> is not a class definition)
 environment where the class definition of <code>Class</code> is found.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>ext</code></td>
+<tr>
+<td><code id="selectSuperClasses_:_ext">ext</code></td>
 <td>
 <p>for <code>.selectSuperClasses()</code> only, a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code>
 of class extensions, typically <code><a href="#getClass">getClassDef</a>(..)@contains</code>.</p>
@@ -8913,7 +8927,7 @@ selectSuperClasses<span class="token punctuation">(</span><span class="token str
 </div>
 <div class="container manual-page" id="setAs">
 
-<a href="#setAs" class="help-page-title"><h2>Methods for Coercing an Object to a Class</h2></a>
+<a href="#setAs" class="help-page-title"><h2 id="setAs">Methods for Coercing an Object to a Class</h2></a>
 
 <h3>Description</h3>
 
@@ -8937,16 +8951,18 @@ on the first argument.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>from, to</code></td>
+<tr>
+<td>
+<code id="setAs_:_from">from</code>, <code id="setAs_:_to">to</code>
+</td>
 <td>
 <p>The classes between which the coerce methods
 <code>def</code> and <code>replace</code> perform coercion.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>def</code></td>
+<tr>
+<td><code id="setAs_:_def">def</code></td>
 <td>
 <p>function of one argument.  It will get an object from
 class <code>from</code> and had better return an object of class
@@ -8955,8 +8971,8 @@ the name of the argument is <code>from</code>; if another argument name
 is used, <code>setAs</code> will attempt to substitute <code>from</code>. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>replace</code></td>
+<tr>
+<td><code id="setAs_:_replace">replace</code></td>
 <td>
 <p>if supplied, the function to use as a replacement
 method, when <code>as</code> is used on the left of an assignment.
@@ -8968,8 +8984,8 @@ differ.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="setAs_:_where">where</code></td>
 <td>
 <p>the position or environment in which to store the
 resulting methods. Do not use this argument when defining a method
@@ -8991,7 +9007,7 @@ which case the new class extends each of the earlier classes (in the
 usual terminology, the earlier classes are <em>superclasses</em> of
 the new class and it is a <em>subclass</em> of each of them).
 </p>
-<p>This form of inheritance is called <em>simple</em> inheritance in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
+<p>This form of inheritance is called <em>simple</em> inheritance in <span class="rlang"><b>R</b></span>.
 See <code><a href="#setClass">setClass</a></code> for details.
 Inheritance can also be defined explicitly by a call to
 <code><a href="#setIs">setIs</a></code>.
@@ -9177,7 +9193,7 @@ as<span class="token punctuation">(</span>CB<span class="token punctuation">,</s
 </div>
 <div class="container manual-page" id="setClass">
 
-<a href="#setClass" class="help-page-title"><h2>Create a Class Definition</h2></a>
+<a href="#setClass" class="help-page-title"><h2 id="setClass">Create a Class Definition</h2></a>
 
 <h3>Description</h3>
 
@@ -9208,14 +9224,14 @@ not a requirement.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>Class</code></td>
+<tr>
+<td><code id="setClass_:_Class">Class</code></td>
 <td>
 <p>character string name for the class.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>slots</code></td>
+<tr>
+<td><code id="setClass_:_slots">slots</code></td>
 <td>
 <p>  The names and classes for the slots in the new class.  This argument
 must be supplied by name, <code>slots=</code>, in the call, for back compatibility
@@ -9235,8 +9251,8 @@ the unrestricted class <code>"ANY"</code>.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>contains</code></td>
+<tr>
+<td><code id="setClass_:_contains">contains</code></td>
 <td>
 <p> A vector specifying existing classes from which
 this class should inherit. The new class will have all the slots
@@ -9250,8 +9266,10 @@ superclass  <code>"VIRTUAL"</code>.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>prototype, where, validity, sealed, package</code></td>
+<tr>
+<td>
+<code id="setClass_:_prototype">prototype</code>, <code id="setClass_:_where">where</code>, <code id="setClass_:_validity">validity</code>, <code id="setClass_:_sealed">sealed</code>, <code id="setClass_:_package">package</code>
+</td>
 <td>
 
 <p><em>These arguments are currently allowed, but either they are unlikely to be
@@ -9281,11 +9299,13 @@ definition is assigned, as it is by default.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>representation, access, version, S3methods </code></td>
+<tr>
+<td>
+<code id="setClass_:_representation">representation</code>, <code id="setClass_:_access">access</code>, <code id="setClass_:_version">version</code>, <code id="setClass_:_S3methods">S3methods</code>
+</td>
 <td>
 <p><em>All these
-arguments are deprecated from version 3.0.0 of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> and should be
+arguments are deprecated from version 3.0.0 of <span class="rlang"><b>R</b></span> and should be
 avoided</em>.
 </p>
 <p><code>representation</code> is an argument inherited from S that
@@ -9379,7 +9399,7 @@ Methods that are written with the class union in the signature
 are eligible for use with objects from any of the member classes.
 Class
 unions can include as members classes whose
-definition is otherwise sealed, including basic <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> data types.
+definition is otherwise sealed, including basic <span class="rlang"><b>R</b></span> data types.
 </p>
 <p>Calls to <code>setClass()</code> will also create a virtual class,
 either when only the <code>Class</code> argument is supplied (no slots
@@ -9400,8 +9420,8 @@ class that contains a virtual class is not itself automatically virtual.
 
 <p>In addition to containing other S4 classes, a class definition can
 contain either an S3 class (see the next section) or a built-in R pseudo-class—one
-of the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
-object types or one of the special <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> pseudo-classes <code>"matrix"</code> and
+of the <span class="rlang"><b>R</b></span>
+object types or one of the special <span class="rlang"><b>R</b></span> pseudo-classes <code>"matrix"</code> and
 <code>"array"</code>.
 A class can contain at most one of the object types, directly or indirectly.
 When it does, that contained class determines the “data part”
@@ -9412,7 +9432,7 @@ the type of objects from this slot.
 </p>
 <p>Objects from the new class try to inherit the built in
 behavior of the contained type.
-In the case of normal <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> data types, including vectors, functions and
+In the case of normal <span class="rlang"><b>R</b></span> data types, including vectors, functions and
 expressions, the implementation is relatively straightforward.
 For any object <code>x</code> from the class,
 <code>typeof(x)</code> will be the contained basic type; and a special
@@ -9427,7 +9447,7 @@ The data part of these objects can be any vector data type.
 types or classes,
 <code>typeof(x)</code> will be <code>"S4"</code>.
 </p>
-<p>Some <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> data types do not behave normally, in the sense that they are
+<p>Some <span class="rlang"><b>R</b></span> data types do not behave normally, in the sense that they are
 non-local references or other objects that are not duplicated.
 Examples include those corresponding to classes <code>"environment"</code>, <code>"externalptr"</code>, and <code>"name"</code>.
 These can not be the types for objects with user-defined
@@ -9570,7 +9590,7 @@ e1<span class="token punctuation">[</span><span class="token punctuation">[</spa
 </div>
 <div class="container manual-page" id="setClassUnion">
 
-<a href="#setClassUnion" class="help-page-title"><h2>Classes Defined as the Union of Other Classes</h2></a>
+<a href="#setClassUnion" class="help-page-title"><h2 id="setClassUnion">Classes Defined as the Union of Other Classes</h2></a>
 
 <h3>Description</h3>
 
@@ -9590,28 +9610,28 @@ isClassUnion<span class="token punctuation">(</span>Class<span class="token punc
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>name</code></td>
+<tr>
+<td><code id="setClassUnion_:_name">name</code></td>
 <td>
 <p> the name for the new union class. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>members</code></td>
+<tr>
+<td><code id="setClassUnion_:_members">members</code></td>
 <td>
 <p> the names of the classes that should be members of this union.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="setClassUnion_:_where">where</code></td>
 <td>
 <p> where to save the new class definition.  In calls from
 a package's source code, should be omitted to save the definition
 in the package's namespace.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>Class</code></td>
+<tr>
+<td><code id="setClassUnion_:_Class">Class</code></td>
 <td>
 <p> the name or definition of a class.
 </p>
@@ -9683,7 +9703,7 @@ is<span class="token punctuation">(</span>quote<span class="token punctuation">(
 </div>
 <div class="container manual-page" id="setGeneric">
 
-<a href="#setGeneric" class="help-page-title"><h2>Create a Generic Version of a Function</h2></a>
+<a href="#setGeneric" class="help-page-title"><h2 id="setGeneric">Create a Generic Version of a Function</h2></a>
 
 <h3>Description</h3>
 
@@ -9720,15 +9740,15 @@ arguments and becomes the default method.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>name</code></td>
+<tr>
+<td><code id="setGeneric_:_name">name</code></td>
 <td>
 <p> The character string name of the generic function.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>def</code></td>
+<tr>
+<td><code id="setGeneric_:_def">def</code></td>
 <td>
 <p>An optional function object, defining the non-generic
 version, to become the default method.  This is equivalent in
@@ -9742,8 +9762,8 @@ another package.</em>
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>group</code></td>
+<tr>
+<td><code id="setGeneric_:_group">group</code></td>
 <td>
 <p> The name of the group
 generic function to which this function belongs.  See
@@ -9752,8 +9772,8 @@ selection and <a href="#S4groupGeneric">S4groupGeneric</a> for existing groups.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>valueClass</code></td>
+<tr>
+<td><code id="setGeneric_:_valueClass">valueClass</code></td>
 <td>
 <p> A character vector specifying one or more class
 names.  The value returned by the generic function must
@@ -9762,8 +9782,8 @@ an error is generated.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>signature</code></td>
+<tr>
+<td><code id="setGeneric_:_signature">signature</code></td>
 <td>
 
 <p>The vector of names from among the formal arguments to
@@ -9792,8 +9812,8 @@ function with that combination of classes.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>simpleInheritanceOnly</code></td>
+<tr>
+<td><code id="setGeneric_:_simpleInheritanceOnly">simpleInheritanceOnly</code></td>
 <td>
 
 <p>Supply this argument as <code>TRUE</code> to require that methods selected
@@ -9810,8 +9830,8 @@ full description of the object provided as its argument.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>useAsDefault</code></td>
+<tr>
+<td><code id="setGeneric_:_useAsDefault">useAsDefault</code></td>
 <td>
 
 <p>Override the usual default method mechanism.  Only relevant when
@@ -9822,8 +9842,8 @@ See the section ‘Specialized Local Generics’.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="setGeneric_:_package">package</code></td>
 <td>
 <p> The name of the package with which this function is
 associated.  Should be determined automatically from the
@@ -9831,8 +9851,8 @@ non-generic version.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="setGeneric_:_where">where</code></td>
 <td>
 <p> Where to store the resulting objects as side effects.
 The default, to store in the package's namespace, is the only
@@ -9840,8 +9860,8 @@ safe choice.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>genericFunction</code></td>
+<tr>
+<td><code id="setGeneric_:_genericFunction">genericFunction</code></td>
 <td>
 <p>Obsolete.</p>
 </td>
@@ -9899,7 +9919,7 @@ more details.
 <p>It's an important feature that the
 identical generic function definition is created in every package that
 uses the same <code>setGeneric()</code> call.
-When any of these packages is loaded into an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session, this
+When any of these packages is loaded into an <span class="rlang"><b>R</b></span> session, this
 function will be added to a table of generic functions, and will
 contain a methods table of all the available methods for the
 function.
@@ -10004,9 +10024,9 @@ dispatching methods, see <a href="#S4groupGeneric">GroupGenericFunctions</a> and
 
 <h3>Generic Functions and Primitive Functions</h3>
 
-<p>A number of the basic <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> functions are specially implemented as
+<p>A number of the basic <span class="rlang"><b>R</b></span> functions are specially implemented as
 primitive functions, to be evaluated directly in the underlying C code
-rather than by evaluating an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> language definition.  Most have
+rather than by evaluating an <span class="rlang"><b>R</b></span> language definition.  Most have
 implicit generics (see <code><a href="#implicitGeneric">implicitGeneric</a></code>), and become
 generic as soon as methods (including group methods) are defined on
 them.  Others cannot be made generic.
@@ -10091,7 +10111,7 @@ setGeneric<span class="token punctuation">(</span><span class="token string">"as
 </div>
 <div class="container manual-page" id="setGroupGeneric">
 
-<a href="#setGroupGeneric" class="help-page-title"><h2>Create a Group Generic Version of a Function</h2></a>
+<a href="#setGroupGeneric" class="help-page-title"><h2 id="setGroupGeneric">Create a Group Generic Version of a Function</h2></a>
 
 <h3>Description</h3>
 
@@ -10117,15 +10137,15 @@ changes in the search list or direct specification of methods, etc.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>name</code></td>
+<tr>
+<td><code id="setGroupGeneric_:_name">name</code></td>
 <td>
 <p>the character string name of the generic function.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>def</code></td>
+<tr>
+<td><code id="setGroupGeneric_:_def">def</code></td>
 <td>
 <p>A function object.  There isn't likely to be an existing
 nongeneric of this name, so some function needs to be supplied.  Any
@@ -10134,16 +10154,18 @@ because the group generic cannot be called directly.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>group, valueClass</code></td>
+<tr>
+<td>
+<code id="setGroupGeneric_:_group">group</code>, <code id="setGroupGeneric_:_valueClass">valueClass</code>
+</td>
 <td>
 <p>arguments to pass to
 <code><a href="#setGeneric">setGeneric</a></code>.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>knownMembers</code></td>
+<tr>
+<td><code id="setGroupGeneric_:_knownMembers">knownMembers</code></td>
 <td>
 <p>the names of functions that are
 known to be members of this group.  This information is used to
@@ -10152,8 +10174,10 @@ about the group generic is changed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>package, where</code></td>
+<tr>
+<td>
+<code id="setGroupGeneric_:_package">package</code>, <code id="setGroupGeneric_:_where">where</code>
+</td>
 <td>
 <p>passed to <code><a href="#setGeneric">setGeneric</a></code>, but
 obsolete and to be avoided.</p>
@@ -10197,7 +10221,7 @@ setGroupGeneric<span class="token punctuation">(</span><span class="token string
 </div>
 <div class="container manual-page" id="setIs">
 
-<a href="#setIs" class="help-page-title"><h2>Specify a Superclass Explicitly</h2></a>
+<a href="#setIs" class="help-page-title"><h2 id="setIs">Specify a Superclass Explicitly</h2></a>
 
 <h3>Description</h3>
 
@@ -10223,8 +10247,10 @@ class of objects to another, it is usually better practice to call
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>class1, class2</code></td>
+<tr>
+<td>
+<code id="setIs_:_class1">class1</code>, <code id="setIs_:_class2">class2</code>
+</td>
 <td>
 
 <p>the names of the classes between which <code>is</code> relations are to be
@@ -10232,8 +10258,10 @@ examined defined, or (more efficiently) the class definition
 objects for the classes.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>coerce, replace</code></td>
+<tr>
+<td>
+<code id="setIs_:_coerce">coerce</code>, <code id="setIs_:_replace">replace</code>
+</td>
 <td>
 
 <p>functions optionally supplied to coerce the object to
@@ -10241,8 +10269,8 @@ objects for the classes.</p>
 is identical to <code>value</code>.  See the details section below.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>test</code></td>
+<tr>
+<td><code id="setIs_:_test">test</code></td>
 <td>
 
 <p>a <em>conditional</em> relationship is
@@ -10252,23 +10280,23 @@ discouraged and are not included in selecting methods.  See the details section 
 <p>The remaining arguments are for internal use and/or usually omitted.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>extensionObject</code></td>
+<tr>
+<td><code id="setIs_:_extensionObject">extensionObject</code></td>
 <td>
 <p> alternative to the <code>test, coerce,
     replace, by</code> arguments; an object from class
 <code>SClassExtension</code> describing the relation.  (Used in internal calls.)</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>doComplete</code></td>
+<tr>
+<td><code id="setIs_:_doComplete">doComplete</code></td>
 <td>
 <p>when <code>TRUE</code>, the class definitions will be
 augmented with indirect relations as well.  (Used in internal calls.)</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>by</code></td>
+<tr>
+<td><code id="setIs_:_by">by</code></td>
 <td>
 
 <p>In a call to <code>setIs</code>, the name of an intermediary class.
@@ -10276,8 +10304,8 @@ Coercion will proceed by first coercing to this class and from there
 to the target class.  (The intermediate coercions have to be valid.)</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="setIs_:_where">where</code></td>
 <td>
 
 <p>In a call to <code>setIs</code>, where to store the metadata defining the
@@ -10289,8 +10317,8 @@ Other uses are tricky and not usually a good idea, unless you really
 know what you are doing.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>classDef</code></td>
+<tr>
+<td><code id="setIs_:_classDef">classDef</code></td>
 <td>
 
 <p>Optional class definition for <code>class</code> , required internally
@@ -10303,7 +10331,7 @@ argument, unless you really know why you're doing so.</p>
 <h3>Details</h3>
 
 <p>Arranging for a class to inherit from another class is a key tool in
-programming.  In <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, there are three basic techniques, the first two
+programming.  In <span class="rlang"><b>R</b></span>, there are three basic techniques, the first two
 providing what is called  “simple” inheritance, the preferred form:
 
 </p>
@@ -10335,7 +10363,7 @@ relationships are also generally simple.
 </li>
 <li>
 <p>Supplying <code>coerce</code>  and <code>replace</code> arguments to <code>setAs</code>.
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> allows arbitrary inheritance relationships, using the same
+<span class="rlang"><b>R</b></span> allows arbitrary inheritance relationships, using the same
 mechanism for defining coerce methods by a call to
 <code><a href="#setAs">setAs</a></code>.  The difference between the  two is simply
 that <code><a href="#setAs">setAs</a></code> will require a call to <code><a href="#as">as</a></code>
@@ -10564,7 +10592,7 @@ identical<span class="token punctuation">(</span>levels<span class="token punctu
 </div>
 <div class="container manual-page" id="setLoadActions">
 
-<a href="#setLoadActions" class="help-page-title"><h2>
+<a href="#setLoadActions" class="help-page-title"><h2 id="setLoadActions">
 Set Actions For Package Loading
 </h2></a>
 
@@ -10610,8 +10638,10 @@ evalqOnLoad<span class="token punctuation">(</span>expr<span class="token punctu
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>action, ...</code></td>
+<tr>
+<td>
+<code id="setLoadActions_:_action">action</code>, <code id="setLoadActions_:_...">...</code>
+</td>
 <td>
 
 <p>functions of one or more arguments, to be called when this package is
@@ -10623,8 +10653,10 @@ corresponding load metadata.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where, .where</code></td>
+<tr>
+<td>
+<code id="setLoadActions_:_where">where</code>, <code id="setLoadActions_:_.where">.where</code>
+</td>
 <td>
 
 <p>the namespace of the package for which the list of load actions are
@@ -10634,8 +10666,8 @@ supplies load actions for another package.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>aname</code></td>
+<tr>
+<td><code id="setLoadActions_:_aname">aname</code></td>
 <td>
 <p>the name for the action.  If an action is set without
 supplying a name,  the default uses the position in the sequence of
@@ -10643,8 +10675,8 @@ actions specified (<code>".1"</code>, etc.).
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>expr</code></td>
+<tr>
+<td><code id="setLoadActions_:_expr">expr</code></td>
 <td>
 <p>an expression to be evaluated in a load action in
 environment <code>where</code>.  In the case of <code>evalqOnLoad()</code>,
@@ -10755,7 +10787,7 @@ setLoadActions<span class="token punctuation">(</span><span class="token keyword
 </div>
 <div class="container manual-page" id="setMethod">
 
-<a href="#setMethod" class="help-page-title"><h2> Create and Save a Method </h2></a>
+<a href="#setMethod" class="help-page-title"><h2 id="setMethod"> Create and Save a Method </h2></a>
 
 <h3>Description</h3>
 
@@ -10777,20 +10809,20 @@ setLoadActions<span class="token punctuation">(</span><span class="token keyword
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>f</code></td>
+<tr>
+<td><code id="setMethod_:_f">f</code></td>
 <td>
 <p> The character-string name of the generic function. The unquoted name usually works as well (evaluating to the generic function), except for a few functions in the base package.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>signature</code></td>
+<tr>
+<td><code id="setMethod_:_signature">signature</code></td>
 <td>
 <p> The classes required for some of the arguments. Most applications just require one or two character strings matching the first argument(s) in the signature. More complicated cases follow R's rule for argument matching. See the details below; however, if the signature is not trivial, you should use <code><a href="#method.skeleton">method.skeleton</a></code> to generate a valid call to <code>setMethod</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>definition</code></td>
+<tr>
+<td><code id="setMethod_:_definition">definition</code></td>
 <td>
 <p> A function definition, which will become the method
 called when the arguments in a call to <code>f</code> match the
@@ -10802,8 +10834,10 @@ See the Details section.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where, valueClass, sealed</code></td>
+<tr>
+<td>
+<code id="setMethod_:_where">where</code>, <code id="setMethod_:_valueClass">valueClass</code>, <code id="setMethod_:_sealed">sealed</code>
+</td>
 <td>
 <p><em>These arguments are allowed
 but either obsolete or rarely appropriate.</em>
@@ -10850,12 +10884,12 @@ on.
 <p>The first possible source of ambiguity arises if the class has several
 direct superclasses and methods have been defined for more than one of
 those;
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> will consider these equally valid and report an ambiguous choice.
+<span class="rlang"><b>R</b></span> will consider these equally valid and report an ambiguous choice.
 If your package has the class definition for <code>class(x)</code>, then you
 need to define a method explicitly for this combination of generic
 function and class.
 </p>
-<p>When more than one formal argument appears in the method signature, <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+<p>When more than one formal argument appears in the method signature, <span class="rlang"><b>R</b></span>
 requires the “best” method to be chosen  unambiguously for each
 argument.
 Ambiguities arise when one method is specific about one argument while
@@ -10887,14 +10921,14 @@ you want to happen, in that you do expect users to find such methods.
 It can be essential in the case that the method was defined for a
 function that is not originally a generic function in its own package
 (for example, <code>plot()</code> in the <code>graphics</code> package).  In this
-case it may be that the version of the function in the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session is
+case it may be that the version of the function in the <span class="rlang"><b>R</b></span> session is
 not generic, and your methods will not be called.
 </p>
 <p>Exporting methods for a function also exports the generic version of
 the function.
 Keep in mind that this does <em>not</em> conflict with the function as
 it was originally defined in another package; on the contrary, it's
-designed to ensure that the function in the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session dispatches
+designed to ensure that the function in the <span class="rlang"><b>R</b></span> session dispatches
 methods correctly for your classes and continues to behave as expected
 when no specific methods apply.  See <a href="#Methods_Details">Methods_Details</a> for the actual mechanism.
 </p>
@@ -10952,7 +10986,7 @@ you should definitely declare these classes by calling
 <p>Method definitions can
 have default expressions for arguments, but only if
 the generic function must have <em>some</em> default expression for the
-same argument. (This restriction is imposed by the way <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> manages
+same argument. (This restriction is imposed by the way <span class="rlang"><b>R</b></span> manages
 formal arguments.)
 If so, and if the corresponding argument is
 missing in the call to the generic function, the default expression
@@ -11115,7 +11149,7 @@ all<span class="token punctuation">(</span>tc1 <span class="token operator">==</
 </div>
 <div class="container manual-page" id="setOldClass">
 
-<a href="#setOldClass" class="help-page-title"><h2>Register Old-Style (S3) Classes and Inheritance</h2></a>
+<a href="#setOldClass" class="help-page-title"><h2 id="setOldClass">Register Old-Style (S3) Classes and Inheritance</h2></a>
 
 <h3>Description</h3>
 
@@ -11146,8 +11180,8 @@ equivalent S4 class can be specified by <code>S4Class=</code> in the call to
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>Classes</code></td>
+<tr>
+<td><code id="setOldClass_:_Classes">Classes</code></td>
 <td>
 
 <p>A character vector, giving the names for S3
@@ -11160,8 +11194,8 @@ be of that form.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>S4Class</code></td>
+<tr>
+<td><code id="setOldClass_:_S4Class">S4Class</code></td>
 <td>
 <p> optionally, the class definition or the class name
 of an S4 class.  The new class will have all the slots and other
@@ -11171,8 +11205,10 @@ on “S3 classes with known attributes” below.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>prototype, where, test</code></td>
+<tr>
+<td>
+<code id="setOldClass_:_prototype">prototype</code>, <code id="setOldClass_:_where">where</code>, <code id="setOldClass_:_test">test</code>
+</td>
 <td>
 <p><em>These arguments are currently
 allowed, but not recommended in typical applications.</em>
@@ -11267,7 +11303,7 @@ numeric slot for <code>"tsp"</code>.  The validity of this definition relies
 on an assertion that all the S3 code for this class is consistent with
 that definition; specifically, that all <code>"ts"</code> objects will
 behave as vector structures and will have a numeric <code>"tsp"</code>
-attribute. We believe this to be true of all the base code in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, but
+attribute. We believe this to be true of all the base code in <span class="rlang"><b>R</b></span>, but
 as always with S3 classes, no guarantee is possible.
 </p>
 <p>The S4 class definition can  have virtual superclasses (as in
@@ -11359,7 +11395,7 @@ setOldClass<span class="token punctuation">(</span><span class="token string">"t
 </div>
 <div class="container manual-page" id="show">
 
-<a href="#show" class="help-page-title"><h2>Show an Object</h2></a>
+<a href="#show" class="help-page-title"><h2 id="show">Show an Object</h2></a>
 
 <h3>Description</h3>
 
@@ -11379,8 +11415,8 @@ usually be invoked for automatic printing (see the details).
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>object</code></td>
+<table><tr>
+<td><code id="show_:_object">object</code></td>
 <td>
 <p>Any R object</p>
 </td>
@@ -11456,7 +11492,7 @@ y   <span class="token number">169</span>   <span class="token number">196</span
 </div>
 <div class="container manual-page" id="showMethods">
 
-<a href="#showMethods" class="help-page-title"><h2>Show all the methods for the specified function(s) or class</h2></a>
+<a href="#showMethods" class="help-page-title"><h2 id="showMethods">Show all the methods for the specified function(s) or class</h2></a>
 
 <h3>Description</h3>
 
@@ -11477,8 +11513,8 @@ possibly restricted to those involving specified classes.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>f</code></td>
+<tr>
+<td><code id="showMethods_:_f">f</code></td>
 <td>
 <p>one or more function names.  If omitted, all functions
 will be shown that match the other arguments.
@@ -11490,8 +11526,8 @@ the function allows examination of hidden or anonymous functions;
 see the example for <code>isDiagonal()</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="showMethods_:_where">where</code></td>
 <td>
 <p>Where to find the generic function, if not supplied as an
 argument. When <code>f</code> is missing, or length 0, this also
@@ -11502,23 +11538,23 @@ supplied, only the generic functions returned by
 considered.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>classes</code></td>
+<tr>
+<td><code id="showMethods_:_classes">classes</code></td>
 <td>
 <p>If argument <code>classes</code> is supplied, it is a vector
 of class names that restricts the displayed results to those methods
 whose signatures include one or more of those classes.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>includeDefs</code></td>
+<tr>
+<td><code id="showMethods_:_includeDefs">includeDefs</code></td>
 <td>
 <p>If <code>includeDefs</code> is <code>TRUE</code>, include the
 definitions of the individual methods in the printout.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>inherited</code></td>
+<tr>
+<td><code id="showMethods_:_inherited">inherited</code></td>
 <td>
 <p>logical indicating if methods that have been found by
 inheritance, so far in the session, will be included and marked as
@@ -11528,8 +11564,8 @@ until it has been used in this session.  See
 dispatched for particular classes of arguments.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>showEmpty</code></td>
+<tr>
+<td><code id="showMethods_:_showEmpty">showEmpty</code></td>
 <td>
 <p>logical indicating whether methods with no defined
 methods matching the other criteria should be shown at all.  By
@@ -11537,23 +11573,25 @@ default, <code>TRUE</code> if and only if argument <code>f</code> is not
 missing.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>printTo</code></td>
+<tr>
+<td><code id="showMethods_:_printTo">printTo</code></td>
 <td>
 <p>The connection on which the information will be
 shown; by default, on standard output.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>fdef</code></td>
+<tr>
+<td><code id="showMethods_:_fdef">fdef</code></td>
 <td>
 <p>Optionally, the generic function definition to use; if
 missing, one is found, looking in <code>where</code> if that is specified.
 See also comment in ‘Details’.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>generic.function, class</code></td>
+<tr>
+<td>
+<code id="showMethods_:_generic.function">generic.function</code>, <code id="showMethods_:_class">class</code>
+</td>
 <td>
 <p>See <code>methods</code>.</p>
 </td>
@@ -11642,7 +11680,7 @@ showMethods<span class="token punctuation">(</span>classes <span class="token op
 </div>
 <div class="container manual-page" id="signature-class">
 
-<a href="#signature-class" class="help-page-title"><h2>Class <code>"signature"</code> For Method Definitions</h2></a>
+<a href="#signature-class" class="help-page-title"><h2 id="signature-class">Class <code>"signature"</code> For Method Definitions</h2></a>
 
 <h3>Description</h3>
 
@@ -11716,7 +11754,7 @@ discussion of objects from the class, above. </p>
 </div>
 <div class="container manual-page" id="slot">
 
-<a href="#slot" class="help-page-title"><h2>The Slots in an Object from a Formal Class</h2></a>
+<a href="#slot" class="help-page-title"><h2 id="slot">The Slots in an Object from a Formal Class</h2></a>
 
 <h3>Description</h3>
 
@@ -11741,14 +11779,14 @@ getSlots<span class="token punctuation">(</span>x<span class="token punctuation"
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>object</code></td>
+<tr>
+<td><code id="slot_:_object">object</code></td>
 <td>
 <p>An object from a formally defined class.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>name</code></td>
+<tr>
+<td><code id="slot_:_name">name</code></td>
 <td>
 <p>The name of the slot. The operator
 takes a fixed name, which can be unquoted if it is syntactically a
@@ -11763,15 +11801,15 @@ the simpler operator is <em>because</em> the slot name has to be computed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>value</code></td>
+<tr>
+<td><code id="slot_:_value">value</code></td>
 <td>
 <p>A new value for the named slot.  The value must be
 valid for this slot in this object's class.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>check</code></td>
+<tr>
+<td><code id="slot_:_check">check</code></td>
 <td>
 <p>In the replacement version of <code>slot</code>, a flag.  If
 <code>TRUE</code>, check the assigned value for validity
@@ -11780,8 +11818,8 @@ as the value of this slot.  User's code should not set this to
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="slot_:_x">x</code></td>
 <td>
 <p>either the name of a class (as character string), or a class
 definition.  If given an argument that is neither a character string
@@ -11811,7 +11849,7 @@ extracted slots will be valid.
 </p>
 <p>Be aware that there are two ways to cheat, both to be avoided but
 with no guarantees.  The obvious way is to assign a slot with
-<code>check=FALSE</code>.  Also, slots in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> are implemented as
+<code>check=FALSE</code>.  Also, slots in <span class="rlang"><b>R</b></span> are implemented as
 attributes, for the sake of some back compatibility.  The current
 implementation does not prevent attributes being assigned, via
 <code><a href="https://r-universe.dev/manuals/base.html#attr">attr&lt;-</a></code>, and such assignments are not checked for
@@ -11888,7 +11926,7 @@ slotNames<span class="token punctuation">(</span>myTrack<span class="token punct
 </div>
 <div class="container manual-page" id="StructureClasses">
 
-<a href="#StructureClasses" class="help-page-title"><h2>Classes Corresponding to Basic Structures</h2></a>
+<a href="#StructureClasses" class="help-page-title"><h2 id="StructureClasses">Classes Corresponding to Basic Structures</h2></a>
 
 <h3>Description</h3>
 
@@ -11934,7 +11972,7 @@ pseudo-classes and new classes (both S4 and S3) can inherit from them.
 </p>
 <p>That the objects still behave as if they came from the corresponding
 class (most of the time, anyway) results from special code
-recognizing such objects being built into the base code of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
+recognizing such objects being built into the base code of <span class="rlang"><b>R</b></span>.
 For most purposes, treating the classes in the usual way will work,
 fortunately.  One consequence of the special treatment is that these
 two classes<em>may</em> be used as the data part of an S4 class; for
@@ -11953,7 +11991,7 @@ discussion.
 </p>
 <p>The class <code>"ts"</code>  is basically an S3 class
 that has been registered with S4, using the
-<code><a href="#setOldClass">setOldClass</a></code> mechanism.  Versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> through 2.7.0
+<code><a href="#setOldClass">setOldClass</a></code> mechanism.  Versions of <span class="rlang"><b>R</b></span> through 2.7.0
 treated this class as a pure S4 class, which was in principal a good
 idea, but in practice did not allow subclasses to be defined and had
 other intrinsic problems.  (For example, setting the
@@ -12064,7 +12102,7 @@ showMethods<span class="token punctuation">(</span><span class="token string">"O
 </div>
 <div class="container manual-page" id="testInheritedMethods">
 
-<a href="#testInheritedMethods" class="help-page-title"><h2>
+<a href="#testInheritedMethods" class="help-page-title"><h2 id="testInheritedMethods">
 Test for and Report about  Selection of Inherited Methods
 </h2></a>
 
@@ -12087,8 +12125,8 @@ performed by package authors <em>before</em> releasing a package.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>f</code></td>
+<tr>
+<td><code id="testInheritedMethods_:_f">f</code></td>
 <td>
 <p>a generic function or the character string name of one.  By default,
 all currently defined subclasses of all the method signatures for this
@@ -12097,8 +12135,8 @@ modify which inheritance patterns will be examined.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>signatures</code></td>
+<tr>
+<td><code id="testInheritedMethods_:_signatures">signatures</code></td>
 <td>
 
 <p>An optional set of subclass signatures to use instead of the relevant
@@ -12108,8 +12146,8 @@ with <code>test = FALSE</code>, to test selection in batches.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>test</code></td>
+<tr>
+<td><code id="testInheritedMethods_:_test">test</code></td>
 <td>
 
 <p>optional flag to control whether method selection is actually tested.
@@ -12119,8 +12157,8 @@ If there are a very large number of signatures, you may want to collect the full
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>virtual</code></td>
+<tr>
+<td><code id="testInheritedMethods_:_virtual">virtual</code></td>
 <td>
 
 <p>should virtual classes be included in the relevant subclasses.
@@ -12132,16 +12170,16 @@ classes in the future.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>groupMethods</code></td>
+<tr>
+<td><code id="testInheritedMethods_:_groupMethods">groupMethods</code></td>
 <td>
 
 <p>should methods for the group generic function be included?
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="testInheritedMethods_:_where">where</code></td>
 <td>
 
 <p>the environment in which to look for class definitions.  Nearly
@@ -12218,7 +12256,7 @@ testInheritedMethods<span class="token punctuation">(</span><span class="token s
 </div>
 <div class="container manual-page" id="TraceClasses">
 
-<a href="#TraceClasses" class="help-page-title"><h2>Classes Used Internally to Control Tracing </h2></a>
+<a href="#TraceClasses" class="help-page-title"><h2 id="TraceClasses">Classes Used Internally to Control Tracing </h2></a>
 
 <h3>Description</h3>
 
@@ -12297,7 +12335,7 @@ addition to their new trace information.
 </div>
 <div class="container manual-page" id="validObject">
 
-<a href="#validObject" class="help-page-title"><h2> Test the Validity of an Object </h2></a>
+<a href="#validObject" class="help-page-title"><h2 id="validObject"> Test the Validity of an Object </h2></a>
 
 <h3>Description</h3>
 
@@ -12340,15 +12378,15 @@ getValidity<span class="token punctuation">(</span>ClassDef<span class="token pu
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>object</code></td>
+<tr>
+<td><code id="validObject_:_object">object</code></td>
 <td>
 <p> any object, but not much will happen unless the
 object's class has a formal definition.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>test</code></td>
+<tr>
+<td><code id="validObject_:_test">test</code></td>
 <td>
 <p>logical; if <code>TRUE</code> and validity fails, the
 function returns a vector of strings describing the problems.  If
@@ -12356,29 +12394,29 @@ function returns a vector of strings describing the problems.  If
 an error.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>complete</code></td>
+<tr>
+<td><code id="validObject_:_complete">complete</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, <code>validObject</code> is
 called recursively for each of the slots.  The default is <code>FALSE</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>Class</code></td>
+<tr>
+<td><code id="validObject_:_Class">Class</code></td>
 <td>
 <p>the name or class definition of the class whose validity
 method is to be set.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>ClassDef</code></td>
+<tr>
+<td><code id="validObject_:_ClassDef">ClassDef</code></td>
 <td>
 <p>a class definition object, as from
 <code><a href="#getClass">getClassDef</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>method</code></td>
+<tr>
+<td><code id="validObject_:_method">method</code></td>
 <td>
 <p>a validity method;  that is, either <code>NULL</code> or a
 function of one argument (<code>object</code>).  Like
@@ -12389,8 +12427,8 @@ error.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>where</code></td>
+<tr>
+<td><code id="validObject_:_where">where</code></td>
 <td>
 <p>an environment to store the modified class
 definition. Should be omitted, specifically  for calls from a package that defines the class.
@@ -12506,6 +12544,6 @@ tT  <span class="token operator">&lt;-</span> new<span class="token punctuation"
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.0.9000</p></footer>
+    <footer><p>Rendered with postdoc 1.2.1</p></footer>
   </body>
 </html>

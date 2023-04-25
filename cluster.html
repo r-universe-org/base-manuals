@@ -61,7 +61,7 @@ al.</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2022-10-31 22:33:28 UTC</td>
+<td class="description-date">2023-04-21 21:43:09 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -130,7 +130,7 @@ al.</td>
     <div class="manual-pages-content">
 <div class="container manual-page" id="agnes">
 
-<a href="#agnes" class="help-page-title"><h2>Agglomerative Nesting (Hierarchical Clustering)</h2></a>
+<a href="#agnes" class="help-page-title"><h2 id="agnes">Agglomerative Nesting (Hierarchical Clustering)</h2></a>
 
 <h3>Description</h3>
 
@@ -148,8 +148,8 @@ al.</td>
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="agnes_:_x">x</code></td>
 <td>
 
 <p>data matrix or data frame, or dissimilarity matrix, depending on the
@@ -168,8 +168,8 @@ allowed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>diss</code></td>
+<tr>
+<td><code id="agnes_:_diss">diss</code></td>
 <td>
 
 <p>logical flag: if TRUE (default for <code>dist</code> or
@@ -179,8 +179,8 @@ a matrix of observations by variables.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>metric</code></td>
+<tr>
+<td><code id="agnes_:_metric">metric</code></td>
 <td>
 
 <p>character string specifying the metric to be used for calculating
@@ -193,8 +193,8 @@ be ignored.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>stand</code></td>
+<tr>
+<td><code id="agnes_:_stand">stand</code></td>
 <td>
 
 <p>logical flag: if TRUE, then the measurements in <code>x</code> are
@@ -206,8 +206,8 @@ argument will be ignored.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>method</code></td>
+<tr>
+<td><code id="agnes_:_method">method</code></td>
 <td>
 
 <p>character string defining the clustering method.  The six methods
@@ -225,8 +225,8 @@ UPGMA” method also using the Lance-Williams formula and <code>par.method</code
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>par.method</code></td>
+<tr>
+<td><code id="agnes_:_par.method">par.method</code></td>
 <td>
 
 <p>If <code>method</code> is <code>"flexible"</code> or <code>"gaverage"</code>, a numeric
@@ -235,8 +235,10 @@ the details section.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>keep.diss, keep.data</code></td>
+<tr>
+<td>
+<code id="agnes_:_keep.diss">keep.diss</code>, <code id="agnes_:_keep.data">keep.data</code>
+</td>
 <td>
 <p>logicals indicating if the dissimilarities
 and/or input data <code>x</code> should be kept in the result.  Setting
@@ -244,8 +246,8 @@ these to <code>FALSE</code> can give much smaller results and hence even save
 memory allocation <em>time</em>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>trace.lev</code></td>
+<tr>
+<td><code id="agnes_:_trace.lev">trace.lev</code></td>
 <td>
 <p>integer specifying a trace level for printing
 diagnostics during the algorithm.  Default <code>0</code> does not print
@@ -479,7 +481,7 @@ stopifnot<span class="token punctuation">(</span>all.equal<span class="token pun
 </div>
 <div class="container manual-page" id="agnes.object">
 
-<a href="#agnes.object" class="help-page-title"><h2>Agglomerative Nesting (AGNES) Object</h2></a>
+<a href="#agnes.object" class="help-page-title"><h2 id="agnes.object">Agglomerative Nesting (AGNES) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -493,7 +495,7 @@ represent an agglomerative hierarchical clustering of a dataset.
 <p>A legitimate <code>agnes</code> object is a list with the following components:
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>order</code></td>
 <td>
 
@@ -502,7 +504,7 @@ for plotting, in the sense that the branches of a clustering tree
 will not cross.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>order.lab</code></td>
 <td>
 
@@ -512,7 +514,7 @@ the original observations were labelled.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>height</code></td>
 <td>
 
@@ -521,7 +523,7 @@ stages.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>ac</code></td>
 <td>
 
@@ -538,7 +540,7 @@ be used to compare datasets of very different sizes.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>merge</code></td>
 <td>
 
@@ -550,7 +552,7 @@ merger is with the cluster formed at stage j of the algorithm.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>diss</code></td>
 <td>
 
@@ -560,7 +562,7 @@ dissimilarity matrix of the dataset.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>data</code></td>
 <td>
 
@@ -625,7 +627,7 @@ stopifnot<span class="token punctuation">(</span>identical<span class="token pun
 </div>
 <div class="container manual-page" id="agriculture">
 
-<a href="#agriculture" class="help-page-title"><h2>European Union Agricultural Workforces</h2></a>
+<a href="#agriculture" class="help-page-title"><h2 id="agriculture">European Union Agricultural Workforces</h2></a>
 
 <h3>Description</h3>
 
@@ -714,7 +716,7 @@ plot<span class="token punctuation">(</span>pam<span class="token punctuation">(
 </div>
 <div class="container manual-page" id="animals">
 
-<a href="#animals" class="help-page-title"><h2>Attributes of Animals</h2></a>
+<a href="#animals" class="help-page-title"><h2 id="animals">Attributes of Animals</h2></a>
 
 <h3>Description</h3>
 
@@ -814,7 +816,7 @@ plot<span class="token punctuation">(</span>ma<span class="token punctuation">)<
 </div>
 <div class="container manual-page" id="bannerplot">
 
-<a href="#bannerplot" class="help-page-title"><h2>Plot Banner (of Hierarchical Clustering)</h2></a>
+<a href="#bannerplot" class="help-page-title"><h2 id="bannerplot">Plot Banner (of Hierarchical Clustering)</h2></a>
 
 <h3>Description</h3>
 
@@ -838,128 +840,130 @@ an other binary dendrogram structure.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="bannerplot_:_x">x</code></td>
 <td>
 <p>a list with components <code>order</code>, <code>order.lab</code> and
 <code>height</code> when <code>w</code>, the next argument is not specified.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>w</code></td>
+<tr>
+<td><code id="bannerplot_:_w">w</code></td>
 <td>
 <p>non-negative numeric vector of bar widths.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>fromLeft</code></td>
+<tr>
+<td><code id="bannerplot_:_fromLeft">fromLeft</code></td>
 <td>
 <p>logical, indicating if the banner is from the left or not.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>main,sub</code></td>
+<tr>
+<td>
+<code id="bannerplot_:_main">main</code>, <code id="bannerplot_:_sub">sub</code>
+</td>
 <td>
 <p>main and sub titles, see <code><a href="https://r-universe.dev/manuals/graphics.html#title">title</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>xlab</code></td>
+<tr>
+<td><code id="bannerplot_:_xlab">xlab</code></td>
 <td>
 <p>x axis label (with ‘correct’ default e.g. for
 <code>plot.agnes</code>).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>adj</code></td>
+<tr>
+<td><code id="bannerplot_:_adj">adj</code></td>
 <td>
 <p>passed to <code><a href="https://r-universe.dev/manuals/graphics.html#title">title</a>(main,sub)</code> for string adjustment.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>col</code></td>
+<tr>
+<td><code id="bannerplot_:_col">col</code></td>
 <td>
 <p>vector of length 2, for two horizontal segments.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>border</code></td>
+<tr>
+<td><code id="bannerplot_:_border">border</code></td>
 <td>
 <p>color for bar border; now defaults to background (no border).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>axes</code></td>
+<tr>
+<td><code id="bannerplot_:_axes">axes</code></td>
 <td>
 <p>logical indicating if axes (and labels) should be drawn at all.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>frame.plot</code></td>
+<tr>
+<td><code id="bannerplot_:_frame.plot">frame.plot</code></td>
 <td>
 <p>logical indicating the banner should be framed;
 mainly used when <code>border = 0</code> (as per default).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>rev.xax</code></td>
+<tr>
+<td><code id="bannerplot_:_rev.xax">rev.xax</code></td>
 <td>
 <p>logical indicating if the x axis should be reversed (as
 in <code>plot.diana</code>).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>xax.pretty</code></td>
+<tr>
+<td><code id="bannerplot_:_xax.pretty">xax.pretty</code></td>
 <td>
 <p>logical or integer indicating if
 <code><a href="https://r-universe.dev/manuals/base.html#pretty">pretty</a>()</code> should be used for the x axis.
 <code>xax.pretty = FALSE</code> is mainly for back compatibility.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>labels</code></td>
+<tr>
+<td><code id="bannerplot_:_labels">labels</code></td>
 <td>
 <p>labels to use on y-axis; the default is constructed from
 <code>x</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>nmax.lab</code></td>
+<tr>
+<td><code id="bannerplot_:_nmax.lab">nmax.lab</code></td>
 <td>
 <p>integer indicating the number of labels which is
 considered too large for single-name labelling the banner plot.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>max.strlen</code></td>
+<tr>
+<td><code id="bannerplot_:_max.strlen">max.strlen</code></td>
 <td>
 <p>positive integer giving the length to which
 strings are truncated in banner plot labeling.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>yax.do</code></td>
+<tr>
+<td><code id="bannerplot_:_yax.do">yax.do</code></td>
 <td>
 <p>logical indicating if a y axis and banner labels should
 be drawn.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>yaxRight</code></td>
+<tr>
+<td><code id="bannerplot_:_yaxRight">yaxRight</code></td>
 <td>
 <p>logical indicating if the y axis is on the right or left.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>y.mar</code></td>
+<tr>
+<td><code id="bannerplot_:_y.mar">y.mar</code></td>
 <td>
 <p>positive number specifying the margin width to use when
 banners are labeled (along a y-axis).  The default adapts to the
 string width and optimally would also dependend on the font.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="bannerplot_:_...">...</code></td>
 <td>
 <p>graphical parameters (see <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>) may also
 be supplied as arguments to this function.</p>
@@ -987,12 +991,12 @@ bannerplot<span class="token punctuation">(</span>agnes<span class="token punctu
 </div>
 <div class="container manual-page" id="chorSub">
 
-<a href="#chorSub" class="help-page-title"><h2>Subset of C-horizon of Kola Data</h2></a>
+<a href="#chorSub" class="help-page-title"><h2 id="chorSub">Subset of C-horizon of Kola Data</h2></a>
 
 <h3>Description</h3>
 
 <p>This is a small rounded subset of the C-horizon data
-<code><a>chorizon</a></code> from package <span class="pkg">mvoutlier</span>.
+<code><a href="https://petertuwien.r-universe.dev/mvoutlier/doc/manual.html#chorizon">chorizon</a></code> from package <span class="pkg">mvoutlier</span>.
 </p>
 
 
@@ -1028,7 +1032,7 @@ contain scaled concentrations of chemical elements.
 
 <h3>See Also</h3>
 
-<p><code><a>chorizon</a></code> in package <span class="pkg">mvoutlier</span> and other
+<p><code><a href="https://petertuwien.r-universe.dev/mvoutlier/doc/manual.html#chorizon">chorizon</a></code> in package <span class="pkg">mvoutlier</span> and other
 Kola data in the same package.
 </p>
 
@@ -1043,7 +1047,7 @@ pairs<span class="token punctuation">(</span>chorSub<span class="token punctuati
 </div>
 <div class="container manual-page" id="clara">
 
-<a href="#clara" class="help-page-title"><h2>Clustering Large Applications</h2></a>
+<a href="#clara" class="help-page-title"><h2 id="clara">Clustering Large Applications</h2></a>
 
 <h3>Description</h3>
 
@@ -1063,8 +1067,8 @@ clustering of the data into <code>k</code> clusters.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="clara_:_x">x</code></td>
 <td>
 
 <p>data matrix or data frame, each row corresponds to an observation,
@@ -1072,16 +1076,16 @@ and each column corresponds to a variable.  All variables must be numeric.
 Missing values (NAs) are allowed.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>k</code></td>
+<tr>
+<td><code id="clara_:_k">k</code></td>
 <td>
 <p>integer, the number of clusters.
 It is required that <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>k</mi><mo>&lt;</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">0 &lt; k &lt; n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code> where <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code> is the number of
 observations (i.e., n = <code>nrow(x)</code>).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>metric</code></td>
+<tr>
+<td><code id="clara_:_metric">metric</code></td>
 <td>
 
 <p>character string specifying the metric to be used for calculating
@@ -1094,8 +1098,8 @@ manhattan distances are the sum of absolute differences.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>stand</code></td>
+<tr>
+<td><code id="clara_:_stand">stand</code></td>
 <td>
 <p>logical, indicating if the measurements in <code>x</code> are
 standardized before calculating the dissimilarities.  Measurements
@@ -1105,15 +1109,15 @@ deviation.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>cluster.only</code></td>
+<tr>
+<td><code id="clara_:_cluster.only">cluster.only</code></td>
 <td>
 <p>logical; if true, only the clustering will be
 computed and returned, see details.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>samples</code></td>
+<tr>
+<td><code id="clara_:_samples">samples</code></td>
 <td>
 <p>integer, say <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span></code>, the number of samples to be drawn from the
 dataset.  The default, <code>N = 5</code>, is rather small for historical (and
@@ -1122,8 +1126,8 @@ now back compatibility) reasons and we <em>recommend to set
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>sampsize</code></td>
+<tr>
+<td><code id="clara_:_sampsize">sampsize</code></td>
 <td>
 <p>integer, say <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span></code>, the number of observations in each
 sample.  <code>sampsize</code> should be higher than the number of clusters
@@ -1133,15 +1137,15 @@ see note below, it may still be advisable to set
 <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">j =</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span></span></span></span></code><code>sampsize</code> to a <em>larger</em> value than the (historical) default.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>trace</code></td>
+<tr>
+<td><code id="clara_:_trace">trace</code></td>
 <td>
 <p>integer indicating a <em>trace level</em> for diagnostic
 output during the algorithm.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>medoids.x</code></td>
+<tr>
+<td><code id="clara_:_medoids.x">medoids.x</code></td>
 <td>
 <p>logical indicating if the medoids should be
 returned, identically to some rows of the input data <code>x</code>.  If
@@ -1151,8 +1155,8 @@ indices, i.e., row numbers of the medoids will still be returned
 one copy less of <code>x</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>keep.data</code></td>
+<tr>
+<td><code id="clara_:_keep.data">keep.data</code></td>
 <td>
 <p>logical indicating if the (<em>scaled</em> if
 <code>stand</code> is true) data should be kept in the result.
@@ -1163,17 +1167,17 @@ disables <code><a href="#clusplot.partition">clusplot</a>()</code>ing of the res
 <code>medoids.x = FALSE</code> to save even more memory.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>rngR</code></td>
+<tr>
+<td><code id="clara_:_rngR">rngR</code></td>
 <td>
-<p>logical indicating if <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s random number generator should
+<p>logical indicating if <span class="rlang"><b>R</b></span>'s random number generator should
 be used instead of the primitive clara()-builtin one.  If true, this
 also means that each call to <code>clara()</code> returns a different result
 – though only slightly different in good situations.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>pamLike</code></td>
+<tr>
+<td><code id="clara_:_pamLike">pamLike</code></td>
 <td>
 <p>logical indicating if the “swap” phase (see
 <code><a href="#pam">pam</a></code>, in C code) should use the same algorithm as
@@ -1185,8 +1189,8 @@ with respect to PAM, the default, <code>pamLike = FALSE</code> has been chosen t
 remain back compatible rather than “PAM compatible”.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>correct.d</code></td>
+<tr>
+<td><code id="clara_:_correct.d">correct.d</code></td>
 <td>
 <p>logical or integer indicating that—only in the case
 of <code>NA</code>s present in <code>x</code>—the correct distance computation
@@ -1244,9 +1248,9 @@ integer vector of length <code class="reqn"><span class="katex"><span class="kat
 
 <p>By default, the random sampling is implemented with a <em>very</em>
 simple scheme (with period <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>16</mn></msup><mo>=</mo><mn>65536</mn></mrow><annotation encoding="application/x-tex">2^{16} = 65536</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">16</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">65536</span></span></span></span></code>) inside the Fortran
-code, independently of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s random number generation, and as a matter
+code, independently of <span class="rlang"><b>R</b></span>'s random number generation, and as a matter
 of fact, deterministically.  Alternatively, we recommend setting
-<code>rngR = TRUE</code> which uses <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s random number generators.  Then,
+<code>rngR = TRUE</code> which uses <span class="rlang"><b>R</b></span>'s random number generators.  Then,
 <code>clara()</code> results are made reproducible typically by using
 <code><a href="https://r-universe.dev/manuals/base.html#Random">set.seed</a>()</code> before calling <code>clara</code>.
 </p>
@@ -1273,7 +1277,7 @@ several thousand observations.
 <p>Kaufman and Rousseeuw (see <code><a href="#agnes">agnes</a></code>), originally.
 Metric <code>"jaccard"</code>: Kamil Kozlowski (<code>@ownedoutcomes.com</code>)
 and Kamil Jadeszko.
-All arguments from <code>trace</code> on, and most <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> documentation and all
+All arguments from <code>trace</code> on, and most <span class="rlang"><b>R</b></span> documentation and all
 tests by Martin Maechler.
 </p>
 
@@ -1336,7 +1340,7 @@ tcl <span class="token operator">&lt;-</span> apply<span class="token punctuatio
 </div>
 <div class="container manual-page" id="clara.object">
 
-<a href="#clara.object" class="help-page-title"><h2>Clustering Large Applications (CLARA) Object</h2></a>
+<a href="#clara.object" class="help-page-title"><h2 id="clara.object">Clustering Large Applications (CLARA) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -1350,7 +1354,7 @@ dataset into clusters and are typically returned from <code><a href="#clara">cla
 <p>A legitimate <code>clara</code> object is a list with the following components:
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>sample</code></td>
 <td>
 
@@ -1358,7 +1362,7 @@ dataset into clusters and are typically returned from <code><a href="#clara">cla
 the sample used by the <code>clara</code> algorithm for the final partition.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>medoids</code></td>
 <td>
 <p>the medoids or representative objects of the clusters.
@@ -1368,7 +1372,7 @@ Possibly <code>NULL</code>, namely when the object resulted from
 that case.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>i.med</code></td>
 <td>
 
@@ -1376,20 +1380,20 @@ that case.</p>
 where <code>x</code> is the original data matrix in <code>clara(x,*)</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>clustering</code></td>
 <td>
 <p>the clustering vector, see <code><a href="#partition.object">partition.object</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>objective</code></td>
 <td>
 <p>the objective function for the final clustering of
 the entire dataset.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>clusinfo</code></td>
 <td>
 
@@ -1405,26 +1409,26 @@ is small, the cluster is well-separated from the other clusters.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>diss</code></td>
 <td>
 <p>dissimilarity (maybe NULL), see <code><a href="#partition.object">partition.object</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>silinfo</code></td>
 <td>
 <p>list with silhouette width information for the best sample, see
 <code><a href="#partition.object">partition.object</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>call</code></td>
 <td>
 <p>generating call, see <code><a href="#partition.object">partition.object</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>data</code></td>
 <td>
 <p>matrix, possibibly standardized, or NULL, see
@@ -1453,7 +1457,7 @@ be used on a <code>clara</code> object.
 </div>
 <div class="container manual-page" id="clusGap">
 
-<a href="#clusGap" class="help-page-title"><h2>Gap Statistic for Estimating the Number of Clusters</h2></a>
+<a href="#clusGap" class="help-page-title"><h2 id="clusGap">Gap Statistic for Estimating the Number of Clusters</h2></a>
 
 <h3>Description</h3>
 
@@ -1501,14 +1505,14 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="clusGap_:_x">x</code></td>
 <td>
 <p>numeric matrix or <code><a href="https://r-universe.dev/manuals/base.html#data.frame">data.frame</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>FUNcluster</code></td>
+<tr>
+<td><code id="clusGap_:_FUNcluster">FUNcluster</code></td>
 <td>
 <p>a <code><a href="https://r-universe.dev/manuals/base.html#function">function</a></code> which accepts as first
 argument a (data) matrix like <code>x</code>, second argument, say
@@ -1519,34 +1523,32 @@ integers in <code>1:k</code> determining the clustering or grouping of the
 <code>n</code> observations.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>K.max</code></td>
+<tr>
+<td><code id="clusGap_:_K.max">K.max</code></td>
 <td>
 <p>the maximum number of clusters to consider, must be at
 least two.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>B</code></td>
+<tr>
+<td><code id="clusGap_:_B">B</code></td>
 <td>
 <p>integer, number of Monte Carlo (“bootstrap”) samples.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>d.power</code></td>
+<tr>
+<td><code id="clusGap_:_d.power">d.power</code></td>
 <td>
 <p>a positive integer specifying the power <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></code> which
 is applied to the euclidean distances (<code><a href="https://r-universe.dev/manuals/stats.html#dist">dist</a></code>) before
 they are summed up to give <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">W(k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span></code>.  The default, <code>d.power = 1</code>,
-corresponds to the “historical” <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> implementation, whereas
+corresponds to the “historical” <span class="rlang"><b>R</b></span> implementation, whereas
 <code>d.power = 2</code> corresponds to what Tibshirani et al had
 proposed.  This was found by Juan Gonzalez, in 2016-02.</p>
 </td>
 </tr>
-</table>
-<table>
-<tr style="vertical-align: top;">
-<td><code>spaceH0</code></td>
+<tr>
+<td><code id="clusGap_:_spaceH0">spaceH0</code></td>
 <td>
 <p>a <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> string specifying the
 space of the <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">H_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></code> distribution (of <em>no</em> cluster).  Both
@@ -1556,36 +1558,36 @@ in a hyper cube and had been mentioned in the reference;
 Juan Gonzalez.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>verbose</code></td>
+<tr>
+<td><code id="clusGap_:_verbose">verbose</code></td>
 <td>
 <p>integer or logical, determining if “progress”
 output should be printed.  The default prints one bit per bootstrap
 sample.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="clusGap_:_...">...</code></td>
 <td>
 <p>(for <code>clusGap()</code>:) optionally further arguments for
 <code>FUNcluster()</code>, see <code>kmeans</code> example below.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>f</code></td>
+<tr>
+<td><code id="clusGap_:_f">f</code></td>
 <td>
 <p>numeric vector of ‘function values’, of length
 <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span></code>, whose (“1 SE respected”) maximum we want.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>SE.f</code></td>
+<tr>
+<td><code id="clusGap_:_SE.f">SE.f</code></td>
 <td>
 <p>numeric vector of length <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span></code> of standard errors of <code>f</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>method</code></td>
+<tr>
+<td><code id="clusGap_:_method">method</code></td>
 <td>
 <p>character string indicating how the “optimal”
 number of clusters, <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>k</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9579em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9579em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">^</span></span></span></span></span></span></span></span></span></span></code>, is computed from the gap
@@ -1645,8 +1647,8 @@ within an “f S.E.” range of that maximum (see also
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>SE.factor</code></td>
+<tr>
+<td><code id="clusGap_:_SE.factor">SE.factor</code></td>
 <td>
 <p>[When <code>method</code> contains <code>"SE"</code>] Determining
 the optimal number of clusters, Tibshirani et al. proposed the
@@ -1654,24 +1656,24 @@ the optimal number of clusters, Tibshirani et al. proposed the
 “f S.E.”-rule is used, more generally.</p>
 </td>
 </tr>
-</table>
-<table>
-<tr style="vertical-align: top;">
-<td><code>type, xlab, ylab, main</code></td>
+<tr>
+<td>
+<code id="clusGap_:_type">type</code>, <code id="clusGap_:_xlab">xlab</code>, <code id="clusGap_:_ylab">ylab</code>, <code id="clusGap_:_main">main</code>
+</td>
 <td>
 <p>arguments with the same meaning as in
 <code><a href="https://r-universe.dev/manuals/graphics.html#plot.default">plot.default</a>()</code>, with different default.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>do.arrows</code></td>
+<tr>
+<td><code id="clusGap_:_do.arrows">do.arrows</code></td>
 <td>
 <p>logical indicating if (1 SE -)“error bars”
 should be drawn, via <code><a href="https://r-universe.dev/manuals/graphics.html#arrows">arrows</a>()</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>arrowArgs</code></td>
+<tr>
+<td><code id="clusGap_:_arrowArgs">arrowArgs</code></td>
 <td>
 <p>a list of arguments passed to <code><a href="https://r-universe.dev/manuals/graphics.html#arrows">arrows</a>()</code>;
 the default, notably <code>angle</code> and <code>code</code>, provide a style
@@ -1697,7 +1699,7 @@ after an another run.
 basically a list with components
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>Tab</code></td>
 <td>
 <p>a matrix with <code>K.max</code> rows and 4 columns, named
@@ -1719,31 +1721,31 @@ simulated (“bootstrapped”) gap values.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>call</code></td>
 <td>
 <p>the <code>clusGap(..)</code> <code><a href="https://r-universe.dev/manuals/base.html#call">call</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>spaceH0</code></td>
 <td>
 <p>the <code>spaceH0</code> argument (<code><a href="https://r-universe.dev/manuals/base.html#match.arg">match.arg</a>()</code>ed).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>n</code></td>
 <td>
 <p>number of observations, i.e., <code>nrow(x)</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>B</code></td>
 <td>
 <p>input <code>B</code></p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>FUNcluster</code></td>
 <td>
 <p>input function <code>FUNcluster</code></p>
@@ -1794,7 +1796,7 @@ R package version 1.9.7.
 <p><code><a href="#silhouette">silhouette</a></code> for a much simpler less sophisticated
 goodness of clustering measure.
 </p>
-<p><code><a>cluster.stats</a>()</code> in package <span class="pkg">fpc</span> for
+<p><code><a href="https://chrhennig.r-universe.dev/fpc/doc/manual.html#cluster.stats">cluster.stats</a>()</code> in package <span class="pkg">fpc</span> for
 alternative measures.
 </p>
 
@@ -1872,7 +1874,7 @@ gsP.Z</code></pre>
 </div>
 <div class="container manual-page" id="clusplot.partition">
 
-<a href="#clusplot.partition" class="help-page-title"><h2>Bivariate Cluster Plot (of a Partitioning Object)</h2></a>
+<a href="#clusplot.partition" class="help-page-title"><h2 id="clusplot">Bivariate Cluster Plot (of a Partitioning Object)</h2></a>
 
 <h3>Description</h3>
 
@@ -1893,23 +1895,23 @@ clusplot<span class="token punctuation">(</span>x<span class="token punctuation"
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="clusplot_:_x">x</code></td>
 <td>
-<p>an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object, here, specifically an object of class
+<p>an <span class="rlang"><b>R</b></span> object, here, specifically an object of class
 <code>"partition"</code>, e.g. created by one of the functions
 <code><a href="#pam">pam</a></code>, <code><a href="#clara">clara</a></code>, or <code><a href="#fanny">fanny</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>main</code></td>
+<tr>
+<td><code id="clusplot_:_main">main</code></td>
 <td>
 <p>title for the plot; when <code>NULL</code> (by default), a title
 is constructed, using <code>x$call</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dist</code></td>
+<tr>
+<td><code id="clusplot_:_dist">dist</code></td>
 <td>
 <p>when <code>x</code> does not have a <code>diss</code> nor a
 <code>data</code> component, e.g., for <code><a href="#pam">pam</a>(dist(*),
@@ -1917,8 +1919,8 @@ is constructed, using <code>x$call</code>.</p>
 clusplot.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="clusplot_:_...">...</code></td>
 <td>
 <p>optional arguments passed to methods, notably the
 <code><a href="#clusplot.default">clusplot.default</a></code> method (except for the <code>diss</code>
@@ -1984,7 +1986,7 @@ clusplot<span class="token punctuation">(</span>pam<span class="token punctuatio
 </div>
 <div class="container manual-page" id="clusplot.default">
 
-<a href="#clusplot.default" class="help-page-title"><h2>Bivariate Cluster Plot (clusplot) Default Method</h2></a>
+<a href="#clusplot.default" class="help-page-title"><h2 id="clusplot.default">Bivariate Cluster Plot (clusplot) Default Method</h2></a>
 
 <h3>Description</h3>
 
@@ -2018,8 +2020,8 @@ clusplot<span class="token punctuation">(</span>x<span class="token punctuation"
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="clusplot.default_:_x">x</code></td>
 <td>
 <p>matrix or data frame, or dissimilarity matrix, depending on
 the value of the <code>diss</code> argument.
@@ -2040,8 +2042,8 @@ are not allowed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>clus</code></td>
+<tr>
+<td><code id="clusplot.default_:_clus">clus</code></td>
 <td>
 
 <p>a vector of length n representing a clustering of <code>x</code>.  For
@@ -2051,8 +2053,8 @@ component of the output of <code><a href="#pam">pam</a></code>, <code><a href="#
 <code><a href="#clara">clara</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>diss</code></td>
+<tr>
+<td><code id="clusplot.default_:_diss">diss</code></td>
 <td>
 
 <p>logical indicating if <code>x</code> will be considered as a dissimilarity
@@ -2060,18 +2062,16 @@ matrix or a matrix of observations by variables (see <code>x</code>
 arugment above).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>s.x.2d</code></td>
+<tr>
+<td><code id="clusplot.default_:_s.x.2d">s.x.2d</code></td>
 <td>
 <p>a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with components named <code>x</code> (a <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n
       \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></code> matrix; typically something like principal components of
 original data), <code>labs</code> and <code>var.dec</code>.</p>
 </td>
 </tr>
-</table>
-<table>
-<tr style="vertical-align: top;">
-<td><code>stand</code></td>
+<tr>
+<td><code id="clusplot.default_:_stand">stand</code></td>
 <td>
 
 <p>logical flag: if true, then the representations of the n observations in the
@@ -2079,8 +2079,8 @@ original data), <code>labs</code> and <code>var.dec</code>.</p>
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lines</code></td>
+<tr>
+<td><code id="clusplot.default_:_lines">lines</code></td>
 <td>
 
 <p>integer out of <code>0, 1, 2</code>, used to obtain an idea of the
@@ -2110,8 +2110,8 @@ E2 is drawn (along the line connecting <code class="reqn"><span class="katex"><s
 </dl>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>shade</code></td>
+<tr>
+<td><code id="clusplot.default_:_shade">shade</code></td>
 <td>
 
 <p>logical flag: if TRUE, then the ellipses are shaded in relation to their
@@ -2120,8 +2120,8 @@ area of the ellipse.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>color</code></td>
+<tr>
+<td><code id="clusplot.default_:_color">color</code></td>
 <td>
 
 <p>logical flag: if TRUE, then the ellipses are colored with respect to their
@@ -2131,8 +2131,8 @@ appropriate color scheme should be selected (we recommend a white
 background).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>labels</code></td>
+<tr>
+<td><code id="clusplot.default_:_labels">labels</code></td>
 <td>
 
 <p>integer code, currently one of 0,1,2,3,4 and 5.  If
@@ -2179,8 +2179,8 @@ be taken into account.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>plotchar</code></td>
+<tr>
+<td><code id="clusplot.default_:_plotchar">plotchar</code></td>
 <td>
 
 <p>logical flag: if TRUE, then the plotting symbols differ for points belonging
@@ -2188,8 +2188,8 @@ to different clusters.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>span</code></td>
+<tr>
+<td><code id="clusplot.default_:_span">span</code></td>
 <td>
 
 <p>logical flag: if TRUE, then each cluster is represented by the ellipse with
@@ -2206,8 +2206,8 @@ ellipse around it and <code>span=TRUE</code> gives the exact line segment.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>add</code></td>
+<tr>
+<td><code id="clusplot.default_:_add">add</code></td>
 <td>
 <p>logical indicating if ellipses (and labels if <code>labels</code>
 is true) should be <em>added</em> to an already existing plot.  If
@@ -2215,66 +2215,72 @@ false, neither a <code><a href="https://r-universe.dev/manuals/graphics.html#tit
 is written.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>col.p</code></td>
+<tr>
+<td><code id="clusplot.default_:_col.p">col.p</code></td>
 <td>
 <p>color code(s) used for the observation points.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>col.txt</code></td>
+<tr>
+<td><code id="clusplot.default_:_col.txt">col.txt</code></td>
 <td>
 <p>color code(s) used for the labels (if <code>labels &gt;= 2</code>).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>col.clus</code></td>
+<tr>
+<td><code id="clusplot.default_:_col.clus">col.clus</code></td>
 <td>
 <p>color code for the ellipses (and their labels);
 only one if color is false (as per default).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>cex, cex.txt</code></td>
+<tr>
+<td>
+<code id="clusplot.default_:_cex">cex</code>, <code id="clusplot.default_:_cex.txt">cex.txt</code>
+</td>
 <td>
 <p>character <b>ex</b>pansion (size), for the point
 symbols and point labels, respectively.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>xlim, ylim</code></td>
+<tr>
+<td>
+<code id="clusplot.default_:_xlim">xlim</code>, <code id="clusplot.default_:_ylim">ylim</code>
+</td>
 <td>
 <p>numeric vectors of length 2, giving the x- and y-
 ranges as in <code><a href="https://r-universe.dev/manuals/graphics.html#plot.default">plot.default</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>main</code></td>
+<tr>
+<td><code id="clusplot.default_:_main">main</code></td>
 <td>
 <p>main title for the plot; by default, one is constructed.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>sub</code></td>
+<tr>
+<td><code id="clusplot.default_:_sub">sub</code></td>
 <td>
 <p>sub title for the plot; by default, one is constructed.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>xlab, ylab</code></td>
+<tr>
+<td>
+<code id="clusplot.default_:_xlab">xlab</code>, <code id="clusplot.default_:_ylab">ylab</code>
+</td>
 <td>
 <p>x- and y- axis labels for the plot, with defaults.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>verbose</code></td>
+<tr>
+<td><code id="clusplot.default_:_verbose">verbose</code></td>
 <td>
 <p>a logical indicating, if there should be extra
 diagnostic output; mainly for ‘debugging’.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="clusplot.default_:_...">...</code></td>
 <td>
 <p>Further graphical parameters may also be supplied, see
 <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>.</p>
@@ -2299,7 +2305,7 @@ plot is determined by the optional arguments.
 <p>An invisible list with components:
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>Distances</code></td>
 <td>
 
@@ -2310,7 +2316,7 @@ If <code>lines = 0</code>, then the value of this component is <code>NA</code>.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>Shading</code></td>
 <td>
 
@@ -2338,7 +2344,7 @@ clusplot uses the function <code><a href="#pam">pam</a></code> to cluster the
 densities into 4 groups such that ellipses with nearly the same
 density get the same color.  <code>col.clus</code> specifies the colors used.
 </p>
-<p>The <code>col.p</code> and <code>col.txt</code> arguments, added for <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>,
+<p>The <code>col.p</code> and <code>col.txt</code> arguments, added for <span class="rlang"><b>R</b></span>,
 are recycled to have length the number of observations.
 If <code>col.p</code> has more than one value, using <code>color = TRUE</code> can
 be confusing because of a mix of point and ellipse colors.
@@ -2424,7 +2430,7 @@ par<span class="token punctuation">(</span>op<span class="token punctuation">)</
 </div>
 <div class="container manual-page" id="coef.hclust">
 
-<a href="#coef.hclust" class="help-page-title"><h2>Agglomerative / Divisive Coefficient for 'hclust' Objects</h2></a>
+<a href="#coef.hclust" class="help-page-title"><h2 id="coef.hclust">Agglomerative / Divisive Coefficient for 'hclust' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -2460,8 +2466,8 @@ coef<span class="token punctuation">(</span>object<span class="token punctuation
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>object</code></td>
+<tr>
+<td><code id="coef.hclust_:_object">object</code></td>
 <td>
 <p>an object of class <code>"hclust"</code> or <code>"twins"</code>,
 i.e., typically the result of
@@ -2475,8 +2481,8 @@ appropriate <code>merge</code> and <code>heights</code> components.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="coef.hclust_:_...">...</code></td>
 <td>
 <p>currently unused potential further arguments</p>
 </td>
@@ -2502,7 +2508,7 @@ coefHier<span class="token punctuation">(</span>aa<span class="token punctuation
 </div>
 <div class="container manual-page" id="daisy">
 
-<a href="#daisy" class="help-page-title"><h2>Dissimilarity Matrix Calculation</h2></a>
+<a href="#daisy" class="help-page-title"><h2 id="daisy">Dissimilarity Matrix Calculation</h2></a>
 
 <h3>Description</h3>
 
@@ -2525,8 +2531,8 @@ below.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="daisy_:_x">x</code></td>
 <td>
 
 <p>numeric matrix or data frame, of dimension <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">n\times p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></code>,
@@ -2541,8 +2547,8 @@ should be specified with the <code>type</code> argument.  Missing values
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>metric</code></td>
+<tr>
+<td><code id="daisy_:_metric">metric</code></td>
 <td>
 
 <p>character string specifying the metric to be used.
@@ -2561,8 +2567,8 @@ variable-specific distances, see the details section.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>stand</code></td>
+<tr>
+<td><code id="daisy_:_stand">stand</code></td>
 <td>
 <p>logical flag: if TRUE, then the measurements in <code>x</code>
 are standardized before calculating the
@@ -2577,8 +2583,8 @@ be ignored and Gower's standardization (based on the
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>type</code></td>
+<tr>
+<td><code id="daisy_:_type">type</code></td>
 <td>
 <p>list for specifying some (or all) of the types of the
 variables (columns) in <code>x</code>.  The list may contain the following
@@ -2639,8 +2645,8 @@ the default <code>type = list()</code> may often be sufficient.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>weights</code></td>
+<tr>
+<td><code id="daisy_:_weights">weights</code></td>
 <td>
 <p>an optional numeric vector of length <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></code>(=<code>ncol(x)</code>); to
 be used in “case 2” (mixed variables, or <code>metric = "gower"</code>),
@@ -2648,15 +2654,17 @@ specifying a weight for each variable (<code>x[,k]</code>) instead of
 <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code> in Gower's original formula.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>warnBin, warnAsym, warnConst</code></td>
+<tr>
+<td>
+<code id="daisy_:_warnBin">warnBin</code>, <code id="daisy_:_warnAsym">warnAsym</code>, <code id="daisy_:_warnConst">warnConst</code>
+</td>
 <td>
 <p>logicals indicating if the
 corresponding type checking warnings should be signalled (when found).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>warnType</code></td>
+<tr>
+<td><code id="daisy_:_warnType">warnType</code></td>
 <td>
 <p>logical indicating if <em>all</em> the type checking
 warnings should be active or not.</p>
@@ -2840,7 +2848,7 @@ summary<span class="token punctuation">(</span>dfl3 <span class="token operator"
 </div>
 <div class="container manual-page" id="diana">
 
-<a href="#diana" class="help-page-title"><h2>DIvisive ANAlysis Clustering</h2></a>
+<a href="#diana" class="help-page-title"><h2 id="diana">DIvisive ANAlysis Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -2859,8 +2867,8 @@ returning an object of class <code>diana</code>.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="diana_:_x">x</code></td>
 <td>
 
 <p>data matrix or data frame, or dissimilarity matrix or object,
@@ -2878,8 +2886,8 @@ above-mentioned functions. Missing values (NAs) are <em>not</em> allowed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>diss</code></td>
+<tr>
+<td><code id="diana_:_diss">diss</code></td>
 <td>
 
 <p>logical flag: if TRUE (default for <code>dist</code> or
@@ -2889,8 +2897,8 @@ a matrix of observations by variables.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>metric</code></td>
+<tr>
+<td><code id="diana_:_metric">metric</code></td>
 <td>
 
 <p>character string specifying the metric to be used for calculating
@@ -2903,8 +2911,8 @@ this argument will be ignored.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>stand</code></td>
+<tr>
+<td><code id="diana_:_stand">stand</code></td>
 <td>
 <p>logical; if true, the measurements in <code>x</code> are
 standardized before calculating the dissimilarities.  Measurements
@@ -2914,8 +2922,8 @@ deviation.  If <code>x</code> is already a dissimilarity matrix, then this
 argument will be ignored.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>stop.at.k</code></td>
+<tr>
+<td><code id="diana_:_stop.at.k">stop.at.k</code></td>
 <td>
 <p>logical or integer, <code>FALSE</code> by default.
 Otherwise must be integer, say <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></code>, in <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{1,2,..,n\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">..</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">}</span></span></span></span></code>,
@@ -2924,8 +2932,10 @@ specifying that the <code>diana</code> algorithm should stop early.
 Non-default NOT YET IMPLEMENTED.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>keep.diss, keep.data</code></td>
+<tr>
+<td>
+<code id="diana_:_keep.diss">keep.diss</code>, <code id="diana_:_keep.data">keep.data</code>
+</td>
 <td>
 <p>logicals indicating if the dissimilarities
 and/or input data <code>x</code> should be kept in the result.  Setting
@@ -2933,8 +2943,8 @@ these to <code>FALSE</code> can give much smaller results and hence even save
 memory allocation <em>time</em>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>trace.lev</code></td>
+<tr>
+<td><code id="diana_:_trace.lev">trace.lev</code></td>
 <td>
 <p>integer specifying a trace level for printing
 diagnostics during the algorithm.  Default <code>0</code> does not print
@@ -2982,7 +2992,7 @@ used on a <code>diana</code> object, and <code><a href="https://r-universe.dev/m
 <p>A legitimate <code>diana</code> object is a list with the following components:
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>order</code></td>
 <td>
 
@@ -2992,7 +3002,7 @@ not cross.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>order.lab</code></td>
 <td>
 
@@ -3002,14 +3012,14 @@ the original observations were labelled.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>height</code></td>
 <td>
 <p>a vector with the diameters of the clusters prior to splitting.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>dc</code></td>
 <td>
 
@@ -3025,7 +3035,7 @@ sizes.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>merge</code></td>
 <td>
 
@@ -3038,7 +3048,7 @@ split off at stage n-r.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>diss</code></td>
 <td>
 
@@ -3047,7 +3057,7 @@ dissimilarity matrix of the dataset.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>data</code></td>
 <td>
 
@@ -3095,7 +3105,7 @@ data<span class="token punctuation">(</span>agriculture<span class="token punctu
 </div>
 <div class="container manual-page" id="dissimilarity.object">
 
-<a href="#dissimilarity.object" class="help-page-title"><h2>Dissimilarity Matrix Object</h2></a>
+<a href="#dissimilarity.object" class="help-page-title"><h2 id="dissimilarity.object">Dissimilarity Matrix Object</h2></a>
 
 <h3>Description</h3>
 
@@ -3122,13 +3132,13 @@ from above is just <code>as.matrix(do)[i,j]</code>.
 <p>The object has the following attributes:
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>Size</code></td>
 <td>
 <p>the number of observations in the dataset.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>Metric</code></td>
 <td>
 <p>the metric used for calculating the
@@ -3137,14 +3147,14 @@ dissimilarities.  Possible values are "euclidean", "manhattan",
 dataset), and "unspecified".</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>Labels</code></td>
 <td>
 <p>optionally, contains the labels, if any, of the
 observations of the dataset.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>NA.message</code></td>
 <td>
 <p>optionally, if a dissimilarity could not be
@@ -3152,7 +3162,7 @@ computed, because of too many missing values for some observations
 of the dataset.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>Types</code></td>
 <td>
 <p>when a mixed metric was used, the types for each
@@ -3223,7 +3233,7 @@ functions: <code>print</code>, <code>summary</code>.
 </div>
 <div class="container manual-page" id="ellipsoidhull">
 
-<a href="#ellipsoidhull" class="help-page-title"><h2>Compute the Ellipsoid Hull or Spanning Ellipsoid of a Point Set</h2></a>
+<a href="#ellipsoidhull" class="help-page-title"><h2 id="ellipsoidhull">Compute the Ellipsoid Hull or Spanning Ellipsoid of a Point Set</h2></a>
 
 <h3>Description</h3>
 
@@ -3244,30 +3254,32 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="ellipsoidhull_:_x">x</code></td>
 <td>
 <p>the <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code> <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></code>-dimensional points  asnumeric
 <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">n\times p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></code> matrix.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>tol</code></td>
+<tr>
+<td><code id="ellipsoidhull_:_tol">tol</code></td>
 <td>
 <p>convergence tolerance for Titterington's algorithm.
 Setting this to much smaller values may drastically increase the number of
 iterations needed, and you may want to increas <code>maxit</code> as well.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>maxit</code></td>
+<tr>
+<td><code id="ellipsoidhull_:_maxit">maxit</code></td>
 <td>
 <p>integer giving the maximal number of iteration steps for
 the algorithm.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>ret.wt, ret.sqdist, ret.pr</code></td>
+<tr>
+<td>
+<code id="ellipsoidhull_:_ret.wt">ret.wt</code>, <code id="ellipsoidhull_:_ret.sqdist">ret.sqdist</code>, <code id="ellipsoidhull_:_ret.pr">ret.pr</code>
+</td>
 <td>
 <p>logicals indicating if additional
 information should be returned, <code>ret.wt</code> specifying the
@@ -3276,8 +3288,10 @@ information should be returned, <code>ret.wt</code> specifying the
 in the algorithms.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>digits,...</code></td>
+<tr>
+<td>
+<code id="ellipsoidhull_:_digits">digits</code>, <code id="ellipsoidhull_:_...">...</code>
+</td>
 <td>
 <p>the usual arguments to <code><a href="https://r-universe.dev/manuals/base.html#print">print</a></code> methods.</p>
 </td>
@@ -3300,25 +3314,25 @@ ellipsoid of which a more more flexible and general implementation is
 with several components, comprising at least
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>cov</code></td>
 <td>
 <p><code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>×</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">p\times p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></code> <em>covariance</em> matrix description
 the ellipsoid.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>loc</code></td>
 <td>
 <p><code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></code>-dimensional location of the ellipsoid center.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>d2</code></td>
 <td>
 <p>average squared radius.  Further, <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mn>2</mn><mo>=</mo><msup><mi>t</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">d2 = t^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">d</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></code>, where
 <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span></code> is “the value of a t-statistic on the ellipse
-boundary” (from <code><a>ellipse</a></code> in the
+boundary” (from <code><a href="https://dmurdoch.r-universe.dev/ellipse/doc/manual.html#ellipse">ellipse</a></code> in the
 <a href="https://CRAN.R-project.org/package=ellipse" target="_blank"><span class="pkg">ellipse</span></a> package), and hence, more usefully,
 <code>d2 = qchisq(alpha, df = p)</code>, where <code>alpha</code> is the
 confidence level for p-variate normally distributed data with
@@ -3326,50 +3340,52 @@ location and covariance <code>loc</code> and <code>cov</code> to lie inside the
 ellipsoid.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>wt</code></td>
 <td>
 <p>the vector of weights iff <code>ret.wt</code> was true.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>sqdist</code></td>
 <td>
 <p>the vector of squared distances iff <code>ret.sqdist</code> was true.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>prob</code></td>
 <td>
 <p>the vector of algorithm probabilities iff <code>ret.pr</code> was true.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>it</code></td>
 <td>
 <p>number of iterations used.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>tol, maxit</code></td>
+<tr>
+<td>
+<code>tol</code>, <code>maxit</code>
+</td>
 <td>
 <p>just the input argument, see above.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>eps</code></td>
 <td>
 <p>the achieved tolerance which is the maximal squared radius
 minus <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>ierr</code></td>
 <td>
 <p>error code as from the algorithm; <code>0</code> means <em>ok</em>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>conv</code></td>
 <td>
 <p>logical indicating if the converged.  This is defined as
@@ -3401,8 +3417,8 @@ Algorithms for computing D-optimal design on finite design spaces.  In
 <code><a href="https://r-universe.dev/manuals/stats.html#predict">predict</a></code> method for <code>ellipsoid</code> objects.
 <code><a href="#volume.ellipsoid">volume.ellipsoid</a></code> for an example of ‘manual’
 <code>ellipsoid</code> object construction;<br>
-further <code><a>ellipse</a></code> from package <a href="https://CRAN.R-project.org/package=ellipse" target="_blank"><span class="pkg">ellipse</span></a>
-and <code><a href="https://mmaechler.r-universe.dev/manual/sfsmisc.html#ellipsePoints">ellipsePoints</a></code> from package <a href="https://CRAN.R-project.org/package=sfsmisc" target="_blank"><span class="pkg">sfsmisc</span></a>.
+further <code><a href="https://dmurdoch.r-universe.dev/ellipse/doc/manual.html#ellipse">ellipse</a></code> from package <a href="https://CRAN.R-project.org/package=ellipse" target="_blank"><span class="pkg">ellipse</span></a>
+and <code><a href="https://mmaechler.r-universe.dev/sfsmisc/doc/manual.html#ellipsePoints">ellipsePoints</a></code> from package <a href="https://CRAN.R-project.org/package=sfsmisc" target="_blank"><span class="pkg">sfsmisc</span></a>.
 </p>
 <p><code><a href="https://r-universe.dev/manuals/grDevices.html#chull">chull</a></code> for the convex hull,
 <code><a href="#clusplot.partition">clusplot</a></code> which makes use of this; <code><a href="https://r-universe.dev/manuals/MASS.html#cov.mve">cov.mve</a></code>.
@@ -3432,7 +3448,7 @@ points<span class="token punctuation">(</span>xy<span class="token punctuation">
 </div>
 <div class="container manual-page" id="fanny">
 
-<a href="#fanny" class="help-page-title"><h2>Fuzzy Analysis Clustering</h2></a>
+<a href="#fanny" class="help-page-title"><h2 id="fanny">Fuzzy Analysis Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -3453,8 +3469,8 @@ points<span class="token punctuation">(</span>xy<span class="token punctuation">
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="fanny_:_x">x</code></td>
 <td>
 
 <p>data matrix or data frame, or dissimilarity matrix, depending on the
@@ -3472,16 +3488,16 @@ above-mentioned functions.  Missing values (NAs) are not allowed.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>k</code></td>
+<tr>
+<td><code id="fanny_:_k">k</code></td>
 <td>
 <p>integer giving the desired number of clusters.  It is
 required that <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>k</mi><mo>&lt;</mo><mi>n</mi><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">0 &lt; k &lt; n/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mord">/2</span></span></span></span></code> where <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code> is the number of
 observations.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>diss</code></td>
+<tr>
+<td><code id="fanny_:_diss">diss</code></td>
 <td>
 
 <p>logical flag: if TRUE (default for <code>dist</code> or
@@ -3491,8 +3507,8 @@ a matrix of observations by variables.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>memb.exp</code></td>
+<tr>
+<td><code id="fanny_:_memb.exp">memb.exp</code></td>
 <td>
 <p>number <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span></code> strictly larger than 1 specifying the
 <em>membership exponent</em> used in the fit criterion; see the
@@ -3500,8 +3516,8 @@ a matrix of observations by variables.
 inside FANNY.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>metric</code></td>
+<tr>
+<td><code id="fanny_:_metric">metric</code></td>
 <td>
 <p>character string specifying the metric to be used for
 calculating dissimilarities between observations.  Options are
@@ -3517,8 +3533,8 @@ be ignored.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>stand</code></td>
+<tr>
+<td><code id="fanny_:_stand">stand</code></td>
 <td>
 <p>logical; if true, the measurements in <code>x</code> are
 standardized before calculating the dissimilarities.  Measurements
@@ -3528,8 +3544,8 @@ deviation.  If <code>x</code> is already a dissimilarity matrix, then this
 argument will be ignored.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>iniMem.p</code></td>
+<tr>
+<td><code id="fanny_:_iniMem.p">iniMem.p</code></td>
 <td>
 <p>numeric <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">n \times k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></code> matrix or <code>NULL</code>
 (by default); can be used to specify a starting <code>membership</code>
@@ -3538,17 +3554,17 @@ one.
 </p>
 </td>
 </tr>
-</table>
-<table><tr style="vertical-align: top;">
-<td><code>cluster.only</code></td>
+<tr>
+<td><code id="fanny_:_cluster.only">cluster.only</code></td>
 <td>
 <p>logical; if true, no silhouette information will be
 computed and returned, see details.</p>
 </td>
-</tr></table>
-<table>
-<tr style="vertical-align: top;">
-<td><code>keep.diss, keep.data</code></td>
+</tr>
+<tr>
+<td>
+<code id="fanny_:_keep.diss">keep.diss</code>, <code id="fanny_:_keep.data">keep.data</code>
+</td>
 <td>
 <p>logicals indicating if the dissimilarities
 and/or input data <code>x</code> should be kept in the result.  Setting
@@ -3556,8 +3572,10 @@ these to <code>FALSE</code> can give smaller results and hence also save
 memory allocation <em>time</em>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>maxit, tol</code></td>
+<tr>
+<td>
+<code id="fanny_:_maxit">maxit</code>, <code id="fanny_:_tol">tol</code>
+</td>
 <td>
 <p>maximal number of iterations and default tolerance
 for convergence (relative convergence of the fit criterion) for the
@@ -3565,8 +3583,8 @@ FANNY algorithm.  The defaults <code>maxit = 500</code> and <code>tol =
       1e-15</code> used to be hardwired inside the algorithm.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>trace.lev</code></td>
+<tr>
+<td><code id="fanny_:_trace.lev">trace.lev</code></td>
 <td>
 <p>integer specifying a trace level for printing
 diagnostics during the C-internal algorithm.
@@ -3656,7 +3674,7 @@ plot<span class="token punctuation">(</span>fanny<span class="token punctuation"
 </div>
 <div class="container manual-page" id="fanny.object">
 
-<a href="#fanny.object" class="help-page-title"><h2>Fuzzy Analysis (FANNY) Object</h2></a>
+<a href="#fanny.object" class="help-page-title"><h2 id="fanny.object">Fuzzy Analysis (FANNY) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -3670,7 +3688,7 @@ dataset.
 <p>A legitimate <code>fanny</code> object is a list with the following components:
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>membership</code></td>
 <td>
 
@@ -3679,13 +3697,13 @@ observation and a cluster.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>memb.exp</code></td>
 <td>
 <p>the membership exponent used in the fitting criterion.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>coeff</code></td>
 <td>
 
@@ -3701,7 +3719,7 @@ whereas a value close to 1 indicates a near-crisp clustering.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>clustering</code></td>
 <td>
 
@@ -3709,7 +3727,7 @@ whereas a value close to 1 indicates a near-crisp clustering.
 <code><a href="#partition.object">partition.object</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>k.crisp</code></td>
 <td>
 <p>integer (<code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">\le k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></code>) giving the number of <em>crisp</em>
@@ -3717,7 +3735,7 @@ clusters; can be less than <code class="reqn"><span class="katex"><span class="k
 decrease <code>memb.exp</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>objective</code></td>
 <td>
 
@@ -3727,7 +3745,7 @@ tolerance <code>tol</code> used.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>convergence</code></td>
 <td>
 
@@ -3737,7 +3755,7 @@ and <code>converged</code> indicating if the algorithm converged (in
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>diss</code></td>
 <td>
 
@@ -3745,13 +3763,13 @@ and <code>converged</code> indicating if the algorithm converged (in
 <code><a href="#partition.object">partition.object</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>call</code></td>
 <td>
 <p>generating call, see <code><a href="#partition.object">partition.object</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>silinfo</code></td>
 <td>
 
@@ -3759,7 +3777,7 @@ and <code>converged</code> indicating if the algorithm converged (in
 <code><a href="#partition.object">partition.object</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>data</code></td>
 <td>
 <p>matrix, possibibly standardized, or NULL, see
@@ -3799,7 +3817,7 @@ be used on a <code>fanny</code> object.
 </div>
 <div class="container manual-page" id="flower">
 
-<a href="#flower" class="help-page-title"><h2>Flower Characteristics</h2></a>
+<a href="#flower" class="help-page-title"><h2 id="flower">Flower Characteristics</h2></a>
 
 <h3>Description</h3>
 
@@ -3925,7 +3943,7 @@ daisy<span class="token punctuation">(</span>flower<span class="token punctuatio
 </div>
 <div class="container manual-page" id="lower.to.upper.tri.inds">
 
-<a href="#lower.to.upper.tri.inds" class="help-page-title"><h2>Permute Indices for Triangular Matrices</h2></a>
+<a href="#lower.to.upper.tri.inds" class="help-page-title"><h2 id="lower.to.upper.tri.inds">Permute Indices for Triangular Matrices</h2></a>
 
 <h3>Description</h3>
 
@@ -3942,8 +3960,8 @@ upper.to.lower.tri.inds<span class="token punctuation">(</span>n<span class="tok
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>n</code></td>
+<table><tr>
+<td><code id="lower.to.upper.tri.inds_:_n">n</code></td>
 <td>
 <p>integer larger than 1.</p>
 </td>
@@ -3977,7 +3995,7 @@ stopifnot<span class="token punctuation">(</span>lower.to.upper.tri.inds<span cl
 </div>
 <div class="container manual-page" id="medoids">
 
-<a href="#medoids" class="help-page-title"><h2>Compute <code>pam</code>-consistent Medoids from Clustering</h2></a>
+<a href="#medoids" class="help-page-title"><h2 id="medoids">Compute <code>pam</code>-consistent Medoids from Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -3995,15 +4013,15 @@ compute the <code><a href="#pam">pam</a>()</code>-consistent medoids.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="medoids_:_x">x</code></td>
 <td>
 <p>Either a data matrix or data frame, or dissimilarity matrix or
 object, see also <code><a href="#pam">pam</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>clustering</code></td>
+<tr>
+<td><code id="medoids_:_clustering">clustering</code></td>
 <td>
 <p>an integer vector of length <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code>, the number of
 observations, giving for each observation the number ('id') of the
@@ -4013,21 +4031,21 @@ also <code><a href="#partition.object">partition.object</a></code> and <code><a 
 examples where such clustering vectors are computed.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>diss</code></td>
+<tr>
+<td><code id="medoids_:_diss">diss</code></td>
 <td>
 <p>see also <code><a href="#pam">pam</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>USE.NAMES</code></td>
+<tr>
+<td><code id="medoids_:_USE.NAMES">USE.NAMES</code></td>
 <td>
 <p>a logical, typical false, passed to the
 <code><a href="https://r-universe.dev/manuals/base.html#lapply">vapply</a>()</code> call computing the medoids.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="medoids_:_...">...</code></td>
 <td>
 <p>optional further argument passed to <code><a href="#pam">pam</a>(xj, k=1, ...)</code>,
 notably <code>metric</code>, or <code>variant="f_5"</code> to use a faster algorithm, or
@@ -4074,7 +4092,7 @@ agnS <span class="token operator">&lt;-</span> agnes<span class="token punctuati
 </div>
 <div class="container manual-page" id="mona">
 
-<a href="#mona" class="help-page-title"><h2>MONothetic Analysis Clustering of Binary Variables</h2></a>
+<a href="#mona" class="help-page-title"><h2 id="mona">MONothetic Analysis Clustering of Binary Variables</h2></a>
 
 <h3>Description</h3>
 
@@ -4091,8 +4109,8 @@ a dataset with binary variables only.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="mona_:_x">x</code></td>
 <td>
 
 <p>data matrix or data frame in which each row corresponds to an
@@ -4105,8 +4123,8 @@ values.  A variable with all its non-missing values identical is
 not allowed.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>trace.lev</code></td>
+<tr>
+<td><code id="mona_:_trace.lev">trace.lev</code></td>
 <td>
 <p>logical or integer indicating if (and how much) the
 algorithm should produce progress output.</p>
@@ -4207,7 +4225,7 @@ try<span class="token punctuation">(</span> mona<span class="token punctuation">
 </div>
 <div class="container manual-page" id="mona.object">
 
-<a href="#mona.object" class="help-page-title"><h2>Monothetic Analysis (MONA) Object</h2></a>
+<a href="#mona.object" class="help-page-title"><h2 id="mona.object">Monothetic Analysis (MONA) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -4223,7 +4241,7 @@ hierarchical clustering of a dataset with only binary variables
 <p>A legitimate <code>mona</code> object is a list with the following components:
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>data</code></td>
 <td>
 
@@ -4232,7 +4250,7 @@ but with factors coded as 0 and 1, and all missing values replaced.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>order</code></td>
 <td>
 
@@ -4242,7 +4260,7 @@ will not cross.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>order.lab</code></td>
 <td>
 
@@ -4252,7 +4270,7 @@ the original observations were labelled.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>variable</code></td>
 <td>
 
@@ -4261,7 +4279,7 @@ specifying the variables used to separate the observations of <code>order</code>
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>step</code></td>
 <td>
 
@@ -4288,7 +4306,7 @@ specifying the separation steps at which the observations of
 </div>
 <div class="container manual-page" id="pam">
 
-<a href="#pam" class="help-page-title"><h2>Partitioning Around Medoids</h2></a>
+<a href="#pam" class="help-page-title"><h2 id="pam">Partitioning Around Medoids</h2></a>
 
 <h3>Description</h3>
 
@@ -4314,8 +4332,8 @@ medoids”, a more robust version of K-means.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="pam_:_x">x</code></td>
 <td>
 
 <p>data matrix or data frame, or dissimilarity matrix or object,
@@ -4336,15 +4354,15 @@ above-mentioned functions. Missing values (<code><a href="https://r-universe.dev
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>k</code></td>
+<tr>
+<td><code id="pam_:_k">k</code></td>
 <td>
 <p>positive integer specifying the number of clusters, less than
 the number of observations.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>diss</code></td>
+<tr>
+<td><code id="pam_:_diss">diss</code></td>
 <td>
 
 <p>logical flag: if TRUE (default for <code>dist</code> or
@@ -4354,8 +4372,8 @@ a matrix of observations by variables.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>metric</code></td>
+<tr>
+<td><code id="pam_:_metric">metric</code></td>
 <td>
 
 <p>character string specifying the metric to be used for calculating
@@ -4368,24 +4386,24 @@ this argument will be ignored.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>medoids</code></td>
+<tr>
+<td><code id="pam_:_medoids">medoids</code></td>
 <td>
 <p>NULL (default) or length-<code>k</code> vector of integer
 indices (in <code>1:n</code>) specifying initial medoids instead of using
 the ‘<em>build</em>’ algorithm.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>nstart</code></td>
+<tr>
+<td><code id="pam_:_nstart">nstart</code></td>
 <td>
 <p>used only when <code>medoids = "random"</code>: specifies the
 <em>number</em> of random “starts”;  this argument corresponds to
-the one of <code><a href="https://r-universe.dev/manuals/stats.html#kmeans">kmeans</a>()</code> (from <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s package <span class="pkg">stats</span>).</p>
+the one of <code><a href="https://r-universe.dev/manuals/stats.html#kmeans">kmeans</a>()</code> (from <span class="rlang"><b>R</b></span>'s package <span class="pkg">stats</span>).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>stand</code></td>
+<tr>
+<td><code id="pam_:_stand">stand</code></td>
 <td>
 <p>logical; if true, the measurements in <code>x</code> are
 standardized before calculating the dissimilarities.  Measurements
@@ -4395,15 +4413,15 @@ deviation.  If <code>x</code> is already a dissimilarity matrix, then this
 argument will be ignored.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>cluster.only</code></td>
+<tr>
+<td><code id="pam_:_cluster.only">cluster.only</code></td>
 <td>
 <p>logical; if true, only the clustering will be
 computed and returned, see details.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>do.swap</code></td>
+<tr>
+<td><code id="pam_:_do.swap">do.swap</code></td>
 <td>
 <p>logical indicating if the <b>swap</b> phase should
 happen. The default, <code>TRUE</code>, correspond to the
@@ -4412,8 +4430,10 @@ much more computer intensive than the <b>build</b> one for large
 <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code>, so can be skipped by <code>do.swap = FALSE</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>keep.diss, keep.data</code></td>
+<tr>
+<td>
+<code id="pam_:_keep.diss">keep.diss</code>, <code id="pam_:_keep.data">keep.data</code>
+</td>
 <td>
 <p>logicals indicating if the dissimilarities
 and/or input data <code>x</code> should be kept in the result.  Setting
@@ -4421,16 +4441,16 @@ these to <code>FALSE</code> can give much smaller results and hence even save
 memory allocation <em>time</em>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>pamonce</code></td>
+<tr>
+<td><code id="pam_:_pamonce">pamonce</code></td>
 <td>
 <p>logical or integer in <code>0:6</code> specifying algorithmic
 short cuts as proposed by Reynolds et al. (2006), and
 Schubert and Rousseeuw (2019, 2021) see below.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>variant</code></td>
+<tr>
+<td><code id="pam_:_variant">variant</code></td>
 <td>
 <p>a <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> string denoting the variant of
 PAM algorithm to use; a more self-documenting version of <code>pamonce</code>
@@ -4439,8 +4459,8 @@ uses <code>pamonce = 6</code> but also <code>nstart = 1</code> and hence
 <code>medoids = "random"</code> by default.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>trace.lev</code></td>
+<tr>
+<td><code id="pam_:_trace.lev">trace.lev</code></td>
 <td>
 <p>integer specifying a trace level for printing
 diagnostics during the build and swap phase of the algorithm.
@@ -4640,7 +4660,7 @@ data<span class="token punctuation">(</span>ruspini<span class="token punctuatio
 </div>
 <div class="container manual-page" id="pam.object">
 
-<a href="#pam.object" class="help-page-title"><h2>Partitioning Around Medoids (PAM) Object</h2></a>
+<a href="#pam.object" class="help-page-title"><h2 id="pam.object">Partitioning Around Medoids (PAM) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -4654,7 +4674,7 @@ dataset into clusters.
 <p>A legitimate <code>pam</code> object is a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with the following components:
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>medoids</code></td>
 <td>
 
@@ -4665,27 +4685,27 @@ given, else <code>medoids</code> is a <code><a href="https://r-universe.dev/manu
 row the coordinates of one medoid.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>id.med</code></td>
 <td>
 <p>integer vector of <em>indices</em> giving the medoid
 observation numbers.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>clustering</code></td>
 <td>
 <p>the clustering vector, see <code><a href="#partition.object">partition.object</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>objective</code></td>
 <td>
 <p>the objective function after the first and second
 step of the <code>pam</code> algorithm.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>isolation</code></td>
 <td>
 
@@ -4701,7 +4721,7 @@ L-cluster.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>clusinfo</code></td>
 <td>
 
@@ -4716,26 +4736,26 @@ observation of the cluster and an observation of another cluster).
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>silinfo</code></td>
 <td>
 <p>list with silhouette width information, see
 <code><a href="#partition.object">partition.object</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>diss</code></td>
 <td>
 <p>dissimilarity (maybe NULL), see <code><a href="#partition.object">partition.object</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>call</code></td>
 <td>
 <p>generating call, see <code><a href="#partition.object">partition.object</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>data</code></td>
 <td>
 <p>(possibibly standardized) see <code><a href="#partition.object">partition.object</a></code>.</p>
@@ -4790,7 +4810,7 @@ axis<span class="token punctuation">(</span><span class="token number">1</span><
 </div>
 <div class="container manual-page" id="partition.object">
 
-<a href="#partition.object" class="help-page-title"><h2>Partitioning Object</h2></a>
+<a href="#partition.object" class="help-page-title"><h2 id="partition.object">Partitioning Object</h2></a>
 
 <h3>Description</h3>
 
@@ -4805,7 +4825,7 @@ dataset into clusters.
 (and typically more) components:
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>clustering</code></td>
 <td>
 
@@ -4814,13 +4834,13 @@ observations, giving for each observation the number ('id') of the
 cluster to which it belongs.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>call</code></td>
 <td>
 <p>the matched <code><a href="https://r-universe.dev/manuals/base.html#call">call</a></code> generating the object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>silinfo</code></td>
 <td>
 
@@ -4859,14 +4879,14 @@ clusterings (e.g. with varying number of clusters) to choose an
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>objective</code></td>
 <td>
 <p>value of criterion maximized during the
 partitioning algorithm, may more than one entry for different stages.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>diss</code></td>
 <td>
 
@@ -4876,7 +4896,7 @@ dissimilarity matrix of the dataset (or relevant subset, e.g. for
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>data</code></td>
 <td>
 
@@ -4919,7 +4939,7 @@ as input structure to the clustering method.
 </div>
 <div class="container manual-page" id="plantTraits">
 
-<a href="#plantTraits" class="help-page-title"><h2>Plant Species Traits Data</h2></a>
+<a href="#plantTraits" class="help-page-title"><h2 id="plantTraits">Plant Species Traits Data</h2></a>
 
 <h3>Description</h3>
 
@@ -4956,14 +4976,12 @@ according to biological attributes (morphological or reproductive)
 <p>Plant height, an ordered factor with levels
 <code>1</code> &lt; <code>2</code> &lt; ... &lt; <code>8</code>.</p>
 </dd>
-</dl>
-<dl>
+
 <dt><code>begflow</code></dt>
 <dd>
 <p>Time of first flowering, an ordered factor with levels <code>1</code> &lt; <code>2</code> &lt; <code>3</code> &lt; <code>4</code> &lt; <code>5</code> &lt; <code>6</code> &lt; <code>7</code> &lt; <code>8</code> &lt; <code>9</code></p>
 </dd>
-</dl>
-<dl>
+
 <dt><code>mycor</code></dt>
 <dd>
 <p>Mycorrhizas, an ordered factor with levels <code>0</code>never &lt; <code>1</code> sometimes&lt; <code>2</code>always</p>
@@ -5115,7 +5133,7 @@ plot<span class="token punctuation">(</span>cmdsdai.b<span class="token punctuat
 </div>
 <div class="container manual-page" id="plot.agnes">
 
-<a href="#plot.agnes" class="help-page-title"><h2>Plots of an Agglomerative Hierarchical Clustering</h2></a>
+<a href="#plot.agnes" class="help-page-title"><h2 id="plot.agnes">Plots of an Agglomerative Hierarchical Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -5134,22 +5152,22 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="plot.agnes_:_x">x</code></td>
 <td>
 <p>an object of class <code>"agnes"</code>, typically created by
 <code><a href="#agnes">agnes</a>(.)</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>ask</code></td>
+<tr>
+<td><code id="plot.agnes_:_ask">ask</code></td>
 <td>
 <p>logical; if true and <code>which.plots</code> is <code>NULL</code>,
 <code>plot.agnes</code> operates in interactive mode, via <code><a href="https://r-universe.dev/manuals/utils.html#menu">menu</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>which.plots</code></td>
+<tr>
+<td><code id="plot.agnes_:_which.plots">which.plots</code></td>
 <td>
 <p>integer vector or NULL (default), the latter
 producing both plots.  Otherwise, <code>which.plots</code>
@@ -5157,43 +5175,45 @@ must contain integers of <code>1</code> for a <em>banner</em> plot or <code>2</c
 dendrogram or “clustering tree”.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>main, sub</code></td>
+<tr>
+<td>
+<code id="plot.agnes_:_main">main</code>, <code id="plot.agnes_:_sub">sub</code>
+</td>
 <td>
 <p>main and sub title for the plot, with convenient
 defaults.  See documentation for these arguments in <code><a href="https://r-universe.dev/manuals/graphics.html#plot.default">plot.default</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>adj</code></td>
+<tr>
+<td><code id="plot.agnes_:_adj">adj</code></td>
 <td>
 <p>for label adjustment in <code><a href="#bannerplot">bannerplot</a>()</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>nmax.lab</code></td>
+<tr>
+<td><code id="plot.agnes_:_nmax.lab">nmax.lab</code></td>
 <td>
 <p>integer indicating the number of labels which is
 considered too large for single-name labelling the banner plot.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>max.strlen</code></td>
+<tr>
+<td><code id="plot.agnes_:_max.strlen">max.strlen</code></td>
 <td>
 <p>positive integer giving the length to which
 strings are truncated in banner plot labeling.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>xax.pretty</code></td>
+<tr>
+<td><code id="plot.agnes_:_xax.pretty">xax.pretty</code></td>
 <td>
 <p>logical or integer indicating if
 <code><a href="https://r-universe.dev/manuals/base.html#pretty">pretty</a>(*, n = xax.pretty)</code> should be used for the x axis.
 <code>xax.pretty = FALSE</code> is for back compatibility.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="plot.agnes_:_...">...</code></td>
 <td>
 <p>graphical parameters (see <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>) may also
 be supplied and are passed to <code><a href="#bannerplot">bannerplot</a>()</code> or
@@ -5289,7 +5309,7 @@ plot<span class="token punctuation">(</span>ai<span class="token punctuation">,<
 </div>
 <div class="container manual-page" id="plot.diana">
 
-<a href="#plot.diana" class="help-page-title"><h2>Plots of a Divisive Hierarchical Clustering</h2></a>
+<a href="#plot.diana" class="help-page-title"><h2 id="plot.diana">Plots of a Divisive Hierarchical Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -5308,22 +5328,22 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="plot.diana_:_x">x</code></td>
 <td>
 <p>an object of class <code>"diana"</code>, typically created by
 <code><a href="#diana">diana</a>(.)</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>ask</code></td>
+<tr>
+<td><code id="plot.diana_:_ask">ask</code></td>
 <td>
 <p>logical; if true and <code>which.plots</code> is <code>NULL</code>,
 <code>plot.diana</code> operates in interactive mode, via <code><a href="https://r-universe.dev/manuals/utils.html#menu">menu</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>which.plots</code></td>
+<tr>
+<td><code id="plot.diana_:_which.plots">which.plots</code></td>
 <td>
 <p>integer vector or NULL (default), the latter
 producing both plots.  Otherwise, <code>which.plots</code>
@@ -5331,44 +5351,46 @@ must contain integers of <code>1</code> for a <em>banner</em> plot or <code>2</c
 dendrogram or “clustering tree”.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>main, sub</code></td>
+<tr>
+<td>
+<code id="plot.diana_:_main">main</code>, <code id="plot.diana_:_sub">sub</code>
+</td>
 <td>
 <p>main and sub title for the plot, each with a convenient
 default.  See documentation for these arguments in
 <code><a href="https://r-universe.dev/manuals/graphics.html#plot.default">plot.default</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>adj</code></td>
+<tr>
+<td><code id="plot.diana_:_adj">adj</code></td>
 <td>
 <p>for label adjustment in <code><a href="#bannerplot">bannerplot</a>()</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>nmax.lab</code></td>
+<tr>
+<td><code id="plot.diana_:_nmax.lab">nmax.lab</code></td>
 <td>
 <p>integer indicating the number of labels which is
 considered too large for single-name labelling the banner plot.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>max.strlen</code></td>
+<tr>
+<td><code id="plot.diana_:_max.strlen">max.strlen</code></td>
 <td>
 <p>positive integer giving the length to which
 strings are truncated in banner plot labeling.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>xax.pretty</code></td>
+<tr>
+<td><code id="plot.diana_:_xax.pretty">xax.pretty</code></td>
 <td>
 <p>logical or integer indicating if
 <code><a href="https://r-universe.dev/manuals/base.html#pretty">pretty</a>(*, n = xax.pretty)</code> should be used for the x axis.
 <code>xax.pretty = FALSE</code> is for back compatibility.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="plot.diana_:_...">...</code></td>
 <td>
 <p>graphical parameters (see <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>) may also
 be supplied and are passed to <code><a href="#bannerplot">bannerplot</a>()</code> or
@@ -5441,7 +5463,7 @@ par<span class="token punctuation">(</span>op<span class="token punctuation">)</
 </div>
 <div class="container manual-page" id="plot.mona">
 
-<a href="#plot.mona" class="help-page-title"><h2>Banner of Monothetic Divisive Hierarchical Clusterings</h2></a>
+<a href="#plot.mona" class="help-page-title"><h2 id="plot.mona">Banner of Monothetic Divisive Hierarchical Clusterings</h2></a>
 
 <h3>Description</h3>
 
@@ -5461,54 +5483,58 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="plot.mona_:_x">x</code></td>
 <td>
 <p>an object of class <code>"mona"</code>, typically created by
 <code><a href="#mona">mona</a>(.)</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>main,sub</code></td>
+<tr>
+<td>
+<code id="plot.mona_:_main">main</code>, <code id="plot.mona_:_sub">sub</code>
+</td>
 <td>
 <p>main and sub titles for the plot, with convenient
 defaults.  See documentation in <code><a href="https://r-universe.dev/manuals/graphics.html#plot.default">plot.default</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>xlab</code></td>
+<tr>
+<td><code id="plot.mona_:_xlab">xlab</code></td>
 <td>
 <p>x axis label, see <code><a href="https://r-universe.dev/manuals/graphics.html#title">title</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>col,adj</code></td>
+<tr>
+<td>
+<code id="plot.mona_:_col">col</code>, <code id="plot.mona_:_adj">adj</code>
+</td>
 <td>
 <p>graphical parameters passed to <code><a href="#bannerplot">bannerplot</a>()</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>axes</code></td>
+<tr>
+<td><code id="plot.mona_:_axes">axes</code></td>
 <td>
 <p>logical, indicating if (labeled) axes should be drawn.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>nmax.lab</code></td>
+<tr>
+<td><code id="plot.mona_:_nmax.lab">nmax.lab</code></td>
 <td>
 <p>integer indicating the number of labels which is
 considered too large for labeling.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>max.strlen</code></td>
+<tr>
+<td><code id="plot.mona_:_max.strlen">max.strlen</code></td>
 <td>
 <p>positive integer giving the length to which
 strings are truncated in labeling.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="plot.mona_:_...">...</code></td>
 <td>
 <p>further graphical arguments are passed to
 <code><a href="#bannerplot">bannerplot</a>()</code> and <code><a href="https://r-universe.dev/manuals/graphics.html#text">text</a></code>.</p>
@@ -5558,7 +5584,7 @@ Moreover, observation labels are truncated to maximally
 </div>
 <div class="container manual-page" id="plot.partition">
 
-<a href="#plot.partition" class="help-page-title"><h2>Plot of a Partition of the Data Set</h2></a>
+<a href="#plot.partition" class="help-page-title"><h2 id="plot.partition">Plot of a Partition of the Data Set</h2></a>
 
 <h3>Description</h3>
 
@@ -5578,22 +5604,22 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="plot.partition_:_x">x</code></td>
 <td>
 <p>an object of class <code>"partition"</code>, typically created by the
 functions <code><a href="#pam">pam</a></code>, <code><a href="#clara">clara</a></code>, or <code><a href="#fanny">fanny</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>ask</code></td>
+<tr>
+<td><code id="plot.partition_:_ask">ask</code></td>
 <td>
 <p>logical; if true and <code>which.plots</code> is <code>NULL</code>,
 <code>plot.partition</code> operates in interactive mode, via <code><a href="https://r-universe.dev/manuals/utils.html#menu">menu</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>which.plots</code></td>
+<tr>
+<td><code id="plot.partition_:_which.plots">which.plots</code></td>
 <td>
 <p>integer vector or NULL (default), the latter
 producing both plots.  Otherwise, <code>which.plots</code> must contain
@@ -5601,37 +5627,39 @@ integers of <code>1</code> for a <em>clusplot</em> or <code>2</code> for
 <em>silhouette</em>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>nmax.lab</code></td>
+<tr>
+<td><code id="plot.partition_:_nmax.lab">nmax.lab</code></td>
 <td>
 <p>integer indicating the number of labels which is
 considered too large for single-name labeling the silhouette plot.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>max.strlen</code></td>
+<tr>
+<td><code id="plot.partition_:_max.strlen">max.strlen</code></td>
 <td>
 <p>positive integer giving the length to which
 strings are truncated in silhouette plot labeling.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>data</code></td>
+<tr>
+<td><code id="plot.partition_:_data">data</code></td>
 <td>
 <p>numeric matrix with the scaled data; per default taken
 from the partition object <code>x</code>, but can be specified explicitly.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dist</code></td>
+<tr>
+<td><code id="plot.partition_:_dist">dist</code></td>
 <td>
 <p>when <code>x</code> does not have a <code>diss</code> component as for
 <code><a href="#pam">pam</a>(*, keep.diss=FALSE)</code>, <code>dist</code> must be the
 dissimilarity if a clusplot is desired.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>stand,lines,shade,color,labels,plotchar,span,xlim,ylim,main, ...</code></td>
+<tr>
+<td>
+<code id="plot.partition_:_stand">stand</code>, <code id="plot.partition_:_lines">lines</code>, <code id="plot.partition_:_shade">shade</code>, <code id="plot.partition_:_color">color</code>, <code id="plot.partition_:_labels">labels</code>, <code id="plot.partition_:_plotchar">plotchar</code>, <code id="plot.partition_:_span">span</code>, <code id="plot.partition_:_xlim">xlim</code>, <code id="plot.partition_:_ylim">ylim</code>, <code id="plot.partition_:_main">main</code>, <code id="plot.partition_:_...">...</code>
+</td>
 <td>
 
 <p>All optional arguments available for the <code><a href="#clusplot.default">clusplot.default</a></code>
@@ -5727,7 +5755,7 @@ plot<span class="token punctuation">(</span>cx<span class="token punctuation">,<
 </div>
 <div class="container manual-page" id="pltree">
 
-<a href="#pltree" class="help-page-title"><h2>Plot Clustering Tree of a Hierarchical Clustering</h2></a>
+<a href="#pltree" class="help-page-title"><h2 id="pltree">Plot Clustering Tree of a Hierarchical Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -5749,34 +5777,34 @@ pltree<span class="token punctuation">(</span>x<span class="token punctuation">,
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="pltree_:_x">x</code></td>
 <td>
-<p>in general, an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object for which a <code>pltree</code> method is
+<p>in general, an <span class="rlang"><b>R</b></span> object for which a <code>pltree</code> method is
 defined; specifically, an object of class <code>"twins"</code>, typically
 created by either <code><a href="#agnes">agnes</a>()</code> or <code><a href="#diana">diana</a>()</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>main</code></td>
+<tr>
+<td><code id="pltree_:_main">main</code></td>
 <td>
 <p>main title with a sensible default.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>labels</code></td>
+<tr>
+<td><code id="pltree_:_labels">labels</code></td>
 <td>
 <p>labels to use; the default is constructed from <code>x</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>ylab</code></td>
+<tr>
+<td><code id="pltree_:_ylab">ylab</code></td>
 <td>
 <p>label for y-axis.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="pltree_:_...">...</code></td>
 <td>
 <p>graphical parameters (see <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>) may also
 be supplied as arguments to this function.</p>
@@ -5832,7 +5860,7 @@ par<span class="token punctuation">(</span>op<span class="token punctuation">)</
 </div>
 <div class="container manual-page" id="pluton">
 
-<a href="#pluton" class="help-page-title"><h2>Isotopic Composition Plutonium Batches</h2></a>
+<a href="#pluton" class="help-page-title"><h2 id="pluton">Isotopic Composition Plutonium Batches</h2></a>
 
 <h3>Description</h3>
 
@@ -5915,7 +5943,7 @@ pairs<span class="token punctuation">(</span>pu5<span class="token punctuation">
 </div>
 <div class="container manual-page" id="predict.ellipsoid">
 
-<a href="#predict.ellipsoid" class="help-page-title"><h2>Predict Method for Ellipsoid Objects</h2></a>
+<a href="#predict.ellipsoid" class="help-page-title"><h2 id="predict.ellipsoid">Predict Method for Ellipsoid Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -5934,29 +5962,33 @@ ellipsoidPoints<span class="token punctuation">(</span>A<span class="token punct
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>object</code></td>
+<tr>
+<td><code id="predict.ellipsoid_:_object">object</code></td>
 <td>
 <p>an object of class <code>ellipsoid</code>, typically from
 <code><a href="#ellipsoidhull">ellipsoidhull</a>()</code>; alternatively any list-like object
 with proper components, see details below.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>n.out, n.half</code></td>
+<tr>
+<td>
+<code id="predict.ellipsoid_:_n.out">n.out</code>, <code id="predict.ellipsoid_:_n.half">n.half</code>
+</td>
 <td>
 <p>half the number of points to create.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>A, d2, loc</code></td>
+<tr>
+<td>
+<code id="predict.ellipsoid_:_A">A</code>, <code id="predict.ellipsoid_:_d2">d2</code>, <code id="predict.ellipsoid_:_loc">loc</code>
+</td>
 <td>
 <p>arguments of the auxilary <code>ellipsoidPoints</code>,
 see below.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="predict.ellipsoid_:_...">...</code></td>
 <td>
 <p>passed to and from methods.</p>
 </td>
@@ -6013,7 +6045,7 @@ lines<span class="token punctuation">(</span>ellipsoidPoints<span class="token p
 </div>
 <div class="container manual-page" id="print.agnes">
 
-<a href="#print.agnes" class="help-page-title"><h2>Print Method for AGNES Objects</h2></a>
+<a href="#print.agnes" class="help-page-title"><h2 id="print.agnes">Print Method for AGNES Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6034,14 +6066,14 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="print.agnes_:_x">x</code></td>
 <td>
 <p>an agnes object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="print.agnes_:_...">...</code></td>
 <td>
 <p>potential further arguments (required by generic).</p>
 </td>
@@ -6058,7 +6090,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 </div>
 <div class="container manual-page" id="print.clara">
 
-<a href="#print.clara" class="help-page-title"><h2>Print Method for CLARA Objects</h2></a>
+<a href="#print.clara" class="help-page-title"><h2 id="print.clara">Print Method for CLARA Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6079,14 +6111,14 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="print.clara_:_x">x</code></td>
 <td>
 <p>a clara object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="print.clara_:_...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6103,7 +6135,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 </div>
 <div class="container manual-page" id="print.diana">
 
-<a href="#print.diana" class="help-page-title"><h2>Print Method for DIANA Objects</h2></a>
+<a href="#print.diana" class="help-page-title"><h2 id="print.diana">Print Method for DIANA Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6124,14 +6156,14 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="print.diana_:_x">x</code></td>
 <td>
 <p>a diana object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="print.diana_:_...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6147,7 +6179,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 </div>
 <div class="container manual-page" id="print.dissimilarity">
 
-<a href="#print.dissimilarity" class="help-page-title"><h2>Print and Summary Methods for Dissimilarity Objects</h2></a>
+<a href="#print.dissimilarity" class="help-page-title"><h2 id="print.dissimilarity">Print and Summary Methods for Dissimilarity Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6175,29 +6207,33 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x, object</code></td>
+<tr>
+<td>
+<code id="print.dissimilarity_:_x">x</code>, <code id="print.dissimilarity_:_object">object</code>
+</td>
 <td>
 <p>a <code>dissimilarity</code> object or a
 <code>summary.dissimilarity</code> one for <code>print.summary.dissimilarity()</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>digits</code></td>
+<tr>
+<td><code id="print.dissimilarity_:_digits">digits</code></td>
 <td>
 <p>the number of digits to use, see <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>diag, upper, justify, right</code></td>
+<tr>
+<td>
+<code id="print.dissimilarity_:_diag">diag</code>, <code id="print.dissimilarity_:_upper">upper</code>, <code id="print.dissimilarity_:_justify">justify</code>, <code id="print.dissimilarity_:_right">right</code>
+</td>
 <td>
 <p>optional arguments specifying how
 the triangular dissimilarity matrix is printed; see
 <code><a href="https://r-universe.dev/manuals/stats.html#print.dist">print.dist</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="print.dissimilarity_:_...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6222,7 +6258,7 @@ the triangular dissimilarity matrix is printed; see
 </div>
 <div class="container manual-page" id="print.fanny">
 
-<a href="#print.fanny" class="help-page-title"><h2>Print and Summary Methods for FANNY Objects</h2></a>
+<a href="#print.fanny" class="help-page-title"><h2 id="print.fanny">Print and Summary Methods for FANNY Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6247,21 +6283,23 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x, object</code></td>
+<tr>
+<td>
+<code id="print.fanny_:_x">x</code>, <code id="print.fanny_:_object">object</code>
+</td>
 <td>
 <p>a <code><a href="#fanny">fanny</a></code> object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>digits</code></td>
+<tr>
+<td><code id="print.fanny_:_digits">digits</code></td>
 <td>
 <p>number of significant digits for printing, see
 <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="print.fanny_:_...">...</code></td>
 <td>
 <p>potential further arguments (required by generic).</p>
 </td>
@@ -6277,7 +6315,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 </div>
 <div class="container manual-page" id="print.mona">
 
-<a href="#print.mona" class="help-page-title"><h2>Print Method for MONA Objects</h2></a>
+<a href="#print.mona" class="help-page-title"><h2 id="print.mona">Print Method for MONA Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6298,14 +6336,14 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="print.mona_:_x">x</code></td>
 <td>
 <p>a mona object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="print.mona_:_...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6321,7 +6359,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 </div>
 <div class="container manual-page" id="print.pam">
 
-<a href="#print.pam" class="help-page-title"><h2>Print Method for PAM Objects</h2></a>
+<a href="#print.pam" class="help-page-title"><h2 id="print.pam">Print Method for PAM Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6342,14 +6380,14 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="print.pam_:_x">x</code></td>
 <td>
 <p>a pam object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="print.pam_:_...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6365,7 +6403,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 </div>
 <div class="container manual-page" id="ruspini">
 
-<a href="#ruspini" class="help-page-title"><h2>Ruspini Data</h2></a>
+<a href="#ruspini" class="help-page-title"><h2 id="ruspini">Ruspini Data</h2></a>
 
 <h3>Description</h3>
 
@@ -6415,7 +6453,7 @@ plot<span class="token punctuation">(</span>fanny<span class="token punctuation"
 </div>
 <div class="container manual-page" id="silhouette">
 
-<a href="#silhouette" class="help-page-title"><h2>Compute or Extract Silhouette Information from Clustering</h2></a>
+<a href="#silhouette" class="help-page-title"><h2 id="silhouette">Compute or Extract Silhouette Information from Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -6447,8 +6485,8 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="silhouette_:_x">x</code></td>
 <td>
 <p>an object of appropriate class; for the <code>default</code>
 method an integer vector with <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></code> different integer cluster
@@ -6457,23 +6495,23 @@ component.  Note that silhouette statistics are only defined if
 <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>≤</mo><mi>k</mi><mo>≤</mo><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2 \le k \le n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8304em;vertical-align:-0.136em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dist</code></td>
+<tr>
+<td><code id="silhouette_:_dist">dist</code></td>
 <td>
 <p>a dissimilarity object inheriting from class
 <code><a href="https://r-universe.dev/manuals/stats.html#dist">dist</a></code> or coercible to one.  If not specified,
 <code>dmatrix</code> must be.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dmatrix</code></td>
+<tr>
+<td><code id="silhouette_:_dmatrix">dmatrix</code></td>
 <td>
 <p>a symmetric dissimilarity matrix (<code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n \times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code>),
 specified instead of <code>dist</code>, which can be more efficient.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>full</code></td>
+<tr>
+<td><code id="silhouette_:_full">full</code></td>
 <td>
 <p>logical or number in <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0,1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span></code> specifying if a <em>full</em>
 silhouette should be computed for <code><a href="#clara">clara</a></code> object.  When a
@@ -6483,55 +6521,59 @@ This requires <code class="reqn"><span class="katex"><span class="katex-mathml">
 the (sub)sample (see <code><a href="#daisy">daisy</a></code>) is needed internally.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>subset</code></td>
+<tr>
+<td><code id="silhouette_:_subset">subset</code></td>
 <td>
 <p>a subset from <code>1:n</code>, specified instead of <code>full</code>
 to specify the indices of the observations to be used for the silhouette
 computations.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>object</code></td>
+<tr>
+<td><code id="silhouette_:_object">object</code></td>
 <td>
 <p>an object of class <code>silhouette</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="silhouette_:_...">...</code></td>
 <td>
 <p>further arguments passed to and from methods.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>FUN</code></td>
+<tr>
+<td><code id="silhouette_:_FUN">FUN</code></td>
 <td>
 <p>function used to summarize silhouette widths.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>nmax.lab</code></td>
+<tr>
+<td><code id="silhouette_:_nmax.lab">nmax.lab</code></td>
 <td>
 <p>integer indicating the number of labels which is
 considered too large for single-name labeling the silhouette plot.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>max.strlen</code></td>
+<tr>
+<td><code id="silhouette_:_max.strlen">max.strlen</code></td>
 <td>
 <p>positive integer giving the length to which
 strings are truncated in silhouette plot labeling.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>main, sub, xlab</code></td>
+<tr>
+<td>
+<code id="silhouette_:_main">main</code>, <code id="silhouette_:_sub">sub</code>, <code id="silhouette_:_xlab">xlab</code>
+</td>
 <td>
 <p>arguments to <code><a href="https://r-universe.dev/manuals/graphics.html#title">title</a></code>; have a
 sensible non-NULL default here.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>col, border, cex.names</code></td>
+<tr>
+<td>
+<code id="silhouette_:_col">col</code>, <code id="silhouette_:_border">border</code>, <code id="silhouette_:_cex.names">cex.names</code>
+</td>
 <td>
 <p>arguments passed
 <code><a href="https://r-universe.dev/manuals/graphics.html#barplot">barplot</a>()</code>; note that the default used to be <code>col
@@ -6540,23 +6582,23 @@ clusterwise coloring, see also <code>do.col.sort</code>:
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>do.col.sort</code></td>
+<tr>
+<td><code id="silhouette_:_do.col.sort">do.col.sort</code></td>
 <td>
 <p>logical indicating if the colors <code>col</code> should
 be sorted “along” the silhouette; this is useful for casewise or
 clusterwise coloring.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>do.n.k</code></td>
+<tr>
+<td><code id="silhouette_:_do.n.k">do.n.k</code></td>
 <td>
 <p>logical indicating if <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code> and <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></code> “title text”
 should be written.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>do.clus.stat</code></td>
+<tr>
+<td><code id="silhouette_:_do.clus.stat">do.clus.stat</code></td>
 <td>
 <p>logical indicating if cluster size and averages
 should be written right to the silhouettes.</p>
@@ -6736,7 +6778,7 @@ plot<span class="token punctuation">(</span>si4<span class="token punctuation">,
 </div>
 <div class="container manual-page" id="sizeDiss">
 
-<a href="#sizeDiss" class="help-page-title"><h2>Sample Size of Dissimilarity Like Object</h2></a>
+<a href="#sizeDiss" class="help-page-title"><h2 id="sizeDiss">Sample Size of Dissimilarity Like Object</h2></a>
 
 <h3>Description</h3>
 
@@ -6756,10 +6798,10 @@ when only the lower or upper triangular part (without diagonal) is given.
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>d</code></td>
+<table><tr>
+<td><code id="sizeDiss_:_d">d</code></td>
 <td>
-<p>any <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object with length (typically) <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">n(n-1)/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord">/2</span></span></span></span></code>.</p>
+<p>any <span class="rlang"><b>R</b></span> object with length (typically) <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">n(n-1)/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord">/2</span></span></span></span></code>.</p>
 </td>
 </tr></table>
 <h3>Value</h3>
@@ -6787,7 +6829,7 @@ stopifnot<span class="token punctuation">(</span>n <span class="token operator">
 </div>
 <div class="container manual-page" id="summary.agnes">
 
-<a href="#summary.agnes" class="help-page-title"><h2>Summary Method for 'agnes' Objects</h2></a>
+<a href="#summary.agnes" class="help-page-title"><h2 id="summary.agnes">Summary Method for 'agnes' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6808,14 +6850,16 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x, object</code></td>
+<tr>
+<td>
+<code id="summary.agnes_:_x">x</code>, <code id="summary.agnes_:_object">object</code>
+</td>
 <td>
 <p>a <code><a href="#agnes">agnes</a></code> object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="summary.agnes_:_...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6835,7 +6879,7 @@ summary<span class="token punctuation">(</span>agnes<span class="token punctuati
 </div>
 <div class="container manual-page" id="summary.clara">
 
-<a href="#summary.clara" class="help-page-title"><h2>Summary Method for 'clara' Objects</h2></a>
+<a href="#summary.clara" class="help-page-title"><h2 id="summary.clara">Summary Method for 'clara' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6856,14 +6900,16 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x, object</code></td>
+<tr>
+<td>
+<code id="summary.clara_:_x">x</code>, <code id="summary.clara_:_object">object</code>
+</td>
 <td>
 <p>a <code><a href="#clara">clara</a></code> object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="summary.clara_:_...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6901,7 +6947,7 @@ plot<span class="token punctuation">(</span>clx5<span class="token punctuation">
 </div>
 <div class="container manual-page" id="summary.diana">
 
-<a href="#summary.diana" class="help-page-title"><h2>Summary Method for 'diana' Objects</h2></a>
+<a href="#summary.diana" class="help-page-title"><h2 id="summary.diana">Summary Method for 'diana' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6919,14 +6965,16 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x, object</code></td>
+<tr>
+<td>
+<code id="summary.diana_:_x">x</code>, <code id="summary.diana_:_object">object</code>
+</td>
 <td>
 <p>a <code><a href="#diana">diana</a></code> object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="summary.diana_:_...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6940,7 +6988,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 </div>
 <div class="container manual-page" id="summary.mona">
 
-<a href="#summary.mona" class="help-page-title"><h2>Summary Method for 'mona' Objects</h2></a>
+<a href="#summary.mona" class="help-page-title"><h2 id="summary.mona">Summary Method for 'mona' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6958,14 +7006,16 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x, object</code></td>
+<tr>
+<td>
+<code id="summary.mona_:_x">x</code>, <code id="summary.mona_:_object">object</code>
+</td>
 <td>
 <p>a <code><a href="#mona">mona</a></code> object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="summary.mona_:_...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6979,7 +7029,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 </div>
 <div class="container manual-page" id="summary.pam">
 
-<a href="#summary.pam" class="help-page-title"><h2>Summary Method for PAM Objects</h2></a>
+<a href="#summary.pam" class="help-page-title"><h2 id="summary.pam">Summary Method for PAM Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -7000,14 +7050,16 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x, object</code></td>
+<tr>
+<td>
+<code id="summary.pam_:_x">x</code>, <code id="summary.pam_:_object">object</code>
+</td>
 <td>
 <p>a <code><a href="#pam">pam</a></code> object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="summary.pam_:_...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -7022,7 +7074,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 </div>
 <div class="container manual-page" id="twins.object">
 
-<a href="#twins.object" class="help-page-title"><h2>Hierarchical Clustering Object</h2></a>
+<a href="#twins.object" class="help-page-title"><h2 id="twins.object">Hierarchical Clustering Object</h2></a>
 
 <h3>Description</h3>
 
@@ -7066,11 +7118,11 @@ divisive (polythetic) hierarchical clustering of a dataset.
 </div>
 <div class="container manual-page" id="volume.ellipsoid">
 
-<a href="#volume.ellipsoid" class="help-page-title"><h2>Compute the Volume (of an Ellipsoid)</h2></a>
+<a href="#volume.ellipsoid" class="help-page-title"><h2 id="volume.ellipsoid">Compute the Volume (of an Ellipsoid)</h2></a>
 
 <h3>Description</h3>
 
-<p>Compute the volume of geometric <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object.
+<p>Compute the volume of geometric <span class="rlang"><b>R</b></span> object.
 This is a generic function and has a method for <code>ellipsoid</code> objects
 (typically resulting from <code><a href="#ellipsoidhull">ellipsoidhull</a>()</code>.
 </p>
@@ -7086,23 +7138,23 @@ volume<span class="token punctuation">(</span>object<span class="token punctuati
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>object</code></td>
+<tr>
+<td><code id="volume.ellipsoid_:_object">object</code></td>
 <td>
-<p>an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object the volume of which is wanted; for the
+<p>an <span class="rlang"><b>R</b></span> object the volume of which is wanted; for the
 <code>ellipsoid</code> method, an object of that class (see
 <code><a href="#ellipsoidhull">ellipsoidhull</a></code> or the example below).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>log</code></td>
+<tr>
+<td><code id="volume.ellipsoid_:_log">log</code></td>
 <td>
 <p><code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> indicating if the volume should be
 returned in log scale.  Maybe needed in largish dimensions.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="volume.ellipsoid_:_...">...</code></td>
 <td>
 <p>potential further arguments of methods, e.g. <code>log</code>.</p>
 </td>
@@ -7144,7 +7196,7 @@ e5 <span class="token operator">&lt;-</span> ellipsoidhull<span class="token pun
 </div>
 <div class="container manual-page" id="votes.repub">
 
-<a href="#votes.repub" class="help-page-title"><h2>Votes for Republican Candidate in Presidential Elections</h2></a>
+<a href="#votes.repub" class="help-page-title"><h2 id="votes.repub">Votes for Republican Candidate in Presidential Elections</h2></a>
 
 <h3>Description</h3>
 
@@ -7173,7 +7225,7 @@ New York: Frederick Ungar Publishing Co.
 </div>
 <div class="container manual-page" id="xclara">
 
-<a href="#xclara" class="help-page-title"><h2>Bivariate Data Set with 3 Clusters</h2></a>
+<a href="#xclara" class="help-page-title"><h2 id="xclara">Bivariate Data Set with 3 Clusters</h2></a>
 
 <h3>Description</h3>
 
@@ -7259,6 +7311,6 @@ text<span class="token punctuation">(</span>xclara<span class="token punctuation
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.0.9000</p></footer>
+    <footer><p>Rendered with postdoc 1.2.1</p></footer>
   </body>
 </html>

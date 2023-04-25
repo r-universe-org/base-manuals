@@ -37,15 +37,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.2.2</td>
+<td class="description-license">Part of R 4.3.0</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.2.2</td>
+<td class="description-version">4.3.0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2022-10-31 22:31:50 UTC</td>
+<td class="description-date">2023-04-21 21:41:22 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -93,6 +93,9 @@ Find a GhostScript Executable
 <li class="help-index-item"><a href="#loadRdMacros">Load User-defined Rd Help System Macros</a></li>
 <li class="help-index-item"><a href="#make_translations_pkg">Package the Current Translations in the R Sources</a></li>
 <li class="help-index-item"><a href="#makevars">User and Site Compilation Variables</a></li>
+<li class="help-index-item"><a href="#matchConcordance">
+Concordance between source and target lines.
+</a></li>
 <li class="help-index-item"><a href="#md5sum">Compute MD5 Checksums</a></li>
 <li class="help-index-item"><a href="#package_dependencies">Computations on the Dependency Hierarchy of Packages</a></li>
 <li class="help-index-item"><a href="#package_native_routine_registration_skeleton">
@@ -136,7 +139,7 @@ Prepare Translations for a Package
     <div class="manual-pages-content">
 <div class="container manual-page" id="tools-package">
 
-<a href="#tools-package" class="help-page-title"><h2>Tools for Package Development</h2></a>
+<a href="#tools-package" class="help-page-title"><h2 id="tools-package">Tools for Package Development</h2></a>
 
 <h3>Description</h3>
 
@@ -164,7 +167,7 @@ documentation.
 </div>
 <div class="container manual-page" id="print.via.format">
 
-<a href="#print.via.format" class="help-page-title"><h2>Printing Utilities</h2></a>
+<a href="#print.via.format" class="help-page-title"><h2 id=".print.via.format">Printing Utilities</h2></a>
 
 <h3>Description</h3>
 
@@ -182,14 +185,14 @@ method, useful, at least as a start, by a simple
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id=".print.via.format_:_x">x</code></td>
 <td>
 <p>object to be printed.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id=".print.via.format_:_...">...</code></td>
 <td>
 <p>optional further arguments, passed to <code><a href="https://r-universe.dev/manuals/base.html#format">format</a></code>.</p>
 </td>
@@ -225,7 +228,7 @@ them, <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></co
 </div>
 <div class="container manual-page" id="add_datalist">
 
-<a href="#add_datalist" class="help-page-title"><h2>
+<a href="#add_datalist" class="help-page-title"><h2 id="add_datalist">
 Add a ‘<span class="file">datalist</span>’ File to a Source Package
 </h2></a>
 
@@ -247,21 +250,21 @@ supplying ‘<span class="file">data/datalist</span>’ file.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>pkgpath</code></td>
+<tr>
+<td><code id="add_datalist_:_pkgpath">pkgpath</code></td>
 <td>
 <p>The path to a (source) package.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>force</code></td>
+<tr>
+<td><code id="add_datalist_:_force">force</code></td>
 <td>
 <p>logical: can an existing ‘<span class="file">data/datalist</span>’ file be
 over-written?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>small.size</code></td>
+<tr>
+<td><code id="add_datalist_:_small.size">small.size</code></td>
 <td>
 <p>number: a ‘<span class="file">data/datalist</span>’ file is created only if
 the total size of the data files is larger than <code>small.size</code> bytes.</p>
@@ -290,7 +293,7 @@ packages itself (and maybe others).
 </div>
 <div class="container manual-page" id="assertCondition">
 
-<a href="#assertCondition" class="help-page-title"><h2>Asserting Error Conditions</h2></a>
+<a href="#assertCondition" class="help-page-title"><h2 id="assertCondition">Asserting Error Conditions</h2></a>
 
 <h3>Description</h3>
 
@@ -314,15 +317,17 @@ assertCondition<span class="token punctuation">(</span>expr<span class="token pu
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>expr</code></td>
+<tr>
+<td><code id="assertCondition_:_expr">expr</code></td>
 <td>
-<p>an unevaluated <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> expression which will be evaluated via
+<p>an unevaluated <span class="rlang"><b>R</b></span> expression which will be evaluated via
 <code><a href="https://r-universe.dev/manuals/base.html#conditions">tryCatch</a>(expr, ..)</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>classes, ...</code></td>
+<tr>
+<td>
+<code id="assertCondition_:_classes">classes</code>, <code id="assertCondition_:_...">...</code>
+</td>
 <td>
 <p><code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> strings corresponding to the
 classes of the conditions that would satisfy the assertion; e.g., <code>"error"</code> or
@@ -330,8 +335,8 @@ classes of the conditions that would satisfy the assertion; e.g., <code>"error"<
 satisfy the assertion.  See the details section. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>.exprString</code></td>
+<tr>
+<td><code id="assertCondition_:_.exprString">.exprString</code></td>
 <td>
 <p>The string to be printed corresponding to
 <code>expr</code>. By default, the actual <code>expr</code> will be
@@ -341,8 +346,8 @@ called from another function, with the actual expression passed as
 an argument to that function, supply the deparsed version.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>verbose</code></td>
+<tr>
+<td><code id="assertCondition_:_verbose">verbose</code></td>
 <td>
 <p>If <code>TRUE</code>, a message is printed when the
 condition is satisfied.</p>
@@ -427,7 +432,7 @@ assertCondition<span class="token punctuation">(</span> assertCondition<span cla
 </div>
 <div class="container manual-page" id="bibstyle">
 
-<a href="#bibstyle" class="help-page-title"><h2>Select or Define a Bibliography Style</h2></a>
+<a href="#bibstyle" class="help-page-title"><h2 id="bibstyle">Select or Define a Bibliography Style</h2></a>
 
 <h3>Description</h3>
 
@@ -446,48 +451,48 @@ getBibstyle<span class="token punctuation">(</span>all <span class="token operat
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>style</code></td>
+<tr>
+<td><code id="bibstyle_:_style">style</code></td>
 <td>
 
 <p>A character string naming the style.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>envir</code></td>
+<tr>
+<td><code id="bibstyle_:_envir">envir</code></td>
 <td>
 
 <p>(optional) An environment holding the functions to implement the style.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="bibstyle_:_...">...</code></td>
 <td>
 
 <p>Named arguments to add to the environment.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>.init</code></td>
+<tr>
+<td><code id="bibstyle_:_.init">.init</code></td>
 <td>
 
 <p>Whether to initialize the environment from the default style <code>"JSS"</code>.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>.default</code></td>
+<tr>
+<td><code id="bibstyle_:_.default">.default</code></td>
 <td>
 
 <p>Whether to set the specified style as the default style.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>all</code></td>
+<tr>
+<td><code id="bibstyle_:_all">all</code></td>
 <td>
 
 <p>Whether to return the names of all registered styles.
@@ -597,7 +602,7 @@ print<span class="token punctuation">(</span>refs<span class="token punctuation"
 </div>
 <div class="container manual-page" id="buildVignette">
 
-<a href="#buildVignette" class="help-page-title"><h2>Build One Vignette</h2></a>
+<a href="#buildVignette" class="help-page-title"><h2 id="buildVignette">Build One Vignette</h2></a>
 
 <h3>Description</h3>
 
@@ -619,73 +624,73 @@ print<span class="token punctuation">(</span>refs<span class="token punctuation"
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="buildVignette_:_file">file</code></td>
 <td>
 <p>character; the vignette source file.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="buildVignette_:_dir">dir</code></td>
 <td>
 <p>character; the working directory in which the intermediate and 
 output files will be produced.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>weave</code></td>
+<tr>
+<td><code id="buildVignette_:_weave">weave</code></td>
 <td>
 <p>logical; should weave be run?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>latex</code></td>
+<tr>
+<td><code id="buildVignette_:_latex">latex</code></td>
 <td>
 <p>logical; should <a href="#texi2dvi">texi2pdf</a> be run if weaving produces a ‘<span class="file">.tex</span>’ file?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>tangle</code></td>
+<tr>
+<td><code id="buildVignette_:_tangle">tangle</code></td>
 <td>
 <p>logical; should tangle be run?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>quiet</code></td>
+<tr>
+<td><code id="buildVignette_:_quiet">quiet</code></td>
 <td>
 <p>logical; run in quiet mode?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>clean</code></td>
+<tr>
+<td><code id="buildVignette_:_clean">clean</code></td>
 <td>
 <p>logical; whether to remove some newly created, often
 intermediate, files.  See details below.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>keep</code></td>
+<tr>
+<td><code id="buildVignette_:_keep">keep</code></td>
 <td>
 <p>a list of file names to keep in any case when cleaning.  Note
 that “target” files are kept anyway.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>engine</code></td>
+<tr>
+<td><code id="buildVignette_:_engine">engine</code></td>
 <td>
 <p><code>NULL</code> or character; name of vignette engine to
 use.  Overrides any <code>\VignetteEngine{}</code> markup in the vignette.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>buildPkg</code></td>
+<tr>
+<td><code id="buildVignette_:_buildPkg">buildPkg</code></td>
 <td>
 <p><code>NULL</code> or a character vector; optional packages
 in which to find the vignette engine.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>encoding</code></td>
+<tr>
+<td><code id="buildVignette_:_encoding">encoding</code></td>
 <td>
 <p>the encoding to assume for the file.  If not
 specified, it will be read if possible from the file's contents.
@@ -694,8 +699,8 @@ Note that if the vignette is part of a package,
 ‘<span class="file">DESCRIPTION</span>’ file but this function does not.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="buildVignette_:_...">...</code></td>
 <td>
 <p>Additional arguments passed to weave and tangle.</p>
 </td>
@@ -744,7 +749,7 @@ source.
 </div>
 <div class="container manual-page" id="buildVignettes">
 
-<a href="#buildVignettes" class="help-page-title"><h2>List and Build Package Vignettes</h2></a>
+<a href="#buildVignettes" class="help-page-title"><h2 id="buildVignettes">List and Build Package Vignettes</h2></a>
 
 <h3>Description</h3>
 
@@ -757,7 +762,8 @@ of a package, or list the vignettes.
 <h3>Usage</h3>
 
 <pre class="language-r"><code class="language-r">buildVignettes<span class="token punctuation">(</span>package<span class="token punctuation">,</span> dir<span class="token punctuation">,</span> lib.loc <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> quiet <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
-               clean <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> tangle <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> ser_elibs <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+               clean <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> tangle <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> skip <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
+               ser_elibs <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
 
 pkgVignettes<span class="token punctuation">(</span>package<span class="token punctuation">,</span> dir<span class="token punctuation">,</span> subdirs <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> lib.loc <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
 	     output <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> source <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> check <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
@@ -766,16 +772,16 @@ pkgVignettes<span class="token punctuation">(</span>package<span class="token pu
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="buildVignettes_:_package">package</code></td>
 <td>
 <p>a character string naming an installed package.
 If given, vignette source files are by default looked for in
 subdirectory ‘<span class="file">doc</span>’.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="buildVignettes_:_dir">dir</code></td>
 <td>
 <p>a character string specifying the path to a package's root
 source directory. 
@@ -783,44 +789,54 @@ If given, vignette source files are by default looked for in
 subdirectory ‘<span class="file">vignettes</span>’.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lib.loc</code></td>
+<tr>
+<td><code id="buildVignettes_:_lib.loc">lib.loc</code></td>
 <td>
-<p>a character vector of directory names of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> libraries,
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
 or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
 libraries currently known.  The specified library trees are used to
 search for <code>package</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>quiet</code></td>
+<tr>
+<td><code id="buildVignettes_:_quiet">quiet</code></td>
 <td>
 <p>logical.
 Weave and run <code><a href="#texi2dvi">texi2pdf</a></code> in quiet mode.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>clean</code></td>
+<tr>
+<td><code id="buildVignettes_:_clean">clean</code></td>
 <td>
 <p>Remove all files generated by the build, even if there
 were copies there before.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>tangle</code></td>
+<tr>
+<td><code id="buildVignettes_:_tangle">tangle</code></td>
 <td>
 <p>logical.
 Do tangling as well as weaving.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>ser_elibs</code></td>
+<tr>
+<td><code id="buildVignettes_:_skip">skip</code></td>
+<td>
+<p>a character vector of names of vignettes (without file
+extension, matching the <code>names</code> returned from
+<code>pkgVignettes</code>) which should be skipped, or <code>TRUE</code>
+to skip those with unavailable ‘<span class="samp">⁠\VignetteDepends⁠</span>’
+(from <code><a href="#vignetteInfo">vignetteInfo</a></code>).</p>
+</td>
+</tr>
+<tr>
+<td><code id="buildVignettes_:_ser_elibs">ser_elibs</code></td>
 <td>
 <p>For use from <code>R CMD check</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>subdirs</code></td>
+<tr>
+<td><code id="buildVignettes_:_subdirs">subdirs</code></td>
 <td>
 <p>a character vector of subdirectories of <code>dir</code> in
 which to look for vignettes.  The first which exists is used.
@@ -828,22 +844,22 @@ Defaults to <code>"doc"</code> if <code>package</code> is supplied, otherwise
 <code>"vignettes"</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>output</code></td>
+<tr>
+<td><code id="buildVignettes_:_output">output</code></td>
 <td>
 <p>logical indicating if the output filenames for each
 vignette should be returned (in component <code>outputs</code>).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>source</code></td>
+<tr>
+<td><code id="buildVignettes_:_source">source</code></td>
 <td>
 <p>logical indicating if the <em>tangled</em> output
 filenames for each vignette should be returned (in component <code>sources</code>).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>check</code></td>
+<tr>
+<td><code id="buildVignettes_:_check">check</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, check whether all files that
 have vignette-like filenames have an identifiable vignette engine.
@@ -857,7 +873,7 @@ filename matching a pattern defined by one of the vignette engines.</p>
 <p><code>buildVignettes</code> is used by <code>R CMD build</code> and
 <code>R CMD check</code> to (re-)build vignette outputs from their sources. 
 </p>
-<p>As from <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.4.1, both of these functions ignore files that are listed in
+<p>As from <span class="rlang"><b>R</b></span> 3.4.1, both of these functions ignore files that are listed in
 the ‘<span class="file">.Rbuildignore</span>’ file in <code>dir</code>.
 </p>
 
@@ -866,7 +882,7 @@ the ‘<span class="file">.Rbuildignore</span>’ file in <code>dir</code>.
 
 <p><code>buildVignettes</code> is called for its side effect of creating the
 outputs of all vignettes, and if <code>tangle = TRUE</code>, 
-extracting the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code.
+extracting the <span class="rlang"><b>R</b></span> code.
 </p>
 <p><code>pkgVignettes</code> returns an object of class <code>"pkgVignettes"</code>
 if a vignette directory is found, otherwise <code>NULL</code>.  
@@ -882,7 +898,7 @@ str<span class="token punctuation">(</span>gVigns<span class="token punctuation"
 </div>
 <div class="container manual-page" id="charsets">
 
-<a href="#charsets" class="help-page-title"><h2>Conversion Tables between Character Sets</h2></a>
+<a href="#charsets" class="help-page-title"><h2 id="charsets">Conversion Tables between Character Sets</h2></a>
 
 <h3>Description</h3>
 
@@ -936,7 +952,7 @@ format<span class="token punctuation">(</span>bLatin2<span class="token punctuat
 </div>
 <div class="container manual-page" id="check_packages_in_dir">
 
-<a href="#check_packages_in_dir" class="help-page-title"><h2>Check Source Packages and Their Reverse Dependencies</h2></a>
+<a href="#check_packages_in_dir" class="help-page-title"><h2 id="check_packages_in_dir">Check Source Packages and Their Reverse Dependencies</h2></a>
 
 <h3>Description</h3>
 
@@ -948,6 +964,7 @@ reverse dependencies.
 <h3>Usage</h3>
 
 <pre class="language-r"><code class="language-r">check_packages_in_dir<span class="token punctuation">(</span>dir<span class="token punctuation">,</span>
+                      pfiles <span class="token operator">=</span> Sys.glob<span class="token punctuation">(</span><span class="token string">"*.tar.gz"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                       check_args <span class="token operator">=</span> character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                       check_args_db <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                       reverse <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
@@ -974,15 +991,23 @@ check_packages_in_dir_details<span class="token punctuation">(</span>dir<span cl
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_dir">dir</code></td>
 <td>
 <p>a character string giving the path to the directory with
 the source ‘<span class="file">.tar.gz</span>’ files to be checked.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>check_args</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_pfiles">pfiles</code></td>
+<td>
+<p>(optional) character vector of tarball files to be
+checked.  Useful for choosing a subset of the ‘<span class="file">*.tar.gz</span>’ files in
+<code>dir</code>.</p>
+</td>
+</tr>
+<tr>
+<td><code id="check_packages_in_dir_:_check_args">check_args</code></td>
 <td>
 <p>a character vector with arguments to be passed to
 <code>R CMD check</code>, or a list of length two of such character
@@ -990,16 +1015,16 @@ vectors to be used for checking packages and reverse dependencies,
 respectively.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>check_args_db</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_check_args_db">check_args_db</code></td>
 <td>
 <p>a named list of character vectors with arguments
 to be passed to <code>R CMD check</code>, with names the respective
 package names.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>reverse</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_reverse">reverse</code></td>
 <td>
 <p>a list with names partially matching <code>"repos"</code>,
 <code>"which"</code>, or <code>"recursive"</code>, giving the repositories to
@@ -1013,8 +1038,8 @@ check reverse dependencies of reverse dependencies and so on
 reverse dependencies are checked.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>check_env</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_check_env">check_env</code></td>
 <td>
 <p>a character vector of name=value strings to set
 environment variables for checking, or a list of length two of such
@@ -1022,88 +1047,88 @@ character vectors to be used for checking packages and reverse
 dependencies, respectively.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>xvfb</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_xvfb">xvfb</code></td>
 <td>
 <p>a logical indicating whether to perform checking inside a
 virtual framebuffer X server (Unix only), or a character vector of
 Xvfb options for doing so.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>Ncpus</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_Ncpus">Ncpus</code></td>
 <td>
 <p>the number of parallel processes to use for parallel
 installation and checking.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>clean</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_clean">clean</code></td>
 <td>
 <p>a logical indicating whether to remove the downloaded
 reverse dependency sources.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_...">...</code></td>
 <td>
 <p>passed to <code><a href="https://r-universe.dev/manuals/base.html#readLines">readLines</a></code>, e.g. for reading log files 
 produced in a different encoding; currently not used by 
 <code>check_packages_in_dir</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>all</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_all">all</code></td>
 <td>
 <p>a logical indicating whether to also summarize the reverse
 dependencies checked.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>full</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_full">full</code></td>
 <td>
 <p>a logical indicating whether to also give details for
 checks with non-ok results, or summarize check example timings (if
 available).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>which</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_which">which</code></td>
 <td>
 <p>see <code><a href="#package_dependencies">package_dependencies</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>old</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_old">old</code></td>
 <td>
 <p>a character string giving the path to the directory of a
 previous <code>check_packages_in_dir</code> run.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>outputs</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_outputs">outputs</code></td>
 <td>
 <p>a logical indicating whether to analyze changes in
 the outputs of the checks performed, or only (default) the status of
 the checks.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>sources</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_sources">sources</code></td>
 <td>
 <p>a logical indicating whether to also investigate the
 changes in the source files checked (default: <code>FALSE</code>).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>logs</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_logs">logs</code></td>
 <td>
 <p>a character vector with the paths of ‘<span class="file">00check.log</span>’ to
 analyze.  Only used if <code>dir</code> was not given.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>drop_ok</code></td>
+<tr>
+<td><code id="check_packages_in_dir_:_drop_ok">drop_ok</code></td>
 <td>
 <p>a logical indicating whether to drop checks with
 ‘ok’ status, or a character vector with the ‘ok’
@@ -1203,7 +1228,7 @@ check_packages_in_dir<span class="token punctuation">(</span>dir<span class="tok
 </div>
 <div class="container manual-page" id="checkFF">
 
-<a href="#checkFF" class="help-page-title"><h2>Check Foreign Function Calls</h2></a>
+<a href="#checkFF" class="help-page-title"><h2 id="checkFF">Check Foreign Function Calls</h2></a>
 
 <h3>Description</h3>
 
@@ -1225,53 +1250,53 @@ highly recommended to avoid name clashes in foreign function calls.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="checkFF_:_package">package</code></td>
 <td>
 <p>a character string naming an installed package.  If
 given, the installed R code of the package is checked.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="checkFF_:_dir">dir</code></td>
 <td>
 <p>a character string specifying the path to a package's root
 source directory.  This should contain the subdirectory ‘<span class="file">R</span>’
 (for R code).  Only used if <code>package</code> is not given.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="checkFF_:_file">file</code></td>
 <td>
 <p>the name of a file containing R code to be checked.  Used
 if neither <code>package</code> nor <code>dir</code> are given.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lib.loc</code></td>
+<tr>
+<td><code id="checkFF_:_lib.loc">lib.loc</code></td>
 <td>
-<p>a character vector of directory names of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> libraries,
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
 or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
 libraries currently known.  The specified library trees are used to
 search for <code>package</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>registration</code></td>
+<tr>
+<td><code id="checkFF_:_registration">registration</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code>, checks
 the registration information on the call (if available).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>check_DUP</code></td>
+<tr>
+<td><code id="checkFF_:_check_DUP">check_DUP</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code>, <code>.C</code> and
 <code>.Fortran</code> calls with <code>DUP = FALSE</code> are reported.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>verbose</code></td>
+<tr>
+<td><code id="checkFF_:_verbose">verbose</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code>, additional diagnostics are
 printed (and the result is returned invisibly).</p>
@@ -1322,7 +1347,7 @@ checkFF<span class="token punctuation">(</span>package <span class="token operat
 </div>
 <div class="container manual-page" id="checkMD5sums">
 
-<a href="#checkMD5sums" class="help-page-title"><h2>Check and Create MD5 Checksum Files</h2></a>
+<a href="#checkMD5sums" class="help-page-title"><h2 id="checkMD5sums">Check and Create MD5 Checksum Files</h2></a>
 
 <h3>Description</h3>
 
@@ -1338,14 +1363,14 @@ checkFF<span class="token punctuation">(</span>package <span class="token operat
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="checkMD5sums_:_package">package</code></td>
 <td>
 <p>the name of an installed package</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="checkMD5sums_:_dir">dir</code></td>
 <td>
 <p>the path to the top-level directory of an installed
 package.</p>
@@ -1382,7 +1407,7 @@ is searched for.
 </div>
 <div class="container manual-page" id="checkPoFiles">
 
-<a href="#checkPoFiles" class="help-page-title"><h2>Check Translation Files for Inconsistent Format Strings</h2></a>
+<a href="#checkPoFiles" class="help-page-title"><h2 id="checkPoFiles">Check Translation Files for Inconsistent Format Strings</h2></a>
 
 <h3>Description</h3>
 
@@ -1402,27 +1427,27 @@ checkPoFiles<span class="token punctuation">(</span>language<span class="token p
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>f</code></td>
+<tr>
+<td><code id="checkPoFiles_:_f">f</code></td>
 <td>
 <p>a character string giving a single filepath.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>strictPlural</code></td>
+<tr>
+<td><code id="checkPoFiles_:_strictPlural">strictPlural</code></td>
 <td>
 <p>whether to compare formats of singular and plural
 forms in a strict way.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>language</code></td>
+<tr>
+<td><code id="checkPoFiles_:_language">language</code></td>
 <td>
 <p>a character string giving a language code.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="checkPoFiles_:_dir">dir</code></td>
 <td>
 <p>a path to a directory in which to check files.</p>
 </td>
@@ -1430,19 +1455,19 @@ forms in a strict way.</p>
 </table>
 <h3>Details</h3>
 
-<p>Part of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s internationalization depends on translations of messages
+<p>Part of <span class="rlang"><b>R</b></span>'s internationalization depends on translations of messages
 in ‘<span class="file">.po</span>’ files.  In these files an ‘English’ message taken
-from the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> sources is followed by a translation into another
-language.  Many of these messages are format strings for C or <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+from the <span class="rlang"><b>R</b></span> sources is followed by a translation into another
+language.  Many of these messages are format strings for C or <span class="rlang"><b>R</b></span>
 <code><a href="https://r-universe.dev/manuals/base.html#sprintf">sprintf</a></code> and related functions.  In these cases, the
 translation must give a compatible format or an error will be
 generated when the message is displayed.
 </p>
-<p>The rules for compatibility differ between C and <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> in several ways. C
-supports several conversions not supported by <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, namely <code>c</code>,
+<p>The rules for compatibility differ between C and <span class="rlang"><b>R</b></span> in several ways. C
+supports several conversions not supported by <span class="rlang"><b>R</b></span>, namely <code>c</code>,
 <code>u</code>, <code>p</code>, <code>n</code>.  It is allowed in C's <code>sprintf()</code>
 function to have more arguments than are needed by the format string,
-but in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> the counts must match exactly.  <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> requires types of
+but in <span class="rlang"><b>R</b></span> the counts must match exactly.  <span class="rlang"><b>R</b></span> requires types of
 arguments to match, whereas C will do the display whether it makes
 sense or not.
 </p>
@@ -1506,7 +1531,7 @@ checkPoFiles<span class="token punctuation">(</span><span class="token string">"
 </div>
 <div class="container manual-page" id="checkRd">
 
-<a href="#checkRd" class="help-page-title"><h2> Check an Rd Object </h2></a>
+<a href="#checkRd" class="help-page-title"><h2 id="checkRd"> Check an Rd Object </h2></a>
 
 <h3>Description</h3>
 
@@ -1523,50 +1548,50 @@ checkPoFiles<span class="token punctuation">(</span><span class="token string">"
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>Rd</code></td>
+<tr>
+<td><code id="checkRd_:_Rd">Rd</code></td>
 <td>
 <p> a filename or <code>Rd</code> object to use as input. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>defines</code></td>
+<tr>
+<td><code id="checkRd_:_defines">defines</code></td>
 <td>
 <p> string(s) to use in <code style="white-space: pre;">⁠#ifdef⁠</code> tests. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>stages</code></td>
+<tr>
+<td><code id="checkRd_:_stages">stages</code></td>
 <td>
 <p> at which stage (<code>"build"</code>, <code>"install"</code>, or
 <code>"render"</code>) should <code style="white-space: pre;">⁠\Sexpr⁠</code> macros be executed? See the
 notes below.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>unknownOK</code></td>
+<tr>
+<td><code id="checkRd_:_unknownOK">unknownOK</code></td>
 <td>
 <p> unrecognized macros are treated as errors if
 <code>FALSE</code>, otherwise warnings. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>listOK</code></td>
+<tr>
+<td><code id="checkRd_:_listOK">listOK</code></td>
 <td>
 <p> unnecessary non-empty braces (e.g., around text, not as
 an argument) are treated as errors if <code>FALSE</code>, otherwise
 warnings.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="checkRd_:_...">...</code></td>
 <td>
 <p> additional parameters to pass to <code><a href="#parse_Rd">parse_Rd</a></code> when
 <code>Rd</code> is a filename.  One that is often useful is <code>encoding</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>def_enc</code></td>
+<tr>
+<td><code id="checkRd_:_def_enc">def_enc</code></td>
 <td>
 <p>logical: has the package declared an encoding, so tests
 for non-ASCII text are suppressed?</p>
@@ -1643,50 +1668,65 @@ level 0.  These include
 <tr>
 <td style="text-align: right;">
     7 </td>
-<td style="text-align: left;"> Must have a <var>tag name</var>
-</td>
-</tr>
-<tr>
-<td style="text-align: right;">
-    7 </td>
-<td style="text-align: left;"> Only one <var>tag name</var> is allowed</td>
-</tr>
-<tr>
-<td style="text-align: right;">
-    7 </td>
-<td style="text-align: left;"> Tag <var>tag name</var> must not be empty</td>
-</tr>
-<tr>
-<td style="text-align: right;">
-    7 </td>
 <td style="text-align: left;"> <code style="white-space: pre;">⁠\docType⁠</code> must be plain text</td>
 </tr>
 <tr>
 <td style="text-align: right;">
-    5 </td>
+    7 </td>
+<td style="text-align: left;"> Tag <var>tag name</var> is invalid in a <var>block name</var> block</td>
+</tr>
+<tr>
+<td style="text-align: right;">
+    7 </td>
+<td style="text-align: left;"> <code style="white-space: pre;">⁠\method⁠</code> not valid outside a code block</td>
+</tr>
+<tr>
+<td style="text-align: right;">
+    7 </td>
 <td style="text-align: left;"> Tag <code style="white-space: pre;">⁠\method⁠</code> is only valid in <code style="white-space: pre;">⁠\usage⁠</code>
 </td>
 </tr>
 <tr>
 <td style="text-align: right;">
-    5 </td>
+    7 </td>
 <td style="text-align: left;"> Tag <code style="white-space: pre;">⁠\dontrun⁠</code> is only valid in <code style="white-space: pre;">⁠\examples⁠</code>
 </td>
 </tr>
 <tr>
 <td style="text-align: right;">
-    5 </td>
-<td style="text-align: left;"> Tag <var>tag name</var> is invalid in a <var>block name</var> block</td>
+    7 </td>
+<td style="text-align: left;"> Invalid email address: ...</td>
+</tr>
+<tr>
+<td style="text-align: right;">
+    7 </td>
+<td style="text-align: left;"> Invalid URL: ...</td>
 </tr>
 <tr>
 <td style="text-align: right;">
     5 </td>
-<td style="text-align: left;"> Title of <code style="white-space: pre;">⁠\section⁠</code> must be non-empty plain text</td>
+<td style="text-align: left;"> Must have a <var>tag name</var>
+</td>
 </tr>
 <tr>
 <td style="text-align: right;">
     5 </td>
-<td style="text-align: left;"> <code style="white-space: pre;">⁠\title⁠</code> content must be plain text</td>
+<td style="text-align: left;"> Only one <var>tag name</var> is allowed</td>
+</tr>
+<tr>
+<td style="text-align: right;">
+    5 </td>
+<td style="text-align: left;"> Tag <var>tag name</var> must not be empty</td>
+</tr>
+<tr>
+<td style="text-align: right;">
+    5 </td>
+<td style="text-align: left;"> Multiple sections named <var>tag name</var> are not allowed</td>
+</tr>
+<tr>
+<td style="text-align: right;">
+    5 </td>
+<td style="text-align: left;"> <code style="white-space: pre;">⁠\item⁠</code> in <var>block name</var> must have non-empty label</td>
 </tr>
 <tr>
 <td style="text-align: right;">
@@ -1707,8 +1747,13 @@ level 0.  These include
 </tr>
 <tr>
 <td style="text-align: right;">
+    -1 </td>
+<td style="text-align: left;"> Escaped LaTeX specials: ...</td>
+</tr>
+<tr>
+<td style="text-align: right;">
     -3 </td>
-<td style="text-align: left;"> Tag <code style="white-space: pre;">⁠\ldots⁠</code> is not valid in a code block</td>
+<td style="text-align: left;"> Tag <code style="white-space: pre;">⁠\ldots⁠</code> is invalid in a code block</td>
 </tr>
 <tr>
 <td style="text-align: right;">
@@ -1728,16 +1773,12 @@ level 0.  These include
 </tr>
 <tr>
 <td style="text-align: right;">
-    -3 </td>
-<td style="text-align: left;"> <code style="white-space: pre;">⁠\method⁠</code> not valid outside a code block</td>
-</tr>
-<tr>
-<td style="text-align: right;">
   </td>
 </tr>
 </table>
 <p>and variations with <code style="white-space: pre;">⁠\method⁠</code> replaced by <code style="white-space: pre;">⁠\S3method⁠</code> or
-<code style="white-space: pre;">⁠\S4method⁠</code>.
+<code style="white-space: pre;">⁠\S4method⁠</code>, and <code style="white-space: pre;">⁠\dontrun⁠</code> replaced by <code style="white-space: pre;">⁠\donttest⁠</code> or
+<code style="white-space: pre;">⁠\dontshow⁠</code>.
 </p>
 <p>Note that both <code>prepare_Rd</code> and <code>checkRd</code> have tests for an
 empty section: that in <code>checkRd</code> is stricter (essentially that
@@ -1747,7 +1788,7 @@ nothing is output).
 
 <h3>Value</h3>
 
-<p>This may fail through an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> error, but otherwise warnings are
+<p>This may fail through an <span class="rlang"><b>R</b></span> error, but otherwise warnings are
 collected as returned as an object of class <code>"checkRd"</code>, a
 character vector of messages.  This class has a <code>print</code> method
 which only prints unique messages, and has argument <code>minlevel</code>
@@ -1778,7 +1819,7 @@ specified encoding) or from <code>prepare_Rd</code> (multiple
 </div>
 <div class="container manual-page" id="checkRdaFiles">
 
-<a href="#checkRdaFiles" class="help-page-title"><h2>
+<a href="#checkRdaFiles" class="help-page-title"><h2 id="checkRdaFiles">
 Report on Details of Saved Images or Re-saves them
 </h2></a>
 
@@ -1803,23 +1844,25 @@ resaveRdaFiles<span class="token punctuation">(</span>paths<span class="token pu
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>paths</code></td>
+<tr>
+<td><code id="checkRdaFiles_:_paths">paths</code></td>
 <td>
 <p>A character vector of paths to <code>save</code> files.  If
 this specifies a single directory, it is taken to refer to all
 ‘<span class="file">.rda</span>’ and ‘<span class="file">.RData</span>’ files in that directory.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>compress, compression_level</code></td>
+<tr>
+<td>
+<code id="checkRdaFiles_:_compress">compress</code>, <code id="checkRdaFiles_:_compression_level">compression_level</code>
+</td>
 <td>
 <p>Type and level of compression: see
 <code><a href="https://r-universe.dev/manuals/base.html#save">save</a></code>.  Values of <code>compress</code> can be abbreviated.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>version</code></td>
+<tr>
+<td><code id="checkRdaFiles_:_version">version</code></td>
 <td>
 <p>The format to be used when re-saving: see
 <code><a href="https://r-universe.dev/manuals/base.html#save">save</a></code>.</p>
@@ -1828,7 +1871,7 @@ this specifies a single directory, it is taken to refer to all
 </table>
 <h3>Details</h3>
 
-<p><code>compress = "auto"</code> asks <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> to choose the compression and ignores
+<p><code>compress = "auto"</code> asks <span class="rlang"><b>R</b></span> to choose the compression and ignores
 <code>compression_level</code>.  It will try <code>"gzip"</code>, <code>"bzip2"</code>
 and if the <code>"gzip"</code> compressed size is over 10Kb, <code>"xz"</code> and
 choose the smallest compressed file (but with a 10% bias towards
@@ -1845,35 +1888,35 @@ version 2: however version-3 files will only be saved as version 3.
 and columns
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>size</code></td>
 <td>
 <p>numeric: file size in bytes, <code>NA</code> if the file does
 not exist.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>ASCII</code></td>
 <td>
 <p>logical: true for save(ASCII = TRUE), <code>NA</code> if the
-format is not that of an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> save file.</p>
+format is not that of an <span class="rlang"><b>R</b></span> save file.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>compress</code></td>
 <td>
 <p>character: type of compression.  One of <code>"gzip"</code>,
 <code>"bzip2"</code>, <code>"xz"</code>, <code>"none"</code> or <code>"unknown"</code> (which
-means that if this is an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> save file it is from a later version of
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>).</p>
+means that if this is an <span class="rlang"><b>R</b></span> save file it is from a later version of
+<span class="rlang"><b>R</b></span>).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>version</code></td>
 <td>
 <p>integer: positive with the version(s) of the
 <code><a href="https://r-universe.dev/manuals/base.html#save">save</a>()</code>, see there on which versions have been default in
-which versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, and <code>NA</code> for non-Rda files.</p>
+which versions of <span class="rlang"><b>R</b></span>, and <code>NA</code> for non-Rda files.</p>
 </td>
 </tr>
 </table>
@@ -1893,7 +1936,7 @@ res<span class="token punctuation">[</span>bad<span class="token punctuation">,<
 </div>
 <div class="container manual-page" id="checkTnF">
 
-<a href="#checkTnF" class="help-page-title"><h2>Check R Packages or Code for T/F</h2></a>
+<a href="#checkTnF" class="help-page-title"><h2 id="checkTnF">Check R Packages or Code for T/F</h2></a>
 
 <h3>Description</h3>
 
@@ -1915,8 +1958,8 @@ logicals.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="checkTnF_:_package">package</code></td>
 <td>
 <p>a character string naming an installed package.  If
 given, the installed R code and the examples in the documentation
@@ -1924,8 +1967,8 @@ files of the package are checked.  R code installed as an image file
 cannot be checked.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="checkTnF_:_dir">dir</code></td>
 <td>
 <p>a character string specifying the path to a package's root
 source directory.  This must contain the subdirectory ‘<span class="file">R</span>’ (for
@@ -1934,17 +1977,17 @@ Only used if <code>package</code> is not given.  If used, the R code files
 and the examples in the documentation files are checked.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="checkTnF_:_file">file</code></td>
 <td>
 <p>the name of a file containing R code to be checked.  Used
 if neither <code>package</code> nor <code>dir</code> are given.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lib.loc</code></td>
+<tr>
+<td><code id="checkTnF_:_lib.loc">lib.loc</code></td>
 <td>
-<p>a character vector of directory names of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> libraries,
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
 or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
 libraries currently known.  The specified library trees are used to
 search for <code>package</code>.</p>
@@ -1966,7 +2009,7 @@ contained in such objects.
 </div>
 <div class="container manual-page" id="checkVignettes">
 
-<a href="#checkVignettes" class="help-page-title"><h2>Check Package Vignettes</h2></a>
+<a href="#checkVignettes" class="help-page-title"><h2 id="checkVignettes">Check Package Vignettes</h2></a>
 
 <h3>Description</h3>
 
@@ -1990,16 +2033,16 @@ executed without errors.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="checkVignettes_:_package">package</code></td>
 <td>
 <p>a character string naming an installed package.
 If given, vignette source files are looked for in subdirectory
 ‘<span class="file">doc</span>’.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="checkVignettes_:_dir">dir</code></td>
 <td>
 <p>a character string specifying the path to a package's root
 source directory.
@@ -2007,29 +2050,29 @@ If given, vignette source files are looked for in subdirectory
 ‘<span class="file">vignettes</span>’.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lib.loc</code></td>
+<tr>
+<td><code id="checkVignettes_:_lib.loc">lib.loc</code></td>
 <td>
-<p>a character vector of directory names of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> libraries,
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
 or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
 libraries currently known.  The specified library trees are used to
 search for <code>package</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>tangle</code></td>
+<tr>
+<td><code id="checkVignettes_:_tangle">tangle</code></td>
 <td>
 <p>Perform a tangle and <code><a href="https://r-universe.dev/manuals/base.html#source">source</a></code> the extracted code?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>weave</code></td>
+<tr>
+<td><code id="checkVignettes_:_weave">weave</code></td>
 <td>
 <p>Perform a weave?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>latex</code></td>
+<tr>
+<td><code id="checkVignettes_:_latex">latex</code></td>
 <td>
 <p>logical: if <code>weave</code> and <code>latex</code>
 are <code>TRUE</code> and there is no ‘<span class="file">Makefile</span>’ in the vignettes
@@ -2037,24 +2080,24 @@ directory, run the intermediate ‘<span class="file">.tex</span>’ outputs fro
 through <code><a href="#texi2dvi">texi2pdf</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>workdir</code></td>
+<tr>
+<td><code id="checkVignettes_:_workdir">workdir</code></td>
 <td>
 <p>Directory used as working directory while checking the
 vignettes. If <code>"tmp"</code> then a temporary directory is created,
 this is the default.  If <code>"src"</code> then the directory containing
 the vignettes itself is used, if <code>"cur"</code> then the current
-working directory of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> is used.</p>
+working directory of <span class="rlang"><b>R</b></span> is used.</p>
 </td>
 </tr>
-</table>
-<table><tr style="vertical-align: top;">
-<td><code>keepfiles</code></td>
+<tr>
+<td><code id="checkVignettes_:_keepfiles">keepfiles</code></td>
 <td>
 <p>Delete files in the temporary directory?  This option is
 ignored when <code>workdir != "tmp"</code>.</p>
 </td>
-</tr></table>
+</tr>
+</table>
 <h3>Details</h3>
 
 <p>This function first uses <code><a href="#buildVignettes">pkgVignettes</a></code> to find the
@@ -2063,7 +2106,7 @@ package vignettes, and in particular their vignette engines (see
 </p>
 <p>If <code>tangle</code> is true, it then runs <code><a href="https://r-universe.dev/manuals/utils.html#Sweave">Stangle</a></code> (or
 other custom tangle function provided by the engine) to produce (one
-or more) <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code files from each vignette, then <code><a href="https://r-universe.dev/manuals/base.html#source">source</a></code>s
+or more) <span class="rlang"><b>R</b></span> code files from each vignette, then <code><a href="https://r-universe.dev/manuals/base.html#source">source</a></code>s
 each code file in turn.
 </p>
 <p>If <code>weave</code> is true, the vignettes are run through
@@ -2087,12 +2130,12 @@ contained in such objects.
 </div>
 <div class="container manual-page" id="codoc">
 
-<a href="#codoc" class="help-page-title"><h2>Check Code/Documentation Consistency</h2></a>
+<a href="#codoc" class="help-page-title"><h2 id="codoc">Check Code/Documentation Consistency</h2></a>
 
 <h3>Description</h3>
 
 <p>Find inconsistencies between actual and documented ‘structure’
-of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects in a package.  <code>codoc</code> compares names and
+of <span class="rlang"><b>R</b></span> objects in a package.  <code>codoc</code> compares names and
 optionally also corresponding positions and default values of the
 arguments of functions.  <code>codocClasses</code> and <code>codocData</code>
 compare slot names of S4 classes and variable names of data sets,
@@ -2111,32 +2154,32 @@ codocData<span class="token punctuation">(</span>package<span class="token punct
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="codoc_:_package">package</code></td>
 <td>
 <p>a character string naming an installed package.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="codoc_:_dir">dir</code></td>
 <td>
 <p>a character string specifying the path to a package's root
 source directory.  This must contain the subdirectories ‘<span class="file">man</span>’
-with <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> documentation sources (in Rd format) and ‘<span class="file">R</span>’ with <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+with <span class="rlang"><b>R</b></span> documentation sources (in Rd format) and ‘<span class="file">R</span>’ with <span class="rlang"><b>R</b></span>
 code.  Only used if <code>package</code> is not given.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lib.loc</code></td>
+<tr>
+<td><code id="codoc_:_lib.loc">lib.loc</code></td>
 <td>
-<p>a character vector of directory names of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> libraries,
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
 or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
 libraries currently known.  The specified library trees are used to
 search for <code>package</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>use.values</code></td>
+<tr>
+<td><code id="codoc_:_use.values">use.values</code></td>
 <td>
 <p>if <code>FALSE</code>, do not use function default values
 when comparing code and docs.  Otherwise, compare <em>all</em> default
@@ -2144,8 +2187,8 @@ values if <code>TRUE</code>, and only the ones documented in the usage
 otherwise (default).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>verbose</code></td>
+<tr>
+<td><code id="codoc_:_verbose">verbose</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code>, additional diagnostics are
 printed.</p>
@@ -2156,21 +2199,19 @@ printed.</p>
 
 <p>The purpose of <code>codoc</code> is to check whether the documented usage
 of function objects agrees with their formal arguments as defined in
-the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code.  This is not always straightforward, in particular as the
+the <span class="rlang"><b>R</b></span> code.  This is not always straightforward, in particular as the
 usage information for methods to generic functions often employs the
 name of the generic rather than the method.
 </p>
 <p>The following algorithm is used.  If an installed package is used, it
 is loaded (unless it is the <span class="pkg">base</span> package), after possibly
 detaching an already loaded version of the package.  Otherwise, if the
-sources are used, the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code files of the package are collected and
+sources are used, the <span class="rlang"><b>R</b></span> code files of the package are collected and
 sourced in a new environment.  Then, the usage sections of the Rd
 files are extracted and parsed ‘as much as possible’ to give
 the formals documented.  For interpreted functions in the code
 environment, the formals are compared between code and documentation
-according to the values of the argument <code>use.values</code>.  Synopsis
-sections are used if present; their occurrence is reported if
-<code>verbose</code> is true.
+according to the values of the argument <code>use.values</code>.
 </p>
 <p>If a package has a namespace both exported and unexported objects are
 checked, as well as registered S3 methods.  (In the unlikely event of
@@ -2215,7 +2256,7 @@ contained in such objects.
 <h3>Note</h3>
 
 <p>The default for <code>use.values</code> has been changed from
-<code>FALSE</code> to <code>NULL</code>, for <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> versions 1.9.0 and later.
+<code>FALSE</code> to <code>NULL</code>, for <span class="rlang"><b>R</b></span> versions 1.9.0 and later.
 </p>
 
 
@@ -2228,7 +2269,7 @@ contained in such objects.
 </div>
 <div class="container manual-page" id="compactPDF">
 
-<a href="#compactPDF" class="help-page-title"><h2>
+<a href="#compactPDF" class="help-page-title"><h2 id="compactPDF">
 Compact PDF Files
 </h2></a>
 
@@ -2245,7 +2286,8 @@ Support function for <code>R CMD build --compact-vignettes</code>.
            qpdf <span class="token operator">=</span> Sys.which<span class="token punctuation">(</span>Sys.getenv<span class="token punctuation">(</span><span class="token string">"R_QPDF"</span><span class="token punctuation">,</span> <span class="token string">"qpdf"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
            gs_cmd <span class="token operator">=</span> Sys.getenv<span class="token punctuation">(</span><span class="token string">"R_GSCMD"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
            gs_quality <span class="token operator">=</span> Sys.getenv<span class="token punctuation">(</span><span class="token string">"GS_QUALITY"</span><span class="token punctuation">,</span> <span class="token string">"none"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-           gs_extras <span class="token operator">=</span> character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+           gs_extras <span class="token operator">=</span> character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+           verbose <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 
 <span class="token comment">## S3 method for class 'compactPDF'</span>
 format<span class="token punctuation">(</span>x<span class="token punctuation">,</span> ratio <span class="token operator">=</span> <span class="token number">0.9</span><span class="token punctuation">,</span> diff <span class="token operator">=</span> <span class="token number">1e4</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
@@ -2254,23 +2296,23 @@ format<span class="token punctuation">(</span>x<span class="token punctuation">,
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>paths</code></td>
+<tr>
+<td><code id="compactPDF_:_paths">paths</code></td>
 <td>
 <p>A character vector of paths to PDF files, or a length-one
 character vector naming a directory, when all ‘<span class="file">.pdf</span>’ files in
 that directory will be used.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>qpdf</code></td>
+<tr>
+<td><code id="compactPDF_:_qpdf">qpdf</code></td>
 <td>
 <p>Character string giving the path to the <code>qpdf</code>
 command.  If empty, <code>qpdf</code> will not be used.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>gs_cmd</code></td>
+<tr>
+<td><code id="compactPDF_:_gs_cmd">gs_cmd</code></td>
 <td>
 <p>Character string giving the path to the GhostScript
 executable, if that is to be used.  On Windows this is the path to
@@ -2279,8 +2321,8 @@ default), the function will try to find a platform-specific path to
 GhostScript where required.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>gs_quality</code></td>
+<tr>
+<td><code id="compactPDF_:_gs_quality">gs_quality</code></td>
 <td>
 <p>A character string indicating the quality required:
 the options are <code>"none"</code> (so GhostScript is not used),
@@ -2288,29 +2330,38 @@ the options are <code>"none"</code> (so GhostScript is not used),
 <code>"screen"</code> (72dpi).  Can be abbreviated.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>gs_extras</code></td>
+<tr>
+<td><code id="compactPDF_:_gs_extras">gs_extras</code></td>
 <td>
 <p>An optional character vector of further options to be
 passed to GhostScript.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="compactPDF_:_verbose">verbose</code></td>
+<td>
+<p><code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> or non-negative integer indicating if
+and how much of the compression utilities' output should be shown.</p>
+</td>
+</tr>
+<tr>
+<td><code id="compactPDF_:_x">x</code></td>
 <td>
 <p>An object of class <code>"compactPDF"</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>ratio, diff</code></td>
+<tr>
+<td>
+<code id="compactPDF_:_ratio">ratio</code>, <code id="compactPDF_:_diff">diff</code>
+</td>
 <td>
 <p>Limits for reporting: files are only reported whose
 sizes are reduced both by a factor of <code>ratio</code> and by
 <code>diff</code> bytes.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="compactPDF_:_...">...</code></td>
 <td>
 <p>Further arguments to be passed to or from other methods.</p>
 </td>
@@ -2319,8 +2370,8 @@ sizes are reduced both by a factor of <code>ratio</code> and by
 <h3>Details</h3>
 
 <p>This by default makes use of <code>qpdf</code>, available from
-<a href="http://qpdf.sourceforge.net/" target="_blank">http://qpdf.sourceforge.net/</a> (including as a Windows binary) and
-included with the CRAN macOS distribution of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.  If <code>gs_cmd</code>
+<a href="https://qpdf.sourceforge.io/" target="_blank">https://qpdf.sourceforge.io/</a> (including as a Windows binary) and
+included with the CRAN macOS distribution of <span class="rlang"><b>R</b></span>.  If <code>gs_cmd</code>
 is non-empty and <code>gs_quality != "none"</code>, GhostScript will used
 first, then <code>qpdf</code> if it is available.  If
 <code>gs_quality != "none"</code> and <code>gs_cmd</code> is <code>""</code>, an attempt
@@ -2389,7 +2440,7 @@ See the ‘Writing R Extensions’ manual.
 </div>
 <div class="container manual-page" id="CRANtools">
 
-<a href="#CRANtools" class="help-page-title"><h2>CRAN Package Repository Tools</h2></a>
+<a href="#CRANtools" class="help-page-title"><h2 id="CRANtools">CRAN Package Repository Tools</h2></a>
 
 <h3>Description</h3>
 
@@ -2414,35 +2465,35 @@ summarize_CRAN_check_status<span class="token punctuation">(</span>packages<span
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>packages</code></td>
+<tr>
+<td><code id="CRANtools_:_packages">packages</code></td>
 <td>
 <p>a character vector of package names.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>flavors</code></td>
+<tr>
+<td><code id="CRANtools_:_flavors">flavors</code></td>
 <td>
 <p>a character vector of <abbr><span class="acronym">CRAN</span></abbr> check flavor names, or
 <code>NULL</code> (default), corresponding to all available flavors.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>results</code></td>
+<tr>
+<td><code id="CRANtools_:_results">results</code></td>
 <td>
 <p>the return value of <code>CRAN_check_results()</code>
 (default), or a subset of this.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>details</code></td>
+<tr>
+<td><code id="CRANtools_:_details">details</code></td>
 <td>
 <p>the return value of <code>CRAN_check_details()</code>
 (default), or a subset of this.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>issues</code></td>
+<tr>
+<td><code id="CRANtools_:_issues">issues</code></td>
 <td>
 <p>the return value of <code>CRAN_check_issues()</code>
 (default), or a subset of this.</p>
@@ -2476,9 +2527,6 @@ from <a href="https://www.stats.ox.ac.uk/pub/bdr/memtests/" target="_blank">http
 character frame with variables <code>Package</code>, <code>Version</code>,
 <code>kind</code> (an identifier for the issue) and <code>href</code> (a URL with
 information on the issue).
-</p>
-<p><code>CRAN_memtest_notes()</code> is now deprecated, with its functionality
-integrated into that of <code>CRAN_check_issues()</code>.
 </p>
 
 
@@ -2563,7 +2611,7 @@ summarize_CRAN_check_status<span class="token punctuation">(</span>pdb<span clas
 </div>
 <div class="container manual-page" id="delimMatch">
 
-<a href="#delimMatch" class="help-page-title"><h2>Delimited Pattern Matching</h2></a>
+<a href="#delimMatch" class="help-page-title"><h2 id="delimMatch">Delimited Pattern Matching</h2></a>
 
 <h3>Description</h3>
 
@@ -2579,22 +2627,22 @@ summarize_CRAN_check_status<span class="token punctuation">(</span>pdb<span clas
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="delimMatch_:_x">x</code></td>
 <td>
 <p>a character vector.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>delim</code></td>
+<tr>
+<td><code id="delimMatch_:_delim">delim</code></td>
 <td>
 <p>a character vector of length 2 giving the start and end
 delimiters.  Future versions might allow for arbitrary regular
 expressions.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>syntax</code></td>
+<tr>
+<td><code id="delimMatch_:_syntax">syntax</code></td>
 <td>
 <p>currently, always the string <code>"Rd"</code> indicating Rd
 syntax (i.e., ‘<span class="samp">⁠%⁠</span>’ starts a comment extending till the end of
@@ -2629,7 +2677,7 @@ delimMatch<span class="token punctuation">(</span>x<span class="token punctuatio
 </div>
 <div class="container manual-page" id="dependsOnPkgs">
 
-<a href="#dependsOnPkgs" class="help-page-title"><h2>Find Reverse Dependencies</h2></a>
+<a href="#dependsOnPkgs" class="help-page-title"><h2 id="dependsOnPkgs">Find Reverse Dependencies</h2></a>
 
 <h3>Description</h3>
 
@@ -2650,14 +2698,14 @@ which depend on this one, and (optionally) so on recursively.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>pkgs</code></td>
+<tr>
+<td><code id="dependsOnPkgs_:_pkgs">pkgs</code></td>
 <td>
 <p>a character vector of package names.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dependencies</code></td>
+<tr>
+<td><code id="dependsOnPkgs_:_dependencies">dependencies</code></td>
 <td>
 <p>a character vector listing the types of
 dependencies, a subset of
@@ -2669,22 +2717,22 @@ character string <code>"strong"</code> (default) for the first three
 elements of that vector.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>recursive</code></td>
+<tr>
+<td><code id="dependsOnPkgs_:_recursive">recursive</code></td>
 <td>
 <p>logical: should reverse dependencies of reverse
 dependencies (and so on) be included?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lib.loc</code></td>
+<tr>
+<td><code id="dependsOnPkgs_:_lib.loc">lib.loc</code></td>
 <td>
-<p>a character vector of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> library trees, or <code>NULL</code>
+<p>a character vector of <span class="rlang"><b>R</b></span> library trees, or <code>NULL</code>
 for all known trees (see <code><a href="https://r-universe.dev/manuals/base.html#libPaths">.libPaths</a></code>).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>installed</code></td>
+<tr>
+<td><code id="dependsOnPkgs_:_installed">installed</code></td>
 <td>
 <p>a result of calling <code><a href="https://r-universe.dev/manuals/utils.html#installed.packages">installed.packages</a></code>.</p>
 </td>
@@ -2714,7 +2762,7 @@ dependsOnPkgs<span class="token punctuation">(</span><span class="token string">
 </div>
 <div class="container manual-page" id="encoded">
 
-<a href="#encoded" class="help-page-title"><h2>Translate non-ASCII Text to LaTeX Escapes</h2></a>
+<a href="#encoded" class="help-page-title"><h2 id="encoded_text_to_latex">Translate non-ASCII Text to LaTeX Escapes</h2></a>
 
 <h3>Description</h3>
 
@@ -2732,14 +2780,14 @@ dependsOnPkgs<span class="token punctuation">(</span><span class="token string">
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="encoded_text_to_latex_:_x">x</code></td>
 <td>
 <p>a character vector.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>encoding</code></td>
+<tr>
+<td><code id="encoded_text_to_latex_:_encoding">encoding</code></td>
 <td>
 <p>the encoding to be assumed.  <code>"latin9"</code> is
 officially ISO-8859-15 or Latin-9, but known as latin9 to LaTeX's
@@ -2816,7 +2864,7 @@ close<span class="token punctuation">(</span>con<span class="token punctuation">
 </div>
 <div class="container manual-page" id="fileutils">
 
-<a href="#fileutils" class="help-page-title"><h2>File Utilities</h2></a>
+<a href="#fileutils" class="help-page-title"><h2 id="fileutils">File Utilities</h2></a>
 
 <h3>Description</h3>
 
@@ -2839,48 +2887,48 @@ list_files_with_type<span class="token punctuation">(</span>dir<span class="toke
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="fileutils_:_x">x</code></td>
 <td>
 <p>character vector giving file paths.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>compression</code></td>
+<tr>
+<td><code id="fileutils_:_compression">compression</code></td>
 <td>
 <p>logical: should compression extension ‘<span class="file">.gz</span>’,
 ‘<span class="file">.bz2</span>’ or ‘<span class="file">.xz</span>’ be removed first?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="fileutils_:_dir">dir</code></td>
 <td>
 <p>a character string with the path name to a directory.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>exts</code></td>
+<tr>
+<td><code id="fileutils_:_exts">exts</code></td>
 <td>
 <p>a character vector of possible file extensions (excluding
 the leading dot).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>all.files</code></td>
+<tr>
+<td><code id="fileutils_:_all.files">all.files</code></td>
 <td>
 <p>a logical.  If <code>FALSE</code> (default), only visible
 files are considered; if <code>TRUE</code>, all files are used.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>full.names</code></td>
+<tr>
+<td><code id="fileutils_:_full.names">full.names</code></td>
 <td>
 <p>a logical indicating whether the full paths of the
 files found are returned (default), or just the file names.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>type</code></td>
+<tr>
+<td><code id="fileutils_:_type">type</code></td>
 <td>
 <p>a character string giving the ‘type’ of the files
 to be listed, as characterized by their extensions.  Currently,
@@ -2889,8 +2937,8 @@ sets), <code>"demo"</code> (demos), <code>"docs"</code> (R documentation), and
 <code>"vignette"</code> (vignettes).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>OS_subdirs</code></td>
+<tr>
+<td><code id="fileutils_:_OS_subdirs">OS_subdirs</code></td>
 <td>
 <p>a character vector with the names of OS-specific
 subdirectories to possibly include in the listing of R code and
@@ -2922,7 +2970,7 @@ only visible files are used.
 </p>
 <p><code>list_files_with_type</code> returns the paths of the files in <code>dir</code>
 of the given ‘type’, as determined by the extensions recognized
-by <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.  When listing R code and documentation files, files in
+by <span class="rlang"><b>R</b></span>.  When listing R code and documentation files, files in
 OS-specific subdirectories are included if present according to the
 value of <code>OS_subdirs</code>.  Note that by default, full paths are
 returned, and that only visible files are used.
@@ -2948,7 +2996,7 @@ file_path_sans_ext<span class="token punctuation">(</span>list.files<span class=
 </div>
 <div class="container manual-page" id="find_gs_cmd">
 
-<a href="#find_gs_cmd" class="help-page-title"><h2>
+<a href="#find_gs_cmd" class="help-page-title"><h2 id="find_gs_cmd">
 Find a GhostScript Executable
 </h2></a>
 
@@ -2965,8 +3013,8 @@ Find a GhostScript Executable
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>gs_cmd</code></td>
+<table><tr>
+<td><code id="find_gs_cmd_:_gs_cmd">gs_cmd</code></td>
 <td>
 <p>The name, full or partial path of a GhostScript executable.</p>
 </td>
@@ -3013,7 +3061,7 @@ Sys.setenv<span class="token punctuation">(</span>R_GSCMD <span class="token ope
 </div>
 <div class="container manual-page" id="getVignetteInfo">
 
-<a href="#getVignetteInfo" class="help-page-title"><h2>Get Information on Installed Vignettes</h2></a>
+<a href="#getVignetteInfo" class="help-page-title"><h2 id="getVignetteInfo">Get Information on Installed Vignettes</h2></a>
 
 <h3>Description</h3>
 
@@ -3029,24 +3077,24 @@ Sys.setenv<span class="token punctuation">(</span>R_GSCMD <span class="token ope
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="getVignetteInfo_:_package">package</code></td>
 <td>
 
 <p>Which package to look in, or <code>NULL</code> for all packages.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lib.loc</code></td>
+<tr>
+<td><code id="getVignetteInfo_:_lib.loc">lib.loc</code></td>
 <td>
 
 <p>Which library to look in.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>all</code></td>
+<tr>
+<td><code id="getVignetteInfo_:_all">all</code></td>
 <td>
 
 <p>Whether to search all installed packages, or just attached packages.
@@ -3059,43 +3107,43 @@ Sys.setenv<span class="token punctuation">(</span>R_GSCMD <span class="token ope
 <p>A matrix with columns
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>Package</code></td>
 <td>
 <p>the name of the package</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>Dir</code></td>
 <td>
 <p>the directory where the package is installed</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>Topic</code></td>
 <td>
 <p>the name of the vignette</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>File</code></td>
 <td>
 <p>the base filename of the source of the vignette</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>Title</code></td>
 <td>
 <p>the title of the vignette</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>R</code></td>
 <td>
 <p>the tangled R source from the vignette</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>PDF</code></td>
 <td>
 <p>the PDF or HTML file for display</p>
@@ -3124,7 +3172,7 @@ an uninstalled package.
 </div>
 <div class="container manual-page" id="HTMLheader">
 
-<a href="#HTMLheader" class="help-page-title"><h2>Generate a Standard HTML Header for R Help</h2></a>
+<a href="#HTMLheader" class="help-page-title"><h2 id="HTMLheader">Generate a Standard HTML Header for R Help</h2></a>
 
 <h3>Description</h3>
 
@@ -3145,8 +3193,8 @@ an uninstalled package.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>title</code></td>
+<tr>
+<td><code id="HTMLheader_:_title">title</code></td>
 <td>
 
 <p>The title to display and use in the HTML headers.  Should have had any
@@ -3154,56 +3202,56 @@ HTML escaping already done.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>logo</code></td>
+<tr>
+<td><code id="HTMLheader_:_logo">logo</code></td>
 <td>
 
-<p>Whether to display the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> logo after the title.
+<p>Whether to display the <span class="rlang"><b>R</b></span> logo after the title.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>up</code></td>
+<tr>
+<td><code id="HTMLheader_:_up">up</code></td>
 <td>
 
 <p>Which page (if any) to link to on the “up” button.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>top</code></td>
+<tr>
+<td><code id="HTMLheader_:_top">top</code></td>
 <td>
 
 <p>Which page (if any) to link to on the “top” button.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>Rhome</code></td>
+<tr>
+<td><code id="HTMLheader_:_Rhome">Rhome</code></td>
 <td>
 
 <p>A <b>relative</b> path to the R home directory.  See the ‘Details’.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>css</code></td>
+<tr>
+<td><code id="HTMLheader_:_css">css</code></td>
 <td>
 
 <p>The relative URL for the Cascading Style Sheet.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>headerTitle</code></td>
+<tr>
+<td><code id="HTMLheader_:_headerTitle">headerTitle</code></td>
 <td>
 
 <p>The title used in the headers.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>outputEncoding</code></td>
+<tr>
+<td><code id="HTMLheader_:_outputEncoding">outputEncoding</code></td>
 <td>
 
 <p>The declared encoding for the whole page.
@@ -3234,7 +3282,7 @@ to start a page in the R help system.
 </div>
 <div class="container manual-page" id="HTMLlinks">
 
-<a href="#HTMLlinks" class="help-page-title"><h2>Collect HTML Links from Package Documentation</h2></a>
+<a href="#HTMLlinks" class="help-page-title"><h2 id="HTMLlinks">Collect HTML Links from Package Documentation</h2></a>
 
 <h3>Description</h3>
 
@@ -3251,22 +3299,22 @@ documentation.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>pkgDir</code></td>
+<tr>
+<td><code id="HTMLlinks_:_pkgDir">pkgDir</code></td>
 <td>
 <p>the top-level directory of an installed package.  The
 default indicates no package.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lib.loc</code></td>
+<tr>
+<td><code id="HTMLlinks_:_lib.loc">lib.loc</code></td>
 <td>
-<p>character vector describing the location of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> library
+<p>character vector describing the location of <span class="rlang"><b>R</b></span> library
 trees to scan: the default indicates <code><a href="https://r-universe.dev/manuals/base.html#libPaths">.libPaths</a>()</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>level</code></td>
+<tr>
+<td><code id="HTMLlinks_:_level">level</code></td>
 <td>
 <p>Which level(s) to include.</p>
 </td>
@@ -3311,7 +3359,7 @@ directory of an installed package.  So these are of the form
 </div>
 <div class="container manual-page" id="loadRdMacros">
 
-<a href="#loadRdMacros" class="help-page-title"><h2>Load User-defined Rd Help System Macros</h2></a>
+<a href="#loadRdMacros" class="help-page-title"><h2 id="loadRdMacros">Load User-defined Rd Help System Macros</h2></a>
 
 <h3>Description</h3>
 
@@ -3329,16 +3377,16 @@ loadPkgRdMacros<span class="token punctuation">(</span>pkgdir<span class="token 
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="loadRdMacros_:_file">file</code></td>
 <td>
 
 <p>A file in Rd format containing macro definitions.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>macros</code></td>
+<tr>
+<td><code id="loadRdMacros_:_macros">macros</code></td>
 <td>
 
 <p>optionally, a previous set of macro definitions, in the format
@@ -3347,8 +3395,8 @@ expected by the <code><a href="#parse_Rd">parse_Rd</a></code> <code>macros</code
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>pkgdir</code></td>
+<tr>
+<td><code id="loadRdMacros_:_pkgdir">pkgdir</code></td>
 <td>
 
 <p>The base directory of a source package or an installed package.
@@ -3409,10 +3457,12 @@ discussion.
 <h3>Examples</h3>
 
 <pre class="language-r"><code class="language-r">f <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span>
-writeLines<span class="token punctuation">(</span>paste0<span class="token punctuation">(</span>
-    r<span class="token string">"(\newcommand{\Rlogo}{\if{html}{\figure{Rlogo.svg}{options: width=100 alt="</span>R logo<span class="token string">"}})"</span><span class="token punctuation">,</span>
-    r<span class="token string">"(\if{latex}{\figure{Rlogo.pdf}{options: width=0.5in}}})"</span>
-<span class="token punctuation">)</span><span class="token punctuation">,</span> f<span class="token punctuation">)</span>
+writeLines<span class="token punctuation">(</span>r"<span class="token punctuation">(</span>
+\newcommand<span class="token punctuation">{</span>\Rlogo<span class="token punctuation">}</span><span class="token punctuation">{</span>
+  \<span class="token keyword">if</span><span class="token punctuation">{</span>html<span class="token punctuation">}</span><span class="token punctuation">{</span>\figure<span class="token punctuation">{</span>Rlogo.svg<span class="token punctuation">}</span><span class="token punctuation">{</span>options<span class="token operator">:</span> width<span class="token operator">=</span><span class="token number">100</span> alt<span class="token operator">=</span><span class="token string">"R logo"</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+  \<span class="token keyword">if</span><span class="token punctuation">{</span>latex<span class="token punctuation">}</span><span class="token punctuation">{</span>\figure<span class="token punctuation">{</span>Rlogo.pdf<span class="token punctuation">}</span><span class="token punctuation">{</span>options<span class="token operator">:</span> width<span class="token operator">=</span><span class="token number">0.5i</span>n<span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">)</span>"<span class="token punctuation">,</span> f<span class="token punctuation">)</span>
 m <span class="token operator">&lt;-</span> loadRdMacros<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
 ls<span class="token punctuation">(</span>m<span class="token punctuation">)</span>
 ls<span class="token punctuation">(</span>parent.env<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span>  
@@ -3423,7 +3473,7 @@ parse_Rd<span class="token punctuation">(</span>textConnection<span class="token
 </div>
 <div class="container manual-page" id="make_translations_pkg">
 
-<a href="#make_translations_pkg" class="help-page-title"><h2>Package the Current Translations in the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> Sources</h2></a>
+<a href="#make_translations_pkg" class="help-page-title"><h2 id="make_translations_pkg">Package the Current Translations in the <span class="rlang"><b>R</b></span> Sources</h2></a>
 
 <h3>Description</h3>
 
@@ -3439,33 +3489,33 @@ parse_Rd<span class="token punctuation">(</span>textConnection<span class="token
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>srcdir</code></td>
+<tr>
+<td><code id="make_translations_pkg_:_srcdir">srcdir</code></td>
 <td>
-<p>The <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> source directory.</p>
+<p>The <span class="rlang"><b>R</b></span> source directory.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>outDir</code></td>
+<tr>
+<td><code id="make_translations_pkg_:_outDir">outDir</code></td>
 <td>
 <p>The directory into which to place the prepared package.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>append</code></td>
+<tr>
+<td><code id="make_translations_pkg_:_append">append</code></td>
 <td>
 <p>The suffix for the package version number,
-e.g. <code>3.0.0-1</code> will be the default in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.0.0.</p>
+e.g. <code>3.0.0-1</code> will be the default in <span class="rlang"><b>R</b></span> 3.0.0.</p>
 </td>
 </tr>
 </table>
 <h3>Details</h3>
 
-<p>This extracts the translations in a current <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> source distribution and
+<p>This extracts the translations in a current <span class="rlang"><b>R</b></span> source distribution and
 packages them as a source package called <span class="pkg">translations</span> which can
 be distributed on CRAN and installed by
 <code><a href="https://r-universe.dev/manuals/utils.html#update.packages">update.packages</a></code>.  This allows e.g. the translations
-shipped in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.x.y to be updated to those currently in
+shipped in <span class="rlang"><b>R</b></span> 3.x.y to be updated to those currently in
 ‘<span class="samp">⁠R-patched⁠</span>’, even by a user without administrative privileges.
 </p>
 <p>The package has a ‘<span class="samp">⁠Depends⁠</span>’ field which restricts it to versions
@@ -3476,7 +3526,7 @@ shipped in <span style="font-family: Courier New, Courier; color: #666666;"><b>R
 </div>
 <div class="container manual-page" id="makevars">
 
-<a href="#makevars" class="help-page-title"><h2>User and Site Compilation Variables</h2></a>
+<a href="#makevars" class="help-page-title"><h2 id="makevars">User and Site Compilation Variables</h2></a>
 
 <h3>Description</h3>
 
@@ -3494,9 +3544,9 @@ makevars_site<span class="token punctuation">(</span><span class="token punctuat
 <h3>Details</h3>
 
 <p>Package maintainers can use these functions to employ user and site
-specific compilation settings also for compilations not using <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>'s
+specific compilation settings also for compilations not using <span class="rlang"><b>R</b></span>'s
 mechanisms (in particular, custom compilations in subdirectories of
-‘<span class="file">src</span>’), e.g., by adding configure code calling <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> with
+‘<span class="file">src</span>’), e.g., by adding configure code calling <span class="rlang"><b>R</b></span> with
 <code>cat(tools::makevars_user())</code> or
 <code>cat(tools::makevars_site())</code>, and if non-empty passing this with
 <span class="option">-f</span> to custom Make invocations.
@@ -3525,9 +3575,194 @@ makevars_site<span class="token punctuation">(</span><span class="token punctuat
 
 <hr>
 </div>
+<div class="container manual-page" id="matchConcordance">
+
+<a href="#matchConcordance" class="help-page-title"><h2 id="matchConcordance">
+Concordance between source and target lines.
+</h2></a>
+
+<h3>Description</h3>
+
+<p>The Rd parser records locations in ‘<span class="file">.Rd</span>’ files from
+which components of the file are read.  Output generators
+<code><a href="#Rd2HTML">Rd2HTML</a></code> and <code><a href="#Rd2HTML">Rd2latex</a></code> can output
+information about these locations as “concordances” between
+source and output lines.  
+</p>
+<p><code>matchConcordance</code> converts from output locations
+to source locations.  The <code>"Rconcordance"</code> method of
+<code>as.character</code> produces
+strings to embed in output files, and the default method of 
+<code>as.Rconcordance</code>
+converts these back to objects that can be interpreted
+by <code>matchConcordance</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">matchConcordance<span class="token punctuation">(</span>linenum<span class="token punctuation">,</span> concordance<span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'Rconcordance'</span>
+as.character<span class="token punctuation">(</span>x<span class="token punctuation">,</span> targetfile <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+as.Rconcordance<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+followConcordance<span class="token punctuation">(</span>concordance<span class="token punctuation">,</span> prevConcordance<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr>
+<td><code id="matchConcordance_:_linenum">linenum</code></td>
+<td>
+
+<p>One or more line numbers being queried.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="matchConcordance_:_concordance">concordance</code></td>
+<td>
+
+<p>The concordance data for the file containing the lines: an object
+of class <code>"Rconcordance"</code>.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="matchConcordance_:_prevConcordance">prevConcordance</code></td>
+<td>
+
+<p>A concordance object retrieved from the current file.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="matchConcordance_:_targetfile">targetfile</code></td>
+<td>
+
+<p>The output filename.  
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="matchConcordance_:_x">x</code></td>
+<td>
+
+<p>The object to convert:  for <code>as.character</code>, an <code>"Rconcordance"</code> object; for <code>as.concordance</code>,
+a character vector which contains <code>as.character</code> output, typically in comments.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="matchConcordance_:_...">...</code></td>
+<td>
+
+<p>Further arguments passed to other methods.
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The correspondence between target lines and source lines 
+in Rd file conversion
+is not one to one.  Often a single source line can 
+lead to the generation of multiple output lines, and 
+sometimes more than one source line triggers output
+on the same output line.
+</p>
+<p><code>matchConcordance</code> converts from target lines to
+source lines.  This can be used to help in understanding how 
+particular output lines
+depend on the source, e.g. when an error is found in the 
+output file.  When more than one line contributes
+to the output, the last one will be returned.
+</p>
+<p>The <code>"Rconcordance"</code> method of <code>as.character</code> converts a
+concordance object
+to strings suitable for embedding (e.g. in comments) in an
+output file.
+</p>
+<p>The default method of <code>as.Rconcordance</code> searches for strings matching the
+pattern of <code>as.character.Rconcordance</code> output, then converts
+those lines back to a single concordance.
+</p>
+<p><code>followConcordance</code> is used when a file is transformed
+more than once.  The first transformation records a
+concordance in the file which is read as <code>prevConcordance</code>. 
+<code>followConcordance</code> chains this with the current 
+<code>concordance</code>, relating the final result to the original
+source.
+</p>
+<p>There are 3 kinds of objects used to hold concordances.  
+</p>
+<p>Objects of class <code>"activeConcordance"</code> are internal to <span class="pkg">tools</span>; they
+are used by <code>Rd2HTML</code> and <code>Rd2latex</code> while building the output
+file and saving links to the source file.
+</p>
+<p>Objects of class <code>"Rconcordance"</code> are visible to users.
+They are list objects with the following three fields:
+</p>
+
+<dl>
+<dt><code>offset</code></dt>
+<dd>
+<p>The number of lines of output before the
+first one corresponding to this concordance.</p>
+</dd>
+<dt><code>srcLine</code></dt>
+<dd>
+<p>For each line of output after the offset,
+the corresponding input file line number.  There may be more lines
+of output than the length of <code>srcLine</code>, in which case nothing
+can be inferred about the source of those lines.</p>
+</dd>
+<dt><code>srcFile</code></dt>
+<dd>
+<p>A vector of filenames of length 1 or the
+same length as <code>srcLine</code> giving the source file(s) for
+each output line.</p>
+</dd>
+</dl>
+<p>Concordance strings are produced by the <code>"Rconcordance"</code> method of
+<code>as.character</code>; 
+they are simply character vectors encoding the concordance data.
+The default method of the <code>as.concordance</code> generic function 
+converts them to <code>"Rconcordance"</code> objects.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>matchConcordance</code> returns a character array with one row 
+per input <code>linenum</code> entry and
+two columns, <code>"srcFile"</code> and <code>"srcLine"</code>.
+</p>
+<p>For the <code>"Rconcordance"</code> method of <code>as.character</code>, a character
+vector used (e.g. in <code><a href="https://r-universe.dev/manuals/utils.html#Sweave">Sweave</a></code>) to embed 
+the concordance in a file.
+</p>
+<p>For <code>as.concordance</code>, an <code>"Rconcordance"</code> object, or <code>NULL</code>
+if no concordance strings are found.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Duncan Murdoch
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#Rd2HTML">Rd2HTML</a></code>, <code><a href="#Rd2HTML">Rd2latex</a></code>
+</p>
+
+<hr>
+</div>
 <div class="container manual-page" id="md5sum">
 
-<a href="#md5sum" class="help-page-title"><h2>Compute MD5 Checksums</h2></a>
+<a href="#md5sum" class="help-page-title"><h2 id="md5sum">Compute MD5 Checksums</h2></a>
 
 <h3>Description</h3>
 
@@ -3542,8 +3777,8 @@ makevars_site<span class="token punctuation">(</span><span class="token punctuat
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>files</code></td>
+<table><tr>
+<td><code id="md5sum_:_files">files</code></td>
 <td>
 <p>character. The paths of file(s) whose contents are to be hashed.</p>
 </td>
@@ -3560,7 +3795,7 @@ the same sums different.
 utilities there do): on other OSes the files are read in the default
 mode (almost always text mode where there is more than one).
 </p>
-<p>MD5 sums are used as a check that <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> packages have been unpacked
+<p>MD5 sums are used as a check that <span class="rlang"><b>R</b></span> packages have been unpacked
 correctly and not subsequently accidentally modified.
 </p>
 
@@ -3595,7 +3830,7 @@ a 2001 release of <code>glibc</code>.
 </div>
 <div class="container manual-page" id="package_dependencies">
 
-<a href="#package_dependencies" class="help-page-title"><h2>Computations on the Dependency Hierarchy of Packages</h2></a>
+<a href="#package_dependencies" class="help-page-title"><h2 id="package_dependencies">Computations on the Dependency Hierarchy of Packages</h2></a>
 
 <h3>Description</h3>
 
@@ -3613,14 +3848,14 @@ a 2001 release of <code>glibc</code>.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>packages</code></td>
+<tr>
+<td><code id="package_dependencies_:_packages">packages</code></td>
 <td>
 <p>a character vector of package names.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>db</code></td>
+<tr>
+<td><code id="package_dependencies_:_db">db</code></td>
 <td>
 <p>character matrix as from <code><a href="https://r-universe.dev/manuals/utils.html#available.packages">available.packages</a>()</code>
 (with the default <code>NULL</code> the results of this call)
@@ -3630,8 +3865,8 @@ like the one available from
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>which</code></td>
+<tr>
+<td><code id="package_dependencies_:_which">which</code></td>
 <td>
 <p>a character vector listing the types of
 dependencies, a subset of
@@ -3644,8 +3879,8 @@ elements of that vector.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>recursive</code></td>
+<tr>
+<td><code id="package_dependencies_:_recursive">recursive</code></td>
 <td>
 <p>a logical indicating whether (reverse) dependencies
 of (reverse) dependencies (and so on) should be included, or a
@@ -3653,15 +3888,15 @@ character vector like <code>which</code> indicating the type of (reverse)
 dependencies to be added recursively.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>reverse</code></td>
+<tr>
+<td><code id="package_dependencies_:_reverse">reverse</code></td>
 <td>
 <p>logical: if <code>FALSE</code> (default), regular
 dependencies are calculated, otherwise reverse dependencies.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>verbose</code></td>
+<tr>
+<td><code id="package_dependencies_:_verbose">verbose</code></td>
 <td>
 <p>logical indicating if output should monitor the package
 search cycles.</p>
@@ -3713,7 +3948,7 @@ package_dependencies<span class="token punctuation">(</span>packages<span class=
 </div>
 <div class="container manual-page" id="package_native_routine_registration_skeleton">
 
-<a href="#package_native_routine_registration_skeleton" class="help-page-title"><h2>
+<a href="#package_native_routine_registration_skeleton" class="help-page-title"><h2 id="package_native_routine_registration_skeleton">
 Write Skeleton for Adding Native Routine Registration to a Package
 </h2></a>
 
@@ -3732,16 +3967,16 @@ Write Skeleton for Adding Native Routine Registration to a Package
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="package_native_routine_registration_skeleton_:_dir">dir</code></td>
 <td>
 
 <p>Top-level directory of a package.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>con</code></td>
+<tr>
+<td><code id="package_native_routine_registration_skeleton_:_con">con</code></td>
 <td>
 
 <p>Connection on which to write the skeleton: can be specified as a
@@ -3749,8 +3984,8 @@ file path.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>align</code></td>
+<tr>
+<td><code id="package_native_routine_registration_skeleton_:_align">align</code></td>
 <td>
 
 <p>Logical: should the registration tables be lined up in three
@@ -3758,17 +3993,17 @@ columns each?
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>character_only</code></td>
+<tr>
+<td><code id="package_native_routine_registration_skeleton_:_character_only">character_only</code></td>
 <td>
 
 <p>Logical: should only <code>.NAME</code> arguments specified by character
-strings (and not as names of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects nor expressions) be extracted?
+strings (and not as names of <span class="rlang"><b>R</b></span> objects nor expressions) be extracted?
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>include_declarations</code></td>
+<tr>
+<td><code id="package_native_routine_registration_skeleton_:_include_declarations">include_declarations</code></td>
 <td>
 
 <p>Logical: should the output include declarations (also known as
@@ -3794,7 +4029,7 @@ it will be recorded as <code>-1</code>: such values should be corrected.
 </p>
 <p>Optionally the skeleton will include declarations for the registered
 routines: they should be checked against the C/Fortran source code,
-not least as the number of arguments is taken from the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code.  For
+not least as the number of arguments is taken from the <span class="rlang"><b>R</b></span> code.  For
 <code>.Call</code> and <code>.External</code> calls they will often suffice, but
 for <code>.C</code> and <code>.Fortran</code> calls the <code>void *</code> arguments
 would ideally be replaced by the actual types.  Otherwise declarations
@@ -3810,19 +4045,19 @@ extended since registration.  For the default value, if <code>.NAME</code>
 values are found which are not character strings (e.g. names
 or expressions) this is noted via a comment in the output.
 </p>
-<p>Packages which used the earlier form of creating <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects for native
+<p>Packages which used the earlier form of creating <span class="rlang"><b>R</b></span> objects for native
 symbols <em>via</em> additional arguments in a <code>useDynLib</code>
 directive will probably most easily be updated to use registration
 with <code>character_only = FALSE</code>.
 </p>
 <p>If an entry point is used with different numbers of arguments in the
-package's <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code, an entry in the table (and optionally, a
+package's <span class="rlang"><b>R</b></span> code, an entry in the table (and optionally, a
 declaration) is made for each number, and a comment placed in the
 output.  This needs to be resolved: only <code>.External</code> calls can
 have a variable number of arguments, which should be declared as
 <code>-1</code>.
 </p>
-<p>A surprising number of <abbr><span class="acronym">CRAN</span></abbr> packages had calls in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code to
+<p>A surprising number of <abbr><span class="acronym">CRAN</span></abbr> packages had calls in <span class="rlang"><b>R</b></span> code to
 native routines not included in the package, which will lead to a
 ‘loading failed’ error during package installation when the
 registration C code is added.
@@ -3880,7 +4115,7 @@ subroutines with a special flag:
 e.g. <code>.Call</code> calls used directly in examples, tests <em>etc</em>.
 </p>
 <p>Static code analysis is used to find the <code>.C</code> etc calls: it
-<em>will</em> find those in parts of the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code ‘commented out’
+<em>will</em> find those in parts of the <span class="rlang"><b>R</b></span> code ‘commented out’
 by inclusion in <code>if(FALSE) { ... }</code>.
 On the other hand, it will fail to find the entry points in
 constructs like
@@ -3946,7 +4181,7 @@ void R_init_splines<span class="token punctuation">(</span>DllInfo <span class="
 </div>
 <div class="container manual-page" id="parse_Rd">
 
-<a href="#parse_Rd" class="help-page-title"><h2>Parse an Rd File</h2></a>
+<a href="#parse_Rd" class="help-page-title"><h2 id="parse_Rd">Parse an Rd File</h2></a>
 
 <h3>Description</h3>
 
@@ -3970,75 +4205,75 @@ as.character<span class="token punctuation">(</span>x<span class="token punctuat
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="parse_Rd_:_file">file</code></td>
 <td>
 <p>A filename or text-mode connection.  At present filenames
 work best.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>srcfile</code></td>
+<tr>
+<td><code id="parse_Rd_:_srcfile">srcfile</code></td>
 <td>
 <p><code>NULL</code>, or a <code>"srcfile"</code> object.  See the
 ‘Details’ section.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>encoding</code></td>
+<tr>
+<td><code id="parse_Rd_:_encoding">encoding</code></td>
 <td>
 <p>Encoding to be assumed for input strings.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>verbose</code></td>
+<tr>
+<td><code id="parse_Rd_:_verbose">verbose</code></td>
 <td>
 <p>Logical indicating whether detailed parsing
 information should be printed.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>fragment</code></td>
+<tr>
+<td><code id="parse_Rd_:_fragment">fragment</code></td>
 <td>
 <p>Logical indicating whether file represents a complete
 Rd file, or a fragment.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>warningCalls</code></td>
+<tr>
+<td><code id="parse_Rd_:_warningCalls">warningCalls</code></td>
 <td>
 <p>Logical: should parser warnings include the call?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>macros</code></td>
+<tr>
+<td><code id="parse_Rd_:_macros">macros</code></td>
 <td>
 <p>Filename or environment from which to load additional
 macros, or a logical value.  See the Details below.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>permissive</code></td>
+<tr>
+<td><code id="parse_Rd_:_permissive">permissive</code></td>
 <td>
 <p>Logical indicating that unrecognized macros
 should be treated as text with no warning.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="parse_Rd_:_x">x</code></td>
 <td>
 <p>An object of class Rd.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>deparse</code></td>
+<tr>
+<td><code id="parse_Rd_:_deparse">deparse</code></td>
 <td>
 <p>If <code>TRUE</code>, attempt to reinstate the escape characters
 so that the resulting characters will parse to the same object.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="parse_Rd_:_...">...</code></td>
 <td>
 <p>Further arguments to be passed to or from other methods.</p>
 </td>
@@ -4058,7 +4293,7 @@ native encoding.  An alternate default can be set using the
 <code>encoding</code> argument.  All text in files is translated to the
 UTF-8 encoding in the parsed object.
 </p>
-<p>As from <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> version 3.2.0, User-defined macros may be given in a
+<p>As from <span class="rlang"><b>R</b></span> version 3.2.0, User-defined macros may be given in a
 separate file using ‘<span class="samp">⁠\newcommand⁠</span>’ or ‘<span class="samp">⁠\renewcommand⁠</span>’.
 An environment may also be given:  it would be produced by
 <code><a href="#loadRdMacros">loadRdMacros</a></code>, <code><a href="#loadRdMacros">loadPkgRdMacros</a></code>, or
@@ -4113,7 +4348,7 @@ session.
 </div>
 <div class="container manual-page" id="parseLatex">
 
-<a href="#parseLatex" class="help-page-title"><h2>Experimental Functions to Work with LaTeX Code</h2></a>
+<a href="#parseLatex" class="help-page-title"><h2 id="parseLatex">Experimental Functions to Work with LaTeX Code</h2></a>
 
 <h3>Description</h3>
 
@@ -4138,48 +4373,48 @@ latexToUtf8<span class="token punctuation">(</span>x<span class="token punctuati
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>text</code></td>
+<tr>
+<td><code id="parseLatex_:_text">text</code></td>
 <td>
 
 <p>A character vector containing LaTeX source code.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>filename</code></td>
+<tr>
+<td><code id="parseLatex_:_filename">filename</code></td>
 <td>
 
 <p>A filename to use in syntax error messages.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>verbose</code></td>
+<tr>
+<td><code id="parseLatex_:_verbose">verbose</code></td>
 <td>
 
 <p>If <code>TRUE</code>, print debug error messages.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>verbatim</code></td>
+<tr>
+<td><code id="parseLatex_:_verbatim">verbatim</code></td>
 <td>
 
 <p>A character vector containing the names of LaTeX environments holding verbatim text.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="parseLatex_:_x">x</code></td>
 <td>
 
 <p>A <code>"LaTeX"</code> object.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dropBraces</code></td>
+<tr>
+<td><code id="parseLatex_:_dropBraces">dropBraces</code></td>
 <td>
 
 <p>Drop unnecessary braces when displaying a <code>"LaTeX"</code> object.
@@ -4231,7 +4466,7 @@ deparseLatex<span class="token punctuation">(</span>latexToUtf8<span class="toke
 </div>
 <div class="container manual-page" id="pskill">
 
-<a href="#pskill" class="help-page-title"><h2>Kill a Process</h2></a>
+<a href="#pskill" class="help-page-title"><h2 id="pskill">Kill a Process</h2></a>
 
 <h3>Description</h3>
 
@@ -4258,15 +4493,15 @@ SIGUSR2</code></pre>
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>pid</code></td>
+<tr>
+<td><code id="pskill_:_pid">pid</code></td>
 <td>
 <p>positive integers: one or more process IDs as returned by
 <code><a href="https://r-universe.dev/manuals/base.html#Sys.getpid">Sys.getpid</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>signal</code></td>
+<tr>
+<td><code id="pskill_:_signal">signal</code></td>
 <td>
 <p>integer, most often one of the symbolic constants.</p>
 </td>
@@ -4325,7 +4560,7 @@ pskill<span class="token punctuation">(</span>c<span class="token punctuation">(
 </div>
 <div class="container manual-page" id="psnice">
 
-<a href="#psnice" class="help-page-title"><h2>Get or Set the Priority (Niceness) of a Process</h2></a>
+<a href="#psnice" class="help-page-title"><h2 id="psnice">Get or Set the Priority (Niceness) of a Process</h2></a>
 
 <h3>Description</h3>
 
@@ -4342,15 +4577,15 @@ more other processes.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>pid</code></td>
+<tr>
+<td><code id="psnice_:_pid">pid</code></td>
 <td>
 <p>positive integers: the process IDs of one of more
-processes: defaults to the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session process.</p>
+processes: defaults to the <span class="rlang"><b>R</b></span> session process.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>value</code></td>
+<tr>
+<td><code id="psnice_:_value">value</code></td>
 <td>
 <p>The niceness to be set, or <code>NA</code> for an enquiry.</p>
 </td>
@@ -4402,7 +4637,7 @@ whose priority may need to be changed.
 </div>
 <div class="container manual-page" id="QC">
 
-<a href="#QC" class="help-page-title"><h2>QC Checks for R Code and/or Documentation</h2></a>
+<a href="#QC" class="help-page-title"><h2 id="QC">QC Checks for R Code and/or Documentation</h2></a>
 
 <h3>Description</h3>
 
@@ -4426,32 +4661,32 @@ nonS3methods<span class="token punctuation">(</span>package<span class="token pu
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="QC_:_package">package</code></td>
 <td>
 <p>a character string naming an installed package.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="QC_:_dir">dir</code></td>
 <td>
 <p>a character string specifying the path to a package's root
 source (or <em>installed</em> in some cases) directory.  This should contain the subdirectories ‘<span class="file">R</span>’
-(for R code) and ‘<span class="file">man</span>’ with <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> documentation sources (in Rd
+(for R code) and ‘<span class="file">man</span>’ with <span class="rlang"><b>R</b></span> documentation sources (in Rd
 format).  Only used if <code>package</code> is not given.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lib.loc</code></td>
+<tr>
+<td><code id="QC_:_lib.loc">lib.loc</code></td>
 <td>
-<p>a character vector of directory names of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> libraries,
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
 or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
 libraries currently known.  The specified library trees are used to
 search for <code>package</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>chkInternal</code></td>
+<tr>
+<td><code id="QC_:_chkInternal">chkInternal</code></td>
 <td>
 <p>logical indicating if Rd files marked with keyword
 <code>internal</code> should be checked as well.</p>
@@ -4464,14 +4699,12 @@ search for <code>package</code>.</p>
 arguments shown in the usage sections of the Rd file are documented in
 its arguments section.  It also reports duplicated entries in the
 arguments section, and ‘over-documented’ arguments which are
-given in the arguments section but not in the usage.  Note that the
-match is for the usage section and not a possibly existing synopsis
-section, as the usage is what gets displayed.
+given in the arguments section but not in the usage.
 </p>
 <p><code>checkDocStyle</code> investigates how (S3) methods are shown in the
 usages of the Rd files in a package.  It reports the methods shown by
 their full name rather than using the Rd <code style="white-space: pre;">⁠\method⁠</code> markup for
-indicating S3 methods.  Earlier versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> also reported about
+indicating S3 methods.  Earlier versions of <span class="rlang"><b>R</b></span> also reported about
 methods shown along with their generic, which typically caused
 problems for the documentation of the primary argument in the generic
 and its methods.  With <code style="white-space: pre;">⁠\method⁠</code> now being expanded in a way
@@ -4494,11 +4727,9 @@ with a call to <code>UseMethod</code> in their body, internal S3 generics
 (see <a href="https://r-universe.dev/manuals/base.html#InternalMethods">InternalMethods</a>), and S3 group generics (see
 <code><a href="https://r-universe.dev/manuals/base.html#groupGeneric">Math</a></code>).  Possible dispatch under a
 different name is not taken into account.  The generics are sought
-first in the given package, then in the <span class="pkg">base</span> package and
-(currently) the packages <span class="pkg">graphics</span>, <span class="pkg">stats</span>, and <span class="pkg">utils</span>
-added in R 1.9.0 by splitting the former <span class="pkg">base</span>, and, if an
-installed package is tested, also in the loaded namespaces/packages
-listed in the package's ‘<span class="file">DESCRIPTION</span>’ Depends field.
+first in the given package, then (if given an installed package) in
+the package imports, and finally the namespace environment for the
+<span class="pkg">base</span> package.
 </p>
 <p><code>checkRdContents()</code> checks Rd content, e.g., whether arguments of
 functions in the usage section have non empty descriptions.
@@ -4509,11 +4740,11 @@ S3 methods, but are not.  Using <code>package = NULL</code> returns all
 known examples.
 </p>
 <p><code>langElts</code> is a character vector of names of “language
-elements” of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.  These are implemented as “very primitive”
+elements” of <span class="rlang"><b>R</b></span>.  These are implemented as “very primitive”
 functions (no argument list; <code><a href="https://r-universe.dev/manuals/base.html#print">print</a>()</code>ing as
 <code>.Primitive("&lt;name&gt;")</code>).
 </p>
-<p>If using an installed package, the checks needing access to all <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+<p>If using an installed package, the checks needing access to all <span class="rlang"><b>R</b></span>
 objects of the package will load the package (unless it is the
 <span class="pkg">base</span> package), after possibly detaching an already loaded
 version of the package.
@@ -4532,11 +4763,11 @@ contained in such objects.
 </div>
 <div class="container manual-page" id="Rcmd">
 
-<a href="#Rcmd" class="help-page-title"><h2>R CMD Interface</h2></a>
+<a href="#Rcmd" class="help-page-title"><h2 id="Rcmd">R CMD Interface</h2></a>
 
 <h3>Description</h3>
 
-<p>Invoke <code>R CMD</code> tools from within <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
+<p>Invoke <code>R CMD</code> tools from within <span class="rlang"><b>R</b></span>.
 </p>
 
 
@@ -4548,14 +4779,14 @@ contained in such objects.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>args</code></td>
+<tr>
+<td><code id="Rcmd_:_args">args</code></td>
 <td>
 <p>a character vector of arguments to <code>R CMD</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="Rcmd_:_...">...</code></td>
 <td>
 <p>arguments to be passed to <code><a href="https://r-universe.dev/manuals/base.html#system2">system2</a></code>.</p>
 </td>
@@ -4565,7 +4796,7 @@ contained in such objects.
 
 <p>Provides a portable convenience interface to the <code>R CMD</code>
 mechanism by invoking the corresponding system commands (using the
-version of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> currently used) via <code><a href="https://r-universe.dev/manuals/base.html#system2">system2</a></code>.
+version of <span class="rlang"><b>R</b></span> currently used) via <code><a href="https://r-universe.dev/manuals/base.html#system2">system2</a></code>.
 </p>
 
 
@@ -4578,7 +4809,7 @@ version of <span style="font-family: Courier New, Courier; color: #666666;"><b>R
 </div>
 <div class="container manual-page" id="Rd2HTML">
 
-<a href="#Rd2HTML" class="help-page-title"><h2> Rd Converters </h2></a>
+<a href="#Rd2HTML" class="help-page-title"><h2 id="Rd2HTML"> Rd Converters </h2></a>
 
 <h3>Description</h3>
 
@@ -4596,6 +4827,9 @@ intended for internal use, their interfaces are subject to change.
         dynamic <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> no_links <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> fragment <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
         stylesheet <span class="token operator">=</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>dynamic<span class="token punctuation">)</span> <span class="token string">"/doc/html/R.css"</span> <span class="token keyword">else</span> <span class="token string">"R.css"</span><span class="token punctuation">,</span>
         texmath <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"help.htmlmath"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        concordance <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+        standalone <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
+        Rhtml <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
         <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 
 Rd2txt<span class="token punctuation">(</span>Rd<span class="token punctuation">,</span> out <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> defines <span class="token operator">=</span> .Platform<span class="token operator">$</span>OS.type<span class="token punctuation">,</span>
@@ -4604,7 +4838,8 @@ Rd2txt<span class="token punctuation">(</span>Rd<span class="token punctuation">
 
 Rd2latex<span class="token punctuation">(</span>Rd<span class="token punctuation">,</span> out <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> defines <span class="token operator">=</span> .Platform<span class="token operator">$</span>OS.type<span class="token punctuation">,</span>
          stages <span class="token operator">=</span> <span class="token string">"render"</span><span class="token punctuation">,</span> outputEncoding <span class="token operator">=</span> <span class="token string">"UTF-8"</span><span class="token punctuation">,</span>
-         fragment <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> writeEncoding <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+         fragment <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> writeEncoding <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
+         concordance <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 
 Rd2ex<span class="token punctuation">(</span>Rd<span class="token punctuation">,</span> out <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> defines <span class="token operator">=</span> .Platform<span class="token operator">$</span>OS.type<span class="token punctuation">,</span>
       stages <span class="token operator">=</span> <span class="token string">"render"</span><span class="token punctuation">,</span> outputEncoding <span class="token operator">=</span> <span class="token string">"UTF-8"</span><span class="token punctuation">,</span>
@@ -4614,76 +4849,76 @@ Rd2ex<span class="token punctuation">(</span>Rd<span class="token punctuation">,
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>Rd</code></td>
+<tr>
+<td><code id="Rd2HTML_:_Rd">Rd</code></td>
 <td>
 <p> a filename or <code>Rd</code> object to use as input. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>out</code></td>
+<tr>
+<td><code id="Rd2HTML_:_out">out</code></td>
 <td>
 <p>a filename or connection object to which to write the
 output.  The default <code>out = ""</code> is equivalent to
 <code>out = <a href="https://r-universe.dev/manuals/base.html#showConnections">stdout</a>()</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="Rd2HTML_:_package">package</code></td>
 <td>
 <p> the package to list in the output. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>defines</code></td>
+<tr>
+<td><code id="Rd2HTML_:_defines">defines</code></td>
 <td>
 <p> string(s) to use in <code style="white-space: pre;">⁠#ifdef⁠</code> tests. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>stages</code></td>
+<tr>
+<td><code id="Rd2HTML_:_stages">stages</code></td>
 <td>
 <p> at which stage (<code>"build"</code>, <code>"install"</code>, or
 <code>"render"</code>) should <code style="white-space: pre;">⁠\Sexpr⁠</code> macros be executed? See the
 notes below.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>outputEncoding</code></td>
+<tr>
+<td><code id="Rd2HTML_:_outputEncoding">outputEncoding</code></td>
 <td>
 <p> see the ‘Encodings’ section below.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dynamic</code></td>
+<tr>
+<td><code id="Rd2HTML_:_dynamic">dynamic</code></td>
 <td>
 <p>logical: set links for render-time resolution by
 dynamic help system.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>no_links</code></td>
+<tr>
+<td><code id="Rd2HTML_:_no_links">no_links</code></td>
 <td>
 <p>logical: suppress hyperlinks to other help topics.
 Used by <code>R CMD <a href="https://r-universe.dev/manuals/base.html#RdUtils">Rdconv</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>fragment</code></td>
+<tr>
+<td><code id="Rd2HTML_:_fragment">fragment</code></td>
 <td>
 <p>logical:  should fragments of Rd files be accepted?  See the
 notes below.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>stylesheet</code></td>
+<tr>
+<td><code id="Rd2HTML_:_stylesheet">stylesheet</code></td>
 <td>
 <p>character: a URL for a stylesheet to be used in the header
 of the HTML output page.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>texmath</code></td>
+<tr>
+<td><code id="Rd2HTML_:_texmath">texmath</code></td>
 <td>
 <p>character: controls how mathematics in <code style="white-space: pre;">⁠\eqn⁠</code> and
 <code style="white-space: pre;">⁠\deqn⁠</code> commands are typeset in HTML output. Useful values
@@ -4692,47 +4927,73 @@ are <code>"katex"</code> (default) and <code>"mathjax"</code> to use
 <a href="https://www.mathjax.org/" target="_blank">MathJax</a> respectively, otherwise
 basic substitutions are used. May be ignored under certain
 circumstances, e.g., if the help page already uses macros from the
-<code><a href="https://wviechtb.r-universe.dev/manual/mathjaxr.html#mathjaxr">mathjaxr</a></code> package.
+<code><a href="https://wviechtb.r-universe.dev/mathjaxr/doc/manual.html#mathjaxr">mathjaxr</a></code> package.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>Links, Links2</code></td>
+<tr>
+<td><code id="Rd2HTML_:_concordance">concordance</code></td>
+<td>
+<p>Whether concordance data should be embedded in the
+output file and attached to the return value.</p>
+</td>
+</tr>
+<tr>
+<td><code id="Rd2HTML_:_standalone">standalone</code></td>
+<td>
+<p>logical: whether the output is intended to be a
+standalone HTML file. If <code>FALSE</code>, the header and footer are
+omitted, so that the output can be combined with other fragments.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="Rd2HTML_:_Rhtml">Rhtml</code></td>
+<td>
+<p>logical: whether the output is intended to be a Rhtml
+file that can be processed using <a href="https://CRAN.R-project.org/package=knitr" target="_blank"><span class="pkg">knitr</span></a>. If <code>TRUE</code>, the
+examples section is wrapped inside a <code>rcode</code> block. </p>
+</td>
+</tr>
+<tr>
+<td>
+<code id="Rd2HTML_:_Links">Links</code>, <code id="Rd2HTML_:_Links2">Links2</code>
+</td>
 <td>
 <p><code>NULL</code> or a named (by topics) character vector of
 links, as returned by <code><a href="#HTMLlinks">findHTMLlinks</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>options</code></td>
+<tr>
+<td><code id="Rd2HTML_:_options">options</code></td>
 <td>
 <p>An optional named list of options to pass to
 <code><a href="#Rd2txt_options">Rd2txt_options</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="Rd2HTML_:_...">...</code></td>
 <td>
 <p> additional parameters to pass to <code><a href="#parse_Rd">parse_Rd</a></code> when
 <code>Rd</code> is a filename. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>writeEncoding</code></td>
+<tr>
+<td><code id="Rd2HTML_:_writeEncoding">writeEncoding</code></td>
 <td>
 <p>should <code style="white-space: pre;">⁠\inputencoding⁠</code> lines be written in
 the file for non-ASCII encodings?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>commentDontrun</code></td>
+<tr>
+<td><code id="Rd2HTML_:_commentDontrun">commentDontrun</code></td>
 <td>
 <p>should <code style="white-space: pre;">⁠\dontrun⁠</code> sections be commented
 out?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>commentDonttest</code></td>
+<tr>
+<td><code id="Rd2HTML_:_commentDonttest">commentDonttest</code></td>
 <td>
 <p>should <code style="white-space: pre;">⁠\donttest⁠</code> sections be commented out?</p>
 </td>
@@ -4743,7 +5004,7 @@ out?</p>
 <p>These functions convert help documents: <code>Rd2HTML</code> produces HTML,
 <code>Rd2txt</code> produces plain text, <code>Rd2latex</code> produces LaTeX.
 <code>Rd2ex</code> extracts the examples in the format used by
-<code><a href="https://r-universe.dev/manuals/utils.html#example">example</a></code> and <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> utilities.
+<code><a href="https://r-universe.dev/manuals/utils.html#example">example</a></code> and <span class="rlang"><b>R</b></span> utilities.
 </p>
 <p>Each of the functions accepts a filename for an Rd file, and
 will use <code><a href="#parse_Rd">parse_Rd</a></code> to parse it before applying the
@@ -4753,13 +5014,13 @@ conversions or checks.
 links are looked in them in turn, so lazy-evaluation can be used to
 only do a second-level search for links if required.
 </p>
-<p>Before <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.6.0, the default for <code>Rd2latex</code> was <code>outputEncoding = "ASCII"</code>,
+<p>Before <span class="rlang"><b>R</b></span> 3.6.0, the default for <code>Rd2latex</code> was <code>outputEncoding = "ASCII"</code>,
 including using the second option of <code style="white-space: pre;">⁠\enc⁠</code> markup, because LaTeX
 versions did not provide enough coverage of UTF-8 glyphs for a long time.
 </p>
 <p><code>Rd2txt</code> will format text paragraphs to a width determined by
 <code>width</code>, with appropriate margins.  The default is to be close to
-the rendering in versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> &lt; 2.10.0.
+the rendering in versions of <span class="rlang"><b>R</b></span> &lt; 2.10.0.
 </p>
 <p><code>Rd2txt</code> will use directional quotes (see <code><a href="https://r-universe.dev/manuals/base.html#sQuote">sQuote</a></code>)
 if option <code>"useFancyQuotes"</code> is true (usually the default,
@@ -4788,6 +5049,10 @@ file (invisibly).  For <code>Rd2latex</code>, the output name is given an
 attribute <code>"latexEncoding"</code> giving the encoding of the file in a
 form suitable for use with the LaTeX ‘<span class="samp">⁠inputenc⁠</span>’ package.
 </p>
+<p>For <code>Rd2HTML</code> and <code>Rd2latex</code> with <code>concordance = TRUE</code>, a 
+<code>"concordance"</code> attribute is added, containing an
+<code><a href="#matchConcordance">Rconcordance</a></code> object.
+</p>
 
 
 <h3>Encodings</h3>
@@ -4810,8 +5075,8 @@ and <code>Rd2ex</code> give a warning.
 
 <h3>Note</h3>
 
-<p>The <code style="white-space: pre;">⁠\Sexpr⁠</code> macro is a new addition to Rd files.  It includes
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code that will be executed at one of three times: <em>build</em> time
+<p>The <code style="white-space: pre;">⁠\Sexpr⁠</code> macro includes
+<span class="rlang"><b>R</b></span> code that will be executed at one of three times: <em>build</em> time
 (when a package's source code is built into a tarball),
 <em>install</em> time (when the package is installed or
 built into a binary package), and <em>render</em> time (when the man
@@ -4823,17 +5088,17 @@ page is converted to a readable format).
 <ol>
 <li>
 <p> built on
-2022-10-31 at 18:33:16,
+2023-04-21 at 17:42:56,
 </p>
 </li>
 <li>
 <p> installed on
-2022-10-31 at 18:33:16, and
+2023-04-21 at 17:42:56, and
 </p>
 </li>
 <li>
 <p> rendered on
-2022-12-03 at 19:06:30.
+2023-04-25 at 17:03:14.
 </p>
 </li>
 </ol>
@@ -4851,7 +5116,8 @@ page is converted to a readable format).
 <h3>See Also</h3>
 
 <p><code><a href="#parse_Rd">parse_Rd</a></code>, <code><a href="#checkRd">checkRd</a></code>,
-<code><a href="#HTMLlinks">findHTMLlinks</a></code>, <code><a href="#Rd2txt_options">Rd2txt_options</a></code>.
+<code><a href="#HTMLlinks">findHTMLlinks</a></code>, <code><a href="#Rd2txt_options">Rd2txt_options</a></code>,
+<code><a href="#matchConcordance">matchConcordance</a></code>.
 </p>
 
 
@@ -4878,7 +5144,7 @@ checkRd<span class="token punctuation">(</span>Rd<span class="token punctuation"
 </div>
 <div class="container manual-page" id="Rd2txt_options">
 
-<a href="#Rd2txt_options" class="help-page-title"><h2>Set Formatting Options for Text Help</h2></a>
+<a href="#Rd2txt_options" class="help-page-title"><h2 id="Rd2txt_options">Set Formatting Options for Text Help</h2></a>
 
 <h3>Description</h3>
 
@@ -4893,8 +5159,8 @@ checkRd<span class="token punctuation">(</span>Rd<span class="token punctuation"
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>...</code></td>
+<table><tr>
+<td><code id="Rd2txt_options_:_...">...</code></td>
 <td>
 <p>A list containing named options, or
 options passed as individual named arguments.
@@ -4991,11 +5257,11 @@ Rd2txt_options<span class="token punctuation">(</span><span class="token punctua
 </div>
 <div class="container manual-page" id="Rdiff">
 
-<a href="#Rdiff" class="help-page-title"><h2>Difference R Output Files</h2></a>
+<a href="#Rdiff" class="help-page-title"><h2 id="Rdiff">Difference R Output Files</h2></a>
 
 <h3>Description</h3>
 
-<p>Given two <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> output files, compute differences ignoring headers,
+<p>Given two <span class="rlang"><b>R</b></span> output files, compute differences ignoring headers,
 footers and some other differences.
 </p>
 
@@ -5009,35 +5275,37 @@ footers and some other differences.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>from, to</code></td>
+<tr>
+<td>
+<code id="Rdiff_:_from">from</code>, <code id="Rdiff_:_to">to</code>
+</td>
 <td>
 <p>filepaths to be compared</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>useDiff</code></td>
+<tr>
+<td><code id="Rdiff_:_useDiff">useDiff</code></td>
 <td>
 <p>should <code>diff</code> be used to compare results?
-Overidden to false if the command is not available.</p>
+Overridden to false if the command is not available.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>forEx</code></td>
+<tr>
+<td><code id="Rdiff_:_forEx">forEx</code></td>
 <td>
 <p>logical: extra pruning for ‘<span class="file">-Ex.Rout</span>’ files to
 exclude the header.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>nullPointers</code></td>
+<tr>
+<td><code id="Rdiff_:_nullPointers">nullPointers</code></td>
 <td>
 <p>logical: should the displayed addresses of
 pointers be set to <code>0x00000000</code> before comparison?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>Log</code></td>
+<tr>
+<td><code id="Rdiff_:_Log">Log</code></td>
 <td>
 <p>logical: should the returned value include a log of
 differences found?</p>
@@ -5046,7 +5314,7 @@ differences found?</p>
 </table>
 <h3>Details</h3>
 
-<p>The <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> startup banner and any timing information from <code>R CMD
+<p>The <span class="rlang"><b>R</b></span> startup banner and any timing information from <code>R CMD
     BATCH</code> are removed from both files, together with lines about
 loading packages.  UTF-8 fancy quotes (see <code><a href="https://r-universe.dev/manuals/base.html#sQuote">sQuote</a></code>) and
 on Windows, Windows' so-called ‘smart quotes’, are mapped to
@@ -5062,11 +5330,15 @@ edited files.  (This tries to ignore all differences in whitespace:
 note that flag <span class="option">-w</span> is not required by POSIX but is supported
 by GNU, Solaris and FreeBSD versions – macOS uses an old GNU version.)
 </p>
-<p>This can compare uncompressed PDF files, ignoring differences in
-creation and modification dates.  However, non-ASCII text may not be
-handled in UTF-8 locales, and it does not check if the PDF files really
-are uncompressed.  This is unlikely to be supported in future versions
-of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
+
+
+
+
+
+
+<p>There is limited support for comparing PDF files produced by
+<code>pdf(compress = FALSE)</code>, mainly for use in <code>make check</code>
+– this requires a <code>diff</code> command and <code>useDiff = TRUE</code>.
 </p>
 <p>Mainly for use in examples and tests, text from marker
 ‘<span class="samp">⁠&gt; ## IGNORE_RDIFF_BEGIN⁠</span>’ up to (but not including)
@@ -5095,7 +5367,7 @@ differences were found.
 </div>
 <div class="container manual-page" id="Rdindex">
 
-<a href="#Rdindex" class="help-page-title"><h2>Generate Index from Rd Files</h2></a>
+<a href="#Rdindex" class="help-page-title"><h2 id="Rdindex">Generate Index from Rd Files</h2></a>
 
 <h3>Description</h3>
 
@@ -5115,24 +5387,24 @@ and 72, respectively).
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>RdFiles</code></td>
+<tr>
+<td><code id="Rdindex_:_RdFiles">RdFiles</code></td>
 <td>
 <p>a character vector specifying the Rd files to be used
 for creating the index, either by giving the paths to the files, or
 the path to a single directory with the sources of a package.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>outFile</code></td>
+<tr>
+<td><code id="Rdindex_:_outFile">outFile</code></td>
 <td>
 <p>a connection, or a character string naming the output
 file to print to.  <code>""</code> (the default) indicates output to the
 console.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>type</code></td>
+<tr>
+<td><code id="Rdindex_:_type">type</code></td>
 <td>
 <p>a character string giving the documentation type of the Rd
 files to be included in the index, or <code>NULL</code> (the default).
@@ -5141,15 +5413,15 @@ The type of an Rd file is typically specified via the
 whose <em>only</em> keyword is <code>datasets</code> are included as well.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>width</code></td>
+<tr>
+<td><code id="Rdindex_:_width">width</code></td>
 <td>
 <p>a positive integer giving the target column for wrapping
 lines in the output.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>indent</code></td>
+<tr>
+<td><code id="Rdindex_:_indent">indent</code></td>
 <td>
 <p>a positive integer specifying the indentation of the
 second column.  Must not be greater than <code>width/2</code>, and
@@ -5167,7 +5439,7 @@ if there is none) is used instead.
 </div>
 <div class="container manual-page" id="RdTextFilter">
 
-<a href="#RdTextFilter" class="help-page-title"><h2>Select Text in an Rd File</h2></a>
+<a href="#RdTextFilter" class="help-page-title"><h2 id="RdTextFilter">Select Text in an Rd File</h2></a>
 
 <h3>Description</h3>
 
@@ -5186,8 +5458,8 @@ for spell checking or other uses.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>ifile</code></td>
+<tr>
+<td><code id="RdTextFilter_:_ifile">ifile</code></td>
 <td>
 
 <p>An input file specified as a filename or connection, or an <code>"Rd"</code> object
@@ -5195,16 +5467,16 @@ from <code><a href="#parse_Rd">parse_Rd</a></code>.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>encoding</code></td>
+<tr>
+<td><code id="RdTextFilter_:_encoding">encoding</code></td>
 <td>
 
 <p>An encoding name to pass to <code><a href="#parse_Rd">parse_Rd</a></code>.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>keepSpacing</code></td>
+<tr>
+<td><code id="RdTextFilter_:_keepSpacing">keepSpacing</code></td>
 <td>
 
 <p>Whether to try to leave the text in the same lines and columns
@@ -5212,24 +5484,24 @@ as in the original file.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>drop</code></td>
+<tr>
+<td><code id="RdTextFilter_:_drop">drop</code></td>
 <td>
 
 <p>Additional sections of the Rd to drop.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>keep</code></td>
+<tr>
+<td><code id="RdTextFilter_:_keep">keep</code></td>
 <td>
 
 <p>Sections of the Rd file to keep.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>macros</code></td>
+<tr>
+<td><code id="RdTextFilter_:_macros">macros</code></td>
 <td>
 
 <p>Macro definitions to assume when parsing.  See <code><a href="#parse_Rd">parse_Rd</a></code>.
@@ -5289,7 +5561,7 @@ the Rd file is used to highlight just the start of a word.
 </div>
 <div class="container manual-page" id="Rdutils">
 
-<a href="#Rdutils" class="help-page-title"><h2>Rd Utilities</h2></a>
+<a href="#Rdutils" class="help-page-title"><h2 id="Rdutils">Rd Utilities</h2></a>
 
 <h3>Description</h3>
 
@@ -5304,32 +5576,32 @@ the Rd file is used to highlight just the start of a word.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="Rdutils_:_package">package</code></td>
 <td>
 <p>a character string naming an installed package.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="Rdutils_:_dir">dir</code></td>
 <td>
 <p>a character string specifying the path to a package's root
 source directory.  This should contain the subdirectory ‘<span class="file">man</span>’
-with <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> documentation sources (in Rd format).  Only used if
+with <span class="rlang"><b>R</b></span> documentation sources (in Rd format).  Only used if
 <code>package</code> is not given.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lib.loc</code></td>
+<tr>
+<td><code id="Rdutils_:_lib.loc">lib.loc</code></td>
 <td>
-<p>a character vector of directory names of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> libraries,
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
 or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
 libraries currently known.  The specified library trees are used to
 search for <code>package</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>stages</code></td>
+<tr>
+<td><code id="Rdutils_:_stages">stages</code></td>
 <td>
 <p>if <code>dir</code> is specified and the database is being
 built from source, which stages of <code style="white-space: pre;">⁠\Sexpr⁠</code> processing should be
@@ -5377,7 +5649,7 @@ length<span class="token punctuation">(</span>unlist<span class="token punctuati
 </div>
 <div class="container manual-page" id="read.00Index">
 
-<a href="#read.00Index" class="help-page-title"><h2>Read 00Index-style Files</h2></a>
+<a href="#read.00Index" class="help-page-title"><h2 id="read.00Index">Read 00Index-style Files</h2></a>
 
 <h3>Description</h3>
 
@@ -5395,8 +5667,8 @@ packages.
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>file</code></td>
+<table><tr>
+<td><code id="read.00Index_:_file">file</code></td>
 <td>
 <p>the name of a file to read data values from.  If the
 specified file is <code>""</code>, then input is taken from the keyboard
@@ -5423,7 +5695,7 @@ function call.</p>
 </div>
 <div class="container manual-page" id="showNonASCII">
 
-<a href="#showNonASCII" class="help-page-title"><h2>Pick Out Non-ASCII Characters</h2></a>
+<a href="#showNonASCII" class="help-page-title"><h2 id="showNonASCII">Pick Out Non-ASCII Characters</h2></a>
 
 <h3>Description</h3>
 
@@ -5442,14 +5714,14 @@ showNonASCIIfile<span class="token punctuation">(</span>file<span class="token p
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="showNonASCII_:_x">x</code></td>
 <td>
 <p>a character vector.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="showNonASCII_:_file">file</code></td>
 <td>
 <p>path to a file.</p>
 </td>
@@ -5492,7 +5764,7 @@ unlink<span class="token punctuation">(</span>f<span class="token punctuation">)
 </div>
 <div class="container manual-page" id="startDynamicHelp">
 
-<a href="#startDynamicHelp" class="help-page-title"><h2>Start the Dynamic HTML Help System</h2></a>
+<a href="#startDynamicHelp" class="help-page-title"><h2 id="startDynamicHelp">Start the Dynamic HTML Help System</h2></a>
 
 <h3>Description</h3>
 
@@ -5508,8 +5780,8 @@ are rendered when requested.
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>start</code></td>
+<table><tr>
+<td><code id="startDynamicHelp_:_start">start</code></td>
 <td>
 <p>logical: whether to start or shut down the dynamic help
 system.  If <code>NA</code>, the server is started if not already running.</p>
@@ -5529,7 +5801,7 @@ to <code>0</code>.
 server, so would rarely be called directly by a user.
 </p>
 <p>Note that <code>options(help_type = "html")</code> must be set to actually
-make use of HTML help, although it might be the default for an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+make use of HTML help, although it might be the default for an <span class="rlang"><b>R</b></span>
 installation.
 </p>
 <p>If the server cannot be started or is disabled,
@@ -5562,7 +5834,7 @@ will attempt to start the HTTP server if required
 </div>
 <div class="container manual-page" id="SweaveTeXFilter">
 
-<a href="#SweaveTeXFilter" class="help-page-title"><h2>Strip R Code out of Sweave File</h2></a>
+<a href="#SweaveTeXFilter" class="help-page-title"><h2 id="SweaveTeXFilter">Strip R Code out of Sweave File</h2></a>
 
 <h3>Description</h3>
 
@@ -5579,16 +5851,16 @@ input file, for spell checking or other uses.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>ifile</code></td>
+<tr>
+<td><code id="SweaveTeXFilter_:_ifile">ifile</code></td>
 <td>
 
 <p>Input file or connection.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>encoding</code></td>
+<tr>
+<td><code id="SweaveTeXFilter_:_encoding">encoding</code></td>
 <td>
 
 <p>Text encoding to pass to <code><a href="https://r-universe.dev/manuals/base.html#readLines">readLines</a></code>.
@@ -5627,7 +5899,7 @@ would duplicate the text elements of the original Sweave input file.
 </div>
 <div class="container manual-page" id="testInstalledPackage">
 
-<a href="#testInstalledPackage" class="help-page-title"><h2>Test Installed Packages</h2></a>
+<a href="#testInstalledPackage" class="help-page-title"><h2 id="testInstalledPackage">Test Installed Packages</h2></a>
 
 <h3>Description</h3>
 
@@ -5653,61 +5925,61 @@ testInstalledBasic<span class="token punctuation">(</span>scope <span class="tok
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>pkg</code></td>
+<tr>
+<td><code id="testInstalledPackage_:_pkg">pkg</code></td>
 <td>
 <p>name of an installed package.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lib.loc</code></td>
+<tr>
+<td><code id="testInstalledPackage_:_lib.loc">lib.loc</code></td>
 <td>
 <p>library path(s) in which to look for the package.  See
 <code><a href="https://r-universe.dev/manuals/base.html#library">library</a></code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>outDir</code></td>
+<tr>
+<td><code id="testInstalledPackage_:_outDir">outDir</code></td>
 <td>
 <p>the directory into which to write the output files: this
 should already exist.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>types</code></td>
+<tr>
+<td><code id="testInstalledPackage_:_types">types</code></td>
 <td>
 <p>type(s) of tests to be done.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>errorsAreFatal</code></td>
+<tr>
+<td><code id="testInstalledPackage_:_errorsAreFatal">errorsAreFatal</code></td>
 <td>
 <p>logical: should testing terminate at the first
 error?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>srcdir</code></td>
+<tr>
+<td><code id="testInstalledPackage_:_srcdir">srcdir</code></td>
 <td>
 <p>Optional directory to look for <code>.save</code> files.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>Ropts</code></td>
+<tr>
+<td><code id="testInstalledPackage_:_Ropts">Ropts</code></td>
 <td>
 <p>Additional options such as <span class="option">-d valgrind</span> to be
 passed to <code>R CMD BATCH</code> when running examples or tests.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="testInstalledPackage_:_...">...</code></td>
 <td>
 <p>additional arguments use when preparing the files to be
 run, e.g. <code>commentDontrun</code> and <code>commentDonttest</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>scope</code></td>
+<tr>
+<td><code id="testInstalledPackage_:_scope">scope</code></td>
 <td>
 <p>Which set(s) should be tested?  Can be abbreviated.</p>
 </td>
@@ -5719,7 +5991,7 @@ run, e.g. <code>commentDontrun</code> and <code>commentDonttest</code>.</p>
 is the default).  If package-specific tests are found in a
 ‘<span class="file">tests</span>’ directory they can be tested: these are not
 installed by default, but will be if
-<code>R CMD INSTALL --install-tests</code> was used.  Finally, the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+<code>R CMD INSTALL --install-tests</code> was used.  Finally, the <span class="rlang"><b>R</b></span>
 code in any vignettes can be extracted and tested.
 </p>
 <p>Package tests are run in a ‘<span class="file"><var>pkg</var>-tests</span>’ subdirectory of
@@ -5752,7 +6024,7 @@ to do so (as well as the basic tests).
 </div>
 <div class="container manual-page" id="texi2dvi">
 
-<a href="#texi2dvi" class="help-page-title"><h2>Compile LaTeX Files</h2></a>
+<a href="#texi2dvi" class="help-page-title"><h2 id="texi2dvi">Compile LaTeX Files</h2></a>
 
 <h3>Description</h3>
 
@@ -5775,53 +6047,53 @@ texi2pdf<span class="token punctuation">(</span>file<span class="token punctuati
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>file</code></td>
+<tr>
+<td><code id="texi2dvi_:_file">file</code></td>
 <td>
 <p>character string.  Name of the LaTeX source file.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>pdf</code></td>
+<tr>
+<td><code id="texi2dvi_:_pdf">pdf</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, a PDF file is produced instead of
 the default dvi file (<code>texi2dvi</code> command line option <span class="option">--pdf</span>).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>clean</code></td>
+<tr>
+<td><code id="texi2dvi_:_clean">clean</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, all auxiliary files created
 during the conversion are removed.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>quiet</code></td>
+<tr>
+<td><code id="texi2dvi_:_quiet">quiet</code></td>
 <td>
 <p>logical.  No output unless an error occurs.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>texi2dvi</code></td>
+<tr>
+<td><code id="texi2dvi_:_texi2dvi">texi2dvi</code></td>
 <td>
 <p>character string (or <code>NULL</code>).  Script or program
 used to compile a TeX file to dvi or PDF. The default (selected
 by <code>""</code> or <code>"texi2dvi"</code> or <code>NULL</code>) is to look
-for a program or script named ‘<span class="file">texi2dvi</span>’ on the path and
+for a program or script named <code>texi2dvi</code> on the path and
 otherwise emulate the script with <code>system2</code> calls (which
 can be selected by the value <code>"emulation"</code>).  See also
 ‘Details’.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>texinputs</code></td>
+<tr>
+<td><code id="texi2dvi_:_texinputs">texinputs</code></td>
 <td>
 <p><code>NULL</code> or a character vector of paths to add to
 the LaTeX and bibtex input search paths.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>index</code></td>
+<tr>
+<td><code id="texi2dvi_:_index">index</code></td>
 <td>
 <p>logical: should indices be prepared?</p>
 </td>
@@ -5832,12 +6104,12 @@ the LaTeX and bibtex input search paths.</p>
 <p><code>texi2pdf</code> is a wrapper for the common case of
 <code>texi2dvi(pdf = TRUE)</code>.
 </p>
-<p>Despite the name, this is used in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> to compile LaTeX files,
+<p>Despite the name, this is used in <span class="rlang"><b>R</b></span> to compile LaTeX files,
 specifically those generated from vignettes and by the
 <code><a href="https://r-universe.dev/manuals/base.html#RdUtils">Rd2pdf</a></code> script (used for package reference manuals).  It
 ensures that the ‘<span class="file"><var><a href="https://r-universe.dev/manuals/base.html#Rhome">R_HOME</a></var>/share/texmf</span>’ directory is
-in the <span class="env">TEXINPUTS</span> path, so <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> style files such as ‘<span class="file">Sweave</span>’
-and ‘<span class="file">Rd</span>’ will be found.  The TeX search path used is first the
+in the <span class="env">TEXINPUTS</span> path, so <span class="rlang"><b>R</b></span> style files such as ‘<span class="file">Sweave.sty</span>’
+and ‘<span class="file">Rd.sty</span>’ will be found.  The TeX search path used is first the
 existing <span class="env">TEXINPUTS</span> setting (or the current directory if unset),
 then elements of argument <code>texinputs</code>, then
 ‘<span class="file"><var>R_HOME</var>/share/texmf</span>’ and finally the default path.
@@ -5847,7 +6119,7 @@ settings.
 <p>The default option for <code>texi2dvi</code> is set from environment variable
 <span class="env">R_TEXI2DVICMD</span>, and the default for that is set from environment
 variable <span class="env">TEXI2DVI</span> or if that is unset, from a value chosen when
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> is configured.
+<span class="rlang"><b>R</b></span> is configured.
 </p>
 
 
@@ -5879,7 +6151,7 @@ especially if <code>clean = FALSE</code>).
 
 <p>There are various versions of the <code>texi2dvi</code> script on
 Unix-alikes and quite a number of bugs have been seen, some of which
-this <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> wrapper works around.
+this <span class="rlang"><b>R</b></span> wrapper works around.
 </p>
 <p>One that was present with <code>texi2dvi</code> version <code>4.8</code> (as
 supplied by macOS) is that it will not work correctly for paths which
@@ -5895,7 +6167,7 @@ such files).
 <code>texify.exe</code> from MiKTeX), option <span class="option">--max-iterations=20</span>
 is used to avoid infinite retries.
 </p>
-<p>The emulation mode supports <code>quiet = TRUE</code> from <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 3.2.3 only.
+<p>The emulation mode supports <code>quiet = TRUE</code> from <span class="rlang"><b>R</b></span> 3.2.3 only.
 Currently <code>clean = TRUE</code> only cleans up in this mode if the
 conversion was successful—this gives users a chance to examine log
 files in the event of error.
@@ -5915,7 +6187,7 @@ full paths to the corresponding commands.
 </div>
 <div class="container manual-page" id="toHTML">
 
-<a href="#toHTML" class="help-page-title"><h2>Display an Object in HTML</h2></a>
+<a href="#toHTML" class="help-page-title"><h2 id="toHTML">Display an Object in HTML</h2></a>
 
 <h3>Description</h3>
 
@@ -5935,14 +6207,14 @@ toHTML<span class="token punctuation">(</span>x<span class="token punctuation">,
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>x</code></td>
+<tr>
+<td><code id="toHTML_:_x">x</code></td>
 <td>
 <p> An object to display. </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="toHTML_:_...">...</code></td>
 <td>
 <p> Optional parameters for methods; the <code>"packageIQR"</code> and
 <code>"news_db"</code> methods pass these to <code><a href="#HTMLheader">HTMLheader</a></code>. </p>
@@ -5952,7 +6224,7 @@ toHTML<span class="token punctuation">(</span>x<span class="token punctuation">,
 <h3>Value</h3>
 
 <p>A character vector to display the object <code>x</code>.  The <code>"packageIQR"</code> method
-is designed to display lists in the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> help system.
+is designed to display lists in the <span class="rlang"><b>R</b></span> help system.
 </p>
 
 
@@ -5970,7 +6242,7 @@ is designed to display lists in the <span style="font-family: Courier New, Couri
 </div>
 <div class="container manual-page" id="tools-deprecated">
 
-<a href="#tools-deprecated" class="help-page-title"><h2>Deprecated Objects in Package <span class="pkg">tools</span>
+<a href="#tools-deprecated" class="help-page-title"><h2 id="tools-deprecated">Deprecated Objects in Package <span class="pkg">tools</span>
 </h2></a>
 
 <h3>Description</h3>
@@ -5978,7 +6250,7 @@ is designed to display lists in the <span style="font-family: Courier New, Couri
 <p>(Currently none)
 </p>
 <p>The functions or variables listed here are provided for compatibility
-with older versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> only, and may be defunct as soon as of the
+with older versions of <span class="rlang"><b>R</b></span> only, and may be defunct as soon as of the
 next release.
 </p>
 
@@ -5993,7 +6265,7 @@ next release.
 </div>
 <div class="container manual-page" id="toRd">
 
-<a href="#toRd" class="help-page-title"><h2>Generic Function to Convert Object to a Fragment of Rd Code</h2></a>
+<a href="#toRd" class="help-page-title"><h2 id="toRd">Generic Function to Convert Object to a Fragment of Rd Code</h2></a>
 
 <h3>Description</h3>
 
@@ -6012,24 +6284,24 @@ toRd<span class="token punctuation">(</span>obj<span class="token punctuation">,
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>obj</code></td>
+<tr>
+<td><code id="toRd_:_obj">obj</code></td>
 <td>
 
 <p>The object to be rendered.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>style</code></td>
+<tr>
+<td><code id="toRd_:_style">style</code></td>
 <td>
 
 <p>The style to be used in converting a <code><a href="https://r-universe.dev/manuals/utils.html#bibentry">bibentry</a></code> object.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>...</code></td>
+<tr>
+<td><code id="toRd_:_...">...</code></td>
 <td>
 
 <p>Additional arguments used by methods.
@@ -6056,7 +6328,7 @@ object of that class to markup appropriate for use in a bibliography.
 </div>
 <div class="container manual-page" id="toTitleCase">
 
-<a href="#toTitleCase" class="help-page-title"><h2>Convert Titles to Title Case</h2></a>
+<a href="#toTitleCase" class="help-page-title"><h2 id="toTitleCase">Convert Titles to Title Case</h2></a>
 
 <h3>Description</h3>
 
@@ -6071,8 +6343,8 @@ object of that class to markup appropriate for use in a bibliography.
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>text</code></td>
+<table><tr>
+<td><code id="toTitleCase_:_text">text</code></td>
 <td>
 <p>a character vector.</p>
 </td>
@@ -6104,7 +6376,7 @@ quoted in titles.
 </div>
 <div class="container manual-page" id="undoc">
 
-<a href="#undoc" class="help-page-title"><h2>Find Undocumented Objects</h2></a>
+<a href="#undoc" class="help-page-title"><h2 id="undoc">Find Undocumented Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6122,26 +6394,26 @@ provided by the package), but no documentation entry exists.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="undoc_:_package">package</code></td>
 <td>
 <p>a character string naming an installed package.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="undoc_:_dir">dir</code></td>
 <td>
 <p>a character string specifying the path to a package's root
 source directory.  This must contain the subdirectory ‘<span class="file">man</span>’
-with <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> documentation sources (in Rd format), and at least one of
-the ‘<span class="file">R</span>’ or ‘<span class="file">data</span>’ subdirectories with <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code or data
+with <span class="rlang"><b>R</b></span> documentation sources (in Rd format), and at least one of
+the ‘<span class="file">R</span>’ or ‘<span class="file">data</span>’ subdirectories with <span class="rlang"><b>R</b></span> code or data
 objects, respectively.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>lib.loc</code></td>
+<tr>
+<td><code id="undoc_:_lib.loc">lib.loc</code></td>
 <td>
-<p>a character vector of directory names of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> libraries,
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
 or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
 libraries currently known.  The specified library trees are used to
 search for <code>package</code>.</p>
@@ -6151,7 +6423,7 @@ search for <code>package</code>.</p>
 <h3>Details</h3>
 
 <p>This function is useful for package maintainers mostly.  In principle,
-<em>all</em> user-level <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects should be documented.
+<em>all</em> user-level <span class="rlang"><b>R</b></span> objects should be documented.
 </p>
 <p>The <span class="pkg">base</span> package is special as it contains the primitives and
 these do not have definitions available at code level.  We provide
@@ -6188,7 +6460,7 @@ contained in such objects.
 </div>
 <div class="container manual-page" id="updatePACKAGES">
 
-<a href="#updatePACKAGES" class="help-page-title"><h2>Update Existing PACKAGES Files</h2></a>
+<a href="#updatePACKAGES" class="help-page-title"><h2 id="update_PACKAGES">Update Existing PACKAGES Files</h2></a>
 
 <h3>Description</h3>
 
@@ -6214,26 +6486,26 @@ repository indexes, particularly in non-strict mode (see Details).
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="update_PACKAGES_:_dir">dir</code></td>
 <td>
 <p>See <code><a href="#writePACKAGES">write_PACKAGES</a></code></p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>fields</code></td>
+<tr>
+<td><code id="update_PACKAGES_:_fields">fields</code></td>
 <td>
 <p>See <code><a href="#writePACKAGES">write_PACKAGES</a></code></p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>type</code></td>
+<tr>
+<td><code id="update_PACKAGES_:_type">type</code></td>
 <td>
 <p>See <code><a href="#writePACKAGES">write_PACKAGES</a></code></p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>verbose.level</code></td>
+<tr>
+<td><code id="update_PACKAGES_:_verbose.level">verbose.level</code></td>
 <td>
 <p>(0, 1,  2) What level of informative messages
 which should be displayed throughout the process. Defaults to 0 if
@@ -6241,34 +6513,34 @@ which should be displayed throughout the process. Defaults to 0 if
 otherwise. See details for more information.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>latestOnly</code></td>
+<tr>
+<td><code id="update_PACKAGES_:_latestOnly">latestOnly</code></td>
 <td>
 <p>See <code><a href="#writePACKAGES">write_PACKAGES</a></code></p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>addFiles</code></td>
+<tr>
+<td><code id="update_PACKAGES_:_addFiles">addFiles</code></td>
 <td>
 <p>See <code><a href="#writePACKAGES">write_PACKAGES</a></code></p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>rds_compress</code></td>
+<tr>
+<td><code id="update_PACKAGES_:_rds_compress">rds_compress</code></td>
 <td>
 <p>See <code><a href="#writePACKAGES">write_PACKAGES</a></code></p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>strict</code></td>
+<tr>
+<td><code id="update_PACKAGES_:_strict">strict</code></td>
 <td>
 <p>logical. Should 'strict mode' be used when checking
 existing <code>PACKAGES</code> entries. See details. Defaults to
 <code>TRUE</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>dryrun</code></td>
+<tr>
+<td><code id="update_PACKAGES_:_dryrun">dryrun</code></td>
 <td>
 <p>logical. Should the updates to existing <code>PACKAGES</code>
 files be computed but NOT applied. Defaults to <code>FALSE</code>.</p>
@@ -6412,7 +6684,7 @@ type <span class="token operator">=</span> <span class="token string">"win.binar
 </div>
 <div class="container manual-page" id="update_pkg_po">
 
-<a href="#update_pkg_po" class="help-page-title"><h2>
+<a href="#update_pkg_po" class="help-page-title"><h2 id="update_pkg_po">
 Prepare Translations for a Package
 </h2></a>
 
@@ -6431,37 +6703,39 @@ the translations.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>pkgdir</code></td>
+<tr>
+<td><code id="update_pkg_po_:_pkgdir">pkgdir</code></td>
 <td>
 <p>The path to the package directory.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>pkg</code></td>
+<tr>
+<td><code id="update_pkg_po_:_pkg">pkg</code></td>
 <td>
 <p>The package name: if <code>NULL</code> it is read from the package's
 ‘<span class="file">DESCRIPTION</span>’ file.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>version</code></td>
+<tr>
+<td><code id="update_pkg_po_:_version">version</code></td>
 <td>
 <p>The package version: if <code>NULL</code> it is read from the
 package's ‘<span class="file">DESCRIPTION</span>’ file.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>mergeOpts</code></td>
+<tr>
+<td><code id="update_pkg_po_:_mergeOpts">mergeOpts</code></td>
 <td>
 <p>a string, by default empty, of options to
-<code>msgmerge</code> in addition to <code>"--update"</code>.  Since <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.2.0,
+<code>msgmerge</code> in addition to <code>"--update"</code>.  Since <span class="rlang"><b>R</b></span> 4.2.0,
 <code>"--no-wrap"</code> is used when called from
 <code>file.path(R.home("po"), "Makefile")</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>copyright, bugs</code></td>
+<tr>
+<td>
+<code id="update_pkg_po_:_copyright">copyright</code>, <code id="update_pkg_po_:_bugs">bugs</code>
+</td>
 <td>
 <p>optional character strings for the
 ‘<span class="samp">⁠Copyright⁠</span>’ and ‘<span class="samp">⁠Report-Msgid-Bugs-To⁠</span>’ details in the
@@ -6530,7 +6804,7 @@ the source files.  Once that has been done, create an empty file
 ‘<span class="file">po/<var>pkgname</var>.pot</span>’ in the package sources and run this
 function again.
 </p>
-<p><code>pkg = "base"</code> is special (and for use by <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> developers only):
+<p><code>pkg = "base"</code> is special (and for use by <span class="rlang"><b>R</b></span> developers only):
 the C files are not in the package directory but in the main sources.
 </p>
 
@@ -6559,7 +6833,7 @@ except in a UTF-8 locale, so these are skipped elsewhere.
 </div>
 <div class="container manual-page" id="userdir">
 
-<a href="#userdir" class="help-page-title"><h2>R User Directories</h2></a>
+<a href="#userdir" class="help-page-title"><h2 id="userdir">R User Directories</h2></a>
 
 <h3>Description</h3>
 
@@ -6576,14 +6850,14 @@ and cache files.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="userdir_:_package">package</code></td>
 <td>
-<p>a character string giving the name of an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> package</p>
+<p>a character string giving the name of an <span class="rlang"><b>R</b></span> package</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>which</code></td>
+<tr>
+<td><code id="userdir_:_which">which</code></td>
 <td>
 <p>a character string indicating the kind of file(s) of
 interest.  Can be abbreviated.</p>
@@ -6598,7 +6872,7 @@ Specification
 (<a href="https://specifications.freedesktop.org/basedir-spec" target="_blank">https://specifications.freedesktop.org/basedir-spec</a>) for
 standardizing the location where certain files should be placed.  CRAN
 package <a href="https://CRAN.R-project.org/package=rappdirs" target="_blank"><span class="pkg">rappdirs</span></a> provides these general locations with
-appropriate values for all platforms for which <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> is available.
+appropriate values for all platforms for which <span class="rlang"><b>R</b></span> is available.
 </p>
 <p><code>R_user_dir</code> specializes the general mechanism to R package
 specific locations for user files, by providing package specific
@@ -6616,7 +6890,7 @@ If these are not set, the general XDG-style environment variables
 <span class="env">XDG_DATA_HOME</span>,
 <span class="env">XDG_CONFIG_HOME</span> and
 <span class="env">XDG_CACHE_HOME</span>
-are used if set, and otherwise, defaults appropriate for the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>
+are used if set, and otherwise, defaults appropriate for the <span class="rlang"><b>R</b></span>
 platform in use are employed.
 </p>
 
@@ -6631,7 +6905,7 @@ R_user_dir<span class="token punctuation">(</span><span class="token string">"FO
 </div>
 <div class="container manual-page" id="vignetteEngine">
 
-<a href="#vignetteEngine" class="help-page-title"><h2>Set or Get a Vignette Processing Engine</h2></a>
+<a href="#vignetteEngine" class="help-page-title"><h2 id="vignetteEngine">Set or Get a Vignette Processing Engine</h2></a>
 
 <h3>Description</h3>
 
@@ -6639,7 +6913,7 @@ R_user_dir<span class="token punctuation">(</span><span class="token string">"FO
 writers may choose to use a different engine (e.g., one provided by the
 <a href="https://CRAN.R-project.org/package=knitr" target="_blank"><span class="pkg">knitr</span></a>, <a href="https://CRAN.R-project.org/package=noweb" target="_blank"><span class="pkg">noweb</span></a> or <a href="https://CRAN.R-project.org/package=R.rsp" target="_blank"><span class="pkg">R.rsp</span></a> packages).  This function
 is used by those packages to register their engines, and internally by
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> to retrieve them.
+<span class="rlang"><b>R</b></span> to retrieve them.
 </p>
 
 
@@ -6652,41 +6926,41 @@ is used by those packages to register their engines, and internally by
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>name</code></td>
+<tr>
+<td><code id="vignetteEngine_:_name">name</code></td>
 <td>
 <p>the name of the engine.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>weave</code></td>
+<tr>
+<td><code id="vignetteEngine_:_weave">weave</code></td>
 <td>
 <p>a function to convert vignette source files to PDF/HTML or
 intermediate LaTeX output.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>tangle</code></td>
+<tr>
+<td><code id="vignetteEngine_:_tangle">tangle</code></td>
 <td>
-<p>a function to convert vignette source files to <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code.</p>
+<p>a function to convert vignette source files to <span class="rlang"><b>R</b></span> code.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>pattern</code></td>
+<tr>
+<td><code id="vignetteEngine_:_pattern">pattern</code></td>
 <td>
 <p>a regular expression pattern for the filenames handled
 by this engine, or <code>NULL</code> for the default pattern.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>package</code></td>
+<tr>
+<td><code id="vignetteEngine_:_package">package</code></td>
 <td>
 <p>the package registering the engine.  By default, this
 is the package calling <code>vignetteEngine</code>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>aspell</code></td>
+<tr>
+<td><code id="vignetteEngine_:_aspell">aspell</code></td>
 <td>
 <p>a list with element names <code>filter</code> and/or
 <code>control</code> giving the respective arguments to be used when spell
@@ -6717,7 +6991,7 @@ filename of the output file that has been produced. Currently the
 The ‘<span class="file">.tex</span>’ files will be processed by <code>pdflatex</code> to
 produce ‘<span class="file">.pdf</span>’ output for display to the user; the others will be
 displayed as produced.  The <code>tangle</code> function must produce a file
-named ‘<span class="file">&lt;name&gt;[.][rRsS]</span>’ containing the executable <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code from
+named ‘<span class="file">&lt;name&gt;[.][rRsS]</span>’ containing the executable <span class="rlang"><b>R</b></span> code from
 the vignette.  The <code>tangle</code> function may support a
 <code>split = TRUE</code> argument, and then it should produce files named
 ‘<span class="file">&lt;name&gt;.*[.][rRsS]</span>’.
@@ -6735,31 +7009,31 @@ is used.
 containing components
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>name</code></td>
 <td>
 <p>The name of the engine</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>package</code></td>
 <td>
 <p>The name of its package</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>pattern</code></td>
 <td>
 <p>The pattern for vignette input files</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>weave</code></td>
 <td>
 <p>The weave function</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>tangle</code></td>
 <td>
 <p>The tangle function</p>
@@ -6786,7 +7060,7 @@ containing components
 </div>
 <div class="container manual-page" id="vignetteInfo">
 
-<a href="#vignetteInfo" class="help-page-title"><h2>Basic Information about a Vignette</h2></a>
+<a href="#vignetteInfo" class="help-page-title"><h2 id="vignetteInfo">Basic Information about a Vignette</h2></a>
 
 <h3>Description</h3>
 
@@ -6801,8 +7075,8 @@ containing components
 
 <h3>Arguments</h3>
 
-<table><tr style="vertical-align: top;">
-<td><code>file</code></td>
+<table><tr>
+<td><code id="vignetteInfo_:_file">file</code></td>
 <td>
 <p>file name of the vignette.</p>
 </td>
@@ -6813,34 +7087,34 @@ containing components
 <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> components:
 </p>
 <table>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>file</code></td>
 <td>
 <p>the <code><a href="https://r-universe.dev/manuals/base.html#basename">basename</a></code> of the file.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>title</code></td>
 <td>
 <p>the vignette title from
 ‘<span class="samp">⁠\VignetteIndexEntry⁠</span>’, possibly an empty string.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>depends</code></td>
 <td>
 <p>a vector of package dependencies from
 ‘<span class="samp">⁠\VignetteDepends⁠</span>’, possibly of length 0.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>keywords</code></td>
 <td>
 <p>a vector of keywords from
 ‘<span class="samp">⁠\VignetteKeyword⁠</span>’, possibly of length 0.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
+<tr>
 <td><code>engine</code></td>
 <td>
 <p>the <code><a href="#vignetteEngine">vignetteEngine</a></code>, such as
@@ -6864,7 +7138,7 @@ containing components
 </div>
 <div class="container manual-page" id="writePACKAGES">
 
-<a href="#writePACKAGES" class="help-page-title"><h2>Generate PACKAGES Files</h2></a>
+<a href="#writePACKAGES" class="help-page-title"><h2 id="write_PACKAGES">Generate PACKAGES Files</h2></a>
 
 <h3>Description</h3>
 
@@ -6885,8 +7159,8 @@ files for a repository of source or Mac/Windows binary packages.
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="write_PACKAGES_:_dir">dir</code></td>
 <td>
 <p>Character vector describing the location of the repository
 (directory including source or binary packages) to generate the
@@ -6895,8 +7169,8 @@ from and write them to.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>fields</code></td>
+<tr>
+<td><code id="write_PACKAGES_:_fields">fields</code></td>
 <td>
 
 <p>a character vector giving the fields to be used in the
@@ -6916,8 +7190,8 @@ are used.
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>type</code></td>
+<tr>
+<td><code id="write_PACKAGES_:_type">type</code></td>
 <td>
 
 <p>Type of packages: currently source ‘<span class="file">.tar.{gz,bz2,xz}</span>’ archives,
@@ -6927,52 +7201,52 @@ respectively) packages are supported.  Defaults to
 </p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>verbose</code></td>
+<tr>
+<td><code id="write_PACKAGES_:_verbose">verbose</code></td>
 <td>
 <p>logical.  Should packages be listed as they are
 processed?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>unpacked</code></td>
+<tr>
+<td><code id="write_PACKAGES_:_unpacked">unpacked</code></td>
 <td>
 <p>a logical indicating whether the package contents are
 available in unpacked form or not (default).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>subdirs</code></td>
+<tr>
+<td><code id="write_PACKAGES_:_subdirs">subdirs</code></td>
 <td>
 <p>either logical (to indicate if subdirectories should be
 included, recursively) or a character vector of names of subdirectories
 to include (which are not recursed).</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>latestOnly</code></td>
+<tr>
+<td><code id="write_PACKAGES_:_latestOnly">latestOnly</code></td>
 <td>
 <p>logical: if multiple versions of a package are
 available should only the latest version be included?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>addFiles</code></td>
+<tr>
+<td><code id="write_PACKAGES_:_addFiles">addFiles</code></td>
 <td>
 <p>logical: should the filenames be included as field
 ‘<span class="samp">⁠File⁠</span>’ in the ‘<span class="file">PACKAGES</span>’ file.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>rds_compress</code></td>
+<tr>
+<td><code id="write_PACKAGES_:_rds_compress">rds_compress</code></td>
 <td>
 <p>The type of compression to be used for
 ‘<span class="file">PACKAGES.rds</span>’: see <code><a href="https://r-universe.dev/manuals/base.html#readRDS">saveRDS</a></code>.  The default is the
 one found to give maximal compression, and is as used on <abbr><span class="acronym">CRAN</span></abbr>.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>validate</code></td>
+<tr>
+<td><code id="write_PACKAGES_:_validate">validate</code></td>
 <td>
 <p>a logical indicating whether ‘<span class="file">DESCRIPTION</span>’ files
 should be validated, and the corresponding packages skipped in case
@@ -7065,7 +7339,7 @@ write_PACKAGES<span class="token punctuation">(</span><span class="token string"
 </div>
 <div class="container manual-page" id="xgettext">
 
-<a href="#xgettext" class="help-page-title"><h2>Extract Translatable Messages from R Files in a Package</h2></a>
+<a href="#xgettext" class="help-page-title"><h2 id="xgettext">Extract Translatable Messages from R Files in a Package</h2></a>
 
 <h3>Description</h3>
 
@@ -7102,41 +7376,43 @@ xgettext2pot<span class="token punctuation">(</span>dir<span class="token punctu
 <h3>Arguments</h3>
 
 <table>
-<tr style="vertical-align: top;">
-<td><code>dir</code></td>
+<tr>
+<td><code id="xgettext_:_dir">dir</code></td>
 <td>
 <p>the directory of a source package, i.e., with a ‘<span class="file">./R</span>’ sub
 directory.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>verbose</code></td>
+<tr>
+<td><code id="xgettext_:_verbose">verbose</code></td>
 <td>
 <p>logical: should each file be listed as it is processed?</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>asCall</code></td>
+<tr>
+<td><code id="xgettext_:_asCall">asCall</code></td>
 <td>
 <p>logical: if <code>TRUE</code> each argument is converted to
 string and returned whole, otherwise the string literals within each
 argument are extracted (recursively). See Examples.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>potFile</code></td>
+<tr>
+<td><code id="xgettext_:_potFile">potFile</code></td>
 <td>
 <p>name of <code>po</code> template file to be produced.
 Defaults to ‘<span class="file">R-<var>pkgname</var>.pot</span>’ where
 <var>pkgname</var> is the basename of ‘<span class="file">dir</span>’.</p>
 </td>
 </tr>
-<tr style="vertical-align: top;">
-<td><code>name, version, bugs</code></td>
+<tr>
+<td>
+<code id="xgettext_:_name">name</code>, <code id="xgettext_:_version">version</code>, <code id="xgettext_:_bugs">bugs</code>
+</td>
 <td>
 <p>as recorded in the template file:
 <code>version</code> defaults the version number of the currently running
-<span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>, and <code>bugs</code> to <code>"bugs.r-project.org"</code>.</p>
+<span class="rlang"><b>R</b></span>, and <code>bugs</code> to <code>"bugs.r-project.org"</code>.</p>
 </td>
 </tr>
 </table>
@@ -7226,6 +7502,6 @@ unlink<span class="token punctuation">(</span>tmpRDir<span class="token punctuat
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.0.9000</p></footer>
+    <footer><p>Rendered with postdoc 1.2.1</p></footer>
   </body>
 </html>
