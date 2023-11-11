@@ -43,11 +43,11 @@
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">7.3-21</td>
+<td class="description-version">7.3-22</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2023-04-21 21:43:09 UTC</td>
+<td class="description-date">2023-11-01 20:53:44 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -215,7 +215,7 @@ gr <span class="token operator">&lt;-</span> somgrid<span class="token punctuati
 crabs.som <span class="token operator">&lt;-</span> batchSOM<span class="token punctuation">(</span>lcrabs<span class="token punctuation">,</span> gr<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>crabs.som<span class="token punctuation">)</span>
 
-bins <span class="token operator">&lt;-</span> as.numeric<span class="token punctuation">(</span>knn1<span class="token punctuation">(</span>crabs.som<span class="token operator">$</span>code<span class="token punctuation">,</span> lcrabs<span class="token punctuation">,</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">47</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+bins <span class="token operator">&lt;-</span> as.numeric<span class="token punctuation">(</span>knn1<span class="token punctuation">(</span>crabs.som<span class="token operator">$</span>codes<span class="token punctuation">,</span> lcrabs<span class="token punctuation">,</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">47</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>crabs.som<span class="token operator">$</span>grid<span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"n"</span><span class="token punctuation">)</span>
 symbols<span class="token punctuation">(</span>crabs.som<span class="token operator">$</span>grid<span class="token operator">$</span>pts<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> crabs.som<span class="token operator">$</span>grid<span class="token operator">$</span>pts<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         circles <span class="token operator">=</span> rep<span class="token punctuation">(</span><span class="token number">0.4</span><span class="token punctuation">,</span> <span class="token number">48</span><span class="token punctuation">)</span><span class="token punctuation">,</span> inches <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> add <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
@@ -1644,8 +1644,8 @@ plot<span class="token punctuation">(</span>crabs.som<span class="token punctuat
 
 <span class="token comment">## 2-phase training</span>
 crabs.som2 <span class="token operator">&lt;-</span> SOM<span class="token punctuation">(</span>lcrabs<span class="token punctuation">,</span> gr<span class="token punctuation">,</span>
-    alpha <span class="token operator">=</span> list<span class="token punctuation">(</span>seq<span class="token punctuation">(</span><span class="token number">0.05</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> <span class="token number">1e4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> seq<span class="token punctuation">(</span><span class="token number">0.02</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> <span class="token number">1e5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    radii <span class="token operator">=</span> list<span class="token punctuation">(</span>seq<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> len <span class="token operator">=</span> <span class="token number">1e4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> seq<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> len <span class="token operator">=</span> <span class="token number">1e5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    alpha <span class="token operator">=</span> list<span class="token punctuation">(</span>seq<span class="token punctuation">(</span><span class="token number">0.05</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> length.out <span class="token operator">=</span> <span class="token number">1e4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> seq<span class="token punctuation">(</span><span class="token number">0.02</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> length.out <span class="token operator">=</span> <span class="token number">1e5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    radii <span class="token operator">=</span> list<span class="token punctuation">(</span>seq<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> length.out <span class="token operator">=</span> <span class="token number">1e4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> seq<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> length.out <span class="token operator">=</span> <span class="token number">1e5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>crabs.som2<span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -1751,6 +1751,6 @@ components
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.1</p></footer>
+    <footer><p>Rendered with postdoc 1.2.2</p></footer>
   </body>
 </html>

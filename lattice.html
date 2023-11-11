@@ -53,11 +53,11 @@
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">0.21-8</td>
+<td class="description-version">0.21-9</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2023-04-21 21:43:01 UTC</td>
+<td class="description-date">2023-11-01 20:53:33 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -340,7 +340,7 @@ appropriately.
 <dt>
 <code><a href="#levelplot">levelplot</a></code>:</dt>
 <dd>
-<p> Level plots (similar to <code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code> plots). </p>
+<p> Level plots (similar to <code><a href="https://r-universe.dev/manuals/Matrix.html#image-methods">image</a></code> plots). </p>
 </dd>
 <dt>
 <code><a href="#levelplot">contourplot</a></code>:</dt>
@@ -5867,7 +5867,7 @@ unames <span class="token operator">&lt;-</span> sort<span class="token punctuat
 ans <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> nrow <span class="token operator">=</span> length<span class="token punctuation">(</span>names.tp<span class="token punctuation">)</span><span class="token punctuation">,</span> ncol <span class="token operator">=</span> length<span class="token punctuation">(</span>unames<span class="token punctuation">)</span><span class="token punctuation">)</span>
 rownames<span class="token punctuation">(</span>ans<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> names<span class="token punctuation">(</span>names.tp<span class="token punctuation">)</span>
 colnames<span class="token punctuation">(</span>ans<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> unames
-<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> seq<span class="token punctuation">(</span>along <span class="token operator">=</span> names.tp<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> seq_along<span class="token punctuation">(</span>names.tp<span class="token punctuation">)</span><span class="token punctuation">)</span>
     ans<span class="token punctuation">[</span>i<span class="token punctuation">,</span> <span class="token punctuation">]</span> <span class="token operator">&lt;-</span> as.numeric<span class="token punctuation">(</span>unames <span class="token percent-operator operator">%in%</span> names.tp<span class="token punctuation">[</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 ans <span class="token operator">&lt;-</span> ans<span class="token punctuation">[</span><span class="token punctuation">,</span> order<span class="token punctuation">(</span><span class="token operator">-</span>colSums<span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
 ans <span class="token operator">&lt;-</span> ans<span class="token punctuation">[</span>order<span class="token punctuation">(</span>rowSums<span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">]</span>
@@ -14562,6 +14562,6 @@ currently active device only.
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.1</p></footer>
+    <footer><p>Rendered with postdoc 1.2.2</p></footer>
   </body>
 </html>

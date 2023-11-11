@@ -37,15 +37,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.3.0</td>
+<td class="description-license">Part of R 4.3.2</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.3.0</td>
+<td class="description-version">4.3.2</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2023-04-21 21:41:47 UTC</td>
+<td class="description-date">2023-11-01 20:51:37 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -5919,10 +5919,10 @@ the <code>"wget"</code> and <code>"curl"</code> methods.</p>
 <tr>
 <td><code id="download.file_:_headers">headers</code></td>
 <td>
-<p>named character vector of HTTP headers to use in HTTP
-requests.  It is ignored for non-HTTP URLs.  The <code>User-Agent</code>
-header taken from the <code>HTTPUserAgent</code> option (see
-<code><a href="https://r-universe.dev/manuals/base.html#options">options</a></code>) is automatically used as the first header.</p>
+<p>named character vector of additional HTTP headers to
+use in HTTP[S] requests.  It is ignored for non-HTTP[S] URLs.  The
+<code>User-Agent</code> header taken from the <code>HTTPUserAgent</code> option
+(see <code><a href="https://r-universe.dev/manuals/base.html#options">options</a></code>) is automatically used as the first header.</p>
 </td>
 </tr>
 <tr>
@@ -11563,8 +11563,9 @@ methods for an S3 or S4 class.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">methods<span class="token punctuation">(</span>generic.<span class="token keyword">function</span><span class="token punctuation">,</span> class<span class="token punctuation">)</span>
-.S3methods<span class="token punctuation">(</span>generic.<span class="token keyword">function</span><span class="token punctuation">,</span> class<span class="token punctuation">,</span> envir<span class="token operator">=</span>parent.frame<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r">methods<span class="token punctuation">(</span>generic.<span class="token keyword">function</span><span class="token punctuation">,</span> class<span class="token punctuation">,</span> dropPath <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+.S3methods<span class="token punctuation">(</span>generic.<span class="token keyword">function</span><span class="token punctuation">,</span> class<span class="token punctuation">,</span> envir <span class="token operator">=</span> parent.frame<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                    dropPath <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 
 <span class="token comment">## S3 method for class 'MethodsFunction'</span>
 format<span class="token punctuation">(</span>x<span class="token punctuation">,</span> byclass <span class="token operator">=</span> attr<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"byclass"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
@@ -11595,6 +11596,18 @@ generic function.</p>
 <p>the environment in which to look for the definition of
 the generic function, when the generic function is passed as a
 character string.</p>
+</td>
+</tr>
+<tr>
+<td><code id="methods_:_dropPath">dropPath</code></td>
+<td>
+<p>a <code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> indicating if the
+<code><a href="https://r-universe.dev/manuals/base.html#search">search</a>()</code> path, apart from <code><a href="https://r-universe.dev/manuals/base.html#environment">.GlobalEnv</a></code> and
+<code>package:base</code> (i.e., <code><a href="https://r-universe.dev/manuals/base.html#environment">baseenv</a>()</code>), should be skipped
+when searching for method definitions.  The default <code>FALSE</code> is
+back compatible and typically desired for <code>print()</code>ing, with or
+without asterisk; <code>dropPath=TRUE</code> has been hard coded in <span class="rlang"><b>R</b></span> 4.3.0
+and is faster for non-small <code><a href="https://r-universe.dev/manuals/base.html#search">search</a>()</code> paths.</p>
 </td>
 </tr>
 <tr>
@@ -11676,8 +11689,10 @@ defined.  The <code>"info"</code> attribute is a data frame with columns:
 </dd>
 <dt>visible</dt>
 <dd>
-<p>logical(), is the method exported from the namespace
-of the package in which it is defined?</p>
+<p>logical(), is the method “visible” to the user?
+When true, it typically is exported from the namespace of the package
+in which it is defined, and the package is <code><a href="https://r-universe.dev/manuals/base.html#attach">attach</a>()</code>ed
+to the <code><a href="https://r-universe.dev/manuals/base.html#search">search</a>()</code> path.</p>
 </dd>
 <dt>isS4</dt>
 <dd>
@@ -13908,7 +13923,9 @@ unlink<span class="token punctuation">(</span><span class="token string">"sunspo
 
 <h3>Description</h3>
 
-<p>Generates a shell of documentation for an installed or source package.
+<p>Generates a prototype of a package overview help page
+using Rd macros that dynamically extract information
+from package metadata when building the package.
 </p>
 
 
@@ -13924,18 +13941,14 @@ unlink<span class="token punctuation">(</span><span class="token string">"sunspo
 <tr>
 <td><code id="promptPackage_:_package">package</code></td>
 <td>
-<p>a <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> string with the name of an
-<em>installed</em> or <em>source</em> package to be documented.</p>
+<p>a <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> string with the name of the
+package to be documented.</p>
 </td>
 </tr>
 <tr>
 <td><code id="promptPackage_:_lib.loc">lib.loc</code></td>
 <td>
-<p>a character vector describing the location of <span class="rlang"><b>R</b></span>
-library trees to search through, or <code>NULL</code>.  The default value
-of <code>NULL</code> corresponds to all libraries currently known.  For a
-source package this should specify the parent directory of the
-package's sources.</p>
+<p>ignored.</p>
 </td>
 </tr>
 <tr>
@@ -13950,8 +13963,9 @@ by <code>".Rd"</code>.  Can also be <code>NA</code> (see below).</p>
 <tr>
 <td><code id="promptPackage_:_name">name</code></td>
 <td>
-<p>a character string specifying the name of the help topic,
-typically of the form ‘<span class="samp">⁠&lt;pkg&gt;-package⁠</span>’.</p>
+<p>a character string specifying the name of the help topic;
+defaults to ‘<span class="samp">⁠&lt;pkgname&gt;-package⁠</span>’, which is the required
+<code style="white-space: pre;">⁠\alias⁠</code> for the overview help page.</p>
 </td>
 </tr>
 <tr>
@@ -18587,9 +18601,9 @@ possible <code>osVersion</code> (and hence <code>sessionInfo()$running</code>) u
 a human-readable form.
 </p>
 <p>Where <span class="rlang"><b>R</b></span> was compiled under macOS 10.x (as the <abbr><span class="acronym">CRAN</span></abbr> Intel
-distributions have been) but running under ‘Big Sur’ or later,
-macOS reports itself as ‘<span class="samp">⁠10.16⁠</span>’ (which <span class="rlang"><b>R</b></span> recognizes as
-‘Big Sur ...’) and not ‘<span class="samp">⁠11⁠</span>’, ‘<span class="samp">⁠12⁠</span>’, ‘<span class="samp">⁠13⁠</span>’ or later.
+distributions were prior to <span class="rlang"><b>R</b></span> 4.3.0) but running under ‘Big
+Sur’ or later, macOS reports itself as ‘<span class="samp">⁠10.16⁠</span>’ (which <span class="rlang"><b>R</b></span>
+recognizes as ‘Big Sur ...’) and not ‘<span class="samp">⁠11⁠</span>’, ‘<span class="samp">⁠12⁠</span>’, ....
 </p>
 
 
@@ -18668,14 +18682,14 @@ helpful to use a named vector.</p>
 ‘<span class="file"><var><a href="https://r-universe.dev/manuals/base.html#Rhome">R_HOME</a></var>/etc/repositories</span>’.
 That file can be edited for a site, or a user can have a personal copy
 in the file pointed to by the environment variable
-<span class="env">R_REPOSITORIES</span>, or if this is unset or does not exist,
+<span class="env">R_REPOSITORIES</span>, or if this is unset, <code>NULL</code> or does not exist,
 in ‘<span class="file"><var>HOME</var>/.R/repositories</span>’, which will take precedence.
 </p>
 <p>A Bioconductor mirror can be selected by setting
 <code><a href="https://r-universe.dev/manuals/base.html#options">options</a>("BioC_mirror")</code>, e.g. via
 <code><a href="#chooseBioCmirror">chooseBioCmirror</a></code> — the default value is
 ‘<span class="samp">⁠"https://bioconductor.org"⁠</span>’.
-This version of R chooses Bioconductor version 3.17 by default, but that can be changed via the environment variable
+This version of R chooses Bioconductor version 3.18 by default, but that can be changed via the environment variable
 <span class="env">R_BIOC_VERSION</span>.
 </p>
 <p>The items that are preselected are those that are currently in
@@ -18711,7 +18725,7 @@ element <code>"CRAN"</code>: this ensures mirror selection is sticky.
 
 <p>This does <strong>not</strong> set the list of repositories at startup: to do
 so set <code><a href="https://r-universe.dev/manuals/base.html#options">options</a>(repos =)</code> in a start up file (see help topic
-<a href="https://r-universe.dev/manuals/base.html#Startup">Startup</a>).
+<a href="https://r-universe.dev/manuals/base.html#Startup">Startup</a>) or via a customized ‘<span class="file">repositories</span>’ file.
 </p>
 
 
@@ -19487,7 +19501,7 @@ The obvious side effect is output to the terminal.
 <p>The default method tries to “work always”, but needs to make some
 assumptions for the case when <code>object</code> has a <code><a href="https://r-universe.dev/manuals/base.html#class">class</a></code> but
 no own <code>str()</code> method which is <em>the typical</em> case: There it
-relies on <code>"<a href="https://r-universe.dev/manuals/base.html#Extract">[</a>"</code> and <code>"<a href="https://r-universe.dev/manuals/base.html#Extract">[[</a>"</code> subsetting methods to
+relies on <code>"<a href="https://r-universe.dev/manuals/Matrix.html#Xtrct-methods">[</a>"</code> and <code>"<a href="https://r-universe.dev/manuals/base.html#Extract">[[</a>"</code> subsetting methods to
 be compatible with <code><a href="https://r-universe.dev/manuals/base.html#length">length</a>()</code>.  When this is not the case, or
 when <code>is.list(object)</code> is <code>TRUE</code>, but <code>length(object)</code>
 differs from <code>length(<a href="https://r-universe.dev/manuals/base.html#class">unclass</a>(object))</code> it treats it as
@@ -22741,6 +22755,6 @@ the filepaths contain spaces they must be quoted e.g. by
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.1</p></footer>
+    <footer><p>Rendered with postdoc 1.2.2</p></footer>
   </body>
 </html>

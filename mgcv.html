@@ -49,11 +49,11 @@ Estimation</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">1.8-42</td>
+<td class="description-version">1.9-0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2023-04-21 21:44:04 UTC</td>
+<td class="description-date">2023-11-01 20:54:55 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -116,6 +116,7 @@ Estimation</td>
 <li class="help-index-item"><a href="#gaulss">Gaussian location-scale model family</a></li>
 <li class="help-index-item"><a href="#get.var">Get named variable or evaluate expression from list or data.frame</a></li>
 <li class="help-index-item"><a href="#gevlss">Generalized Extreme Value location-scale model family</a></li>
+<li class="help-index-item"><a href="#gfam">Grouped families</a></li>
 <li class="help-index-item"><a href="#ginla">GAM Integrated Nested Laplace Approximation Newton Enhanced</a></li>
 <li class="help-index-item"><a href="#gumbls">Gumbel location-scale model family</a></li>
 <li class="help-index-item"><a href="#identifiability">Identifiability constraints</a></li>
@@ -134,7 +135,7 @@ Estimation</td>
 <li class="help-index-item"><a href="#magic"> Stable Multiple Smoothing Parameter Estimation by GCV or UBRE</a></li>
 <li class="help-index-item"><a href="#magic.post.proc">Auxilliary information from magic fit</a></li>
 <li class="help-index-item"><a href="#mgcv-FAQ">Frequently Asked Questions for package mgcv</a></li>
-<li class="help-index-item"><a href="#mgcv-package">Mixed GAM Computation Vehicle with GCV/AIC/REML smoothness estimation and GAMMs by REML/PQL
+<li class="help-index-item"><a href="#mgcv-package">Mixed GAM Computation Vehicle with GCV/AIC/REML/NCV smoothness estimation and GAMMs by REML/PQL
 </a></li>
 <li class="help-index-item"><a href="#mgcv-parallel">Parallel computation in mgcv.
 </a></li>
@@ -145,6 +146,7 @@ Estimation</td>
 <li class="help-index-item"><a href="#mroot">Smallest square root of matrix</a></li>
 <li class="help-index-item"><a href="#multinom">GAM multinomial logistic regression</a></li>
 <li class="help-index-item"><a href="#mvn">Multivariate normal additive models</a></li>
+<li class="help-index-item"><a href="#NCV">Neighbourhood Cross Validation</a></li>
 <li class="help-index-item"><a href="#negbin">GAM negative binomial families</a></li>
 <li class="help-index-item"><a href="#new.name">Obtain a name for a new variable that is not already in use</a></li>
 <li class="help-index-item"><a href="#notExp"> Functions for better-than-log positive parameterization</a></li>
@@ -361,9 +363,9 @@ improvements by Henric Nilsson.</p>
 <p>Scheipl, F., Greven, S. and Kuchenhoff, H. (2008) Size and power of tests for a zero random effect variance or polynomial 
 regression in additive and linear mixed models. Comp. Statist. Data Anal. 52, 3283-3299
 </p>
-<p>Wood, S.N. (2013a) On p-values for smooth components of an extended generalized additive model. Biometrika 100:221-228
+<p>Wood, S.N. (2013a) On p-values for smooth components of an extended generalized additive model. Biometrika 100:221-228 <a href="https://doi.org/10.1093/biomet/ass048" target="_blank">doi:10.1093/biomet/ass048</a>
 </p>
-<p>Wood, S.N. (2013b) A simple test for random effects in regression models. Biometrika 100:1005-1010
+<p>Wood, S.N. (2013b) A simple test for random effects in regression models. Biometrika 100:1005-1010 <a href="https://doi.org/10.1093/biomet/ast038" target="_blank">doi:10.1093/biomet/ast038</a>
 </p>
 
 
@@ -412,7 +414,8 @@ for large datasets. <code>bam</code> can also compute on a cluster set up by the
     select<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>scale<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>gamma<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>knots<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>sp<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>min.sp<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>
     paraPen<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>chunk.size<span class="token operator">=</span><span class="token number">10000</span><span class="token punctuation">,</span>rho<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>AR.start<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>discrete<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>
     cluster<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>nthreads<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>gc.level<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>use.chol<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>samfrac<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>
-    coef<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>drop.unused.levels<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span>G<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>fit<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span>drop.intercept<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span><span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+    coef<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>drop.unused.levels<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span>G<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>fit<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span>drop.intercept<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>
+    <span class="token keyword">in</span>.out<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span><span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
 <h3>Arguments</h3>
@@ -591,7 +594,7 @@ there are no breaks in AR1 correlaion.</p>
 <td><code id="bam_:_discrete">discrete</code></td>
 <td>
 <p>with <code>method="fREML"</code> it is possible to discretize covariates for storage and efficiency reasons.
-If <code>discrete</code> is <code>TRUE</code>, a number or a vector of numbers for each smoother term, then discretization happens. If numbers are supplied they give the number of discretization bins.</p>
+If <code>discrete</code> is <code>TRUE</code>, a number or a vector of numbers for each smoother term, then discretization happens. If numbers are supplied they give the number of discretization bins. Parametric terms use the maximum number specified.</p>
 </td>
 </tr>
 <tr>
@@ -667,6 +670,12 @@ even with factor variables present.</p>
 </td>
 </tr>
 <tr>
+<td><code id="bam_:_in.out">in.out</code></td>
+<td>
+<p>If supplied then this is a two item list of intial values. <code>sp</code> is initial smoothing parameter estiamtes and <code>scale</code> the initial scale parameter estimate (set to 1 if famiy does not have one).</p>
+</td>
+</tr>
+<tr>
 <td><code id="bam_:_...">...</code></td>
 <td>
 <p>further arguments for 
@@ -716,10 +725,6 @@ can be used in the 1D case, and tensor product smooths (<code>te</code>) are typ
 
 <p>The routine may be slower than optimal if the default <code>"tp"</code> basis is used. 
 </p>
-<p>Unless discrete=TRUE, you must have more unique combinations of covariates than the model has total
-parameters. (Total parameters is sum of basis dimensions plus sum of non-spline 
-terms less the number of spline terms). 
-</p>
 <p>This routine is less stable than ‘gam’ for the same dataset.
 </p>
 <p>With <code>discrete=TRUE</code>, <code>te</code> terms are efficiently computed, but <code>t2</code> are not.
@@ -740,7 +745,7 @@ terms less the number of spline terms).
 <p>Wood, S.N., Li, Z., Shaddick, G. &amp; Augustin N.H. (2017) Generalized additive models for gigadata: modelling the UK black smoke network daily data. Journal of the American Statistical Association. 112(519):1199-1210
 <a href="https://doi.org/10.1080/01621459.2016.1195744" target="_blank">doi:10.1080/01621459.2016.1195744</a>
 </p>
-<p>Li, Z &amp; S.N. Wood (2019) Faster model matrix crossproducts for large generalized linear models with discretized covariates. Statistics and Computing.
+<p>Li, Z &amp; S.N. Wood (2020) Faster model matrix crossproducts for large generalized linear models with discretized covariates. Statistics and Computing. 30:19-25
 <a href="https://doi.org/10.1007/s11222-019-09864-2" target="_blank">doi:10.1007/s11222-019-09864-2</a>
 </p>
 
@@ -2624,13 +2629,13 @@ summary<span class="token punctuation">(</span>bd<span class="token punctuation"
 
 <h3>Description</h3>
 
-<p>As well as the standard families documented in <code><a href="https://r-universe.dev/manuals/stats.html#family">family</a></code> (see also <code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code>) which can be used with functions <code><a href="#gam">gam</a></code>, <code><a href="#bam">bam</a></code> and <code><a href="#gamm">gamm</a></code>, <code>mgcv</code> also supplies some extra families, most of which are currently only usable with <code><a href="#gam">gam</a></code>, although some can also be used with <code><a href="#bam">bam</a></code>. These are described here.
+<p>As well as the standard families (of class <code>family</code>) documented in <code><a href="https://r-universe.dev/manuals/stats.html#family">family</a></code> (see also <code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code>) which can be used with functions <code><a href="#gam">gam</a></code>, <code><a href="#bam">bam</a></code> and <code><a href="#gamm">gamm</a></code>, <code>mgcv</code> also supplies some extra families, most of which are currently only usable with <code><a href="#gam">gam</a></code>, although some can also be used with <code><a href="#bam">bam</a></code>. These are described here.
 </p>
 
 
 <h3>Details</h3>
 
-<p>The following families are in the exponential family given the value of a single parameter. They are usable with all modelling functions.
+<p>The following families (class <code>family</code>) are in the exponential family given the value of a single parameter. They are usable with all modelling functions.
 </p>
 
 <ul>
@@ -2642,8 +2647,8 @@ summary<span class="token punctuation">(</span>bd<span class="token punctuation"
 </p>
 </li>
 </ul>
-<p>The following families are for regression type models dependent on a single linear predictor, and with a log likelihood
-which is a sum of independent terms, each corresponding to a single response observation. Usable with <code><a href="#gam">gam</a></code>, with smoothing parameter estimation by <code>"REML"</code> or <code>"ML"</code> (the latter does not integrate the unpenalized and parameteric effects out of the marginal likelihood optimized for the smoothing parameters). Also usable with <code><a href="#bam">bam</a></code>.
+<p>The following families (class <code>extended.family</code>) are for regression type models dependent on a single linear predictor, and with a log likelihood
+which is a sum of independent terms, each corresponding to a single response observation. Usable with <code><a href="#gam">gam</a></code>, with smoothing parameter estimation by <code>"NCV"</code>, <code>"REML"</code> or <code>"ML"</code> (the latter does not integrate the unpenalized and parameteric effects out of the marginal likelihood optimized for the smoothing parameters). Also usable with <code><a href="#bam">bam</a></code>.
 </p>
 
 <ul>
@@ -2669,7 +2674,13 @@ which is a sum of independent terms, each corresponding to a single response obs
 </p>
 </li>
 </ul>
-<p>The following families implement more general model classes. Usable only with <code><a href="#gam">gam</a></code> and only with REML or NCV smoothing parameter estimation.
+<p>The above families of class <code>family</code> and <code>extended.family</code> can be combined to model data where different response observations come from different distributions. For example, when modelling the combination of presence-absence and abundance data, <code>binomial</code> and <code>nb</code> families might be used.  
+</p>
+
+<ul><li> <p><code><a href="#gfam">gfam</a></code> creates a 'grouped family' (or 'family group') from a list of families. The response is supplied as a two column matrix, the first containing the response observations, and the second an index of the family to which each observation relates.
+</p>
+</li></ul>
+<p>The following families (class <code>general.family</code>) implement more general model classes. Usable only with <code><a href="#gam">gam</a></code> and only with REML or NCV smoothing parameter estimation.
 </p>
 
 <ul>
@@ -2688,17 +2699,20 @@ which is a sum of independent terms, each corresponding to a single response obs
 <li> <p><code><a href="#gumbls">gumbls</a></code> a Gumbel location-scale model (2 linear predictors).
 </p>
 </li>
+<li> <p><code><a href="#multinom">multinom</a></code>: multinomial logistic regression, for unordered categorical responses.  
+</p>
+</li>
+<li> <p><code><a href="#mvn">mvn</a></code>: multivariate normal additive models (no NCV).
+</p>
+</li>
 <li> <p><code><a href="#shash">shash</a></code> Sinh-arcsinh location scale and shape model family (4 linear predicors).
 </p>
 </li>
+<li> <p><code><a href="#twlss">twlss</a></code> Tweedie location scale and variance power model family (3 linear predicors).  Can only be fitted using EFS method.
+</p>
+</li>
 <li> <p><code><a href="#ziplss">ziplss</a></code> a ‘two-stage’ zero inflated Poisson model, in which 'potential-presence' is modelled with one linear predictor, and Poisson mean abundance
-given potential presence is modelled with a second linear predictor. 
-</p>
-</li>
-<li> <p><code><a href="#mvn">mvn</a></code>: multivariate normal additive models (no NCV). 
-</p>
-</li>
-<li> <p><code><a href="#multinom">multinom</a></code>: multinomial logistic regression, for unordered categorical responses.  
+given potential presence is modelled with a second linear predictor.
 </p>
 </li>
 </ul>
@@ -3492,20 +3506,19 @@ included in <code>formula</code> (this used to conform to the behaviour of
 <td>
 <p>The smoothing parameter estimation method. <code>"GCV.Cp"</code> to use GCV for unknown scale parameter and
 Mallows' Cp/UBRE/AIC for known scale. <code>"GACV.Cp"</code> is equivalent, but using GACV in place of GCV. <code>"NCV"</code>
-for neighbourhood cross-validation using the neighbourhood structure speficied be <code>nei</code>. <code>"REML"</code> 
+for neighbourhood cross-validation using the neighbourhood structure speficied by <code>nei</code> (<code>"QNCV"</code> for numerically more ribust version).  <code>"REML"</code> 
 for REML estimation, including of unknown scale, <code>"P-REML"</code> for REML estimation, but using a Pearson estimate 
 of the scale. <code>"ML"</code> and <code>"P-ML"</code> are similar, but using maximum likelihood in place of REML. Beyond the 
-exponential family <code>"REML"</code> is the default, and the only other options are <code>"ML"</code> or <code>"NCV"</code>.</p>
+exponential family <code>"REML"</code> is the default, and the only other options are <code>"ML"</code>, <code>"NCV"</code> or <code>"QNCV"</code>.</p>
 </td>
 </tr>
 <tr>
 <td><code id="gam_:_optimizer">optimizer</code></td>
 <td>
 <p>An array specifying the numerical optimization method to use to optimize the smoothing 
-parameter estimation criterion (given by <code>method</code>). <code>"perf"</code> (deprecated) for performance iteration. <code>"outer"</code> 
-for the more stable direct approach. <code>"outer"</code> can use several alternative optimizers, specified in the 
-second element of <code>optimizer</code>: <code>"newton"</code> (default), <code>"bfgs"</code>, <code>"optim"</code>, <code>"nlm"</code> 
-and <code>"nlm.fd"</code> (the latter is based entirely on finite differenced derivatives and is very slow). <code>"efs"</code>
+parameter estimation criterion (given by <code>method</code>). <code>"outer"</code> 
+for the direct nested optimization approach. <code>"outer"</code> can use several alternative optimizers, specified in the 
+second element of <code>optimizer</code>: <code>"newton"</code> (default), <code>"bfgs"</code>, <code>"optim"</code> or <code>"nlm"</code>. <code>"efs"</code>
 for the extended Fellner Schall method of Wood and Fasiolo (2017).</p>
 </td>
 </tr>
@@ -3621,15 +3634,14 @@ involving factor variables you might want to turn this off. Only do so if you kn
 <tr>
 <td><code id="gam_:_drop.intercept">drop.intercept</code></td>
 <td>
-<p>Set to <code>TRUE</code> to force the model to really not have the a constant in the parametric model part,
+<p>Set to <code>TRUE</code> to force the model to really not have a constant in the parametric model part,
 even with factor variables present. Can be vector when <code>formula</code> is a list.</p>
 </td>
 </tr>
 <tr>
 <td><code id="gam_:_nei">nei</code></td>
 <td>
-<p>A list specifying the neighbourhood structure for NCV. <code>k</code> is the vector of indices to be dropped
-for each neighbourhood and <code>m</code> gives the end of each neighbourhood. So <code>nei$k[(nei$m[j-1]+1):nei$m[j]]</code> gives the points dropped for the neighbourhood <code>j</code>. <code>i</code> is the vector of indices of points to predict, with corresponding endpoints <code>mi</code>. So <code>nei$i[(nei$mi[j-1]+1):nei$mi[j]]</code> indexes the points to predict for neighbourhood j. If <code>nei==NULL</code> (or <code>k</code> or <code>m</code> are missing) then leave-one-out cross validation is obtained.</p>
+<p>A list specifying the neighbourhood structure for <code><a href="#NCV">NCV</a></code>. <code>k</code> is the vector of indices to be dropped for each neighbourhood and <code>m</code> gives the end of each neighbourhood. So <code>nei$k[(nei$m[j-1]+1):nei$m[j]]</code> gives the points dropped for the neighbourhood <code>j</code>. <code>i</code> is the vector of indices of points to predict, with corresponding endpoints <code>mi</code>. So <code>nei$i[(nei$mi[j-1]+1):nei$mi[j]]</code> indexes the points to predict for neighbourhood j. If <code>nei==NULL</code> (or <code>k</code> or <code>m</code> are missing) then leave-one-out cross validation is obtained. If <code>jackknife</code> is supplied then <code>TRUE</code> indicates to use raw jackknife covariances estimator and <code>FALSE</code> to use the conventional Bayes estimate. If not supplied then the estimator accounting for neighbourhood structure is used. <code>jackknife</code> ignored when <code>method</code> is not NCV.</p>
 </td>
 </tr>
 <tr>
@@ -3653,7 +3665,7 @@ passing on e.g. to <code>gam.fit</code> (such as <code>mustart</code>). </p>
 predictor is given by a user specified sum of smooth functions of the covariates plus a 
 conventional parametric component of the linear predictor. A simple example is:
 </p>
-<p style="text-align: center;"><code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>E</mi><mo stretchy="false">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mi>α</mi><mo>+</mo><msub><mi>f</mi><mn>1</mn></msub><mo stretchy="false">(</mo><msub><mi>x</mi><mrow><mn>1</mn><mi>i</mi></mrow></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>f</mi><mn>2</mn></msub><mo stretchy="false">(</mo><msub><mi>x</mi><mrow><mn>2</mn><mi>i</mi></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\log(E(y_i)) = \alpha + f_1(x_{1i})+f_2(x_{2i})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">))</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></code>
+<p style="text-align: center;"><code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false">{</mo><mi>E</mi><mo stretchy="false">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">}</mo><mo>=</mo><mi>α</mi><mo>+</mo><msub><mi>f</mi><mn>1</mn></msub><mo stretchy="false">(</mo><msub><mi>x</mi><mrow><mn>1</mn><mi>i</mi></mrow></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>f</mi><mn>2</mn></msub><mo stretchy="false">(</mo><msub><mi>x</mi><mrow><mn>2</mn><mi>i</mi></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\log\{E(y_i)\} = \alpha + f_1(x_{1i})+f_2(x_{2i})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)}</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></code>
 </p>
 
 <p>where the (independent) response variables <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>i</mi></msub><mo>∼</mo><mrow><mi mathvariant="normal">P</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">i</mi></mrow></mrow><annotation encoding="application/x-tex">y_i \sim {\rm Poi }</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">Poi</span></span></span></span></span></span></code>, and
@@ -3694,10 +3706,9 @@ the scale parameter and
 <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>o</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">DoF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">Do</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span></code> the effective degrees of freedom of the model. Notice that UBRE is effectively
 just AIC rescaled, but is only used when <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span></code> is known. 
 </p>
-<p>Alternatives are GACV, NCV or a Laplace approximation to REML. There
+<p>Alternatives are GACV, <code><a href="#NCV">NCV</a></code> or a Laplace approximation to REML. There
 is some evidence that the latter may actually be the most effective choice. 
-The main computational challenge solved 
-by the <code>mgcv</code> package is to optimize the smoothness selection criteria efficiently and reliably. 
+The main computational challenge solved by the <code>mgcv</code> package is to optimize the smoothness selection criteria efficiently and reliably. 
 </p>
 <p>Broadly <code>gam</code> works by first constructing basis functions and one or more quadratic penalty 
 coefficient matrices for each smooth term in the model formula, obtaining a model matrix for 
@@ -3708,17 +3719,16 @@ fit using <code><a href="#gam.fit">gam.fit</a></code>, <code><a href="#gam.fit3"
 of <code><a href="https://r-universe.dev/manuals/stats.html#glm">glm.fit</a></code>. The GAM 
 penalized likelihood maximization problem is solved by Penalized Iteratively 
 Re-weighted  Least Squares (P-IRLS) (see e.g. Wood 2000). 
-Smoothing parameter selection is possible in one of two ways. (i)
+Smoothing parameter selection is possible in one of three ways. (i)
 ‘Performance iteration’ uses the fact that at each P-IRLS step a working penalized linear model
 is estimated, and the smoothing parameter estimation can be performed for each such working model.
 Eventually, in most cases, both model parameter estimates and smoothing 
-parameter estimates converge. This option is available in <code><a href="#bam">bam</a></code> and <code><a href="#gamm">gamm</a></code> but
-is deprecated for <code>gam</code> (ii) Alternatively the P-IRLS scheme is iterated to
-convergence for each trial set of smoothing parameters, and GCV, UBRE or REML scores
-are only evaluated on convergence - optimization is then ‘outer’ to the P-IRLS
+parameter estimates converge. This option is available in <code><a href="#bam">bam</a></code> and <code><a href="#gamm">gamm</a></code>.
+(ii) Alternatively the P-IRLS scheme is iterated to convergence for each trial set of smoothing parameters,
+and GCV, UBRE or REML scores are only evaluated on convergence - optimization is then ‘outer’ to the P-IRLS
 loop: in this case the P-IRLS iteration has to be differentiated, to
 facilitate optimization, and <code><a href="#gam.fit3">gam.fit3</a></code> or one of its variants is used in place of
-<code>gam.fit</code>. <code>gam</code> uses the second method, outer iteration.
+<code>gam.fit</code>. (iii) The extended Fellner-Schall algorithm of Wood and Fasiolo (2017) alternates estimation of model coefficients with simple updates of smoothing parameters, eventually approximately maximizing the marginal likelihood of the model (REML). <code>gam</code> uses the second method, outer iteration, by default.
 </p>
 <p>Several alternative basis-penalty types  are built in for representing model
 smooths, but alternatives can easily be added (see <code><a href="#smooth.terms">smooth.terms</a></code> 
@@ -3741,8 +3751,7 @@ general linear functionals of smooths, via the summation convention mechanism de
 <code><a href="#linear.functional.terms">linear.functional.terms</a></code>. <code>link{family.mgcv}</code> details what is available beyond GLMs 
 and the exponential family.
 </p>
-<p>Details of the default underlying fitting methods are given in Wood (2011
-and 2004). Some alternative methods are discussed in Wood (2000 and 2006). 
+<p>Details of the default underlying fitting methods are given in Wood (2011, 2004) and Wood, Pya and Saefken (2016). Some alternative methods are discussed in Wood (2000, 2017). 
 </p>
 <p><code>gam()</code> is not a clone of Trevor Hastie's original (as supplied in S-PLUS or package <code>gam</code>). The major
 differences are (i) that by default estimation of the
@@ -3778,10 +3787,6 @@ fit a GAM, but doesn't actually fit it.
 it should be checked that they are not too small. See <code><a href="#choose.k">choose.k</a></code> and
 <code><a href="#gam.check">gam.check</a></code>. 
 </p>
-<p>You must have more unique combinations of covariates than the model has total
-parameters. (Total parameters is sum of basis dimensions plus sum of non-spline 
-terms less the number of spline terms). 
-</p>
 <p>Automatic smoothing parameter selection is not likely to work well when 
 fitting models to very few response data.
 </p>
@@ -3814,30 +3819,36 @@ Journal of the American Statistical Association 111, 1548-1575
 <p>Wood, S.N. (2011) Fast stable restricted maximum likelihood 
 and marginal likelihood estimation of semiparametric generalized linear 
 models. Journal of the Royal Statistical Society (B) 73(1):3-36
+<a href="https://doi.org/10.1111/j.1467-9868.2010.00749.x" target="_blank">doi:10.1111/j.1467-9868.2010.00749.x</a>
 </p>
 <p>Wood, S.N. (2004) Stable and efficient multiple smoothing parameter estimation for
 generalized additive models. J. Amer. Statist. Ass. 99:673-686. [Default
 method for additive case by GCV (but no longer for generalized)]
 </p>
 <p>Wood, S.N. (2003) Thin plate regression splines. J.R.Statist.Soc.B 65(1):95-114
+<a href="https://doi.org/10.1111/1467-9868.00374" target="_blank">doi:10.1111/1467-9868.00374</a>
 </p>
 <p>Wood, S.N. (2006a) Low rank scale invariant tensor product smooths for
 generalized additive mixed models. Biometrics 62(4):1025-1036
 </p>
 <p>Wood S.N. (2017) Generalized Additive Models: An Introduction with R (2nd edition). Chapman
-and Hall/CRC Press.
+and Hall/CRC Press. <a href="https://doi.org/10.1201/9781315370279" target="_blank">doi:10.1201/9781315370279</a>
 </p>
 <p>Wood, S.N. and M. Fasiolo (2017) A generalized Fellner-Schall method for smoothing
 parameter optimization with application to Tweedie location, scale and shape models.
-Biometrics 73 (4), 1071-1081
+Biometrics 73 (4), 1071-1081 <a href="https://doi.org/10.1111/biom.12666" target="_blank">doi:10.1111/biom.12666</a>
 </p>
-<p>Wood S.N., F. Scheipl and J.J. Faraway (2012) Straightforward intermediate rank tensor product smoothing
-in mixed models. Statistical Computing.
+<p>Wood S.N., F. Scheipl and J.J. Faraway (2013) Straightforward intermediate rank tensor product smoothing
+in mixed models. Statistics and Computing 23: 341-360. <a href="https://doi.org/10.1007/s11222-012-9314-z" target="_blank">doi:10.1007/s11222-012-9314-z</a>
 </p>
 <p>Marra, G and S.N. Wood (2012) Coverage Properties of Confidence Intervals for Generalized Additive
-Model Components. Scandinavian Journal of Statistics, 39(1), 53-74.
+Model Components. Scandinavian Journal of Statistics, 39(1), 53-74. <a href="https://doi.org/10.1111/j.1467-9469.2011.00760.x" target="_blank">doi:10.1111/j.1467-9469.2011.00760.x</a>
 </p>
 <p>Key Reference on GAMs and related models:
+</p>
+<p>Wood, S. N. (2020) Inference and computation with generalized
+additive models and their extensions. Test 29(2): 307-339.
+<a href="https://doi.org/10.1007/s11749-020-00711-5" target="_blank">doi:10.1007/s11749-020-00711-5</a>
 </p>
 <p>Hastie (1993) in Chambers and Hastie (1993) Statistical Models in S. Chapman
 and Hall.
@@ -4234,10 +4245,10 @@ choise of fitting method, see <code><a href="#gam">gam</a></code> arguments <cod
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">gam.control<span class="token punctuation">(</span>nthreads<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>ncv.threads<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>irls.reg<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span>epsilon <span class="token operator">=</span> <span class="token number">1e-07</span><span class="token punctuation">,</span> maxit <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">,</span>
-            mgcv.tol<span class="token operator">=</span><span class="token number">1e-7</span><span class="token punctuation">,</span>mgcv.half<span class="token operator">=</span><span class="token number">15</span><span class="token punctuation">,</span> trace <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r">gam.control<span class="token punctuation">(</span>nthreads<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>ncv.threads<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>irls.reg<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span>epsilon <span class="token operator">=</span> <span class="token number">1e-07</span><span class="token punctuation">,</span>
+            maxit <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">,</span>mgcv.tol<span class="token operator">=</span><span class="token number">1e-7</span><span class="token punctuation">,</span>mgcv.half<span class="token operator">=</span><span class="token number">15</span><span class="token punctuation">,</span> trace <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
             rank.tol<span class="token operator">=</span>.Machine<span class="token operator">$</span>double.eps<span class="token operator">^</span><span class="token number">0.5</span><span class="token punctuation">,</span>nlm<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-	    optim<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>newton<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>outerPIsteps<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+	    optim<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>newton<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 	    idLinksBases<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span>scalePenalty<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span>efs.lspmax<span class="token operator">=</span><span class="token number">15</span><span class="token punctuation">,</span>
 	    efs.tol<span class="token operator">=</span><span class="token number">.1</span><span class="token punctuation">,</span>keepData<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>scale.est<span class="token operator">=</span><span class="token string">"fletcher"</span><span class="token punctuation">,</span>
 	    edge.correct<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
@@ -4335,13 +4346,6 @@ is used for outer estimation of smoothing parameters (not default). See details.
 <td>
 <p>list of control parameters to pass to default Newton optimizer
 used for outer estimation of log smoothing parameters. See details.</p>
-</td>
-</tr>
-<tr>
-<td><code id="gam.control_:_outerPIsteps">outerPIsteps</code></td>
-<td>
-<p>The number of performance interation steps used to
-initialize outer iteration.</p>
 </td>
 </tr>
 <tr>
@@ -7816,7 +7820,7 @@ a list containing 2 formulae, the first specifies the response on the left hand 
 </p>
 <p>Link functions <code>"identity"</code>, <code>"inverse"</code>, <code>"log"</code> and <code>"sqrt"</code> are available for the mean. For the standard deviation only the <code>"logb"</code> link is implemented: <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>=</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>σ</mi><mo>−</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\eta = \log(\sigma - b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span></span></span></span></code> and <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>=</mo><mi>b</mi><mo>+</mo><mi>exp</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>η</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\sigma = b + \exp(\eta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">exp</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mclose">)</span></span></span></span></code>. This link is designed to avoid singularities in the likelihood caused by the standard deviation tending to zero. Note that internally the family is parameterized in terms of the <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><msup><mi>σ</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\tau=\sigma^{-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span></code>, i.e. the standard deviation of the precision, so the link and inverse link are coded to reflect this, however the reltaionships between the linear predictor and the standard deviation are as given above. 
 </p>
-<p>The fitted values for this family will be a two column matrix. The first column is the mean, and the second column is the inverse of the standard deviation. Predictions using <code><a href="#predict.gam">predict.gam</a></code> will also produce 2 column matrices for <code>type</code> <code>"link"</code> and <code>"response"</code>. The second column when <code>type="response"</code> is again on the reciprocal standard deviation scale (i.e. the square root precision scale). The second column when <code>type="link"</code> is  <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>σ</mi><mo>−</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\log(\sigma - b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span></span></span></span></code>. Also <code><a href="#plot.gam">plot.gam</a></code> will plot smooths relating to <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span></span></code> on the <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>σ</mi><mo>−</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\log(\sigma - b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span></span></span></span></code> scale (so high values correspond to high standard deviation and low values to low standard deviation). Similarly the smoothing penalties are applied on the (log) standard deviation scale, not the log precision scale.
+<p>The fitted values for this family will be a two column matrix. The first column is the mean, and the second column is the inverse of the standard deviation. Predictions using <code><a href="#predict.gam">predict.gam</a></code> will also produce 2 column matrices for <code>type</code> <code>"link"</code> and <code>"response"</code>. The second column when <code>type="response"</code> is again on the reciprocal standard deviation scale (i.e. the square root precision scale). The second column when <code>type="link"</code> is <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>σ</mi><mo>−</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\log(\sigma - b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span></span></span></span></code>. Also <code><a href="#plot.gam">plot.gam</a></code> will plot smooths relating to <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span></span></code> on the <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>σ</mi><mo>−</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\log(\sigma - b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span></span></span></span></code> scale (so high values correspond to high standard deviation and low values to low standard deviation). Similarly the smoothing penalties are applied on the (log) standard deviation scale, not the log precision scale.
 </p>
 <p>The null deviance reported for this family is the sum of squares of the difference between the response and the mean response divided by the standard deviation of the response according to the model. The deviance is the sum of squares of residuals divided by model standard deviations. 
 </p>
@@ -8027,6 +8031,132 @@ rsd <span class="token operator">&lt;-</span> residuals<span class="token punctu
 plot<span class="token punctuation">(</span>fv<span class="token punctuation">,</span>rsd<span class="token punctuation">)</span><span class="token punctuation">;</span>qqnorm<span class="token punctuation">(</span>rsd<span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>fv<span class="token punctuation">,</span>residuals<span class="token punctuation">(</span>b<span class="token punctuation">,</span><span class="token string">"pearson"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>fv<span class="token punctuation">,</span>residuals<span class="token punctuation">(</span>b<span class="token punctuation">,</span><span class="token string">"response"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="gfam">
+
+<a href="#gfam" class="help-page-title"><h2 id="gfam">Grouped families</h2></a>
+
+<h3>Description</h3>
+
+<p>Family for use with <code><a href="#gam">gam</a></code> or <code><a href="#bam">bam</a></code> allowing a univariate response vector to be made up of variables from several different distributions. The response variable is supplied as a 2 column matrix, where the first column contains the response observations and the second column indexes the distribution (family) from which it comes. <code>gfam</code> takes a list of families as its single argument.
+</p>
+<p>Useful for modelling data from different sources that are linked by a model sharing some components. Smooth model components that are not shared are usually handled with <code>by</code> variables (see <code><a href="#gam.models">gam.models</a></code>).  
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">gfam<span class="token punctuation">(</span>fl<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table><tr>
+<td><code id="gfam_:_fl">fl</code></td>
+<td>
+<p>A list of families. These can be any families inheriting from <code>family</code> or <code>extended.family</code> usable with <code>gam</code>, provided that they do not usually require a matrix response variable.</p>
+</td>
+</tr></table>
+<h3>Details</h3>
+
+<p>Each component function of <code>gfam</code> uses the families supplied in the list <code>fl</code> to obtain the required quantities for that family's subset of data, and combines the results appropriately. For example it provides the total deviance (twice negative log-likelihood) of the model, along with its derivatives, by computing the family specific deviance and derivatives from each family applied to its subset of data, and summing them. Other quantities are computed in the same way.
+</p>
+<p>Regular exponential families do not compute the same quantities as extended families, so <code>gfam</code> converts what these families produce to <code>extended.family</code> form internally.
+</p>
+<p>Scale parameters obviously have to be handled separately for each family, and treated as parameters to be estimated, just like other <code>extended.family</code> non-location distribution parameters. Again this is handled internally. This requirement is part of the reason that an <code>extended.family</code> is always produced, even if all elements of <code>fl</code> are standard exponential families. In consequence smoothing parameter estimation is always by REML or NCV. 
+</p>
+<p>Note that the null deviance is currently computed by assuming a single parameter model for each family, rather than just one parameter, which may slightly lower explained deviances. Note also that residual checking should probably be done by disaggregating the residuals by family. For this reason functions are not provided to facilitate residual checking with <code><a href="#qq.gam">qq.gam</a></code>. 
+</p>
+<p>Prediction on the response scale requires that a family index vector is supplied, with the name of the response, as part of the new prediction data. However, families such as <code><a href="#ocat">ocat</a></code> which usually produce matrix predictions for prediction type <code>"response"</code>, will not be able to do so when part of <code>gfam</code>. 
+</p>
+<p><code>gfam</code> relies on the methods in Wood, Pya and Saefken (2016).
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>extended.family</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p> Simon N. Wood <a href="mailto:simon.wood@r-project.org">simon.wood@r-project.org</a>
+</p>
+
+
+<h3>References</h3>
+
+<p>Wood, S.N., N. Pya and B. Saefken (2016), Smoothing parameter and
+model selection for general smooth models.
+Journal of the American Statistical Association 111, 1548-1575
+<a href="https://doi.org/10.1080/01621459.2016.1180986" target="_blank">doi:10.1080/01621459.2016.1180986</a>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">library<span class="token punctuation">(</span>mgcv<span class="token punctuation">)</span>
+<span class="token comment">## a mixed family simulator function to play with...</span>
+sim.gfam <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>dist<span class="token punctuation">,</span>n<span class="token operator">=</span><span class="token number">400</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token comment">## dist can be norm, pois, gamma, binom, nbinom, tw, ocat (R assumed 4)</span>
+<span class="token comment">## links used are identitiy, log or logit.</span>
+  dat <span class="token operator">&lt;-</span> gamSim<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token operator">=</span>n<span class="token punctuation">,</span>verbose<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+  nf <span class="token operator">&lt;-</span> length<span class="token punctuation">(</span>dist<span class="token punctuation">)</span> <span class="token comment">## how many families</span>
+  fin <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span>nf<span class="token punctuation">,</span>sample<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span>nf<span class="token punctuation">,</span>n<span class="token operator">-</span>nf<span class="token punctuation">,</span>replace<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">## family index</span>
+  dat<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> dat<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token operator">/</span><span class="token number">5</span> <span class="token comment">## a scale that works for all links used</span>
+  y <span class="token operator">&lt;-</span> dat<span class="token operator">$</span>y<span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span>nf<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ii <span class="token operator">&lt;-</span> which<span class="token punctuation">(</span>fin<span class="token operator">==</span>i<span class="token punctuation">)</span> <span class="token comment">## index of current family</span>
+    ni <span class="token operator">&lt;-</span> length<span class="token punctuation">(</span>ii<span class="token punctuation">)</span><span class="token punctuation">;</span>fi <span class="token operator">&lt;-</span> dat<span class="token operator">$</span>f<span class="token punctuation">[</span>ii<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"norm"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      y<span class="token punctuation">[</span>ii<span class="token punctuation">]</span> <span class="token operator">&lt;-</span> fi <span class="token operator">+</span> rnorm<span class="token punctuation">(</span>ni<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">.5</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"pois"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      y<span class="token punctuation">[</span>ii<span class="token punctuation">]</span> <span class="token operator">&lt;-</span> rpois<span class="token punctuation">(</span>ni<span class="token punctuation">,</span>exp<span class="token punctuation">(</span>fi<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"gamma"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      scale <span class="token operator">&lt;-</span> <span class="token number">.5</span>
+      y<span class="token punctuation">[</span>ii<span class="token punctuation">]</span> <span class="token operator">&lt;-</span> rgamma<span class="token punctuation">(</span>ni<span class="token punctuation">,</span>shape<span class="token operator">=</span><span class="token number">1</span><span class="token operator">/</span>scale<span class="token punctuation">,</span>scale<span class="token operator">=</span>exp<span class="token punctuation">(</span>fi<span class="token punctuation">)</span><span class="token operator">*</span>scale<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"binom"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      y<span class="token punctuation">[</span>ii<span class="token punctuation">]</span> <span class="token operator">&lt;-</span> rbinom<span class="token punctuation">(</span>ni<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>binomial<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">$</span>linkinv<span class="token punctuation">(</span>fi<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"nbinom"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      y<span class="token punctuation">[</span>ii<span class="token punctuation">]</span> <span class="token operator">&lt;-</span> rnbinom<span class="token punctuation">(</span>ni<span class="token punctuation">,</span>size<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>mu<span class="token operator">=</span>exp<span class="token punctuation">(</span>fi<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"tw"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      y<span class="token punctuation">[</span>ii<span class="token punctuation">]</span> <span class="token operator">&lt;-</span> rTweedie<span class="token punctuation">(</span>exp<span class="token punctuation">(</span>fi<span class="token punctuation">)</span><span class="token punctuation">,</span>p<span class="token operator">=</span><span class="token number">1.5</span><span class="token punctuation">,</span>phi<span class="token operator">=</span><span class="token number">1.5</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"ocat"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      alpha <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">Inf</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2.5</span><span class="token punctuation">,</span><span class="token number">Inf</span><span class="token punctuation">)</span>
+      R <span class="token operator">&lt;-</span> length<span class="token punctuation">(</span>alpha<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
+      yi <span class="token operator">&lt;-</span> fi
+      u <span class="token operator">&lt;-</span> runif<span class="token punctuation">(</span>ni<span class="token punctuation">)</span>
+      u <span class="token operator">&lt;-</span> yi <span class="token operator">+</span> log<span class="token punctuation">(</span>u<span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span>u<span class="token punctuation">)</span><span class="token punctuation">)</span> 
+      <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span>R<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        yi<span class="token punctuation">[</span>u <span class="token operator">&gt;</span> alpha<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&amp;</span>u <span class="token operator">&lt;=</span> alpha<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> j
+      <span class="token punctuation">}</span>
+      y<span class="token punctuation">[</span>ii<span class="token punctuation">]</span> <span class="token operator">&lt;-</span> yi
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  dat<span class="token operator">$</span>y <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span>y<span class="token punctuation">,</span>fin<span class="token punctuation">)</span>
+  dat
+<span class="token punctuation">}</span> <span class="token comment">## sim.gfam</span>
+
+<span class="token comment">## some examples</span>
+
+dat <span class="token operator">&lt;-</span> sim.gfam<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"binom"</span><span class="token punctuation">,</span><span class="token string">"tw"</span><span class="token punctuation">,</span><span class="token string">"norm"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+b <span class="token operator">&lt;-</span> gam<span class="token punctuation">(</span>y<span class="token operator">~</span>s<span class="token punctuation">(</span>x0<span class="token punctuation">)</span><span class="token operator">+</span>s<span class="token punctuation">(</span>x1<span class="token punctuation">)</span><span class="token operator">+</span>s<span class="token punctuation">(</span>x2<span class="token punctuation">)</span><span class="token operator">+</span>s<span class="token punctuation">(</span>x3<span class="token punctuation">)</span><span class="token punctuation">,</span>
+         family<span class="token operator">=</span>gfam<span class="token punctuation">(</span>list<span class="token punctuation">(</span>binomial<span class="token punctuation">,</span>tw<span class="token punctuation">,</span>gaussian<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>data<span class="token operator">=</span>dat<span class="token punctuation">)</span>
+predict<span class="token punctuation">(</span>b<span class="token punctuation">,</span>data.frame<span class="token punctuation">(</span>y<span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span>x0<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token number">.5</span><span class="token punctuation">,</span><span class="token number">.5</span><span class="token punctuation">,</span><span class="token number">.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>x1<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token number">.3</span><span class="token punctuation">,</span><span class="token number">.2</span><span class="token punctuation">,</span><span class="token number">.3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        x2<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token number">.2</span><span class="token punctuation">,</span><span class="token number">.5</span><span class="token punctuation">,</span><span class="token number">.8</span><span class="token punctuation">)</span><span class="token punctuation">,</span>x3<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token number">.1</span><span class="token punctuation">,</span><span class="token number">.5</span><span class="token punctuation">,</span><span class="token number">.9</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>type<span class="token operator">=</span><span class="token string">"response"</span><span class="token punctuation">,</span>se<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+summary<span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>b<span class="token punctuation">,</span>pages<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token comment">## set up model so that only the binomial observations depend</span>
+<span class="token comment">## on x0...</span>
+
+dat<span class="token operator">$</span>id1 <span class="token operator">&lt;-</span> as.numeric<span class="token punctuation">(</span>dat<span class="token operator">$</span>y<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span>
+b1 <span class="token operator">&lt;-</span> gam<span class="token punctuation">(</span>y<span class="token operator">~</span>s<span class="token punctuation">(</span>x0<span class="token punctuation">,</span>by<span class="token operator">=</span>id1<span class="token punctuation">)</span><span class="token operator">+</span>s<span class="token punctuation">(</span>x1<span class="token punctuation">)</span><span class="token operator">+</span>s<span class="token punctuation">(</span>x2<span class="token punctuation">)</span><span class="token operator">+</span>s<span class="token punctuation">(</span>x3<span class="token punctuation">)</span><span class="token punctuation">,</span>
+         family<span class="token operator">=</span>gfam<span class="token punctuation">(</span>list<span class="token punctuation">(</span>binomial<span class="token punctuation">,</span>tw<span class="token punctuation">,</span>gaussian<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>data<span class="token operator">=</span>dat<span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>b1<span class="token punctuation">,</span>pages<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">## note the CI width increase</span></code></pre>
 
 <hr>
 </div>
@@ -9733,7 +9863,7 @@ Journal of the American Statistical Association 111, 1548-1575
 <a href="https://doi.org/10.1080/01621459.2016.1180986" target="_blank">doi:10.1080/01621459.2016.1180986</a>
 </p>
 <p>Wood S.N. (2017) Generalized Additive Models: An Introduction with R
-(2nd edition). Chapman and Hall/CRC Press.
+(2nd edition). Chapman and Hall/CRC Press. <a href="https://doi.org/10.1201/9781315370279" target="_blank">doi:10.1201/9781315370279</a>
 </p>
 
 
@@ -10431,7 +10561,7 @@ and Hall/CRC Press.
 </div>
 <div class="container manual-page" id="mgcv-package">
 
-<a href="#mgcv-package" class="help-page-title"><h2 id="mgcv.package">Mixed GAM Computation Vehicle with GCV/AIC/REML smoothness estimation and GAMMs by REML/PQL
+<a href="#mgcv-package" class="help-page-title"><h2 id="mgcv.package">Mixed GAM Computation Vehicle with GCV/AIC/REML/NCV smoothness estimation and GAMMs by REML/PQL
 </h2></a>
 
 <h3>Description</h3>
@@ -10467,7 +10597,7 @@ predictors can be specified using <code><a href="#te">te</a></code>,  <code><a h
 overview of the built in smooth classes, and <code><a href="#random.effects">random.effects</a></code> should be refered to for an overview 
 of random effects terms (see also <code><a href="#smooth.construct.mrf.smooth.spec">mrf</a></code> for Markov random fields). Estimation is by
 penalized likelihood or quasi-likelihood maximization, with smoothness
-selection by GCV, GACV, gAIC/UBRE or (RE)ML. See <code><a href="#gam">gam</a></code>, <code><a href="#gam.models">gam.models</a></code>, 
+selection by GCV, GACV, gAIC/UBRE, <code><a href="#NCV">NCV</a></code> or (RE)ML. See <code><a href="#gam">gam</a></code>, <code><a href="#gam.models">gam.models</a></code>, 
 <code><a href="#linear.functional.terms">linear.functional.terms</a></code> and <code><a href="#gam.selection">gam.selection</a></code> for some discussion of model specification and
 selection. For detailed control of fitting see <code><a href="#gam.convergence">gam.convergence</a></code>,
 <code><a href="#gam">gam</a></code> arguments <code>method</code> and <code>optimizer</code> and <code><a href="#gam.control">gam.control</a></code>. For checking and
@@ -10487,7 +10617,7 @@ approximations can be used for hypothesis testing based model comparison. See <c
 <code><a href="#summary.gam">summary.gam</a></code> for more on hypothesis testing.
 </p>
 <p>For large datasets (that is large n) see <code><a href="#bam">bam</a></code> which is a version of <code><a href="#gam">gam</a></code> with 
-a much reduced memory footprint.
+a much reduced memory footprint. <code>bam(...,discrete=TRUE)</code> offers the very efficient methods of Wood et al. (2017) and Li and Wood (2020).
 </p>
 <p>The package also provides a generalized additive mixed modelling function,
 <code><a href="#gamm">gamm</a></code>, based on a PQL approach and  
@@ -10526,7 +10656,11 @@ French Translation - Philippe Grosjean
 <h3>References</h3>
 
 <p>These provide details for the underlying mgcv methods, and fuller 
-references to the large literature on which the methods are based. 
+references to the large literature on which the methods are based.
+</p>
+<p>Wood, S. N. (2020) Inference and computation with generalized
+additive models and their extensions. Test 29(2): 307-339.
+<a href="https://doi.org/10.1007/s11749-020-00711-5" target="_blank">doi:10.1007/s11749-020-00711-5</a>
 </p>
 <p>Wood, S.N., N. Pya and B. Saefken (2016), Smoothing parameter and
 model selection for general smooth models (with discussion).
@@ -10543,12 +10677,18 @@ generalized additive models. J. Amer. Statist. Ass. 99:673-686.
 <p>Marra, G and S.N. Wood (2012) Coverage Properties of Confidence Intervals for Generalized Additive
 Model Components. Scandinavian Journal of Statistics, 39(1), 53-74.
 </p>
-<p>Wood, S.N. (2013a) A simple test for random effects in regression models. Biometrika 100:1005-1010
+<p>Wood, S.N. (2013a) A simple test for random effects in regression models. Biometrika 100:1005-1010 <a href="https://doi.org/10.1093/biomet/ast038" target="_blank">doi:10.1093/biomet/ast038</a>
 </p>
-<p>Wood, S.N. (2013b) On p-values for smooth components of an extended generalized additive model. Biometrika 100:221-228
+<p>Wood, S.N. (2013b) On p-values for smooth components of an extended generalized additive model. Biometrika 100:221-228 <a href="https://doi.org/10.1093/biomet/ass048" target="_blank">doi:10.1093/biomet/ass048</a>
 </p>
 <p>Wood, S.N. (2017) <em>Generalized Additive Models: an introduction with R (2nd edition)</em>,
-CRC
+CRC <a href="https://doi.org/10.1201/9781315370279" target="_blank">doi:10.1201/9781315370279</a>
+</p>
+<p>Wood, S.N., Li, Z., Shaddick, G. &amp; Augustin N.H. (2017) Generalized additive models for gigadata: modelling the UK black smoke network daily data. Journal of the American Statistical Association. 112(519):1199-1210
+<a href="https://doi.org/10.1080/01621459.2016.1195744" target="_blank">doi:10.1080/01621459.2016.1195744</a>
+</p>
+<p>Li, Z &amp; S.N. Wood (2020) Faster model matrix crossproducts for large generalized linear models with discretized covariates. Statistics and Computing. 30:19-25
+<a href="https://doi.org/10.1007/s11222-019-09864-2" target="_blank">doi:10.1007/s11222-019-09864-2</a>
 </p>
 <p>Development of mgcv version 1.8 was part funded by EPSRC grants EP/K005251/1 and EP/I000917/1.
 </p>
@@ -10556,7 +10696,7 @@ CRC
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## see examples for gam and gamm</span></code></pre>
+<pre class="language-r"><code class="language-r"><span class="token comment">## see examples for gam, bam and gamm</span></code></pre>
 
 <hr>
 </div>
@@ -10574,9 +10714,9 @@ CRC
 <p>Alternatively, function <code><a href="#bam">bam</a></code> can use the facilities provided in the <a href="https://r-universe.dev/manuals/parallel.html#parallel-package">parallel</a> package. See examples below. Note that most multi-core machines are memory bandwidth limited, so parallel speed up tends to be rather variable. 
 </p>
 <p>Function <code><a href="#gam">gam</a></code> can use parallel threads on a (shared memory) multi-core 
-machine via <code>openMP</code> (where this is supported). To do this, set the desired number of threads by setting <code>nthreads</code> to the number of cores to use, in the <code>control</code> argument of <code><a href="#gam">gam</a></code>. Note that, for the most part, only the dominant <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><msup><mi>p</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(np^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></code> steps are parallelized (n is number of data, p number of parameters). For additive Gaussian models estimated by GCV, the speed up can be disappointing as these employ an <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>p</mi><mn>3</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(p^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></code> SVD step that can also have substantial cost in practice. 
+machine via <code>openMP</code> (where this is supported). To do this, set the desired number of threads by setting <code>nthreads</code> to the number of cores to use, in the <code>control</code> argument of <code><a href="#gam">gam</a></code>. Note that, for the most part, only the dominant <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><msup><mi>p</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(np^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></code> steps are parallelized (n is number of data, p number of parameters). For additive Gaussian models estimated by GCV, the speed up can be disappointing as these employ an <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>p</mi><mn>3</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(p^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></code> SVD step that can also have substantial cost in practice. <code><a href="#magic">magic</a></code> can also use multiple cores, but the same comments apply as for the GCV Gaussian additive model. 
 </p>
-<p><code><a href="#magic">magic</a></code> can also use multiple cores, but the same comments apply as for the GCV Gaussian additive model. 
+<p>When using <code><a href="#NCV">NCV</a></code> with <code><a href="#gam">gam</a></code> worthwhile performance improvements are available by setting <code>ncv.threads</code>in <code><a href="#gam.control">gam.control</a></code>.   
 </p>
 <p>If <code>control$nthreads</code> is set to more than the number of cores detected, then only the number of detected cores is used. Note that using virtual cores usually gives very little speed up, and can even slow computations slightly. For example, many Intel processors reporting 4 cores actually have 2 physical cores, each with 2 virtual cores, so using 2 threads gives a marked increase in speed, while using 4 threads makes little extra difference. 
 </p>
@@ -11082,7 +11222,7 @@ problems into ordinary regression problems.</p>
 
 <h3>Author(s)</h3>
 
-<p> Simon N. Wood <a href="mailto:simon.wood@r-project.org">simon.wood@r-project.org</a>
+<p> Simon N. Wood <a href="mailto:simon.wood@r-project.org">simon.wood@r-project.org</a>, with a variance bug fix from Max Goplerud.
 </p>
 
 
@@ -11227,6 +11367,125 @@ b
 summary<span class="token punctuation">(</span>b<span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>b<span class="token punctuation">,</span>pages<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
 solve<span class="token punctuation">(</span>crossprod<span class="token punctuation">(</span>b<span class="token operator">$</span>family<span class="token operator">$</span>data<span class="token operator">$</span>R<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">## estimated cov matrix</span></code></pre>
+
+<hr>
+</div>
+<div class="container manual-page" id="NCV">
+
+<a href="#NCV" class="help-page-title"><h2 id="NCV">Neighbourhood Cross Validation</h2></a>
+
+<h3>Description</h3>
+
+<p>NCV estimates smoothing parameters by optimizing the average ability of a model to predict subsets of data when subsets of data are omitted from fitting. Usually the predicted subset is a subset of the omitted subset. If both subsets are the same single datapoint, and the average is over all datapoints, then NCV is leave-one-out cross validation. QNCV is a quadratic approximation to NCV, guaranteed finite for any family link combination.
+</p>
+<p>In detail, suppose that a model is estimated by minimizing a penalized loss
+</p>
+<p style="text-align: center;"><code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mi>i</mi></msub><mi>D</mi><mo stretchy="false">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>θ</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mo>∑</mo><mi>j</mi></msub><msub><mi>λ</mi><mi>j</mi></msub><msup><mi>β</mi><mi mathvariant="sans-serif">T</mi></msup><msub><mi>S</mi><mi>j</mi></msub><mi>β</mi></mrow><annotation encoding="application/x-tex">\sum_i D(y_i,\theta_i) + \sum_j \lambda_j \beta^{\sf T} {S}_j \beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0497em;vertical-align:-0.2997em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.162em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.2849em;vertical-align:-0.4358em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.162em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4358em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathsf mtight">T</span></span></span></span></span></span></span></span></span></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span></code>
+</p>
+
+<p>where <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span></code> is a loss (such as a negative log likelihood), dependent on response <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">y_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></code> and parameter vector <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\theta_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></code>, which in turn depends on covariates via one or more smooth linear predictors with coefficients <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span></code>. The quadratic penalty terms penalize model complexity: <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">S_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></code> is a known matrix and <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\lambda_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></code> an unknown smoothing parameter. Given smoothing parameters the penalized loss is readily minimized to estimate <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span></code>.
+</p>
+<p>The smoothing parameters also have to be estimated. To this end, choose <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">k = 1,\ldots,m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">m</span></span></span></span></code> subsets <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo><mo>⊂</mo><mo stretchy="false">{</mo><mn>1</mn><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\alpha(k)\subset \{1,\ldots,n\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊂</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">}</span></span></span></span></code> and <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo><mo>⊂</mo><mo stretchy="false">{</mo><mn>1</mn><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\delta(k)\subset \{1,\ldots,n\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊂</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">}</span></span></span></span></code>. Usually <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\delta(k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span></code> is a subset of (or equal to) <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\alpha(k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span></code>. Let <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>θ</mi><mi>i</mi><mrow><mi>α</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">\theta_i^{\alpha(k)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3217em;vertical-align:-0.2769em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.4231em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.2198em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2769em;"><span></span></span></span></span></span></span></span></span></span></code> denote the estimate of <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\theta_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></code> when the points indexed by <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\alpha(k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span></code> are omitted from fitting. Then the NCV criterion
+</p>
+<p style="text-align: center;"><code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></msubsup><msub><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><mi>α</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></msub><mi>D</mi><mo stretchy="false">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo separator="true">,</mo><msubsup><mi>θ</mi><mi>i</mi><mrow><mi>α</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></msubsup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">V = \sum_{k=1}^m \sum_{i \in \alpha(k)} D(y_i,\theta_i^{\alpha(k)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.5195em;vertical-align:-0.4747em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8043em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2253em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">∈</span><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4747em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.4231em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.2198em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2769em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></code>
+</p>
+
+<p>is minimized w.r.t. the smoothing parameters, <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\lambda_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></code>. If <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m=n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code> and <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo><mo>=</mo><mi>δ</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo><mo>=</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">\alpha(k)=\delta(k)=k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></code> then ordinary leave-one-out cross validation is recovered. This formulation covers many of the variants of cross validation reviewed in Arlot and Celisse (2010), for example.
+</p>
+<p>Except for a quadratic loss, <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span></code> can not be computed exactly, but it can be computed to <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mrow><mo>−</mo><mn>2</mn></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^{-2})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></code> accuracy (fixed basis size), by taking single Newton optimization steps from the full data <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span></code> estimates to the equivalent when each <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\alpha(k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span></code> is dropped. This is what <code>mgcv</code> does. The Newton steps require update of the full model Hessian to the equivalent when each datum is dropped. This can be achieved at <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>p</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(p^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></code> cost, where <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></code> is the dimension of <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span></code>. Hence, for example, the ordinary cross validation criterion is computable at the <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><msup><mi>p</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(np^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></code> cost of estimating the model given smoothing parameters.
+</p>
+<p>The NCV score computed in this way is optimized using a BFGS quasi-Newton method, adapted to the case in which smoothing parameters tending to infinity may cause indefiniteness. 
+</p>
+
+
+<h3>Spatial and temporal short range autocorrelation</h3>
+
+<p>A routine applied problem is that smoothing parameters tend to be underestimated in the presence of un-modelled short range autocorrelation, as the smooths try to fit the local excursions in the data caused by the local autocorrelation. Cross validation will tend to 'fit the noise' when there is autocorellation, since a model that fits the noise in the data correlated with an omitted datum, will also tend to closely fit the noise in the omitted datum, because of the correlation. That is autocorrelation works against the avoidance of overfit that cross validation seeks to achieve.
+</p>
+<p>For short range autocorrelation the problems can be avoided, or at least mitigated, by predicting each datum when all the data in its ‘local’ neighbourhood are omitted. The neighbourhoods being constructed in order that un-modelled correlation is minimized between the point of interest and points outside its neighbourhood. That is we set <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m=n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code>, <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo><mo>=</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">\delta(k)=k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></code> and <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo><mo>=</mo><mrow><mi mathvariant="monospace">n</mi><mi mathvariant="monospace">e</mi><mi mathvariant="monospace">i</mi></mrow><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\alpha(k) = {\tt nei}(k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathtt">nei</span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span></code>, where <code>nei(k)</code> are the indices of the neighbours of point <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></code>. This approach has been known for a long time (e.g. Chu and Marron, 1991; Robert et al. 2017), but was previously rather too expensive for regular use for smoothing parameter estimation.</p>
+
+
+<h3>Specifying the neighbourhoods</h3>
+
+<p>The neighbourhood subsets <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\alpha(k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span></code> and <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\delta(k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span></code> have to be supplied to <code><a href="#gam">gam</a></code>, and the <code>nei</code> argument does this. It is a list with the following arguments.
+</p>
+
+<ul>
+<li> <p><code>k</code> is the vector of indices to be dropped for each neighbourhood.
+</p>
+</li>
+<li> <p><code>m</code> gives the end of each neighbourhood. So <code>nei$k[(nei$m[j-1]+1):nei$m[j]]</code> gives the points dropped for the neighbourhood <code>j</code>: that is <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo stretchy="false">(</mo><mi>j</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\alpha(j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span></code>.
+</p>
+</li>
+<li> <p><code>i</code> is the vector of indices of points to predict.
+</p>
+</li>
+<li> <p><code>mi</code> gives the corresponding endpoints <code>mi</code>. So <code>nei$i[(nei$mi[j-1]+1):nei$mi[j]]</code> indexes the points to predict for neighbourhood j: that is <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo stretchy="false">(</mo><mi>j</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\delta(j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span></code>.
+</p>
+</li>
+<li> <p><code>jackknife</code> is an optional element. If supplied and <code>TRUE</code> then variance estimates are based on the raw Jackkife estimate, if <code>FALSE</code> then on the standard Bayesian results. If not supplied (usual) then an estimator accounting for the neighbourhood structure is used, that largely accounts for any correlation present within neighbourhoods. <code>jackknife</code> is ignored if NCV is being calculated for a model where another method is used for smoothing parameter selection. 
+</p>
+</li>
+</ul>
+<p>If <code>nei==NULL</code> (or <code>k</code> or <code>m</code> are missing) then leave-one-out cross validation is used. If <code>nei</code> is supplied but NCV is not selected as the smoothing parameter estimation method, then it is simply computed (but not optimized).
+</p>
+
+
+<h3>Numerical issues</h3>
+
+<p>If a model is specified in which some coefficient values, <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span></code>, have non-finite likelihood then the NCV criterion computed with single Newton steps could also be non-finite. A simple fix replaces the NCV criterion with a quadratic approximation to the criterion around the full data fit. The quadratic approximation is always finite. This 'QNCV' is essential for some families, such as <code><a href="#gevlss">gevlss</a></code>.
+</p>
+<p>Although the leading order cost of NCV is the same as REML or GCV, the actual cost is higher because the dominant operations costs are in matrix-vector, rather than matrix-matrix, operations, so BLAS speed ups are small. However multi-core computing is worthwhile for NCV. See the option <code>ncv.threads</code> in <code><a href="#gam.control">gam.control</a></code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p> Simon N. Wood <a href="mailto:simon.wood@r-project.org">simon.wood@r-project.org</a></p>
+
+
+<h3>References</h3>
+
+<p>Chu and Marron (1991) Comparison of two bandwidth selectors with dependent errors. The Annals of Statistics. 19, 1906-1918
+</p>
+<p>Arlot, S. and A. Celisse (2010). A survey of cross-validation procedures for model selection. Statistics Surveys 4, 40-79
+</p>
+<p>Roberts et al. (2017) Cross-validation strategies for data with temporal,
+spatial, hierarchical, or phylogenetic structure. Ecography 40(8), 913-929.
+</p>
+<p>Wood S.N. (2023) On Neighbourhood Cross Validation. in prep.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">require<span class="token punctuation">(</span>mgcv<span class="token punctuation">)</span>
+nei.cor <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>h<span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">## construct nei structure</span>
+  nei <span class="token operator">&lt;-</span> list<span class="token punctuation">(</span>mi<span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span>n<span class="token punctuation">,</span>i<span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span>n<span class="token punctuation">)</span>
+  nei<span class="token operator">$</span>m <span class="token operator">&lt;-</span> cumsum<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token punctuation">(</span>h<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>h<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>rep<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>h<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token operator">-</span><span class="token number">2</span><span class="token operator">*</span>h<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>h<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token punctuation">(</span>h<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  k0 <span class="token operator">&lt;-</span> rep<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>h<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span>h<span class="token punctuation">)</span> k0 <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span>k0<span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token punctuation">(</span>h<span class="token operator">+</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  k1 <span class="token operator">&lt;-</span> n<span class="token operator">-</span>k0<span class="token punctuation">[</span>length<span class="token punctuation">(</span>k0<span class="token punctuation">)</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>
+  nei<span class="token operator">$</span>k <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span>k0<span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>h<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span>rep<span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">:</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">2</span><span class="token operator">*</span>h<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>each<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span>h<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>k1<span class="token punctuation">)</span>
+  nei
+<span class="token punctuation">}</span>
+set.seed<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+n <span class="token operator">&lt;-</span> <span class="token number">500</span><span class="token punctuation">;</span>sig <span class="token operator">&lt;-</span> <span class="token number">.6</span>
+x <span class="token operator">&lt;-</span> <span class="token number">0</span><span class="token operator">:</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+f <span class="token operator">&lt;-</span> sin<span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">*</span>pi<span class="token operator">*</span>x<span class="token punctuation">)</span><span class="token operator">*</span>exp<span class="token punctuation">(</span><span class="token operator">-</span>x<span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">5</span><span class="token operator">/</span><span class="token number">2</span>
+e <span class="token operator">&lt;-</span> rnorm<span class="token punctuation">(</span>n<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>sig<span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">2</span><span class="token operator">:</span>n<span class="token punctuation">)</span> e<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">0.6</span><span class="token operator">*</span>e<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> e<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+y <span class="token operator">&lt;-</span> f <span class="token operator">+</span> e <span class="token comment">## autocorrelated data</span>
+nei <span class="token operator">&lt;-</span> nei.cor<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token comment">## construct neighbourhoods to mitigate </span>
+b0 <span class="token operator">&lt;-</span> gam<span class="token punctuation">(</span>y<span class="token operator">~</span>s<span class="token punctuation">(</span>x<span class="token punctuation">,</span>k<span class="token operator">=</span><span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">## GCV based fit</span>
+gc <span class="token operator">&lt;-</span> gam.control<span class="token punctuation">(</span>ncv.threads<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+b1 <span class="token operator">&lt;-</span> gam<span class="token punctuation">(</span>y<span class="token operator">~</span>s<span class="token punctuation">(</span>x<span class="token punctuation">,</span>k<span class="token operator">=</span><span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">,</span>method<span class="token operator">=</span><span class="token string">"NCV"</span><span class="token punctuation">,</span>nei<span class="token operator">=</span>nei<span class="token punctuation">,</span>control<span class="token operator">=</span>gc<span class="token punctuation">)</span>
+<span class="token comment">## use "QNCV", which is identical here...</span>
+b2 <span class="token operator">&lt;-</span> gam<span class="token punctuation">(</span>y<span class="token operator">~</span>s<span class="token punctuation">(</span>x<span class="token punctuation">,</span>k<span class="token operator">=</span><span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">,</span>method<span class="token operator">=</span><span class="token string">"QNCV"</span><span class="token punctuation">,</span>nei<span class="token operator">=</span>nei<span class="token punctuation">,</span>control<span class="token operator">=</span>gc<span class="token punctuation">)</span>
+<span class="token comment">## plot GCV and NCV based fits...</span>
+f <span class="token operator">&lt;-</span> f <span class="token operator">-</span> mean<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+par<span class="token punctuation">(</span>mfrow<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>b0<span class="token punctuation">,</span>rug<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>scheme<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>lines<span class="token punctuation">(</span>x<span class="token punctuation">,</span>f<span class="token punctuation">,</span>col<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>b1<span class="token punctuation">,</span>rug<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>scheme<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>lines<span class="token punctuation">(</span>x<span class="token punctuation">,</span>f<span class="token punctuation">,</span>col<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div>
@@ -12553,7 +12812,7 @@ as well.</p>
 
 <pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'gam'</span>
 plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>residuals<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>rug<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>se<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span>pages<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>select<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>scale<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
-         n<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span>n2<span class="token operator">=</span><span class="token number">40</span><span class="token punctuation">,</span>n3<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>pers<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>theta<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">,</span>phi<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">,</span>jit<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>xlab<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>
+         n<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span>n2<span class="token operator">=</span><span class="token number">40</span><span class="token punctuation">,</span>n3<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>theta<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">,</span>phi<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">,</span>jit<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>xlab<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>
          ylab<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>main<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>ylim<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>xlim<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span>too.far<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">,</span>
          all.terms<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>shade<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>shade.col<span class="token operator">=</span><span class="token string">"gray80"</span><span class="token punctuation">,</span>shift<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
          trans<span class="token operator">=</span>I<span class="token punctuation">,</span>seWithMean<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>unconditional<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>by.resids<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span>
@@ -12644,13 +12903,6 @@ functions for contouring.</p>
 <td><code id="plot.gam_:_n3">n3</code></td>
 <td>
 <p>Square root of number of panels to use when displaying 3 or 4 dimensional functions.</p>
-</td>
-</tr>
-<tr>
-<td><code id="plot.gam_:_pers">pers</code></td>
-<td>
-<p>Set to <code>TRUE</code> if you want perspective plots for 2-d
-terms.</p>
 </td>
 </tr>
 <tr>
@@ -12832,7 +13084,7 @@ although each smooth is shown centred, the confidence bands are obtained as if e
 constrained to have average 0, (average taken over the covariate values), except for the smooth concerned. This seems to correspond more closely to how most users interpret componentwise intervals in practice, and also results in intervals with
 close to nominal (frequentist) coverage probabilities by an extension of Nychka's (1988) results presented in Marra and Wood (2012). There are two possible variants of this approach. In the default variant the extra uncertainty is in the mean of all other terms in the model (fixed and random, including uncentred smooths). Alternatively, if <code>seWithMean=2</code> then only the uncertainty in parametric fixed effects is included in the extra uncertainty (this latter option actually tends to lead to wider intervals when the model contains random effects).
 </p>
-<p>Several smooth plots methods using <code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code> will accept an <code>hcolors</code> argument, which can be anything documented in <code><a href="https://r-universe.dev/manuals/grDevices.html#palettes">heat.colors</a></code> (in which case something like <code>hcolors=rainbow(50)</code> is appropriate), or the <code><a href="https://r-universe.dev/manuals/grDevices.html#gray">grey</a></code> function (in which case somthing like <code>hcolors=grey(0:50/50)</code> is needed). Another option is <code>contour.col</code> which will set the contour colour for some plots. These options are useful for producing grey scale pictures instead of colour.
+<p>Several smooth plots methods using <code><a href="https://r-universe.dev/manuals/Matrix.html#image-methods">image</a></code> will accept an <code>hcolors</code> argument, which can be anything documented in <code><a href="https://r-universe.dev/manuals/grDevices.html#palettes">heat.colors</a></code> (in which case something like <code>hcolors=rainbow(50)</code> is appropriate), or the <code><a href="https://r-universe.dev/manuals/grDevices.html#gray">grey</a></code> function (in which case somthing like <code>hcolors=grey(0:50/50)</code> is needed). Another option is <code>contour.col</code> which will set the contour colour for some plots. These options are useful for producing grey scale pictures instead of colour.
 </p>
 <p>Sometimes you may want a small change to a default plot, and the arguments to <code>plot.gam</code> just won't let you do it. 
 In this case, the quickest option is sometimes to clone the <code>smooth.construct</code> and <code>Predict.matrix</code> methods for 
@@ -13491,10 +13743,10 @@ Chambers and Hastie (1993) (but is not a clone).
 <p>Chambers and Hastie (1993) Statistical Models in S. Chapman &amp; Hall.
 </p>
 <p>Marra, G and S.N. Wood (2012) Coverage Properties of Confidence Intervals for Generalized Additive
-Model Components. Scandinavian Journal of Statistics, 39(1), 53-74.
+Model Components. Scandinavian Journal of Statistics, 39(1), 53-74. <a href="https://doi.org/10.1111/j.1467-9469.2011.00760.x" target="_blank">doi:10.1111/j.1467-9469.2011.00760.x</a>
 </p>
-<p>Wood S.N. (2006b) Generalized Additive Models: An Introduction with R. Chapman
-and Hall/CRC Press.
+<p>Wood S.N. (2017, 2nd ed) Generalized Additive Models: An Introduction with R. Chapman
+and Hall/CRC Press.  <a href="https://doi.org/10.1201/9781315370279" target="_blank">doi:10.1201/9781315370279</a>
 </p>
 
 
@@ -16551,7 +16803,7 @@ for the elements that this object will contain.
 
 <h3>References</h3>
 
-<p>Wood, S.N. (2017) P-splines with derivative based penalties and tensor product smoothing of unevenly distributed data. Statistics and Computing. 27(4) 985-989 <a href="https://arxiv.org/abs/1605.02446" target="_blank">https://arxiv.org/abs/1605.02446</a>
+<p>Wood, S.N. (2017) P-splines with derivative based penalties and tensor product smoothing of unevenly distributed data. Statistics and Computing. 27(4) 985-989 <a href="https://arxiv.org/abs/1605.02446" target="_blank">https://arxiv.org/abs/1605.02446</a> <a href="https://doi.org/10.1007/s11222-016-9666-x" target="_blank">doi:10.1007/s11222-016-9666-x</a>
 </p>
 
 
@@ -17993,6 +18245,7 @@ boundary and the interior knots, plus the boundary smooth basis dimension(s)). I
 <h3>References</h3>
 
 <p>Wood, S.N., M.V. Bravington and S.L. Hedley (2008) "Soap film smoothing", J.R.Statist.Soc.B 70(5), 931-955.
+<a href="https://doi.org/10.1111/j.1467-9868.2008.00665.x" target="_blank">doi:10.1111/j.1467-9868.2008.00665.x</a>
 </p>
 <p><a href="https://www.maths.ed.ac.uk/~swood34/" target="_blank">https://www.maths.ed.ac.uk/~swood34/</a>
 </p>
@@ -18959,7 +19212,7 @@ See <code><a href="#smooth.construct.ds.smooth.spec">Duchon.spline</a></code> fo
 These have a cubic spline basis defined by a modest sized 
 set of knots spread evenly through the 
 covariate values. They are penalized by the conventional intergrated square second derivative cubic spline penalty. 
-For details see <code><a href="#smooth.construct.cr.smooth.spec">cubic.regression.spline</a></code> and e.g. Wood (2006a).
+For details see <code><a href="#smooth.construct.cr.smooth.spec">cubic.regression.spline</a></code> and e.g. Wood (2017).
 </p>
 <p><code>bs="cs"</code> specifies a shrinkage version of <code>"cr"</code>.
 </p>
@@ -19021,13 +19274,13 @@ bases for tensor product smooths specified via <code><a href="#te">te</a></code>
 product smooths are smooth functions 
 of several variables where the basis is built up from tensor products of bases for smooths of fewer (usually one) 
 variable(s) (marginal bases). The multiple penalties for these smooths are produced automatically from the
-penalties of the marginal smooths. Wood (2006b) and Wood, Scheipl and Faraway (2012), give the general recipe for these constructions. 
+penalties of the marginal smooths. Wood (2006) and Wood, Scheipl and Faraway (2012), give the general recipe for these constructions. 
 </p>
 
 <dl>
 <dt>te</dt>
 <dd>
-<p><code>te</code> smooths have one penalty per marginal basis, each of which is interpretable in a similar way to the marginal penalty from which it is derived. See Wood (2006b).</p>
+<p><code>te</code> smooths have one penalty per marginal basis, each of which is interpretable in a similar way to the marginal penalty from which it is derived. See Wood (2006).</p>
 </dd>
 <dt>ti</dt>
 <dd>
@@ -19081,24 +19334,29 @@ Statistical Science, 11(2):89-121
 </p>
 <p>Wahba (1990) Spline Models of Observational Data. SIAM 
 </p>
-<p>Wood, S.N. (2003) Thin plate regression splines. J.R.Statist.Soc.B 65(1):95-114
+<p>Wood, S.N. (2003) Thin plate regression splines. J.R.Statist.Soc.B 65(1):95-114 <a href="https://doi.org/10.1111/1467-9868.00374" target="_blank">doi:10.1111/1467-9868.00374</a>
 </p>
-<p>Wood, S.N. (2006a) <em>Generalized Additive Models: an introduction with R</em>, CRC
+<p>Wood, S.N. (2017, 2nd ed) <em>Generalized Additive Models: an introduction with R</em>, CRC <a href="https://doi.org/10.1201/9781315370279" target="_blank">doi:10.1201/9781315370279</a>
 </p>
-<p>Wood, S.N. (2006b) Low rank scale invariant tensor product smooths for
-generalized additive mixed models. Biometrics 62(4):1025-1036
+<p>Wood, S.N. (2006) Low rank scale invariant tensor product smooths for
+generalized additive mixed models. Biometrics 62(4):1025-1036 <a href="https://doi.org/10.1111/j.1541-0420.2006.00574.x" target="_blank">doi:10.1111/j.1541-0420.2006.00574.x</a>
 </p>
-<p>Wood S.N., F. Scheipl and J.J. Faraway (2013) Straightforward intermediate rank tensor product smoothing
-in mixed models. Statistical Computing. 23(3), 341-360. [online 2012]
+<p>Wood, S.N., M.V. Bravington and S.L. Hedley (2008) "Soap film smoothing", J.R.Statist.Soc.B 70(5), 931-955.
+<a href="https://doi.org/10.1111/j.1467-9868.2008.00665.x" target="_blank">doi:10.1111/j.1467-9868.2008.00665.x</a>
+</p>
+<p>Wood S.N., F. Scheipl and J.J. Faraway (2013) [online 2012] Straightforward intermediate rank tensor product smoothing
+in mixed models. Statistics and Computing. 23(3):341-360 <a href="https://doi.org/10.1007/s11222-012-9314-z" target="_blank">doi:10.1007/s11222-012-9314-z</a>
+</p>
+<p>Wood, S.N. (2017) P-splines with derivative based penalties and tensor product smoothing of unevenly distributed data. Statistics and Computing. 27(4) 985-989 <a href="https://arxiv.org/abs/1605.02446" target="_blank">https://arxiv.org/abs/1605.02446</a> <a href="https://doi.org/10.1007/s11222-016-9666-x" target="_blank">doi:10.1007/s11222-016-9666-x</a>
 </p>
 
 
 <h3>See Also</h3>
 
-<p><code><a href="#s">s</a></code>, <code><a href="#te">te</a></code>, <code><a href="#t2">t2</a></code> <code><a href="#smooth.construct.tp.smooth.spec">tprs</a></code>,<code><a href="#smooth.construct.ds.smooth.spec">Duchon.spline</a></code>, 
-<code><a href="#smooth.construct.cr.smooth.spec">cubic.regression.spline</a></code>,<code><a href="#smooth.construct.ps.smooth.spec">p.spline</a></code>, <code><a href="#smooth.construct.mrf.smooth.spec">mrf</a></code>, <code><a href="#smooth.construct.so.smooth.spec">soap</a></code>, 
+<p><code><a href="#s">s</a></code>, <code><a href="#te">te</a></code>, <code><a href="#t2">t2</a></code>, <code><a href="#smooth.construct.tp.smooth.spec">tprs</a></code>, <code><a href="#smooth.construct.ds.smooth.spec">Duchon.spline</a></code>, 
+<code><a href="#smooth.construct.cr.smooth.spec">cubic.regression.spline</a></code>, <code><a href="#smooth.construct.ps.smooth.spec">p.spline</a></code>, <code><a href="#smooth.construct.bs.smooth.spec">d.spline</a></code>, <code><a href="#smooth.construct.mrf.smooth.spec">mrf</a></code>, <code><a href="#smooth.construct.so.smooth.spec">soap</a></code>, 
 <code><a href="#smooth.construct.sos.smooth.spec">Spherical.Spline</a></code>, <code><a href="#smooth.construct.ad.smooth.spec">adaptive.smooth</a></code>, <code><a href="#smooth.construct">user.defined.smooth</a></code>,
-<code><a href="#smooth.construct.re.smooth.spec">smooth.construct.re.smooth.spec</a></code>, <code><a href="#smooth.construct.gp.smooth.spec">smooth.construct.gp.smooth.spec</a></code>,<code><a href="#factor.smooth">factor.smooth.interaction</a></code></p>
+<code><a href="#smooth.construct.re.smooth.spec">smooth.construct.re.smooth.spec</a></code>, <code><a href="#smooth.construct.gp.smooth.spec">smooth.construct.gp.smooth.spec</a></code>, <code><a href="#factor.smooth">factor.smooth.interaction</a></code></p>
 
 
 <h3>Examples</h3>
@@ -20087,17 +20345,17 @@ improvements by Henric Nilsson.</p>
 <h3>References</h3>
 
 <p>Marra, G and S.N. Wood (2012) Coverage Properties of Confidence Intervals for Generalized Additive
-Model Components. Scandinavian Journal of Statistics, 39(1), 53-74.
+Model Components. Scandinavian Journal of Statistics, 39(1), 53-74. <a href="https://doi.org/10.1111/j.1467-9469.2011.00760.x" target="_blank">doi:10.1111/j.1467-9469.2011.00760.x</a>
 </p>
 <p>Nychka (1988) Bayesian Confidence Intervals for Smoothing Splines. 
 Journal of the American Statistical Association 83:1134-1143.
 </p>
-<p>Wood, S.N. (2013a) A simple test for random effects in regression models. Biometrika 100:1005-1010
+<p>Wood, S.N. (2013a) A simple test for random effects in regression models. Biometrika 100:1005-1010 <a href="https://doi.org/10.1093/biomet/ast038" target="_blank">doi:10.1093/biomet/ast038</a>
 </p>
-<p>Wood, S.N. (2013b) On p-values for smooth components of an extended generalized additive model. Biometrika 100:221-228
+<p>Wood, S.N. (2013b) On p-values for smooth components of an extended generalized additive model. Biometrika 100:221-228 <a href="https://doi.org/10.1093/biomet/ass048" target="_blank">doi:10.1093/biomet/ass048</a>
 </p>
 <p>Wood S.N. (2017) Generalized Additive Models: An Introduction with R (2nd edition). Chapman
-and Hall/CRC Press.
+and Hall/CRC Press. <a href="https://doi.org/10.1201/9781315370279" target="_blank">doi:10.1201/9781315370279</a>
 </p>
 
 
@@ -20424,7 +20682,7 @@ values (defualt).</p>
 
 <h3>References</h3>
 
-<p>Wood S.N., F. Scheipl and J.J. Faraway (2013, online Feb 2012) Straightforward intermediate rank tensor product smoothing in mixed models. Statistical Computing. 23(3):341-360
+<p>Wood S.N., F. Scheipl and J.J. Faraway (2013, online Feb 2012) Straightforward intermediate rank tensor product smoothing in mixed models. Statistics and Computing. 23(3):341-360 <a href="https://doi.org/10.1007/s11222-012-9314-z" target="_blank">doi:10.1007/s11222-012-9314-z</a>
 </p>
 <p>Gu, C. (2002) Smoothing Spline ANOVA, Springer.
 </p>
@@ -20797,10 +21055,10 @@ values (defualt).</p>
 <h3>References</h3>
 
 <p>Wood, S.N. (2006) Low rank scale invariant tensor product smooths for
-generalized additive mixed models. Biometrics 62(4):1025-1036
+generalized additive mixed models. Biometrics 62(4):1025-1036 <a href="https://doi.org/10.1111/j.1541-0420.2006.00574.x" target="_blank">doi:10.1111/j.1541-0420.2006.00574.x</a>
 </p>
 <p>Wood S.N. (2017) Generalized Additive Models: An Introduction with R (2nd edition). Chapman
-and Hall/CRC Press.
+and Hall/CRC Press. <a href="https://doi.org/10.1201/9781315370279" target="_blank">doi:10.1201/9781315370279</a>
 </p>
 <p><a href="https://www.maths.ed.ac.uk/~swood34/" target="_blank">https://www.maths.ed.ac.uk/~swood34/</a>
 </p>
@@ -21850,7 +22108,7 @@ scale. <code>NULL</code> to choose automatically.</p>
 <td><code id="vis.gam_:_...">...</code></td>
 <td>
 <p>other options to pass on to <code><a href="https://r-universe.dev/manuals/graphics.html#persp">persp</a></code>,
-<code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code> or <code><a href="https://r-universe.dev/manuals/graphics.html#contour">contour</a></code>. In particular <code>ticktype="detailed"</code> will add proper axes 
+<code><a href="https://r-universe.dev/manuals/Matrix.html#image-methods">image</a></code> or <code><a href="https://r-universe.dev/manuals/graphics.html#contour">contour</a></code>. In particular <code>ticktype="detailed"</code> will add proper axes 
 labelling to the plots. </p>
 </td>
 </tr>
@@ -22438,6 +22696,6 @@ plot<span class="token punctuation">(</span>b<span class="token punctuation">,</
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.1</p></footer>
+    <footer><p>Rendered with postdoc 1.2.2</p></footer>
   </body>
 </html>

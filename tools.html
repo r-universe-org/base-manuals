@@ -37,15 +37,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.3.0</td>
+<td class="description-license">Part of R 4.3.2</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.3.0</td>
+<td class="description-version">4.3.2</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2023-04-21 21:41:22 UTC</td>
+<td class="description-date">2023-11-01 20:50:57 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -2422,8 +2422,8 @@ that were changed.
 
 <p>The external tools used may change in future releases.
 </p>
-<p>Versions of GhostScript 9.06 and later give several times better
-compression than 9.05 on some vignettes in CRAN packages.
+<p>Frequently, updates to GhostScript have produced better compression (up
+to several times better), so if possible use the latest version available.
 </p>
 
 
@@ -2431,9 +2431,8 @@ compression than 9.05 on some vignettes in CRAN packages.
 
 <p><code><a href="#checkRdaFiles">resaveRdaFiles</a></code>.
 </p>
-<p>Many other (and sometimes more effective) tools to compact PDF files
-are available, including Adobe Acrobat (not Reader).
-See the ‘Writing R Extensions’ manual.
+<p>For other tools to compact PDF files, see the ‘Writing R
+Extensions’ manual.
 </p>
 
 <hr>
@@ -2835,11 +2834,11 @@ header <span class="token operator">&lt;-</span> c<span class="token punctuation
 <span class="token string">"\\usepackage{Rd}"</span><span class="token punctuation">,</span>
 <span class="token string">"\\begin{document}"</span><span class="token punctuation">,</span>
 <span class="token string">"\\HeaderA{test}{}{test}"</span><span class="token punctuation">,</span>
-<span class="token string">"\\begin{Details}\relax"</span><span class="token punctuation">,</span>
+<span class="token string">"\\begin{Details}\\relax"</span><span class="token punctuation">,</span>
 <span class="token string">"\\Tabular{cccccccccccccccc}{"</span><span class="token punctuation">)</span>
 trailer <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token string">"}"</span><span class="token punctuation">,</span> <span class="token string">"\\end{Details}"</span><span class="token punctuation">,</span> <span class="token string">"\\end{document}"</span><span class="token punctuation">)</span>
 writeLines<span class="token punctuation">(</span>header<span class="token punctuation">,</span> con<span class="token punctuation">)</span>
-writeLines<span class="token punctuation">(</span>paste0<span class="token punctuation">(</span>xx<span class="token punctuation">,</span> <span class="token string">"\\"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> con<span class="token punctuation">)</span>
+writeLines<span class="token punctuation">(</span>paste0<span class="token punctuation">(</span>xx<span class="token punctuation">,</span> <span class="token string">"\\\\"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> con<span class="token punctuation">)</span>
 writeLines<span class="token punctuation">(</span>trailer<span class="token punctuation">,</span> con<span class="token punctuation">)</span>
 close<span class="token punctuation">(</span>con<span class="token punctuation">)</span>
 <span class="token comment">## and some UTF_8 chars</span>
@@ -2854,7 +2853,7 @@ xx<span class="token punctuation">[</span><span class="token punctuation">]</spa
 xx <span class="token operator">&lt;-</span> apply<span class="token punctuation">(</span>xx<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> paste<span class="token punctuation">,</span> collapse <span class="token operator">=</span> <span class="token string">"&amp;"</span><span class="token punctuation">)</span>
 con <span class="token operator">&lt;-</span> file<span class="token punctuation">(</span><span class="token string">"test-utf8.tex"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span>
 writeLines<span class="token punctuation">(</span>header<span class="token punctuation">,</span> con<span class="token punctuation">)</span>
-writeLines<span class="token punctuation">(</span>paste<span class="token punctuation">(</span>xx<span class="token punctuation">,</span> <span class="token string">"\\"</span><span class="token punctuation">,</span> sep <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">,</span> con<span class="token punctuation">)</span>
+writeLines<span class="token punctuation">(</span>paste<span class="token punctuation">(</span>xx<span class="token punctuation">,</span> <span class="token string">"\\\\"</span><span class="token punctuation">,</span> sep <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">,</span> con<span class="token punctuation">)</span>
 writeLines<span class="token punctuation">(</span>trailer<span class="token punctuation">,</span> con<span class="token punctuation">)</span>
 close<span class="token punctuation">(</span>con<span class="token punctuation">)</span>
 
@@ -5088,17 +5087,17 @@ page is converted to a readable format).
 <ol>
 <li>
 <p> built on
-2023-04-21 at 17:42:56,
+2023-11-02 at 09:53:23,
 </p>
 </li>
 <li>
 <p> installed on
-2023-04-21 at 17:42:56, and
+2023-11-02 at 09:53:23, and
 </p>
 </li>
 <li>
 <p> rendered on
-2023-04-25 at 17:03:14.
+2023-11-11 at 15:43:25.
 </p>
 </li>
 </ol>
@@ -5736,6 +5735,10 @@ files in packages.
 preceded by the element number and with non-ASCII bytes highlighted
 <em>via</em> <code><a href="https://r-universe.dev/manuals/base.html#iconv">iconv</a>(sub = "byte")</code>.
 </p>
+<p>However, this rendering depends on <code><a href="https://r-universe.dev/manuals/base.html#iconv">iconv</a>(to = "ASCII")</code>
+failing to convert, and macOS 14 no longer does so reliably so for
+example permille (‘<span class="samp">⁠\u2030⁠</span>’) is rendered as <code>o/oo</code>.
+</p>
 
 
 <h3>Value</h3>
@@ -5757,7 +5760,9 @@ invisibly.
 f <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span>
 cat<span class="token punctuation">(</span>out<span class="token punctuation">,</span> file <span class="token operator">=</span> f<span class="token punctuation">,</span> sep <span class="token operator">=</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
 
+<span class="token comment">## IGNORE_RDIFF_BEGIN</span>
 showNonASCIIfile<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+<span class="token comment">## IGNORE_RDIFF_END</span>
 unlink<span class="token punctuation">(</span>f<span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -6899,6 +6904,14 @@ platform in use are employed.
 
 <pre class="language-r"><code class="language-r"><span class="token comment">## IGNORE_RDIFF_BEGIN</span>
 R_user_dir<span class="token punctuation">(</span><span class="token string">"FOO"</span><span class="token punctuation">,</span> <span class="token string">"cache"</span><span class="token punctuation">)</span>
+<span class="token comment">## Create one, platform agnostically, must work if &lt;normal&gt; :</span>
+<span class="token punctuation">(</span>Rdb <span class="token operator">&lt;-</span> R_user_dir<span class="token punctuation">(</span><span class="token string">"base"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>noD <span class="token operator">&lt;-</span> <span class="token operator">!</span>dir.exists<span class="token punctuation">(</span>Rdb<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># should work user specifically:</span>
+    dir.create<span class="token punctuation">(</span>Rdb<span class="token punctuation">,</span> recursive<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span>dir.exists<span class="token punctuation">(</span>Rdb<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># "everywhere"</span>
+dir<span class="token punctuation">(</span>Rdb<span class="token punctuation">)</span> <span class="token comment"># typically empty</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>noD<span class="token punctuation">)</span> unlink<span class="token punctuation">(</span>Rdb<span class="token punctuation">)</span> <span class="token comment"># cleaning up</span>
+list.files<span class="token punctuation">(</span>R_user_dir<span class="token punctuation">(</span><span class="token string">"grid"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> full.names <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 <span class="token comment">## IGNORE_RDIFF_END</span></code></pre>
 
 <hr>
@@ -7502,6 +7515,6 @@ unlink<span class="token punctuation">(</span>tmpRDir<span class="token punctuat
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.1</p></footer>
+    <footer><p>Rendered with postdoc 1.2.2</p></footer>
   </body>
 </html>

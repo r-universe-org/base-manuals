@@ -37,15 +37,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.3.0</td>
+<td class="description-license">Part of R 4.3.2</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.3.0</td>
+<td class="description-version">4.3.2</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2023-04-21 21:41:54 UTC</td>
+<td class="description-date">2023-11-01 20:51:49 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -213,13 +213,15 @@ scaling them.
 <tr>
 <td><code id="adjustcolor_:_offset">offset</code></td>
 <td>
-
+<p>numeric vector of length 4 to offset <code>x :=
+      c(r,g,b,alpha)</code>, where <code>x</code> is the <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0,1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span></code>-scaled result of
+<code><a href="#col2rgb">col2rgb</a>(col, alpha=TRUE)</code>.</p>
 </td>
 </tr>
 <tr>
 <td><code id="adjustcolor_:_transform">transform</code></td>
 <td>
-
+<p>a 4x4 numeric matrix applied to <code>x + offset</code>.</p>
 </td>
 </tr>
 </table>
@@ -391,7 +393,7 @@ possible to assign to a subset of a raster object.
 <p>Raster objects can be compared for equality or inequality (with each
 other or with a colour string).
 </p>
-<p>There is a <code><a href="https://r-universe.dev/manuals/base.html#NA">is.na</a></code> method which returns a logical matrix
+<p>There is a <code><a href="https://r-universe.dev/manuals/Matrix.html#is.na-methods">is.na</a></code> method which returns a logical matrix
 of the same dimensions as the raster object.  Note that <code>NA</code>
 values are interpreted as the fully transparent colour by some (but
 not all) graphics devices.
@@ -947,7 +949,7 @@ the things liable to trigger bitmap output (and will always do so for
 
 <p>Anti-aliasing is applied to both graphics and fonts.  It is generally
 preferable for lines and text, but can lead to undesirable effects for
-fills, e.g. for <code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code> plots, and so is never used for
+fills, e.g. for <code><a href="https://r-universe.dev/manuals/Matrix.html#image-methods">image</a></code> plots, and so is never used for
 fills.
 </p>
 <p><code>antialias = "default"</code> is in principle platform-dependent, but
@@ -2985,7 +2987,7 @@ record of the current plot.
 <p><code><a href="#postscript">postscript</a></code>, <code><a href="#pdf">pdf</a></code>, <code><a href="#png">png</a></code>,
 <code><a href="#png">jpeg</a></code>, <code><a href="#png">tiff</a></code> and  <code>bmp</code>.
 </p>
-<p>To display an array of data, see <code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code>.
+<p>To display an array of data, see <code><a href="https://r-universe.dev/manuals/Matrix.html#image-methods">image</a></code>.
 </p>
 
 <hr>
@@ -3187,7 +3189,7 @@ customize devices.
 </p>
 <p><code><a href="#dev.interactive">dev.interactive</a></code>,
 <code><a href="#dev">dev.cur</a></code>, <code><a href="#dev2">dev.print</a></code>,
-<code><a href="#dev">graphics.off</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code>,
+<code><a href="#dev">graphics.off</a></code>, <code><a href="https://r-universe.dev/manuals/Matrix.html#image-methods">image</a></code>,
 <code><a href="#dev2bitmap">dev2bitmap</a></code>.
 </p>
 <p>On Unix-alikes only:<br><code><a href="https://r-universe.dev/manuals/base.html#capabilities">capabilities</a></code> to see if <code><a href="#x11">X11</a></code>,
@@ -4301,7 +4303,7 @@ in future.
 Colour for Presentation Graphics, Proceedings of the 3rd International
 Workshop on Distributed Statistical Computing (DSC 2003), March 20-22,
 2003, Technische Universität Wien, Vienna, Austria.
-<a href="http://www.ci.tuwien.ac.at/Conferences/DSC-2003/" target="_blank">http://www.ci.tuwien.ac.at/Conferences/DSC-2003/</a>.
+<a href="https://www.R-project.org/conferences/DSC-2003/" target="_blank">https://www.R-project.org/conferences/DSC-2003/</a>.
 </p>
 
 
@@ -5707,7 +5709,7 @@ Accessed March 26, 2019.
 “Colour for presentation graphics.”
 Proceedings of the 3rd International Workshop on Distributed Statistical Computing (DSC 2003),
 March 20-22, 2003, Technische Universität Wien, Vienna, Austria.
-<a href="http://www.ci.tuwien.ac.at/Conferences/DSC-2003/" target="_blank">http://www.ci.tuwien.ac.at/Conferences/DSC-2003/</a>.
+<a href="https://www.R-project.org/conferences/DSC-2003/" target="_blank">https://www.R-project.org/conferences/DSC-2003/</a>.
 </p>
 <p>Zeileis, A., Hornik, K. and Murrell, P. (2009).
 Escaping RGBland: Selecting colors for statistical graphics.
@@ -7262,7 +7264,7 @@ jpeg<span class="token punctuation">(</span>filename <span class="token operator
 
 png<span class="token punctuation">(</span>filename <span class="token operator">=</span> <span class="token string">"Rplot%03d.png"</span><span class="token punctuation">,</span>
     width <span class="token operator">=</span> <span class="token number">480</span><span class="token punctuation">,</span> height <span class="token operator">=</span> <span class="token number">480</span><span class="token punctuation">,</span> units <span class="token operator">=</span> <span class="token string">"px"</span><span class="token punctuation">,</span> pointsize <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">,</span>
-     bg <span class="token operator">=</span> <span class="token string">"white"</span><span class="token punctuation">,</span>  res <span class="token operator">=</span> <span class="token keyword">NA</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span>
+    bg <span class="token operator">=</span> <span class="token string">"white"</span><span class="token punctuation">,</span>  res <span class="token operator">=</span> <span class="token keyword">NA</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span>
     type <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"cairo"</span><span class="token punctuation">,</span> <span class="token string">"cairo-png"</span><span class="token punctuation">,</span> <span class="token string">"Xlib"</span><span class="token punctuation">,</span> <span class="token string">"quartz"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> antialias<span class="token punctuation">)</span>
 
 tiff<span class="token punctuation">(</span>filename <span class="token operator">=</span> <span class="token string">"Rplot%03d.tiff"</span><span class="token punctuation">,</span>
@@ -7397,6 +7399,8 @@ by <code>tiff</code> is lossless and stores RGB (and alpha where
 appropriate) values uncompressed—such files are widely accepted,
 which is their main virtue over PNG.
 </p>
+<p>The JPEG format only supports opaque backgrounds.
+</p>
 <p><code>png</code> supports transparent backgrounds: use <code>bg =
   "transparent"</code>.  (Not all PNG viewers render files with transparency
 correctly.)  When transparency is in use in the <code>type = "Xlib"</code>
@@ -7453,6 +7457,9 @@ including <code>Preview</code> on macOS.
 <h3>Value</h3>
 
 <p>A plot device is opened: nothing is returned to the <span class="rlang"><b>R</b></span> interpreter.
+</p>
+<p>If something goes wrong in writing a TIFF file (for example, an
+unsupported type of compression), a file is produced, likely invalid.
 </p>
 
 
@@ -7584,6 +7591,9 @@ supported by this build of <span class="rlang"><b>R</b></span>, and if <code>typ
 <p><code><a href="#dev2bitmap">bitmap</a></code> provides an alternative way to generate plots in many
 bitmap formats that does not depend on accessing the X11 display but does
 depend on having GhostScript installed.
+</p>
+<p>Ways to write raster images to bitmap formats are available in
+packages <a href="https://CRAN.R-project.org/package=jpeg" target="_blank"><span class="pkg">jpeg</span></a>, <a href="https://CRAN.R-project.org/package=png" target="_blank"><span class="pkg">png</span></a> and <a href="https://CRAN.R-project.org/package=tiff" target="_blank"><span class="pkg">tiff</span></a>.
 </p>
 
 
@@ -9623,7 +9633,7 @@ perspective plots such as <code><a href="https://r-universe.dev/manuals/graphics
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">trans3d<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">,</span> pmat<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r">trans3d<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">,</span> pmat<span class="token punctuation">,</span> continuous <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> verbose <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
 <h3>Arguments</h3>
@@ -9647,6 +9657,24 @@ plane using homogeneous 4D coordinates <code class="reqn"><span class="katex"><s
 such matrices are returned by <code><a href="https://r-universe.dev/manuals/graphics.html#persp">persp</a>()</code>.</p>
 </td>
 </tr>
+<tr>
+<td><code id="trans3d_:_continuous">continuous</code></td>
+<td>
+<p>logical flag specifying if the transformation should
+check if the transformed points are continuous in the sense that they
+do not jump over <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi mathvariant="normal">/</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">a/0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mord">/0</span></span></span></span></code> discontinuity.  As these assume
+<code>(x,y,z)</code> to describe a continuous curve, the default must be
+false.  In case of projecting such a curve however, setting
+<code>continuous=TRUE</code> may be advisable.</p>
+</td>
+</tr>
+<tr>
+<td><code id="trans3d_:_verbose">verbose</code></td>
+<td>
+<p>only for <code>continuous=TRUE</code>, indicates if a warning
+should be issued when points are cut off.</p>
+</td>
+</tr>
 </table>
 <h3>Value</h3>
 
@@ -9668,7 +9696,34 @@ such matrices are returned by <code><a href="https://r-universe.dev/manuals/grap
 <h3>Examples</h3>
 
 <pre class="language-r"><code class="language-r"><span class="token comment">## See  help(persp) {after attaching the 'graphics' package}</span>
-<span class="token comment">##      -----------</span></code></pre>
+<span class="token comment">##      -----------</span>
+
+<span class="token comment">## Example for 'continuous = TRUE' (vs default):</span>
+require<span class="token punctuation">(</span>graphics<span class="token punctuation">)</span>
+x <span class="token operator">&lt;-</span> <span class="token operator">-</span><span class="token number">10</span><span class="token operator">:</span><span class="token number">10</span><span class="token operator">/</span><span class="token number">10</span> <span class="token comment"># [-1, 1]</span>
+y <span class="token operator">&lt;-</span> <span class="token operator">-</span><span class="token number">16</span><span class="token operator">:</span><span class="token number">16</span><span class="token operator">/</span><span class="token number">16</span> <span class="token comment"># [-1, 1] ==&gt; z = fxy := outer(x,y) is also in [-1,1]</span>
+
+p <span class="token operator">&lt;-</span> persp<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> fxy <span class="token operator">&lt;-</span> outer<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">,</span> phi <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> theta <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> ltheta <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">75</span><span class="token punctuation">,</span>
+           shade <span class="token operator">=</span> <span class="token number">0.8</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token string">"green3"</span><span class="token punctuation">,</span> ticktype <span class="token operator">=</span> <span class="token string">"detailed"</span><span class="token punctuation">)</span>
+<span class="token comment">## 5 axis-parallel auxiliary lines in x-y  and y-z planes :</span>
+lines<span class="token punctuation">(</span>trans3d<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">.5</span> <span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> z<span class="token operator">=</span>min<span class="token punctuation">(</span>fxy<span class="token punctuation">)</span><span class="token punctuation">,</span>  pmat<span class="token operator">=</span>p<span class="token punctuation">)</span><span class="token punctuation">,</span> lty<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>trans3d<span class="token punctuation">(</span>  <span class="token number">0</span> <span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> z<span class="token operator">=</span>min<span class="token punctuation">(</span>fxy<span class="token punctuation">)</span><span class="token punctuation">,</span>  pmat<span class="token operator">=</span>p<span class="token punctuation">)</span><span class="token punctuation">,</span> lty<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>trans3d<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> y<span class="token operator">=</span> <span class="token operator">-</span><span class="token number">.7</span><span class="token punctuation">,</span> z<span class="token operator">=</span>min<span class="token punctuation">(</span>fxy<span class="token punctuation">)</span><span class="token punctuation">,</span>  pmat<span class="token operator">=</span>p<span class="token punctuation">)</span><span class="token punctuation">,</span> lty<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>trans3d<span class="token punctuation">(</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>  y<span class="token operator">=</span> <span class="token operator">-</span><span class="token number">.7</span><span class="token punctuation">,</span> z<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">,</span>  pmat<span class="token operator">=</span>p<span class="token punctuation">)</span><span class="token punctuation">,</span> lty<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>trans3d<span class="token punctuation">(</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>  y<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> z<span class="token operator">=</span> <span class="token operator">-</span><span class="token number">.5</span>    <span class="token punctuation">,</span>  pmat<span class="token operator">=</span>p<span class="token punctuation">)</span><span class="token punctuation">,</span> lty<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment">## 2 pillars to carry the horizontals below:</span>
+lines<span class="token punctuation">(</span>trans3d<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">.5</span> <span class="token punctuation">,</span> y<span class="token operator">=</span> <span class="token operator">-</span><span class="token number">.7</span><span class="token punctuation">,</span> z<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pmat<span class="token operator">=</span>p<span class="token punctuation">)</span><span class="token punctuation">,</span> lwd<span class="token operator">=</span><span class="token number">1.5</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token string">"gray10"</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>trans3d<span class="token punctuation">(</span> <span class="token number">0</span>  <span class="token punctuation">,</span> y<span class="token operator">=</span> <span class="token operator">-</span><span class="token number">.7</span><span class="token punctuation">,</span> z<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pmat<span class="token operator">=</span>p<span class="token punctuation">)</span><span class="token punctuation">,</span> lwd<span class="token operator">=</span><span class="token number">1.5</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token string">"gray10"</span><span class="token punctuation">)</span>
+<span class="token comment">## now some "horizontal rays" (going from center to very left or very right):</span>
+doHor <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x1<span class="token punctuation">,</span> x2<span class="token punctuation">,</span> z<span class="token punctuation">,</span> CNT<span class="token operator">=</span><span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+    lines<span class="token punctuation">(</span>trans3d<span class="token punctuation">(</span>x<span class="token operator">=</span>seq<span class="token punctuation">(</span>x1<span class="token punctuation">,</span> x2<span class="token punctuation">,</span> by<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> y<span class="token operator">=</span> <span class="token operator">-</span><span class="token number">0.7</span><span class="token punctuation">,</span> z <span class="token operator">=</span> z<span class="token punctuation">,</span> pmat <span class="token operator">=</span> p<span class="token punctuation">,</span> continuous <span class="token operator">=</span> CNT<span class="token punctuation">)</span><span class="token punctuation">,</span>
+          lwd <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> type<span class="token operator">=</span><span class="token string">"b"</span><span class="token punctuation">,</span> xpd<span class="token operator">=</span><span class="token keyword">NA</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+doHor<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">,</span> z <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">0.5</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>  <span class="token comment"># x in [-10, 0] -- to the very left : fine</span>
+doHor<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">.5</span><span class="token punctuation">,</span>  <span class="token number">2</span><span class="token punctuation">,</span> z <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">0.52</span><span class="token punctuation">,</span>col <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment"># x in [-0.5, 2] only {to the right} --&gt; all fine</span>
+<span class="token comment">## but now, x in [-0.5, 20] -- "too far" ==&gt; "wrap around" problem (without 'continuous=TRUE'):</span>
+doHor<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">.5</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> z <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">0.58</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token string">"steelblue"</span><span class="token punctuation">,</span> lty<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment">## but it is fixed with continuous = CNT = TRUE:</span>
+doHor<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">.5</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> z <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">0.55</span><span class="token punctuation">,</span> CNT<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token string">"skyblue"</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div>
@@ -10806,7 +10861,7 @@ visual is encountered.
 <p>Anti-aliasing is only supported for cairographics-based devices, and
 applies to both graphics and fonts.  It is generally preferable for
 lines and text, but can lead to undesirable effects for fills,
-e.g. for <code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code> plots, and so is never used for fills.
+e.g. for <code><a href="https://r-universe.dev/manuals/Matrix.html#image-methods">image</a></code> plots, and so is never used for fills.
 </p>
 <p><code>antialias = "default"</code> is in principle platform-dependent, but
 seems most often equivalent to <code>antialias = "gray"</code>.
@@ -11582,6 +11637,6 @@ suppressWarnings<span class="token punctuation">(</span>xyz.coords<span class="t
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.1</p></footer>
+    <footer><p>Rendered with postdoc 1.2.2</p></footer>
   </body>
 </html>

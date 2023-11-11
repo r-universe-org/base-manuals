@@ -37,15 +37,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.3.0</td>
+<td class="description-license">Part of R 4.3.2</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.3.0</td>
+<td class="description-version">4.3.2</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2023-04-21 21:42:46 UTC</td>
+<td class="description-date">2023-11-01 20:53:12 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -3383,8 +3383,8 @@ and months.
 <code>"<a href="#DateTimeClasses">POSIXct</a>"</code>.  (The last is converted to days by ignoring
 the time after midnight in the representation of the time in specified
 time zone, default UTC.)  Also objects of class <code>"date"</code> (from
-package <span class="pkg"><a>date</a></span>) and <code>"dates"</code> (from
-package <span class="pkg"><a>chron</a></span>).  Character strings are processed
+package <span class="pkg"><a href="https://cran.r-universe.dev/date/doc/manual.html#as.date">date</a></span>) and <code>"dates"</code> (from
+package <span class="pkg"><a href="https://cran.r-universe.dev/chron/doc/manual.html#chron">chron</a></span>).  Character strings are processed
 as far as necessary for the format specified: any trailing characters
 are ignored.
 </p>
@@ -7128,7 +7128,7 @@ the method to be used is selected.  If some of the arguments are of an
 S4 class, i.e., <code><a href="#isS4">isS4</a>(.)</code> is true, S4 methods are sought
 also, and the hidden <code>cbind</code> / <code>rbind</code> functions
 from package <span class="pkg">methods</span> maybe called, which in turn build on
-<code><a href="https://r-universe.dev/manuals/methods.html#cbind2">cbind2</a></code> or <code><a href="https://r-universe.dev/manuals/methods.html#cbind2">rbind2</a></code>, respectively.  In that
+<code><a href="https://r-universe.dev/manuals/Matrix.html#cBind">cbind2</a></code> or <code><a href="https://r-universe.dev/manuals/Matrix.html#cBind">rbind2</a></code>, respectively.  In that
 case, <code>deparse.level</code> is obeyed, similarly to the default method.
 </p>
 <p>In the default method, all the vectors/matrices must be atomic (see
@@ -7425,7 +7425,8 @@ supplying an argument of length other than one is an error.</p>
 <p><code>as.character</code> and <code>is.character</code> are generic: you can
 write methods to handle specific classes of objects,
 see <a href="#InternalMethods">InternalMethods</a>.  Further, for <code>as.character</code> the
-default method calls <code><a href="#vector">as.vector</a></code>, so dispatch is first on
+default method calls <code><a href="#vector">as.vector</a></code>, so, only
+<code>if(is.object(x))</code> is true, dispatch is first on
 methods for <code>as.character</code> and then for methods for <code>as.vector</code>.
 </p>
 <p><code>as.character</code> represents real and complex numbers to 15 significant
@@ -7474,8 +7475,8 @@ Wadsworth &amp; Brooks/Cole.
 
 <h3>See Also</h3>
 
-<p><code><a href="#options">options</a></code>: option <code>scipen</code> affects the conversion of
-numbers.
+<p><code><a href="#options">options</a></code>: options <code>scipen</code> and <code>OutDec</code> affect the
+conversion of numbers.
 </p>
 <p><code><a href="#paste">paste</a></code>, <code><a href="#substr">substr</a></code> and <code><a href="#strsplit">strsplit</a></code>
 for character concatenation and splitting,
@@ -11095,8 +11096,9 @@ A successful FTP connection will usually have status 250, 257 or 350.
 
 <pre class="language-r"><code class="language-r"><span class="token comment">## needs Internet access, results vary</span>
 curlGetHeaders<span class="token punctuation">(</span><span class="token string">"http://bugs.r-project.org"</span><span class="token punctuation">)</span>   <span class="token comment">## this redirects to https://</span>
-curlGetHeaders<span class="token punctuation">(</span><span class="token string">"https://httpbin.org/status/404"</span><span class="token punctuation">)</span>  <span class="token comment">## returns status</span>
-<span class="token comment">## curlGetHeaders("ftp://cran.r-project.org") ## ftp::// support is vanishing</span></code></pre>
+<span class="token comment">## 2023-04: replaces slow and unreliable https://httpbin.org/status/404</span>
+curlGetHeaders<span class="token punctuation">(</span><span class="token string">"https://developer.R-project.org/inet-tests/not-found"</span><span class="token punctuation">)</span>
+<span class="token comment">## returns status</span></code></pre>
 
 <hr>
 </div>
@@ -15606,9 +15608,11 @@ This is needed for system housekeeping.
 
 <h3>Note</h3>
 
-<p><code>is.loaded</code> requires the name you would give to <code>.C</code> etc
-and <strong>not</strong> (as in S) that remapped by the defunct functions
-<code>symbol.C</code> or <code>symbol.For</code>.
+<p><code>is.loaded</code> requires the name you would give to <code>.C</code> etc.
+It must be a character string and so cannot be an <span class="rlang"><b>R</b></span> object as used
+for registered native symbols (see “Writing R Extensions”
+section 5.4.).  Some registered symbols are available by name but most are
+not, including those in the examples below.
 </p>
 <p>By default, the maximum number of DLLs that can be loaded is now 614
 when the OS limit on the number of open files allows or can be
@@ -15666,7 +15670,8 @@ Wadsworth &amp; Brooks/Cole.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## expect all of these to be false in R &gt;= 3.0.0.</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## expect all of these to be false in R &gt;= 3.0.0 as these can only be</span>
+<span class="token comment">## used via registered symbols.</span>
 is.loaded<span class="token punctuation">(</span><span class="token string">"supsmu"</span><span class="token punctuation">)</span> <span class="token comment"># Fortran entry point in stats</span>
 is.loaded<span class="token punctuation">(</span><span class="token string">"supsmu"</span><span class="token punctuation">,</span> <span class="token string">"stats"</span><span class="token punctuation">,</span> <span class="token string">"Fortran"</span><span class="token punctuation">)</span>
 is.loaded<span class="token punctuation">(</span><span class="token string">"PDF"</span><span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"External"</span><span class="token punctuation">)</span> <span class="token comment"># pdf() device in grDevices</span></code></pre>
@@ -22699,7 +22704,7 @@ compiled code (C / C++) messages which often end with <code>\n</code>.</p>
 <td><code id="gettext_:_domain">domain</code></td>
 <td>
 <p>the ‘domain’ for the translation, a <code>character</code>
-string, or <code><a href="#NULL">NULL</a></code> to flush the cache; see ‘Details’.</p>
+string, or <code><a href="#NULL">NULL</a></code>; see ‘Details’.</p>
 </td>
 </tr>
 <tr>
@@ -22767,8 +22772,8 @@ if one is found.
 </p>
 <p>The <em>language</em> to be used for message translation is determined by
 your OS default and/or the locale setting at <span class="rlang"><b>R</b></span>'s startup, see
-<code><a href="#locales">Sys.getlocale</a>()</code>, and notably the <span class="env">LANGUAGE</span> environment
-variable.
+<code><a href="#locales">Sys.getlocale</a>()</code>, and notably the <span class="env">LANGUAGE</span> environment 
+variable, and also <code>Sys.setLanguage()</code> here.
 </p>
 <p>Conventionally the domain for <span class="rlang"><b>R</b></span> warning/error messages in package
 <span class="pkg">pkg</span> is <code>"R-pkg"</code>, and that for C-level messages is <code>"pkg"</code>.
@@ -22794,6 +22799,10 @@ The special case <code>bindtextdomain(NULL)</code> calls C level
 <code>textdomain(textdomain(NULL))</code> for the purpose of flushing (i.e.,
 emptying) the cache of already translated strings; it returns <code>TRUE</code>
 when NLS is enabled.
+</p>
+<p>The utility <code>Sys.setlanguage(lang)</code> combines setting the
+<span class="env">LANGUAGE</span> environment variable with flushing the translation cache
+by <code>bindtextdomain(NULL)</code>.
 </p>
 
 
@@ -24404,7 +24413,7 @@ iconvlist<span class="token punctuation">(</span><span class="token punctuation"
 <tr>
 <td><code id="iconv_:_x">x</code></td>
 <td>
-<p>A character vector, or an object to be converted to a character
+<p>a character vector, or an object to be converted to a character
 vector by <code><a href="#character">as.character</a></code>, or a list with <code>NULL</code> and
 <code>raw</code> elements as returned by <code>iconv(toRaw = TRUE)</code>.</p>
 </td>
@@ -24412,13 +24421,13 @@ vector by <code><a href="#character">as.character</a></code>, or a list with <co
 <tr>
 <td><code id="iconv_:_from">from</code></td>
 <td>
-<p>A character string describing the current encoding.</p>
+<p>a character string describing the current encoding.</p>
 </td>
 </tr>
 <tr>
 <td><code id="iconv_:_to">to</code></td>
 <td>
-<p>A character string describing the target encoding.</p>
+<p>a character string describing the target encoding.</p>
 </td>
 </tr>
 <tr>
@@ -24469,7 +24478,11 @@ encoding) will be returned as <code>NA</code> unless <code>sub</code> is specifi
 ‘<span class="samp">⁠//TRANSLIT⁠</span>’ to the <code>to</code> encoding: see the examples.
 </p>
 <p>Encoding <code>"ASCII"</code> is accepted, and on most systems <code>"C"</code>
-and <code>"POSIX"</code> are synonyms for ASCII.
+and <code>"POSIX"</code> are synonyms for ASCII.  Where
+<code>"ASCII/TRANSLIT"</code> is unsupported by the OS, <code>"ASCII"</code> is
+used with <code>sub = "c99"</code> if from UTF-8, else <code>sub =
+  "?"</code>. (However, musl's version of <code>"ASCII"</code> substitutes
+<code>*</code>.)
 </p>
 <p>With <code>from = ""</code>, elements of <code>x</code> with a declared encoding
 (UTF-8 or latin1, see <code><a href="#Encoding">Encoding</a></code>) are converted from that
@@ -24488,7 +24501,9 @@ non-UTF-8 input it is the same as <code>sub = "byte"</code>.
 
 <p>If <code>toRaw = FALSE</code> (the default), the value is a character vector
 of the same length and the same attributes as <code>x</code> (after
-conversion to a character vector).
+conversion to a character vector).  If conversion fails for an element
+that element of the result is set to <code>NA_character_</code>.  (NB:
+whether conversion fails is implementation-specific.)
 </p>
 <p>If <code>mark = TRUE</code> (the default) the elements of the result have a
 declared encoding if <code>to</code> is <code>"latin1"</code> or <code>"UTF-8"</code>,
@@ -24508,14 +24523,23 @@ elements) of known encoding names.
 
 <p>There are three main implementations of <code>iconv</code> in use.  Linux's
 most common C runtime, ‘<span class="samp">⁠glibc⁠</span>’, contains one.  Several platforms
-supply GNU ‘<span class="samp">⁠libiconv⁠</span>’, including macOS and FreeBSD, in
-some cases with additional encodings.  On Windows we use a version of
-Yukihiro Nakadaira's ‘<span class="samp">⁠win_iconv⁠</span>’, which is based on Windows'
-codepages.  (We have added many encoding names for compatibility with
-other systems.)  All three have <code>iconvlist</code>, ignore case in
-encoding names and support ‘<span class="samp">⁠//TRANSLIT⁠</span>’ (but with different
-results, and for ‘<span class="samp">⁠win_iconv⁠</span>’ currently a ‘best fit’
-strategy is used except for <code>to = "ASCII"</code>).
+supply versions or emulations of GNU ‘<span class="samp">⁠libiconv⁠</span>’, including macOS
+and FreeBSD, in some cases with additional encodings.  On Windows we
+use a version of Yukihiro Nakadaira's ‘<span class="samp">⁠win_iconv⁠</span>’, which is based
+on Windows' codepages.  (We have added many encoding names for
+compatibility with other systems.)  All three have <code>iconvlist</code>,
+ignore case in encoding names and support ‘<span class="samp">⁠//TRANSLIT⁠</span>’ (but with
+different results, and for ‘<span class="samp">⁠win_iconv⁠</span>’ currently a ‘best
+fit’ strategy is used except for <code>to = "ASCII"</code>).
+</p>
+
+<p>The macOS 14 implementation is attributed to the ‘Citrus
+Project’: the Apple headers declare it as ‘compatible’ with GNU
+‘<span class="samp">⁠libiconv⁠</span>’ 1.11 from 2006.  However, it differs in
+significant ways including using a ‘best fit’ for conversions,
+at least for <code>to = "ASCII"</code> and <code>to = "latin1"</code>.  (Earlier
+versions of macOS used GNU ‘<span class="samp">⁠libiconv⁠</span>’ 1.11. It seems this
+implementation is also used in recent versions of FreeBSD.)
 </p>
 <p>Most commercial Unixes contain an implementation of <code>iconv</code> but
 none we have encountered have supported the encoding names we need:
@@ -24531,8 +24555,7 @@ less comprehensive than ‘<span class="samp">⁠glibc⁠</span>’: it does not
 </p>
 <p>There are other implementations, e.g.  NetBSD has used one from the
 Citrus project (which does not support ‘<span class="samp">⁠//TRANSLIT⁠</span>’) and there is
-an older FreeBSD port (‘<span class="samp">⁠libiconv⁠</span>’ is usually used there): it has
-not been reported whether or not these work with <span class="rlang"><b>R</b></span>.
+an older FreeBSD port.
 </p>
 <p>Note that you cannot rely on invalid inputs being detected, especially
 for <code>to = "ASCII"</code> where some implementations allow 8-bit
@@ -24540,8 +24563,9 @@ characters and pass them through unchanged or with transliteration or
 substitution.
 </p>
 <p>Some of the implementations have interesting extra encodings: for
-example GNU ‘<span class="samp">⁠libiconv⁠</span>’ allows <code>to = "C99"</code> to use
-‘<span class="samp">⁠\uxxxx⁠</span>’ escapes for non-ASCII characters.
+example GNU ‘<span class="samp">⁠libiconv⁠</span>’ and macOS 14 allow <code>to = "C99"</code> to use
+‘<span class="samp">⁠\uxxxx⁠</span>’ escapes (or if needed ‘<span class="samp">⁠\Uuxxxxxxxx⁠</span>’) for
+non-ASCII characters.
 </p>
 
 
@@ -24581,6 +24605,11 @@ for e.g. <code>fileEncoding</code> arguments.  <code>"macintosh"</code> is
 the official (and most widely supported) name for ‘Mac Roman’
 (<a href="https://en.wikipedia.org/wiki/Mac_OS_Roman" target="_blank">https://en.wikipedia.org/wiki/Mac_OS_Roman</a>).
 </p>
+<p>Using <code>sub</code> substitutes each non-convertible <em>byte</em> in the
+input, so when converting from UTF-8 a non-convertible character may
+be replaced by two or more bytes.  Using <code>sub = "c99"</code> or
+<code>sub = "Unicode"</code> will be clearer.
+</p>
 
 
 <h3>See Also</h3>
@@ -24603,25 +24632,30 @@ iconv<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <span class="token comment">## Both x below are in latin1 and will only display correctly in a</span>
 <span class="token comment">## locale that can represent and display latin1.</span>
-x <span class="token operator">&lt;-</span> <span class="token string">"fa\xE7ile"</span>
+x <span class="token operator">&lt;-</span> <span class="token string">"fran\xE7ais"</span>
 Encoding<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> <span class="token string">"latin1"</span>
 x
 charToRaw<span class="token punctuation">(</span>xx <span class="token operator">&lt;-</span> iconv<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"latin1"</span><span class="token punctuation">,</span> <span class="token string">"UTF-8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 xx
 
-iconv<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"latin1"</span><span class="token punctuation">,</span> <span class="token string">"ASCII"</span><span class="token punctuation">)</span>          <span class="token comment">#   NA</span>
-iconv<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"latin1"</span><span class="token punctuation">,</span> <span class="token string">"ASCII"</span><span class="token punctuation">,</span> <span class="token string">"?"</span><span class="token punctuation">)</span>     <span class="token comment"># "fa?ile"</span>
-iconv<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"latin1"</span><span class="token punctuation">,</span> <span class="token string">"ASCII"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span>      <span class="token comment"># "faile"</span>
-iconv<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"latin1"</span><span class="token punctuation">,</span> <span class="token string">"ASCII"</span><span class="token punctuation">,</span> <span class="token string">"byte"</span><span class="token punctuation">)</span>  <span class="token comment"># "fa&lt;e7&gt;ile"</span>
-iconv<span class="token punctuation">(</span>xx<span class="token punctuation">,</span> <span class="token string">"UTF-8"</span><span class="token punctuation">,</span> <span class="token string">"ASCII"</span><span class="token punctuation">,</span> <span class="token string">"Unicode"</span><span class="token punctuation">)</span> <span class="token comment"># "fa&lt;U+00E7&gt;ile"</span>
-iconv<span class="token punctuation">(</span>xx<span class="token punctuation">,</span> <span class="token string">"UTF-8"</span><span class="token punctuation">,</span> <span class="token string">"ASCII"</span><span class="token punctuation">,</span> <span class="token string">"c99"</span><span class="token punctuation">)</span>   <span class="token comment"># "fa\u00E7ile"</span>
+<span class="token comment">## The results in the comments are those from glibc and GNU libiconv</span>
+iconv<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"latin1"</span><span class="token punctuation">,</span> <span class="token string">"ASCII"</span><span class="token punctuation">)</span>           <span class="token comment">#   NA</span>
+iconv<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"latin1"</span><span class="token punctuation">,</span> <span class="token string">"ASCII"</span><span class="token punctuation">,</span> <span class="token string">"?"</span><span class="token punctuation">)</span>      <span class="token comment"># "fran?ais"</span>
+iconv<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"latin1"</span><span class="token punctuation">,</span> <span class="token string">"ASCII"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span>       <span class="token comment"># "franais"</span>
+iconv<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"latin1"</span><span class="token punctuation">,</span> <span class="token string">"ASCII"</span><span class="token punctuation">,</span> <span class="token string">"byte"</span><span class="token punctuation">)</span>   <span class="token comment"># "fran&lt;e7&gt;ais"</span>
+iconv<span class="token punctuation">(</span>xx<span class="token punctuation">,</span> <span class="token string">"UTF-8"</span><span class="token punctuation">,</span> <span class="token string">"ASCII"</span><span class="token punctuation">,</span> <span class="token string">"Unicode"</span><span class="token punctuation">)</span><span class="token comment"># "fran&lt;U+00E7&gt;ais"</span>
+iconv<span class="token punctuation">(</span>xx<span class="token punctuation">,</span> <span class="token string">"UTF-8"</span><span class="token punctuation">,</span> <span class="token string">"ASCII"</span><span class="token punctuation">,</span> <span class="token string">"c99"</span><span class="token punctuation">)</span>    <span class="token comment"># "fran\\u00e7ais"</span>
 
 <span class="token comment">## Extracts from old R help files (they are nowadays in UTF-8)</span>
 x <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token string">"Ekstr\xf8m"</span><span class="token punctuation">,</span> <span class="token string">"J\xf6reskog"</span><span class="token punctuation">,</span> <span class="token string">"bi\xdfchen Z\xfcrcher"</span><span class="token punctuation">)</span>
 Encoding<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> <span class="token string">"latin1"</span>
 x
 try<span class="token punctuation">(</span>iconv<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"latin1"</span><span class="token punctuation">,</span> <span class="token string">"ASCII//TRANSLIT"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># platform-dependent</span>
+<span class="token comment">## glibc gives "Ekstroem" "Joreskog" "bisschen Zurcher"</span>
+<span class="token comment">## macOS 14 gives "Ekstrom" "J\"oreskog" "bisschen Z\"urcher"</span>
+<span class="token comment">## musl gives "Ekstr*m" "J*reskog" "bi*chen Z*rcher"</span>
 iconv<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"latin1"</span><span class="token punctuation">,</span> <span class="token string">"ASCII"</span><span class="token punctuation">,</span> sub <span class="token operator">=</span> <span class="token string">"byte"</span><span class="token punctuation">)</span>
+
 <span class="token comment">## and for Windows' 'Unicode'</span>
 str<span class="token punctuation">(</span>xx <span class="token operator">&lt;-</span> iconv<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"latin1"</span><span class="token punctuation">,</span> <span class="token string">"UTF-16LE"</span><span class="token punctuation">,</span> toRaw <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 iconv<span class="token punctuation">(</span>xx<span class="token punctuation">,</span> <span class="token string">"UTF-16LE"</span><span class="token punctuation">,</span> <span class="token string">"UTF-8"</span><span class="token punctuation">)</span></code></pre>
@@ -26056,12 +26090,16 @@ stopifnot<span class="token punctuation">(</span>sapply<span class="token punctu
 
 <h3>Description</h3>
 
-<p>A function rather for internal use.  It returns <code>TRUE</code> if the
+<p>A function mostly for internal use.  It returns <code>TRUE</code> if the
 object <code>x</code> has the <span class="rlang"><b>R</b></span> internal <code>OBJECT</code> bit set, and
 <code>FALSE</code> otherwise.  The <code>OBJECT</code> bit is set when a
 <code>"class"</code> attribute is added and removed when that attribute is
 removed, so this is a very efficient way to check if an object has a
 class attribute.  (S4 objects always should.)
+</p>
+<p>Note that typical basic (‘atomic’, see <code><a href="#is.recursive">is.atomic</a></code>)
+<span class="rlang"><b>R</b></span> vectors and arrays <code>x</code> are <em>not</em> objects in the above
+sense as <code><a href="#attributes">attributes</a>(x)</code> does <em>not</em> contain <code>"class"</code>.
 </p>
 
 
@@ -29413,7 +29451,7 @@ functions which use them (but not <code><a href="#date">date</a></code>).
 POSIX.  <code>"LC_MESSAGES"</code> will be <code>"C"</code> on systems that do not
 support message translation, and is not supported on Windows, where you
 <em>must</em> use the <span class="env">LANGUAGE</span> environment variable for message
-translation, see below.  Trying
+translation, see below and the <code><a href="#gettext">Sys.setLanguage</a>()</code> utility.  Trying
 to use an unsupported category is an error for <code>Sys.setlocale</code>.
 </p>
 <p>Note that setting category <code>"LC_ALL"</code> sets only categories
@@ -29562,9 +29600,14 @@ Sys.setenv<span class="token punctuation">(</span><span class="token string">"LA
  sep <span class="token operator">&lt;-</span> switch<span class="token punctuation">(</span>sys<span class="token punctuation">,</span>
                <span class="token string">"Darwin"</span><span class="token operator">=</span><span class="token punctuation">,</span> <span class="token string">"SunOS"</span> <span class="token operator">=</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
                <span class="token string">"Linux"</span> <span class="token operator">=</span><span class="token punctuation">,</span> <span class="token string">"Windows"</span> <span class="token operator">=</span> <span class="token string">";"</span><span class="token punctuation">)</span>
- sg <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span>unlist<span class="token punctuation">(</span>strsplit<span class="token punctuation">(</span>strsplit<span class="token punctuation">(</span>Sys.getlocale<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sep<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nrow<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
- str<span class="token punctuation">(</span>sloc <span class="token operator">&lt;-</span> setNames<span class="token punctuation">(</span>sg<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span> sg<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
- print.Dlist<span class="token punctuation">(</span>sloc<span class="token punctuation">)</span> <span class="token comment"># nicely readable</span></code></pre>
+ <span class="token comment">##' show a "full" Sys.getlocale() nicely:</span>
+ showL <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>loc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     sl <span class="token operator">&lt;-</span> strsplit<span class="token punctuation">(</span>strsplit<span class="token punctuation">(</span>loc<span class="token punctuation">,</span> sep<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1L</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"="</span><span class="token punctuation">)</span>
+     setNames<span class="token punctuation">(</span>sapply<span class="token punctuation">(</span>sl<span class="token punctuation">,</span> `<span class="token punctuation">[</span><span class="token punctuation">[</span>`<span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sapply<span class="token punctuation">(</span>sl<span class="token punctuation">,</span> `<span class="token punctuation">[</span><span class="token punctuation">[</span>`<span class="token punctuation">,</span> <span class="token number">1L</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+ print.Dlist<span class="token punctuation">(</span>lloc <span class="token operator">&lt;-</span> showL<span class="token punctuation">(</span>Sys.getlocale<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ <span class="token comment">## R-supported ones (but LC_ALL):</span>
+ lloc<span class="token punctuation">[</span>.LC.categories<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span></code></pre>
 
 <hr>
 </div>
@@ -31709,7 +31752,7 @@ memDecompress<span class="token punctuation">(</span>from<span class="token punc
 <td>
 <p>A raw vector.  For <code>memCompress</code> a character vector
 will be converted to a raw vector with character strings separated
-by <code>"\n"</code>.  Types <code>"gzip"</code> and <code>"xz"</code> support long
+by <code>"\n"</code>.  Types except <code>"bzip2"</code> support long
 raw vectors.
 </p>
 </td>
@@ -31739,15 +31782,15 @@ useful if <code>type</code> is a variable.
 <p><code>type = "unknown"</code> attempts to detect the type of compression
 applied (if any): this will always succeed for <code>bzip2</code>
 compression, and will succeed for other forms if there is a suitable
-header.  It will auto-detect the ‘magic’ header
-(<code>"\x1f\x8b"</code>) added to files by the <code>gzip</code> program (and
-to files written by <code><a href="#connections">gzfile</a></code>), but <code>memCompress</code> does
-not add such a header. (It supports RFC 1950 format, sometimes known
-as ‘zlib’ format, for compression and decompression and RFC
-1952 for decompression only.)
+header.  If no type of compression is detected this is the same as
+<code>type = "none"</code> but a warning is given.
 </p>
 <p><code>gzip</code> compression uses whatever is the default compression
-level of the underlying library (usually <code>6</code>).
+level of the underlying library (usually <code>6</code>). This supports the
+RFC 1950 format, sometimes known as ‘zlib’ format, for
+compression and decompression and for decompression only RFC 1952, the
+‘gzip’ format (which wraps the ‘zlib’ format with a
+header and footer).
 </p>
 <p><code>bzip2</code> compression always adds a header (<code>"BZh"</code>).  The
 underlying library only supports in-memory (de)compression of up to
@@ -31786,7 +31829,7 @@ will fail if the output would have been too large.
 data compression, <a href="https://zlib.net/" target="_blank">https://zlib.net/</a>,
 <a href="https://en.wikipedia.org/wiki/Gzip" target="_blank">https://en.wikipedia.org/wiki/Gzip</a>, <a href="http://www.bzip.org/" target="_blank">http://www.bzip.org/</a>,
 <a href="https://en.wikipedia.org/wiki/Bzip2" target="_blank">https://en.wikipedia.org/wiki/Bzip2</a>, <a href="https://tukaani.org/xz/" target="_blank">https://tukaani.org/xz/</a>
-and <a href="https://en.wikipedia.org/wiki/Xz" target="_blank">https://en.wikipedia.org/wiki/Xz</a> for references about the
+and <a href="https://en.wikipedia.org/wiki/XZ_Utils" target="_blank">https://en.wikipedia.org/wiki/XZ_Utils</a> for references about the
 particular schemes used.
 </p>
 
@@ -31809,6 +31852,19 @@ stopifnot<span class="token punctuation">(</span>identical<span class="token pun
 txt.xz <span class="token operator">&lt;-</span> memCompress<span class="token punctuation">(</span>txt<span class="token punctuation">,</span> <span class="token string">"x"</span><span class="token punctuation">)</span>
 length<span class="token punctuation">(</span>txt.xz<span class="token punctuation">)</span>
 txt3 <span class="token operator">&lt;-</span> strsplit<span class="token punctuation">(</span>memDecompress<span class="token punctuation">(</span>txt.xz<span class="token punctuation">,</span> asChar <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>txt<span class="token punctuation">,</span> txt3<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## test decompressing a gzip-ed file</span>
+tf <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span>fileext <span class="token operator">=</span> <span class="token string">".gz"</span><span class="token punctuation">)</span>
+con <span class="token operator">&lt;-</span> gzfile<span class="token punctuation">(</span>tf<span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span>
+writeLines<span class="token punctuation">(</span>txt<span class="token punctuation">,</span> con<span class="token punctuation">)</span>
+close<span class="token punctuation">(</span>con<span class="token punctuation">)</span>
+<span class="token punctuation">(</span>nf <span class="token operator">&lt;-</span> file.size<span class="token punctuation">(</span>tf<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># if (nzchar(Sys.which("file"))) system2("file", tf)</span>
+foo <span class="token operator">&lt;-</span> readBin<span class="token punctuation">(</span>tf<span class="token punctuation">,</span> <span class="token string">"raw"</span><span class="token punctuation">,</span> n <span class="token operator">=</span> nf<span class="token punctuation">)</span>
+unlink<span class="token punctuation">(</span>tf<span class="token punctuation">)</span>
+<span class="token comment">## will detect the gzip header and choose type = "gzip"</span>
+txt3 <span class="token operator">&lt;-</span> strsplit<span class="token punctuation">(</span>memDecompress<span class="token punctuation">(</span>foo<span class="token punctuation">,</span> asChar <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
 stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>txt<span class="token punctuation">,</span> txt3<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -33617,11 +33673,12 @@ A character indicating the type of norm desired.
 absolute row sum);</p>
 </dd>
 <dt>
-<code>"F"</code> or <code>"f"</code>
+<code>"F"</code>, <code>"f"</code>, <code>"E"</code> or <code>"e"</code>
 </dt>
 <dd>
-<p>specifies the <b>F</b>robenius norm (the
-Euclidean norm of <code>x</code> treated as if it were a vector);</p>
+<p>specifies the
+<b>F</b>robenius norm (the <b>E</b>uclidean norm of <code>x</code>
+treated as if it were a vector);</p>
 </dd>
 <dt>
 <code>"M"</code> or <code>"m"</code>
@@ -33657,7 +33714,7 @@ detailed study of the FORTRAN code.
 
 <h3>Value</h3>
 
-<p>The matrix norm, a non-negative number.
+<p>The matrix norm, a non-negative number.  Zero for a 0-extent (empty) matrix.
 </p>
 
 
@@ -33694,9 +33751,13 @@ stopifnot<span class="token punctuation">(</span>all.equal<span class="token pun
 
 hilbert <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span> i <span class="token operator">&lt;-</span> <span class="token number">1</span><span class="token operator">:</span>n<span class="token punctuation">;</span> <span class="token number">1</span> <span class="token operator">/</span> outer<span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> `<span class="token operator">+</span>`<span class="token punctuation">)</span> <span class="token punctuation">}</span>
 h9 <span class="token operator">&lt;-</span> hilbert<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>
-<span class="token comment">## all 5 types of norm:</span>
+<span class="token comment">## all 5 (4 different) types of norm:</span>
 <span class="token punctuation">(</span>nTyp <span class="token operator">&lt;-</span> eval<span class="token punctuation">(</span>formals<span class="token punctuation">(</span>base<span class="token operator">::</span>norm<span class="token punctuation">)</span><span class="token operator">$</span>type<span class="token punctuation">)</span><span class="token punctuation">)</span>
-sapply<span class="token punctuation">(</span>nTyp<span class="token punctuation">,</span> norm<span class="token punctuation">,</span> x <span class="token operator">=</span> h9<span class="token punctuation">)</span></code></pre>
+sapply<span class="token punctuation">(</span>nTyp<span class="token punctuation">,</span> norm<span class="token punctuation">,</span> x <span class="token operator">=</span> h9<span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span>exprs <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token comment"># 0-extent matrices:</span>
+    sapply<span class="token punctuation">(</span>nTyp<span class="token punctuation">,</span> norm<span class="token punctuation">,</span> x <span class="token operator">=</span> matrix<span class="token punctuation">(</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span>
+    sapply<span class="token punctuation">(</span>nTyp<span class="token punctuation">,</span> norm<span class="token punctuation">,</span> x <span class="token operator">=</span> matrix<span class="token punctuation">(</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div>
@@ -36376,7 +36437,7 @@ consulting the environment variable <span class="env">MAKE</span>.</p>
 <code>menu.graphics</code>:</dt>
 <dd>
 <p>Logical: should graphical menus be used
-if available?.  Defaults to <code>TRUE</code>.  Currently applies to
+if available?  Defaults to <code>TRUE</code>.  Currently applies to
 <code><a href="https://r-universe.dev/manuals/utils.html#select.list">select.list</a></code>, <code><a href="https://r-universe.dev/manuals/utils.html#chooseCRANmirror">chooseCRANmirror</a></code>,
 <code><a href="https://r-universe.dev/manuals/utils.html#setRepositories">setRepositories</a></code> and to select from multiple (text)
 help files in <code><a href="https://r-universe.dev/manuals/utils.html#help">help</a></code>.</p>
@@ -36423,10 +36484,12 @@ installs.
 <dt>
 <code>repos</code>:</dt>
 <dd>
-<p>URLs of the repositories for use by
-<code><a href="https://r-universe.dev/manuals/utils.html#update.packages">update.packages</a></code>.  Initially set from entries marked as
-default in the ‘<span class="file">repositories</span>’ file, see <a href="https://r-universe.dev/manuals/utils.html#setRepositories">R_REPOSITORIES</a>.
-The ‘factory-fresh’ setting from ‘<span class="file">etc/repositories</span>’ is
+<p>character vector of repository URLs for use by
+<code><a href="https://r-universe.dev/manuals/utils.html#available.packages">available.packages</a></code> and related functions.  Initially
+set from entries marked as default in the ‘<span class="file">repositories</span>’ file,
+whose path is configurable via environment variable <span class="env">R_REPOSITORIES</span>
+(set this to <code>NULL</code> to skip initialization at startup).
+The ‘factory-fresh’ setting from the file in <code>R.home("etc")</code> is
 <code>c(CRAN="@CRAN@")</code>, a value that causes some utilities to
 prompt for a CRAN mirror.  To avoid this do set the CRAN mirror,
 by something like </p>
@@ -36444,6 +36507,17 @@ or use a personal ‘<span class="file">repositories</span>’ file.
 R-Forge, RForge.net, ...) for the current session
 using <code><a href="https://r-universe.dev/manuals/utils.html#setRepositories">setRepositories</a></code>.
 </p>
+</dd>
+<dt>
+<code>str</code>:</dt>
+<dd>
+<p>a list of options controlling the default
+<code><a href="https://r-universe.dev/manuals/utils.html#str">str</a></code> display. Defaults to <code><a href="https://r-universe.dev/manuals/utils.html#str">strOptions</a>()</code>.</p>
+</dd>
+<dt>
+<code>str.dendrogram.last</code>:</dt>
+<dd>
+<p>see <code><a href="https://r-universe.dev/manuals/stats.html#dendrogram">str.dendrogram</a></code>.</p>
 </dd>
 <dt>
 <code>SweaveHooks</code>, <code>SweaveSyntax</code>:</dt>
@@ -37292,6 +37366,8 @@ getParseData<span class="token punctuation">(</span>sf<span class="token punctua
 <h3>Description</h3>
 
 <p>Concatenate vectors after converting to character.
+Concatenation happens in two basically different ways, determined by
+<code>collapse</code> being a string or not.
 </p>
 
 
@@ -37321,17 +37397,18 @@ paste0<span class="token punctuation">(</span><span class="token ellipsis">...</
 <td><code id="paste_:_collapse">collapse</code></td>
 <td>
 <p>an optional character string to separate the results.  Not
-<code><a href="#NA">NA_character_</a></code>.</p>
+<code><a href="#NA">NA_character_</a></code>.  When <code>collapse</code> is a string,
+the result is always a string (<code><a href="#character">character</a></code> of length 1).</p>
 </td>
 </tr>
 <tr>
 <td><code id="paste_:_recycle0">recycle0</code></td>
 <td>
 <p><code><a href="#logical">logical</a></code> indicating if zero-length
-character arguments should lead to the zero-length
-<code><a href="#character">character</a>(0)</code> after the <code>sep</code>-phase (which turns into
-<code>""</code> in the <code>collapse</code>-phase, i.e., when <code>collapse</code> is
-not <code>NULL</code>).</p>
+character arguments should result in the zero-length
+<code><a href="#character">character</a>(0)</code>.  Note that when <code>collapse</code> is
+a string, <code>recycle0</code> does <em>not</em> recycle to zero-length, but
+to <code>""</code>.</p>
 </td>
 </tr>
 </table>
@@ -37339,12 +37416,12 @@ not <code>NULL</code>).</p>
 
 <p><code>paste</code> converts its arguments (<em>via</em>
 <code><a href="#character">as.character</a></code>) to character strings, and concatenates
-them (separating them by the string given by <code>sep</code>).  If the
-arguments are vectors, they are concatenated term-by-term to give a
-character vector result.  Vector arguments are recycled as needed,
-with zero-length arguments being recycled to <code>""</code> only if
-<code>recycle0</code> is not true <em>or</em> <code>collapse</code> is not
-<code>NULL</code>.
+them (separating them by the string given by <code>sep</code>).
+</p>
+<p>If the arguments are vectors, they are concatenated term-by-term to give a
+character vector result.  Vector arguments are recycled as needed.
+Zero-length arguments are recycled as <code>""</code> unless <code>recycle0</code>
+is <code>TRUE</code> and <code>collapse</code> is <code>NULL</code>.
 </p>
 <p>Note that <code>paste()</code> coerces <code><a href="#NA">NA_character_</a></code>, the
 character missing value, to <code>"NA"</code> which may seem
@@ -37441,19 +37518,24 @@ paste<span class="token punctuation">(</span>month.abb<span class="token punctua
     width <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span> collapse <span class="token operator">=</span> <span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>dist <span class="token operator">~</span> speed<span class="token punctuation">,</span> cars<span class="token punctuation">,</span> main <span class="token operator">=</span> title<span class="token punctuation">)</span>
 
-<span class="token comment">## 'recycle0 = TRUE' allows more vectorized behaviour, i.e. zero-length recycling :</span>
+<span class="token comment">## zero length arguments recycled as `""` -- NB: `{}` &lt;==&gt; character(0)  here</span>
+paste<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment">## 'recycle0 = TRUE' allows standard vectorized behaviour, i.e., zero-length</span>
+<span class="token comment">##                   recycling resulting in zero-length result character(0):</span>
 valid <span class="token operator">&lt;-</span> <span class="token boolean">FALSE</span>
 val <span class="token operator">&lt;-</span> pi
-paste<span class="token punctuation">(</span><span class="token string">"The value is"</span><span class="token punctuation">,</span> val<span class="token punctuation">[</span>valid<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"-- not so good!"</span><span class="token punctuation">)</span>
+paste<span class="token punctuation">(</span><span class="token string">"The value is"</span><span class="token punctuation">,</span> val<span class="token punctuation">[</span>valid<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"-- not so good!"</span><span class="token punctuation">)</span> <span class="token comment"># -&gt;  ".. value is  -- not .."</span>
 paste<span class="token punctuation">(</span><span class="token string">"The value is"</span><span class="token punctuation">,</span> val<span class="token punctuation">[</span>valid<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"-- good: empty!"</span><span class="token punctuation">,</span> recycle0<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span> <span class="token comment"># -&gt; character(0)</span>
-<span class="token comment">## When  'collapse = &lt;string&gt;',  the result is a length-1 string :</span>
-paste<span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"bar"</span><span class="token punctuation">,</span> collapse<span class="token operator">=</span><span class="token string">"|"</span><span class="token punctuation">)</span>                  <span class="token comment"># |--&gt;  "foo  bar"</span>
-paste<span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"bar"</span><span class="token punctuation">,</span> collapse<span class="token operator">=</span><span class="token string">"|"</span><span class="token punctuation">,</span> recycle0 <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span> <span class="token comment"># |--&gt;  ""</span>
-<span class="token comment">## all empty args</span>
-paste<span class="token punctuation">(</span>	  collapse<span class="token operator">=</span><span class="token string">"|"</span><span class="token punctuation">)</span>                  <span class="token comment"># |--&gt;  ""  as do all these:</span>
-paste<span class="token punctuation">(</span>	  collapse<span class="token operator">=</span><span class="token string">"|"</span><span class="token punctuation">,</span> recycle0 <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
-paste<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> collapse<span class="token operator">=</span><span class="token string">"|"</span><span class="token punctuation">)</span>
-paste<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> collapse<span class="token operator">=</span><span class="token string">"|"</span><span class="token punctuation">,</span> recycle0 <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+
+<span class="token comment">## When 'collapse = &lt;string&gt;',  result is (length 1) string in all cases</span>
+paste<span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"bar"</span><span class="token punctuation">,</span> collapse <span class="token operator">=</span> <span class="token string">"|"</span><span class="token punctuation">)</span>                  <span class="token comment"># |--&gt;  "foo  bar"</span>
+paste<span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>        collapse <span class="token operator">=</span> <span class="token string">"|"</span><span class="token punctuation">,</span> recycle0 <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span> <span class="token comment"># |--&gt;  ""</span>
+<span class="token comment">## If all arguments are empty (and collapse a string),   ""  results always</span>
+paste<span class="token punctuation">(</span>    collapse <span class="token operator">=</span> <span class="token string">"|"</span><span class="token punctuation">)</span>
+paste<span class="token punctuation">(</span>    collapse <span class="token operator">=</span> <span class="token string">"|"</span><span class="token punctuation">,</span> recycle0 <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+paste<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> collapse <span class="token operator">=</span> <span class="token string">"|"</span><span class="token punctuation">)</span>
+paste<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> collapse <span class="token operator">=</span> <span class="token string">"|"</span><span class="token punctuation">,</span> recycle0 <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div>
@@ -37853,7 +37935,7 @@ For thousands of points, consider using <code><a href="https://r-universe.dev/ma
 instead of <code>plot()</code>.
 </p>
 <p>For X-Y-Z plotting see <code><a href="https://r-universe.dev/manuals/graphics.html#contour">contour</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#persp">persp</a></code> and
-<code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code>.
+<code><a href="https://r-universe.dev/manuals/Matrix.html#image-methods">image</a></code>.
 </p>
 
 
@@ -43748,6 +43830,10 @@ and is the value of an environment variable of that name in an <span class="rlan
 session.
 It can be found outside an <span class="rlang"><b>R</b></span> session by <code>R <a href="https://r-universe.dev/manuals/utils.html#RHOME">RHOME</a></code>.
 </p>
+<p>The paths to components often are subdirectories of <var>R_HOME</var> but
+need not be:  <code>"doc"</code>, <code>"include"</code> and <code>"share"</code> are
+not for some Linux binary installations of <span class="rlang"><b>R</b></span>.
+</p>
 
 
 <h3>Value</h3>
@@ -43784,9 +43870,10 @@ maintainers pass it unquoted to shells, for example in
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## These result quite platform dependently :</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## These result quite platform-dependently :</span>
 rbind<span class="token punctuation">(</span>home <span class="token operator">=</span> R.home<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-      bin  <span class="token operator">=</span> R.home<span class="token punctuation">(</span><span class="token string">"bin"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># often a sub directory of 'home'</span>
+      bin  <span class="token operator">=</span> R.home<span class="token punctuation">(</span><span class="token string">"bin"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># often the 'bin' sub directory of 'home'</span>
+                            <span class="token comment"># but not always ...</span>
 list.files<span class="token punctuation">(</span>R.home<span class="token punctuation">(</span><span class="token string">"bin"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -44037,7 +44124,7 @@ or <code><a href="#format">format</a>()</code> based rounding).
 <h3>See Also</h3>
 
 <p><code><a href="#integer">as.integer</a></code>.
-Package <a href="https://CRAN.R-project.org/package=round" target="_blank"><span class="pkg">round</span></a>'s <code><a href="https://gitlab-mmaechler.r-universe.dev/round/doc/manual.html#roundX">roundX</a>()</code> for several
+Package <a href="https://CRAN.R-project.org/package=round" target="_blank"><span class="pkg">round</span></a>'s <code><a href="https://mmaechler.r-universe.dev/round/doc/manual.html#roundX">roundX</a>()</code> for several
 versions or implementations of rounding, including some previous and the
 current <span class="rlang"><b>R</b></span> version (as <code>version = "3d.C"</code>).
 </p>
@@ -47271,7 +47358,7 @@ object with a class for which '@' or '@&lt;-' S3 methods are defined.</p>
 <td>
 <p>The name of the slot or property, supplied as a character
 string or unquoted symbol. If <code>object</code> has an S4 class, then
-codename must be the name of a slot in the definition of the class
+<code>name</code> must be the name of a slot in the definition of the class
 of <code>object</code>.</p>
 </td>
 </tr>
@@ -49941,7 +50028,7 @@ checking of functions, in particular to make them easier to read.
 <p>Since <span class="rlang"><b>R</b></span> version 3.6.0, <code>stopifnot()</code> no longer handles potential
 errors or warnings (by <code><a href="#conditions">tryCatch</a>()</code> etc) for each single
 expression
-and may use <code><a href="#sys.parent">sys.call</a>(&lt;n&gt;)</code> to get a meaningful and short
+and may use <code><a href="#sys.parent">sys.call</a>(<var>n</var>)</code> to get a meaningful and short
 error message in case an expression did not evaluate to all TRUE.  This
 provides considerably less overhead.
 </p>
@@ -50003,41 +50090,52 @@ more commonly known verb as function name.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">stopifnot<span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">,</span> all.equal<span class="token punctuation">(</span>pi<span class="token punctuation">,</span> <span class="token number">3.14159265</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment"># all TRUE</span>
+<pre class="language-r"><code class="language-r"><span class="token comment">## NB: Some of these examples are expected to produce an error. To</span>
+<span class="token comment">##     prevent them from terminating a run with example() they are</span>
+<span class="token comment">##     piped into a call to try().</span>
+
+stopifnot<span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">,</span> all.equal<span class="token punctuation">(</span>pi<span class="token punctuation">,</span> <span class="token number">3.14159265</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment"># all TRUE</span>
 
 m <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
 stopifnot<span class="token punctuation">(</span>m <span class="token operator">==</span> t<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">,</span> diag<span class="token punctuation">(</span>m<span class="token punctuation">)</span> <span class="token operator">==</span> rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># all(.) |=&gt;  TRUE</span>
 
-op <span class="token operator">&lt;-</span> options<span class="token punctuation">(</span>error <span class="token operator">=</span> expression<span class="token punctuation">(</span><span class="token keyword">NULL</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment"># "disabling stop(.)"  &lt;&lt; Use with CARE! &gt;&gt;</span>
-
-stopifnot<span class="token punctuation">(</span>length<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># gives an error: '1' is *not* TRUE</span>
+stopifnot<span class="token punctuation">(</span>length<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">|</span><span class="token operator">&gt;</span> try<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># gives an error: '1' is *not* TRUE</span>
 <span class="token comment">## even when   if(1) "ok"   works</span>
 
-stopifnot<span class="token punctuation">(</span>all.equal<span class="token punctuation">(</span>pi<span class="token punctuation">,</span> <span class="token number">3.141593</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token number">2</span> <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span> <span class="token operator">&lt;</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"a"</span> <span class="token operator">&lt;</span> <span class="token string">"b"</span><span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span>all.equal<span class="token punctuation">(</span>pi<span class="token punctuation">,</span> <span class="token number">3.141593</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token number">2</span> <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span> <span class="token operator">&lt;</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"a"</span> <span class="token operator">&lt;</span> <span class="token string">"b"</span><span class="token punctuation">)</span> <span class="token operator">|</span><span class="token operator">&gt;</span> try<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment">## More convenient for interactive "line by line" evaluation:</span>
 stopifnot<span class="token punctuation">(</span>exprs <span class="token operator">=</span> <span class="token punctuation">{</span>
   all.equal<span class="token punctuation">(</span>pi<span class="token punctuation">,</span> <span class="token number">3.1415927</span><span class="token punctuation">)</span>
   <span class="token number">2</span> <span class="token operator">&lt;</span> <span class="token number">2</span>
   <span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span> <span class="token operator">&lt;</span> <span class="token number">12</span>
   <span class="token string">"a"</span> <span class="token operator">&lt;</span> <span class="token string">"b"</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">|</span><span class="token operator">&gt;</span> try<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 eObj <span class="token operator">&lt;-</span> expression<span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span> <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span>
-stopifnot<span class="token punctuation">(</span>exprObject <span class="token operator">=</span> eObj<span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span>exprObject <span class="token operator">=</span> eObj<span class="token punctuation">)</span> <span class="token operator">|</span><span class="token operator">&gt;</span> try<span class="token punctuation">(</span><span class="token punctuation">)</span>
 stopifnot<span class="token punctuation">(</span>exprObject <span class="token operator">=</span> quote<span class="token punctuation">(</span><span class="token number">3</span> <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 stopifnot<span class="token punctuation">(</span>exprObject <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 
 
 <span class="token comment"># long all.equal() error messages are abbreviated:</span>
-stopifnot<span class="token punctuation">(</span>all.equal<span class="token punctuation">(</span>rep<span class="token punctuation">(</span>list<span class="token punctuation">(</span>pi<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> list<span class="token punctuation">(</span><span class="token number">3.1</span><span class="token punctuation">,</span> <span class="token number">3.14</span><span class="token punctuation">,</span> <span class="token number">3.141</span><span class="token punctuation">,</span> <span class="token number">3.1415</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span>all.equal<span class="token punctuation">(</span>rep<span class="token punctuation">(</span>list<span class="token punctuation">(</span>pi<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> list<span class="token punctuation">(</span><span class="token number">3.1</span><span class="token punctuation">,</span> <span class="token number">3.14</span><span class="token punctuation">,</span> <span class="token number">3.141</span><span class="token punctuation">,</span> <span class="token number">3.1415</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">|</span><span class="token operator">&gt;</span> try<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 <span class="token comment"># The default error message can be overridden to be more informative:</span>
 m<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token number">12</span>
-stopifnot<span class="token punctuation">(</span><span class="token string">"m must be symmetric"</span><span class="token operator">=</span> m <span class="token operator">==</span> t<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span><span class="token string">"m must be symmetric"</span><span class="token operator">=</span> m <span class="token operator">==</span> t<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">|</span><span class="token operator">&gt;</span> try<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment">#=&gt; Error: m must be symmetric</span>
 
-options<span class="token punctuation">(</span>op<span class="token punctuation">)</span>  <span class="token comment"># revert to previous error handler</span></code></pre>
+<span class="token comment">##' warnifnot(): a "only-warning" version of stopifnot()</span>
+<span class="token comment">##'   {Yes, learn how to use do.call(substitute, ...) in a powerful manner !!}</span>
+warnifnot <span class="token operator">&lt;-</span> stopifnot <span class="token punctuation">;</span> N <span class="token operator">&lt;-</span> length<span class="token punctuation">(</span>bdy <span class="token operator">&lt;-</span> body<span class="token punctuation">(</span>warnifnot<span class="token punctuation">)</span><span class="token punctuation">)</span>
+bdy        <span class="token operator">&lt;-</span> do.call<span class="token punctuation">(</span>substitute<span class="token punctuation">,</span> list<span class="token punctuation">(</span>bdy<span class="token punctuation">,</span>   list<span class="token punctuation">(</span>stopifnot <span class="token operator">=</span> quote<span class="token punctuation">(</span>warnifnot<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+bdy<span class="token punctuation">[</span><span class="token punctuation">[</span>N<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> do.call<span class="token punctuation">(</span>substitute<span class="token punctuation">,</span> list<span class="token punctuation">(</span>bdy<span class="token punctuation">[</span><span class="token punctuation">[</span>N<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> list<span class="token punctuation">(</span>stop <span class="token operator">=</span> quote<span class="token punctuation">(</span>warning<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+body<span class="token punctuation">(</span>warnifnot<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> bdy
+warnifnot<span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment"># =&gt; warns " 2 &lt; 2 is not TRUE  "</span>
+warnifnot<span class="token punctuation">(</span>exprs <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token number">1</span> <span class="token operator">==</span> <span class="token number">1</span>
+    <span class="token number">3</span> <span class="token operator">&lt;</span> <span class="token number">3</span>  <span class="token comment"># =&gt; warns "3 &lt; 3 is not TRUE"</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div>
@@ -60015,6 +60113,8 @@ integers <code>i</code>), and the <code>is.na</code> method for the class of
 </p>
 <p>This is an <a href="#InternalMethods">internal generic</a> <a href="#Primitive">primitive</a>, so S3 or S4
 methods can be written for it.
+Differently to other internal generics, the default method is called
+explicitly when no other dispatch has happened.
 </p>
 
 
@@ -60202,6 +60302,6 @@ are not anchored.
 <hr>
 </div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.1</p></footer>
+    <footer><p>Rendered with postdoc 1.2.2</p></footer>
   </body>
 </html>
