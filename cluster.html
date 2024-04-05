@@ -57,11 +57,11 @@ al.</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">2.1.4</td>
+<td class="description-version">2.1.6</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2023-11-01 20:53:44 UTC</td>
+<td class="description-date">2024-03-27 22:42:19 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -128,9 +128,7 @@ al.</td>
 
     <hr>
     <div class="manual-pages-content">
-<div class="container manual-page" id="agnes">
-
-<a href="#agnes" class="help-page-title"><h2 id="agnes">Agglomerative Nesting (Hierarchical Clustering)</h2></a>
+<div class="container manual-page" id="agnes"><main><a href="#agnes" class="help-page-title"><h2>Agglomerative Nesting (Hierarchical Clustering)</h2></a>
 
 <h3>Description</h3>
 
@@ -149,7 +147,7 @@ al.</td>
 
 <table>
 <tr>
-<td><code id="agnes_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 
 <p>data matrix or data frame, or dissimilarity matrix, depending on the
@@ -169,7 +167,7 @@ allowed.
 </td>
 </tr>
 <tr>
-<td><code id="agnes_:_diss">diss</code></td>
+<td><code id="diss">diss</code></td>
 <td>
 
 <p>logical flag: if TRUE (default for <code>dist</code> or
@@ -180,7 +178,7 @@ a matrix of observations by variables.
 </td>
 </tr>
 <tr>
-<td><code id="agnes_:_metric">metric</code></td>
+<td><code id="metric">metric</code></td>
 <td>
 
 <p>character string specifying the metric to be used for calculating
@@ -194,7 +192,7 @@ be ignored.
 </td>
 </tr>
 <tr>
-<td><code id="agnes_:_stand">stand</code></td>
+<td><code id="stand">stand</code></td>
 <td>
 
 <p>logical flag: if TRUE, then the measurements in <code>x</code> are
@@ -207,7 +205,7 @@ argument will be ignored.
 </td>
 </tr>
 <tr>
-<td><code id="agnes_:_method">method</code></td>
+<td><code id="method">method</code></td>
 <td>
 
 <p>character string defining the clustering method.  The six methods
@@ -226,7 +224,7 @@ UPGMA” method also using the Lance-Williams formula and <code>par.method</code
 </td>
 </tr>
 <tr>
-<td><code id="agnes_:_par.method">par.method</code></td>
+<td><code id="par.method">par.method</code></td>
 <td>
 
 <p>If <code>method</code> is <code>"flexible"</code> or <code>"gaverage"</code>, a numeric
@@ -237,7 +235,7 @@ the details section.
 </tr>
 <tr>
 <td>
-<code id="agnes_:_keep.diss">keep.diss</code>, <code id="agnes_:_keep.data">keep.data</code>
+<code id="keep.diss">keep.diss</code>, <code id="keep.data">keep.data</code>
 </td>
 <td>
 <p>logicals indicating if the dissimilarities
@@ -247,7 +245,7 @@ memory allocation <em>time</em>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="agnes_:_trace.lev">trace.lev</code></td>
+<td><code id="trace.lev">trace.lev</code></td>
 <td>
 <p>integer specifying a trace level for printing
 diagnostics during the algorithm.  Default <code>0</code> does not print
@@ -477,11 +475,8 @@ par<span class="token punctuation">(</span>op<span class="token punctuation">)</
 aa.ga.<span class="token number">0</span> <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>animals<span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"gaverage"</span><span class="token punctuation">,</span> par.method <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
 stopifnot<span class="token punctuation">(</span>all.equal<span class="token punctuation">(</span>aa.ga.<span class="token number">0</span><span class="token punctuation">[</span>iC<span class="token punctuation">]</span><span class="token punctuation">,</span> aa.a<span class="token punctuation">[</span>iC<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="agnes.object">
-
-<a href="#agnes.object" class="help-page-title"><h2 id="agnes.object">Agglomerative Nesting (AGNES) Object</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="agnes.object"><main><a href="#agnes.object" class="help-page-title"><h2>Agglomerative Nesting (AGNES) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -623,11 +618,8 @@ pltree<span class="token punctuation">(</span>ag.ag<span class="token punctuatio
 <span class="token punctuation">(</span>ch6 <span class="token operator">&lt;-</span> cutree<span class="token punctuation">(</span>as.hclust<span class="token punctuation">(</span>ag.ag<span class="token punctuation">)</span><span class="token punctuation">,</span> h <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>unname<span class="token punctuation">(</span>ch6<span class="token punctuation">)</span><span class="token punctuation">,</span> ck3<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="agriculture">
-
-<a href="#agriculture" class="help-page-title"><h2 id="agriculture">European Union Agricultural Workforces</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="agriculture"><main><a href="#agriculture" class="help-page-title"><h2>European Union Agricultural Workforces</h2></a>
 
 <h3>Description</h3>
 
@@ -712,11 +704,8 @@ plot<span class="token punctuation">(</span>pam<span class="token punctuation">(
 <span class="token comment">## Plot similar to Figure 8 in Struyf et al (1996)</span>
 <span class="token comment">## Not run: plot(diana(agriculture), ask = TRUE)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="animals">
-
-<a href="#animals" class="help-page-title"><h2 id="animals">Attributes of Animals</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="animals"><main><a href="#animals" class="help-page-title"><h2>Attributes of Animals</h2></a>
 
 <h3>Description</h3>
 
@@ -812,11 +801,8 @@ ma
 <span class="token comment">## Plot similar to Figure 10 in Struyf et al (1996)</span>
 plot<span class="token punctuation">(</span>ma<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="bannerplot">
-
-<a href="#bannerplot" class="help-page-title"><h2 id="bannerplot">Plot Banner (of Hierarchical Clustering)</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="bannerplot"><main><a href="#bannerplot" class="help-page-title"><h2>Plot Banner (of Hierarchical Clustering)</h2></a>
 
 <h3>Description</h3>
 
@@ -841,79 +827,79 @@ an other binary dendrogram structure.
 
 <table>
 <tr>
-<td><code id="bannerplot_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>a list with components <code>order</code>, <code>order.lab</code> and
 <code>height</code> when <code>w</code>, the next argument is not specified.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_w">w</code></td>
+<td><code id="w">w</code></td>
 <td>
 <p>non-negative numeric vector of bar widths.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_fromLeft">fromLeft</code></td>
+<td><code id="fromLeft">fromLeft</code></td>
 <td>
 <p>logical, indicating if the banner is from the left or not.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code id="bannerplot_:_main">main</code>, <code id="bannerplot_:_sub">sub</code>
+<code id="main">main</code>, <code id="sub">sub</code>
 </td>
 <td>
 <p>main and sub titles, see <code><a href="https://r-universe.dev/manuals/graphics.html#title">title</a></code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_xlab">xlab</code></td>
+<td><code id="xlab">xlab</code></td>
 <td>
 <p>x axis label (with ‘correct’ default e.g. for
 <code>plot.agnes</code>).</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_adj">adj</code></td>
+<td><code id="adj">adj</code></td>
 <td>
 <p>passed to <code><a href="https://r-universe.dev/manuals/graphics.html#title">title</a>(main,sub)</code> for string adjustment.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_col">col</code></td>
+<td><code id="col">col</code></td>
 <td>
 <p>vector of length 2, for two horizontal segments.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_border">border</code></td>
+<td><code id="border">border</code></td>
 <td>
 <p>color for bar border; now defaults to background (no border).</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_axes">axes</code></td>
+<td><code id="axes">axes</code></td>
 <td>
 <p>logical indicating if axes (and labels) should be drawn at all.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_frame.plot">frame.plot</code></td>
+<td><code id="frame.plot">frame.plot</code></td>
 <td>
 <p>logical indicating the banner should be framed;
 mainly used when <code>border = 0</code> (as per default).</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_rev.xax">rev.xax</code></td>
+<td><code id="rev.xax">rev.xax</code></td>
 <td>
 <p>logical indicating if the x axis should be reversed (as
 in <code>plot.diana</code>).</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_xax.pretty">xax.pretty</code></td>
+<td><code id="xax.pretty">xax.pretty</code></td>
 <td>
 <p>logical or integer indicating if
 <code><a href="https://r-universe.dev/manuals/base.html#pretty">pretty</a>()</code> should be used for the x axis.
@@ -921,41 +907,41 @@ in <code>plot.diana</code>).</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_labels">labels</code></td>
+<td><code id="labels">labels</code></td>
 <td>
 <p>labels to use on y-axis; the default is constructed from
 <code>x</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_nmax.lab">nmax.lab</code></td>
+<td><code id="nmax.lab">nmax.lab</code></td>
 <td>
 <p>integer indicating the number of labels which is
 considered too large for single-name labelling the banner plot.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_max.strlen">max.strlen</code></td>
+<td><code id="max.strlen">max.strlen</code></td>
 <td>
 <p>positive integer giving the length to which
 strings are truncated in banner plot labeling.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_yax.do">yax.do</code></td>
+<td><code id="yax.do">yax.do</code></td>
 <td>
 <p>logical indicating if a y axis and banner labels should
 be drawn.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_yaxRight">yaxRight</code></td>
+<td><code id="yaxRight">yaxRight</code></td>
 <td>
 <p>logical indicating if the y axis is on the right or left.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_y.mar">y.mar</code></td>
+<td><code id="y.mar">y.mar</code></td>
 <td>
 <p>positive number specifying the margin width to use when
 banners are labeled (along a y-axis).  The default adapts to the
@@ -963,7 +949,7 @@ string width and optimally would also dependend on the font.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bannerplot_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>graphical parameters (see <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>) may also
 be supplied as arguments to this function.</p>
@@ -987,11 +973,8 @@ be supplied as arguments to this function.</p>
 <pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
 bannerplot<span class="token punctuation">(</span>agnes<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span><span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token string">"Bannerplot"</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="chorSub">
-
-<a href="#chorSub" class="help-page-title"><h2 id="chorSub">Subset of C-horizon of Kola Data</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="chorSub"><main><a href="#chorSub" class="help-page-title"><h2>Subset of C-horizon of Kola Data</h2></a>
 
 <h3>Description</h3>
 
@@ -1043,11 +1026,8 @@ Kola data in the same package.
 summary<span class="token punctuation">(</span>chorSub<span class="token punctuation">)</span>
 pairs<span class="token punctuation">(</span>chorSub<span class="token punctuation">,</span> gap<span class="token operator">=</span> <span class="token number">.1</span><span class="token punctuation">)</span><span class="token comment"># some outliers</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="clara">
-
-<a href="#clara" class="help-page-title"><h2 id="clara">Clustering Large Applications</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="clara"><main><a href="#clara" class="help-page-title"><h2>Clustering Large Applications</h2></a>
 
 <h3>Description</h3>
 
@@ -1068,16 +1048,17 @@ clustering of the data into <code>k</code> clusters.
 
 <table>
 <tr>
-<td><code id="clara_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 
 <p>data matrix or data frame, each row corresponds to an observation,
-and each column corresponds to a variable.  All variables must be numeric.
+and each column corresponds to a variable.  All variables must be
+numeric (or logical).
 Missing values (NAs) are allowed.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clara_:_k">k</code></td>
+<td><code id="k">k</code></td>
 <td>
 <p>integer, the number of clusters.
 It is required that <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>k</mi><mo>&lt;</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">0 &lt; k &lt; n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code> where <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code> is the number of
@@ -1085,13 +1066,13 @@ observations (i.e., n = <code>nrow(x)</code>).</p>
 </td>
 </tr>
 <tr>
-<td><code id="clara_:_metric">metric</code></td>
+<td><code id="metric">metric</code></td>
 <td>
 
 <p>character string specifying the metric to be used for calculating
 dissimilarities between observations.
-The currently available options are "euclidean", "manhattan", and
-"jaccard".
+The currently available options are "euclidean", "manhattan", 
+"jaccard". 
 </p>
 <p>Euclidean distances are root sum-of-squares of differences, and
 manhattan distances are the sum of absolute differences.
@@ -1099,7 +1080,7 @@ manhattan distances are the sum of absolute differences.
 </td>
 </tr>
 <tr>
-<td><code id="clara_:_stand">stand</code></td>
+<td><code id="stand">stand</code></td>
 <td>
 <p>logical, indicating if the measurements in <code>x</code> are
 standardized before calculating the dissimilarities.  Measurements
@@ -1110,14 +1091,14 @@ deviation.
 </td>
 </tr>
 <tr>
-<td><code id="clara_:_cluster.only">cluster.only</code></td>
+<td><code id="cluster.only">cluster.only</code></td>
 <td>
 <p>logical; if true, only the clustering will be
 computed and returned, see details.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clara_:_samples">samples</code></td>
+<td><code id="samples">samples</code></td>
 <td>
 <p>integer, say <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span></code>, the number of samples to be drawn from the
 dataset.  The default, <code>N = 5</code>, is rather small for historical (and
@@ -1127,7 +1108,7 @@ now back compatibility) reasons and we <em>recommend to set
 </td>
 </tr>
 <tr>
-<td><code id="clara_:_sampsize">sampsize</code></td>
+<td><code id="sampsize">sampsize</code></td>
 <td>
 <p>integer, say <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span></code>, the number of observations in each
 sample.  <code>sampsize</code> should be higher than the number of clusters
@@ -1138,14 +1119,14 @@ see note below, it may still be advisable to set
 </td>
 </tr>
 <tr>
-<td><code id="clara_:_trace">trace</code></td>
+<td><code id="trace">trace</code></td>
 <td>
 <p>integer indicating a <em>trace level</em> for diagnostic
 output during the algorithm.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clara_:_medoids.x">medoids.x</code></td>
+<td><code id="medoids.x">medoids.x</code></td>
 <td>
 <p>logical indicating if the medoids should be
 returned, identically to some rows of the input data <code>x</code>.  If
@@ -1156,7 +1137,7 @@ one copy less of <code>x</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clara_:_keep.data">keep.data</code></td>
+<td><code id="keep.data">keep.data</code></td>
 <td>
 <p>logical indicating if the (<em>scaled</em> if
 <code>stand</code> is true) data should be kept in the result.
@@ -1168,7 +1149,7 @@ disables <code><a href="#clusplot.partition">clusplot</a>()</code>ing of the res
 </td>
 </tr>
 <tr>
-<td><code id="clara_:_rngR">rngR</code></td>
+<td><code id="rngR">rngR</code></td>
 <td>
 <p>logical indicating if <span class="rlang"><b>R</b></span>'s random number generator should
 be used instead of the primitive clara()-builtin one.  If true, this
@@ -1177,7 +1158,7 @@ also means that each call to <code>clara()</code> returns a different result
 </td>
 </tr>
 <tr>
-<td><code id="clara_:_pamLike">pamLike</code></td>
+<td><code id="pamLike">pamLike</code></td>
 <td>
 <p>logical indicating if the “swap” phase (see
 <code><a href="#pam">pam</a></code>, in C code) should use the same algorithm as
@@ -1190,7 +1171,7 @@ remain back compatible rather than “PAM compatible”.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clara_:_correct.d">correct.d</code></td>
+<td><code id="correct.d">correct.d</code></td>
 <td>
 <p>logical or integer indicating that—only in the case
 of <code>NA</code>s present in <code>x</code>—the correct distance computation
@@ -1205,7 +1186,8 @@ specifies <code>correct.d</code>.</p>
 </table>
 <h3>Details</h3>
 
-<p><code>clara</code> is fully described in chapter 3 of Kaufman and Rousseeuw (1990).
+<p><code>clara</code> (for "euclidean" and "manhattan") is fully described in
+chapter 3 of Kaufman and Rousseeuw (1990).
 Compared to other partitioning methods such as <code>pam</code>, it can deal with
 much larger datasets.  Internally, this is achieved by considering
 sub-datasets of fixed size (<code>sampsize</code>) such that the time and
@@ -1282,6 +1264,7 @@ tests by Martin Maechler.
 </p>
 
 
+
 <h3>See Also</h3>
 
 <p><code><a href="#agnes">agnes</a></code> for background and references;
@@ -1336,11 +1319,8 @@ tcl <span class="token operator">&lt;-</span> apply<span class="token punctuatio
   t<span class="token punctuation">(</span>tabD<span class="token punctuation">)</span> <span class="token comment"># how many times in which clusters</span>
 <span class="token punctuation">}</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="clara.object">
-
-<a href="#clara.object" class="help-page-title"><h2 id="clara.object">Clustering Large Applications (CLARA) Object</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="clara.object"><main><a href="#clara.object" class="help-page-title"><h2>Clustering Large Applications (CLARA) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -1453,11 +1433,8 @@ be used on a <code>clara</code> object.
 <code><a href="#partition.object">partition.object</a></code>, <code><a href="#plot.partition">plot.partition</a></code>.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="clusGap">
-
-<a href="#clusGap" class="help-page-title"><h2 id="clusGap">Gap Statistic for Estimating the Number of Clusters</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="clusGap"><main><a href="#clusGap" class="help-page-title"><h2>Gap Statistic for Estimating the Number of Clusters</h2></a>
 
 <h3>Description</h3>
 
@@ -1506,13 +1483,13 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <table>
 <tr>
-<td><code id="clusGap_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>numeric matrix or <code><a href="https://r-universe.dev/manuals/base.html#data.frame">data.frame</a></code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusGap_:_FUNcluster">FUNcluster</code></td>
+<td><code id="FUNcluster">FUNcluster</code></td>
 <td>
 <p>a <code><a href="https://r-universe.dev/manuals/base.html#function">function</a></code> which accepts as first
 argument a (data) matrix like <code>x</code>, second argument, say
@@ -1524,20 +1501,20 @@ integers in <code>1:k</code> determining the clustering or grouping of the
 </td>
 </tr>
 <tr>
-<td><code id="clusGap_:_K.max">K.max</code></td>
+<td><code id="K.max">K.max</code></td>
 <td>
 <p>the maximum number of clusters to consider, must be at
 least two.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusGap_:_B">B</code></td>
+<td><code id="B">B</code></td>
 <td>
 <p>integer, number of Monte Carlo (“bootstrap”) samples.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusGap_:_d.power">d.power</code></td>
+<td><code id="d.power">d.power</code></td>
 <td>
 <p>a positive integer specifying the power <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></code> which
 is applied to the euclidean distances (<code><a href="https://r-universe.dev/manuals/stats.html#dist">dist</a></code>) before
@@ -1548,7 +1525,7 @@ proposed.  This was found by Juan Gonzalez, in 2016-02.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusGap_:_spaceH0">spaceH0</code></td>
+<td><code id="spaceH0">spaceH0</code></td>
 <td>
 <p>a <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> string specifying the
 space of the <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">H_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></code> distribution (of <em>no</em> cluster).  Both
@@ -1559,7 +1536,7 @@ Juan Gonzalez.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusGap_:_verbose">verbose</code></td>
+<td><code id="verbose">verbose</code></td>
 <td>
 <p>integer or logical, determining if “progress”
 output should be printed.  The default prints one bit per bootstrap
@@ -1567,27 +1544,27 @@ sample.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusGap_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>(for <code>clusGap()</code>:) optionally further arguments for
 <code>FUNcluster()</code>, see <code>kmeans</code> example below.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusGap_:_f">f</code></td>
+<td><code id="f">f</code></td>
 <td>
 <p>numeric vector of ‘function values’, of length
 <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span></code>, whose (“1 SE respected”) maximum we want.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusGap_:_SE.f">SE.f</code></td>
+<td><code id="SE.f">SE.f</code></td>
 <td>
 <p>numeric vector of length <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span></code> of standard errors of <code>f</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusGap_:_method">method</code></td>
+<td><code id="method">method</code></td>
 <td>
 <p>character string indicating how the “optimal”
 number of clusters, <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>k</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9579em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9579em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">^</span></span></span></span></span></span></span></span></span></span></code>, is computed from the gap
@@ -1648,7 +1625,7 @@ within an “f S.E.” range of that maximum (see also
 </td>
 </tr>
 <tr>
-<td><code id="clusGap_:_SE.factor">SE.factor</code></td>
+<td><code id="SE.factor">SE.factor</code></td>
 <td>
 <p>[When <code>method</code> contains <code>"SE"</code>] Determining
 the optimal number of clusters, Tibshirani et al. proposed the
@@ -1658,7 +1635,7 @@ the optimal number of clusters, Tibshirani et al. proposed the
 </tr>
 <tr>
 <td>
-<code id="clusGap_:_type">type</code>, <code id="clusGap_:_xlab">xlab</code>, <code id="clusGap_:_ylab">ylab</code>, <code id="clusGap_:_main">main</code>
+<code id="type">type</code>, <code id="xlab">xlab</code>, <code id="ylab">ylab</code>, <code id="main">main</code>
 </td>
 <td>
 <p>arguments with the same meaning as in
@@ -1666,14 +1643,14 @@ the optimal number of clusters, Tibshirani et al. proposed the
 </td>
 </tr>
 <tr>
-<td><code id="clusGap_:_do.arrows">do.arrows</code></td>
+<td><code id="do.arrows">do.arrows</code></td>
 <td>
 <p>logical indicating if (1 SE -)“error bars”
 should be drawn, via <code><a href="https://r-universe.dev/manuals/graphics.html#arrows">arrows</a>()</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusGap_:_arrowArgs">arrowArgs</code></td>
+<td><code id="arrowArgs">arrowArgs</code></td>
 <td>
 <p>a list of arguments passed to <code><a href="https://r-universe.dev/manuals/graphics.html#arrows">arrows</a>()</code>;
 the default, notably <code>angle</code> and <code>code</code>, provide a style
@@ -1787,7 +1764,8 @@ R package version 1.9.7.
 
 
 
-<a href="http://bioconductor.org/packages/3.12/bioc/html/SAGx.html" target="_blank">http://bioconductor.org/packages/3.12/bioc/html/SAGx.html</a>
+<a href="https://bioconductor.org/packages/3.12/bioc/html/SAGx.html" target="_blank">https://bioconductor.org/packages/3.12/bioc/html/SAGx.html</a>
+Deprecated and removed from Bioc ca. 2022
 </p>
 
 
@@ -1870,11 +1848,8 @@ gsP.Z <span class="token operator">&lt;-</span> clusGap<span class="token punctu
 plot<span class="token punctuation">(</span>gsP.Z<span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token string">"clusGap(&lt;iid_rnorm_p=3&gt;)  ==&gt; k = 1  cluster is optimal"</span><span class="token punctuation">)</span>
 gsP.Z</code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="clusplot.partition">
-
-<a href="#clusplot.partition" class="help-page-title"><h2 id="clusplot">Bivariate Cluster Plot (of a Partitioning Object)</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="clusplot.partition"><main><a href="#clusplot.partition" class="help-page-title"><h2>Bivariate Cluster Plot (of a Partitioning Object)</h2></a>
 
 <h3>Description</h3>
 
@@ -1896,7 +1871,7 @@ clusplot<span class="token punctuation">(</span>x<span class="token punctuation"
 
 <table>
 <tr>
-<td><code id="clusplot_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object, here, specifically an object of class
 <code>"partition"</code>, e.g. created by one of the functions
@@ -1904,14 +1879,14 @@ clusplot<span class="token punctuation">(</span>x<span class="token punctuation"
 </td>
 </tr>
 <tr>
-<td><code id="clusplot_:_main">main</code></td>
+<td><code id="main">main</code></td>
 <td>
 <p>title for the plot; when <code>NULL</code> (by default), a title
 is constructed, using <code>x$call</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusplot_:_dist">dist</code></td>
+<td><code id="dist">dist</code></td>
 <td>
 <p>when <code>x</code> does not have a <code>diss</code> nor a
 <code>data</code> component, e.g., for <code><a href="#pam">pam</a>(dist(*),
@@ -1920,7 +1895,7 @@ clusplot.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusplot_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>optional arguments passed to methods, notably the
 <code><a href="#clusplot.default">clusplot.default</a></code> method (except for the <code>diss</code>
@@ -1982,11 +1957,8 @@ clusplot<span class="token punctuation">(</span>pam<span class="token punctuatio
 x4 <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span>x<span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 clusplot<span class="token punctuation">(</span>pam<span class="token punctuation">(</span>x4<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="clusplot.default">
-
-<a href="#clusplot.default" class="help-page-title"><h2 id="clusplot.default">Bivariate Cluster Plot (clusplot) Default Method</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="clusplot.default"><main><a href="#clusplot.default" class="help-page-title"><h2>Bivariate Cluster Plot (clusplot) Default Method</h2></a>
 
 <h3>Description</h3>
 
@@ -2021,7 +1993,7 @@ clusplot<span class="token punctuation">(</span>x<span class="token punctuation"
 
 <table>
 <tr>
-<td><code id="clusplot.default_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>matrix or data frame, or dissimilarity matrix, depending on
 the value of the <code>diss</code> argument.
@@ -2043,7 +2015,7 @@ are not allowed.
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_clus">clus</code></td>
+<td><code id="clus">clus</code></td>
 <td>
 
 <p>a vector of length n representing a clustering of <code>x</code>.  For
@@ -2054,7 +2026,7 @@ component of the output of <code><a href="#pam">pam</a></code>, <code><a href="#
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_diss">diss</code></td>
+<td><code id="diss">diss</code></td>
 <td>
 
 <p>logical indicating if <code>x</code> will be considered as a dissimilarity
@@ -2063,7 +2035,7 @@ arugment above).</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_s.x.2d">s.x.2d</code></td>
+<td><code id="s.x.2d">s.x.2d</code></td>
 <td>
 <p>a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with components named <code>x</code> (a <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n
       \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></code> matrix; typically something like principal components of
@@ -2071,7 +2043,7 @@ original data), <code>labs</code> and <code>var.dec</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_stand">stand</code></td>
+<td><code id="stand">stand</code></td>
 <td>
 
 <p>logical flag: if true, then the representations of the n observations in the
@@ -2080,7 +2052,7 @@ original data), <code>labs</code> and <code>var.dec</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_lines">lines</code></td>
+<td><code id="lines">lines</code></td>
 <td>
 
 <p>integer out of <code>0, 1, 2</code>, used to obtain an idea of the
@@ -2111,7 +2083,7 @@ E2 is drawn (along the line connecting <code class="reqn"><span class="katex"><s
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_shade">shade</code></td>
+<td><code id="shade">shade</code></td>
 <td>
 
 <p>logical flag: if TRUE, then the ellipses are shaded in relation to their
@@ -2121,7 +2093,7 @@ area of the ellipse.
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_color">color</code></td>
+<td><code id="color">color</code></td>
 <td>
 
 <p>logical flag: if TRUE, then the ellipses are colored with respect to their
@@ -2132,7 +2104,7 @@ background).</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_labels">labels</code></td>
+<td><code id="labels">labels</code></td>
 <td>
 
 <p>integer code, currently one of 0,1,2,3,4 and 5.  If
@@ -2180,7 +2152,7 @@ be taken into account.
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_plotchar">plotchar</code></td>
+<td><code id="plotchar">plotchar</code></td>
 <td>
 
 <p>logical flag: if TRUE, then the plotting symbols differ for points belonging
@@ -2189,7 +2161,7 @@ to different clusters.
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_span">span</code></td>
+<td><code id="span">span</code></td>
 <td>
 
 <p>logical flag: if TRUE, then each cluster is represented by the ellipse with
@@ -2207,7 +2179,7 @@ ellipse around it and <code>span=TRUE</code> gives the exact line segment.
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_add">add</code></td>
+<td><code id="add">add</code></td>
 <td>
 <p>logical indicating if ellipses (and labels if <code>labels</code>
 is true) should be <em>added</em> to an already existing plot.  If
@@ -2216,19 +2188,19 @@ is written.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_col.p">col.p</code></td>
+<td><code id="col.p">col.p</code></td>
 <td>
 <p>color code(s) used for the observation points.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_col.txt">col.txt</code></td>
+<td><code id="col.txt">col.txt</code></td>
 <td>
 <p>color code(s) used for the labels (if <code>labels &gt;= 2</code>).</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_col.clus">col.clus</code></td>
+<td><code id="col.clus">col.clus</code></td>
 <td>
 <p>color code for the ellipses (and their labels);
 only one if color is false (as per default).</p>
@@ -2236,7 +2208,7 @@ only one if color is false (as per default).</p>
 </tr>
 <tr>
 <td>
-<code id="clusplot.default_:_cex">cex</code>, <code id="clusplot.default_:_cex.txt">cex.txt</code>
+<code id="cex">cex</code>, <code id="cex.txt">cex.txt</code>
 </td>
 <td>
 <p>character <b>ex</b>pansion (size), for the point
@@ -2245,7 +2217,7 @@ symbols and point labels, respectively.</p>
 </tr>
 <tr>
 <td>
-<code id="clusplot.default_:_xlim">xlim</code>, <code id="clusplot.default_:_ylim">ylim</code>
+<code id="xlim">xlim</code>, <code id="ylim">ylim</code>
 </td>
 <td>
 <p>numeric vectors of length 2, giving the x- and y-
@@ -2253,34 +2225,34 @@ ranges as in <code><a href="https://r-universe.dev/manuals/graphics.html#plot.de
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_main">main</code></td>
+<td><code id="main">main</code></td>
 <td>
 <p>main title for the plot; by default, one is constructed.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_sub">sub</code></td>
+<td><code id="sub">sub</code></td>
 <td>
 <p>sub title for the plot; by default, one is constructed.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code id="clusplot.default_:_xlab">xlab</code>, <code id="clusplot.default_:_ylab">ylab</code>
+<code id="xlab">xlab</code>, <code id="ylab">ylab</code>
 </td>
 <td>
 <p>x- and y- axis labels for the plot, with defaults.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_verbose">verbose</code></td>
+<td><code id="verbose">verbose</code></td>
 <td>
 <p>a logical indicating, if there should be extra
 diagnostic output; mainly for ‘debugging’.</p>
 </td>
 </tr>
 <tr>
-<td><code id="clusplot.default_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>Further graphical parameters may also be supplied, see
 <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>.</p>
@@ -2426,11 +2398,8 @@ rect<span class="token punctuation">(</span>U<span class="token punctuation">[</
 <span class="token comment"># reset graphics</span>
 par<span class="token punctuation">(</span>op<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="coef.hclust">
-
-<a href="#coef.hclust" class="help-page-title"><h2 id="coef.hclust">Agglomerative / Divisive Coefficient for 'hclust' Objects</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="coef.hclust"><main><a href="#coef.hclust" class="help-page-title"><h2>Agglomerative / Divisive Coefficient for 'hclust' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -2467,7 +2436,7 @@ coef<span class="token punctuation">(</span>object<span class="token punctuation
 
 <table>
 <tr>
-<td><code id="coef.hclust_:_object">object</code></td>
+<td><code id="object">object</code></td>
 <td>
 <p>an object of class <code>"hclust"</code> or <code>"twins"</code>,
 i.e., typically the result of
@@ -2482,7 +2451,7 @@ appropriate <code>merge</code> and <code>heights</code> components.
 </td>
 </tr>
 <tr>
-<td><code id="coef.hclust_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>currently unused potential further arguments</p>
 </td>
@@ -2504,11 +2473,8 @@ coef<span class="token punctuation">(</span>aa<span class="token punctuation">)<
 coef<span class="token punctuation">(</span>as.hclust<span class="token punctuation">(</span>aa<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment"># recomputes</span>
 coefHier<span class="token punctuation">(</span>aa<span class="token punctuation">)</span>       <span class="token comment"># ditto</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="daisy">
-
-<a href="#daisy" class="help-page-title"><h2 id="daisy">Dissimilarity Matrix Calculation</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="daisy"><main><a href="#daisy" class="help-page-title"><h2>Dissimilarity Matrix Calculation</h2></a>
 
 <h3>Description</h3>
 
@@ -2532,7 +2498,7 @@ below.
 
 <table>
 <tr>
-<td><code id="daisy_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 
 <p>numeric matrix or data frame, of dimension <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">n\times p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></code>,
@@ -2548,7 +2514,7 @@ should be specified with the <code>type</code> argument.  Missing values
 </td>
 </tr>
 <tr>
-<td><code id="daisy_:_metric">metric</code></td>
+<td><code id="metric">metric</code></td>
 <td>
 
 <p>character string specifying the metric to be used.
@@ -2568,7 +2534,7 @@ variable-specific distances, see the details section.
 </td>
 </tr>
 <tr>
-<td><code id="daisy_:_stand">stand</code></td>
+<td><code id="stand">stand</code></td>
 <td>
 <p>logical flag: if TRUE, then the measurements in <code>x</code>
 are standardized before calculating the
@@ -2584,7 +2550,7 @@ be ignored and Gower's standardization (based on the
 </td>
 </tr>
 <tr>
-<td><code id="daisy_:_type">type</code></td>
+<td><code id="type">type</code></td>
 <td>
 <p>list for specifying some (or all) of the types of the
 variables (columns) in <code>x</code>.  The list may contain the following
@@ -2607,7 +2573,8 @@ components:
 <code>"factor"</code> </dt>
 <dd>
 <p><b>N</b>ominal – the default for <code><a href="https://r-universe.dev/manuals/base.html#factor">factor</a></code>
-variables, aka <code>"N"</code>.</p>
+variables, aka <code>"N"</code>.  When the factor has 2 levels, this is
+equivalent to <code>type = "S"</code> for a (symmetric) binary variable.</p>
 </dd>
 <dt><code>"ordered"</code></dt>
 <dd>
@@ -2646,7 +2613,7 @@ the default <code>type = list()</code> may often be sufficient.
 </td>
 </tr>
 <tr>
-<td><code id="daisy_:_weights">weights</code></td>
+<td><code id="weights">weights</code></td>
 <td>
 <p>an optional numeric vector of length <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></code>(=<code>ncol(x)</code>); to
 be used in “case 2” (mixed variables, or <code>metric = "gower"</code>),
@@ -2656,7 +2623,7 @@ specifying a weight for each variable (<code>x[,k]</code>) instead of
 </tr>
 <tr>
 <td>
-<code id="daisy_:_warnBin">warnBin</code>, <code id="daisy_:_warnAsym">warnAsym</code>, <code id="daisy_:_warnConst">warnConst</code>
+<code id="warnBin">warnBin</code>, <code id="warnAsym">warnAsym</code>, <code id="warnConst">warnConst</code>
 </td>
 <td>
 <p>logicals indicating if the
@@ -2664,7 +2631,7 @@ corresponding type checking warnings should be signalled (when found).</p>
 </td>
 </tr>
 <tr>
-<td><code id="daisy_:_warnType">warnType</code></td>
+<td><code id="warnType">warnType</code></td>
 <td>
 <p>logical indicating if <em>all</em> the type checking
 warnings should be active or not.</p>
@@ -2835,20 +2802,33 @@ as.matrix<span class="token punctuation">(</span>d.agr<span class="token punctua
 <span class="token comment">## compare with</span>
 as.matrix<span class="token punctuation">(</span>daisy<span class="token punctuation">(</span>agriculture<span class="token punctuation">,</span> metric <span class="token operator">=</span> <span class="token string">"gower"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-data<span class="token punctuation">(</span>flower<span class="token punctuation">)</span>
-<span class="token comment">## Example 2 in ref</span>
-summary<span class="token punctuation">(</span>dfl1 <span class="token operator">&lt;-</span> daisy<span class="token punctuation">(</span>flower<span class="token punctuation">,</span> type <span class="token operator">=</span> list<span class="token punctuation">(</span>asymm <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-summary<span class="token punctuation">(</span>dfl2 <span class="token operator">&lt;-</span> daisy<span class="token punctuation">(</span>flower<span class="token punctuation">,</span> type <span class="token operator">=</span> list<span class="token punctuation">(</span>asymm <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ordratio <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment">## this failed earlier:</span>
-summary<span class="token punctuation">(</span>dfl3 <span class="token operator">&lt;-</span> daisy<span class="token punctuation">(</span>flower<span class="token punctuation">,</span>
-        type <span class="token operator">=</span> list<span class="token punctuation">(</span>asymm <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"V1"</span><span class="token punctuation">,</span> <span class="token string">"V3"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> symm<span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>
-                    ordratio<span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">,</span> logratio<span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<span class="token comment">## Example 2 in reference, extended  ---  different ways of "mixed" / "gower":</span>
 
-<hr>
-</div>
-<div class="container manual-page" id="diana">
+example<span class="token punctuation">(</span>flower<span class="token punctuation">)</span> <span class="token comment"># -&gt; data(flower) *and* provide 'flowerN'</span>
 
-<a href="#diana" class="help-page-title"><h2 id="diana">DIvisive ANAlysis Clustering</h2></a>
+summary<span class="token punctuation">(</span>d0    <span class="token operator">&lt;-</span> daisy<span class="token punctuation">(</span>flower<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># -&gt; the first 3 {0,1} treated as *N*ominal</span>
+summary<span class="token punctuation">(</span>dS123 <span class="token operator">&lt;-</span> daisy<span class="token punctuation">(</span>flower<span class="token punctuation">,</span>  type <span class="token operator">=</span> list<span class="token punctuation">(</span>symm <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># first 3 treated as *S*ymmetric</span>
+stopifnot<span class="token punctuation">(</span>dS123 <span class="token operator">==</span> d0<span class="token punctuation">)</span> <span class="token comment"># i.e.,  *S*ymmetric &lt;==&gt; *N*ominal {for 2-level factor}</span>
+summary<span class="token punctuation">(</span>dNS123<span class="token operator">&lt;-</span> daisy<span class="token punctuation">(</span>flowerN<span class="token punctuation">,</span> type <span class="token operator">=</span> list<span class="token punctuation">(</span>symm <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span>dS123 <span class="token operator">==</span> d0<span class="token punctuation">)</span>
+<span class="token comment">## by default, however ...</span>
+summary<span class="token punctuation">(</span>dA123 <span class="token operator">&lt;-</span> daisy<span class="token punctuation">(</span>flowerN<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># .. all 3 logicals treated *A*symmetric binary (w/ warning)</span>
+summary<span class="token punctuation">(</span>dA3  <span class="token operator">&lt;-</span> daisy<span class="token punctuation">(</span>flower<span class="token punctuation">,</span> type <span class="token operator">=</span> list<span class="token punctuation">(</span>asymm <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+summary<span class="token punctuation">(</span>dA13 <span class="token operator">&lt;-</span> daisy<span class="token punctuation">(</span>flower<span class="token punctuation">,</span> type <span class="token operator">=</span> list<span class="token punctuation">(</span>asymm <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ordratio <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">## Mixing variable *names* and column numbers (failed in the past):</span>
+summary<span class="token punctuation">(</span>dfl3 <span class="token operator">&lt;-</span> daisy<span class="token punctuation">(</span>flower<span class="token punctuation">,</span> type <span class="token operator">=</span> list<span class="token punctuation">(</span>asymm <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"V1"</span><span class="token punctuation">,</span> <span class="token string">"V3"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> symm<span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                                          ordratio<span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">,</span> logratio<span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## If we'd treat the first 3 as simple {0,1}</span>
+Nflow <span class="token operator">&lt;-</span> flower
+Nflow<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> lapply<span class="token punctuation">(</span>flower<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> \<span class="token punctuation">(</span>f<span class="token punctuation">)</span> as.integer<span class="token punctuation">(</span>as.character<span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+summary<span class="token punctuation">(</span>dN <span class="token operator">&lt;-</span> daisy<span class="token punctuation">(</span>Nflow<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># w/ warning: treated binary .. 1:3 as interval</span>
+<span class="token comment">## Still, using Euclidean/Manhattan distance for {0-1} *is* identical to treating them as "N" :</span>
+stopifnot<span class="token punctuation">(</span>dN <span class="token operator">==</span> d0<span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span>dN <span class="token operator">==</span> daisy<span class="token punctuation">(</span>Nflow<span class="token punctuation">,</span> type <span class="token operator">=</span> list<span class="token punctuation">(</span>symm <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># or as "S"</span></code></pre>
+
+<hr></main></div>
+<div class="container manual-page" id="diana"><main><a href="#diana" class="help-page-title"><h2>DIvisive ANAlysis Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -2868,7 +2848,7 @@ returning an object of class <code>diana</code>.
 
 <table>
 <tr>
-<td><code id="diana_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 
 <p>data matrix or data frame, or dissimilarity matrix or object,
@@ -2887,7 +2867,7 @@ above-mentioned functions. Missing values (NAs) are <em>not</em> allowed.
 </td>
 </tr>
 <tr>
-<td><code id="diana_:_diss">diss</code></td>
+<td><code id="diss">diss</code></td>
 <td>
 
 <p>logical flag: if TRUE (default for <code>dist</code> or
@@ -2898,7 +2878,7 @@ a matrix of observations by variables.
 </td>
 </tr>
 <tr>
-<td><code id="diana_:_metric">metric</code></td>
+<td><code id="metric">metric</code></td>
 <td>
 
 <p>character string specifying the metric to be used for calculating
@@ -2912,7 +2892,7 @@ this argument will be ignored.
 </td>
 </tr>
 <tr>
-<td><code id="diana_:_stand">stand</code></td>
+<td><code id="stand">stand</code></td>
 <td>
 <p>logical; if true, the measurements in <code>x</code> are
 standardized before calculating the dissimilarities.  Measurements
@@ -2923,7 +2903,7 @@ argument will be ignored.</p>
 </td>
 </tr>
 <tr>
-<td><code id="diana_:_stop.at.k">stop.at.k</code></td>
+<td><code id="stop.at.k">stop.at.k</code></td>
 <td>
 <p>logical or integer, <code>FALSE</code> by default.
 Otherwise must be integer, say <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></code>, in <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{1,2,..,n\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">..</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">}</span></span></span></span></code>,
@@ -2934,7 +2914,7 @@ Non-default NOT YET IMPLEMENTED.</p>
 </tr>
 <tr>
 <td>
-<code id="diana_:_keep.diss">keep.diss</code>, <code id="diana_:_keep.data">keep.data</code>
+<code id="keep.diss">keep.diss</code>, <code id="keep.data">keep.data</code>
 </td>
 <td>
 <p>logicals indicating if the dissimilarities
@@ -2944,7 +2924,7 @@ memory allocation <em>time</em>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="diana_:_trace.lev">trace.lev</code></td>
+<td><code id="trace.lev">trace.lev</code></td>
 <td>
 <p>integer specifying a trace level for printing
 diagnostics during the algorithm.  Default <code>0</code> does not print
@@ -3101,11 +3081,8 @@ data<span class="token punctuation">(</span>agriculture<span class="token punctu
 <span class="token comment">## Plot similar to Figure 8 in ref</span>
 <span class="token comment">## Not run: plot(diana(agriculture), ask = TRUE)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="dissimilarity.object">
-
-<a href="#dissimilarity.object" class="help-page-title"><h2 id="dissimilarity.object">Dissimilarity Matrix Object</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="dissimilarity.object"><main><a href="#dissimilarity.object" class="help-page-title"><h2>Dissimilarity Matrix Object</h2></a>
 
 <h3>Description</h3>
 
@@ -3229,11 +3206,8 @@ functions: <code>print</code>, <code>summary</code>.
 <code><a href="#agnes">agnes</a></code>, <code><a href="#diana">diana</a></code>.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="ellipsoidhull">
-
-<a href="#ellipsoidhull" class="help-page-title"><h2 id="ellipsoidhull">Compute the Ellipsoid Hull or Spanning Ellipsoid of a Point Set</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="ellipsoidhull"><main><a href="#ellipsoidhull" class="help-page-title"><h2>Compute the Ellipsoid Hull or Spanning Ellipsoid of a Point Set</h2></a>
 
 <h3>Description</h3>
 
@@ -3255,14 +3229,14 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <table>
 <tr>
-<td><code id="ellipsoidhull_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>the <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code> <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></code>-dimensional points  asnumeric
 <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">n\times p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></code> matrix.</p>
 </td>
 </tr>
 <tr>
-<td><code id="ellipsoidhull_:_tol">tol</code></td>
+<td><code id="tol">tol</code></td>
 <td>
 <p>convergence tolerance for Titterington's algorithm.
 Setting this to much smaller values may drastically increase the number of
@@ -3270,7 +3244,7 @@ iterations needed, and you may want to increas <code>maxit</code> as well.</p>
 </td>
 </tr>
 <tr>
-<td><code id="ellipsoidhull_:_maxit">maxit</code></td>
+<td><code id="maxit">maxit</code></td>
 <td>
 <p>integer giving the maximal number of iteration steps for
 the algorithm.</p>
@@ -3278,7 +3252,7 @@ the algorithm.</p>
 </tr>
 <tr>
 <td>
-<code id="ellipsoidhull_:_ret.wt">ret.wt</code>, <code id="ellipsoidhull_:_ret.sqdist">ret.sqdist</code>, <code id="ellipsoidhull_:_ret.pr">ret.pr</code>
+<code id="ret.wt">ret.wt</code>, <code id="ret.sqdist">ret.sqdist</code>, <code id="ret.pr">ret.pr</code>
 </td>
 <td>
 <p>logicals indicating if additional
@@ -3290,7 +3264,7 @@ in the algorithms.</p>
 </tr>
 <tr>
 <td>
-<code id="ellipsoidhull_:_digits">digits</code>, <code id="ellipsoidhull_:_...">...</code>
+<code id="digits">digits</code>, <code id="...">...</code>
 </td>
 <td>
 <p>the usual arguments to <code><a href="https://r-universe.dev/manuals/base.html#print">print</a></code> methods.</p>
@@ -3444,11 +3418,8 @@ round<span class="token punctuation">(</span>exy<span class="token operator">$</
 points<span class="token punctuation">(</span>xy<span class="token punctuation">[</span>ii<span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pch <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">,</span> cex <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>
        col<span class="token operator">=</span><span class="token string">"blue"</span><span class="token punctuation">,</span> bg <span class="token operator">=</span> adjustcolor<span class="token punctuation">(</span><span class="token string">"blue"</span><span class="token punctuation">,</span><span class="token number">0.25</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="fanny">
-
-<a href="#fanny" class="help-page-title"><h2 id="fanny">Fuzzy Analysis Clustering</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="fanny"><main><a href="#fanny" class="help-page-title"><h2>Fuzzy Analysis Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -3470,7 +3441,7 @@ points<span class="token punctuation">(</span>xy<span class="token punctuation">
 
 <table>
 <tr>
-<td><code id="fanny_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 
 <p>data matrix or data frame, or dissimilarity matrix, depending on the
@@ -3489,7 +3460,7 @@ above-mentioned functions.  Missing values (NAs) are not allowed.
 </td>
 </tr>
 <tr>
-<td><code id="fanny_:_k">k</code></td>
+<td><code id="k">k</code></td>
 <td>
 <p>integer giving the desired number of clusters.  It is
 required that <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>k</mi><mo>&lt;</mo><mi>n</mi><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">0 &lt; k &lt; n/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mord">/2</span></span></span></span></code> where <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code> is the number of
@@ -3497,7 +3468,7 @@ observations.</p>
 </td>
 </tr>
 <tr>
-<td><code id="fanny_:_diss">diss</code></td>
+<td><code id="diss">diss</code></td>
 <td>
 
 <p>logical flag: if TRUE (default for <code>dist</code> or
@@ -3508,7 +3479,7 @@ a matrix of observations by variables.
 </td>
 </tr>
 <tr>
-<td><code id="fanny_:_memb.exp">memb.exp</code></td>
+<td><code id="memb.exp">memb.exp</code></td>
 <td>
 <p>number <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span></code> strictly larger than 1 specifying the
 <em>membership exponent</em> used in the fit criterion; see the
@@ -3517,7 +3488,7 @@ inside FANNY.</p>
 </td>
 </tr>
 <tr>
-<td><code id="fanny_:_metric">metric</code></td>
+<td><code id="metric">metric</code></td>
 <td>
 <p>character string specifying the metric to be used for
 calculating dissimilarities between observations.  Options are
@@ -3534,7 +3505,7 @@ be ignored.
 </td>
 </tr>
 <tr>
-<td><code id="fanny_:_stand">stand</code></td>
+<td><code id="stand">stand</code></td>
 <td>
 <p>logical; if true, the measurements in <code>x</code> are
 standardized before calculating the dissimilarities.  Measurements
@@ -3545,7 +3516,7 @@ argument will be ignored.</p>
 </td>
 </tr>
 <tr>
-<td><code id="fanny_:_iniMem.p">iniMem.p</code></td>
+<td><code id="iniMem.p">iniMem.p</code></td>
 <td>
 <p>numeric <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">n \times k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></code> matrix or <code>NULL</code>
 (by default); can be used to specify a starting <code>membership</code>
@@ -3555,7 +3526,7 @@ one.
 </td>
 </tr>
 <tr>
-<td><code id="fanny_:_cluster.only">cluster.only</code></td>
+<td><code id="cluster.only">cluster.only</code></td>
 <td>
 <p>logical; if true, no silhouette information will be
 computed and returned, see details.</p>
@@ -3563,7 +3534,7 @@ computed and returned, see details.</p>
 </tr>
 <tr>
 <td>
-<code id="fanny_:_keep.diss">keep.diss</code>, <code id="fanny_:_keep.data">keep.data</code>
+<code id="keep.diss">keep.diss</code>, <code id="keep.data">keep.data</code>
 </td>
 <td>
 <p>logicals indicating if the dissimilarities
@@ -3574,7 +3545,7 @@ memory allocation <em>time</em>.</p>
 </tr>
 <tr>
 <td>
-<code id="fanny_:_maxit">maxit</code>, <code id="fanny_:_tol">tol</code>
+<code id="maxit">maxit</code>, <code id="tol">tol</code>
 </td>
 <td>
 <p>maximal number of iterations and default tolerance
@@ -3584,7 +3555,7 @@ FANNY algorithm.  The defaults <code>maxit = 500</code> and <code>tol =
 </td>
 </tr>
 <tr>
-<td><code id="fanny_:_trace.lev">trace.lev</code></td>
+<td><code id="trace.lev">trace.lev</code></td>
 <td>
 <p>integer specifying a trace level for printing
 diagnostics during the C-internal algorithm.
@@ -3670,11 +3641,8 @@ plot<span class="token punctuation">(</span>f4<span class="token punctuation">,<
 <span class="token comment">## Plot similar to Figure 6 in Stryuf et al (1996)</span>
 plot<span class="token punctuation">(</span>fanny<span class="token punctuation">(</span>ruspini<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="fanny.object">
-
-<a href="#fanny.object" class="help-page-title"><h2 id="fanny.object">Fuzzy Analysis (FANNY) Object</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="fanny.object"><main><a href="#fanny.object" class="help-page-title"><h2>Fuzzy Analysis (FANNY) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -3813,11 +3781,8 @@ be used on a <code>fanny</code> object.
 <code><a href="#partition.object">partition.object</a></code>, <code><a href="#plot.partition">plot.partition</a></code>.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="flower">
-
-<a href="#flower" class="help-page-title"><h2 id="flower">Flower Characteristics</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="flower"><main><a href="#flower" class="help-page-title"><h2>Flower Characteristics</h2></a>
 
 <h3>Description</h3>
 
@@ -3935,15 +3900,22 @@ should be left between the plants.</p>
 <h3>Examples</h3>
 
 <pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>flower<span class="token punctuation">)</span>
-<span class="token comment">## Example 2 in ref</span>
-daisy<span class="token punctuation">(</span>flower<span class="token punctuation">,</span> type <span class="token operator">=</span> list<span class="token punctuation">(</span>asymm <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-daisy<span class="token punctuation">(</span>flower<span class="token punctuation">,</span> type <span class="token operator">=</span> list<span class="token punctuation">(</span>asymm <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ordratio <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+str<span class="token punctuation">(</span>flower<span class="token punctuation">)</span> <span class="token comment"># factors, ordered, numeric</span>
 
-<hr>
-</div>
-<div class="container manual-page" id="lower.to.upper.tri.inds">
+<span class="token comment">## "Nicer" version (less numeric more self explainable) of 'flower':</span>
+flowerN <span class="token operator">&lt;-</span> flower
+colnames<span class="token punctuation">(</span>flowerN<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token string">"winters"</span><span class="token punctuation">,</span> <span class="token string">"shadow"</span><span class="token punctuation">,</span> <span class="token string">"tubers"</span><span class="token punctuation">,</span> <span class="token string">"color"</span><span class="token punctuation">,</span>
+                       <span class="token string">"soil"</span><span class="token punctuation">,</span> <span class="token string">"preference"</span><span class="token punctuation">,</span> <span class="token string">"height"</span><span class="token punctuation">,</span> <span class="token string">"distance"</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>j <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">)</span> flowerN<span class="token punctuation">[</span><span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token punctuation">(</span>flowerN<span class="token punctuation">[</span><span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"1"</span><span class="token punctuation">)</span>
+levels<span class="token punctuation">(</span>flowerN<span class="token operator">$</span>color<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token string">"1"</span> <span class="token operator">=</span> <span class="token string">"white"</span><span class="token punctuation">,</span> <span class="token string">"2"</span> <span class="token operator">=</span> <span class="token string">"yellow"</span><span class="token punctuation">,</span> <span class="token string">"3"</span> <span class="token operator">=</span> <span class="token string">"pink"</span><span class="token punctuation">,</span>
+                           <span class="token string">"4"</span> <span class="token operator">=</span> <span class="token string">"red"</span><span class="token punctuation">,</span> <span class="token string">"5"</span> <span class="token operator">=</span> <span class="token string">"blue"</span><span class="token punctuation">)</span><span class="token punctuation">[</span>levels<span class="token punctuation">(</span>flowerN<span class="token operator">$</span>color<span class="token punctuation">)</span><span class="token punctuation">]</span>
+levels<span class="token punctuation">(</span>flowerN<span class="token operator">$</span>soil<span class="token punctuation">)</span>  <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token string">"1"</span> <span class="token operator">=</span> <span class="token string">"dry"</span><span class="token punctuation">,</span> <span class="token string">"2"</span> <span class="token operator">=</span> <span class="token string">"normal"</span><span class="token punctuation">,</span> <span class="token string">"3"</span> <span class="token operator">=</span> <span class="token string">"wet"</span><span class="token punctuation">)</span><span class="token punctuation">[</span>levels<span class="token punctuation">(</span>flowerN<span class="token operator">$</span>soil<span class="token punctuation">)</span><span class="token punctuation">]</span>
+flowerN
 
-<a href="#lower.to.upper.tri.inds" class="help-page-title"><h2 id="lower.to.upper.tri.inds">Permute Indices for Triangular Matrices</h2></a>
+<span class="token comment">## ==&gt; example(daisy)  on how it is used</span></code></pre>
+
+<hr></main></div>
+<div class="container manual-page" id="lower.to.upper.tri.inds"><main><a href="#lower.to.upper.tri.inds" class="help-page-title"><h2>Permute Indices for Triangular Matrices</h2></a>
 
 <h3>Description</h3>
 
@@ -3961,7 +3933,7 @@ upper.to.lower.tri.inds<span class="token punctuation">(</span>n<span class="tok
 <h3>Arguments</h3>
 
 <table><tr>
-<td><code id="lower.to.upper.tri.inds_:_n">n</code></td>
+<td><code id="n">n</code></td>
 <td>
 <p>integer larger than 1.</p>
 </td>
@@ -3991,11 +3963,8 @@ stopifnot<span class="token punctuation">(</span>lower.to.upper.tri.inds<span cl
      sort<span class="token punctuation">(</span>upper.to.lower.tri.inds<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">,</span>
      sort<span class="token punctuation">(</span>lower.to.upper.tri.inds<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">15</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="medoids">
-
-<a href="#medoids" class="help-page-title"><h2 id="medoids">Compute <code>pam</code>-consistent Medoids from Clustering</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="medoids"><main><a href="#medoids" class="help-page-title"><h2>Compute <code>pam</code>-consistent Medoids from Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -4014,14 +3983,14 @@ compute the <code><a href="#pam">pam</a>()</code>-consistent medoids.
 
 <table>
 <tr>
-<td><code id="medoids_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>Either a data matrix or data frame, or dissimilarity matrix or
 object, see also <code><a href="#pam">pam</a></code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="medoids_:_clustering">clustering</code></td>
+<td><code id="clustering">clustering</code></td>
 <td>
 <p>an integer vector of length <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code>, the number of
 observations, giving for each observation the number ('id') of the
@@ -4032,20 +4001,20 @@ examples where such clustering vectors are computed.</p>
 </td>
 </tr>
 <tr>
-<td><code id="medoids_:_diss">diss</code></td>
+<td><code id="diss">diss</code></td>
 <td>
 <p>see also <code><a href="#pam">pam</a></code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="medoids_:_USE.NAMES">USE.NAMES</code></td>
+<td><code id="USE.NAMES">USE.NAMES</code></td>
 <td>
 <p>a logical, typical false, passed to the
 <code><a href="https://r-universe.dev/manuals/base.html#lapply">vapply</a>()</code> call computing the medoids.</p>
 </td>
 </tr>
 <tr>
-<td><code id="medoids_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>optional further argument passed to <code><a href="#pam">pam</a>(xj, k=1, ...)</code>,
 notably <code>metric</code>, or <code>variant="f_5"</code> to use a faster algorithm, or
@@ -4088,11 +4057,8 @@ agnS <span class="token operator">&lt;-</span> agnes<span class="token punctuati
   cat<span class="token punctuation">(</span><span class="token string">"k ="</span><span class="token punctuation">,</span> k<span class="token punctuation">,</span><span class="token string">"; sort(medoids) = "</span><span class="token punctuation">)</span><span class="token punctuation">;</span> dput<span class="token punctuation">(</span>sort<span class="token punctuation">(</span>m.k<span class="token punctuation">)</span><span class="token punctuation">,</span> control<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="mona">
-
-<a href="#mona" class="help-page-title"><h2 id="mona">MONothetic Analysis Clustering of Binary Variables</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="mona"><main><a href="#mona" class="help-page-title"><h2>MONothetic Analysis Clustering of Binary Variables</h2></a>
 
 <h3>Description</h3>
 
@@ -4110,7 +4076,7 @@ a dataset with binary variables only.
 
 <table>
 <tr>
-<td><code id="mona_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 
 <p>data matrix or data frame in which each row corresponds to an
@@ -4124,7 +4090,7 @@ not allowed.</p>
 </td>
 </tr>
 <tr>
-<td><code id="mona_:_trace.lev">trace.lev</code></td>
+<td><code id="trace.lev">trace.lev</code></td>
 <td>
 <p>logical or integer indicating if (and how much) the
 algorithm should produce progress output.</p>
@@ -4221,11 +4187,8 @@ try<span class="token punctuation">(</span> mona<span class="token punctuation">
 try<span class="token punctuation">(</span> mona<span class="token punctuation">(</span>ani.non2<span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token comment">## error: all must be binary</span>
 try<span class="token punctuation">(</span> mona<span class="token punctuation">(</span>ani.idNA<span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token comment">## error:  ditto</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="mona.object">
-
-<a href="#mona.object" class="help-page-title"><h2 id="mona.object">Monothetic Analysis (MONA) Object</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="mona.object"><main><a href="#mona.object" class="help-page-title"><h2>Monothetic Analysis (MONA) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -4302,11 +4265,8 @@ specifying the separation steps at which the observations of
 <p><code><a href="#mona">mona</a></code> for examples etc, <code><a href="#plot.mona">plot.mona</a></code>.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="pam">
-
-<a href="#pam" class="help-page-title"><h2 id="pam">Partitioning Around Medoids</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="pam"><main><a href="#pam" class="help-page-title"><h2>Partitioning Around Medoids</h2></a>
 
 <h3>Description</h3>
 
@@ -4333,7 +4293,7 @@ medoids”, a more robust version of K-means.
 
 <table>
 <tr>
-<td><code id="pam_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 
 <p>data matrix or data frame, or dissimilarity matrix or object,
@@ -4341,7 +4301,7 @@ depending on the value of the <code>diss</code> argument.
 </p>
 <p>In case of a matrix or data frame, each row corresponds to an
 observation, and each column corresponds to a variable.  All
-variables must be numeric.  Missing values (<code><a href="https://r-universe.dev/manuals/base.html#NA">NA</a></code>s)
+variables must be numeric (or logical).  Missing values (<code><a href="https://r-universe.dev/manuals/base.html#NA">NA</a></code>s)
 <em>are</em> allowed—as long as every pair of observations has at
 least one case not missing.
 </p>
@@ -4355,14 +4315,14 @@ above-mentioned functions. Missing values (<code><a href="https://r-universe.dev
 </td>
 </tr>
 <tr>
-<td><code id="pam_:_k">k</code></td>
+<td><code id="k">k</code></td>
 <td>
 <p>positive integer specifying the number of clusters, less than
 the number of observations.</p>
 </td>
 </tr>
 <tr>
-<td><code id="pam_:_diss">diss</code></td>
+<td><code id="diss">diss</code></td>
 <td>
 
 <p>logical flag: if TRUE (default for <code>dist</code> or
@@ -4373,7 +4333,7 @@ a matrix of observations by variables.
 </td>
 </tr>
 <tr>
-<td><code id="pam_:_metric">metric</code></td>
+<td><code id="metric">metric</code></td>
 <td>
 
 <p>character string specifying the metric to be used for calculating
@@ -4387,7 +4347,7 @@ this argument will be ignored.
 </td>
 </tr>
 <tr>
-<td><code id="pam_:_medoids">medoids</code></td>
+<td><code id="medoids">medoids</code></td>
 <td>
 <p>NULL (default) or length-<code>k</code> vector of integer
 indices (in <code>1:n</code>) specifying initial medoids instead of using
@@ -4395,7 +4355,7 @@ the ‘<em>build</em>’ algorithm.</p>
 </td>
 </tr>
 <tr>
-<td><code id="pam_:_nstart">nstart</code></td>
+<td><code id="nstart">nstart</code></td>
 <td>
 <p>used only when <code>medoids = "random"</code>: specifies the
 <em>number</em> of random “starts”;  this argument corresponds to
@@ -4403,7 +4363,7 @@ the one of <code><a href="https://r-universe.dev/manuals/stats.html#kmeans">kmea
 </td>
 </tr>
 <tr>
-<td><code id="pam_:_stand">stand</code></td>
+<td><code id="stand">stand</code></td>
 <td>
 <p>logical; if true, the measurements in <code>x</code> are
 standardized before calculating the dissimilarities.  Measurements
@@ -4414,14 +4374,14 @@ argument will be ignored.</p>
 </td>
 </tr>
 <tr>
-<td><code id="pam_:_cluster.only">cluster.only</code></td>
+<td><code id="cluster.only">cluster.only</code></td>
 <td>
 <p>logical; if true, only the clustering will be
 computed and returned, see details.</p>
 </td>
 </tr>
 <tr>
-<td><code id="pam_:_do.swap">do.swap</code></td>
+<td><code id="do.swap">do.swap</code></td>
 <td>
 <p>logical indicating if the <b>swap</b> phase should
 happen. The default, <code>TRUE</code>, correspond to the
@@ -4432,7 +4392,7 @@ much more computer intensive than the <b>build</b> one for large
 </tr>
 <tr>
 <td>
-<code id="pam_:_keep.diss">keep.diss</code>, <code id="pam_:_keep.data">keep.data</code>
+<code id="keep.diss">keep.diss</code>, <code id="keep.data">keep.data</code>
 </td>
 <td>
 <p>logicals indicating if the dissimilarities
@@ -4442,7 +4402,7 @@ memory allocation <em>time</em>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="pam_:_pamonce">pamonce</code></td>
+<td><code id="pamonce">pamonce</code></td>
 <td>
 <p>logical or integer in <code>0:6</code> specifying algorithmic
 short cuts as proposed by Reynolds et al. (2006), and
@@ -4450,7 +4410,7 @@ Schubert and Rousseeuw (2019, 2021) see below.</p>
 </td>
 </tr>
 <tr>
-<td><code id="pam_:_variant">variant</code></td>
+<td><code id="variant">variant</code></td>
 <td>
 <p>a <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> string denoting the variant of
 PAM algorithm to use; a more self-documenting version of <code>pamonce</code>
@@ -4460,7 +4420,7 @@ uses <code>pamonce = 6</code> but also <code>nstart = 1</code> and hence
 </td>
 </tr>
 <tr>
-<td><code id="pam_:_trace.lev">trace.lev</code></td>
+<td><code id="trace.lev">trace.lev</code></td>
 <td>
 <p>integer specifying a trace level for printing
 diagnostics during the build and swap phase of the algorithm.
@@ -4656,11 +4616,8 @@ data<span class="token punctuation">(</span>ruspini<span class="token punctuatio
 <span class="token comment">## Plot similar to Figure 4 in Stryuf et al (1996)</span>
 <span class="token comment">## Not run: plot(pam(ruspini, 4), ask = TRUE)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="pam.object">
-
-<a href="#pam.object" class="help-page-title"><h2 id="pam.object">Partitioning Around Medoids (PAM) Object</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="pam.object"><main><a href="#pam.object" class="help-page-title"><h2>Partitioning Around Medoids (PAM) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -4806,11 +4763,8 @@ plot<span class="token punctuation">(</span><span class="token number">1</span><
      xlab<span class="token operator">=</span> <span class="token string">"k  (# clusters)"</span><span class="token punctuation">,</span> ylab <span class="token operator">=</span> <span class="token string">"average silhouette width"</span><span class="token punctuation">)</span>
 axis<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> k.best<span class="token punctuation">,</span> paste<span class="token punctuation">(</span><span class="token string">"best"</span><span class="token punctuation">,</span>k.best<span class="token punctuation">,</span>sep<span class="token operator">=</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token string">"red"</span><span class="token punctuation">,</span> col.axis <span class="token operator">=</span> <span class="token string">"red"</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="partition.object">
-
-<a href="#partition.object" class="help-page-title"><h2 id="partition.object">Partitioning Object</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="partition.object"><main><a href="#partition.object" class="help-page-title"><h2>Partitioning Object</h2></a>
 
 <h3>Description</h3>
 
@@ -4935,11 +4889,8 @@ as input structure to the clustering method.
 <p><code><a href="#pam">pam</a></code>, <code><a href="#clara">clara</a></code>, <code><a href="#fanny">fanny</a></code>.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="plantTraits">
-
-<a href="#plantTraits" class="help-page-title"><h2 id="plantTraits">Plant Species Traits Data</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="plantTraits"><main><a href="#plantTraits" class="help-page-title"><h2>Plant Species Traits Data</h2></a>
 
 <h3>Description</h3>
 
@@ -5129,11 +5080,8 @@ cutree6
 cmdsdai.b <span class="token operator">&lt;-</span> cmdscale<span class="token punctuation">(</span>dai.b<span class="token punctuation">,</span> k<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>cmdsdai.b<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> asp <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> col <span class="token operator">=</span> cutree6<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="plot.agnes">
-
-<a href="#plot.agnes" class="help-page-title"><h2 id="plot.agnes">Plots of an Agglomerative Hierarchical Clustering</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="plot.agnes"><main><a href="#plot.agnes" class="help-page-title"><h2>Plots of an Agglomerative Hierarchical Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -5153,21 +5101,21 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <table>
 <tr>
-<td><code id="plot.agnes_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>an object of class <code>"agnes"</code>, typically created by
 <code><a href="#agnes">agnes</a>(.)</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.agnes_:_ask">ask</code></td>
+<td><code id="ask">ask</code></td>
 <td>
 <p>logical; if true and <code>which.plots</code> is <code>NULL</code>,
 <code>plot.agnes</code> operates in interactive mode, via <code><a href="https://r-universe.dev/manuals/utils.html#menu">menu</a></code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.agnes_:_which.plots">which.plots</code></td>
+<td><code id="which.plots">which.plots</code></td>
 <td>
 <p>integer vector or NULL (default), the latter
 producing both plots.  Otherwise, <code>which.plots</code>
@@ -5177,7 +5125,7 @@ dendrogram or “clustering tree”.</p>
 </tr>
 <tr>
 <td>
-<code id="plot.agnes_:_main">main</code>, <code id="plot.agnes_:_sub">sub</code>
+<code id="main">main</code>, <code id="sub">sub</code>
 </td>
 <td>
 <p>main and sub title for the plot, with convenient
@@ -5185,27 +5133,27 @@ defaults.  See documentation for these arguments in <code><a href="https://r-uni
 </td>
 </tr>
 <tr>
-<td><code id="plot.agnes_:_adj">adj</code></td>
+<td><code id="adj">adj</code></td>
 <td>
 <p>for label adjustment in <code><a href="#bannerplot">bannerplot</a>()</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.agnes_:_nmax.lab">nmax.lab</code></td>
+<td><code id="nmax.lab">nmax.lab</code></td>
 <td>
 <p>integer indicating the number of labels which is
 considered too large for single-name labelling the banner plot.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.agnes_:_max.strlen">max.strlen</code></td>
+<td><code id="max.strlen">max.strlen</code></td>
 <td>
 <p>positive integer giving the length to which
 strings are truncated in banner plot labeling.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.agnes_:_xax.pretty">xax.pretty</code></td>
+<td><code id="xax.pretty">xax.pretty</code></td>
 <td>
 <p>logical or integer indicating if
 <code><a href="https://r-universe.dev/manuals/base.html#pretty">pretty</a>(*, n = xax.pretty)</code> should be used for the x axis.
@@ -5213,7 +5161,7 @@ strings are truncated in banner plot labeling.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.agnes_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>graphical parameters (see <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>) may also
 be supplied and are passed to <code><a href="#bannerplot">bannerplot</a>()</code> or
@@ -5305,11 +5253,8 @@ cS<span class="token punctuation">[</span>Sp <span class="token operator">==</sp
 ai <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>iris<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>ai<span class="token punctuation">,</span> labels <span class="token operator">=</span> cS<span class="token punctuation">,</span> nmax <span class="token operator">=</span> <span class="token number">150</span><span class="token punctuation">)</span><span class="token comment"># bannerplot labels are mess</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="plot.diana">
-
-<a href="#plot.diana" class="help-page-title"><h2 id="plot.diana">Plots of a Divisive Hierarchical Clustering</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="plot.diana"><main><a href="#plot.diana" class="help-page-title"><h2>Plots of a Divisive Hierarchical Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -5329,21 +5274,21 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <table>
 <tr>
-<td><code id="plot.diana_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>an object of class <code>"diana"</code>, typically created by
 <code><a href="#diana">diana</a>(.)</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.diana_:_ask">ask</code></td>
+<td><code id="ask">ask</code></td>
 <td>
 <p>logical; if true and <code>which.plots</code> is <code>NULL</code>,
 <code>plot.diana</code> operates in interactive mode, via <code><a href="https://r-universe.dev/manuals/utils.html#menu">menu</a></code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.diana_:_which.plots">which.plots</code></td>
+<td><code id="which.plots">which.plots</code></td>
 <td>
 <p>integer vector or NULL (default), the latter
 producing both plots.  Otherwise, <code>which.plots</code>
@@ -5353,7 +5298,7 @@ dendrogram or “clustering tree”.</p>
 </tr>
 <tr>
 <td>
-<code id="plot.diana_:_main">main</code>, <code id="plot.diana_:_sub">sub</code>
+<code id="main">main</code>, <code id="sub">sub</code>
 </td>
 <td>
 <p>main and sub title for the plot, each with a convenient
@@ -5362,27 +5307,27 @@ default.  See documentation for these arguments in
 </td>
 </tr>
 <tr>
-<td><code id="plot.diana_:_adj">adj</code></td>
+<td><code id="adj">adj</code></td>
 <td>
 <p>for label adjustment in <code><a href="#bannerplot">bannerplot</a>()</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.diana_:_nmax.lab">nmax.lab</code></td>
+<td><code id="nmax.lab">nmax.lab</code></td>
 <td>
 <p>integer indicating the number of labels which is
 considered too large for single-name labelling the banner plot.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.diana_:_max.strlen">max.strlen</code></td>
+<td><code id="max.strlen">max.strlen</code></td>
 <td>
 <p>positive integer giving the length to which
 strings are truncated in banner plot labeling.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.diana_:_xax.pretty">xax.pretty</code></td>
+<td><code id="xax.pretty">xax.pretty</code></td>
 <td>
 <p>logical or integer indicating if
 <code><a href="https://r-universe.dev/manuals/base.html#pretty">pretty</a>(*, n = xax.pretty)</code> should be used for the x axis.
@@ -5390,7 +5335,7 @@ strings are truncated in banner plot labeling.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.diana_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>graphical parameters (see <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>) may also
 be supplied and are passed to <code><a href="#bannerplot">bannerplot</a>()</code> or
@@ -5459,11 +5404,8 @@ op <span class="token operator">&lt;-</span> par<span class="token punctuation">
 plot<span class="token punctuation">(</span>dv<span class="token punctuation">,</span> which <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> nmax.lab <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">,</span> max.strlen <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">)</span>
 par<span class="token punctuation">(</span>op<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="plot.mona">
-
-<a href="#plot.mona" class="help-page-title"><h2 id="plot.mona">Banner of Monothetic Divisive Hierarchical Clusterings</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="plot.mona"><main><a href="#plot.mona" class="help-page-title"><h2>Banner of Monothetic Divisive Hierarchical Clusterings</h2></a>
 
 <h3>Description</h3>
 
@@ -5484,7 +5426,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <table>
 <tr>
-<td><code id="plot.mona_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>an object of class <code>"mona"</code>, typically created by
 <code><a href="#mona">mona</a>(.)</code>.</p>
@@ -5492,7 +5434,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 </tr>
 <tr>
 <td>
-<code id="plot.mona_:_main">main</code>, <code id="plot.mona_:_sub">sub</code>
+<code id="main">main</code>, <code id="sub">sub</code>
 </td>
 <td>
 <p>main and sub titles for the plot, with convenient
@@ -5500,41 +5442,41 @@ defaults.  See documentation in <code><a href="https://r-universe.dev/manuals/gr
 </td>
 </tr>
 <tr>
-<td><code id="plot.mona_:_xlab">xlab</code></td>
+<td><code id="xlab">xlab</code></td>
 <td>
 <p>x axis label, see <code><a href="https://r-universe.dev/manuals/graphics.html#title">title</a></code>.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code id="plot.mona_:_col">col</code>, <code id="plot.mona_:_adj">adj</code>
+<code id="col">col</code>, <code id="adj">adj</code>
 </td>
 <td>
 <p>graphical parameters passed to <code><a href="#bannerplot">bannerplot</a>()</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.mona_:_axes">axes</code></td>
+<td><code id="axes">axes</code></td>
 <td>
 <p>logical, indicating if (labeled) axes should be drawn.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.mona_:_nmax.lab">nmax.lab</code></td>
+<td><code id="nmax.lab">nmax.lab</code></td>
 <td>
 <p>integer indicating the number of labels which is
 considered too large for labeling.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.mona_:_max.strlen">max.strlen</code></td>
+<td><code id="max.strlen">max.strlen</code></td>
 <td>
 <p>positive integer giving the length to which
 strings are truncated in labeling.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.mona_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>further graphical arguments are passed to
 <code><a href="#bannerplot">bannerplot</a>()</code> and <code><a href="https://r-universe.dev/manuals/graphics.html#text">text</a></code>.</p>
@@ -5580,11 +5522,8 @@ Moreover, observation labels are truncated to maximally
 <p><code><a href="#mona">mona</a></code>, <code><a href="#mona.object">mona.object</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="plot.partition">
-
-<a href="#plot.partition" class="help-page-title"><h2 id="plot.partition">Plot of a Partition of the Data Set</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="plot.partition"><main><a href="#plot.partition" class="help-page-title"><h2>Plot of a Partition of the Data Set</h2></a>
 
 <h3>Description</h3>
 
@@ -5605,21 +5544,21 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <table>
 <tr>
-<td><code id="plot.partition_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>an object of class <code>"partition"</code>, typically created by the
 functions <code><a href="#pam">pam</a></code>, <code><a href="#clara">clara</a></code>, or <code><a href="#fanny">fanny</a></code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.partition_:_ask">ask</code></td>
+<td><code id="ask">ask</code></td>
 <td>
 <p>logical; if true and <code>which.plots</code> is <code>NULL</code>,
 <code>plot.partition</code> operates in interactive mode, via <code><a href="https://r-universe.dev/manuals/utils.html#menu">menu</a></code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.partition_:_which.plots">which.plots</code></td>
+<td><code id="which.plots">which.plots</code></td>
 <td>
 <p>integer vector or NULL (default), the latter
 producing both plots.  Otherwise, <code>which.plots</code> must contain
@@ -5628,28 +5567,28 @@ integers of <code>1</code> for a <em>clusplot</em> or <code>2</code> for
 </td>
 </tr>
 <tr>
-<td><code id="plot.partition_:_nmax.lab">nmax.lab</code></td>
+<td><code id="nmax.lab">nmax.lab</code></td>
 <td>
 <p>integer indicating the number of labels which is
 considered too large for single-name labeling the silhouette plot.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.partition_:_max.strlen">max.strlen</code></td>
+<td><code id="max.strlen">max.strlen</code></td>
 <td>
 <p>positive integer giving the length to which
 strings are truncated in silhouette plot labeling.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.partition_:_data">data</code></td>
+<td><code id="data">data</code></td>
 <td>
 <p>numeric matrix with the scaled data; per default taken
 from the partition object <code>x</code>, but can be specified explicitly.</p>
 </td>
 </tr>
 <tr>
-<td><code id="plot.partition_:_dist">dist</code></td>
+<td><code id="dist">dist</code></td>
 <td>
 <p>when <code>x</code> does not have a <code>diss</code> component as for
 <code><a href="#pam">pam</a>(*, keep.diss=FALSE)</code>, <code>dist</code> must be the
@@ -5658,7 +5597,7 @@ dissimilarity if a clusplot is desired.</p>
 </tr>
 <tr>
 <td>
-<code id="plot.partition_:_stand">stand</code>, <code id="plot.partition_:_lines">lines</code>, <code id="plot.partition_:_shade">shade</code>, <code id="plot.partition_:_color">color</code>, <code id="plot.partition_:_labels">labels</code>, <code id="plot.partition_:_plotchar">plotchar</code>, <code id="plot.partition_:_span">span</code>, <code id="plot.partition_:_xlim">xlim</code>, <code id="plot.partition_:_ylim">ylim</code>, <code id="plot.partition_:_main">main</code>, <code id="plot.partition_:_...">...</code>
+<code id="stand">stand</code>, <code id="lines">lines</code>, <code id="shade">shade</code>, <code id="color">color</code>, <code id="labels">labels</code>, <code id="plotchar">plotchar</code>, <code id="span">span</code>, <code id="xlim">xlim</code>, <code id="ylim">ylim</code>, <code id="main">main</code>, <code id="...">...</code>
 </td>
 <td>
 
@@ -5751,11 +5690,8 @@ cx <span class="token operator">&lt;-</span> clara<span class="token punctuation
 cx<span class="token operator">$</span>data <span class="token comment"># is NULL</span>
 plot<span class="token punctuation">(</span>cx<span class="token punctuation">,</span> data <span class="token operator">=</span> xclara<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="pltree">
-
-<a href="#pltree" class="help-page-title"><h2 id="pltree">Plot Clustering Tree of a Hierarchical Clustering</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="pltree"><main><a href="#pltree" class="help-page-title"><h2>Plot Clustering Tree of a Hierarchical Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -5778,7 +5714,7 @@ pltree<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <table>
 <tr>
-<td><code id="pltree_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>in general, an <span class="rlang"><b>R</b></span> object for which a <code>pltree</code> method is
 defined; specifically, an object of class <code>"twins"</code>, typically
@@ -5786,25 +5722,25 @@ created by either <code><a href="#agnes">agnes</a>()</code> or <code><a href="#d
 </td>
 </tr>
 <tr>
-<td><code id="pltree_:_main">main</code></td>
+<td><code id="main">main</code></td>
 <td>
 <p>main title with a sensible default.</p>
 </td>
 </tr>
 <tr>
-<td><code id="pltree_:_labels">labels</code></td>
+<td><code id="labels">labels</code></td>
 <td>
 <p>labels to use; the default is constructed from <code>x</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="pltree_:_ylab">ylab</code></td>
+<td><code id="ylab">ylab</code></td>
 <td>
 <p>label for y-axis.</p>
 </td>
 </tr>
 <tr>
-<td><code id="pltree_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>graphical parameters (see <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>) may also
 be supplied as arguments to this function.</p>
@@ -5856,11 +5792,8 @@ plot<span class="token punctuation">(</span>dagn<span class="token punctuation">
      main <span class="token operator">=</span> deparse<span class="token punctuation">(</span>agn<span class="token operator">$</span>call<span class="token punctuation">)</span><span class="token punctuation">)</span>
 par<span class="token punctuation">(</span>op<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="pluton">
-
-<a href="#pluton" class="help-page-title"><h2 id="pluton">Isotopic Composition Plutonium Batches</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="pluton"><main><a href="#pluton" class="help-page-title"><h2>Isotopic Composition Plutonium Batches</h2></a>
 
 <h3>Description</h3>
 
@@ -5939,11 +5872,8 @@ pu5 <span class="token operator">&lt;-</span> pluton
 pu5<span class="token operator">$</span>Pu242 <span class="token operator">&lt;-</span> <span class="token number">100</span> <span class="token operator">-</span> apply<span class="token punctuation">(</span>pluton<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>sum<span class="token punctuation">)</span> <span class="token comment"># the remaining isotope.</span>
 pairs<span class="token punctuation">(</span>pu5<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="predict.ellipsoid">
-
-<a href="#predict.ellipsoid" class="help-page-title"><h2 id="predict.ellipsoid">Predict Method for Ellipsoid Objects</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="predict.ellipsoid"><main><a href="#predict.ellipsoid" class="help-page-title"><h2>Predict Method for Ellipsoid Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -5963,7 +5893,7 @@ ellipsoidPoints<span class="token punctuation">(</span>A<span class="token punct
 
 <table>
 <tr>
-<td><code id="predict.ellipsoid_:_object">object</code></td>
+<td><code id="object">object</code></td>
 <td>
 <p>an object of class <code>ellipsoid</code>, typically from
 <code><a href="#ellipsoidhull">ellipsoidhull</a>()</code>; alternatively any list-like object
@@ -5972,7 +5902,7 @@ with proper components, see details below.</p>
 </tr>
 <tr>
 <td>
-<code id="predict.ellipsoid_:_n.out">n.out</code>, <code id="predict.ellipsoid_:_n.half">n.half</code>
+<code id="n.out">n.out</code>, <code id="n.half">n.half</code>
 </td>
 <td>
 <p>half the number of points to create.</p>
@@ -5980,7 +5910,7 @@ with proper components, see details below.</p>
 </tr>
 <tr>
 <td>
-<code id="predict.ellipsoid_:_A">A</code>, <code id="predict.ellipsoid_:_d2">d2</code>, <code id="predict.ellipsoid_:_loc">loc</code>
+<code id="A">A</code>, <code id="d2">d2</code>, <code id="loc">loc</code>
 </td>
 <td>
 <p>arguments of the auxilary <code>ellipsoidPoints</code>,
@@ -5988,7 +5918,7 @@ see below.</p>
 </td>
 </tr>
 <tr>
-<td><code id="predict.ellipsoid_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>passed to and from methods.</p>
 </td>
@@ -6041,11 +5971,8 @@ lines<span class="token punctuation">(</span>ellipsoidPoints<span class="token p
   lines<span class="token punctuation">(</span>ellipsoidPoints<span class="token punctuation">(</span>Cxy<span class="token operator">$</span>cov<span class="token punctuation">,</span> d2 <span class="token operator">=</span> d2.<span class="token number">99</span><span class="token punctuation">,</span> loc<span class="token operator">=</span>Cxy<span class="token operator">$</span>center<span class="token punctuation">)</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token string">"red"</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token comment"># MASS</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="print.agnes">
-
-<a href="#print.agnes" class="help-page-title"><h2 id="print.agnes">Print Method for AGNES Objects</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="print.agnes"><main><a href="#print.agnes" class="help-page-title"><h2>Print Method for AGNES Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6067,13 +5994,13 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <table>
 <tr>
-<td><code id="print.agnes_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>an agnes object.</p>
 </td>
 </tr>
 <tr>
-<td><code id="print.agnes_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>potential further arguments (required by generic).</p>
 </td>
@@ -6086,11 +6013,8 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="print.clara">
-
-<a href="#print.clara" class="help-page-title"><h2 id="print.clara">Print Method for CLARA Objects</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="print.clara"><main><a href="#print.clara" class="help-page-title"><h2>Print Method for CLARA Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6112,13 +6036,13 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <table>
 <tr>
-<td><code id="print.clara_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>a clara object.</p>
 </td>
 </tr>
 <tr>
-<td><code id="print.clara_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6131,11 +6055,8 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="print.diana">
-
-<a href="#print.diana" class="help-page-title"><h2 id="print.diana">Print Method for DIANA Objects</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="print.diana"><main><a href="#print.diana" class="help-page-title"><h2>Print Method for DIANA Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6157,13 +6078,13 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <table>
 <tr>
-<td><code id="print.diana_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>a diana object.</p>
 </td>
 </tr>
 <tr>
-<td><code id="print.diana_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6175,11 +6096,8 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="print.dissimilarity">
-
-<a href="#print.dissimilarity" class="help-page-title"><h2 id="print.dissimilarity">Print and Summary Methods for Dissimilarity Objects</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="print.dissimilarity"><main><a href="#print.dissimilarity" class="help-page-title"><h2>Print and Summary Methods for Dissimilarity Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6209,7 +6127,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <table>
 <tr>
 <td>
-<code id="print.dissimilarity_:_x">x</code>, <code id="print.dissimilarity_:_object">object</code>
+<code id="x">x</code>, <code id="object">object</code>
 </td>
 <td>
 <p>a <code>dissimilarity</code> object or a
@@ -6217,14 +6135,14 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 </td>
 </tr>
 <tr>
-<td><code id="print.dissimilarity_:_digits">digits</code></td>
+<td><code id="digits">digits</code></td>
 <td>
 <p>the number of digits to use, see <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code id="print.dissimilarity_:_diag">diag</code>, <code id="print.dissimilarity_:_upper">upper</code>, <code id="print.dissimilarity_:_justify">justify</code>, <code id="print.dissimilarity_:_right">right</code>
+<code id="diag">diag</code>, <code id="upper">upper</code>, <code id="justify">justify</code>, <code id="right">right</code>
 </td>
 <td>
 <p>optional arguments specifying how
@@ -6233,7 +6151,7 @@ the triangular dissimilarity matrix is printed; see
 </td>
 </tr>
 <tr>
-<td><code id="print.dissimilarity_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6254,11 +6172,8 @@ the triangular dissimilarity matrix is printed; see
  sd <span class="token comment"># -&gt; print.summary.dissimilarity(.)</span>
  str<span class="token punctuation">(</span>sd<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="print.fanny">
-
-<a href="#print.fanny" class="help-page-title"><h2 id="print.fanny">Print and Summary Methods for FANNY Objects</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="print.fanny"><main><a href="#print.fanny" class="help-page-title"><h2>Print and Summary Methods for FANNY Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6285,21 +6200,21 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <table>
 <tr>
 <td>
-<code id="print.fanny_:_x">x</code>, <code id="print.fanny_:_object">object</code>
+<code id="x">x</code>, <code id="object">object</code>
 </td>
 <td>
 <p>a <code><a href="#fanny">fanny</a></code> object.</p>
 </td>
 </tr>
 <tr>
-<td><code id="print.fanny_:_digits">digits</code></td>
+<td><code id="digits">digits</code></td>
 <td>
 <p>number of significant digits for printing, see
 <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="print.fanny_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>potential further arguments (required by generic).</p>
 </td>
@@ -6311,11 +6226,8 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="print.mona">
-
-<a href="#print.mona" class="help-page-title"><h2 id="print.mona">Print Method for MONA Objects</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="print.mona"><main><a href="#print.mona" class="help-page-title"><h2>Print Method for MONA Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6337,13 +6249,13 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <table>
 <tr>
-<td><code id="print.mona_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>a mona object.</p>
 </td>
 </tr>
 <tr>
-<td><code id="print.mona_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6355,11 +6267,8 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="print.pam">
-
-<a href="#print.pam" class="help-page-title"><h2 id="print.pam">Print Method for PAM Objects</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="print.pam"><main><a href="#print.pam" class="help-page-title"><h2>Print Method for PAM Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6381,13 +6290,13 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <table>
 <tr>
-<td><code id="print.pam_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>a pam object.</p>
 </td>
 </tr>
 <tr>
-<td><code id="print.pam_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6399,11 +6308,8 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="ruspini">
-
-<a href="#ruspini" class="help-page-title"><h2 id="ruspini">Ruspini Data</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="ruspini"><main><a href="#ruspini" class="help-page-title"><h2>Ruspini Data</h2></a>
 
 <h3>Description</h3>
 
@@ -6449,11 +6355,8 @@ Numerical methods for fuzzy clustering.
 <span class="token comment">## Plot similar to Figure 6 in Stryuf et al (1996)</span>
 plot<span class="token punctuation">(</span>fanny<span class="token punctuation">(</span>ruspini<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="silhouette">
-
-<a href="#silhouette" class="help-page-title"><h2 id="silhouette">Compute or Extract Silhouette Information from Clustering</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="silhouette"><main><a href="#silhouette" class="help-page-title"><h2>Compute or Extract Silhouette Information from Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -6486,7 +6389,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <table>
 <tr>
-<td><code id="silhouette_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>an object of appropriate class; for the <code>default</code>
 method an integer vector with <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></code> different integer cluster
@@ -6496,7 +6399,7 @@ component.  Note that silhouette statistics are only defined if
 </td>
 </tr>
 <tr>
-<td><code id="silhouette_:_dist">dist</code></td>
+<td><code id="dist">dist</code></td>
 <td>
 <p>a dissimilarity object inheriting from class
 <code><a href="https://r-universe.dev/manuals/stats.html#dist">dist</a></code> or coercible to one.  If not specified,
@@ -6504,14 +6407,14 @@ component.  Note that silhouette statistics are only defined if
 </td>
 </tr>
 <tr>
-<td><code id="silhouette_:_dmatrix">dmatrix</code></td>
+<td><code id="dmatrix">dmatrix</code></td>
 <td>
 <p>a symmetric dissimilarity matrix (<code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n \times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code>),
 specified instead of <code>dist</code>, which can be more efficient.</p>
 </td>
 </tr>
 <tr>
-<td><code id="silhouette_:_full">full</code></td>
+<td><code id="full">full</code></td>
 <td>
 <p>logical or number in <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0,1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span></code> specifying if a <em>full</em>
 silhouette should be computed for <code><a href="#clara">clara</a></code> object.  When a
@@ -6522,7 +6425,7 @@ the (sub)sample (see <code><a href="#daisy">daisy</a></code>) is needed internal
 </td>
 </tr>
 <tr>
-<td><code id="silhouette_:_subset">subset</code></td>
+<td><code id="subset">subset</code></td>
 <td>
 <p>a subset from <code>1:n</code>, specified instead of <code>full</code>
 to specify the indices of the observations to be used for the silhouette
@@ -6530,32 +6433,32 @@ computations.</p>
 </td>
 </tr>
 <tr>
-<td><code id="silhouette_:_object">object</code></td>
+<td><code id="object">object</code></td>
 <td>
 <p>an object of class <code>silhouette</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="silhouette_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to and from methods.</p>
 </td>
 </tr>
 <tr>
-<td><code id="silhouette_:_FUN">FUN</code></td>
+<td><code id="FUN">FUN</code></td>
 <td>
 <p>function used to summarize silhouette widths.</p>
 </td>
 </tr>
 <tr>
-<td><code id="silhouette_:_nmax.lab">nmax.lab</code></td>
+<td><code id="nmax.lab">nmax.lab</code></td>
 <td>
 <p>integer indicating the number of labels which is
 considered too large for single-name labeling the silhouette plot.</p>
 </td>
 </tr>
 <tr>
-<td><code id="silhouette_:_max.strlen">max.strlen</code></td>
+<td><code id="max.strlen">max.strlen</code></td>
 <td>
 <p>positive integer giving the length to which
 strings are truncated in silhouette plot labeling.</p>
@@ -6563,7 +6466,7 @@ strings are truncated in silhouette plot labeling.</p>
 </tr>
 <tr>
 <td>
-<code id="silhouette_:_main">main</code>, <code id="silhouette_:_sub">sub</code>, <code id="silhouette_:_xlab">xlab</code>
+<code id="main">main</code>, <code id="sub">sub</code>, <code id="xlab">xlab</code>
 </td>
 <td>
 <p>arguments to <code><a href="https://r-universe.dev/manuals/graphics.html#title">title</a></code>; have a
@@ -6572,7 +6475,7 @@ sensible non-NULL default here.</p>
 </tr>
 <tr>
 <td>
-<code id="silhouette_:_col">col</code>, <code id="silhouette_:_border">border</code>, <code id="silhouette_:_cex.names">cex.names</code>
+<code id="col">col</code>, <code id="border">border</code>, <code id="cex.names">cex.names</code>
 </td>
 <td>
 <p>arguments passed
@@ -6583,7 +6486,7 @@ clusterwise coloring, see also <code>do.col.sort</code>:
 </td>
 </tr>
 <tr>
-<td><code id="silhouette_:_do.col.sort">do.col.sort</code></td>
+<td><code id="do.col.sort">do.col.sort</code></td>
 <td>
 <p>logical indicating if the colors <code>col</code> should
 be sorted “along” the silhouette; this is useful for casewise or
@@ -6591,14 +6494,14 @@ clusterwise coloring.</p>
 </td>
 </tr>
 <tr>
-<td><code id="silhouette_:_do.n.k">do.n.k</code></td>
+<td><code id="do.n.k">do.n.k</code></td>
 <td>
 <p>logical indicating if <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></code> and <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></code> “title text”
 should be written.</p>
 </td>
 </tr>
 <tr>
-<td><code id="silhouette_:_do.clus.stat">do.clus.stat</code></td>
+<td><code id="do.clus.stat">do.clus.stat</code></td>
 <td>
 <p>logical indicating if cluster size and averages
 should be written right to the silhouettes.</p>
@@ -6622,8 +6525,7 @@ Finally, </p>
 </p>
 
 <p><code>silhouette.default()</code> is now based on C code donated by Romain
-Francois (the R version being still available as
-<code>cluster:::silhouette.default.R</code>).
+Francois (the R version being still available as <code>cluster:::silhouetteR</code>).
 </p>
 <p>Observations with a large <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">s(i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mclose">)</span></span></span></span></code> (almost 1) are very well
 clustered, a small <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">s(i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mclose">)</span></span></span></span></code> (around 0) means that the observation
@@ -6768,17 +6670,14 @@ plot<span class="token punctuation">(</span>sf<span class="token punctuation">,<
 ar <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>ruspini<span class="token punctuation">)</span>
 si3 <span class="token operator">&lt;-</span> silhouette<span class="token punctuation">(</span>cutree<span class="token punctuation">(</span>ar<span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># k = 4 gave the same as pam() above</span>
     	           daisy<span class="token punctuation">(</span>ruspini<span class="token punctuation">)</span><span class="token punctuation">)</span>
-stopifnot<span class="token punctuation">(</span>is.data.frame<span class="token punctuation">(</span>di3 <span class="token operator">&lt;-</span> as.data.frame<span class="token punctuation">(</span>si3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
+stopifnot<span class="token punctuation">(</span>is.data.frame<span class="token punctuation">(</span>di3 <span class="token operator">&lt;-</span> as.data.frame<span class="token punctuation">(</span>si3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>si3<span class="token punctuation">,</span> nmax <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">,</span> cex.names <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">)</span>
 <span class="token comment">## 2 groups: Agnes() wasn't too good:</span>
 si4 <span class="token operator">&lt;-</span> silhouette<span class="token punctuation">(</span>cutree<span class="token punctuation">(</span>ar<span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> daisy<span class="token punctuation">(</span>ruspini<span class="token punctuation">)</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>si4<span class="token punctuation">,</span> nmax <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">,</span> cex.names <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="sizeDiss">
-
-<a href="#sizeDiss" class="help-page-title"><h2 id="sizeDiss">Sample Size of Dissimilarity Like Object</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="sizeDiss"><main><a href="#sizeDiss" class="help-page-title"><h2>Sample Size of Dissimilarity Like Object</h2></a>
 
 <h3>Description</h3>
 
@@ -6799,7 +6698,7 @@ when only the lower or upper triangular part (without diagonal) is given.
 <h3>Arguments</h3>
 
 <table><tr>
-<td><code id="sizeDiss_:_d">d</code></td>
+<td><code id="d">d</code></td>
 <td>
 <p>any <span class="rlang"><b>R</b></span> object with length (typically) <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">n(n-1)/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord">/2</span></span></span></span></code>.</p>
 </td>
@@ -6825,11 +6724,8 @@ sizeDiss<span class="token punctuation">(</span><span class="token number">1</sp
 n <span class="token operator">&lt;-</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">100</span>
 stopifnot<span class="token punctuation">(</span>n <span class="token operator">==</span> sapply<span class="token punctuation">(</span> n<span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> sizeDiss<span class="token punctuation">(</span>logical<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="summary.agnes">
-
-<a href="#summary.agnes" class="help-page-title"><h2 id="summary.agnes">Summary Method for 'agnes' Objects</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="summary.agnes"><main><a href="#summary.agnes" class="help-page-title"><h2>Summary Method for 'agnes' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6852,14 +6748,14 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <table>
 <tr>
 <td>
-<code id="summary.agnes_:_x">x</code>, <code id="summary.agnes_:_object">object</code>
+<code id="x">x</code>, <code id="object">object</code>
 </td>
 <td>
 <p>a <code><a href="#agnes">agnes</a></code> object.</p>
 </td>
 </tr>
 <tr>
-<td><code id="summary.agnes_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6875,11 +6771,8 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
 summary<span class="token punctuation">(</span>agnes<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="summary.clara">
-
-<a href="#summary.clara" class="help-page-title"><h2 id="summary.clara">Summary Method for 'clara' Objects</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="summary.clara"><main><a href="#summary.clara" class="help-page-title"><h2>Summary Method for 'clara' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6902,14 +6795,14 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <table>
 <tr>
 <td>
-<code id="summary.clara_:_x">x</code>, <code id="summary.clara_:_object">object</code>
+<code id="x">x</code>, <code id="object">object</code>
 </td>
 <td>
 <p>a <code><a href="#clara">clara</a></code> object.</p>
 </td>
 </tr>
 <tr>
-<td><code id="summary.clara_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6943,11 +6836,8 @@ par<span class="token punctuation">(</span>mfrow <span class="token operator">=<
 plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> col <span class="token operator">=</span> rep<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>clx5<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="summary.diana">
-
-<a href="#summary.diana" class="help-page-title"><h2 id="summary.diana">Summary Method for 'diana' Objects</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="summary.diana"><main><a href="#summary.diana" class="help-page-title"><h2>Summary Method for 'diana' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6967,14 +6857,14 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <table>
 <tr>
 <td>
-<code id="summary.diana_:_x">x</code>, <code id="summary.diana_:_object">object</code>
+<code id="x">x</code>, <code id="object">object</code>
 </td>
 <td>
 <p>a <code><a href="#diana">diana</a></code> object.</p>
 </td>
 </tr>
 <tr>
-<td><code id="summary.diana_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -6984,11 +6874,8 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <p><code><a href="#diana">diana</a></code>, <code><a href="#diana">diana.object</a></code>.</p>
 
-<hr>
-</div>
-<div class="container manual-page" id="summary.mona">
-
-<a href="#summary.mona" class="help-page-title"><h2 id="summary.mona">Summary Method for 'mona' Objects</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="summary.mona"><main><a href="#summary.mona" class="help-page-title"><h2>Summary Method for 'mona' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -7008,14 +6895,14 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <table>
 <tr>
 <td>
-<code id="summary.mona_:_x">x</code>, <code id="summary.mona_:_object">object</code>
+<code id="x">x</code>, <code id="object">object</code>
 </td>
 <td>
 <p>a <code><a href="#mona">mona</a></code> object.</p>
 </td>
 </tr>
 <tr>
-<td><code id="summary.mona_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -7025,11 +6912,8 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <p><code><a href="#mona">mona</a></code>, <code><a href="#mona.object">mona.object</a></code>.</p>
 
-<hr>
-</div>
-<div class="container manual-page" id="summary.pam">
-
-<a href="#summary.pam" class="help-page-title"><h2 id="summary.pam">Summary Method for PAM Objects</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="summary.pam"><main><a href="#summary.pam" class="help-page-title"><h2>Summary Method for PAM Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -7052,14 +6936,14 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <table>
 <tr>
 <td>
-<code id="summary.pam_:_x">x</code>, <code id="summary.pam_:_object">object</code>
+<code id="x">x</code>, <code id="object">object</code>
 </td>
 <td>
 <p>a <code><a href="#pam">pam</a></code> object.</p>
 </td>
 </tr>
 <tr>
-<td><code id="summary.pam_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>potential further arguments (require by generic).</p>
 </td>
@@ -7070,11 +6954,8 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <p><code><a href="#pam">pam</a></code>, <code><a href="#pam.object">pam.object</a></code>.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="twins.object">
-
-<a href="#twins.object" class="help-page-title"><h2 id="twins.object">Hierarchical Clustering Object</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="twins.object"><main><a href="#twins.object" class="help-page-title"><h2>Hierarchical Clustering Object</h2></a>
 
 <h3>Description</h3>
 
@@ -7114,11 +6995,8 @@ divisive (polythetic) hierarchical clustering of a dataset.
 <p><code><a href="#agnes">agnes</a></code>,<code><a href="#diana">diana</a></code>.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="volume.ellipsoid">
-
-<a href="#volume.ellipsoid" class="help-page-title"><h2 id="volume.ellipsoid">Compute the Volume (of an Ellipsoid)</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="volume.ellipsoid"><main><a href="#volume.ellipsoid" class="help-page-title"><h2>Compute the Volume (of an Ellipsoid)</h2></a>
 
 <h3>Description</h3>
 
@@ -7139,7 +7017,7 @@ volume<span class="token punctuation">(</span>object<span class="token punctuati
 
 <table>
 <tr>
-<td><code id="volume.ellipsoid_:_object">object</code></td>
+<td><code id="object">object</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object the volume of which is wanted; for the
 <code>ellipsoid</code> method, an object of that class (see
@@ -7147,14 +7025,14 @@ volume<span class="token punctuation">(</span>object<span class="token punctuati
 </td>
 </tr>
 <tr>
-<td><code id="volume.ellipsoid_:_log">log</code></td>
+<td><code id="log">log</code></td>
 <td>
 <p><code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> indicating if the volume should be
 returned in log scale.  Maybe needed in largish dimensions.</p>
 </td>
 </tr>
 <tr>
-<td><code id="volume.ellipsoid_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>potential further arguments of methods, e.g. <code>log</code>.</p>
 </td>
@@ -7192,11 +7070,8 @@ set.seed<span class="token punctuation">(</span><span class="token number">1</sp
 d5 <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span>rt<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span> df<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
 e5 <span class="token operator">&lt;-</span> ellipsoidhull<span class="token punctuation">(</span>d5<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="votes.repub">
-
-<a href="#votes.repub" class="help-page-title"><h2 id="votes.repub">Votes for Republican Candidate in Presidential Elections</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="votes.repub"><main><a href="#votes.repub" class="help-page-title"><h2>Votes for Republican Candidate in Presidential Elections</h2></a>
 
 <h3>Description</h3>
 
@@ -7221,11 +7096,8 @@ New York: Frederick Ungar Publishing Co.
 <em>American Votes 12</em>, Congressional Quarterly.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="xclara">
-
-<a href="#xclara" class="help-page-title"><h2 id="xclara">Bivariate Data Set with 3 Clusters</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="xclara"><main><a href="#xclara" class="help-page-title"><h2>Bivariate Data Set with 3 Clusters</h2></a>
 
 <h3>Description</h3>
 
@@ -7308,8 +7180,7 @@ text<span class="token punctuation">(</span>xclara<span class="token punctuation
  abline<span class="token punctuation">(</span>v <span class="token operator">=</span> iR<span class="token punctuation">,</span> col <span class="token operator">=</span> gc<span class="token punctuation">,</span> lty<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
  axis<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> at <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> iR<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> padj <span class="token operator">=</span> <span class="token number">1.2</span><span class="token punctuation">,</span> col<span class="token operator">=</span>gc<span class="token punctuation">,</span> col.axis<span class="token operator">=</span>gc<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
+<hr></main></div>
 </div>
     <footer><p>Rendered with postdoc 1.2.2</p></footer>
   </body>

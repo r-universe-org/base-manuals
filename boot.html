@@ -31,12 +31,14 @@
 </tr>
       <tr>
 <th>Authors:</th>
-<td class="description-author"><span>Angelo Canty [aut],
-  Brian Ripley [aut, trl, cre] (author of parallel support)</span></td>
+<td class="description-author"><span>Angelo Canty [aut] (author of original code for S),
+  Brian Ripley [aut, trl] (conversion to R, maintainer 1999--2022, author
+    of parallel support),
+  Alessandra R. Brazzale [ctb, cre] (minor bug fixes)</span></td>
 </tr>
       <tr>
 <th>Maintainer:</th>
-<td class="description-maintainer">Brian Ripley &lt;ripley@stats.ox.ac.uk&gt;</td>
+<td class="description-maintainer">Alessandra R. Brazzale &lt;brazzale@stat.unipd.it&gt;</td>
 </tr>
       <tr>
 <th>License:</th>
@@ -44,11 +46,11 @@
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">1.3-28.1</td>
+<td class="description-version">1.3-30</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2023-11-01 20:55:25 UTC</td>
+<td class="description-date">2024-03-27 22:43:02 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -58,6 +60,10 @@
 
     <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
     <ul id="help-index-list">
+<li class="help-index-item"><a href="#EEF.profile"> Empirical Likelihoods</a></li>
+<li class="help-index-item"><a href="#Imp.Estimates">
+Importance Sampling Estimates
+</a></li>
 <li class="help-index-item"><a href="#abc.ci">
 Nonparametric ABC Confidence Intervals
 </a></li>
@@ -158,7 +164,6 @@ Incidence of Down's Syndrome in British Columbia
 <li class="help-index-item"><a href="#ducks">
 Behavioral and Plumage Characteristics of Hybrid Ducks
 </a></li>
-<li class="help-index-item"><a href="#EEF.profile"> Empirical Likelihoods</a></li>
 <li class="help-index-item"><a href="#empinf">
 Empirical Influence Values
 </a></li>
@@ -188,9 +193,6 @@ Acceleration Due to Gravity
 </a></li>
 <li class="help-index-item"><a href="#hirose">
 Failure Time of PET Film
-</a></li>
-<li class="help-index-item"><a href="#Imp.Estimates">
-Importance Sampling Estimates
 </a></li>
 <li class="help-index-item"><a href="#imp.weights">
 Importance Sampling Weights
@@ -319,9 +321,336 @@ Australian Relative Wool Prices
 
     <hr>
     <div class="manual-pages-content">
-<div class="container manual-page" id="abc.ci">
+<div class="container manual-page" id="EEF.profile"><main><a href="#EEF.profile" class="help-page-title"><h2> Empirical Likelihoods</h2></a>
 
-<a href="#abc.ci" class="help-page-title"><h2 id="abc.ci">
+<h3>Description</h3>
+
+<p>Construct the empirical log likelihood or empirical exponential 
+family log likelihood for a mean.</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">EEF.profile<span class="token punctuation">(</span>y<span class="token punctuation">,</span> tmin <span class="token operator">=</span> min<span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.1</span><span class="token punctuation">,</span> tmax <span class="token operator">=</span> max<span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0.1</span><span class="token punctuation">,</span> n.t <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">,</span> 
+            u <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span> t<span class="token punctuation">)</span> y <span class="token operator">-</span> t<span class="token punctuation">)</span>
+EL.profile<span class="token punctuation">(</span>y<span class="token punctuation">,</span> tmin  <span class="token operator">=</span>  min<span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.1</span><span class="token punctuation">,</span> tmax <span class="token operator">=</span> max<span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0.1</span><span class="token punctuation">,</span> n.t  <span class="token operator">=</span>  <span class="token number">25</span><span class="token punctuation">,</span> 
+           u <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span> t<span class="token punctuation">)</span> y <span class="token operator">-</span> t<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr>
+<td><code id="y">y</code></td>
+<td>
+<p>A vector or matrix of data</p>
+</td>
+</tr>
+<tr>
+<td><code id="tmin">tmin</code></td>
+<td>
+<p> The minimum value of the range over which the 
+likelihood should be computed.  This must be larger than 
+<code>min(y)</code>.</p>
+</td>
+</tr>
+<tr>
+<td><code id="tmax">tmax</code></td>
+<td>
+<p> The maximum value of the range over which the 
+likelihood should be computed.  This must be smaller than 
+<code>max(y)</code>.</p>
+</td>
+</tr>
+<tr>
+<td><code id="n.t">n.t</code></td>
+<td>
+<p> The number of points between <code>tmin</code> and
+<code>tmax</code> at which the value of the log-likelihood should be
+computed.</p>
+</td>
+</tr>
+<tr>
+<td><code id="u">u</code></td>
+<td>
+<p>A function of the data and the parameter.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>These functions calculate the log likelihood for a mean using either
+an empirical likelihood or an empirical exponential family likelihood.
+They are supplied as part of the package <code>boot</code> for demonstration
+purposes with the practicals in chapter 10 of Davison and Hinkley (1997).
+The functions are not intended for general use and are not supported
+as part of the <code>boot</code>package.  For more general and more robust
+code to calculate empirical likelihoods see Professor A. B. Owen's 
+empirical likelihood home page at the URL
+<a href="https://artowen.su.domains/empirical/" target="_blank">https://artowen.su.domains/empirical/</a>
+</p>
+
+
+<h3>Value</h3>
+
+<p>A matrix with <code>n.t</code> rows.  The first column contains the
+values of the parameter used.  The second column of the output
+of <code>EL.profile</code> contains the values of the empirical
+log likelihood. The second and third columns of the output of
+<code>EEF.profile</code> contain two versions of the empirical
+exponential family log-likelihood.  The final column of the
+output matrix contains the values of the Lagrange multiplier
+used in the optimization procedure.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Angelo J. Canty</p>
+
+
+<h3>References</h3>
+
+ 
+<p>Davison, A. C. and Hinkley, D. V. (1997)
+<em>Bootstrap Methods and Their Application</em>. Cambridge University
+Press.
+</p>
+
+<hr></main></div>
+<div class="container manual-page" id="Imp.Estimates"><main><a href="#Imp.Estimates" class="help-page-title"><h2>
+Importance Sampling Estimates
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Central moment, tail probability, and quantile estimates for a statistic
+under importance resampling.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">imp.moments<span class="token punctuation">(</span>boot.out <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> t <span class="token operator">=</span> boot.out<span class="token operator">$</span>t<span class="token punctuation">[</span><span class="token punctuation">,</span> index<span class="token punctuation">]</span><span class="token punctuation">,</span> 
+            w <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> def <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> q <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+imp.prob<span class="token punctuation">(</span>boot.out <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> t0 <span class="token operator">=</span> boot.out<span class="token operator">$</span>t0<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">,</span> 
+         t <span class="token operator">=</span> boot.out<span class="token operator">$</span>t<span class="token punctuation">[</span><span class="token punctuation">,</span> index<span class="token punctuation">]</span><span class="token punctuation">,</span> w <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> def <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> q <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+imp.quantile<span class="token punctuation">(</span>boot.out <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> alpha <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> 
+             t <span class="token operator">=</span> boot.out<span class="token operator">$</span>t<span class="token punctuation">[</span><span class="token punctuation">,</span> index<span class="token punctuation">]</span><span class="token punctuation">,</span> w <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> def <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> q <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr>
+<td><code id="boot.out">boot.out</code></td>
+<td>
+
+<p>A object of class <code>"boot"</code> generated by a call to <code>boot</code> or
+<code>tilt.boot</code>. Use of these functions makes sense only when the
+bootstrap resampling used unequal weights for the observations.  If the
+importance weights <code>w</code> are not supplied then <code>boot.out</code> is a
+required argument. It is also required if <code>t</code> is not supplied.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="alpha">alpha</code></td>
+<td>
+
+<p>The alpha levels for the required quantiles.  The default is to calculate
+the 1%, 2.5%, 5%, 10%, 90%, 95%, 97.5% and 99% quantiles.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="index">index</code></td>
+<td>
+
+<p>The index of the variable of interest in the output of
+<code>boot.out$statistic</code>.  This is not used if the argument
+<code>t</code> is supplied.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="t0">t0</code></td>
+<td>
+
+<p>The values at which tail probability estimates are required.  For
+each value <code>t0[i]</code> the function will estimate the bootstrap cdf
+evaluated at <code>t0[i]</code>.  If <code>imp.prob</code> is called without the
+argument <code>t0</code> then the bootstrap cdf evaluated at the observed
+value of the statistic is found.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="t">t</code></td>
+<td>
+
+<p>The bootstrap replicates of a statistic.  By default these are taken
+from the bootstrap output object <code>boot.out</code> but they can be
+supplied separately if required (e.g. when the statistic of interest
+is a function of the calculated values in <code>boot.out</code>).  Either
+<code>boot.out</code> or <code>t</code> must be supplied.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="w">w</code></td>
+<td>
+
+<p>The importance resampling weights for the bootstrap replicates.  If they are
+not supplied then <code>boot.out</code> must be supplied, in which case
+the importance weights are calculated by a call to
+<code>imp.weights</code>.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="def">def</code></td>
+<td>
+
+<p>A logical value indicating whether a defensive mixture is to be used
+for weight calculation.  This is used only if <code>w</code> is missing
+and it is passed unchanged to <code>imp.weights</code> to calculate
+<code>w</code>.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="q">q</code></td>
+<td>
+
+<p>A vector of probabilities specifying the resampling distribution
+from which any estimates should be found.  In general this would
+correspond to the usual bootstrap resampling distribution which
+gives equal weight to each of the original observations. The
+estimates depend on this distribution only through the importance
+weights <code>w</code> so this argument is ignored if <code>w</code> is
+supplied.  If <code>w</code> is missing then <code>q</code> is passed as an
+argument to <code>imp.weights</code> and used to find <code>w</code>. 
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>A list with the following components :
+</p>
+<table>
+<tr>
+<td><code>alpha</code></td>
+<td>
+
+<p>The <code>alpha</code> levels used for the quantiles, if
+<code>imp.quantile</code> is used.
+</p>
+</td>
+</tr>
+<tr>
+<td><code>t0</code></td>
+<td>
+
+<p>The values at which the tail probabilities are estimated, if
+<code>imp.prob</code> is used.
+</p>
+</td>
+</tr>
+<tr>
+<td><code>raw</code></td>
+<td>
+
+<p>The raw importance resampling estimates.  For <code>imp.moments</code>
+this has length 2, the first component being the estimate of the
+mean and the second being the variance estimate.  For
+<code>imp.prob</code>, <code>raw</code> is of the same length as <code>t0</code>, and
+for <code>imp.quantile</code> it is of the same length as <code>alpha</code>.
+</p>
+</td>
+</tr>
+<tr>
+<td><code>rat</code></td>
+<td>
+
+<p>The ratio importance resampling estimates.  In this method the
+weights <code>w</code> are rescaled to have average value one before they
+are used.  The format of this vector is the same as <code>raw</code>.
+</p>
+</td>
+</tr>
+<tr>
+<td><code>reg</code></td>
+<td>
+
+<p>The regression importance resampling estimates.  In this method the weights
+which are used are derived from a regression of <code>t*w</code> on
+<code>w</code>.  This choice of weights can be shown to minimize the
+variance of the weights and also the Euclidean distance of the
+weights from the uniform weights.  The format of this vector is the
+same as <code>raw</code>.
+</p>
+</td>
+</tr>
+</table>
+<h3>References</h3>
+
+<p>Davison, A. C. and Hinkley, D. V. (1997) 
+<em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
+</p>
+<p>Hesterberg, T. (1995) Weighted average importance sampling and defensive 
+mixture distributions. <em>Technometrics</em>, <b>37</b>, 185–194.
+</p>
+<p>Johns, M.V.  (1988) Importance sampling for bootstrap confidence intervals.
+<em>Journal of the American Statistical Association</em>, <b>83</b>, 709–714.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#boot">boot</a></code>, <code><a href="#exp.tilt">exp.tilt</a></code>, <code><a href="#imp.weights">imp.weights</a></code>,
+<code><a href="#smooth.f">smooth.f</a></code>, <code><a href="#tilt.boot">tilt.boot</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment"># Example 9.8 of Davison and Hinkley (1997) requires tilting the </span>
+<span class="token comment"># resampling distribution of the studentized statistic to be centred </span>
+<span class="token comment"># at the observed value of the test statistic, 1.84.  In this example</span>
+<span class="token comment"># we show how certain estimates can be found using resamples taken from</span>
+<span class="token comment"># the tilted distribution.</span>
+grav1 <span class="token operator">&lt;-</span> gravity<span class="token punctuation">[</span>as.numeric<span class="token punctuation">(</span>gravity<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token punctuation">]</span>
+grav.fun <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>dat<span class="token punctuation">,</span> w<span class="token punctuation">,</span> orig<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     strata <span class="token operator">&lt;-</span> tapply<span class="token punctuation">(</span>dat<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> as.numeric<span class="token punctuation">(</span>dat<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+     d <span class="token operator">&lt;-</span> dat<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+     ns <span class="token operator">&lt;-</span> tabulate<span class="token punctuation">(</span>strata<span class="token punctuation">)</span>
+     w <span class="token operator">&lt;-</span> w<span class="token operator">/</span>tapply<span class="token punctuation">(</span>w<span class="token punctuation">,</span> strata<span class="token punctuation">,</span> sum<span class="token punctuation">)</span><span class="token punctuation">[</span>strata<span class="token punctuation">]</span>
+     mns <span class="token operator">&lt;-</span> as.vector<span class="token punctuation">(</span>tapply<span class="token punctuation">(</span>d <span class="token operator">*</span> w<span class="token punctuation">,</span> strata<span class="token punctuation">,</span> sum<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># drop names</span>
+     mn2 <span class="token operator">&lt;-</span> tapply<span class="token punctuation">(</span>d <span class="token operator">*</span> d <span class="token operator">*</span> w<span class="token punctuation">,</span> strata<span class="token punctuation">,</span> sum<span class="token punctuation">)</span>
+     s2hat <span class="token operator">&lt;-</span> sum<span class="token punctuation">(</span><span class="token punctuation">(</span>mn2 <span class="token operator">-</span> mns<span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">/</span>ns<span class="token punctuation">)</span>
+     c<span class="token punctuation">(</span>mns<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">-</span> mns<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> s2hat<span class="token punctuation">,</span> <span class="token punctuation">(</span>mns<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">-</span> mns<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> orig<span class="token punctuation">)</span><span class="token operator">/</span>sqrt<span class="token punctuation">(</span>s2hat<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+grav.z0 <span class="token operator">&lt;-</span> grav.fun<span class="token punctuation">(</span>grav1<span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+grav.L <span class="token operator">&lt;-</span> empinf<span class="token punctuation">(</span>data <span class="token operator">=</span> grav1<span class="token punctuation">,</span> statistic <span class="token operator">=</span> grav.fun<span class="token punctuation">,</span> stype <span class="token operator">=</span> <span class="token string">"w"</span><span class="token punctuation">,</span> 
+                 strata <span class="token operator">=</span> grav1<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> orig <span class="token operator">=</span> grav.z0<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+grav.tilt <span class="token operator">&lt;-</span> exp.tilt<span class="token punctuation">(</span>grav.L<span class="token punctuation">,</span> grav.z0<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> strata <span class="token operator">=</span> grav1<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+grav.tilt.boot <span class="token operator">&lt;-</span> boot<span class="token punctuation">(</span>grav1<span class="token punctuation">,</span> grav.fun<span class="token punctuation">,</span> R <span class="token operator">=</span> <span class="token number">199</span><span class="token punctuation">,</span> stype <span class="token operator">=</span> <span class="token string">"w"</span><span class="token punctuation">,</span> 
+                       strata <span class="token operator">=</span> grav1<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> weights <span class="token operator">=</span> grav.tilt<span class="token operator">$</span>p<span class="token punctuation">,</span>
+                       orig <span class="token operator">=</span> grav.z0<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># Since the weights are needed for all calculations, we shall calculate</span>
+<span class="token comment"># them once only.</span>
+grav.w <span class="token operator">&lt;-</span> imp.weights<span class="token punctuation">(</span>grav.tilt.boot<span class="token punctuation">)</span>
+grav.mom <span class="token operator">&lt;-</span> imp.moments<span class="token punctuation">(</span>grav.tilt.boot<span class="token punctuation">,</span> w <span class="token operator">=</span> grav.w<span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span>
+grav.p <span class="token operator">&lt;-</span> imp.prob<span class="token punctuation">(</span>grav.tilt.boot<span class="token punctuation">,</span> w <span class="token operator">=</span> grav.w<span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> t0 <span class="token operator">=</span> grav.z0<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+unlist<span class="token punctuation">(</span>grav.p<span class="token punctuation">)</span>
+grav.q <span class="token operator">&lt;-</span> imp.quantile<span class="token punctuation">(</span>grav.tilt.boot<span class="token punctuation">,</span> w <span class="token operator">=</span> grav.w<span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> 
+                       alpha <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0.9</span><span class="token punctuation">,</span> <span class="token number">0.95</span><span class="token punctuation">,</span> <span class="token number">0.975</span><span class="token punctuation">,</span> <span class="token number">0.99</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+as.data.frame<span class="token punctuation">(</span>grav.q<span class="token punctuation">)</span></code></pre>
+
+<hr></main></div>
+<div class="container manual-page" id="abc.ci"><main><a href="#abc.ci" class="help-page-title"><h2>
 Nonparametric ABC Confidence Intervals
 </h2></a>
 
@@ -343,7 +672,7 @@ parameter, using numerical differentiation.
 
 <table>
 <tr>
-<td><code id="abc.ci_:_data">data</code></td>
+<td><code id="data">data</code></td>
 <td>
 
 <p>A data set expressed as a vector, matrix or data frame.
@@ -351,7 +680,7 @@ parameter, using numerical differentiation.
 </td>
 </tr>
 <tr>
-<td><code id="abc.ci_:_statistic">statistic</code></td>
+<td><code id="statistic">statistic</code></td>
 <td>
 
 <p>A function which returns the statistic of interest.  The function must
@@ -363,7 +692,7 @@ passed to <code>abc.ci</code> as part of the <code>...{}</code> argument.
 </td>
 </tr>
 <tr>
-<td><code id="abc.ci_:_index">index</code></td>
+<td><code id="index">index</code></td>
 <td>
 
 <p>If <code>statistic</code> returns a vector of length greater than 1, then this indicates
@@ -372,7 +701,7 @@ the position of the variable of interest within that vector.
 </td>
 </tr>
 <tr>
-<td><code id="abc.ci_:_strata">strata</code></td>
+<td><code id="strata">strata</code></td>
 <td>
 
 <p>A factor or numerical vector indicating to which sample each
@@ -382,7 +711,7 @@ is the one-sample case.
 </td>
 </tr>
 <tr>
-<td><code id="abc.ci_:_conf">conf</code></td>
+<td><code id="conf">conf</code></td>
 <td>
 
 <p>A scalar or vector containing the confidence level(s) of the required
@@ -391,7 +720,7 @@ interval(s).
 </td>
 </tr>
 <tr>
-<td><code id="abc.ci_:_eps">eps</code></td>
+<td><code id="eps">eps</code></td>
 <td>
 
 <p>The value of epsilon to be used for the numerical differentiation.
@@ -399,7 +728,7 @@ interval(s).
 </td>
 </tr>
 <tr>
-<td><code id="abc.ci_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 
 <p>Any other arguments for <code>statistic</code>.  These will be passed unchanged to
@@ -470,11 +799,8 @@ grav1 <span class="token operator">&lt;-</span> gravity<span class="token punctu
 abc.ci<span class="token punctuation">(</span>grav1<span class="token punctuation">,</span> mean.diff<span class="token punctuation">,</span> strata <span class="token operator">=</span> grav1<span class="token operator">$</span>series<span class="token punctuation">)</span>
 <span class="token comment">## IGNORE_RDIFF_END</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="acme">
-
-<a href="#acme" class="help-page-title"><h2 id="acme">
+<hr></main></div>
+<div class="container manual-page" id="acme"><main><a href="#acme" class="help-page-title"><h2>
 Monthly Excess Returns
 </h2></a>
 
@@ -531,11 +857,8 @@ improved tests of constancy of variance in regression.
 <p>Davison, A.C. and Hinkley, D.V. (1997) <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="aids">
-
-<a href="#aids" class="help-page-title"><h2 id="aids">
+<hr></main></div>
+<div class="container manual-page" id="aids"><main><a href="#aids" class="help-page-title"><h2>
 Delay in AIDS Reporting in England and Wales
 </h2></a>
 
@@ -619,11 +942,8 @@ deficiency syndrome accounting for reporting delay.
 Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="aircondit">
-
-<a href="#aircondit" class="help-page-title"><h2 id="aircondit">
+<hr></main></div>
+<div class="container manual-page" id="aircondit"><main><a href="#aircondit" class="help-page-title"><h2>
 Failures of Air-conditioning Equipment
 </h2></a>
 
@@ -675,11 +995,8 @@ equipment
 rate. <em>Technometrics</em>, <b>5</b>, 375-383.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="amis">
-
-<a href="#amis" class="help-page-title"><h2 id="amis">
+<hr></main></div>
+<div class="container manual-page" id="amis"><main><a href="#amis" class="help-page-title"><h2>
 Car Speeding and Warning Signs
 </h2></a>
 
@@ -752,11 +1069,8 @@ Council, U.K.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="aml">
-
-<a href="#aml" class="help-page-title"><h2 id="aml">
+<hr></main></div>
+<div class="container manual-page" id="aml"><main><a href="#aml" class="help-page-title"><h2>
 Remission Times for Acute Myelogenous Leukaemia
 </h2></a>
 
@@ -832,11 +1146,8 @@ Schrier, S.L. (1977) Remission maintenance therapy in  acute myelogenous
 leukaemia. <em>Western Journal of Medicine</em>, <b>126</b>, 267-272.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="beaver">
-
-<a href="#beaver" class="help-page-title"><h2 id="beaver">
+<hr></main></div>
+<div class="container manual-page" id="beaver"><main><a href="#beaver" class="help-page-title"><h2>
 Beaver Body Temperature Data
 </h2></a>
 
@@ -907,11 +1218,8 @@ D. Brillinger, L. Conquest and J. Greenhouse (editors), 211–228. John Wiley.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="bigcity">
-
-<a href="#bigcity" class="help-page-title"><h2 id="bigcity">
+<hr></main></div>
+<div class="container manual-page" id="bigcity"><main><a href="#bigcity" class="help-page-title"><h2>
 Population of U.S. Cities
 </h2></a>
 
@@ -963,11 +1271,8 @@ frame consists of the first 10 observations in <code>bigcity</code>.
 <p>Davison, A.C. and Hinkley, D.V. (1997) <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="boot">
-
-<a href="#boot" class="help-page-title"><h2 id="boot">
+<hr></main></div>
+<div class="container manual-page" id="boot"><main><a href="#boot" class="help-page-title"><h2>
 Bootstrap Resampling
 </h2></a>
 
@@ -996,7 +1301,7 @@ Importance resampling weights may be specified.
 
 <table>
 <tr>
-<td><code id="boot_:_data">data</code></td>
+<td><code id="data">data</code></td>
 <td>
 
 <p>The data as a vector, matrix or data frame.  If it is a matrix or
@@ -1006,7 +1311,7 @@ observation.
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_statistic">statistic</code></td>
+<td><code id="statistic">statistic</code></td>
 <td>
 
 <p>A function which when applied to data returns a vector containing
@@ -1025,7 +1330,7 @@ Any further arguments can be passed to <code>statistic</code> through the
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_R">R</code></td>
+<td><code id="R">R</code></td>
 <td>
 
 <p>The number of bootstrap replicates.  Usually this will be a single
@@ -1038,7 +1343,7 @@ weights.
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_sim">sim</code></td>
+<td><code id="sim">sim</code></td>
 <td>
 
 <p>A character string indicating the type of simulation required.
@@ -1052,7 +1357,7 @@ still be specified but may only be <code>"ordinary"</code> or
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_stype">stype</code></td>
+<td><code id="stype">stype</code></td>
 <td>
 
 <p>A character string indicating what the second argument of <code>statistic</code>
@@ -1063,7 +1368,7 @@ used for <code>sim = "parametric"</code>.
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_strata">strata</code></td>
+<td><code id="strata">strata</code></td>
 <td>
 
 <p>An integer vector or factor specifying the strata for multi-sample
@@ -1075,7 +1380,7 @@ within the specified strata.
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_L">L</code></td>
+<td><code id="L">L</code></td>
 <td>
 
 <p>Vector of influence values evaluated at the observations.  This is
@@ -1087,7 +1392,7 @@ the infinitesimal jackknife provided that <code>stype</code> is
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_m">m</code></td>
+<td><code id="m">m</code></td>
 <td>
 
 <p>The number of predictions which are to be made at each bootstrap
@@ -1104,7 +1409,7 @@ the predictions.
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_weights">weights</code></td>
+<td><code id="weights">weights</code></td>
 <td>
 
 <p>Vector or matrix of importance weights.  If a vector then it should
@@ -1119,7 +1424,7 @@ parameter is ignored if <code>sim</code> is not <code>"ordinary"</code> or
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_ran.gen">ran.gen</code></td>
+<td><code id="ran.gen">ran.gen</code></td>
 <td>
 
 <p>This function is used only when <code>sim = "parametric"</code>
@@ -1142,7 +1447,7 @@ not supported directly.
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_mle">mle</code></td>
+<td><code id="mle">mle</code></td>
 <td>
 
 <p>The second argument to be passed to <code>ran.gen</code>.  Typically these
@@ -1154,7 +1459,7 @@ data set only.
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_simple">simple</code></td>
+<td><code id="simple">simple</code></td>
 <td>
 <p>logical, only allowed to be <code>TRUE</code> for
 <code>sim = "ordinary", stype = "i", n = 0</code> (otherwise ignored with a
@@ -1166,7 +1471,7 @@ less memory.
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 
 <p>Other named arguments for <code>statistic</code> which are passed
@@ -1180,7 +1485,7 @@ arguments of <code>boot</code> listed above, and that arguments named
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_parallel">parallel</code></td>
+<td><code id="parallel">parallel</code></td>
 <td>
 
 <p>The type of parallel operation to be used (if any).  If missing, the
@@ -1190,7 +1495,7 @@ is not set, <code>"no"</code>).
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_ncpus">ncpus</code></td>
+<td><code id="ncpus">ncpus</code></td>
 <td>
 
 <p>integer: number of processes to be used in parallel operation:
@@ -1199,7 +1504,7 @@ typically one would chose this to the number of available CPUs.
 </td>
 </tr>
 <tr>
-<td><code id="boot_:_cl">cl</code></td>
+<td><code id="cl">cl</code></td>
 <td>
 
 <p>An optional <span class="pkg">parallel</span> or <span class="pkg">snow</span> cluster for use if
@@ -1560,11 +1865,8 @@ air.boot <span class="token operator">&lt;-</span> boot<span class="token punctu
 <span class="token comment"># The bootstrap p-value can then be approximated by</span>
 sum<span class="token punctuation">(</span>abs<span class="token punctuation">(</span>air.boot<span class="token operator">$</span>t<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> abs<span class="token punctuation">(</span>air.boot<span class="token operator">$</span>t0<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span>air.boot<span class="token operator">$</span>R<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="boot.array">
-
-<a href="#boot.array" class="help-page-title"><h2 id="boot.array">
+<hr></main></div>
+<div class="container manual-page" id="boot.array"><main><a href="#boot.array" class="help-page-title"><h2>
 Bootstrap Resampling Arrays
 </h2></a>
 
@@ -1586,7 +1888,7 @@ resamples.
 
 <table>
 <tr>
-<td><code id="boot.array_:_boot.out">boot.out</code></td>
+<td><code id="boot.out">boot.out</code></td>
 <td>
 
 <p>An object of class <code>"boot"</code> returned by one of the generation
@@ -1595,7 +1897,7 @@ functions for such an object.
 </td>
 </tr>
 <tr>
-<td><code id="boot.array_:_indices">indices</code></td>
+<td><code id="indices">indices</code></td>
 <td>
 
 <p>A logical argument which specifies whether to return the frequency
@@ -1668,11 +1970,8 @@ perm.cor <span class="token operator">&lt;-</span> <span class="token keyword">f
 city.perm <span class="token operator">&lt;-</span> boot<span class="token punctuation">(</span>city<span class="token punctuation">,</span> perm.cor<span class="token punctuation">,</span> R <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">,</span> sim <span class="token operator">=</span> <span class="token string">"permutation"</span><span class="token punctuation">)</span>
 boot.array<span class="token punctuation">(</span>city.perm<span class="token punctuation">,</span> indices <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="boot.ci">
-
-<a href="#boot.ci" class="help-page-title"><h2 id="boot.ci">
+<hr></main></div>
+<div class="container manual-page" id="boot.ci"><main><a href="#boot.ci" class="help-page-title"><h2>
 Nonparametric Bootstrap Confidence Intervals
 </h2></a>
 
@@ -1700,7 +1999,7 @@ generated.
 
 <table>
 <tr>
-<td><code id="boot.ci_:_boot.out">boot.out</code></td>
+<td><code id="boot.out">boot.out</code></td>
 <td>
 
 <p>An object of class <code>"boot"</code> containing the output of a bootstrap
@@ -1709,7 +2008,7 @@ calculation.
 </td>
 </tr>
 <tr>
-<td><code id="boot.ci_:_conf">conf</code></td>
+<td><code id="conf">conf</code></td>
 <td>
 
 <p>A scalar or vector containing the confidence level(s) of the required
@@ -1718,7 +2017,7 @@ interval(s).
 </td>
 </tr>
 <tr>
-<td><code id="boot.ci_:_type">type</code></td>
+<td><code id="type">type</code></td>
 <td>
 
 <p>A vector of character strings representing the type of intervals
@@ -1729,7 +2028,7 @@ which will compute all five types of intervals.
 </td>
 </tr>
 <tr>
-<td><code id="boot.ci_:_index">index</code></td>
+<td><code id="index">index</code></td>
 <td>
 
 <p>This should be a vector of length 1 or 2.  The first element of
@@ -1744,7 +2043,7 @@ position 2 (as long as there are 2 positions in <code>boot.out$t0</code>).
 </td>
 </tr>
 <tr>
-<td><code id="boot.ci_:_var.t0">var.t0</code></td>
+<td><code id="var.t0">var.t0</code></td>
 <td>
 
 <p>If supplied, a value to be used as an estimate of the variance of
@@ -1760,7 +2059,7 @@ statistic.
 </td>
 </tr>
 <tr>
-<td><code id="boot.ci_:_var.t">var.t</code></td>
+<td><code id="var.t">var.t</code></td>
 <td>
 
 <p>This is a vector (of length <code>boot.out$R</code>) of variances of the
@@ -1775,7 +2074,7 @@ untransformed bootstrap statistics.
 </td>
 </tr>
 <tr>
-<td><code id="boot.ci_:_t0">t0</code></td>
+<td><code id="t0">t0</code></td>
 <td>
 
 <p>The observed value of the statistic of interest.  The default value
@@ -1788,7 +2087,7 @@ functions <code>h</code>, <code>hdot</code>, and <code>hinv</code> below.
 </td>
 </tr>
 <tr>
-<td><code id="boot.ci_:_t">t</code></td>
+<td><code id="t">t</code></td>
 <td>
 
 <p>The bootstrap replicates of the statistic of interest.  It must be a
@@ -1801,7 +2100,7 @@ so should be <code>var.t0</code> and <code>var.t</code>.  The default value is
 </td>
 </tr>
 <tr>
-<td><code id="boot.ci_:_L">L</code></td>
+<td><code id="L">L</code></td>
 <td>
 
 <p>The empirical influence values of the statistic of interest for the
@@ -1815,7 +2114,7 @@ using <code>empinf</code> if they are needed.
 </td>
 </tr>
 <tr>
-<td><code id="boot.ci_:_h">h</code></td>
+<td><code id="h">h</code></td>
 <td>
 
 <p>A function defining a transformation.  The intervals are calculated
@@ -1828,7 +2127,7 @@ the same length, i.e. <code>h(c(t1,t2,t3))</code> should return
 </td>
 </tr>
 <tr>
-<td><code id="boot.ci_:_hdot">hdot</code></td>
+<td><code id="hdot">hdot</code></td>
 <td>
 
 <p>A function of one argument returning the derivative of <code>h</code>.  It
@@ -1843,7 +2142,7 @@ is the constant function 1.
 </td>
 </tr>
 <tr>
-<td><code id="boot.ci_:_hinv">hinv</code></td>
+<td><code id="hinv">hinv</code></td>
 <td>
 
 <p>A function, like <code>h</code>, which returns the inverse of <code>h</code>.
@@ -1855,7 +2154,7 @@ intervals returned will be on the transformed scale.
 </td>
 </tr>
 <tr>
-<td><code id="boot.ci_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 
 <p>Any extra arguments that <code>boot.out$statistic</code> is
@@ -2040,11 +2339,8 @@ boot.ci<span class="token punctuation">(</span>air.boot<span class="token punctu
         t0 <span class="token operator">=</span> log<span class="token punctuation">(</span>air.boot<span class="token operator">$</span>t0<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> t <span class="token operator">=</span> log<span class="token punctuation">(</span>air.boot<span class="token operator">$</span>t<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         var.t0 <span class="token operator">=</span> vt0<span class="token punctuation">,</span> var.t <span class="token operator">=</span> vt<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="brambles">
-
-<a href="#brambles" class="help-page-title"><h2 id="brambles">
+<hr></main></div>
+<div class="container manual-page" id="brambles"><main><a href="#brambles" class="help-page-title"><h2>
 Spatial Location of Bramble Canes
 </h2></a>
 
@@ -2101,11 +2397,8 @@ Academic Press.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="breslow">
-
-<a href="#breslow" class="help-page-title"><h2 id="breslow">
+<hr></main></div>
+<div class="container manual-page" id="breslow"><main><a href="#breslow" class="help-page-title"><h2>
 Smoking Deaths Among Doctors
 </h2></a>
 
@@ -2180,11 +2473,8 @@ smoking: Observations on coronary thrombosis.
 <em>National Cancer Institute Monograph</em>, <b>19</b>, 205-268.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="calcium">
-
-<a href="#calcium" class="help-page-title"><h2 id="calcium">
+<hr></main></div>
+<div class="container manual-page" id="calcium"><main><a href="#calcium" class="help-page-title"><h2>
 Calcium Uptake Data
 </h2></a>
 
@@ -2239,11 +2529,8 @@ Wadsworth and Brooks/Cole Statistics/Probability Series.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="cane">
-
-<a href="#cane" class="help-page-title"><h2 id="cane">
+<hr></main></div>
+<div class="container manual-page" id="cane"><main><a href="#cane" class="help-page-title"><h2>
 Sugar-cane Disease Data
 </h2></a>
 
@@ -2318,11 +2605,8 @@ Superior de Agricultura, Universidade de Sao Paolo, Brazil.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="capability">
-
-<a href="#capability" class="help-page-title"><h2 id="capability">
+<hr></main></div>
+<div class="container manual-page" id="capability"><main><a href="#capability" class="help-page-title"><h2>
 Simulated Manufacturing Process Data
 </h2></a>
 
@@ -2371,11 +2655,8 @@ approximations to resampling distributions. To appear in
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="catsM">
-
-<a href="#catsM" class="help-page-title"><h2 id="catsM">
+<hr></main></div>
+<div class="container manual-page" id="catsM"><main><a href="#catsM" class="help-page-title"><h2>
 Weight Data for Domestic Cats
 </h2></a>
 
@@ -2443,11 +2724,8 @@ between a part and the whole. <em>Biometrics</em>, <b>3</b>, 65–68.
 <p><code><a href="https://r-universe.dev/manuals/MASS.html#cats">cats</a></code>
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="cav">
-
-<a href="#cav" class="help-page-title"><h2 id="cav">
+<hr></main></div>
+<div class="container manual-page" id="cav"><main><a href="#cav" class="help-page-title"><h2>
 Position of Muscle Caveolae
 </h2></a>
 
@@ -2494,11 +2772,8 @@ fractured plasma membranes. <em>Journal of Cell Science</em>, <b>74</b>, 105–1
 <p>Davison, A.C. and Hinkley, D.V. (1997) <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="cd4">
-
-<a href="#cd4" class="help-page-title"><h2 id="cd4">
+<hr></main></div>
+<div class="container manual-page" id="cd4"><main><a href="#cd4" class="help-page-title"><h2>
 CD4 Counts for HIV-Positive Patients
 </h2></a>
 
@@ -2554,11 +2829,8 @@ Discussion). <em>Statistical Science</em>, <b>11</b>, 189–228.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="cd4.nested">
-
-<a href="#cd4.nested" class="help-page-title"><h2 id="cd4.nested">
+<hr></main></div>
+<div class="container manual-page" id="cd4.nested"><main><a href="#cd4.nested" class="help-page-title"><h2>
 Nested Bootstrap of cd4 data
 </h2></a>
 
@@ -2582,11 +2854,8 @@ in Chapter 5 of Davison and Hinkley (1997).
 <p><code><a href="#cd4">cd4</a></code>
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="censboot">
-
-<a href="#censboot" class="help-page-title"><h2 id="censboot">
+<hr></main></div>
+<div class="container manual-page" id="censboot"><main><a href="#censboot" class="help-page-title"><h2>
 Bootstrap for Censored Data
 </h2></a>
 
@@ -2611,7 +2880,7 @@ resampling using a Cox regression model.
 
 <table>
 <tr>
-<td><code id="censboot_:_data">data</code></td>
+<td><code id="data">data</code></td>
 <td>
 
 <p>The data frame or matrix containing the data.  It must have at least two
@@ -2626,7 +2895,7 @@ indicators.
 </td>
 </tr>
 <tr>
-<td><code id="censboot_:_statistic">statistic</code></td>
+<td><code id="statistic">statistic</code></td>
 <td>
 
 <p>A function which operates on the data frame and returns the required
@@ -2645,7 +2914,7 @@ strata.  This allows the statistic to depend on the strata if required.
 </td>
 </tr>
 <tr>
-<td><code id="censboot_:_R">R</code></td>
+<td><code id="R">R</code></td>
 <td>
 
 <p>The number of bootstrap replicates.
@@ -2653,7 +2922,7 @@ strata.  This allows the statistic to depend on the strata if required.
 </td>
 </tr>
 <tr>
-<td><code id="censboot_:_F.surv">F.surv</code></td>
+<td><code id="F.surv">F.surv</code></td>
 <td>
 
 <p>An object returned from a call to <code>survfit</code> giving the survivor
@@ -2663,7 +2932,7 @@ function for the data. This is a required argument unless
 </td>
 </tr>
 <tr>
-<td><code id="censboot_:_G.surv">G.surv</code></td>
+<td><code id="G.surv">G.surv</code></td>
 <td>
 
 <p>Another object returned from a call to <code>survfit</code> but with the
@@ -2676,7 +2945,7 @@ is a required argument whenever <code>sim = "cond"</code> or when
 </td>
 </tr>
 <tr>
-<td><code id="censboot_:_strata">strata</code></td>
+<td><code id="strata">strata</code></td>
 <td>
 
 <p>The strata used in the calls to <code>survfit</code>.  It can be a vector or a
@@ -2693,7 +2962,7 @@ be the first column of <code>strata</code> when it is a matrix.
 </td>
 </tr>
 <tr>
-<td><code id="censboot_:_sim">sim</code></td>
+<td><code id="sim">sim</code></td>
 <td>
 
 <p>The simulation type.  Possible types are <code>"ordinary"</code> (case
@@ -2707,7 +2976,7 @@ distribution).
 </td>
 </tr>
 <tr>
-<td><code id="censboot_:_cox">cox</code></td>
+<td><code id="cox">cox</code></td>
 <td>
 
 <p>An object returned from <code>coxph</code>.  If it is supplied, then
@@ -2717,7 +2986,7 @@ distribution).
 </td>
 </tr>
 <tr>
-<td><code id="censboot_:_index">index</code></td>
+<td><code id="index">index</code></td>
 <td>
 
 <p>A vector of length two giving the positions of the columns in
@@ -2727,7 +2996,7 @@ respectively.
 </td>
 </tr>
 <tr>
-<td><code id="censboot_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 
 <p>Other named arguments which are passed unchanged to <code>statistic</code>
@@ -2742,7 +3011,7 @@ not this one).
 </tr>
 <tr>
 <td>
-<code id="censboot_:_parallel">parallel</code>, <code id="censboot_:_ncpus">ncpus</code>, <code id="censboot_:_cl">cl</code>
+<code id="parallel">parallel</code>, <code id="ncpus">ncpus</code>, <code id="cl">cl</code>
 </td>
 <td>
 
@@ -3012,11 +3281,8 @@ plot<span class="token punctuation">(</span>th<span class="token punctuation">,<
 lines<span class="token punctuation">(</span>th<span class="token punctuation">,</span> mel.mod<span class="token operator">$</span>t0<span class="token punctuation">,</span> lty <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
 matlines<span class="token punctuation">(</span>th<span class="token punctuation">,</span> t<span class="token punctuation">(</span>mel.env<span class="token punctuation">)</span><span class="token punctuation">,</span> lty <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="channing">
-
-<a href="#channing" class="help-page-title"><h2 id="channing">
+<hr></main></div>
+<div class="container manual-page" id="channing"><main><a href="#channing" class="help-page-title"><h2>
 Channing House Data
 </h2></a>
 
@@ -3094,11 +3360,8 @@ R.G. Miller, B. Efron, B.W. Brown and L.E. Moses (editors),
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="claridge">
-
-<a href="#claridge" class="help-page-title"><h2 id="claridge">
+<hr></main></div>
+<div class="container manual-page" id="claridge"><main><a href="#claridge" class="help-page-title"><h2>
 Genetic Links to Left-handedness
 </h2></a>
 
@@ -3159,11 +3422,8 @@ Department of Experimental Psychology, University of Oxford.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="cloth">
-
-<a href="#cloth" class="help-page-title"><h2 id="cloth">
+<hr></main></div>
+<div class="container manual-page" id="cloth"><main><a href="#cloth" class="help-page-title"><h2>
 Number of Flaws in Cloth
 </h2></a>
 
@@ -3210,11 +3470,8 @@ Number of Flaws in Cloth
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="co.transfer">
-
-<a href="#co.transfer" class="help-page-title"><h2 id="co.transfer">
+<hr></main></div>
+<div class="container manual-page" id="co.transfer"><main><a href="#co.transfer" class="help-page-title"><h2>
 Carbon Monoxide Transfer
 </h2></a>
 
@@ -3268,11 +3525,8 @@ pneumonia in patients with chickenpox? <em>British Medical Journal</em>,
 <b>294</b>, 1002.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="coal">
-
-<a href="#coal" class="help-page-title"><h2 id="coal">
+<hr></main></div>
+<div class="container manual-page" id="coal"><main><a href="#coal" class="help-page-title"><h2>
 Dates of Coal Mining Disasters 
 </h2></a>
 
@@ -3322,11 +3576,8 @@ is represented as the fraction of the year that had elapsed on that day.
 <em>Biometrika</em>, <b>66</b>, 191-193.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="control">
-
-<a href="#control" class="help-page-title"><h2 id="control">
+<hr></main></div>
+<div class="container manual-page" id="control"><main><a href="#control" class="help-page-title"><h2>
 Control Variate Calculations
 </h2></a>
 
@@ -3350,7 +3601,7 @@ variate.
 
 <table>
 <tr>
-<td><code id="control_:_boot.out">boot.out</code></td>
+<td><code id="boot.out">boot.out</code></td>
 <td>
 
 <p>A bootstrap output object returned from <code>boot</code>.  The bootstrap
@@ -3360,7 +3611,7 @@ bootstrap.
 </td>
 </tr>
 <tr>
-<td><code id="control_:_L">L</code></td>
+<td><code id="L">L</code></td>
 <td>
 
 <p>The empirical influence values for the statistic of interest.  If
@@ -3370,7 +3621,7 @@ them from <code>boot.out</code>.
 </td>
 </tr>
 <tr>
-<td><code id="control_:_distn">distn</code></td>
+<td><code id="distn">distn</code></td>
 <td>
 
 <p>If present this must be the output from <code>smooth.spline</code> giving
@@ -3382,7 +3633,7 @@ that case then it is calculated by <code>saddle.distn</code>.
 </td>
 </tr>
 <tr>
-<td><code id="control_:_index">index</code></td>
+<td><code id="index">index</code></td>
 <td>
 
 <p>The index of the variable of interest in the output of
@@ -3391,7 +3642,7 @@ that case then it is calculated by <code>saddle.distn</code>.
 </td>
 </tr>
 <tr>
-<td><code id="control_:_t0">t0</code></td>
+<td><code id="t0">t0</code></td>
 <td>
 
 <p>The observed value of the statistic of interest on the original data
@@ -3403,7 +3654,7 @@ set <code>boot.out$data</code>.  This argument is used only if
 </td>
 </tr>
 <tr>
-<td><code id="control_:_t">t</code></td>
+<td><code id="t">t</code></td>
 <td>
 
 <p>The bootstrap replicate values of the statistic of interest.  This
@@ -3414,7 +3665,7 @@ is ignored if <code>t0</code> is not supplied also.  The default value is
 </td>
 </tr>
 <tr>
-<td><code id="control_:_bias.adj">bias.adj</code></td>
+<td><code id="bias.adj">bias.adj</code></td>
 <td>
 
 <p>A logical variable which if <code>TRUE</code> specifies that the adjusted
@@ -3427,7 +3678,7 @@ well as quantiles.
 </td>
 </tr>
 <tr>
-<td><code id="control_:_alpha">alpha</code></td>
+<td><code id="alpha">alpha</code></td>
 <td>
 
 <p>The alpha levels for the required quantiles if <code>bias.adj</code> is
@@ -3436,7 +3687,7 @@ well as quantiles.
 </td>
 </tr>
 <tr>
-<td><code id="control_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 
 <p>Any additional arguments that <code>boot.out$statistic</code> requires.
@@ -3575,11 +3826,8 @@ air.cont <span class="token operator">&lt;-</span> control<span class="token pun
 air.cont1 <span class="token operator">&lt;-</span> control<span class="token punctuation">(</span>air.boot<span class="token punctuation">,</span> t0 <span class="token operator">=</span> log<span class="token punctuation">(</span>air.boot<span class="token operator">$</span>t0<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                      t <span class="token operator">=</span> log<span class="token punctuation">(</span>air.boot<span class="token operator">$</span>t<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="corr">
-
-<a href="#corr" class="help-page-title"><h2 id="corr">
+<hr></main></div>
+<div class="container manual-page" id="corr"><main><a href="#corr" class="help-page-title"><h2>
 Correlation Coefficient
 </h2></a>
 
@@ -3598,7 +3846,7 @@ Correlation Coefficient
 
 <table>
 <tr>
-<td><code id="corr_:_d">d</code></td>
+<td><code id="d">d</code></td>
 <td>
 
 <p>A matrix with two columns corresponding to the two variables whose correlation
@@ -3607,7 +3855,7 @@ we wish to calculate.
 </td>
 </tr>
 <tr>
-<td><code id="corr_:_w">w</code></td>
+<td><code id="w">w</code></td>
 <td>
 
 <p>A vector of weights to be applied to each pair of observations.  The default
@@ -3637,11 +3885,8 @@ statistic in this form to find ABC intervals.
 <p><code><a href="https://r-universe.dev/manuals/stats.html#cor">cor</a></code>
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="cum3">
-
-<a href="#cum3" class="help-page-title"><h2 id="cum3">
+<hr></main></div>
+<div class="container manual-page" id="cum3"><main><a href="#cum3" class="help-page-title"><h2>
 Calculate Third Order Cumulants
 </h2></a>
 
@@ -3662,7 +3907,7 @@ estimated.
 
 <table>
 <tr>
-<td><code id="cum3_:_a">a</code></td>
+<td><code id="a">a</code></td>
 <td>
 
 <p>A vector of observations.
@@ -3670,7 +3915,7 @@ estimated.
 </td>
 </tr>
 <tr>
-<td><code id="cum3_:_b">b</code></td>
+<td><code id="b">b</code></td>
 <td>
 
 <p>Another vector of observations,  if not supplied it is set to the value of <code>a</code>.
@@ -3679,7 +3924,7 @@ If supplied then it must be the same length as <code>a</code>.
 </td>
 </tr>
 <tr>
-<td><code id="cum3_:_c">c</code></td>
+<td><code id="c">c</code></td>
 <td>
 
 <p>Another vector of observations,  if not supplied it is set to the value of <code>a</code>.
@@ -3688,7 +3933,7 @@ If supplied then it must be the same length as <code>a</code>.
 </td>
 </tr>
 <tr>
-<td><code id="cum3_:_unbiased">unbiased</code></td>
+<td><code id="unbiased">unbiased</code></td>
 <td>
 
 <p>A logical value indicating whether the unbiased estimator should be used.  
@@ -3710,11 +3955,8 @@ required estimate.
 <p>The required estimate.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="cv.glm">
-
-<a href="#cv.glm" class="help-page-title"><h2 id="cv.glm">
+<hr></main></div>
+<div class="container manual-page" id="cv.glm"><main><a href="#cv.glm" class="help-page-title"><h2>
 Cross-validation for Generalized Linear Models
 </h2></a>
 
@@ -3734,7 +3976,7 @@ error for generalized linear models.
 
 <table>
 <tr>
-<td><code id="cv.glm_:_data">data</code></td>
+<td><code id="data">data</code></td>
 <td>
 
 <p>A matrix or data frame containing the data.  The rows should be cases and
@@ -3743,7 +3985,7 @@ the columns correspond to variables, one of which is the response.
 </td>
 </tr>
 <tr>
-<td><code id="cv.glm_:_glmfit">glmfit</code></td>
+<td><code id="glmfit">glmfit</code></td>
 <td>
 
 <p>An object of class <code>"glm"</code> containing the results of a generalized linear
@@ -3752,7 +3994,7 @@ model fitted to <code>data</code>.
 </td>
 </tr>
 <tr>
-<td><code id="cv.glm_:_cost">cost</code></td>
+<td><code id="cost">cost</code></td>
 <td>
 
 <p>A function of two vector arguments specifying the cost function for the 
@@ -3764,7 +4006,7 @@ non-negative scalar value.  The default is the average squared error function.
 </td>
 </tr>
 <tr>
-<td><code id="cv.glm_:_K">K</code></td>
+<td><code id="K">K</code></td>
 <td>
 
 <p>The number of groups into which the data should be split to estimate the
@@ -3894,11 +4136,8 @@ nodal.glm <span class="token operator">&lt;-</span> glm<span class="token punctu
 <span class="token punctuation">(</span>cv.err <span class="token operator">&lt;-</span> cv.glm<span class="token punctuation">(</span>nodal<span class="token punctuation">,</span> nodal.glm<span class="token punctuation">,</span> cost<span class="token punctuation">,</span> K <span class="token operator">=</span> nrow<span class="token punctuation">(</span>nodal<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">$</span>delta<span class="token punctuation">)</span>
 <span class="token punctuation">(</span>cv.<span class="token number">11.</span>err <span class="token operator">&lt;-</span> cv.glm<span class="token punctuation">(</span>nodal<span class="token punctuation">,</span> nodal.glm<span class="token punctuation">,</span> cost<span class="token punctuation">,</span> K <span class="token operator">=</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token operator">$</span>delta<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="darwin">
-
-<a href="#darwin" class="help-page-title"><h2 id="darwin">
+<hr></main></div>
+<div class="container manual-page" id="darwin"><main><a href="#darwin" class="help-page-title"><h2>
 Darwin's Plant Height Differences
 </h2></a>
 
@@ -3951,11 +4190,8 @@ John Murray.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="dogs">
-
-<a href="#dogs" class="help-page-title"><h2 id="dogs"> Cardiac Data for Domestic Dogs </h2></a>
+<hr></main></div>
+<div class="container manual-page" id="dogs"><main><a href="#dogs" class="help-page-title"><h2> Cardiac Data for Domestic Dogs </h2></a>
 
 <h3>Description</h3>
 
@@ -3993,11 +4229,8 @@ pressure were gathered on 7 domestic dogs.
 Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="downs.bc">
-
-<a href="#downs.bc" class="help-page-title"><h2 id="downs.bc">
+<hr></main></div>
+<div class="container manual-page" id="downs.bc"><main><a href="#downs.bc" class="help-page-title"><h2>
 Incidence of Down's Syndrome in British Columbia
 </h2></a>
 
@@ -4063,11 +4296,8 @@ convex logistic regression.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="ducks">
-
-<a href="#ducks" class="help-page-title"><h2 id="ducks">
+<hr></main></div>
+<div class="container manual-page" id="ducks"><main><a href="#ducks" class="help-page-title"><h2>
 Behavioral and Plumage Characteristics of Hybrid Ducks
 </h2></a>
 
@@ -4132,111 +4362,8 @@ Inheritance of behavioral characters in
 hybrids. <em>Behaviour</em>, <b>27</b>, 259-272.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="EEF.profile">
-
-<a href="#EEF.profile" class="help-page-title"><h2 id="EEF.profile"> Empirical Likelihoods</h2></a>
-
-<h3>Description</h3>
-
-<p>Construct the empirical log likelihood or empirical exponential 
-family log likelihood for a mean.</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">EEF.profile<span class="token punctuation">(</span>y<span class="token punctuation">,</span> tmin <span class="token operator">=</span> min<span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.1</span><span class="token punctuation">,</span> tmax <span class="token operator">=</span> max<span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0.1</span><span class="token punctuation">,</span> n.t <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">,</span> 
-            u <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span> t<span class="token punctuation">)</span> y <span class="token operator">-</span> t<span class="token punctuation">)</span>
-EL.profile<span class="token punctuation">(</span>y<span class="token punctuation">,</span> tmin  <span class="token operator">=</span>  min<span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.1</span><span class="token punctuation">,</span> tmax <span class="token operator">=</span> max<span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0.1</span><span class="token punctuation">,</span> n.t  <span class="token operator">=</span>  <span class="token number">25</span><span class="token punctuation">,</span> 
-           u <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span> t<span class="token punctuation">)</span> y <span class="token operator">-</span> t<span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr>
-<td><code id="EEF.profile_:_y">y</code></td>
-<td>
-<p>A vector or matrix of data</p>
-</td>
-</tr>
-<tr>
-<td><code id="EEF.profile_:_tmin">tmin</code></td>
-<td>
-<p> The minimum value of the range over which the 
-likelihood should be computed.  This must be larger than 
-<code>min(y)</code>.</p>
-</td>
-</tr>
-<tr>
-<td><code id="EEF.profile_:_tmax">tmax</code></td>
-<td>
-<p> The maximum value of the range over which the 
-likelihood should be computed.  This must be smaller than 
-<code>max(y)</code>.</p>
-</td>
-</tr>
-<tr>
-<td><code id="EEF.profile_:_n.t">n.t</code></td>
-<td>
-<p> The number of points between <code>tmin</code> and
-<code>tmax</code> at which the value of the log-likelihood should be
-computed.</p>
-</td>
-</tr>
-<tr>
-<td><code id="EEF.profile_:_u">u</code></td>
-<td>
-<p>A function of the data and the parameter.</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p>These functions calculate the log likelihood for a mean using either
-an empirical likelihood or an empirical exponential family likelihood.
-They are supplied as part of the package <code>boot</code> for demonstration
-purposes with the practicals in chapter 10 of Davison and Hinkley (1997).
-The functions are not intended for general use and are not supported
-as part of the <code>boot</code>package.  For more general and more robust
-code to calculate empirical likelihoods see Professor A. B. Owen's 
-empirical likelihood home page at the URL
-<a href="https://artowen.su.domains/empirical/" target="_blank">https://artowen.su.domains/empirical/</a>
-</p>
-
-
-<h3>Value</h3>
-
-<p>A matrix with <code>n.t</code> rows.  The first column contains the
-values of the parameter used.  The second column of the output
-of <code>EL.profile</code> contains the values of the empirical
-log likelihood. The second and third columns of the output of
-<code>EEF.profile</code> contain two versions of the empirical
-exponential family log-likelihood.  The final column of the
-output matrix contains the values of the Lagrange multiplier
-used in the optimization procedure.
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>Angelo J. Canty</p>
-
-
-<h3>References</h3>
-
- 
-<p>Davison, A. C. and Hinkley, D. V. (1997)
-<em>Bootstrap Methods and Their Application</em>. Cambridge University
-Press.
-</p>
-
-<hr>
-</div>
-<div class="container manual-page" id="empinf">
-
-<a href="#empinf" class="help-page-title"><h2 id="empinf">
+<hr></main></div>
+<div class="container manual-page" id="empinf"><main><a href="#empinf" class="help-page-title"><h2>
 Empirical Influence Values
 </h2></a>
 
@@ -4263,7 +4390,7 @@ methods can be used with one or more samples.
 
 <table>
 <tr>
-<td><code id="empinf_:_boot.out">boot.out</code></td>
+<td><code id="boot.out">boot.out</code></td>
 <td>
 
 <p>A bootstrap object created by the function <code>boot</code>.  If
@@ -4277,7 +4404,7 @@ ignored.
 </td>
 </tr>
 <tr>
-<td><code id="empinf_:_data">data</code></td>
+<td><code id="data">data</code></td>
 <td>
 
 <p>A vector, matrix or data frame containing the data for which
@@ -4289,7 +4416,7 @@ supplied is ignored.
 </td>
 </tr>
 <tr>
-<td><code id="empinf_:_statistic">statistic</code></td>
+<td><code id="statistic">statistic</code></td>
 <td>
 
 <p>The statistic for which empirical influence values are required.  It
@@ -4304,7 +4431,7 @@ to <code>statistic</code> unchanged. This is a required argument if
 </td>
 </tr>
 <tr>
-<td><code id="empinf_:_type">type</code></td>
+<td><code id="type">type</code></td>
 <td>
 
 <p>The calculation type to be used for the empirical influence
@@ -4325,7 +4452,7 @@ is <code>"jack"</code>.  Note that it is an error for <code>type</code> to be
 </td>
 </tr>
 <tr>
-<td><code id="empinf_:_stype">stype</code></td>
+<td><code id="stype">stype</code></td>
 <td>
 
 <p>A character variable giving the nature of the second argument to
@@ -4340,7 +4467,7 @@ If <code>type</code> is <code>"inf"</code> then <code>stype</code> MUST be
 </td>
 </tr>
 <tr>
-<td><code id="empinf_:_index">index</code></td>
+<td><code id="index">index</code></td>
 <td>
 
 <p>An integer giving the position of the variable of interest in the
@@ -4349,7 +4476,7 @@ output of <code>statistic</code>.
 </td>
 </tr>
 <tr>
-<td><code id="empinf_:_t">t</code></td>
+<td><code id="t">t</code></td>
 <td>
 
 <p>A vector of length <code>boot.out$R</code> which gives the bootstrap
@@ -4360,7 +4487,7 @@ replicates of the statistic of interest.  <code>t</code> is used only when
 </td>
 </tr>
 <tr>
-<td><code id="empinf_:_strata">strata</code></td>
+<td><code id="strata">strata</code></td>
 <td>
 
 <p>An integer vector or a factor specifying the strata for multi-sample
@@ -4372,7 +4499,7 @@ situation.
 </td>
 </tr>
 <tr>
-<td><code id="empinf_:_eps">eps</code></td>
+<td><code id="eps">eps</code></td>
 <td>
 
 <p>This argument is used only if <code>type</code> is <code>"inf"</code>.  In that
@@ -4383,7 +4510,7 @@ will be <code>eps</code> divided by the number of observations in
 </td>
 </tr>
 <tr>
-<td><code id="empinf_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 
 <p>Any other arguments that <code>statistic</code> takes.  They will be
@@ -4490,11 +4617,8 @@ grav.boot <span class="token operator">&lt;-</span> boot<span class="token punct
 grav.z <span class="token operator">&lt;-</span> <span class="token punctuation">(</span>grav.boot<span class="token operator">$</span>t<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>grav.boot<span class="token operator">$</span>t0<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">/</span>sqrt<span class="token punctuation">(</span>grav.boot<span class="token operator">$</span>t<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 empinf<span class="token punctuation">(</span>boot.out <span class="token operator">=</span> grav.boot<span class="token punctuation">,</span> t <span class="token operator">=</span> grav.z<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="envelope">
-
-<a href="#envelope" class="help-page-title"><h2 id="envelope">
+<hr></main></div>
+<div class="container manual-page" id="envelope"><main><a href="#envelope" class="help-page-title"><h2>
 Confidence Envelopes for Curves
 </h2></a>
 
@@ -4515,7 +4639,7 @@ fixed points.
 
 <table>
 <tr>
-<td><code id="envelope_:_boot.out">boot.out</code></td>
+<td><code id="boot.out">boot.out</code></td>
 <td>
 
 <p>An object of class <code>"boot"</code> for which <code>boot.out$t</code> contains the replicates
@@ -4524,7 +4648,7 @@ of the curve at a number of fixed points.
 </td>
 </tr>
 <tr>
-<td><code id="envelope_:_mat">mat</code></td>
+<td><code id="mat">mat</code></td>
 <td>
 
 <p>A matrix of bootstrap replicates of the values of the curve at a number of
@@ -4534,7 +4658,7 @@ and is set to <code>boot.out$t</code> otherwise.
 </td>
 </tr>
 <tr>
-<td><code id="envelope_:_level">level</code></td>
+<td><code id="level">level</code></td>
 <td>
 
 <p>The confidence level of the envelopes required.  The default is to
@@ -4547,7 +4671,7 @@ overall envelope.
 </td>
 </tr>
 <tr>
-<td><code id="envelope_:_index">index</code></td>
+<td><code id="index">index</code></td>
 <td>
 
 <p>The numbers of the columns of <code>mat</code> which contain the bootstrap replicates.
@@ -4670,11 +4794,8 @@ lines<span class="token punctuation">(</span>grav.qq<span class="token operator"
 lines<span class="token punctuation">(</span>grav.qq<span class="token operator">$</span>x<span class="token punctuation">,</span> grav.env<span class="token operator">$</span>overall<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> lty <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
 lines<span class="token punctuation">(</span>grav.qq<span class="token operator">$</span>x<span class="token punctuation">,</span> grav.env<span class="token operator">$</span>overall<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> lty <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="exp.tilt">
-
-<a href="#exp.tilt" class="help-page-title"><h2 id="exp.tilt">
+<hr></main></div>
+<div class="container manual-page" id="exp.tilt"><main><a href="#exp.tilt" class="help-page-title"><h2>
 Exponential Tilting
 </h2></a>
 
@@ -4696,7 +4817,7 @@ statistic have the required means.
 
 <table>
 <tr>
-<td><code id="exp.tilt_:_L">L</code></td>
+<td><code id="L">L</code></td>
 <td>
 
 <p>The empirical influence values for the statistic of interest based on the 
@@ -4706,7 +4827,7 @@ original data set.  Typically <code>L</code> will be calculated by a call to <co
 </td>
 </tr>
 <tr>
-<td><code id="exp.tilt_:_theta">theta</code></td>
+<td><code id="theta">theta</code></td>
 <td>
 
 <p>The value at which the tilted distribution is to be centred.  This is not
@@ -4715,7 +4836,7 @@ required if <code>lambda</code> is supplied but is needed otherwise.
 </td>
 </tr>
 <tr>
-<td><code id="exp.tilt_:_t0">t0</code></td>
+<td><code id="t0">t0</code></td>
 <td>
 
 <p>The current value of the statistic.  The default is that the statistic equals 0.
@@ -4723,7 +4844,7 @@ required if <code>lambda</code> is supplied but is needed otherwise.
 </td>
 </tr>
 <tr>
-<td><code id="exp.tilt_:_lambda">lambda</code></td>
+<td><code id="lambda">lambda</code></td>
 <td>
 
 <p>The Lagrange multiplier(s).  For each value of <code>lambda</code> a multinomial 
@@ -4736,7 +4857,7 @@ value of <code>lambda</code> found.  If both <code>lambda</code> and <code>theta
 </td>
 </tr>
 <tr>
-<td><code id="exp.tilt_:_strata">strata</code></td>
+<td><code id="strata">strata</code></td>
 <td>
 
 <p>A vector or factor of the same length as <code>L</code> giving the strata for the
@@ -4852,11 +4973,8 @@ grav.tilt <span class="token operator">&lt;-</span> exp.tilt<span class="token p
 boot<span class="token punctuation">(</span>grav1<span class="token punctuation">,</span> grav.fun<span class="token punctuation">,</span> R <span class="token operator">=</span> <span class="token number">499</span><span class="token punctuation">,</span> stype <span class="token operator">=</span> <span class="token string">"w"</span><span class="token punctuation">,</span> weights <span class="token operator">=</span> grav.tilt<span class="token operator">$</span>p<span class="token punctuation">,</span>
      strata <span class="token operator">=</span> grav1<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> orig <span class="token operator">=</span> grav.z0<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="fir">
-
-<a href="#fir" class="help-page-title"><h2 id="fir">
+<hr></main></div>
+<div class="container manual-page" id="fir"><main><a href="#fir" class="help-page-title"><h2>
 Counts of Balsam-fir Seedlings
 </h2></a>
 
@@ -4903,11 +5021,8 @@ each row.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="freq.array">
-
-<a href="#freq.array" class="help-page-title"><h2 id="freq.array">
+<hr></main></div>
+<div class="container manual-page" id="freq.array"><main><a href="#freq.array" class="help-page-title"><h2>
 Bootstrap Frequency Arrays
 </h2></a>
 
@@ -4926,7 +5041,7 @@ return the frequencies of the original observations in each resample.
 <h3>Arguments</h3>
 
 <table><tr>
-<td><code id="freq.array_:_i.array">i.array</code></td>
+<td><code id="i.array">i.array</code></td>
 <td>
 
 <p>This will be an matrix of integers between 1 and n, where n is the number
@@ -4956,11 +5071,8 @@ weights.
 <p><code><a href="#boot.array">boot.array</a></code>
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="frets">
-
-<a href="#frets" class="help-page-title"><h2 id="frets">
+<hr></main></div>
+<div class="container manual-page" id="frets"><main><a href="#frets" class="help-page-title"><h2>
 Head Dimensions in Brothers
 </h2></a>
 
@@ -5024,11 +5136,8 @@ are expressed in millimetres.
 John Wiley.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="glm.diag">
-
-<a href="#glm.diag" class="help-page-title"><h2 id="glm.diag">
+<hr></main></div>
+<div class="container manual-page" id="glm.diag"><main><a href="#glm.diag" class="help-page-title"><h2>
 Generalized Linear Model Diagnostics
 </h2></a>
 
@@ -5048,7 +5157,7 @@ estimated dispersion.
 <h3>Arguments</h3>
 
 <table><tr>
-<td><code id="glm.diag_:_glmfit">glmfit</code></td>
+<td><code id="glmfit">glmfit</code></td>
 <td>
 
 <p><code>glmfit</code> is a <code>glm.object</code> - the result of a call to <code>glm()</code>
@@ -5131,11 +5240,8 @@ D.V. Hinkley, N. Reid and E.J. Snell (editors), 83–106.  Chapman and Hall.
 <p><code><a href="https://r-universe.dev/manuals/stats.html#glm">glm</a></code>, <code><a href="#glm.diag.plots">glm.diag.plots</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#summary.glm">summary.glm</a></code>
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="glm.diag.plots">
-
-<a href="#glm.diag.plots" class="help-page-title"><h2 id="glm.diag.plots">
+<hr></main></div>
+<div class="container manual-page" id="glm.diag.plots"><main><a href="#glm.diag.plots" class="help-page-title"><h2>
 Diagnostics plots for generalized linear models
 </h2></a>
 
@@ -5156,7 +5262,7 @@ normal scores plots of standardized deviance residuals, plot of approximate Cook
 
 <table>
 <tr>
-<td><code id="glm.diag.plots_:_glmfit">glmfit</code></td>
+<td><code id="glmfit">glmfit</code></td>
 <td>
 
 <p><code>glm.object</code> : the result of a call to <code>glm()</code>
@@ -5164,7 +5270,7 @@ normal scores plots of standardized deviance residuals, plot of approximate Cook
 </td>
 </tr>
 <tr>
-<td><code id="glm.diag.plots_:_glmdiag">glmdiag</code></td>
+<td><code id="glmdiag">glmdiag</code></td>
 <td>
 
 <p>Diagnostics of <code>glmfit</code> obtained from a call to <code>glm.diag</code>.  If
@@ -5173,7 +5279,7 @@ it is not supplied then it is calculated.
 </td>
 </tr>
 <tr>
-<td><code id="glm.diag.plots_:_subset">subset</code></td>
+<td><code id="subset">subset</code></td>
 <td>
 
 <p>Subset of <code>data</code> for which <code>glm</code> fitting performed: should be the same as the 
@@ -5183,7 +5289,7 @@ only if the <code>subset=</code> option was used in the call to <code>glm</code>
 </td>
 </tr>
 <tr>
-<td><code id="glm.diag.plots_:_iden">iden</code></td>
+<td><code id="iden">iden</code></td>
 <td>
 
 <p>A logical argument. If <code>TRUE</code> then, after the plots are drawn, the user will
@@ -5195,7 +5301,7 @@ prompt with 0.  If <code>iden</code> is <code>FALSE</code> (default) the user ca
 </td>
 </tr>
 <tr>
-<td><code id="glm.diag.plots_:_labels">labels</code></td>
+<td><code id="labels">labels</code></td>
 <td>
 
 <p>A vector of labels for use with <code>identify()</code> if <code>iden</code> is <code>TRUE</code>.  If it is not 
@@ -5204,7 +5310,7 @@ supplied then the labels are derived from <code>glmfit</code>.
 </td>
 </tr>
 <tr>
-<td><code id="glm.diag.plots_:_ret">ret</code></td>
+<td><code id="ret">ret</code></td>
 <td>
 
 <p>A logical argument indicating if <code>glmdiag</code> should be returned.  The default is
@@ -5286,11 +5392,8 @@ leuk.mod <span class="token operator">&lt;-</span> glm<span class="token punctua
 leuk.diag <span class="token operator">&lt;-</span> glm.diag<span class="token punctuation">(</span>leuk.mod<span class="token punctuation">)</span>
 glm.diag.plots<span class="token punctuation">(</span>leuk.mod<span class="token punctuation">,</span> leuk.diag<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="gravity">
-
-<a href="#gravity" class="help-page-title"><h2 id="gravity">
+<hr></main></div>
+<div class="container manual-page" id="gravity"><main><a href="#gravity" class="help-page-title"><h2>
 Acceleration Due to Gravity
 </h2></a>
 
@@ -5352,11 +5455,8 @@ in centimetres per second squared.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="hirose">
-
-<a href="#hirose" class="help-page-title"><h2 id="hirose">
+<hr></main></div>
+<div class="container manual-page" id="hirose"><main><a href="#hirose" class="help-page-title"><h2>
 Failure Time of PET Film
 </h2></a>
 
@@ -5412,246 +5512,8 @@ voltage levels were used.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="Imp.Estimates">
-
-<a href="#Imp.Estimates" class="help-page-title"><h2 id="Imp.Estimates">
-Importance Sampling Estimates
-</h2></a>
-
-<h3>Description</h3>
-
-<p>Central moment, tail probability, and quantile estimates for a statistic
-under importance resampling.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">imp.moments<span class="token punctuation">(</span>boot.out <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> t <span class="token operator">=</span> boot.out<span class="token operator">$</span>t<span class="token punctuation">[</span><span class="token punctuation">,</span> index<span class="token punctuation">]</span><span class="token punctuation">,</span> 
-            w <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> def <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> q <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
-imp.prob<span class="token punctuation">(</span>boot.out <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> t0 <span class="token operator">=</span> boot.out<span class="token operator">$</span>t0<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">,</span> 
-         t <span class="token operator">=</span> boot.out<span class="token operator">$</span>t<span class="token punctuation">[</span><span class="token punctuation">,</span> index<span class="token punctuation">]</span><span class="token punctuation">,</span> w <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> def <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> q <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
-imp.quantile<span class="token punctuation">(</span>boot.out <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> alpha <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> 
-             t <span class="token operator">=</span> boot.out<span class="token operator">$</span>t<span class="token punctuation">[</span><span class="token punctuation">,</span> index<span class="token punctuation">]</span><span class="token punctuation">,</span> w <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> def <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> q <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr>
-<td><code id="Imp.Estimates_:_boot.out">boot.out</code></td>
-<td>
-
-<p>A object of class <code>"boot"</code> generated by a call to <code>boot</code> or
-<code>tilt.boot</code>. Use of these functions makes sense only when the
-bootstrap resampling used unequal weights for the observations.  If the
-importance weights <code>w</code> are not supplied then <code>boot.out</code> is a
-required argument. It is also required if <code>t</code> is not supplied.
-</p>
-</td>
-</tr>
-<tr>
-<td><code id="Imp.Estimates_:_alpha">alpha</code></td>
-<td>
-
-<p>The alpha levels for the required quantiles.  The default is to calculate
-the 1%, 2.5%, 5%, 10%, 90%, 95%, 97.5% and 99% quantiles.
-</p>
-</td>
-</tr>
-<tr>
-<td><code id="Imp.Estimates_:_index">index</code></td>
-<td>
-
-<p>The index of the variable of interest in the output of
-<code>boot.out$statistic</code>.  This is not used if the argument
-<code>t</code> is supplied.
-</p>
-</td>
-</tr>
-<tr>
-<td><code id="Imp.Estimates_:_t0">t0</code></td>
-<td>
-
-<p>The values at which tail probability estimates are required.  For
-each value <code>t0[i]</code> the function will estimate the bootstrap cdf
-evaluated at <code>t0[i]</code>.  If <code>imp.prob</code> is called without the
-argument <code>t0</code> then the bootstrap cdf evaluated at the observed
-value of the statistic is found.
-</p>
-</td>
-</tr>
-<tr>
-<td><code id="Imp.Estimates_:_t">t</code></td>
-<td>
-
-<p>The bootstrap replicates of a statistic.  By default these are taken
-from the bootstrap output object <code>boot.out</code> but they can be
-supplied separately if required (e.g. when the statistic of interest
-is a function of the calculated values in <code>boot.out</code>).  Either
-<code>boot.out</code> or <code>t</code> must be supplied.
-</p>
-</td>
-</tr>
-<tr>
-<td><code id="Imp.Estimates_:_w">w</code></td>
-<td>
-
-<p>The importance resampling weights for the bootstrap replicates.  If they are
-not supplied then <code>boot.out</code> must be supplied, in which case
-the importance weights are calculated by a call to
-<code>imp.weights</code>.
-</p>
-</td>
-</tr>
-<tr>
-<td><code id="Imp.Estimates_:_def">def</code></td>
-<td>
-
-<p>A logical value indicating whether a defensive mixture is to be used
-for weight calculation.  This is used only if <code>w</code> is missing
-and it is passed unchanged to <code>imp.weights</code> to calculate
-<code>w</code>.
-</p>
-</td>
-</tr>
-<tr>
-<td><code id="Imp.Estimates_:_q">q</code></td>
-<td>
-
-<p>A vector of probabilities specifying the resampling distribution
-from which any estimates should be found.  In general this would
-correspond to the usual bootstrap resampling distribution which
-gives equal weight to each of the original observations. The
-estimates depend on this distribution only through the importance
-weights <code>w</code> so this argument is ignored if <code>w</code> is
-supplied.  If <code>w</code> is missing then <code>q</code> is passed as an
-argument to <code>imp.weights</code> and used to find <code>w</code>. 
-</p>
-</td>
-</tr>
-</table>
-<h3>Value</h3>
-
-<p>A list with the following components :
-</p>
-<table>
-<tr>
-<td><code>alpha</code></td>
-<td>
-
-<p>The <code>alpha</code> levels used for the quantiles, if
-<code>imp.quantile</code> is used.
-</p>
-</td>
-</tr>
-<tr>
-<td><code>t0</code></td>
-<td>
-
-<p>The values at which the tail probabilities are estimated, if
-<code>imp.prob</code> is used.
-</p>
-</td>
-</tr>
-<tr>
-<td><code>raw</code></td>
-<td>
-
-<p>The raw importance resampling estimates.  For <code>imp.moments</code>
-this has length 2, the first component being the estimate of the
-mean and the second being the variance estimate.  For
-<code>imp.prob</code>, <code>raw</code> is of the same length as <code>t0</code>, and
-for <code>imp.quantile</code> it is of the same length as <code>alpha</code>.
-</p>
-</td>
-</tr>
-<tr>
-<td><code>rat</code></td>
-<td>
-
-<p>The ratio importance resampling estimates.  In this method the
-weights <code>w</code> are rescaled to have average value one before they
-are used.  The format of this vector is the same as <code>raw</code>.
-</p>
-</td>
-</tr>
-<tr>
-<td><code>reg</code></td>
-<td>
-
-<p>The regression importance resampling estimates.  In this method the weights
-which are used are derived from a regression of <code>t*w</code> on
-<code>w</code>.  This choice of weights can be shown to minimize the
-variance of the weights and also the Euclidean distance of the
-weights from the uniform weights.  The format of this vector is the
-same as <code>raw</code>.
-</p>
-</td>
-</tr>
-</table>
-<h3>References</h3>
-
-<p>Davison, A. C. and Hinkley, D. V. (1997) 
-<em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
-</p>
-<p>Hesterberg, T. (1995) Weighted average importance sampling and defensive 
-mixture distributions. <em>Technometrics</em>, <b>37</b>, 185–194.
-</p>
-<p>Johns, M.V.  (1988) Importance sampling for bootstrap confidence intervals.
-<em>Journal of the American Statistical Association</em>, <b>83</b>, 709–714.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#boot">boot</a></code>, <code><a href="#exp.tilt">exp.tilt</a></code>, <code><a href="#imp.weights">imp.weights</a></code>,
-<code><a href="#smooth.f">smooth.f</a></code>, <code><a href="#tilt.boot">tilt.boot</a></code>
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment"># Example 9.8 of Davison and Hinkley (1997) requires tilting the </span>
-<span class="token comment"># resampling distribution of the studentized statistic to be centred </span>
-<span class="token comment"># at the observed value of the test statistic, 1.84.  In this example</span>
-<span class="token comment"># we show how certain estimates can be found using resamples taken from</span>
-<span class="token comment"># the tilted distribution.</span>
-grav1 <span class="token operator">&lt;-</span> gravity<span class="token punctuation">[</span>as.numeric<span class="token punctuation">(</span>gravity<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token punctuation">]</span>
-grav.fun <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>dat<span class="token punctuation">,</span> w<span class="token punctuation">,</span> orig<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     strata <span class="token operator">&lt;-</span> tapply<span class="token punctuation">(</span>dat<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> as.numeric<span class="token punctuation">(</span>dat<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-     d <span class="token operator">&lt;-</span> dat<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
-     ns <span class="token operator">&lt;-</span> tabulate<span class="token punctuation">(</span>strata<span class="token punctuation">)</span>
-     w <span class="token operator">&lt;-</span> w<span class="token operator">/</span>tapply<span class="token punctuation">(</span>w<span class="token punctuation">,</span> strata<span class="token punctuation">,</span> sum<span class="token punctuation">)</span><span class="token punctuation">[</span>strata<span class="token punctuation">]</span>
-     mns <span class="token operator">&lt;-</span> as.vector<span class="token punctuation">(</span>tapply<span class="token punctuation">(</span>d <span class="token operator">*</span> w<span class="token punctuation">,</span> strata<span class="token punctuation">,</span> sum<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># drop names</span>
-     mn2 <span class="token operator">&lt;-</span> tapply<span class="token punctuation">(</span>d <span class="token operator">*</span> d <span class="token operator">*</span> w<span class="token punctuation">,</span> strata<span class="token punctuation">,</span> sum<span class="token punctuation">)</span>
-     s2hat <span class="token operator">&lt;-</span> sum<span class="token punctuation">(</span><span class="token punctuation">(</span>mn2 <span class="token operator">-</span> mns<span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">/</span>ns<span class="token punctuation">)</span>
-     c<span class="token punctuation">(</span>mns<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">-</span> mns<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> s2hat<span class="token punctuation">,</span> <span class="token punctuation">(</span>mns<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">-</span> mns<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> orig<span class="token punctuation">)</span><span class="token operator">/</span>sqrt<span class="token punctuation">(</span>s2hat<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-grav.z0 <span class="token operator">&lt;-</span> grav.fun<span class="token punctuation">(</span>grav1<span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
-grav.L <span class="token operator">&lt;-</span> empinf<span class="token punctuation">(</span>data <span class="token operator">=</span> grav1<span class="token punctuation">,</span> statistic <span class="token operator">=</span> grav.fun<span class="token punctuation">,</span> stype <span class="token operator">=</span> <span class="token string">"w"</span><span class="token punctuation">,</span> 
-                 strata <span class="token operator">=</span> grav1<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> orig <span class="token operator">=</span> grav.z0<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-grav.tilt <span class="token operator">&lt;-</span> exp.tilt<span class="token punctuation">(</span>grav.L<span class="token punctuation">,</span> grav.z0<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> strata <span class="token operator">=</span> grav1<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-grav.tilt.boot <span class="token operator">&lt;-</span> boot<span class="token punctuation">(</span>grav1<span class="token punctuation">,</span> grav.fun<span class="token punctuation">,</span> R <span class="token operator">=</span> <span class="token number">199</span><span class="token punctuation">,</span> stype <span class="token operator">=</span> <span class="token string">"w"</span><span class="token punctuation">,</span> 
-                       strata <span class="token operator">=</span> grav1<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> weights <span class="token operator">=</span> grav.tilt<span class="token operator">$</span>p<span class="token punctuation">,</span>
-                       orig <span class="token operator">=</span> grav.z0<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token comment"># Since the weights are needed for all calculations, we shall calculate</span>
-<span class="token comment"># them once only.</span>
-grav.w <span class="token operator">&lt;-</span> imp.weights<span class="token punctuation">(</span>grav.tilt.boot<span class="token punctuation">)</span>
-grav.mom <span class="token operator">&lt;-</span> imp.moments<span class="token punctuation">(</span>grav.tilt.boot<span class="token punctuation">,</span> w <span class="token operator">=</span> grav.w<span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span>
-grav.p <span class="token operator">&lt;-</span> imp.prob<span class="token punctuation">(</span>grav.tilt.boot<span class="token punctuation">,</span> w <span class="token operator">=</span> grav.w<span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> t0 <span class="token operator">=</span> grav.z0<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-unlist<span class="token punctuation">(</span>grav.p<span class="token punctuation">)</span>
-grav.q <span class="token operator">&lt;-</span> imp.quantile<span class="token punctuation">(</span>grav.tilt.boot<span class="token punctuation">,</span> w <span class="token operator">=</span> grav.w<span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> 
-                       alpha <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0.9</span><span class="token punctuation">,</span> <span class="token number">0.95</span><span class="token punctuation">,</span> <span class="token number">0.975</span><span class="token punctuation">,</span> <span class="token number">0.99</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-as.data.frame<span class="token punctuation">(</span>grav.q<span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="imp.weights">
-
-<a href="#imp.weights" class="help-page-title"><h2 id="imp.weights">
+<hr></main></div>
+<div class="container manual-page" id="imp.weights"><main><a href="#imp.weights" class="help-page-title"><h2>
 Importance Sampling Weights
 </h2></a>
 
@@ -5673,7 +5535,7 @@ with probabilities <code>q</code>.
 
 <table>
 <tr>
-<td><code id="imp.weights_:_boot.out">boot.out</code></td>
+<td><code id="boot.out">boot.out</code></td>
 <td>
 
 <p>A object of class <code>"boot"</code> generated by <code>boot</code> or <code>tilt.boot</code>.  Typically the 
@@ -5684,7 +5546,7 @@ under the assumption of sampling with equal probabilities.
 </td>
 </tr>
 <tr>
-<td><code id="imp.weights_:_def">def</code></td>
+<td><code id="def">def</code></td>
 <td>
 
 <p>A logical variable indicating whether the defensive mixture distribution
@@ -5698,7 +5560,7 @@ from which the bootstrap resample was generated.
 </td>
 </tr>
 <tr>
-<td><code id="imp.weights_:_q">q</code></td>
+<td><code id="q">q</code></td>
 <td>
 
 <p>A vector of probabilities specifying the resampling distribution from which 
@@ -5754,11 +5616,8 @@ mixture distributions. <em>Technometrics</em>, <b>37</b>, 185–194.
 <p><code><a href="#boot">boot</a></code>, <code><a href="#exp.tilt">exp.tilt</a></code>, <code><a href="#Imp.Estimates">imp.moments</a></code>, <code><a href="#smooth.f">smooth.f</a></code>, <code><a href="#tilt.boot">tilt.boot</a></code>
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="inv.logit">
-
-<a href="#inv.logit" class="help-page-title"><h2 id="inv.logit">
+<hr></main></div>
+<div class="container manual-page" id="inv.logit"><main><a href="#inv.logit" class="help-page-title"><h2>
 Inverse Logit Function
 </h2></a>
 
@@ -5776,7 +5635,7 @@ Inverse Logit Function
 <h3>Arguments</h3>
 
 <table><tr>
-<td><code id="inv.logit_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 
 <p>A numeric object. Missing values (<code>NA</code>s) are allowed.
@@ -5803,11 +5662,8 @@ input values.
 <p><code><a href="#logit">logit</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#Logistic">plogis</a></code> for which this is a wrapper.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="islay">
-
-<a href="#islay" class="help-page-title"><h2 id="islay">
+<hr></main></div>
+<div class="container manual-page" id="islay"><main><a href="#islay" class="help-page-title"><h2>
 Jura Quartzite Azimuths on Islay
 </h2></a>
 
@@ -5854,11 +5710,8 @@ the Scottish island of Islay.
 <p>Till, R. (1974) <em>Statistical Methods for the Earth Scientist</em>. Macmillan.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="jack.after.boot">
-
-<a href="#jack.after.boot" class="help-page-title"><h2 id="jack.after.boot">
+<hr></main></div>
+<div class="container manual-page" id="jack.after.boot"><main><a href="#jack.after.boot" class="help-page-title"><h2>
 Jackknife-after-Bootstrap Plots
 </h2></a>
 
@@ -5880,7 +5733,7 @@ output object and plots the corresponding jackknife-after-bootstrap plot.
 
 <table>
 <tr>
-<td><code id="jack.after.boot_:_boot.out">boot.out</code></td>
+<td><code id="boot.out">boot.out</code></td>
 <td>
 
 <p>An object of class <code>"boot"</code> which would normally be created by a call
@@ -5890,7 +5743,7 @@ For reliable results <code>boot.out$R</code> should be reasonably large.
 </td>
 </tr>
 <tr>
-<td><code id="jack.after.boot_:_index">index</code></td>
+<td><code id="index">index</code></td>
 <td>
 
 <p>The index of the statistic of interest in the output of <code>boot.out$statistic</code>.
@@ -5898,7 +5751,7 @@ For reliable results <code>boot.out$R</code> should be reasonably large.
 </td>
 </tr>
 <tr>
-<td><code id="jack.after.boot_:_t">t</code></td>
+<td><code id="t">t</code></td>
 <td>
 
 <p>A vector of length <code>boot.out$R</code> giving the bootstrap replicates of the statistic
@@ -5909,7 +5762,7 @@ the calculated bootstrap output.  If it is not supplied then the default is
 </td>
 </tr>
 <tr>
-<td><code id="jack.after.boot_:_L">L</code></td>
+<td><code id="L">L</code></td>
 <td>
 
 <p>The empirical influence values for the statistic of interest.  These are used
@@ -5920,7 +5773,7 @@ they are the infinitesimal jackknife values.
 </td>
 </tr>
 <tr>
-<td><code id="jack.after.boot_:_useJ">useJ</code></td>
+<td><code id="useJ">useJ</code></td>
 <td>
 
 <p>A logical variable indicating if the jackknife influence values calculated from
@@ -5930,7 +5783,7 @@ values are used.  The default is <code>TRUE</code>.
 </td>
 </tr>
 <tr>
-<td><code id="jack.after.boot_:_stinf">stinf</code></td>
+<td><code id="stinf">stinf</code></td>
 <td>
 
 <p>A logical variable indicating whether to standardize the jackknife values
@@ -5940,7 +5793,7 @@ their standard error.
 </td>
 </tr>
 <tr>
-<td><code id="jack.after.boot_:_alpha">alpha</code></td>
+<td><code id="alpha">alpha</code></td>
 <td>
 
 <p>The quantiles at which the plots are required.  The default is 
@@ -5949,7 +5802,7 @@ their standard error.
 </td>
 </tr>
 <tr>
-<td><code id="jack.after.boot_:_main">main</code></td>
+<td><code id="main">main</code></td>
 <td>
 
 <p>A character string giving the main title for the plot.
@@ -5957,7 +5810,7 @@ their standard error.
 </td>
 </tr>
 <tr>
-<td><code id="jack.after.boot_:_ylab">ylab</code></td>
+<td><code id="ylab">ylab</code></td>
 <td>
 
 <p>The label for the Y axis.  If the default values of <code>alpha</code> are used and <code>ylab</code>
@@ -5968,7 +5821,7 @@ were used.
 </td>
 </tr>
 <tr>
-<td><code id="jack.after.boot_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 
 <p>Any extra arguments required by <code>boot.out$statistic</code>.  These are required only
@@ -6064,11 +5917,8 @@ frets.boot <span class="token operator">&lt;-</span> boot<span class="token punc
 <span class="token comment">#  element in the output of frets.fun so we set index = 7</span>
 jack.after.boot<span class="token punctuation">(</span>frets.boot<span class="token punctuation">,</span> useJ <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> stinf <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="k3.linear">
-
-<a href="#k3.linear" class="help-page-title"><h2 id="k3.linear">
+<hr></main></div>
+<div class="container manual-page" id="k3.linear"><main><a href="#k3.linear" class="help-page-title"><h2>
 Linear Skewness Estimate
 </h2></a>
 
@@ -6087,7 +5937,7 @@ Linear Skewness Estimate
 
 <table>
 <tr>
-<td><code id="k3.linear_:_L">L</code></td>
+<td><code id="L">L</code></td>
 <td>
 
 <p>Vector of the empirical influence values of a statistic.  These will usually
@@ -6096,7 +5946,7 @@ be calculated by a call to <code>empinf</code>.
 </td>
 </tr>
 <tr>
-<td><code id="k3.linear_:_strata">strata</code></td>
+<td><code id="strata">strata</code></td>
 <td>
 
 <p>A numeric vector or factor specifying which observations (and hence which
@@ -6130,11 +5980,8 @@ components of <code>L</code>) come from which strata.
 ratio <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span> w<span class="token punctuation">)</span> sum<span class="token punctuation">(</span>d<span class="token operator">$</span>x <span class="token operator">*</span> w<span class="token punctuation">)</span><span class="token operator">/</span>sum<span class="token punctuation">(</span>d<span class="token operator">$</span>u <span class="token operator">*</span> w<span class="token punctuation">)</span>
 k3.linear<span class="token punctuation">(</span>empinf<span class="token punctuation">(</span>data <span class="token operator">=</span> city<span class="token punctuation">,</span> statistic <span class="token operator">=</span> ratio<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="linear.approx">
-
-<a href="#linear.approx" class="help-page-title"><h2 id="linear.approx">
+<hr></main></div>
+<div class="container manual-page" id="linear.approx"><main><a href="#linear.approx" class="help-page-title"><h2>
 Linear Approximation of Bootstrap Replicates
 </h2></a>
 
@@ -6156,7 +6003,7 @@ that bootstrap sample.
 
 <table>
 <tr>
-<td><code id="linear.approx_:_boot.out">boot.out</code></td>
+<td><code id="boot.out">boot.out</code></td>
 <td>
 
 <p>An object of class <code>"boot"</code> representing a nonparametric bootstrap.  It will
@@ -6165,7 +6012,7 @@ usually be created by the function <code>boot</code>.
 </td>
 </tr>
 <tr>
-<td><code id="linear.approx_:_L">L</code></td>
+<td><code id="L">L</code></td>
 <td>
 
 <p>A vector containing the empirical influence values for the statistic of
@@ -6175,7 +6022,7 @@ to <code>empinf</code>.
 </td>
 </tr>
 <tr>
-<td><code id="linear.approx_:_index">index</code></td>
+<td><code id="index">index</code></td>
 <td>
 
 <p>The index of the variable of interest within the output of 
@@ -6184,7 +6031,7 @@ to <code>empinf</code>.
 </td>
 </tr>
 <tr>
-<td><code id="linear.approx_:_type">type</code></td>
+<td><code id="type">type</code></td>
 <td>
 
 <p>This gives the type of empirical influence values to be calculated.  It is
@@ -6194,7 +6041,7 @@ values are described in the help for <code><a href="#empinf">empinf</a></code>.
 </td>
 </tr>
 <tr>
-<td><code id="linear.approx_:_t0">t0</code></td>
+<td><code id="t0">t0</code></td>
 <td>
 
 <p>The observed value of the statistic of interest.  The input value is used only 
@@ -6205,7 +6052,7 @@ then <code>t0</code> is set to <code>boot.out$t0[index]</code> and a warning is 
 </td>
 </tr>
 <tr>
-<td><code id="linear.approx_:_t">t</code></td>
+<td><code id="t">t</code></td>
 <td>
 
 <p>A vector of bootstrap replicates of the statistic of interest.  If <code>t0</code> is 
@@ -6215,7 +6062,7 @@ influence values (if they are not supplied in <code>L</code>).
 </td>
 </tr>
 <tr>
-<td><code id="linear.approx_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 
 <p>Any extra arguments required by <code>boot.out$statistic</code>.  These are needed if
@@ -6296,11 +6143,8 @@ abline<span class="token punctuation">(</span><span class="token number">0</span
 
 par<span class="token punctuation">(</span>op<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="lines.saddle.distn">
-
-<a href="#lines.saddle.distn" class="help-page-title"><h2 id="lines.saddle.distn">
+<hr></main></div>
+<div class="container manual-page" id="lines.saddle.distn"><main><a href="#lines.saddle.distn" class="help-page-title"><h2>
 Add a Saddlepoint Approximation to a Plot
 </h2></a>
 
@@ -6322,7 +6166,7 @@ lines<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <table>
 <tr>
-<td><code id="lines.saddle.distn_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 
 <p>An object of class <code>"saddle.distn"</code>  (see
@@ -6332,7 +6176,7 @@ approximation to a distribution.
 </td>
 </tr>
 <tr>
-<td><code id="lines.saddle.distn_:_dens">dens</code></td>
+<td><code id="dens">dens</code></td>
 <td>
 
 <p>A logical variable indicating whether the saddlepoint density
@@ -6342,7 +6186,7 @@ approximation to a distribution.
 </td>
 </tr>
 <tr>
-<td><code id="lines.saddle.distn_:_h">h</code></td>
+<td><code id="h">h</code></td>
 <td>
 
 <p>Any transformation of the variable that is required.  Its first argument
@@ -6352,7 +6196,7 @@ function must be vectorized.
 </td>
 </tr>
 <tr>
-<td><code id="lines.saddle.distn_:_J">J</code></td>
+<td><code id="J">J</code></td>
 <td>
 
 <p>When <code>dens=TRUE</code> this function specifies the Jacobian for any
@@ -6364,7 +6208,7 @@ also be supplied and both must have the same argument list.
 </td>
 </tr>
 <tr>
-<td><code id="lines.saddle.distn_:_npts">npts</code></td>
+<td><code id="npts">npts</code></td>
 <td>
 
 <p>The number of points to be used for the plot.  These points will be evenly
@@ -6374,7 +6218,7 @@ approximation.
 </td>
 </tr>
 <tr>
-<td><code id="lines.saddle.distn_:_lty">lty</code></td>
+<td><code id="lty">lty</code></td>
 <td>
 
 <p>The line type to be used.
@@ -6382,7 +6226,7 @@ approximation.
 </td>
 </tr>
 <tr>
-<td><code id="lines.saddle.distn_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 
 <p>Any additional arguments to <code>h</code> and <code>J</code>.
@@ -6445,11 +6289,8 @@ exp.sp <span class="token operator">&lt;-</span> saddle.distn<span class="token 
 lines<span class="token punctuation">(</span>exp.sp<span class="token punctuation">,</span> h <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>u<span class="token punctuation">,</span> t0<span class="token punctuation">)</span> u<span class="token operator">+</span>t0<span class="token punctuation">,</span> J <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>u<span class="token punctuation">,</span> t0<span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">,</span>
       t0 <span class="token operator">=</span> exp.boot<span class="token operator">$</span>t0<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="logit">
-
-<a href="#logit" class="help-page-title"><h2 id="logit">
+<hr></main></div>
+<div class="container manual-page" id="logit"><main><a href="#logit" class="help-page-title"><h2>
 Logit of Proportions
 </h2></a>
 
@@ -6467,7 +6308,7 @@ Logit of Proportions
 <h3>Arguments</h3>
 
 <table><tr>
-<td><code id="logit_:_p">p</code></td>
+<td><code id="p">p</code></td>
 <td>
 
 <p>A numeric Splus object, all of whose values are in the range [0,1].  Missing
@@ -6496,11 +6337,8 @@ values.
 <p><code><a href="#inv.logit">inv.logit</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#Logistic">qlogis</a></code> for which this is a wrapper.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="manaus">
-
-<a href="#manaus" class="help-page-title"><h2 id="manaus">
+<hr></main></div>
+<div class="container manual-page" id="manaus"><main><a href="#manaus" class="help-page-title"><h2>
 Average Heights of the Rio Negro river at Manaus
 </h2></a>
 
@@ -6549,11 +6387,8 @@ Sustainable Management of Changing Environments</em>, Nishizawa, T. and
 Uitto, J.I. (editors), United Nations University Press, 113-179.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="melanoma">
-
-<a href="#melanoma" class="help-page-title"><h2 id="melanoma">
+<hr></main></div>
+<div class="container manual-page" id="melanoma"><main><a href="#melanoma" class="help-page-title"><h2>
 Survival from Malignant Melanoma
 </h2></a>
 
@@ -6646,11 +6481,8 @@ with the same name.
 <em>Modern Applied Statistics with S-Plus</em>. Springer-Verlag.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="motor">
-
-<a href="#motor" class="help-page-title"><h2 id="motor">
+<hr></main></div>
+<div class="container manual-page" id="motor"><main><a href="#motor" class="help-page-title"><h2>
 Data from a Simulated Motorcycle Accident
 </h2></a>
 
@@ -6723,11 +6555,8 @@ non-parametric curve fitting.
 <p><code><a href="https://r-universe.dev/manuals/MASS.html#mcycle">mcycle</a></code>
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="neuro">
-
-<a href="#neuro" class="help-page-title"><h2 id="neuro">
+<hr></main></div>
+<div class="container manual-page" id="neuro"><main><a href="#neuro" class="help-page-title"><h2>
 Neurophysiological Point Process Data
 </h2></a>
 
@@ -6766,11 +6595,8 @@ the effect of magnetic brain stimulation on a motorneurone. To appear in
 <em>Applied Statistics</em>. 
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="nitrofen">
-
-<a href="#nitrofen" class="help-page-title"><h2 id="nitrofen">
+<hr></main></div>
+<div class="container manual-page" id="nitrofen"><main><a href="#nitrofen" class="help-page-title"><h2>
 Toxicity of Nitrofen in Aquatic Systems
 </h2></a>
 
@@ -6846,11 +6672,8 @@ D. Brillinger, L. Conquest and J. Greenhouse (editors), 25–40. John Wiley.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="nodal">
-
-<a href="#nodal" class="help-page-title"><h2 id="nodal">
+<hr></main></div>
+<div class="container manual-page" id="nodal"><main><a href="#nodal" class="help-page-title"><h2>
 Nodal Involvement in Prostate Cancer
 </h2></a>
 
@@ -6941,11 +6764,8 @@ R.G. Miller, B. Efron, B.W. Brown and L.E. Moses (editors),
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="norm.ci">
-
-<a href="#norm.ci" class="help-page-title"><h2 id="norm.ci">
+<hr></main></div>
+<div class="container manual-page" id="norm.ci"><main><a href="#norm.ci" class="help-page-title"><h2>
 Normal Approximation Confidence Intervals
 </h2></a>
 
@@ -6967,7 +6787,7 @@ confidence intervals.
 
 <table>
 <tr>
-<td><code id="norm.ci_:_boot.out">boot.out</code></td>
+<td><code id="boot.out">boot.out</code></td>
 <td>
 
 <p>A bootstrap output object returned from a call to <code>boot</code>.  If
@@ -6977,7 +6797,7 @@ also required if both <code>var.t0</code> and <code>t</code> are missing.
 </td>
 </tr>
 <tr>
-<td><code id="norm.ci_:_conf">conf</code></td>
+<td><code id="conf">conf</code></td>
 <td>
 
 <p>A scalar or vector containing the confidence level(s) of the required 
@@ -6986,7 +6806,7 @@ interval(s).
 </td>
 </tr>
 <tr>
-<td><code id="norm.ci_:_index">index</code></td>
+<td><code id="index">index</code></td>
 <td>
 
 <p>The index of the statistic of interest within the output of a call to
@@ -6996,7 +6816,7 @@ missing, in which case <code>t0</code> must be supplied.
 </td>
 </tr>
 <tr>
-<td><code id="norm.ci_:_var.t0">var.t0</code></td>
+<td><code id="var.t0">var.t0</code></td>
 <td>
 
 <p>The variance of the statistic of interest.  If it is not supplied then 
@@ -7005,7 +6825,7 @@ missing, in which case <code>t0</code> must be supplied.
 </td>
 </tr>
 <tr>
-<td><code id="norm.ci_:_t0">t0</code></td>
+<td><code id="t0">t0</code></td>
 <td>
 
 <p>The observed value of the statistic of interest.  If it is missing then it is
@@ -7014,7 +6834,7 @@ taken from <code>boot.out</code> which is required in that case.
 </td>
 </tr>
 <tr>
-<td><code id="norm.ci_:_t">t</code></td>
+<td><code id="t">t</code></td>
 <td>
 
 <p>Bootstrap replicates of the variable of interest.  These are used to estimate 
@@ -7024,7 +6844,7 @@ supplied.  The default value is <code>boot.out$t[,index]</code>.
 </td>
 </tr>
 <tr>
-<td><code id="norm.ci_:_L">L</code></td>
+<td><code id="L">L</code></td>
 <td>
 
 <p>The empirical influence values for the statistic of interest.  These are
@@ -7036,7 +6856,7 @@ statistic <code>t0</code>.
 </td>
 </tr>
 <tr>
-<td><code id="norm.ci_:_h">h</code></td>
+<td><code id="h">h</code></td>
 <td>
 
 <p>A function defining a monotonic transformation,  the intervals are
@@ -7048,7 +6868,7 @@ the identity function.
 </td>
 </tr>
 <tr>
-<td><code id="norm.ci_:_hdot">hdot</code></td>
+<td><code id="hdot">hdot</code></td>
 <td>
 
 <p>A function of one argument returning the derivative of <code>h</code>.  It
@@ -7059,7 +6879,7 @@ constant function 1.
 </td>
 </tr>
 <tr>
-<td><code id="norm.ci_:_hinv">hinv</code></td>
+<td><code id="hinv">hinv</code></td>
 <td>
 
 <p>A function, like <code>h</code>, which returns the inverse of <code>h</code>.  It is
@@ -7130,11 +6950,8 @@ ratio <span class="token operator">&lt;-</span> <span class="token keyword">func
 city.v <span class="token operator">&lt;-</span> var.linear<span class="token punctuation">(</span>empinf<span class="token punctuation">(</span>data <span class="token operator">=</span> city<span class="token punctuation">,</span> statistic <span class="token operator">=</span> ratio<span class="token punctuation">)</span><span class="token punctuation">)</span>
 norm.ci<span class="token punctuation">(</span>t0 <span class="token operator">=</span> ratio<span class="token punctuation">(</span>city<span class="token punctuation">,</span>rep<span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> var.t0 <span class="token operator">=</span> city.v<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="nuclear">
-
-<a href="#nuclear" class="help-page-title"><h2 id="nuclear">
+<hr></main></div>
+<div class="container manual-page" id="nuclear"><main><a href="#nuclear" class="help-page-title"><h2>
 Nuclear Power Station Construction Data
 </h2></a>
 
@@ -7238,11 +7055,8 @@ guarantees.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="paulsen">
-
-<a href="#paulsen" class="help-page-title"><h2 id="paulsen">
+<hr></main></div>
+<div class="container manual-page" id="paulsen"><main><a href="#paulsen" class="help-page-title"><h2>
 Neurotransmission in Guinea Pig Brains
 </h2></a>
 
@@ -7297,11 +7111,8 @@ slices. <em>Journal of Physiology</em>, <b>480</b>, 505–511.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="plot.boot">
-
-<a href="#plot.boot" class="help-page-title"><h2 id="plot.boot">
+<hr></main></div>
+<div class="container manual-page" id="plot.boot"><main><a href="#plot.boot" class="help-page-title"><h2>
 Plots of the Output of a Bootstrap Simulation
 </h2></a>
 
@@ -7323,7 +7134,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <table>
 <tr>
-<td><code id="plot.boot_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 
 <p>An object of class <code>"boot"</code> returned from one of the bootstrap
@@ -7332,7 +7143,7 @@ generation functions.
 </td>
 </tr>
 <tr>
-<td><code id="plot.boot_:_index">index</code></td>
+<td><code id="index">index</code></td>
 <td>
 
 <p>The index of the variable of interest within the output of
@@ -7342,7 +7153,7 @@ supplied.
 </td>
 </tr>
 <tr>
-<td><code id="plot.boot_:_t0">t0</code></td>
+<td><code id="t0">t0</code></td>
 <td>
 
 <p>The original value of the statistic.  This defaults to
@@ -7353,7 +7164,7 @@ the histogram.
 </td>
 </tr>
 <tr>
-<td><code id="plot.boot_:_t">t</code></td>
+<td><code id="t">t</code></td>
 <td>
 
 <p>The bootstrap replicates of the statistic.  Usually this will take
@@ -7364,7 +7175,7 @@ function of <code>boot.out$t</code>.
 </td>
 </tr>
 <tr>
-<td><code id="plot.boot_:_jack">jack</code></td>
+<td><code id="jack">jack</code></td>
 <td>
 
 <p>A logical value indicating whether a jackknife-after-bootstrap plot is 
@@ -7373,7 +7184,7 @@ required.  The default is not to produce such a plot.
 </td>
 </tr>
 <tr>
-<td><code id="plot.boot_:_qdist">qdist</code></td>
+<td><code id="qdist">qdist</code></td>
 <td>
 
 <p>The distribution against which the Q-Q plot should be drawn.  At
@@ -7384,7 +7195,7 @@ values.
 </td>
 </tr>
 <tr>
-<td><code id="plot.boot_:_nclass">nclass</code></td>
+<td><code id="nclass">nclass</code></td>
 <td>
 
 <p>An integer giving the number of classes to be used in the bootstrap
@@ -7394,7 +7205,7 @@ histogram.  The default is the integer between 10 and 100 closest to
 </td>
 </tr>
 <tr>
-<td><code id="plot.boot_:_df">df</code></td>
+<td><code id="df">df</code></td>
 <td>
 
 <p>If <code>qdist</code> is <code>"chisq"</code> then this is the degrees of
@@ -7404,7 +7215,7 @@ required argument in that case.
 </td>
 </tr>
 <tr>
-<td><code id="plot.boot_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 
 <p>When <code>jack</code> is <code>TRUE</code> additional parameters to
@@ -7516,11 +7327,8 @@ frets.fun <span class="token operator">&lt;-</span> <span class="token keyword">
 frets.boot <span class="token operator">&lt;-</span> boot<span class="token punctuation">(</span>log<span class="token punctuation">(</span>as.matrix<span class="token punctuation">(</span>frets<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  frets.fun<span class="token punctuation">,</span>  R <span class="token operator">=</span> <span class="token number">999</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>frets.boot<span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">,</span> jack <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> stinf <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> useJ <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="poisons">
-
-<a href="#poisons" class="help-page-title"><h2 id="poisons">
+<hr></main></div>
+<div class="container manual-page" id="poisons"><main><a href="#poisons" class="help-page-title"><h2>
 Animal Survival Times
 </h2></a>
 
@@ -7577,11 +7385,8 @@ Discussion).
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="polar">
-
-<a href="#polar" class="help-page-title"><h2 id="polar">
+<hr></main></div>
+<div class="container manual-page" id="polar"><main><a href="#polar" class="help-page-title"><h2>
 Pole Positions of New Caledonian Laterites
 </h2></a>
 
@@ -7632,11 +7437,8 @@ are negative as the axis is taken to be in the lower hemisphere.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="print.boot">
-
-<a href="#print.boot" class="help-page-title"><h2 id="print.boot">
+<hr></main></div>
+<div class="container manual-page" id="print.boot"><main><a href="#print.boot" class="help-page-title"><h2>
 Print a Summary of a Bootstrap Object
 </h2></a>
 
@@ -7659,7 +7461,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <table>
 <tr>
-<td><code id="print.boot_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 
 <p>A bootstrap output object of class <code>"boot"</code> generated by one
@@ -7668,7 +7470,7 @@ of the bootstrap functions.
 </td>
 </tr>
 <tr>
-<td><code id="print.boot_:_digits">digits</code></td>
+<td><code id="digits">digits</code></td>
 <td>
 
 <p>The number of digits to be printed in the summary statistics.
@@ -7676,7 +7478,7 @@ of the bootstrap functions.
 </td>
 </tr>
 <tr>
-<td><code id="print.boot_:_index">index</code></td>
+<td><code id="index">index</code></td>
 <td>
 
 <p>Indices indicating for which elements of the bootstrap output
@@ -7685,7 +7487,7 @@ summary statistics are required.
 </td>
 </tr>
 <tr>
-<td><code id="print.boot_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
 </td>
@@ -7719,11 +7521,8 @@ printed.
 <code><a href="#plot.boot">plot.boot</a></code>, <code><a href="#tilt.boot">tilt.boot</a></code>, <code><a href="#tsboot">tsboot</a></code>
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="print.bootci">
-
-<a href="#print.bootci" class="help-page-title"><h2 id="print.bootci">
+<hr></main></div>
+<div class="container manual-page" id="print.bootci"><main><a href="#print.bootci" class="help-page-title"><h2>
 Print Bootstrap Confidence Intervals
 </h2></a>
 
@@ -7744,7 +7543,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <table>
 <tr>
-<td><code id="print.bootci_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 
 <p>The output from a call to <code>boot.ci</code>.
@@ -7752,7 +7551,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 </td>
 </tr>
 <tr>
-<td><code id="print.bootci_:_hinv">hinv</code></td>
+<td><code id="hinv">hinv</code></td>
 <td>
 
 <p>A transformation to be made to the interval end-points before they are
@@ -7761,7 +7560,7 @@ printed.
 </td>
 </tr>
 <tr>
-<td><code id="print.bootci_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
 </td>
@@ -7799,11 +7598,8 @@ or lower 10 order statistics with the message
 <p><code><a href="#boot.ci">boot.ci</a></code>
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="print.saddle.distn">
-
-<a href="#print.saddle.distn" class="help-page-title"><h2 id="print.saddle.distn">
+<hr></main></div>
+<div class="container manual-page" id="print.saddle.distn"><main><a href="#print.saddle.distn" class="help-page-title"><h2>
 Print Quantiles of Saddlepoint Approximations
 </h2></a>
 
@@ -7824,7 +7620,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <table>
 <tr>
-<td><code id="print.saddle.distn_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 
 <p>An object of class <code>"saddle.distn"</code> created by a call to
@@ -7833,7 +7629,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 </td>
 </tr>
 <tr>
-<td><code id="print.saddle.distn_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
 </td>
@@ -7857,11 +7653,8 @@ along with the original call and some other useful information.
 <p><code><a href="#lines.saddle.distn">lines.saddle.distn</a></code>, <code><a href="#saddle.distn">saddle.distn</a></code>
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="print.simplex">
-
-<a href="#print.simplex" class="help-page-title"><h2 id="print.simplex">
+<hr></main></div>
+<div class="container manual-page" id="print.simplex"><main><a href="#print.simplex" class="help-page-title"><h2>
 Print Solution to Linear Programming Problem
 </h2></a>
 
@@ -7882,7 +7675,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <table>
 <tr>
-<td><code id="print.simplex_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 
 <p>An object of class <code>"simplex"</code> created by calling the
@@ -7891,7 +7684,7 @@ function <code>simplex</code> to solve a linear programming problem.
 </td>
 </tr>
 <tr>
-<td><code id="print.simplex_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
 </td>
@@ -7920,11 +7713,8 @@ printed.
 <p><code><a href="#simplex">simplex</a></code>
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="remission">
-
-<a href="#remission" class="help-page-title"><h2 id="remission">
+<hr></main></div>
+<div class="container manual-page" id="remission"><main><a href="#remission" class="help-page-title"><h2>
 Cancer Remission and Cell Activity
 </h2></a>
 
@@ -7975,11 +7765,8 @@ Cancer Remission and Cell Activity
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="saddle">
-
-<a href="#saddle" class="help-page-title"><h2 id="saddle">
+<hr></main></div>
+<div class="container manual-page" id="saddle"><main><a href="#saddle" class="help-page-title"><h2>
 Saddlepoint Approximations for Bootstrap Statistics
 </h2></a>
 
@@ -8009,7 +7796,7 @@ distributions.
 
 <table>
 <tr>
-<td><code id="saddle_:_A">A</code></td>
+<td><code id="A">A</code></td>
 <td>
 
 <p>A vector or matrix of known coefficients of the linear combinations
@@ -8019,7 +7806,7 @@ of <b>W</b>. It is a required argument unless <code>K.adj</code> and
 </td>
 </tr>
 <tr>
-<td><code id="saddle_:_u">u</code></td>
+<td><code id="u">u</code></td>
 <td>
 
 <p>The value at which it is desired to calculate the saddlepoint
@@ -8030,7 +7817,7 @@ approximation to the distribution of the linear combination of
 </td>
 </tr>
 <tr>
-<td><code id="saddle_:_wdist">wdist</code></td>
+<td><code id="wdist">wdist</code></td>
 <td>
 
 <p>The distribution of <b>W</b>.  This can be one of <code>"m"</code>
@@ -8041,7 +7828,7 @@ approximation to the distribution of the linear combination of
 </td>
 </tr>
 <tr>
-<td><code id="saddle_:_type">type</code></td>
+<td><code id="type">type</code></td>
 <td>
 
 <p>The type of saddlepoint approximation.  Possible types are
@@ -8054,7 +7841,7 @@ distributions.
 </td>
 </tr>
 <tr>
-<td><code id="saddle_:_d">d</code></td>
+<td><code id="d">d</code></td>
 <td>
 
 <p>This specifies the dimension of the whole statistic.  This argument
@@ -8065,7 +7852,7 @@ supplied in that case.  For other distributions it is set to
 </td>
 </tr>
 <tr>
-<td><code id="saddle_:_d1">d1</code></td>
+<td><code id="d1">d1</code></td>
 <td>
 
 <p>When <code>type</code> is <code>"cond"</code> this is the dimension of the
@@ -8078,7 +7865,7 @@ approximations can only be found if the value of <code>d1</code> is 1.
 </td>
 </tr>
 <tr>
-<td><code id="saddle_:_init">init</code></td>
+<td><code id="init">init</code></td>
 <td>
 
 <p>Used if <code>wdist</code> is either <code>"m"</code> or <code>"o"</code>, this gives
@@ -8088,7 +7875,7 @@ saddlepoint equation.
 </td>
 </tr>
 <tr>
-<td><code id="saddle_:_mu">mu</code></td>
+<td><code id="mu">mu</code></td>
 <td>
 
 <p>The values of the parameters of the distribution of <b>W</b> when
@@ -8100,7 +7887,7 @@ that all values of <code>mu</code> are equal and so the elements of
 </td>
 </tr>
 <tr>
-<td><code id="saddle_:_LR">LR</code></td>
+<td><code id="LR">LR</code></td>
 <td>
 
 <p>If <code>TRUE</code> then the Lugananni-Rice approximation to the cdf is used,
@@ -8109,7 +7896,7 @@ otherwise the approximation used is based on Barndorff-Nielsen's r*.
 </td>
 </tr>
 <tr>
-<td><code id="saddle_:_strata">strata</code></td>
+<td><code id="strata">strata</code></td>
 <td>
 
 <p>The strata for stratified data.
@@ -8117,7 +7904,7 @@ otherwise the approximation used is based on Barndorff-Nielsen's r*.
 </td>
 </tr>
 <tr>
-<td><code id="saddle_:_K.adj">K.adj</code></td>
+<td><code id="K.adj">K.adj</code></td>
 <td>
 
 <p>The adjusted cumulant generating function used when <code>wdist</code> is
@@ -8128,7 +7915,7 @@ the cumulant generating function of <b>W</b>.
 </td>
 </tr>
 <tr>
-<td><code id="saddle_:_K2">K2</code></td>
+<td><code id="K2">K2</code></td>
 <td>
 
 <p>This is a function of a single parameter <code>zeta</code> which returns the 
@@ -8245,11 +8032,8 @@ city.sp1 <span class="token operator">&lt;-</span> saddle<span class="token punc
 city.sp1<span class="token operator">$</span>spa<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> jacobian<span class="token punctuation">(</span>city<span class="token punctuation">,</span> <span class="token number">1.25</span><span class="token punctuation">,</span> city.sp1<span class="token operator">$</span>zeta.hat<span class="token punctuation">)</span> <span class="token operator">*</span> city.sp1<span class="token operator">$</span>spa<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
 city.sp1</code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="saddle.distn">
-
-<a href="#saddle.distn" class="help-page-title"><h2 id="saddle.distn">
+<hr></main></div>
+<div class="container manual-page" id="saddle.distn"><main><a href="#saddle.distn" class="help-page-title"><h2>
 Saddlepoint Distribution Approximations for Bootstrap Statistics
 </h2></a>
 
@@ -8283,7 +8067,7 @@ statistic.
 
 <table>
 <tr>
-<td><code id="saddle.distn_:_A">A</code></td>
+<td><code id="A">A</code></td>
 <td>
 
 <p>This is a matrix of known coefficients or a function which returns
@@ -8296,7 +8080,7 @@ linear estimating equation.
 </td>
 </tr>
 <tr>
-<td><code id="saddle.distn_:_u">u</code></td>
+<td><code id="u">u</code></td>
 <td>
 
 <p>If <code>A</code> is a function then <code>u</code>  must also be a function
@@ -8313,7 +8097,7 @@ not used.
 </td>
 </tr>
 <tr>
-<td><code id="saddle.distn_:_alpha">alpha</code></td>
+<td><code id="alpha">alpha</code></td>
 <td>
 
 <p>The alpha levels for the quantiles of the distribution which should be
@@ -8323,7 +8107,7 @@ returned.  By default the 0.1, 0.5, 1, 2.5, 5, 10, 20, 50, 80, 90,
 </td>
 </tr>
 <tr>
-<td><code id="saddle.distn_:_wdist">wdist</code></td>
+<td><code id="wdist">wdist</code></td>
 <td>
 
 <p>The distribution of <b>W</b>.  Possible values are <code>"m"</code>
@@ -8332,7 +8116,7 @@ returned.  By default the 0.1, 0.5, 1, 2.5, 5, 10, 20, 50, 80, 90,
 </td>
 </tr>
 <tr>
-<td><code id="saddle.distn_:_type">type</code></td>
+<td><code id="type">type</code></td>
 <td>
 
 <p>The type of saddlepoint to be used.  Possible values are
@@ -8342,7 +8126,7 @@ If <code>wdist</code> is <code>"m"</code>, <code>type</code> is set to <code>"si
 </td>
 </tr>
 <tr>
-<td><code id="saddle.distn_:_npts">npts</code></td>
+<td><code id="npts">npts</code></td>
 <td>
 
 <p>The number of points at which the saddlepoint approximation should be
@@ -8351,7 +8135,7 @@ calculated and then used to fit the spline.
 </td>
 </tr>
 <tr>
-<td><code id="saddle.distn_:_t">t</code></td>
+<td><code id="t">t</code></td>
 <td>
 
 <p>A vector of points at which the saddlepoint approximations are
@@ -8369,7 +8153,7 @@ selects points to cover this range.
 </td>
 </tr>
 <tr>
-<td><code id="saddle.distn_:_t0">t0</code></td>
+<td><code id="t0">t0</code></td>
 <td>
 
 <p>If <code>t</code> is not supplied then a vector of length 2 should be
@@ -8382,7 +8166,7 @@ does rely on an accurate estimate of location in <code>t0[1]</code>.
 </td>
 </tr>
 <tr>
-<td><code id="saddle.distn_:_init">init</code></td>
+<td><code id="init">init</code></td>
 <td>
 
 <p>When <code>wdist</code> is <code>"m"</code>, this vector should contain the
@@ -8392,7 +8176,7 @@ solve the saddlepoint equations.
 </td>
 </tr>
 <tr>
-<td><code id="saddle.distn_:_mu">mu</code></td>
+<td><code id="mu">mu</code></td>
 <td>
 
 <p>The vector of parameter values for the distribution.  The
@@ -8401,7 +8185,7 @@ default is that the components of <b>W</b> are identically distributed.
 </td>
 </tr>
 <tr>
-<td><code id="saddle.distn_:_LR">LR</code></td>
+<td><code id="LR">LR</code></td>
 <td>
 
 <p>A logical flag.  When <code>LR</code> is <code>TRUE</code> the Lugananni-Rice
@@ -8412,7 +8196,7 @@ Barndorff-Nielsen's r*.
 </td>
 </tr>
 <tr>
-<td><code id="saddle.distn_:_strata">strata</code></td>
+<td><code id="strata">strata</code></td>
 <td>
 
 <p>A vector giving the strata when the rows of A relate to stratified
@@ -8421,7 +8205,7 @@ data.  This is used only when <code>wdist</code> is <code>"m"</code>.
 </td>
 </tr>
 <tr>
-<td><code id="saddle.distn_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 
 <p>When <code>A</code> and <code>u</code> are functions any additional arguments
@@ -8527,11 +8311,8 @@ city.t0 <span class="token operator">&lt;-</span> c<span class="token punctuatio
 saddle.distn<span class="token punctuation">(</span>A <span class="token operator">=</span> Afn<span class="token punctuation">,</span> u <span class="token operator">=</span> ufn<span class="token punctuation">,</span> wdist <span class="token operator">=</span> <span class="token string">"p"</span><span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"cond"</span><span class="token punctuation">,</span> t0 <span class="token operator">=</span> city.t0<span class="token punctuation">,</span> 
              data <span class="token operator">=</span> city<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="saddle.distn.object">
-
-<a href="#saddle.distn.object" class="help-page-title"><h2 id="saddle.distn.object">
+<hr></main></div>
+<div class="container manual-page" id="saddle.distn.object"><main><a href="#saddle.distn.object" class="help-page-title"><h2>
 Saddlepoint Distribution Approximation Objects
 </h2></a>
 
@@ -8610,11 +8391,8 @@ approximations were used.
 <code><a href="#print.saddle.distn">print.saddle.distn</a></code>
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="salinity">
-
-<a href="#salinity" class="help-page-title"><h2 id="salinity">
+<hr></main></div>
+<div class="container manual-page" id="salinity"><main><a href="#salinity" class="help-page-title"><h2>
 Water Salinity and River Discharge
 </h2></a>
 
@@ -8681,11 +8459,8 @@ linear model.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="simplex">
-
-<a href="#simplex" class="help-page-title"><h2 id="simplex">
+<hr></main></div>
+<div class="container manual-page" id="simplex"><main><a href="#simplex" class="help-page-title"><h2>
 Simplex Method for Linear Programming Problems
 </h2></a>
 
@@ -8708,7 +8483,7 @@ minimization is possible but the default is minimization.
 
 <table>
 <tr>
-<td><code id="simplex_:_a">a</code></td>
+<td><code id="a">a</code></td>
 <td>
 
 <p>A vector of length <code>n</code> which gives the coefficients of the
@@ -8717,7 +8492,7 @@ objective function.
 </td>
 </tr>
 <tr>
-<td><code id="simplex_:_A1">A1</code></td>
+<td><code id="A1">A1</code></td>
 <td>
 
 <p>An <code>m1</code> by <code>n</code> matrix of coefficients for the <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo></mrow><annotation encoding="application/x-tex">\leq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">≤</span></span></span></span></code> type of
@@ -8726,7 +8501,7 @@ constraints.
 </td>
 </tr>
 <tr>
-<td><code id="simplex_:_b1">b1</code></td>
+<td><code id="b1">b1</code></td>
 <td>
 
 <p>A vector of length <code>m1</code> giving the right hand side of the <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo></mrow><annotation encoding="application/x-tex">\leq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">≤</span></span></span></span></code>
@@ -8736,7 +8511,7 @@ ignored otherwise.  All values in <code>b1</code> must be non-negative.
 </td>
 </tr>
 <tr>
-<td><code id="simplex_:_A2">A2</code></td>
+<td><code id="A2">A2</code></td>
 <td>
 
 <p>An <code>m2</code> by <code>n</code> matrix of coefficients for the <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo></mrow><annotation encoding="application/x-tex">\geq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">≥</span></span></span></span></code> type of
@@ -8745,7 +8520,7 @@ constraints.
 </td>
 </tr>
 <tr>
-<td><code id="simplex_:_b2">b2</code></td>
+<td><code id="b2">b2</code></td>
 <td>
 
 <p>A vector of length <code>m2</code> giving the right hand side of the <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo></mrow><annotation encoding="application/x-tex">\geq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">≥</span></span></span></span></code>
@@ -8757,7 +8532,7 @@ and so should not be repeated here.
 </td>
 </tr>
 <tr>
-<td><code id="simplex_:_A3">A3</code></td>
+<td><code id="A3">A3</code></td>
 <td>
 
 <p>An <code>m3</code> by <code>n</code> matrix of coefficients for the equality
@@ -8766,7 +8541,7 @@ constraints.
 </td>
 </tr>
 <tr>
-<td><code id="simplex_:_b3">b3</code></td>
+<td><code id="b3">b3</code></td>
 <td>
 
 <p>A vector of length <code>m3</code> giving the right hand side of equality
@@ -8776,7 +8551,7 @@ ignored otherwise.  All values in <code>b3</code> must be non-negative.
 </td>
 </tr>
 <tr>
-<td><code id="simplex_:_maxi">maxi</code></td>
+<td><code id="maxi">maxi</code></td>
 <td>
 
 <p>A logical flag which specifies minimization if <code>FALSE</code>
@@ -8787,7 +8562,7 @@ changing the objective function coefficients to their negatives.
 </td>
 </tr>
 <tr>
-<td><code id="simplex_:_n.iter">n.iter</code></td>
+<td><code id="n.iter">n.iter</code></td>
 <td>
 
 <p>The maximum number of iterations to be conducted in each phase of
@@ -8796,7 +8571,7 @@ the simplex method.  The default is <code>n+2*(m1+m2+m3)</code>.
 </td>
 </tr>
 <tr>
-<td><code id="simplex_:_eps">eps</code></td>
+<td><code id="eps">eps</code></td>
 <td>
 
 <p>The floating point tolerance to be used in tests of equality.
@@ -8861,11 +8636,8 @@ vitz <span class="token operator">&lt;-</span> c<span class="token punctuation">
 simplex<span class="token punctuation">(</span>a <span class="token operator">=</span> enj<span class="token punctuation">,</span> A1 <span class="token operator">=</span> fat<span class="token punctuation">,</span> b1 <span class="token operator">=</span> <span class="token number">13800</span><span class="token punctuation">,</span> A2 <span class="token operator">=</span> rbind<span class="token punctuation">(</span>vitx<span class="token punctuation">,</span> vity<span class="token punctuation">,</span> vitz<span class="token punctuation">)</span><span class="token punctuation">,</span>
         b2 <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">600</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">550</span><span class="token punctuation">)</span><span class="token punctuation">,</span> maxi <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="simplex.object">
-
-<a href="#simplex.object" class="help-page-title"><h2 id="simplex.object">
+<hr></main></div>
+<div class="container manual-page" id="simplex.object"><main><a href="#simplex.object" class="help-page-title"><h2>
 Linear Programming Solution Objects
 </h2></a>
 
@@ -8992,11 +8764,8 @@ artificial variables can be made 0 simultaneously.
 <p><code><a href="#print.simplex">print.simplex</a></code>, <code><a href="#simplex">simplex</a></code>
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="smooth.f">
-
-<a href="#smooth.f" class="help-page-title"><h2 id="smooth.f">
+<hr></main></div>
+<div class="container manual-page" id="smooth.f"><main><a href="#smooth.f" class="help-page-title"><h2>
 Smooth Distributions on Data Points
 </h2></a>
 
@@ -9019,7 +8788,7 @@ interest.  The method results in distributions which vary smoothly with
 
 <table>
 <tr>
-<td><code id="smooth.f_:_theta">theta</code></td>
+<td><code id="theta">theta</code></td>
 <td>
 
 <p>The required value for the statistic of interest.  If <code>theta</code> is a vector,
@@ -9028,7 +8797,7 @@ a separate distribution will be found for each element of <code>theta</code>.
 </td>
 </tr>
 <tr>
-<td><code id="smooth.f_:_boot.out">boot.out</code></td>
+<td><code id="boot.out">boot.out</code></td>
 <td>
 
 <p>A bootstrap output object returned by a call to <code>boot</code>.  
@@ -9036,7 +8805,7 @@ a separate distribution will be found for each element of <code>theta</code>.
 </td>
 </tr>
 <tr>
-<td><code id="smooth.f_:_index">index</code></td>
+<td><code id="index">index</code></td>
 <td>
 
 <p>The index of the variable of interest in the output of <code>boot.out$statistic</code>.
@@ -9045,7 +8814,7 @@ This argument is ignored if <code>t</code> is supplied.  <code>index</code> must
 </td>
 </tr>
 <tr>
-<td><code id="smooth.f_:_t">t</code></td>
+<td><code id="t">t</code></td>
 <td>
 
 <p>The bootstrap values of the statistic of interest.  This must be a vector of
@@ -9055,7 +8824,7 @@ replicates in <code>boot.out</code>.
 </td>
 </tr>
 <tr>
-<td><code id="smooth.f_:_width">width</code></td>
+<td><code id="width">width</code></td>
 <td>
 
 <p>The standardized width for the kernel smoothing.  The smoothing uses a
@@ -9147,11 +8916,8 @@ imp.prob<span class="token punctuation">(</span>grav.boot2<span class="token pun
 <span class="token number">1</span> <span class="token operator">-</span> imp.prob<span class="token punctuation">(</span>grav.boot2<span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> t0 <span class="token operator">=</span> grav.z0<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">$</span>raw
 <span class="token comment"># can give very strange results (negative probabilities).</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="sunspot">
-
-<a href="#sunspot" class="help-page-title"><h2 id="sunspot">
+<hr></main></div>
+<div class="container manual-page" id="sunspot"><main><a href="#sunspot" class="help-page-title"><h2>
 Annual Mean Sunspot Numbers
 </h2></a>
 
@@ -9195,11 +8961,8 @@ Zurich sunspot relative numbers.
 Schulthess and Co.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="survival">
-
-<a href="#survival" class="help-page-title"><h2 id="survival">
+<hr></main></div>
+<div class="container manual-page" id="survival"><main><a href="#survival" class="help-page-title"><h2>
 Survival of Rats after Radiation Doses
 </h2></a>
 
@@ -9250,11 +9013,8 @@ replications of the experiment.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="tau">
-
-<a href="#tau" class="help-page-title"><h2 id="tau">
+<hr></main></div>
+<div class="container manual-page" id="tau"><main><a href="#tau" class="help-page-title"><h2>
 Tau Particle Decay Modes
 </h2></a>
 
@@ -9326,11 +9086,8 @@ statistical method to the tau-decay-mode problem.
 274-279.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="tilt.boot">
-
-<a href="#tilt.boot" class="help-page-title"><h2 id="tilt.boot">
+<hr></main></div>
+<div class="container manual-page" id="tilt.boot"><main><a href="#tilt.boot" class="help-page-title"><h2>
 Non-parametric Tilted Bootstrap
 </h2></a>
 
@@ -9357,7 +9114,7 @@ distribution.
 
 <table>
 <tr>
-<td><code id="tilt.boot_:_data">data</code></td>
+<td><code id="data">data</code></td>
 <td>
 
 <p>The data as a vector, matrix or data frame.  If it is a matrix or
@@ -9367,7 +9124,7 @@ observation.
 </td>
 </tr>
 <tr>
-<td><code id="tilt.boot_:_statistic">statistic</code></td>
+<td><code id="statistic">statistic</code></td>
 <td>
 
 <p>A function which when applied to data returns a vector containing the
@@ -9380,7 +9137,7 @@ and will be passed unchanged to statistic each time it is called.
 </td>
 </tr>
 <tr>
-<td><code id="tilt.boot_:_R">R</code></td>
+<td><code id="R">R</code></td>
 <td>
 
 <p>The number of bootstrap replicates required.  This will generally be
@@ -9395,7 +9152,7 @@ should always equal <code>1+length(theta)</code>.
 </td>
 </tr>
 <tr>
-<td><code id="tilt.boot_:_sim">sim</code></td>
+<td><code id="sim">sim</code></td>
 <td>
 
 <p>This is a character string indicating the type of bootstrap
@@ -9409,7 +9166,7 @@ weights.
 </td>
 </tr>
 <tr>
-<td><code id="tilt.boot_:_stype">stype</code></td>
+<td><code id="stype">stype</code></td>
 <td>
 
 <p>A character string indicating the type of second argument expected
@@ -9420,7 +9177,7 @@ are <code>"i"</code> (indices), <code>"w"</code> (weights) and <code>"f"</code>
 </td>
 </tr>
 <tr>
-<td><code id="tilt.boot_:_strata">strata</code></td>
+<td><code id="strata">strata</code></td>
 <td>
 
 <p>An integer vector or factor representing the strata for multi-sample
@@ -9429,7 +9186,7 @@ problems.
 </td>
 </tr>
 <tr>
-<td><code id="tilt.boot_:_L">L</code></td>
+<td><code id="L">L</code></td>
 <td>
 
 <p>The empirical influence values for the statistic of interest.  They
@@ -9441,7 +9198,7 @@ them.
 </td>
 </tr>
 <tr>
-<td><code id="tilt.boot_:_theta">theta</code></td>
+<td><code id="theta">theta</code></td>
 <td>
 
 <p>The required parameter value(s) for the tilted distribution(s).
@@ -9453,7 +9210,7 @@ from the initial uniform bootstrap and the values in <code>alpha</code>.
 </td>
 </tr>
 <tr>
-<td><code id="tilt.boot_:_alpha">alpha</code></td>
+<td><code id="alpha">alpha</code></td>
 <td>
 
 <p>The alpha level to which tilting is required.  This parameter is
@@ -9468,7 +9225,7 @@ unreliable.
 </td>
 </tr>
 <tr>
-<td><code id="tilt.boot_:_tilt">tilt</code></td>
+<td><code id="tilt">tilt</code></td>
 <td>
 
 <p>A logical variable which if <code>TRUE</code> (the default) indicates that
@@ -9481,7 +9238,7 @@ more).
 </td>
 </tr>
 <tr>
-<td><code id="tilt.boot_:_width">width</code></td>
+<td><code id="width">width</code></td>
 <td>
 
 <p>This argument is used only if <code>tilt</code> is <code>FALSE</code>, in which
@@ -9492,7 +9249,7 @@ be in the range (0.2, 1). See <code>smooth.f</code> for for more details.
 </td>
 </tr>
 <tr>
-<td><code id="tilt.boot_:_index">index</code></td>
+<td><code id="index">index</code></td>
 <td>
 
 <p>The index of the statistic of interest in the output from
@@ -9502,7 +9259,7 @@ be in the range (0.2, 1). See <code>smooth.f</code> for for more details.
 </td>
 </tr>
 <tr>
-<td><code id="tilt.boot_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 
 <p>Any additional arguments required by <code>statistic</code>.  These are
@@ -9673,11 +9430,8 @@ acme.boot1 <span class="token operator">&lt;-</span> tilt.boot<span class="token
                         stype <span class="token operator">=</span> <span class="token string">"i"</span><span class="token punctuation">,</span> sim <span class="token operator">=</span> <span class="token string">"balanced"</span><span class="token punctuation">,</span> alpha <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0.05</span><span class="token punctuation">,</span> <span class="token number">0.95</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
                         tilt <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> bhat <span class="token operator">=</span> acme.b<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="tsboot">
-
-<a href="#tsboot" class="help-page-title"><h2 id="tsboot">
+<hr></main></div>
+<div class="container manual-page" id="tsboot"><main><a href="#tsboot" class="help-page-title"><h2>
 Bootstrapping of Time Series
 </h2></a>
 
@@ -9702,7 +9456,7 @@ or random block lengths or can be model based replicates.
 
 <table>
 <tr>
-<td><code id="tsboot_:_tseries">tseries</code></td>
+<td><code id="tseries">tseries</code></td>
 <td>
 
 <p>A univariate or multivariate time series.
@@ -9710,7 +9464,7 @@ or random block lengths or can be model based replicates.
 </td>
 </tr>
 <tr>
-<td><code id="tsboot_:_statistic">statistic</code></td>
+<td><code id="statistic">statistic</code></td>
 <td>
 
 <p>A function which when applied to <code>tseries</code> returns a vector
@@ -9723,7 +9477,7 @@ and should be supplied through the ... argument to <code>tsboot</code>.
 </td>
 </tr>
 <tr>
-<td><code id="tsboot_:_R">R</code></td>
+<td><code id="R">R</code></td>
 <td>
 
 <p>A positive integer giving the number of bootstrap replicates required.  
@@ -9731,7 +9485,7 @@ and should be supplied through the ... argument to <code>tsboot</code>.
 </td>
 </tr>
 <tr>
-<td><code id="tsboot_:_sim">sim</code></td>
+<td><code id="sim">sim</code></td>
 <td>
 
 <p>The type of simulation required to generate the replicate time series.  The
@@ -9744,7 +9498,7 @@ having a geometric distribution with mean <code>l</code>) or
 </td>
 </tr>
 <tr>
-<td><code id="tsboot_:_l">l</code></td>
+<td><code id="l">l</code></td>
 <td>
 
 <p>If <code>sim</code> is <code>"fixed"</code> then <code>l</code> is the fixed block
@@ -9758,7 +9512,7 @@ other simulation types.
 </td>
 </tr>
 <tr>
-<td><code id="tsboot_:_endcorr">endcorr</code></td>
+<td><code id="endcorr">endcorr</code></td>
 <td>
 
 <p>A logical variable indicating whether end corrections are to be
@@ -9770,7 +9524,7 @@ applied when <code>sim</code> is <code>"fixed"</code>.  When <code>sim</code> is
 </td>
 </tr>
 <tr>
-<td><code id="tsboot_:_n.sim">n.sim</code></td>
+<td><code id="n.sim">n.sim</code></td>
 <td>
 
 <p>The length of the simulated time series.  Typically this will be equal
@@ -9784,7 +9538,7 @@ usually be the length of the original time series.
 </td>
 </tr>
 <tr>
-<td><code id="tsboot_:_orig.t">orig.t</code></td>
+<td><code id="orig.t">orig.t</code></td>
 <td>
 
 <p>A logical variable which indicates whether <code>statistic</code> should be
@@ -9797,7 +9551,7 @@ not yield any useful information then <code>orig.t</code> should be set to
 </td>
 </tr>
 <tr>
-<td><code id="tsboot_:_ran.gen">ran.gen</code></td>
+<td><code id="ran.gen">ran.gen</code></td>
 <td>
 
 <p>This is a function of three arguments.  The first argument is a time
@@ -9818,7 +9572,7 @@ the time series passed to it.
 </td>
 </tr>
 <tr>
-<td><code id="tsboot_:_ran.args">ran.args</code></td>
+<td><code id="ran.args">ran.args</code></td>
 <td>
 
 <p>This will be supplied to <code>ran.gen</code> each time it is called.  If
@@ -9831,7 +9585,7 @@ note that <code>ran.gen</code> must still have its third argument.
 </td>
 </tr>
 <tr>
-<td><code id="tsboot_:_norm">norm</code></td>
+<td><code id="norm">norm</code></td>
 <td>
 
 <p>A logical argument indicating whether normal margins should be used
@@ -9841,7 +9595,7 @@ corresponding to the exact empirical margins are used.
 </td>
 </tr>
 <tr>
-<td><code id="tsboot_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 
 <p>Extra named arguments to <code>statistic</code> may be supplied here.
@@ -9851,7 +9605,7 @@ Beware of partial matching to the arguments of <code>tsboot</code> listed above.
 </tr>
 <tr>
 <td>
-<code id="tsboot_:_parallel">parallel</code>, <code id="tsboot_:_ncpus">ncpus</code>, <code id="tsboot_:_cl">cl</code>
+<code id="parallel">parallel</code>, <code id="ncpus">ncpus</code>, <code id="cl">cl</code>
 </td>
 <td>
 
@@ -10075,11 +9829,8 @@ table<span class="token punctuation">(</span>lynx.<span class="token number">3</
 <span class="token comment"># Notice that the post-blackened and model-based bootstraps preserve</span>
 <span class="token comment"># the true order of the model (11) in many more cases than the others.</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="tuna">
-
-<a href="#tuna" class="help-page-title"><h2 id="tuna">
+<hr></main></div>
+<div class="container manual-page" id="tuna"><main><a href="#tuna" class="help-page-title"><h2>
 Tuna Sighting Data
 </h2></a>
 
@@ -10129,11 +9880,8 @@ nonparametric density estimation. <em>Biometrika</em>, <b>83</b>, 329–341.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="urine">
-
-<a href="#urine" class="help-page-title"><h2 id="urine">
+<hr></main></div>
+<div class="container manual-page" id="urine"><main><a href="#urine" class="help-page-title"><h2>
 Urine Analysis Data
 </h2></a>
 
@@ -10211,11 +9959,8 @@ concentration of charged ions in solution.
 <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="var.linear">
-
-<a href="#var.linear" class="help-page-title"><h2 id="var.linear">
+<hr></main></div>
+<div class="container manual-page" id="var.linear"><main><a href="#var.linear" class="help-page-title"><h2>
 Linear Variance Estimate
 </h2></a>
 
@@ -10234,7 +9979,7 @@ Linear Variance Estimate
 
 <table>
 <tr>
-<td><code id="var.linear_:_L">L</code></td>
+<td><code id="L">L</code></td>
 <td>
 
 <p>Vector of the empirical influence values of a statistic.  These will usually
@@ -10243,7 +9988,7 @@ be calculated by a call to <code>empinf</code>.
 </td>
 </tr>
 <tr>
-<td><code id="var.linear_:_strata">strata</code></td>
+<td><code id="strata">strata</code></td>
 <td>
 
 <p>A numeric vector or factor specifying which  observations (and hence empirical
@@ -10276,11 +10021,8 @@ influence values) come from which strata.
 ratio <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span>w<span class="token punctuation">)</span> sum<span class="token punctuation">(</span>d<span class="token operator">$</span>x <span class="token operator">*</span> w<span class="token punctuation">)</span><span class="token operator">/</span>sum<span class="token punctuation">(</span>d<span class="token operator">$</span>u <span class="token operator">*</span> w<span class="token punctuation">)</span>
 var.linear<span class="token punctuation">(</span>empinf<span class="token punctuation">(</span>data <span class="token operator">=</span> city<span class="token punctuation">,</span> statistic <span class="token operator">=</span> ratio<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="wool">
-
-<a href="#wool" class="help-page-title"><h2 id="wool">
+<hr></main></div>
+<div class="container manual-page" id="wool"><main><a href="#wool" class="help-page-title"><h2>
 Australian Relative Wool Prices
 </h2></a>
 
@@ -10311,8 +10053,7 @@ Oxford University Press.
 <p>Davison, A.C. and Hinkley, D.V. (1997) <em>Bootstrap Methods and Their Application</em>. Cambridge University Press.
 </p>
 
-<hr>
-</div>
+<hr></main></div>
 </div>
     <footer><p>Rendered with postdoc 1.2.2</p></footer>
   </body>

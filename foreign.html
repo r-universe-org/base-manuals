@@ -58,11 +58,11 @@
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">0.8-85</td>
+<td class="description-version">0.8-86</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2023-11-01 20:53:33 UTC</td>
+<td class="description-date">2024-03-27 22:42:15 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -72,6 +72,7 @@
 
     <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
     <ul id="help-index-list">
+<li class="help-index-item"><a href="#read.S">Read an S3 Binary or data.dump File</a></li>
 <li class="help-index-item"><a href="#lookup.xport">Lookup Information on a SAS XPORT Format Library</a></li>
 <li class="help-index-item"><a href="#read.arff">Read Data from ARFF Files</a></li>
 <li class="help-index-item"><a href="#read.dbf">Read a DBF File</a></li>
@@ -83,7 +84,6 @@
 <li class="help-index-item"><a href="#read.ssd">Obtain a Data Frame from a SAS Permanent Dataset, via read.xport </a></li>
 <li class="help-index-item"><a href="#read.systat">Obtain a Data Frame from a Systat File</a></li>
 <li class="help-index-item"><a href="#read.xport">Read a SAS XPORT Format Library</a></li>
-<li class="help-index-item"><a href="#read.S">Read an S3 Binary or data.dump File</a></li>
 <li class="help-index-item"><a href="#write.arff">Write Data into ARFF Files</a></li>
 <li class="help-index-item"><a href="#write.dbf">Write a DBF File</a></li>
 <li class="help-index-item"><a href="#write.dta">Write Files in Stata Binary Format</a></li>
@@ -92,9 +92,96 @@
 
     <hr>
     <div class="manual-pages-content">
-<div class="container manual-page" id="lookup.xport">
+<div class="container manual-page" id="read.S"><main><a href="#read.S" class="help-page-title"><h2>Read an S3 Binary or data.dump File</h2></a>
 
-<a href="#lookup.xport" class="help-page-title"><h2 id="lookup.xport">Lookup Information on a SAS XPORT Format Library</h2></a>
+<h3>Description</h3>
+
+<p>Reads binary data files or <code>data.dump</code> files that were produced
+in S version 3.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r">data.restore<span class="token punctuation">(</span>file<span class="token punctuation">,</span> print <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> verbose <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> env <span class="token operator">=</span> .GlobalEnv<span class="token punctuation">)</span>
+  read.S<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr>
+<td><code id="file">file</code></td>
+<td>
+<p>the filename of the S-PLUS <code>data.dump</code> or binary
+file.</p>
+</td>
+</tr>
+<tr>
+<td><code id="print">print</code></td>
+<td>
+<p>whether to print the name of each object as read from the
+file.</p>
+</td>
+</tr>
+<tr>
+<td><code id="verbose">verbose</code></td>
+<td>
+<p>whether to print the name of every subitem within each
+object.</p>
+</td>
+</tr>
+<tr>
+<td><code id="env">env</code></td>
+<td>
+<p>environment within which to create the restored object(s).</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>read.S</code> can read the binary files produced in some older
+versions of S-PLUS on either Windows (versions 3.x, 4.x, 2000) or Unix
+(version 3.x with 4 byte integers).  It automatically detects whether
+the file was produced on a big- or little-endian machine and adapts
+itself accordingly.
+</p>
+<p><code>data.restore</code> can read a similar range of files produced by
+<code>data.dump</code> and for newer versions of S-PLUS, those from
+<code>data.dump(....., oldStyle=TRUE)</code>.
+</p>
+<p>Not all S3 objects can be handled in the current version.  The most
+frequently encountered exceptions are functions and expressions; you
+will also have trouble with objects that contain model formulas.  In
+particular, comments will be lost from function bodies, and the
+argument lists of functions will often be changed.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>read.S</code>, an R version of the S3 object.
+</p>
+<p>For <code>data.restore</code>, the name of the file.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Duncan Murdoch
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## if you have an S-PLUS _Data file containing 'myobj'</span>
+<span class="token comment">## Not run: read.S(file.path("_Data", "myobj"))</span>
+data.restore<span class="token punctuation">(</span><span class="token string">"dumpdata"</span><span class="token punctuation">,</span> print <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+
+<span class="token comment">## End(Not run)</span></code></pre>
+
+<hr></main></div>
+<div class="container manual-page" id="lookup.xport"><main><a href="#lookup.xport" class="help-page-title"><h2>Lookup Information on a SAS XPORT Format Library</h2></a>
 
 <h3>Description</h3>
 
@@ -111,7 +198,7 @@ containing information about the SAS library.
 <h3>Arguments</h3>
 
 <table><tr>
-<td><code id="lookup.xport_:_file">file</code></td>
+<td><code id="file">file</code></td>
 <td>
 <p>character variable with the name of the file to read.  The
 file must be in SAS XPORT format.</p>
@@ -150,11 +237,8 @@ lookup.xport<span class="token punctuation">(</span><span class="token string">"
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="read.arff">
-
-<a href="#read.arff" class="help-page-title"><h2 id="read.arff">Read Data from ARFF Files</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="read.arff"><main><a href="#read.arff" class="help-page-title"><h2>Read Data from ARFF Files</h2></a>
 
 <h3>Description</h3>
 
@@ -170,7 +254,7 @@ lookup.xport<span class="token punctuation">(</span><span class="token string">"
 <h3>Arguments</h3>
 
 <table><tr>
-<td><code id="read.arff_:_file">file</code></td>
+<td><code id="file">file</code></td>
 <td>
 <p>a character string with the name of the ARFF file to read
 from, or a <code><a href="https://r-universe.dev/manuals/base.html#connections">connection</a></code> which will be opened if
@@ -198,11 +282,8 @@ functions <code>write.arff</code> and <code>read.arff</code> in package
 or from factors.
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="read.dbf">
-
-<a href="#read.dbf" class="help-page-title"><h2 id="read.dbf">Read a DBF File</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="read.dbf"><main><a href="#read.dbf" class="help-page-title"><h2>Read a DBF File</h2></a>
 
 <h3>Description</h3>
 
@@ -223,13 +304,13 @@ guarantee this will read all DBF files.
 
 <table>
 <tr>
-<td><code id="read.dbf_:_file">file</code></td>
+<td><code id="file">file</code></td>
 <td>
 <p>name of input file</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.dbf_:_as.is">as.is</code></td>
+<td><code id="as.is">as.is</code></td>
 <td>
 <p>should character vectors not be converted to factors?</p>
 </td>
@@ -303,11 +384,8 @@ this is a convenience function especially for shapefiles.
 str<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 summary<span class="token punctuation">(</span>x<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="read.dta">
-
-<a href="#read.dta" class="help-page-title"><h2 id="read.dta">Read Stata Binary Files</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="read.dta"><main><a href="#read.dta" class="help-page-title"><h2>Read Stata Binary Files</h2></a>
 
 <h3>Description</h3>
 
@@ -328,41 +406,41 @@ summary<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <table>
 <tr>
-<td><code id="read.dta_:_file">file</code></td>
+<td><code id="file">file</code></td>
 <td>
 <p>a filename or URL as a character string.</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.dta_:_convert.dates">convert.dates</code></td>
+<td><code id="convert.dates">convert.dates</code></td>
 <td>
 <p>Convert Stata dates to <code>Date</code> class, and
 date-times to <code>POSIXct</code> class?</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.dta_:_convert.factors">convert.factors</code></td>
+<td><code id="convert.factors">convert.factors</code></td>
 <td>
 <p>Use Stata value labels to create factors?
 (Version 6.0 or later).</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.dta_:_missing.type">missing.type</code></td>
+<td><code id="missing.type">missing.type</code></td>
 <td>
 <p>For version 8 or later, store information about
 different types of missing data?</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.dta_:_convert.underscore">convert.underscore</code></td>
+<td><code id="convert.underscore">convert.underscore</code></td>
 <td>
 <p>Convert <code>"_"</code> in Stata variable names
 to <code>"."</code> in R names?</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.dta_:_warn.missing.labels">warn.missing.labels</code></td>
+<td><code id="warn.missing.labels">warn.missing.labels</code></td>
 <td>
 <p>Warn if a variable is specified with value
 labels and those value labels are not present in the file.</p>
@@ -457,11 +535,8 @@ help for <code>Stata.file</code>), function <code>read_dta</code> in package
 <pre class="language-r"><code class="language-r">write.dta<span class="token punctuation">(</span>swiss<span class="token punctuation">,</span>swissfile <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 read.dta<span class="token punctuation">(</span>swissfile<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="read.epiinfo">
-
-<a href="#read.epiinfo" class="help-page-title"><h2 id="read.epiinfo">Read Epi Info Data Files</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="read.epiinfo"><main><a href="#read.epiinfo" class="help-page-title"><h2>Read Epi Info Data Files</h2></a>
 
 <h3>Description</h3>
 
@@ -482,34 +557,34 @@ and EpiData is a freely available data entry and validation system.
 
 <table>
 <tr>
-<td><code id="read.epiinfo_:_file">file</code></td>
+<td><code id="file">file</code></td>
 <td>
 <p>A filename, URL, or connection.</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.epiinfo_:_read.deleted">read.deleted</code></td>
+<td><code id="read.deleted">read.deleted</code></td>
 <td>
 <p>Deleted records are read if <code>TRUE</code>, omitted
 if <code>FALSE</code> or replaced with <code>NA</code> if <code>NA</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.epiinfo_:_guess.broken.dates">guess.broken.dates</code></td>
+<td><code id="guess.broken.dates">guess.broken.dates</code></td>
 <td>
 <p>Attempt to convert dates with 0 or 2 digit
 year information (see ‘Details’).</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.epiinfo_:_thisyear">thisyear</code></td>
+<td><code id="thisyear">thisyear</code></td>
 <td>
 <p>A 4-digit year to use for dates with no year. Defaults
 to the current year.</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.epiinfo_:_lower.case.names">lower.case.names</code></td>
+<td><code id="lower.case.names">lower.case.names</code></td>
 <td>
 <p>Convert variable names to lowercase?</p>
 </td>
@@ -563,11 +638,8 @@ read.epiinfo<span class="token punctuation">(</span><span class="token string">"
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="read.mtp">
-
-<a href="#read.mtp" class="help-page-title"><h2 id="read.mtp">Read a Minitab Portable Worksheet</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="read.mtp"><main><a href="#read.mtp" class="help-page-title"><h2>Read a Minitab Portable Worksheet</h2></a>
 
 <h3>Description</h3>
 
@@ -584,7 +656,7 @@ Worksheet.
 <h3>Arguments</h3>
 
 <table><tr>
-<td><code id="read.mtp_:_file">file</code></td>
+<td><code id="file">file</code></td>
 <td>
 <p>character variable with the name of the file to read.  The
 file must be in Minitab Portable Worksheet format.</p>
@@ -622,11 +694,8 @@ read.mtp<span class="token punctuation">(</span><span class="token string">"ex1-
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="read.octave">
-
-<a href="#read.octave" class="help-page-title"><h2 id="read.octave">Read Octave Text Data Files</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="read.octave"><main><a href="#read.octave" class="help-page-title"><h2>Read Octave Text Data Files</h2></a>
 
 <h3>Description</h3>
 
@@ -642,7 +711,7 @@ read.mtp<span class="token punctuation">(</span><span class="token string">"ex1-
 <h3>Arguments</h3>
 
 <table><tr>
-<td><code id="read.octave_:_file">file</code></td>
+<td><code id="file">file</code></td>
 <td>
 <p>a character string with the name of the file to read.</p>
 </td>
@@ -681,11 +750,8 @@ facilities as an intermediary step.
 
 <p><a href="https://octave.org/" target="_blank">https://octave.org/</a></p>
 
-<hr>
-</div>
-<div class="container manual-page" id="read.spss">
-
-<a href="#read.spss" class="help-page-title"><h2 id="read.spss">Read an SPSS Data File</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="read.spss"><main><a href="#read.spss" class="help-page-title"><h2>Read an SPSS Data File</h2></a>
 
 <h3>Description</h3>
 
@@ -711,13 +777,13 @@ in SPSS formats since (which have not been many).
 
 <table>
 <tr>
-<td><code id="read.spss_:_file">file</code></td>
+<td><code id="file">file</code></td>
 <td>
 <p>character string: the name of the file or URL to read.</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.spss_:_use.value.labels">use.value.labels</code></td>
+<td><code id="use.value.labels">use.value.labels</code></td>
 <td>
 <p>logical: convert variables with value labels
 into <span class="rlang"><b>R</b></span> factors with those levels?  This is only done if there are
@@ -726,13 +792,13 @@ without a matching label are returned as <code>NA</code>).</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.spss_:_to.data.frame">to.data.frame</code></td>
+<td><code id="to.data.frame">to.data.frame</code></td>
 <td>
 <p>logical: return a data frame?</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.spss_:_max.value.labels">max.value.labels</code></td>
+<td><code id="max.value.labels">max.value.labels</code></td>
 <td>
 <p>logical: only variables with value labels and
 at most this many unique values will be converted to factors if
@@ -740,20 +806,20 @@ at most this many unique values will be converted to factors if
 </td>
 </tr>
 <tr>
-<td><code id="read.spss_:_trim.factor.names">trim.factor.names</code></td>
+<td><code id="trim.factor.names">trim.factor.names</code></td>
 <td>
 <p>logical: trim trailing spaces from factor levels?</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.spss_:_trim_values">trim_values</code></td>
+<td><code id="trim_values">trim_values</code></td>
 <td>
 <p>logical: should values and value labels have
 trailing spaces ignored when matching for <code>use.value.labels = TRUE</code>?</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.spss_:_reencode">reencode</code></td>
+<td><code id="reencode">reencode</code></td>
 <td>
 <p>logical: should character strings be re-encoded to the
 current locale.  The default, <code>NA</code>, means to do so in UTF-8 or latin-1
@@ -762,14 +828,14 @@ assume for the file.</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.spss_:_use.missings">use.missings</code></td>
+<td><code id="use.missings">use.missings</code></td>
 <td>
 <p>logical: should information on user-defined
 missing values be used to set the corresponding values to <code>NA</code>?</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.spss_:_sub">sub</code></td>
+<td><code id="sub">sub</code></td>
 <td>
 <p>character string: If not <code>NA</code> it is used by <code><a href="https://r-universe.dev/manuals/base.html#iconv">iconv</a></code> 
 to replace any non-convertible bytes in character/factor input. 
@@ -778,7 +844,7 @@ versions &lt;= 0.8-68 use <code>sub=NA</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.spss_:_add.undeclared.levels">add.undeclared.levels</code></td>
+<td><code id="add.undeclared.levels">add.undeclared.levels</code></td>
 <td>
 <p>character: 
 specify how to handle variables with at least one value label and further 
@@ -796,7 +862,7 @@ values with missing corresponding value labels to <code>NA</code>).</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.spss_:_duplicated.value.labels">duplicated.value.labels</code></td>
+<td><code id="duplicated.value.labels">duplicated.value.labels</code></td>
 <td>
 <p>character: what to do with duplicated value 
 labels for different levels.
@@ -811,7 +877,7 @@ R versions &gt;= 3.4.0 no longer support duplicated factor labels.
 </td>
 </tr>
 <tr>
-<td><code id="read.spss_:_duplicated.value.labels.infix">duplicated.value.labels.infix</code></td>
+<td><code id="duplicated.value.labels.infix">duplicated.value.labels.infix</code></td>
 <td>
 <p>character: the infix used for labels of 
 factor levels with duplicated value labels in SPSS (default <code>"_duplicated_"</code>) 
@@ -819,7 +885,7 @@ if <code>duplicated.value.labels="append"</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.spss_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>passed to <code><a href="https://r-universe.dev/manuals/base.html#as.data.frame">as.data.frame</a></code> if <code>to.data.frame = TRUE</code>.</p>
 </td>
@@ -983,11 +1049,8 @@ cat.long.string<span class="token punctuation">(</span>x<span class="token opera
 long.string <span class="token operator">&lt;-</span> apply<span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token punctuation">,</span>c<span class="token punctuation">(</span><span class="token string">"string_500"</span><span class="token punctuation">,</span> <span class="token string">"STRIN0"</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> paste<span class="token punctuation">,</span> collapse<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span>
 cat.long.string<span class="token punctuation">(</span>long.string<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="read.ssd">
-
-<a href="#read.ssd" class="help-page-title"><h2 id="read.ssd">Obtain a Data Frame from a SAS Permanent Dataset, via read.xport </h2></a>
+<hr></main></div>
+<div class="container manual-page" id="read.ssd"><main><a href="#read.ssd" class="help-page-title"><h2>Obtain a Data Frame from a SAS Permanent Dataset, via read.xport </h2></a>
 
 <h3>Description</h3>
 
@@ -1006,14 +1069,14 @@ and then uses <code>read.xport</code> to obtain a data frame.
 
 <table>
 <tr>
-<td><code id="read.ssd_:_libname">libname</code></td>
+<td><code id="libname">libname</code></td>
 <td>
 <p>character string defining the SAS library (usually a
 directory reference)</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.ssd_:_sectionnames">sectionnames</code></td>
+<td><code id="sectionnames">sectionnames</code></td>
 <td>
 <p>character vector giving member names.  These are
 files in the <code>libname</code> directory. They will usually have a
@@ -1023,7 +1086,7 @@ recommended.</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.ssd_:_tmpXport">tmpXport</code></td>
+<td><code id="tmpXport">tmpXport</code></td>
 <td>
 <p>character  string: location where temporary xport
 format archive should reside – defaults to a randomly named file
@@ -1031,7 +1094,7 @@ in the session temporary directory, which will be removed.</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.ssd_:_tmpProgLoc">tmpProgLoc</code></td>
+<td><code id="tmpProgLoc">tmpProgLoc</code></td>
 <td>
 <p>character  string: location where temporary
 conversion SAS program should reside – defaults to a randomly named
@@ -1040,7 +1103,7 @@ successful operation.</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.ssd_:_sascmd">sascmd</code></td>
+<td><code id="sascmd">sascmd</code></td>
 <td>
 <p>character string giving full path to SAS executable.</p>
 </td>
@@ -1106,11 +1169,8 @@ read.ssd<span class="token punctuation">(</span>file.path<span class="token punc
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="read.systat">
-
-<a href="#read.systat" class="help-page-title"><h2 id="read.systat">Obtain a Data Frame from a Systat File</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="read.systat"><main><a href="#read.systat" class="help-page-title"><h2>Obtain a Data Frame from a Systat File</h2></a>
 
 <h3>Description</h3>
 
@@ -1129,13 +1189,13 @@ read.ssd<span class="token punctuation">(</span>file.path<span class="token punc
 
 <table>
 <tr>
-<td><code id="read.systat_:_file">file</code></td>
+<td><code id="file">file</code></td>
 <td>
 <p>character variable with the name of the file to read</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.systat_:_to.data.frame">to.data.frame</code></td>
+<td><code id="to.data.frame">to.data.frame</code></td>
 <td>
 <p>return a data frame (otherwise a list)</p>
 </td>
@@ -1192,11 +1252,8 @@ iris.s <span class="token operator">&lt;-</span> read.systat<span class="token p
 str<span class="token punctuation">(</span>iris.s<span class="token punctuation">)</span>
 summary<span class="token punctuation">(</span>iris.s<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="read.xport">
-
-<a href="#read.xport" class="help-page-title"><h2 id="read.xport">Read a SAS XPORT Format Library</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="read.xport"><main><a href="#read.xport" class="help-page-title"><h2>Read a SAS XPORT Format Library</h2></a>
 
 <h3>Description</h3>
 
@@ -1214,14 +1271,14 @@ data.frames.
 
 <table>
 <tr>
-<td><code id="read.xport_:_file">file</code></td>
+<td><code id="file">file</code></td>
 <td>
 <p>character variable with the name of the file to read.  The
 file must be in SAS XPORT format.</p>
 </td>
 </tr>
 <tr>
-<td><code id="read.xport_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>passed to <code><a href="https://r-universe.dev/manuals/base.html#as.data.frame">as.data.frame</a></code> when creating the data
 frames.</p>
@@ -1271,103 +1328,8 @@ read.xport<span class="token punctuation">(</span><span class="token string">"te
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="read.S">
-
-<a href="#read.S" class="help-page-title"><h2 id="S3+20read+20functions">Read an S3 Binary or data.dump File</h2></a>
-
-<h3>Description</h3>
-
-<p>Reads binary data files or <code>data.dump</code> files that were produced
-in S version 3.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">data.restore<span class="token punctuation">(</span>file<span class="token punctuation">,</span> print <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> verbose <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> env <span class="token operator">=</span> .GlobalEnv<span class="token punctuation">)</span>
-  read.S<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr>
-<td><code id="S3+20read+20functions_:_file">file</code></td>
-<td>
-<p>the filename of the S-PLUS <code>data.dump</code> or binary
-file.</p>
-</td>
-</tr>
-<tr>
-<td><code id="S3+20read+20functions_:_print">print</code></td>
-<td>
-<p>whether to print the name of each object as read from the
-file.</p>
-</td>
-</tr>
-<tr>
-<td><code id="S3+20read+20functions_:_verbose">verbose</code></td>
-<td>
-<p>whether to print the name of every subitem within each
-object.</p>
-</td>
-</tr>
-<tr>
-<td><code id="S3+20read+20functions_:_env">env</code></td>
-<td>
-<p>environment within which to create the restored object(s).</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p><code>read.S</code> can read the binary files produced in some older
-versions of S-PLUS on either Windows (versions 3.x, 4.x, 2000) or Unix
-(version 3.x with 4 byte integers).  It automatically detects whether
-the file was produced on a big- or little-endian machine and adapts
-itself accordingly.
-</p>
-<p><code>data.restore</code> can read a similar range of files produced by
-<code>data.dump</code> and for newer versions of S-PLUS, those from
-<code>data.dump(....., oldStyle=TRUE)</code>.
-</p>
-<p>Not all S3 objects can be handled in the current version.  The most
-frequently encountered exceptions are functions and expressions; you
-will also have trouble with objects that contain model formulas.  In
-particular, comments will be lost from function bodies, and the
-argument lists of functions will often be changed.
-</p>
-
-
-<h3>Value</h3>
-
-<p>For <code>read.S</code>, an R version of the S3 object.
-</p>
-<p>For <code>data.restore</code>, the name of the file.
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>Duncan Murdoch
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment">## if you have an S-PLUS _Data file containing 'myobj'</span>
-<span class="token comment">## Not run: read.S(file.path("_Data", "myobj"))</span>
-data.restore<span class="token punctuation">(</span><span class="token string">"dumpdata"</span><span class="token punctuation">,</span> print <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
-
-<span class="token comment">## End(Not run)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="write.arff">
-
-<a href="#write.arff" class="help-page-title"><h2 id="write.arff">Write Data into ARFF Files</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="write.arff"><main><a href="#write.arff" class="help-page-title"><h2>Write Data into ARFF Files</h2></a>
 
 <h3>Description</h3>
 
@@ -1384,27 +1346,27 @@ data.restore<span class="token punctuation">(</span><span class="token string">"
 
 <table>
 <tr>
-<td><code id="write.arff_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>the data to be written, preferably a matrix or data frame.
 If not, coercion to a data frame is attempted.</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.arff_:_file">file</code></td>
+<td><code id="file">file</code></td>
 <td>
 <p>either a character string naming a file, or a connection.
 <code>""</code> indicates output to the standard output connection.</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.arff_:_eol">eol</code></td>
+<td><code id="eol">eol</code></td>
 <td>
 <p>the character(s) to print at the end of each line (row).</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.arff_:_relation">relation</code></td>
+<td><code id="relation">relation</code></td>
 <td>
 <p>The name of the relation to be written in the file.</p>
 </td>
@@ -1442,11 +1404,8 @@ or from factors.
 
 <pre class="language-r"><code class="language-r">write.arff<span class="token punctuation">(</span>iris<span class="token punctuation">,</span> file <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="write.dbf">
-
-<a href="#write.dbf" class="help-page-title"><h2 id="write.dbf">Write a DBF File</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="write.dbf"><main><a href="#write.dbf" class="help-page-title"><h2>Write a DBF File</h2></a>
 
 <h3>Description</h3>
 
@@ -1463,26 +1422,26 @@ or from factors.
 
 <table>
 <tr>
-<td><code id="write.dbf_:_dataframe">dataframe</code></td>
+<td><code id="dataframe">dataframe</code></td>
 <td>
 <p>a data frame object.</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.dbf_:_file">file</code></td>
+<td><code id="file">file</code></td>
 <td>
 <p>a file name to be written to.</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.dbf_:_factor2char">factor2char</code></td>
+<td><code id="factor2char">factor2char</code></td>
 <td>
 <p>logical, default <code>TRUE</code>, convert factor columns to
 character: otherwise they are written as the internal integer codes.</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.dbf_:_max_nchar">max_nchar</code></td>
+<td><code id="max_nchar">max_nchar</code></td>
 <td>
 <p>The maximum number of characters allowed in a
 character field.  Strings which exceed this will be truncated with a
@@ -1567,11 +1526,8 @@ in2 <span class="token operator">&lt;-</span> read.dbf<span class="token punctua
 str<span class="token punctuation">(</span>in2<span class="token punctuation">)</span>
 unlink<span class="token punctuation">(</span>c<span class="token punctuation">(</span>try1<span class="token punctuation">,</span> try2<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="write.dta">
-
-<a href="#write.dta" class="help-page-title"><h2 id="write.dta">Write Files in Stata Binary Format</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="write.dta"><main><a href="#write.dta" class="help-page-title"><h2>Write Files in Stata Binary Format</h2></a>
 
 <h3>Description</h3>
 
@@ -1594,39 +1550,39 @@ format.  Does not write array variables unless they can be
 
 <table>
 <tr>
-<td><code id="write.dta_:_dataframe">dataframe</code></td>
+<td><code id="dataframe">dataframe</code></td>
 <td>
 <p>a data frame.</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.dta_:_file">file</code></td>
+<td><code id="file">file</code></td>
 <td>
 <p>character string giving filename.</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.dta_:_version">version</code></td>
+<td><code id="version">version</code></td>
 <td>
 <p>integer: Stata version: 6, 7, 8 and 10 are supported,
 and 9 is mapped to 8, 11 to 10.</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.dta_:_convert.dates">convert.dates</code></td>
+<td><code id="convert.dates">convert.dates</code></td>
 <td>
 <p>logical: convert <code>Date</code> and <code>POSIXct</code>
 objects: see section ‘Dates’.</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.dta_:_tz">tz</code></td>
+<td><code id="tz">tz</code></td>
 <td>
 <p>timezone for date conversion.</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.dta_:_convert.factors">convert.factors</code></td>
+<td><code id="convert.factors">convert.factors</code></td>
 <td>
 <p>how to handle factors.</p>
 </td>
@@ -1754,11 +1710,8 @@ and <a href="https://www.stata.com/help.cgi?dta_113" target="_blank">https://www
 <pre class="language-r"><code class="language-r">write.dta<span class="token punctuation">(</span>swiss<span class="token punctuation">,</span> swissfile <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 read.dta<span class="token punctuation">(</span>swissfile<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="write.foreign">
-
-<a href="#write.foreign" class="help-page-title"><h2 id="write.foreign">Write Text Files and Code to Read Them</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="write.foreign"><main><a href="#write.foreign" class="help-page-title"><h2>Write Text Files and Code to Read Them</h2></a>
 
 <h3>Description</h3>
 
@@ -1778,31 +1731,31 @@ instructions for the other package to read the data.
 
 <table>
 <tr>
-<td><code id="write.foreign_:_df">df</code></td>
+<td><code id="df">df</code></td>
 <td>
 <p>A data frame</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.foreign_:_datafile">datafile</code></td>
+<td><code id="datafile">datafile</code></td>
 <td>
 <p>Name of file for data output</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.foreign_:_codefile">codefile</code></td>
+<td><code id="codefile">codefile</code></td>
 <td>
 <p>Name of file for code output</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.foreign_:_package">package</code></td>
+<td><code id="package">package</code></td>
 <td>
 <p>Name of package</p>
 </td>
 </tr>
 <tr>
-<td><code id="write.foreign_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>Other arguments for the individual <code>writeForeign</code>
 functions</p>
@@ -1867,8 +1820,7 @@ unlink<span class="token punctuation">(</span>codefile<span class="token punctua
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr>
-</div>
+<hr></main></div>
 </div>
     <footer><p>Rendered with postdoc 1.2.2</p></footer>
   </body>

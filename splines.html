@@ -38,15 +38,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.3.2</td>
+<td class="description-license">Part of R 4.4.0</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.3.2</td>
+<td class="description-version">4.4.0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2023-11-01 20:53:03 UTC</td>
+<td class="description-date">2024-03-27 22:42:04 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -66,8 +66,8 @@ Regression Spline Functions and Classes
 <li class="help-index-item"><a href="#ns">Generate a Basis Matrix for Natural Cubic Splines</a></li>
 <li class="help-index-item"><a href="#periodicSpline">Create a Periodic Interpolation Spline</a></li>
 <li class="help-index-item"><a href="#polySpline">Piecewise Polynomial Spline Representation</a></li>
-<li class="help-index-item"><a href="#predict.bs">Evaluate a Spline Basis</a></li>
 <li class="help-index-item"><a href="#predict.bSpline">Evaluate a Spline at New Values of x</a></li>
+<li class="help-index-item"><a href="#predict.bs">Evaluate a Spline Basis</a></li>
 <li class="help-index-item"><a href="#splineDesign">Design Matrix for B-splines</a></li>
 <li class="help-index-item"><a href="#splineKnots">Knot Vector from a Spline</a></li>
 <li class="help-index-item"><a href="#splineOrder">Determine the Order of a Spline</a></li>
@@ -76,9 +76,7 @@ Regression Spline Functions and Classes
 
     <hr>
     <div class="manual-pages-content">
-<div class="container manual-page" id="splines-package">
-
-<a href="#splines-package" class="help-page-title"><h2 id="splines-package">
+<div class="container manual-page" id="splines-package"><main><a href="#splines-package" class="help-page-title"><h2>
 Regression Spline Functions and Classes
 </h2></a>
 
@@ -106,11 +104,8 @@ natural cubic spline basis, <code><a href="#ns">ns</a></code>.
 <p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
 </p>
 
-<hr>
-</div>
-<div class="container manual-page" id="asVector">
-
-<a href="#asVector" class="help-page-title"><h2 id="asVector">Coerce an Object to a Vector</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="asVector"><main><a href="#asVector" class="help-page-title"><h2>Coerce an Object to a Vector</h2></a>
 
 <h3>Description</h3>
 
@@ -127,7 +122,7 @@ of given classes to vectors.
 <h3>Arguments</h3>
 
 <table><tr>
-<td><code id="asVector_:_object">object</code></td>
+<td><code id="object">object</code></td>
 <td>
 <p>An object.</p>
 </td>
@@ -168,11 +163,8 @@ class<span class="token punctuation">(</span>pred<span class="token punctuation"
 utils<span class="token operator">::</span>str<span class="token punctuation">(</span>pred<span class="token punctuation">)</span>
 asVector<span class="token punctuation">(</span>pred<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="backSpline">
-
-<a href="#backSpline" class="help-page-title"><h2 id="backSpline">Monotone Inverse Spline</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="backSpline"><main><a href="#backSpline" class="help-page-title"><h2>Monotone Inverse Spline</h2></a>
 
 <h3>Description</h3>
 
@@ -188,7 +180,7 @@ asVector<span class="token punctuation">(</span>pred<span class="token punctuati
 <h3>Arguments</h3>
 
 <table><tr>
-<td><code id="backSpline_:_object">object</code></td>
+<td><code id="object">object</code></td>
 <td>
 <p>an object that inherits from class <code>nbSpline</code> or
 <code>npolySpline</code>.  That is, the object must represent a natural
@@ -230,11 +222,8 @@ bspl <span class="token operator">&lt;-</span> backSpline<span class="token punc
 plot<span class="token punctuation">(</span> bspl <span class="token punctuation">)</span>                   <span class="token comment"># plots over the range of the knots</span>
 points<span class="token punctuation">(</span> women<span class="token operator">$</span>weight<span class="token punctuation">,</span> women<span class="token operator">$</span>height <span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="bs">
-
-<a href="#bs" class="help-page-title"><h2 id="bs">B-Spline Basis for Polynomial Splines</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="bs"><main><a href="#bs" class="help-page-title"><h2>B-Spline Basis for Polynomial Splines</h2></a>
 
 <h3>Description</h3>
 
@@ -252,13 +241,13 @@ points<span class="token punctuation">(</span> women<span class="token operator"
 
 <table>
 <tr>
-<td><code id="bs_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>the predictor variable.  Missing values are allowed.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bs_:_df">df</code></td>
+<td><code id="df">df</code></td>
 <td>
 <p>degrees of freedom; one can specify <code>df</code> rather than
 <code>knots</code>; <code>bs()</code> then chooses <code>df-degree</code> (minus one
@@ -269,7 +258,7 @@ zero as per default, that corresponds to <code>df = degree - intercept</code>.</
 </td>
 </tr>
 <tr>
-<td><code id="bs_:_knots">knots</code></td>
+<td><code id="knots">knots</code></td>
 <td>
 <p>the <em>internal</em> breakpoints that define the
 spline.  The default is <code>NULL</code>, which results in a basis for
@@ -279,21 +268,21 @@ median for one knot, quantiles for more knots.  See also
 </td>
 </tr>
 <tr>
-<td><code id="bs_:_degree">degree</code></td>
+<td><code id="degree">degree</code></td>
 <td>
 <p>degree of the piecewise polynomial—default is <code>3</code> for
 cubic splines.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bs_:_intercept">intercept</code></td>
+<td><code id="intercept">intercept</code></td>
 <td>
 <p>if <code>TRUE</code>, an intercept is included in the
 basis; default is <code>FALSE</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="bs_:_Boundary.knots">Boundary.knots</code></td>
+<td><code id="Boundary.knots">Boundary.knots</code></td>
 <td>
 <p>boundary points at which to anchor the B-spline
 basis (default the range of the non-<code><a href="https://r-universe.dev/manuals/base.html#NA">NA</a></code> data).  If both
@@ -303,7 +292,7 @@ parameters do not depend on <code>x</code>.  Data can extend beyond
 </td>
 </tr>
 <tr>
-<td><code id="bs_:_warn.outside">warn.outside</code></td>
+<td><code id="warn.outside">warn.outside</code></td>
 <td>
 <p><code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> indicating if a
 <code><a href="https://r-universe.dev/manuals/base.html#warning">warning</a></code> should be signalled in case some <code>x</code> values
@@ -374,11 +363,8 @@ plot<span class="token punctuation">(</span>women<span class="token punctuation"
 ht <span class="token operator">&lt;-</span> seq<span class="token punctuation">(</span><span class="token number">57</span><span class="token punctuation">,</span> <span class="token number">73</span><span class="token punctuation">,</span> length.out <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">)</span>
 lines<span class="token punctuation">(</span>ht<span class="token punctuation">,</span> predict<span class="token punctuation">(</span>fm1<span class="token punctuation">,</span> data.frame<span class="token punctuation">(</span>height <span class="token operator">=</span> ht<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="interpSpline">
-
-<a href="#interpSpline" class="help-page-title"><h2 id="interpSpline">Create an Interpolation Spline</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="interpSpline"><main><a href="#interpSpline" class="help-page-title"><h2>Create an Interpolation Spline</h2></a>
 
 <h3>Description</h3>
 
@@ -399,13 +385,13 @@ combination (<code>formula</code> method).
 
 <table>
 <tr>
-<td><code id="interpSpline_:_obj1">obj1</code></td>
+<td><code id="obj1">obj1</code></td>
 <td>
 <p>either a numeric vector of <code>x</code> values or a formula.</p>
 </td>
 </tr>
 <tr>
-<td><code id="interpSpline_:_obj2">obj2</code></td>
+<td><code id="obj2">obj2</code></td>
 <td>
 <p>if <code>obj1</code> is numeric this should be a numeric vector
 of the same length.  If <code>obj1</code> is a formula this can be an
@@ -413,7 +399,7 @@ optional data frame in which to evaluate the names in the formula.</p>
 </td>
 </tr>
 <tr>
-<td><code id="interpSpline_:_bSpline">bSpline</code></td>
+<td><code id="bSpline">bSpline</code></td>
 <td>
 <p>if <code>TRUE</code> the b-spline representation is returned,
 otherwise the piecewise polynomial representation is returned.
@@ -421,14 +407,14 @@ Defaults to <code>FALSE</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="interpSpline_:_period">period</code></td>
+<td><code id="period">period</code></td>
 <td>
 <p>an optional positive numeric value giving a period for a
 periodic interpolation spline.</p>
 </td>
 </tr>
 <tr>
-<td><code id="interpSpline_:_ord">ord</code></td>
+<td><code id="ord">ord</code></td>
 <td>
 <p>an integer specifying the spline <em>order</em>, the number of
 coefficients per interval.  <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mi>r</mi><mi>d</mi><mo>=</mo><mi>d</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">ord = d+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></code> where <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">d</span></span></span></span></code> is the
@@ -437,7 +423,7 @@ coefficients per interval.  <code class="reqn"><span class="katex"><span class="
 </td>
 </tr>
 <tr>
-<td><code id="interpSpline_:_na.action">na.action</code></td>
+<td><code id="na.action">na.action</code></td>
 <td>
 <p>a optional function which indicates what should happen
 when the data contain <code>NA</code>s.  The default action
@@ -448,7 +434,7 @@ observations.</p>
 </td>
 </tr>
 <tr>
-<td><code id="interpSpline_:_sparse">sparse</code></td>
+<td><code id="sparse">sparse</code></td>
 <td>
 <p>logical passed to the underlying
 <code><a href="#splineDesign">splineDesign</a></code>.  If true, saves memory and is faster when
@@ -490,11 +476,8 @@ plot<span class="token punctuation">(</span> ispl <span class="token punctuation
 points<span class="token punctuation">(</span> women<span class="token operator">$</span>height<span class="token punctuation">,</span> women<span class="token operator">$</span>weight <span class="token punctuation">)</span>
 splineKnots<span class="token punctuation">(</span> ispl <span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="ns">
-
-<a href="#ns" class="help-page-title"><h2 id="ns">Generate a Basis Matrix for Natural Cubic Splines</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="ns"><main><a href="#ns" class="help-page-title"><h2>Generate a Basis Matrix for Natural Cubic Splines</h2></a>
 
 <h3>Description</h3>
 
@@ -512,13 +495,13 @@ splineKnots<span class="token punctuation">(</span> ispl <span class="token punc
 
 <table>
 <tr>
-<td><code id="ns_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>the predictor variable.  Missing values are allowed.</p>
 </td>
 </tr>
 <tr>
-<td><code id="ns_:_df">df</code></td>
+<td><code id="df">df</code></td>
 <td>
 <p>degrees of freedom.  One can supply <code>df</code> rather than
 knots; <code>ns()</code> then chooses <code>df - 1 - intercept</code> knots at
@@ -528,7 +511,7 @@ inner knots as <code>length(knots)</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="ns_:_knots">knots</code></td>
+<td><code id="knots">knots</code></td>
 <td>
 <p>breakpoints that define the spline.  The default is no
 knots; together with the natural boundary conditions this results in
@@ -538,14 +521,14 @@ mean or median for one knot, quantiles for more knots.  See also
 </td>
 </tr>
 <tr>
-<td><code id="ns_:_intercept">intercept</code></td>
+<td><code id="intercept">intercept</code></td>
 <td>
 <p>if <code>TRUE</code>, an intercept is included in the
 basis; default is <code>FALSE</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="ns_:_Boundary.knots">Boundary.knots</code></td>
+<td><code id="Boundary.knots">Boundary.knots</code></td>
 <td>
 <p>boundary points at which to impose the natural
 boundary conditions and anchor the B-spline basis (default the range
@@ -613,11 +596,8 @@ stopifnot<span class="token punctuation">(</span>all.equal<span class="token pun
                             splines<span class="token operator">::</span>ns<span class="token punctuation">(</span>height<span class="token punctuation">,</span> df<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nD<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
           <span class="token comment"># not true in R &lt; 3.5.0</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="periodicSpline">
-
-<a href="#periodicSpline" class="help-page-title"><h2 id="periodicSpline">Create a Periodic Interpolation Spline</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="periodicSpline"><main><a href="#periodicSpline" class="help-page-title"><h2>Create a Periodic Interpolation Spline</h2></a>
 
 <h3>Description</h3>
 
@@ -635,13 +615,13 @@ stopifnot<span class="token punctuation">(</span>all.equal<span class="token pun
 
 <table>
 <tr>
-<td><code id="periodicSpline_:_obj1">obj1</code></td>
+<td><code id="obj1">obj1</code></td>
 <td>
 <p>either a numeric vector of <code>x</code> values or a formula.</p>
 </td>
 </tr>
 <tr>
-<td><code id="periodicSpline_:_obj2">obj2</code></td>
+<td><code id="obj2">obj2</code></td>
 <td>
 <p>if <code>obj1</code> is numeric this should be a numeric vector
 of the same length.  If <code>obj1</code> is a formula this can be an
@@ -649,20 +629,20 @@ optional data frame in which to evaluate the names in the formula.</p>
 </td>
 </tr>
 <tr>
-<td><code id="periodicSpline_:_knots">knots</code></td>
+<td><code id="knots">knots</code></td>
 <td>
 <p>optional numeric vector of knot positions.</p>
 </td>
 </tr>
 <tr>
-<td><code id="periodicSpline_:_period">period</code></td>
+<td><code id="period">period</code></td>
 <td>
 <p>positive numeric value giving the period for the
 periodic spline.  Defaults to <code>2 * pi</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="periodicSpline_:_ord">ord</code></td>
+<td><code id="ord">ord</code></td>
 <td>
 <p>integer giving the order of the spline, at least 2.  Defaults
 to 4.  See <code><a href="#splineOrder">splineOrder</a></code> for a definition of the order of
@@ -706,11 +686,8 @@ plot<span class="token punctuation">(</span> pispl <span class="token punctuatio
 points<span class="token punctuation">(</span> yy <span class="token operator">~</span> xx<span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token string">"brown"</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span> predict<span class="token punctuation">(</span> pispl<span class="token punctuation">,</span> seq<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">3</span><span class="token operator">*</span>pi<span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">*</span>pi<span class="token punctuation">,</span> length.out <span class="token operator">=</span> <span class="token number">101</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"l"</span> <span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="polySpline">
-
-<a href="#polySpline" class="help-page-title"><h2 id="polySpline">Piecewise Polynomial Spline Representation</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="polySpline"><main><a href="#polySpline" class="help-page-title"><h2>Piecewise Polynomial Spline Representation</h2></a>
 
 <h3>Description</h3>
 
@@ -728,13 +705,13 @@ as.polySpline<span class="token punctuation">(</span>object<span class="token pu
 
 <table>
 <tr>
-<td><code id="polySpline_:_object">object</code></td>
+<td><code id="object">object</code></td>
 <td>
 <p>An object that inherits from class <code>spline</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="polySpline_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>Optional additional arguments.  At present no additional
 arguments are used.</p>
@@ -771,88 +748,14 @@ derivatives.
 
 <pre class="language-r"><code class="language-r">require<span class="token punctuation">(</span>graphics<span class="token punctuation">)</span>
 ispl <span class="token operator">&lt;-</span> polySpline<span class="token punctuation">(</span>interpSpline<span class="token punctuation">(</span> weight <span class="token operator">~</span> height<span class="token punctuation">,</span>  women<span class="token punctuation">,</span> bSpline <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment">## IGNORE_RDIFF_BEGIN</span>
+
 print<span class="token punctuation">(</span> ispl <span class="token punctuation">)</span>   <span class="token comment"># print the piecewise polynomial representation</span>
-<span class="token comment">## IGNORE_RDIFF_END</span>
+
 plot<span class="token punctuation">(</span> ispl <span class="token punctuation">)</span>    <span class="token comment"># plots over the range of the knots</span>
 points<span class="token punctuation">(</span> women<span class="token operator">$</span>height<span class="token punctuation">,</span> women<span class="token operator">$</span>weight <span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="predict.bs">
-
-<a href="#predict.bs" class="help-page-title"><h2 id="predict.bs">Evaluate a Spline Basis</h2></a>
-
-<h3>Description</h3>
-
-<p>Evaluate a predefined spline basis at given values.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'bs'</span>
-predict<span class="token punctuation">(</span>object<span class="token punctuation">,</span> newx<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
-
-<span class="token comment">## S3 method for class 'ns'</span>
-predict<span class="token punctuation">(</span>object<span class="token punctuation">,</span> newx<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr>
-<td><code id="predict.bs_:_object">object</code></td>
-<td>
-<p>the result of a call to <code><a href="#bs">bs</a></code> or
-<code><a href="#ns">ns</a></code> having attributes describing <code>knots</code>,
-<code>degree</code>, etc.</p>
-</td>
-</tr>
-<tr>
-<td><code id="predict.bs_:_newx">newx</code></td>
-<td>
-<p>the <code>x</code> values at which evaluations are required.</p>
-</td>
-</tr>
-<tr>
-<td><code id="predict.bs_:_...">...</code></td>
-<td>
-<p>Optional additional arguments.  At present no additional
-arguments are used.</p>
-</td>
-</tr>
-</table>
-<h3>Value</h3>
-
-<p>An object just like <code>object</code>, except evaluated at the new values
-of <code>x</code>.
-</p>
-<p>These are methods for the generic function <code><a href="https://r-universe.dev/manuals/stats.html#predict">predict</a></code> for
-objects inheriting from classes <code>"bs"</code> or <code>"ns"</code>.  See
-<code><a href="https://r-universe.dev/manuals/stats.html#predict">predict</a></code> for the general behavior of this function.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#bs">bs</a></code>, <code><a href="#ns">ns</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#poly">poly</a></code>.
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r">require<span class="token punctuation">(</span>stats<span class="token punctuation">)</span>
-basis <span class="token operator">&lt;-</span> ns<span class="token punctuation">(</span>women<span class="token operator">$</span>height<span class="token punctuation">,</span> df <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">)</span>
-newX <span class="token operator">&lt;-</span> seq<span class="token punctuation">(</span><span class="token number">58</span><span class="token punctuation">,</span> <span class="token number">72</span><span class="token punctuation">,</span> length.out <span class="token operator">=</span> <span class="token number">51</span><span class="token punctuation">)</span>
-<span class="token comment"># evaluate the basis at the new data</span>
-predict<span class="token punctuation">(</span>basis<span class="token punctuation">,</span> newX<span class="token punctuation">)</span></code></pre>
-
-<hr>
-</div>
-<div class="container manual-page" id="predict.bSpline">
-
-<a href="#predict.bSpline" class="help-page-title"><h2 id="predict.bSpline">Evaluate a Spline at New Values of x</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="predict.bSpline"><main><a href="#predict.bSpline" class="help-page-title"><h2>Evaluate a Spline at New Values of x</h2></a>
 
 <h3>Description</h3>
 
@@ -882,14 +785,14 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 
 <table>
 <tr>
-<td><code id="predict.bSpline_:_object">object</code></td>
+<td><code id="object">object</code></td>
 <td>
 <p>An object that inherits from the <code>bSpline</code> or the
 <code>polySpline</code> class.</p>
 </td>
 </tr>
 <tr>
-<td><code id="predict.bSpline_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>A numeric vector of <code>x</code> values at which to evaluate the
 spline.  If this argument is missing a suitable set of <code>x</code>
@@ -898,7 +801,7 @@ the range of the knots.</p>
 </td>
 </tr>
 <tr>
-<td><code id="predict.bSpline_:_nseg">nseg</code></td>
+<td><code id="nseg">nseg</code></td>
 <td>
 <p>A positive integer giving the number of segments in a set
 of equally-spaced <code>x</code> values spanning the range of the knots
@@ -906,14 +809,14 @@ in <code>object</code>.  This value is only used if <code>x</code> is missing.</
 </td>
 </tr>
 <tr>
-<td><code id="predict.bSpline_:_deriv">deriv</code></td>
+<td><code id="deriv">deriv</code></td>
 <td>
 <p>An integer between 0 and <code>splineOrder(object) - 1</code>
 specifying the derivative to evaluate.</p>
 </td>
 </tr>
 <tr>
-<td><code id="predict.bSpline_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
 </td>
@@ -971,11 +874,76 @@ plot<span class="token punctuation">(</span>predict<span class="token punctuatio
      xlab <span class="token operator">=</span> <span class="token string">"height"</span><span class="token punctuation">,</span> ylab <span class="token operator">=</span> <span class="token string">"weight"</span><span class="token punctuation">)</span>
 par<span class="token punctuation">(</span>opar<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="splineDesign">
+<hr></main></div>
+<div class="container manual-page" id="predict.bs"><main><a href="#predict.bs" class="help-page-title"><h2>Evaluate a Spline Basis</h2></a>
 
-<a href="#splineDesign" class="help-page-title"><h2 id="splineDesign">Design Matrix for B-splines</h2></a>
+<h3>Description</h3>
+
+<p>Evaluate a predefined spline basis at given values.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'bs'</span>
+predict<span class="token punctuation">(</span>object<span class="token punctuation">,</span> newx<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+<span class="token comment">## S3 method for class 'ns'</span>
+predict<span class="token punctuation">(</span>object<span class="token punctuation">,</span> newx<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr>
+<td><code id="object">object</code></td>
+<td>
+<p>the result of a call to <code><a href="#bs">bs</a></code> or
+<code><a href="#ns">ns</a></code> having attributes describing <code>knots</code>,
+<code>degree</code>, etc.</p>
+</td>
+</tr>
+<tr>
+<td><code id="newx">newx</code></td>
+<td>
+<p>the <code>x</code> values at which evaluations are required.</p>
+</td>
+</tr>
+<tr>
+<td><code id="...">...</code></td>
+<td>
+<p>Optional additional arguments.  At present no additional
+arguments are used.</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>An object just like <code>object</code>, except evaluated at the new values
+of <code>x</code>.
+</p>
+<p>These are methods for the generic function <code><a href="https://r-universe.dev/manuals/stats.html#predict">predict</a></code> for
+objects inheriting from classes <code>"bs"</code> or <code>"ns"</code>.  See
+<code><a href="https://r-universe.dev/manuals/stats.html#predict">predict</a></code> for the general behavior of this function.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#bs">bs</a></code>, <code><a href="#ns">ns</a></code>, <code><a href="https://r-universe.dev/manuals/stats.html#poly">poly</a></code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r">require<span class="token punctuation">(</span>stats<span class="token punctuation">)</span>
+basis <span class="token operator">&lt;-</span> ns<span class="token punctuation">(</span>women<span class="token operator">$</span>height<span class="token punctuation">,</span> df <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">)</span>
+newX <span class="token operator">&lt;-</span> seq<span class="token punctuation">(</span><span class="token number">58</span><span class="token punctuation">,</span> <span class="token number">72</span><span class="token punctuation">,</span> length.out <span class="token operator">=</span> <span class="token number">51</span><span class="token punctuation">)</span>
+<span class="token comment"># evaluate the basis at the new data</span>
+predict<span class="token punctuation">(</span>basis<span class="token punctuation">,</span> newX<span class="token punctuation">)</span></code></pre>
+
+<hr></main></div>
+<div class="container manual-page" id="splineDesign"><main><a href="#splineDesign" class="help-page-title"><h2>Design Matrix for B-splines</h2></a>
 
 <h3>Description</h3>
 
@@ -996,14 +964,14 @@ spline.des  <span class="token punctuation">(</span>knots<span class="token punc
 
 <table>
 <tr>
-<td><code id="splineDesign_:_knots">knots</code></td>
+<td><code id="knots">knots</code></td>
 <td>
 <p>a numeric vector of knot positions (which will be sorted
 increasingly if needed).</p>
 </td>
 </tr>
 <tr>
-<td><code id="splineDesign_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>a numeric vector of values at which to evaluate the B-spline
 functions or derivatives.  Unless <code>outer.ok</code> is true, the
@@ -1012,7 +980,7 @@ values in <code>x</code> must be between the “inner” knots
 </td>
 </tr>
 <tr>
-<td><code id="splineDesign_:_ord">ord</code></td>
+<td><code id="ord">ord</code></td>
 <td>
 <p>a positive integer giving the order of the spline function.
 This is the number of coefficients in each piecewise polynomial
@@ -1020,7 +988,7 @@ segment, thus a cubic spline has order 4.  Defaults to 4.</p>
 </td>
 </tr>
 <tr>
-<td><code id="splineDesign_:_derivs">derivs</code></td>
+<td><code id="derivs">derivs</code></td>
 <td>
 <p>an integer vector with values between <code>0</code> and
 <code>ord - 1</code>, conceptually recycled to the length of <code>x</code>.
@@ -1030,14 +998,14 @@ length as <code>x</code>).</p>
 </td>
 </tr>
 <tr>
-<td><code id="splineDesign_:_outer.ok">outer.ok</code></td>
+<td><code id="outer.ok">outer.ok</code></td>
 <td>
 <p>logical indicating if <code>x</code> should be allowed
 outside the <em>inner</em> knots, see the <code>x</code> argument.</p>
 </td>
 </tr>
 <tr>
-<td><code id="splineDesign_:_sparse">sparse</code></td>
+<td><code id="sparse">sparse</code></td>
 <td>
 <p>logical indicating if the result should inherit from class
 <code>"<a href="https://r-universe.dev/manuals/Matrix.html#sparseMatrix-class">sparseMatrix</a>"</code> (from package <a href="https://CRAN.R-project.org/package=Matrix" target="_blank"><span class="pkg">Matrix</span></a>).</p>
@@ -1047,9 +1015,9 @@ outside the <em>inner</em> knots, see the <code>x</code> argument.</p>
 <h3>Value</h3>
 
 <p>A matrix with <code>length(x)</code> rows and <code>length(knots) - ord</code>
-columns.  The i'th row of the matrix contains the coefficients of the
+columns.  The i-th row of the matrix contains the coefficients of the
 B-splines (or the indicated derivative of the B-splines) defined by
-the <code>knot</code> vector and evaluated at the i'th value of <code>x</code>.
+the <code>knot</code> vector and evaluated at the i-th value of <code>x</code>.
 Each B-spline is defined by a set of <code>ord</code> successive knots so
 the total number of B-splines is <code>length(knots) - ord</code>.
 </p>
@@ -1090,11 +1058,8 @@ abline<span class="token punctuation">(</span>v <span class="token operator">=</
 lines<span class="token punctuation">(</span>x<span class="token punctuation">,</span> rowSums<span class="token punctuation">(</span>bb<span class="token punctuation">)</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token string">"gray"</span><span class="token punctuation">,</span> lwd <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
 matlines<span class="token punctuation">(</span>x<span class="token punctuation">,</span> bb<span class="token punctuation">,</span> ylim <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> lty <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="splineKnots">
-
-<a href="#splineKnots" class="help-page-title"><h2 id="splineKnots">Knot Vector from a Spline</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="splineKnots"><main><a href="#splineKnots" class="help-page-title"><h2>Knot Vector from a Spline</h2></a>
 
 <h3>Description</h3>
 
@@ -1110,7 +1075,7 @@ matlines<span class="token punctuation">(</span>x<span class="token punctuation"
 <h3>Arguments</h3>
 
 <table><tr>
-<td><code id="splineKnots_:_object">object</code></td>
+<td><code id="object">object</code></td>
 <td>
 <p>an object that inherits from class <code>"spline"</code>.</p>
 </td>
@@ -1131,11 +1096,8 @@ matlines<span class="token punctuation">(</span>x<span class="token punctuation"
 <pre class="language-r"><code class="language-r">ispl <span class="token operator">&lt;-</span> interpSpline<span class="token punctuation">(</span> weight <span class="token operator">~</span> height<span class="token punctuation">,</span> women <span class="token punctuation">)</span>
 splineKnots<span class="token punctuation">(</span> ispl <span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="splineOrder">
-
-<a href="#splineOrder" class="help-page-title"><h2 id="splineOrder">Determine the Order of a Spline</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="splineOrder"><main><a href="#splineOrder" class="help-page-title"><h2>Determine the Order of a Spline</h2></a>
 
 <h3>Description</h3>
 
@@ -1151,7 +1113,7 @@ splineKnots<span class="token punctuation">(</span> ispl <span class="token punc
 <h3>Arguments</h3>
 
 <table><tr>
-<td><code id="splineOrder_:_object">object</code></td>
+<td><code id="object">object</code></td>
 <td>
 <p>An object that inherits from class <code>"spline"</code>.</p>
 </td>
@@ -1187,11 +1149,8 @@ order 4.
 
 <pre class="language-r"><code class="language-r">splineOrder<span class="token punctuation">(</span> interpSpline<span class="token punctuation">(</span> weight <span class="token operator">~</span> height<span class="token punctuation">,</span> women <span class="token punctuation">)</span> <span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div>
-<div class="container manual-page" id="xyVector">
-
-<a href="#xyVector" class="help-page-title"><h2 id="xyVector">Construct an <code>xyVector</code> Object</h2></a>
+<hr></main></div>
+<div class="container manual-page" id="xyVector"><main><a href="#xyVector" class="help-page-title"><h2>Construct an <code>xyVector</code> Object</h2></a>
 
 <h3>Description</h3>
 
@@ -1214,13 +1173,13 @@ y-positions are retained, say for purposes of generating plots.
 
 <table>
 <tr>
-<td><code id="xyVector_:_x">x</code></td>
+<td><code id="x">x</code></td>
 <td>
 <p>a numeric vector</p>
 </td>
 </tr>
 <tr>
-<td><code id="xyVector_:_y">y</code></td>
+<td><code id="y">y</code></td>
 <td>
 <p>a numeric vector of the same length as <code>x</code></p>
 </td>
@@ -1259,8 +1218,7 @@ plot<span class="token punctuation">(</span> weights<span class="token punctuati
 points<span class="token punctuation">(</span> women<span class="token operator">$</span>height<span class="token punctuation">,</span> women<span class="token operator">$</span>weight <span class="token punctuation">)</span>
 weights</code></pre>
 
-<hr>
-</div>
+<hr></main></div>
 </div>
     <footer><p>Rendered with postdoc 1.2.2</p></footer>
   </body>

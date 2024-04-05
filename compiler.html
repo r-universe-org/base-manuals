@@ -37,15 +37,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.3.2</td>
+<td class="description-license">Part of R 4.4.0</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.3.2</td>
+<td class="description-version">4.4.0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2023-11-01 20:50:58 UTC</td>
+<td class="description-date">2024-03-27 22:41:21 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -57,9 +57,7 @@
     <ul id="help-index-list"><li class="help-index-item"><a href="#compile">Byte Code Compiler</a></li></ul>
 
     <hr>
-    <div class="manual-pages-content"><div class="container manual-page" id="compile">
-
-<a href="#compile" class="help-page-title"><h2 id="compile">Byte Code Compiler</h2></a>
+    <div class="manual-pages-content"><div class="container manual-page" id="compile"><main><a href="#compile" class="help-page-title"><h2>Byte Code Compiler</h2></a>
 
 <h3>Description</h3>
 
@@ -85,52 +83,53 @@ setCompilerOptions<span class="token punctuation">(</span><span class="token ell
 
 <table>
 <tr>
-<td><code id="compile_:_f">f</code></td>
+<td><code id="f">f</code></td>
 <td>
 <p>a closure.</p>
 </td>
 </tr>
 <tr>
-<td><code id="compile_:_options">options</code></td>
+<td><code id="options">options</code></td>
 <td>
 <p>list of named compiler options: see ‘Details’.</p>
 </td>
 </tr>
 <tr>
-<td><code id="compile_:_env">env</code></td>
+<td><code id="env">env</code></td>
 <td>
 <p>the top level environment for the compiling.</p>
 </td>
 </tr>
 <tr>
-<td><code id="compile_:_srcref">srcref</code></td>
+<td><code id="srcref">srcref</code></td>
 <td>
 <p>initial source reference for the expression.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code id="compile_:_file">file</code>, <code id="compile_:_infile">infile</code>, <code id="compile_:_outfile">outfile</code>
+<code id="file">file</code>, <code id="infile">infile</code>, <code id="outfile">outfile</code>
 </td>
 <td>
-<p>pathnames; outfile defaults to infile with
-a ‘<span class="file">.Rc</span>’ extension in place of any existing extension.</p>
+<p>pathnames; <code>outfile</code> defaults to
+<code>infile</code> with a ‘<span class="file">.Rc</span>’ extension in place of any existing
+extension.</p>
 </td>
 </tr>
 <tr>
-<td><code id="compile_:_ascii">ascii</code></td>
+<td><code id="ascii">ascii</code></td>
 <td>
 <p>logical; should the compiled file be saved in ascii format?</p>
 </td>
 </tr>
 <tr>
-<td><code id="compile_:_verbose">verbose</code></td>
+<td><code id="verbose">verbose</code></td>
 <td>
 <p>logical; should the compiler show what is being compiled?</p>
 </td>
 </tr>
 <tr>
-<td><code id="compile_:_version">version</code></td>
+<td><code id="version">version</code></td>
 <td>
 <p>the workspace format version to use.  <code>NULL</code>
 specifies the current default format (3).  Version 1 was the default
@@ -139,50 +138,50 @@ Version 3 is supported from <span class="rlang"><b>R</b></span> 3.5.0.</p>
 </td>
 </tr>
 <tr>
-<td><code id="compile_:_envir">envir</code></td>
+<td><code id="envir">envir</code></td>
 <td>
 <p>environment to evaluate loaded expressions in.</p>
 </td>
 </tr>
 <tr>
-<td><code id="compile_:_chdir">chdir</code></td>
+<td><code id="chdir">chdir</code></td>
 <td>
 <p>logical; change directory before evaluation?</p>
 </td>
 </tr>
 <tr>
-<td><code id="compile_:_code">code</code></td>
+<td><code id="code">code</code></td>
 <td>
 <p>byte code expression or compiled closure</p>
 </td>
 </tr>
 <tr>
-<td><code id="compile_:_e">e</code></td>
+<td><code id="e">e</code></td>
 <td>
 <p>expression to compile.</p>
 </td>
 </tr>
 <tr>
-<td><code id="compile_:_level">level</code></td>
+<td><code id="level">level</code></td>
 <td>
-<p>integer; the JIT level to use (<code>0</code> to <code>3</code>, or
+<p>integer; the <abbr>JIT</abbr> level to use (<code>0</code> to <code>3</code>, or
 negative to <em>return</em> it).</p>
 </td>
 </tr>
 <tr>
-<td><code id="compile_:_enable">enable</code></td>
+<td><code id="enable">enable</code></td>
 <td>
 <p>logical; enable compiling packages if <code>TRUE</code>.</p>
 </td>
 </tr>
 <tr>
-<td><code id="compile_:_name">name</code></td>
+<td><code id="name">name</code></td>
 <td>
 <p>character string; name of option to return.</p>
 </td>
 </tr>
 <tr>
-<td><code id="compile_:_...">...</code></td>
+<td><code id="...">...</code></td>
 <td>
 <p>named compiler options to set.</p>
 </td>
@@ -209,17 +208,17 @@ global environment rather than the base environment.
 <p><code>disassemble</code> produces a printed representation of the code
 that may be useful to give a hint of what is going on.
 </p>
-<p><code>enableJIT</code> enables or disables just-in-time (JIT)
-compilation. JIT is disabled if the argument is 0.  If <code>level</code> is
+<p><code>enableJIT</code> enables or disables just-in-time (<abbr>JIT</abbr>)
+compilation. <abbr>JIT</abbr> is disabled if the argument is 0.  If <code>level</code> is
 1 then larger closures are compiled before their first use.  If
 <code>level</code> is 2, then some small closures are also compiled before
 their second use.  If <code>level</code> is 3 then in addition
-all top level loops are compiled before they are executed.  JIT level
-3 requires the compiler option <code>optimize</code> to be 2 or 3.  The JIT
+all top level loops are compiled before they are executed.  <abbr>JIT</abbr> level
+3 requires the compiler option <code>optimize</code> to be 2 or 3.  The <abbr>JIT</abbr>
 level can also be selected by starting <span class="rlang"><b>R</b></span> with the environment
 variable <code>R_ENABLE_JIT</code> set to one of these values. Calling
-<code>enableJIT</code> with a negative argument returns the current JIT
-level. The default JIT level is <code>3</code>.
+<code>enableJIT</code> with a negative argument returns the current <abbr>JIT</abbr>
+level. The default <abbr>JIT</abbr> level is <code>3</code>.
 </p>
 <p><code>compilePKGS</code> enables or disables compiling packages when they
 are installed.  This requires that the package uses lazy loading as
@@ -326,8 +325,7 @@ system.time<span class="token punctuation">(</span><span class="token keyword">f
 
 enableJIT<span class="token punctuation">(</span>oldJIT<span class="token punctuation">)</span></code></pre>
 
-<hr>
-</div></div>
+<hr></main></div></div>
     <footer><p>Rendered with postdoc 1.2.2</p></footer>
   </body>
 </html>
