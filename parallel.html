@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <!-- styling for math and syntax -->
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
@@ -16,7 +16,7 @@
 
   </head>
 
-  <body class="macintosh">
+  <body class="postdoc macintosh">
     <h1 class="manual-title">Package 'parallel'</h1>
     <table class="description-table">
       <tr>
@@ -39,15 +39,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.4.0</td>
+<td class="description-license">Part of R 4.4.1</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.4.0</td>
+<td class="description-version">4.4.1</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-03-27 22:42:06 UTC</td>
+<td class="description-date">2024-06-15 17:27:47 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -57,7 +57,6 @@
 
     <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
     <ul id="help-index-list">
-<li class="help-index-item"><a href="#RngStream">Implementation of Pierre L'Ecuyer's RngStreams</a></li>
 <li class="help-index-item"><a href="#parallel-package">
 Support for Parallel Computation
 </a></li>
@@ -72,149 +71,14 @@ Create a Parallel Socket Cluster
 <li class="help-index-item"><a href="#mclapply">Parallel Versions of lapply and mapply using Forking</a></li>
 <li class="help-index-item"><a href="#mcparallel">Evaluate an R Expression Asynchronously in a Separate Process</a></li>
 <li class="help-index-item"><a href="#pvec">Parallelize a Vector Map Function using Forking</a></li>
+<li class="help-index-item"><a href="#RngStream">Implementation of Pierre L'Ecuyer's RngStreams</a></li>
 <li class="help-index-item"><a href="#splitIndices">Divide Tasks for Distribution in a Cluster</a></li>
 </ul>
 
     <hr>
     <div class="manual-pages-content">
-<div class="container manual-page" id="RngStream"><main><a href="#RngStream" class="help-page-title"><h2>Implementation of Pierre L'Ecuyer's RngStreams</h2></a>
-
-<h3>Description</h3>
-
-<p>This is an <span class="rlang"><b>R</b></span> re-implementation of Pierre L'Ecuyer's
-‘RngStreams’ multiple streams of pseudo-random numbers.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">nextRNGStream<span class="token punctuation">(</span>seed<span class="token punctuation">)</span>
-nextRNGSubStream<span class="token punctuation">(</span>seed<span class="token punctuation">)</span>
-
-clusterSetRNGStream<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> iseed<span class="token punctuation">)</span>
-mc.reset.stream<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr>
-<td><code id="seed">seed</code></td>
-<td>
-<p>An integer vector of length 7 as given by
-<code>.Random.seed</code> when the ‘<span class="samp">⁠"L'Ecuyer-CMRG"⁠</span>’ RNG is in use.
-See <code><a href="https://r-universe.dev/manuals/base.html#Random">RNG</a></code> for the valid values.</p>
-</td>
-</tr>
-<tr>
-<td><code id="cl">cl</code></td>
-<td>
-<p>A cluster from this package or package <a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a>, or (if
-<code>NULL</code>) the registered cluster.</p>
-</td>
-</tr>
-<tr>
-<td><code id="iseed">iseed</code></td>
-<td>
-<p>An integer to be supplied to <code><a href="https://r-universe.dev/manuals/base.html#Random">set.seed</a></code>, or
-<code>NULL</code> not to set reproducible seeds.</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p>The ‘RngStreams’ interface works with (potentially) multiple
-streams of pseudo-random numbers: this is particularly suitable for
-working with parallel computations since each task can be assigned a
-separate RNG stream.
-</p>
-<p>This uses as its underlying generator <code>RNGkind("L'Ecuyer-CMRG")</code>,
-of L'Ecuyer (1999), which has a seed vector of 6 (signed) integers and a
-period of around <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>191</mn></msup></mrow><annotation encoding="application/x-tex">2^{191}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">191</span></span></span></span></span></span></span></span></span></span></span></span></code>.  Each ‘stream’ is a
-subsequence of the period of length <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>127</mn></msup></mrow><annotation encoding="application/x-tex">2^{127}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">127</span></span></span></span></span></span></span></span></span></span></span></span></code> which is in
-turn divided into ‘substreams’ of length <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>76</mn></msup></mrow><annotation encoding="application/x-tex">2^{76}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">76</span></span></span></span></span></span></span></span></span></span></span></span></code>.
-</p>
-<p>The idea of L'Ecuyer <em>et al</em> (2002) is to use a separate stream
-for each of the parallel computations (which ensures that the random
-numbers generated never get into to sync) and the parallel
-computations can themselves use substreams if required.  The original
-interface stores the original seed of the first stream, the original
-seed of the current stream and the current seed: this could be
-implemented in <span class="rlang"><b>R</b></span>, but it is as easy to work by saving the relevant
-values of <code>.Random.seed</code>: see the examples.
-</p>
-<p><code>clusterSetRNGStream</code> selects the <code>"L'Ecuyer-CMRG"</code> RNG and
-then distributes streams to the members of a cluster, optionally
-setting the seed of the streams by <code>set.seed(iseed)</code> (otherwise
-they are set from the current seed of the master process: after
-selecting the L'Ecuyer generator).
-</p>
-<p>When not on Windows, Calling <code>mc.reset.stream()</code> after setting
-the L'Ecuyer random number generator and seed makes runs from
-<code><a href="#mcparallel">mcparallel</a>(mc.set.seed = TRUE)</code>
-reproducible.  This is
-done internally in <code><a href="#mclapply">mclapply</a></code> and <code><a href="#pvec">pvec</a></code>.
-(Note that it does not set the seed in the master process, so does not
-affect the fallback-to-serial versions of these functions.)
-</p>
-
-
-<h3>Value</h3>
-
-<p>For <code>nextRNGStream</code> and <code>nextRNGSubStream</code>,
-a value which can be assigned to <code>.Random.seed</code>.
-</p>
-
-
-<h3>Note</h3>
-
-<p>Interfaces to L'Ecuyer's C code are available in CRAN
-packages <a href="https://CRAN.R-project.org/package=rlecuyer" target="_blank"><span class="pkg">rlecuyer</span></a> and <a href="https://CRAN.R-project.org/package=rstream" target="_blank"><span class="pkg">rstream</span></a>.
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>Brian Ripley
-</p>
-
-
-<h3>References</h3>
-
-<p>L'Ecuyer, P. (1999).
-Good parameters and implementations for combined multiple recursive
-random number generators.
-<em>Operations Research</em>, <b>47</b>, 159–164.
-<a href="https://doi.org/10.1287/opre.47.1.159" target="_blank">doi:10.1287/opre.47.1.159</a>.
-</p>
-<p>L'Ecuyer, P., Simard, R.,  Chen, E. J. and Kelton, W. D. (2002).
-An object-oriented random-number package with many long streams
-and substreams.
-<em>Operations Research</em>, <b>50</b>, 1073–1075.
-<a href="https://doi.org/10.1287/opre.50.6.1073.358" target="_blank">doi:10.1287/opre.50.6.1073.358</a>.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="https://r-universe.dev/manuals/base.html#Random">RNG</a></code> for fuller details of <span class="rlang"><b>R</b></span>'s built-in random number
-generators.
-</p>
-<p>The vignette for package <span class="pkg">parallel</span>.
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r">RNGkind<span class="token punctuation">(</span><span class="token string">"L'Ecuyer-CMRG"</span><span class="token punctuation">)</span>
-set.seed<span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span>
-<span class="token punctuation">(</span>s <span class="token operator">&lt;-</span> .Random.seed<span class="token punctuation">)</span>
-<span class="token comment">## do some work involving random numbers.</span>
-nextRNGStream<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-nextRNGSubStream<span class="token punctuation">(</span>s<span class="token punctuation">)</span></code></pre>
-
-<hr></main></div>
-<div class="container manual-page" id="parallel-package"><main><a href="#parallel-package" class="help-page-title"><h2>
+<div class="container manual-page" id="parallel-package"><div class="page-main">
+<a href="#parallel-package" class="help-page-title"><h2>
 Support for Parallel Computation
 </h2></a>
 
@@ -262,8 +126,10 @@ socket clusters by forking (not Windows).
 provide means to manage such processes.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="clusterApply"><main><a href="#clusterApply" class="help-page-title"><h2>Apply Operations using Clusters</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="clusterApply"><div class="page-main">
+<a href="#clusterApply" class="help-page-title"><h2>Apply Operations using Clusters</h2></a>
 
 <h3>Description</h3>
 
@@ -274,7 +140,27 @@ a cluster.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">clusterCall<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> fun<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">clusterCall(cl = NULL, fun, ...)
+clusterApply(cl = NULL, x, fun, ...)
+clusterApplyLB(cl = NULL, x, fun, ...)
+clusterEvalQ(cl = NULL, expr)
+clusterExport(cl = NULL, varlist, envir = .GlobalEnv)
+clusterMap(cl = NULL, fun, ..., MoreArgs = NULL, RECYCLE = TRUE,
+           SIMPLIFY = FALSE, USE.NAMES = TRUE,
+           .scheduling = c("static", "dynamic"))
+clusterSplit(cl = NULL, seq)
+
+parLapply(cl = NULL, X, fun, ..., chunk.size = NULL)
+parSapply(cl = NULL, X, FUN, ..., simplify = TRUE,
+          USE.NAMES = TRUE, chunk.size = NULL)
+parApply(cl = NULL, X, MARGIN, FUN, ..., chunk.size = NULL)
+parRapply(cl = NULL, x, FUN, ..., chunk.size = NULL)
+parCapply(cl = NULL, x, FUN, ..., chunk.size = NULL)
+
+parLapplyLB(cl = NULL, X, fun, ..., chunk.size = NULL)
+parSapplyLB(cl = NULL, X, FUN, ..., simplify = TRUE,
+            USE.NAMES = TRUE, chunk.size = NULL)
+</code><code class="language-r">clusterCall<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> fun<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 clusterApply<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> fun<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 clusterApplyLB<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> fun<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 clusterEvalQ<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> expr<span class="token punctuation">)</span>
@@ -296,7 +182,7 @@ parSapplyLB<span class="token punctuation">(</span>cl <span class="token operato
             USE.NAMES <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> chunk.size <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -526,7 +412,55 @@ not <code>x</code> for consistency with <code><a href="https://r-universe.dev/ma
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Use option cl.cores to choose an appropriate cluster size.</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">
+## Use option cl.cores to choose an appropriate cluster size.
+cl &lt;- makeCluster(getOption("cl.cores", 2))
+
+clusterApply(cl, 1:2, get("+"), 3)
+xx &lt;- 1
+clusterExport(cl, "xx")
+clusterCall(cl, function(y) xx + y, 2)
+
+## Use clusterMap like an mapply example
+clusterMap(cl, function(x, y) seq_len(x) + y,
+          c(a =  1, b = 2, c = 3), c(A = 10, B = 0, C = -10))
+
+
+parSapply(cl, 1:20, get("+"), 3)
+
+## A bootstrapping example, which can be done in many ways:
+clusterEvalQ(cl, {
+  ## set up each worker.  Could also use clusterExport()
+  library(boot)
+  cd4.rg &lt;- function(data, mle) MASS::mvrnorm(nrow(data), mle$m, mle$v)
+  cd4.mle &lt;- list(m = colMeans(cd4), v = var(cd4))
+  NULL
+})
+res &lt;- clusterEvalQ(cl, boot(cd4, corr, R = 100,
+                    sim = "parametric", ran.gen = cd4.rg, mle = cd4.mle))
+library(boot)
+cd4.boot &lt;- do.call(c, res)
+boot.ci(cd4.boot,  type = c("norm", "basic", "perc"),
+        conf = 0.9, h = atanh, hinv = tanh)
+stopCluster(cl)
+
+## or
+library(boot)
+run1 &lt;- function(...) {
+   library(boot)
+   cd4.rg &lt;- function(data, mle) MASS::mvrnorm(nrow(data), mle$m, mle$v)
+   cd4.mle &lt;- list(m = colMeans(cd4), v = var(cd4))
+   boot(cd4, corr, R = 500, sim = "parametric",
+        ran.gen = cd4.rg, mle = cd4.mle)
+}
+cl &lt;- makeCluster(mc &lt;- getOption("cl.cores", 2))
+## to make this reproducible
+clusterSetRNGStream(cl, 123)
+cd4.boot &lt;- do.call(c, parLapply(cl, seq_len(mc), run1))
+boot.ci(cd4.boot,  type = c("norm", "basic", "perc"),
+        conf = 0.9, h = atanh, hinv = tanh)
+stopCluster(cl)
+</code><code class="language-r"><span class="token comment">## Use option cl.cores to choose an appropriate cluster size.</span>
 cl <span class="token operator">&lt;-</span> makeCluster<span class="token punctuation">(</span>getOption<span class="token punctuation">(</span><span class="token string">"cl.cores"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 clusterApply<span class="token punctuation">(</span>cl<span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span> get<span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
@@ -574,8 +508,10 @@ boot.ci<span class="token punctuation">(</span>cd4.boot<span class="token punctu
         conf <span class="token operator">=</span> <span class="token number">0.9</span><span class="token punctuation">,</span> h <span class="token operator">=</span> atanh<span class="token punctuation">,</span> hinv <span class="token operator">=</span> tanh<span class="token punctuation">)</span>
 stopCluster<span class="token punctuation">(</span>cl<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="detectCores"><main><a href="#detectCores" class="help-page-title"><h2>Detect the Number of CPU Cores</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="detectCores"><div class="page-main">
+<a href="#detectCores" class="help-page-title"><h2>Detect the Number of CPU Cores</h2></a>
 
 <h3>Description</h3>
 
@@ -585,10 +521,11 @@ stopCluster<span class="token punctuation">(</span>cl<span class="token punctuat
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">detectCores<span class="token punctuation">(</span>all.tests <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> logical <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">detectCores(all.tests = FALSE, logical = TRUE)
+</code><code class="language-r">detectCores<span class="token punctuation">(</span>all.tests <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> logical <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -662,11 +599,15 @@ to try to use all the logical CPUs at once.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">detectCores<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">detectCores()
+detectCores(logical = FALSE)
+</code><code class="language-r">detectCores<span class="token punctuation">(</span><span class="token punctuation">)</span>
 detectCores<span class="token punctuation">(</span>logical <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="makeCluster"><main><a href="#makeCluster" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="makeCluster"><div class="page-main">
+<a href="#makeCluster" class="help-page-title"><h2>
 Create a Parallel Socket Cluster
 </h2></a>
 
@@ -679,7 +620,15 @@ over sockets.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">makeCluster<span class="token punctuation">(</span>spec<span class="token punctuation">,</span> type<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">makeCluster(spec, type, ...)
+makePSOCKcluster(names, ...)
+makeForkCluster(nnodes = getOption("mc.cores", 2L), ...)
+
+stopCluster(cl = NULL)
+
+setDefaultCluster(cl = NULL)
+getDefaultCluster()
+</code><code class="language-r">makeCluster<span class="token punctuation">(</span>spec<span class="token punctuation">,</span> type<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 makePSOCKcluster<span class="token punctuation">(</span>names<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 makeForkCluster<span class="token punctuation">(</span>nnodes <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"mc.cores"</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 
@@ -689,7 +638,7 @@ setDefaultCluster<span class="token punctuation">(</span>cl <span class="token o
 getDefaultCluster<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -916,8 +865,10 @@ started.
 <p>Derived from the <a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a> package.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="mcaffinity"><main><a href="#mcaffinity" class="help-page-title"><h2>Get or Set CPU Affinity Mask of the Current Process</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="mcaffinity"><div class="page-main">
+<a href="#mcaffinity" class="help-page-title"><h2>Get or Set CPU Affinity Mask of the Current Process</h2></a>
 
 <h3>Description</h3>
 
@@ -930,10 +881,11 @@ hyperthread unit.)
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">mcaffinity<span class="token punctuation">(</span>affinity <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">mcaffinity(affinity = NULL)
+</code><code class="language-r">mcaffinity<span class="token punctuation">(</span>affinity <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table><tr>
 <td><code id="affinity">affinity</code></td>
@@ -977,8 +929,10 @@ this process (this may be different than <code>affinity</code>).
 <p><code><a href="#mcparallel">mcparallel</a></code>
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="children"><main><a href="#children" class="help-page-title"><h2>Low-level Functions for Management of Forked Processes</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="children"><div class="page-main">
+<a href="#children" class="help-page-title"><h2>Low-level Functions for Management of Forked Processes</h2></a>
 
 <h3>Description</h3>
 
@@ -990,7 +944,15 @@ this process (this may be different than <code>affinity</code>).
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">children<span class="token punctuation">(</span>select<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">children(select)
+readChild(child)
+readChildren(timeout = 0)
+selectChildren(children = NULL, timeout = 0)
+sendChildStdin(child, what)
+sendMaster(what, raw.asis = TRUE)
+
+mckill(process, signal = 2L)
+</code><code class="language-r">children<span class="token punctuation">(</span>select<span class="token punctuation">)</span>
 readChild<span class="token punctuation">(</span>child<span class="token punctuation">)</span>
 readChildren<span class="token punctuation">(</span>timeout <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
 selectChildren<span class="token punctuation">(</span>children <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> timeout <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
@@ -1000,7 +962,7 @@ sendMaster<span class="token punctuation">(</span>what<span class="token punctua
 mckill<span class="token punctuation">(</span>process<span class="token punctuation">,</span> signal <span class="token operator">=</span> <span class="token number">2L</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1150,15 +1112,22 @@ support long vectors prior to <span class="rlang"><b>R</b></span> 3.4.0 and so w
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Not run: 
+p  &lt;- mcparallel(scan(n = 1, quiet = TRUE))
+sendChildStdin(p, "17.4\n")
+mccollect(p)[[1]]
+
+## End(Not run)</code><code class="language-r"><span class="token comment">## Not run: </span>
 p  <span class="token operator">&lt;-</span> mcparallel<span class="token punctuation">(</span>scan<span class="token punctuation">(</span>n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> quiet <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 sendChildStdin<span class="token punctuation">(</span>p<span class="token punctuation">,</span> <span class="token string">"17.4\n"</span><span class="token punctuation">)</span>
 mccollect<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="mcfork"><main><a href="#mcfork" class="help-page-title"><h2>Fork a Copy of the Current R Process</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="mcfork"><div class="page-main">
+<a href="#mcfork" class="help-page-title"><h2>Fork a Copy of the Current R Process</h2></a>
 
 <h3>Description</h3>
 
@@ -1174,12 +1143,15 @@ process as necessary.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">mcfork<span class="token punctuation">(</span>estranged <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">mcfork(estranged = FALSE)
+
+mcexit(exit.code = 0L, send = NULL)
+</code><code class="language-r">mcfork<span class="token punctuation">(</span>estranged <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 
 mcexit<span class="token punctuation">(</span>exit.code <span class="token operator">=</span> <span class="token number">0L</span><span class="token punctuation">,</span> send <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1307,7 +1279,16 @@ call <code>fork</code> without <code>exec</code>).
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## This will work when run as an example, but not when pasted in.</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">
+## This will work when run as an example, but not when pasted in.
+p &lt;- parallel:::mcfork()
+if (inherits(p, "masterProcess")) {
+    cat("I'm a child! ", Sys.getpid(), "\n")
+    parallel:::mcexit(,"I was a child")
+}
+cat("I'm the master\n")
+unserialize(parallel:::readChildren(1.5))
+</code><code class="language-r"><span class="token comment">## This will work when run as an example, but not when pasted in.</span>
 p <span class="token operator">&lt;-</span> parallel<span class="token operator">::</span><span class="token operator">:</span>mcfork<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>inherits<span class="token punctuation">(</span>p<span class="token punctuation">,</span> <span class="token string">"masterProcess"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     cat<span class="token punctuation">(</span><span class="token string">"I'm a child! "</span><span class="token punctuation">,</span> Sys.getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
@@ -1316,8 +1297,10 @@ p <span class="token operator">&lt;-</span> parallel<span class="token operator"
 cat<span class="token punctuation">(</span><span class="token string">"I'm the master\n"</span><span class="token punctuation">)</span>
 unserialize<span class="token punctuation">(</span>parallel<span class="token operator">::</span><span class="token operator">:</span>readChildren<span class="token punctuation">(</span><span class="token number">1.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="mclapply"><main><a href="#mclapply" class="help-page-title"><h2>Parallel Versions of <code>lapply</code> and <code>mapply</code> using Forking</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="mclapply"><div class="page-main">
+<a href="#mclapply" class="help-page-title"><h2>Parallel Versions of <code>lapply</code> and <code>mapply</code> using Forking</h2></a>
 
 <h3>Description</h3>
 
@@ -1336,7 +1319,19 @@ element of <code>X</code>.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">mclapply<span class="token punctuation">(</span>X<span class="token punctuation">,</span> FUN<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">mclapply(X, FUN, ...,
+         mc.preschedule = TRUE, mc.set.seed = TRUE,
+         mc.silent = FALSE, mc.cores = getOption("mc.cores", 2L),
+         mc.cleanup = TRUE, mc.allow.recursive = TRUE, affinity.list = NULL)
+
+mcmapply(FUN, ...,
+         MoreArgs = NULL, SIMPLIFY = TRUE, USE.NAMES = TRUE,
+         mc.preschedule = TRUE, mc.set.seed = TRUE,
+         mc.silent = FALSE, mc.cores = getOption("mc.cores", 2L),
+         mc.cleanup = TRUE, affinity.list = NULL)
+
+mcMap(f, ...)
+</code><code class="language-r">mclapply<span class="token punctuation">(</span>X<span class="token punctuation">,</span> FUN<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span>
          mc.preschedule <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> mc.set.seed <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
          mc.silent <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> mc.cores <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"mc.cores"</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
          mc.cleanup <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> mc.allow.recursive <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> affinity.list <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
@@ -1350,7 +1345,7 @@ mcmapply<span class="token punctuation">(</span>FUN<span class="token punctuatio
 mcMap<span class="token punctuation">(</span>f<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1571,7 +1566,47 @@ Derived from the <span class="pkg">multicore</span> package formerly on <abbr>CR
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">simplify2array<span class="token punctuation">(</span>mclapply<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">
+simplify2array(mclapply(rep(4, 5), rnorm))
+# use the same random numbers for all values
+set.seed(1)
+simplify2array(mclapply(rep(4, 5), rnorm, mc.preschedule = FALSE,
+                        mc.set.seed = FALSE))
+
+## Contrast this with the examples for clusterCall
+library(boot)
+cd4.rg &lt;- function(data, mle) MASS::mvrnorm(nrow(data), mle$m, mle$v)
+cd4.mle &lt;- list(m = colMeans(cd4), v = var(cd4))
+mc &lt;- getOption("mc.cores", 2)
+run1 &lt;- function(...) boot(cd4, corr, R = 500, sim = "parametric",
+                           ran.gen = cd4.rg, mle = cd4.mle)
+## To make this reproducible:
+set.seed(123, "L'Ecuyer")
+res &lt;- mclapply(seq_len(mc), run1)
+cd4.boot &lt;- do.call(c, res)
+boot.ci(cd4.boot,  type = c("norm", "basic", "perc"),
+        conf = 0.9, h = atanh, hinv = tanh)
+
+## Usage of the affinity.list parameter
+A &lt;- runif(2500000,0,100)
+B &lt;- runif(2500000,0,100)
+C &lt;- runif(5000000,0,100)
+first &lt;- function(i) head(sort(i), n = 1)
+
+# Restict all elements of X to run on CPU 1 and 2
+affL &lt;- list(c(1,2), c(1,2), c(1,2))
+mclapply(list(A, A, A), first, mc.preschedule = FALSE, affinity.list = affL)
+
+
+# Completion times are assumed to have a high variance
+# To optimize the overall execution time elements of X are scheduled to suitable CPUs
+# Assuming that the runtime for C is as long as the runtime of A plus B
+# mapping: A to 1 , B to 1, C to 2
+X &lt;- list(A, B, C)
+affL &lt;- c(1, 1, 2)
+mclapply(X, first, mc.preschedule = FALSE, affinity.list = affL)
+
+</code><code class="language-r">simplify2array<span class="token punctuation">(</span>mclapply<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment"># use the same random numbers for all values</span>
 set.seed<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
 simplify2array<span class="token punctuation">(</span>mclapply<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">,</span> mc.preschedule <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
@@ -1610,8 +1645,10 @@ X <span class="token operator">&lt;-</span> list<span class="token punctuation">
 affL <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
 mclapply<span class="token punctuation">(</span>X<span class="token punctuation">,</span> first<span class="token punctuation">,</span> mc.preschedule <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> affinity.list <span class="token operator">=</span> affL<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="mcparallel"><main><a href="#mcparallel" class="help-page-title"><h2>Evaluate an <span class="rlang"><b>R</b></span> Expression Asynchronously in a Separate Process</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="mcparallel"><div class="page-main">
+<a href="#mcparallel" class="help-page-title"><h2>Evaluate an <span class="rlang"><b>R</b></span> Expression Asynchronously in a Separate Process</h2></a>
 
 <h3>Description</h3>
 
@@ -1626,14 +1663,19 @@ given expression.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">mcparallel<span class="token punctuation">(</span>expr<span class="token punctuation">,</span> name<span class="token punctuation">,</span> mc.set.seed <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> silent <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">mcparallel(expr, name, mc.set.seed = TRUE, silent = FALSE,
+           mc.affinity = NULL, mc.interactive = FALSE,
+	   detached = FALSE)
+
+mccollect(jobs, wait = TRUE, timeout = 0, intermediate = FALSE)
+</code><code class="language-r">mcparallel<span class="token punctuation">(</span>expr<span class="token punctuation">,</span> name<span class="token punctuation">,</span> mc.set.seed <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> silent <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
            mc.affinity <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> mc.interactive <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
 	   detached <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 
 mccollect<span class="token punctuation">(</span>jobs<span class="token punctuation">,</span> wait <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> timeout <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> intermediate <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1835,7 +1877,22 @@ inefficient and should be avoided.)
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">p <span class="token operator">&lt;-</span> mcparallel<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">p &lt;- mcparallel(1:10)
+q &lt;- mcparallel(1:20)
+# wait for both jobs to finish and collect all results
+res &lt;- mccollect(list(p, q))
+
+
+p &lt;- mcparallel(1:10)
+mccollect(p, wait = FALSE, 10) # will retrieve the result (since it's fast)
+mccollect(p, wait = FALSE)     # will signal the job as terminating
+mccollect(p, wait = FALSE)     # there is no longer such a job
+
+
+# a naive parallel lapply can be created using mcparallel alone:
+jobs &lt;- lapply(1:10, function(x) mcparallel(rnorm(x), name = x))
+mccollect(jobs)
+</code><code class="language-r">p <span class="token operator">&lt;-</span> mcparallel<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span>
 q <span class="token operator">&lt;-</span> mcparallel<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">20</span><span class="token punctuation">)</span>
 <span class="token comment"># wait for both jobs to finish and collect all results</span>
 res <span class="token operator">&lt;-</span> mccollect<span class="token punctuation">(</span>list<span class="token punctuation">(</span>p<span class="token punctuation">,</span> q<span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -1851,8 +1908,10 @@ mccollect<span class="token punctuation">(</span>p<span class="token punctuation
 jobs <span class="token operator">&lt;-</span> lapply<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> mcparallel<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> name <span class="token operator">=</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span>
 mccollect<span class="token punctuation">(</span>jobs<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="pvec"><main><a href="#pvec" class="help-page-title"><h2>Parallelize a Vector Map Function using Forking</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="pvec"><div class="page-main">
+<a href="#pvec" class="help-page-title"><h2>Parallelize a Vector Map Function using Forking</h2></a>
 
 <h3>Description</h3>
 
@@ -1869,11 +1928,13 @@ doesn't depend on the partition of the vector.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">pvec<span class="token punctuation">(</span>v<span class="token punctuation">,</span> FUN<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> mc.set.seed <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> mc.silent <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">pvec(v, FUN, ..., mc.set.seed = TRUE, mc.silent = FALSE,
+     mc.cores = getOption("mc.cores", 2L), mc.cleanup = TRUE)
+</code><code class="language-r">pvec<span class="token punctuation">(</span>v<span class="token punctuation">,</span> FUN<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> mc.set.seed <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> mc.silent <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
      mc.cores <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"mc.cores"</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mc.cleanup <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1990,7 +2051,34 @@ GUI front-ends and multi-threaded libraries.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">x <span class="token operator">&lt;-</span> pvec<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1000</span><span class="token punctuation">,</span> sqrt<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">x &lt;- pvec(1:1000, sqrt)
+stopifnot(all(x == sqrt(1:1000)))
+
+
+# One use is to convert date strings to unix time in large datasets
+# as that is a relatively slow operation.
+# So let's get some random dates first
+# (A small test only with 2 cores: set options("mc.cores")
+# and increase N for a larger-scale test.)
+N &lt;- 1e5
+dates &lt;- sprintf('%04d-%02d-%02d', as.integer(2000+rnorm(N)),
+                 as.integer(runif(N, 1, 12)), as.integer(runif(N, 1, 28)))
+
+system.time(a &lt;- as.POSIXct(dates))
+
+# But specifying the format is faster
+system.time(a &lt;- as.POSIXct(dates, format = "%Y-%m-%d"))
+
+# pvec ought to be faster, but system overhead can be high
+system.time(b &lt;- pvec(dates, as.POSIXct, format = "%Y-%m-%d"))
+stopifnot(all(a == b))
+
+# using mclapply for this would much slower because each value
+# will require a separate call to as.POSIXct()
+# as lapply(dates, as.POSIXct) does
+system.time(c &lt;- unlist(mclapply(dates, as.POSIXct,  format = "%Y-%m-%d")))
+stopifnot(all(a == c))
+</code><code class="language-r">x <span class="token operator">&lt;-</span> pvec<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1000</span><span class="token punctuation">,</span> sqrt<span class="token punctuation">)</span>
 stopifnot<span class="token punctuation">(</span>all<span class="token punctuation">(</span>x <span class="token operator">==</span> sqrt<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 
@@ -2018,8 +2106,161 @@ stopifnot<span class="token punctuation">(</span>all<span class="token punctuati
 system.time<span class="token punctuation">(</span>c <span class="token operator">&lt;-</span> unlist<span class="token punctuation">(</span>mclapply<span class="token punctuation">(</span>dates<span class="token punctuation">,</span> as.POSIXct<span class="token punctuation">,</span>  format <span class="token operator">=</span> <span class="token string">"%Y-%m-%d"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 stopifnot<span class="token punctuation">(</span>all<span class="token punctuation">(</span>a <span class="token operator">==</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="splitIndices"><main><a href="#splitIndices" class="help-page-title"><h2>Divide Tasks for Distribution in a Cluster</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="RngStream"><div class="page-main">
+<a href="#RngStream" class="help-page-title"><h2>Implementation of Pierre L'Ecuyer's RngStreams</h2></a>
+
+<h3>Description</h3>
+
+<p>This is an <span class="rlang"><b>R</b></span> re-implementation of Pierre L'Ecuyer's
+‘RngStreams’ multiple streams of pseudo-random numbers.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">nextRNGStream(seed)
+nextRNGSubStream(seed)
+
+clusterSetRNGStream(cl = NULL, iseed)
+mc.reset.stream()
+</code><code class="language-r">nextRNGStream<span class="token punctuation">(</span>seed<span class="token punctuation">)</span>
+nextRNGSubStream<span class="token punctuation">(</span>seed<span class="token punctuation">)</span>
+
+clusterSetRNGStream<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> iseed<span class="token punctuation">)</span>
+mc.reset.stream<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table>
+<tr>
+<td><code id="seed">seed</code></td>
+<td>
+<p>An integer vector of length 7 as given by
+<code>.Random.seed</code> when the ‘<span class="samp">⁠"L'Ecuyer-CMRG"⁠</span>’ RNG is in use.
+See <code><a href="https://r-universe.dev/manuals/base.html#Random">RNG</a></code> for the valid values.</p>
+</td>
+</tr>
+<tr>
+<td><code id="cl">cl</code></td>
+<td>
+<p>A cluster from this package or package <a href="https://CRAN.R-project.org/package=snow" target="_blank"><span class="pkg">snow</span></a>, or (if
+<code>NULL</code>) the registered cluster.</p>
+</td>
+</tr>
+<tr>
+<td><code id="iseed">iseed</code></td>
+<td>
+<p>An integer to be supplied to <code><a href="https://r-universe.dev/manuals/base.html#Random">set.seed</a></code>, or
+<code>NULL</code> not to set reproducible seeds.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The ‘RngStreams’ interface works with (potentially) multiple
+streams of pseudo-random numbers: this is particularly suitable for
+working with parallel computations since each task can be assigned a
+separate RNG stream.
+</p>
+<p>This uses as its underlying generator <code>RNGkind("L'Ecuyer-CMRG")</code>,
+of L'Ecuyer (1999), which has a seed vector of 6 (signed) integers and a
+period of around <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>191</mn></msup></mrow><annotation encoding="application/x-tex">2^{191}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">191</span></span></span></span></span></span></span></span></span></span></span></span></code>.  Each ‘stream’ is a
+subsequence of the period of length <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>127</mn></msup></mrow><annotation encoding="application/x-tex">2^{127}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">127</span></span></span></span></span></span></span></span></span></span></span></span></code> which is in
+turn divided into ‘substreams’ of length <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>76</mn></msup></mrow><annotation encoding="application/x-tex">2^{76}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">76</span></span></span></span></span></span></span></span></span></span></span></span></code>.
+</p>
+<p>The idea of L'Ecuyer <em>et al</em> (2002) is to use a separate stream
+for each of the parallel computations (which ensures that the random
+numbers generated never get into to sync) and the parallel
+computations can themselves use substreams if required.  The original
+interface stores the original seed of the first stream, the original
+seed of the current stream and the current seed: this could be
+implemented in <span class="rlang"><b>R</b></span>, but it is as easy to work by saving the relevant
+values of <code>.Random.seed</code>: see the examples.
+</p>
+<p><code>clusterSetRNGStream</code> selects the <code>"L'Ecuyer-CMRG"</code> RNG and
+then distributes streams to the members of a cluster, optionally
+setting the seed of the streams by <code>set.seed(iseed)</code> (otherwise
+they are set from the current seed of the master process: after
+selecting the L'Ecuyer generator).
+</p>
+<p>When not on Windows, Calling <code>mc.reset.stream()</code> after setting
+the L'Ecuyer random number generator and seed makes runs from
+</p>
+<p><code><a href="#mcparallel">mcparallel</a>(mc.set.seed = TRUE)</code>
+reproducible.  This is
+done internally in <code><a href="#mclapply">mclapply</a></code> and <code><a href="#pvec">pvec</a></code>.
+(Note that it does not set the seed in the master process, so does not
+affect the fallback-to-serial versions of these functions.)
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>nextRNGStream</code> and <code>nextRNGSubStream</code>,
+a value which can be assigned to <code>.Random.seed</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Interfaces to L'Ecuyer's C code are available in CRAN
+packages <a href="https://CRAN.R-project.org/package=rlecuyer" target="_blank"><span class="pkg">rlecuyer</span></a> and <a href="https://CRAN.R-project.org/package=rstream" target="_blank"><span class="pkg">rstream</span></a>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Brian Ripley
+</p>
+
+
+<h3>References</h3>
+
+<p>L'Ecuyer, P. (1999).
+Good parameters and implementations for combined multiple recursive
+random number generators.
+<em>Operations Research</em>, <b>47</b>, 159–164.
+<a href="https://doi.org/10.1287/opre.47.1.159" target="_blank">doi:10.1287/opre.47.1.159</a>.
+</p>
+<p>L'Ecuyer, P., Simard, R.,  Chen, E. J. and Kelton, W. D. (2002).
+An object-oriented random-number package with many long streams
+and substreams.
+<em>Operations Research</em>, <b>50</b>, 1073–1075.
+<a href="https://doi.org/10.1287/opre.50.6.1073.358" target="_blank">doi:10.1287/opre.50.6.1073.358</a>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="https://r-universe.dev/manuals/base.html#Random">RNG</a></code> for fuller details of <span class="rlang"><b>R</b></span>'s built-in random number
+generators.
+</p>
+<p>The vignette for package <span class="pkg">parallel</span>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">RNGkind("L'Ecuyer-CMRG")
+set.seed(123)
+(s &lt;- .Random.seed)
+## do some work involving random numbers.
+nextRNGStream(s)
+nextRNGSubStream(s)
+</code><code class="language-r">RNGkind<span class="token punctuation">(</span><span class="token string">"L'Ecuyer-CMRG"</span><span class="token punctuation">)</span>
+set.seed<span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span>s <span class="token operator">&lt;-</span> .Random.seed<span class="token punctuation">)</span>
+<span class="token comment">## do some work involving random numbers.</span>
+nextRNGStream<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+nextRNGSubStream<span class="token punctuation">(</span>s<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div></div>
+<div class="container manual-page" id="splitIndices"><div class="page-main">
+<a href="#splitIndices" class="help-page-title"><h2>Divide Tasks for Distribution in a Cluster</h2></a>
 
 <h3>Description</h3>
 
@@ -2032,10 +2273,11 @@ equal size, as a way to allocate tasks to nodes in a cluster.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">splitIndices<span class="token punctuation">(</span>nx<span class="token punctuation">,</span> ncl<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">splitIndices(nx, ncl)
+</code><code class="language-r">splitIndices<span class="token punctuation">(</span>nx<span class="token punctuation">,</span> ncl<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -2059,10 +2301,12 @@ equal size, as a way to allocate tasks to nodes in a cluster.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">splitIndices<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">splitIndices(20, 3)
+</code><code class="language-r">splitIndices<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
+<hr>
+</div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.2</p></footer>
+    <footer><p>Rendered with postdoc 1.4.0</p></footer>
   </body>
 </html>

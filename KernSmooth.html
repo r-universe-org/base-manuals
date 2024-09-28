@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <!-- styling for math and syntax -->
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
@@ -16,7 +16,7 @@
 
   </head>
 
-  <body class="macintosh">
+  <body class="postdoc macintosh">
     <h1 class="manual-title">Package 'KernSmooth'</h1>
     <table class="description-table">
       <tr>
@@ -45,11 +45,11 @@
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">2.23-22</td>
+<td class="description-version">2.23-24</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-03-27 22:42:15 UTC</td>
+<td class="description-date">2024-06-15 17:27:55 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -84,7 +84,8 @@ Estimate Functions Using Local Polynomials
 
     <hr>
     <div class="manual-pages-content">
-<div class="container manual-page" id="bkde"><main><a href="#bkde" class="help-page-title"><h2>
+<div class="container manual-page" id="bkde"><div class="page-main">
+<a href="#bkde" class="help-page-title"><h2>
 Compute a Binned Kernel Density Estimate
 </h2></a>
 
@@ -98,11 +99,13 @@ density of the data.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">bkde<span class="token punctuation">(</span>x<span class="token punctuation">,</span> kernel <span class="token operator">=</span> <span class="token string">"normal"</span><span class="token punctuation">,</span> canonical <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> bandwidth<span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">bkde(x, kernel = "normal", canonical = FALSE, bandwidth,
+     gridsize = 401L, range.x, truncate = TRUE)
+</code><code class="language-r">bkde<span class="token punctuation">(</span>x<span class="token punctuation">,</span> kernel <span class="token operator">=</span> <span class="token string">"normal"</span><span class="token punctuation">,</span> canonical <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> bandwidth<span class="token punctuation">,</span>
      gridsize <span class="token operator">=</span> <span class="token number">401L</span><span class="token punctuation">,</span> range.x<span class="token punctuation">,</span> truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -239,13 +242,19 @@ Chapman and Hall, London.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(geyser, package="MASS")
+x &lt;- geyser$duration
+est &lt;- bkde(x, bandwidth=0.25)
+plot(est, type="l")
+</code><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
 x <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>duration
 est <span class="token operator">&lt;-</span> bkde<span class="token punctuation">(</span>x<span class="token punctuation">,</span> bandwidth<span class="token operator">=</span><span class="token number">0.25</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>est<span class="token punctuation">,</span> type<span class="token operator">=</span><span class="token string">"l"</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="bkde2D"><main><a href="#bkde2D" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="bkde2D"><div class="page-main">
+<a href="#bkde2D" class="help-page-title"><h2>
 Compute a 2D Binned Kernel Density Estimate
 </h2></a>
 
@@ -260,10 +269,11 @@ density.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">bkde2D<span class="token punctuation">(</span>x<span class="token punctuation">,</span> bandwidth<span class="token punctuation">,</span> gridsize <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">51L</span><span class="token punctuation">,</span> <span class="token number">51L</span><span class="token punctuation">)</span><span class="token punctuation">,</span> range.x<span class="token punctuation">,</span> truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">bkde2D(x, bandwidth, gridsize = c(51L, 51L), range.x, truncate = TRUE)
+</code><code class="language-r">bkde2D<span class="token punctuation">(</span>x<span class="token punctuation">,</span> bandwidth<span class="token punctuation">,</span> gridsize <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">51L</span><span class="token punctuation">,</span> <span class="token number">51L</span><span class="token punctuation">)</span><span class="token punctuation">,</span> range.x<span class="token punctuation">,</span> truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -386,14 +396,21 @@ Chapman and Hall, London.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(geyser, package="MASS")
+x &lt;- cbind(geyser$duration, geyser$waiting)
+est &lt;- bkde2D(x, bandwidth=c(0.7, 7))
+contour(est$x1, est$x2, est$fhat)
+persp(est$fhat)
+</code><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
 x <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span>geyser<span class="token operator">$</span>duration<span class="token punctuation">,</span> geyser<span class="token operator">$</span>waiting<span class="token punctuation">)</span>
 est <span class="token operator">&lt;-</span> bkde2D<span class="token punctuation">(</span>x<span class="token punctuation">,</span> bandwidth<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token number">0.7</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 contour<span class="token punctuation">(</span>est<span class="token operator">$</span>x1<span class="token punctuation">,</span> est<span class="token operator">$</span>x2<span class="token punctuation">,</span> est<span class="token operator">$</span>fhat<span class="token punctuation">)</span>
 persp<span class="token punctuation">(</span>est<span class="token operator">$</span>fhat<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="bkfe"><main><a href="#bkfe" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="bkfe"><div class="page-main">
+<a href="#bkfe" class="help-page-title"><h2>
 Compute a Binned Kernel Functional Estimate 
 </h2></a>
 
@@ -407,11 +424,13 @@ The kernel is the standard normal density.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">bkfe<span class="token punctuation">(</span>x<span class="token punctuation">,</span> drv<span class="token punctuation">,</span> bandwidth<span class="token punctuation">,</span> gridsize <span class="token operator">=</span> <span class="token number">401L</span><span class="token punctuation">,</span> range.x<span class="token punctuation">,</span> binned <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">bkfe(x, drv, bandwidth, gridsize = 401L, range.x, binned = FALSE,
+     truncate = TRUE)
+</code><code class="language-r">bkfe<span class="token punctuation">(</span>x<span class="token punctuation">,</span> drv<span class="token punctuation">,</span> bandwidth<span class="token punctuation">,</span> gridsize <span class="token operator">=</span> <span class="token number">401L</span><span class="token punctuation">,</span> range.x<span class="token punctuation">,</span> binned <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
      truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -519,12 +538,17 @@ Chapman and Hall, London.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(geyser, package="MASS")
+x &lt;- geyser$duration
+est &lt;- bkfe(x, drv=4, bandwidth=0.3)
+</code><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
 x <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>duration
 est <span class="token operator">&lt;-</span> bkfe<span class="token punctuation">(</span>x<span class="token punctuation">,</span> drv<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> bandwidth<span class="token operator">=</span><span class="token number">0.3</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="dpih"><main><a href="#dpih" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="dpih"><div class="page-main">
+<a href="#dpih" class="help-page-title"><h2>
 Select a Histogram Bin Width 
 </h2></a>
 
@@ -537,11 +561,13 @@ a histogram.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">dpih<span class="token punctuation">(</span>x<span class="token punctuation">,</span> scalest <span class="token operator">=</span> <span class="token string">"minim"</span><span class="token punctuation">,</span> level <span class="token operator">=</span> <span class="token number">2L</span><span class="token punctuation">,</span> gridsize <span class="token operator">=</span> <span class="token number">401L</span><span class="token punctuation">,</span> 
+<pre class="language-r"><code class="language-r-input" hidden="hidden">dpih(x, scalest = "minim", level = 2L, gridsize = 401L, 
+     range.x = range(x), truncate = TRUE)
+</code><code class="language-r">dpih<span class="token punctuation">(</span>x<span class="token punctuation">,</span> scalest <span class="token operator">=</span> <span class="token string">"minim"</span><span class="token punctuation">,</span> level <span class="token operator">=</span> <span class="token number">2L</span><span class="token punctuation">,</span> gridsize <span class="token operator">=</span> <span class="token number">401L</span><span class="token punctuation">,</span> 
      range.x <span class="token operator">=</span> range<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -659,14 +685,21 @@ Data-based choice of histogram binwidth.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(geyser, package="MASS")
+x &lt;- geyser$duration
+h &lt;- dpih(x)
+bins &lt;- seq(min(x)-h, max(x)+h, by=h)
+hist(x, breaks=bins)
+</code><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
 x <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>duration
 h <span class="token operator">&lt;-</span> dpih<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 bins <span class="token operator">&lt;-</span> seq<span class="token punctuation">(</span>min<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token operator">-</span>h<span class="token punctuation">,</span> max<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token operator">+</span>h<span class="token punctuation">,</span> by<span class="token operator">=</span>h<span class="token punctuation">)</span>
 hist<span class="token punctuation">(</span>x<span class="token punctuation">,</span> breaks<span class="token operator">=</span>bins<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="dpik"><main><a href="#dpik" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="dpik"><div class="page-main">
+<a href="#dpik" class="help-page-title"><h2>
 Select a Bandwidth for Kernel Density Estimation
 </h2></a>
 
@@ -679,12 +712,15 @@ of a kernel density estimate.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">dpik<span class="token punctuation">(</span>x<span class="token punctuation">,</span> scalest <span class="token operator">=</span> <span class="token string">"minim"</span><span class="token punctuation">,</span> level <span class="token operator">=</span> <span class="token number">2L</span><span class="token punctuation">,</span> kernel <span class="token operator">=</span> <span class="token string">"normal"</span><span class="token punctuation">,</span>   
+<pre class="language-r"><code class="language-r-input" hidden="hidden">dpik(x, scalest = "minim", level = 2L, kernel = "normal",   
+     canonical = FALSE, gridsize = 401L, range.x = range(x), 
+     truncate = TRUE)
+</code><code class="language-r">dpik<span class="token punctuation">(</span>x<span class="token punctuation">,</span> scalest <span class="token operator">=</span> <span class="token string">"minim"</span><span class="token punctuation">,</span> level <span class="token operator">=</span> <span class="token number">2L</span><span class="token punctuation">,</span> kernel <span class="token operator">=</span> <span class="token string">"normal"</span><span class="token punctuation">,</span>   
      canonical <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> gridsize <span class="token operator">=</span> <span class="token number">401L</span><span class="token punctuation">,</span> range.x <span class="token operator">=</span> range<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> 
      truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -820,14 +856,21 @@ Chapman and Hall, London.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(geyser, package="MASS")
+x &lt;- geyser$duration
+h &lt;- dpik(x)
+est &lt;- bkde(x, bandwidth=h)
+plot(est,type="l")
+</code><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"MASS"</span><span class="token punctuation">)</span>
 x <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>duration
 h <span class="token operator">&lt;-</span> dpik<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 est <span class="token operator">&lt;-</span> bkde<span class="token punctuation">(</span>x<span class="token punctuation">,</span> bandwidth<span class="token operator">=</span>h<span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>est<span class="token punctuation">,</span>type<span class="token operator">=</span><span class="token string">"l"</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="dpill"><main><a href="#dpill" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="dpill"><div class="page-main">
+<a href="#dpill" class="help-page-title"><h2>
 Select a Bandwidth for Local Linear Regression
 </h2></a>
 
@@ -841,11 +884,13 @@ by Ruppert, Sheather and Wand (1995).
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">dpill<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> blockmax <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> divisor <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> trim <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">,</span> proptrun <span class="token operator">=</span> <span class="token number">0.05</span><span class="token punctuation">,</span> 
+<pre class="language-r"><code class="language-r-input" hidden="hidden">dpill(x, y, blockmax = 5, divisor = 20, trim = 0.01, proptrun = 0.05, 
+      gridsize = 401L, range.x, truncate = TRUE)
+</code><code class="language-r">dpill<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> blockmax <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> divisor <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> trim <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">,</span> proptrun <span class="token operator">=</span> <span class="token number">0.05</span><span class="token punctuation">,</span> 
       gridsize <span class="token operator">=</span> <span class="token number">401L</span><span class="token punctuation">,</span> range.x<span class="token punctuation">,</span> truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -986,7 +1031,14 @@ Chapman and Hall, London.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">"MASS"</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(geyser, package = "MASS")
+x &lt;- geyser$duration
+y &lt;- geyser$waiting
+plot(x, y)
+h &lt;- dpill(x, y)
+fit &lt;- locpoly(x, y, bandwidth = h)
+lines(fit)
+</code><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">"MASS"</span><span class="token punctuation">)</span>
 x <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>duration
 y <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>waiting
 plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
@@ -994,8 +1046,10 @@ h <span class="token operator">&lt;-</span> dpill<span class="token punctuation"
 fit <span class="token operator">&lt;-</span> locpoly<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> bandwidth <span class="token operator">=</span> h<span class="token punctuation">)</span>
 lines<span class="token punctuation">(</span>fit<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="locpoly"><main><a href="#locpoly" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="locpoly"><div class="page-main">
+<a href="#locpoly" class="help-page-title"><h2>
 Estimate Functions Using Local Polynomials
 </h2></a>
 
@@ -1010,12 +1064,15 @@ over an equally-spaced grid is used.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">locpoly<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> drv <span class="token operator">=</span> <span class="token number">0L</span><span class="token punctuation">,</span> degree<span class="token punctuation">,</span> kernel <span class="token operator">=</span> <span class="token string">"normal"</span><span class="token punctuation">,</span> 
+<pre class="language-r"><code class="language-r-input" hidden="hidden">locpoly(x, y, drv = 0L, degree, kernel = "normal", 
+        bandwidth, gridsize = 401L, bwdisc = 25, 
+        range.x, binned = FALSE, truncate = TRUE)
+</code><code class="language-r">locpoly<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> drv <span class="token operator">=</span> <span class="token number">0L</span><span class="token punctuation">,</span> degree<span class="token punctuation">,</span> kernel <span class="token operator">=</span> <span class="token string">"normal"</span><span class="token punctuation">,</span> 
         bandwidth<span class="token punctuation">,</span> gridsize <span class="token operator">=</span> <span class="token number">401L</span><span class="token punctuation">,</span> bwdisc <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">,</span> 
         range.x<span class="token punctuation">,</span> binned <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> truncate <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1182,7 +1239,18 @@ Chapman and Hall, London.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">"MASS"</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(geyser, package = "MASS")
+# local linear density estimate
+x &lt;- geyser$duration
+est &lt;- locpoly(x, bandwidth = 0.25)
+plot(est, type = "l")
+
+# local linear regression estimate
+y &lt;- geyser$waiting
+plot(x, y)
+fit &lt;- locpoly(x, y, bandwidth = 0.25)
+lines(fit)
+</code><code class="language-r">data<span class="token punctuation">(</span>geyser<span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">"MASS"</span><span class="token punctuation">)</span>
 <span class="token comment"># local linear density estimate</span>
 x <span class="token operator">&lt;-</span> geyser<span class="token operator">$</span>duration
 est <span class="token operator">&lt;-</span> locpoly<span class="token punctuation">(</span>x<span class="token punctuation">,</span> bandwidth <span class="token operator">=</span> <span class="token number">0.25</span><span class="token punctuation">)</span>
@@ -1194,8 +1262,9 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 fit <span class="token operator">&lt;-</span> locpoly<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> bandwidth <span class="token operator">=</span> <span class="token number">0.25</span><span class="token punctuation">)</span>
 lines<span class="token punctuation">(</span>fit<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
+<hr>
+</div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.2</p></footer>
+    <footer><p>Rendered with postdoc 1.4.0</p></footer>
   </body>
 </html>

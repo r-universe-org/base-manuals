@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <!-- styling for math and syntax -->
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
@@ -16,7 +16,7 @@
 
   </head>
 
-  <body class="macintosh">
+  <body class="postdoc macintosh">
     <h1 class="manual-title">Package 'nnet'</h1>
     <table class="description-table">
       <tr>
@@ -47,7 +47,7 @@
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-03-27 22:42:15 UTC</td>
+<td class="description-date">2024-06-15 17:27:55 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -79,7 +79,8 @@ Find Maximum Position in Vector
 
     <hr>
     <div class="manual-pages-content">
-<div class="container manual-page" id="class.ind"><main><a href="#class.ind" class="help-page-title"><h2>
+<div class="container manual-page" id="class.ind"><div class="page-main">
+<a href="#class.ind" class="help-page-title"><h2>
 Generates Class Indicator Matrix from a Factor
 </h2></a>
 
@@ -91,10 +92,11 @@ Generates Class Indicator Matrix from a Factor
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">class.ind<span class="token punctuation">(</span>cl<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">class.ind(cl)
+</code><code class="language-r">class.ind<span class="token punctuation">(</span>cl<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table><tr>
 <td><code id="cl">cl</code></td>
@@ -119,7 +121,17 @@ Generates Class Indicator Matrix from a Factor
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># The function is currently defined as</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden"># The function is currently defined as
+class.ind &lt;- function(cl)
+{
+  n &lt;- length(cl)
+  cl &lt;- as.factor(cl)
+  x &lt;- matrix(0, n, length(levels(cl)) )
+  x[(1:n) + n*(unclass(cl)-1)] &lt;- 1
+  dimnames(x) &lt;- list(names(cl), levels(cl))
+  x
+}
+</code><code class="language-r"><span class="token comment"># The function is currently defined as</span>
 class.ind <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>cl<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
   n <span class="token operator">&lt;-</span> length<span class="token punctuation">(</span>cl<span class="token punctuation">)</span>
@@ -130,8 +142,10 @@ class.ind <span class="token operator">&lt;-</span> <span class="token keyword">
   x
 <span class="token punctuation">}</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="multinom"><main><a href="#multinom" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="multinom"><div class="page-main">
+<a href="#multinom" class="help-page-title"><h2>
 Fit Multinomial Log-linear Models
 </h2></a>
 
@@ -143,12 +157,15 @@ Fit Multinomial Log-linear Models
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">multinom<span class="token punctuation">(</span>formula<span class="token punctuation">,</span> data<span class="token punctuation">,</span> weights<span class="token punctuation">,</span> subset<span class="token punctuation">,</span> na.action<span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">multinom(formula, data, weights, subset, na.action,
+         contrasts = NULL, Hess = FALSE, summ = 0, censored = FALSE,
+         model = FALSE, ...)
+</code><code class="language-r">multinom<span class="token punctuation">(</span>formula<span class="token punctuation">,</span> data<span class="token punctuation">,</span> weights<span class="token punctuation">,</span> subset<span class="token punctuation">,</span> na.action<span class="token punctuation">,</span>
          contrasts <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> Hess <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> summ <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> censored <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
          model <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -328,14 +345,21 @@ explains individual observations exactly).  Also, minus twice log-likelihood.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">oc <span class="token operator">&lt;-</span> options<span class="token punctuation">(</span>contrasts <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"contr.treatment"</span><span class="token punctuation">,</span> <span class="token string">"contr.poly"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">oc &lt;- options(contrasts = c("contr.treatment", "contr.poly"))
+library(MASS)
+example(birthwt)
+(bwt.mu &lt;- multinom(low ~ ., bwt))
+options(oc)
+</code><code class="language-r">oc <span class="token operator">&lt;-</span> options<span class="token punctuation">(</span>contrasts <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"contr.treatment"</span><span class="token punctuation">,</span> <span class="token string">"contr.poly"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 library<span class="token punctuation">(</span>MASS<span class="token punctuation">)</span>
 example<span class="token punctuation">(</span>birthwt<span class="token punctuation">)</span>
 <span class="token punctuation">(</span>bwt.mu <span class="token operator">&lt;-</span> multinom<span class="token punctuation">(</span>low <span class="token operator">~</span> .<span class="token punctuation">,</span> bwt<span class="token punctuation">)</span><span class="token punctuation">)</span>
 options<span class="token punctuation">(</span>oc<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="nnet"><main><a href="#nnet" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="nnet"><div class="page-main">
+<a href="#nnet" class="help-page-title"><h2>
 Fit Neural Networks
 </h2></a>
 
@@ -347,7 +371,19 @@ Fit Neural Networks
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">nnet<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">nnet(x, ...)
+
+## S3 method for class 'formula'
+nnet(formula, data, weights, ...,
+     subset, na.action, contrasts = NULL)
+
+## Default S3 method:
+nnet(x, y, weights, size, Wts, mask,
+     linout = FALSE, entropy = FALSE, softmax = FALSE,
+     censored = FALSE, skip = FALSE, rang = 0.7, decay = 0,
+     maxit = 100, Hess = FALSE, trace = TRUE, MaxNWts = 1000,
+     abstol = 1.0e-4, reltol = 1.0e-8, ...)
+</code><code class="language-r">nnet<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 
 <span class="token comment">## S3 method for class 'formula'</span>
 nnet<span class="token punctuation">(</span>formula<span class="token punctuation">,</span> data<span class="token punctuation">,</span> weights<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span>
@@ -361,7 +397,7 @@ nnet<span class="token punctuation">(</span>x<span class="token punctuation">,</
      abstol <span class="token operator">=</span> <span class="token number">1.0e-4</span><span class="token punctuation">,</span> reltol <span class="token operator">=</span> <span class="token number">1.0e-8</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -661,7 +697,27 @@ Mostly internal structure, but has components
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># use half the iris data</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden"># use half the iris data
+ir &lt;- rbind(iris3[,,1],iris3[,,2],iris3[,,3])
+targets &lt;- class.ind( c(rep("s", 50), rep("c", 50), rep("v", 50)) )
+samp &lt;- c(sample(1:50,25), sample(51:100,25), sample(101:150,25))
+ir1 &lt;- nnet(ir[samp,], targets[samp,], size = 2, rang = 0.1,
+            decay = 5e-4, maxit = 200)
+test.cl &lt;- function(true, pred) {
+    true &lt;- max.col(true)
+    cres &lt;- max.col(pred)
+    table(true, cres)
+}
+test.cl(targets[-samp,], predict(ir1, ir[-samp,]))
+
+
+# or
+ird &lt;- data.frame(rbind(iris3[,,1], iris3[,,2], iris3[,,3]),
+        species = factor(c(rep("s",50), rep("c", 50), rep("v", 50))))
+ir.nn2 &lt;- nnet(species ~ ., data = ird, subset = samp, size = 2, rang = 0.1,
+               decay = 5e-4, maxit = 200)
+table(ird$species[-samp], predict(ir.nn2, ird[-samp,], type = "class"))
+</code><code class="language-r"><span class="token comment"># use half the iris data</span>
 ir <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>iris3<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>iris3<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 targets <span class="token operator">&lt;-</span> class.ind<span class="token punctuation">(</span> c<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
 samp <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span>sample<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sample<span class="token punctuation">(</span><span class="token number">51</span><span class="token operator">:</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sample<span class="token punctuation">(</span><span class="token number">101</span><span class="token operator">:</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -682,8 +738,10 @@ ir.nn2 <span class="token operator">&lt;-</span> nnet<span class="token punctuat
                decay <span class="token operator">=</span> <span class="token number">5e-4</span><span class="token punctuation">,</span> maxit <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">)</span>
 table<span class="token punctuation">(</span>ird<span class="token operator">$</span>species<span class="token punctuation">[</span><span class="token operator">-</span>samp<span class="token punctuation">]</span><span class="token punctuation">,</span> predict<span class="token punctuation">(</span>ir.nn2<span class="token punctuation">,</span> ird<span class="token punctuation">[</span><span class="token operator">-</span>samp<span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"class"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="nnet.Hess"><main><a href="#nnet.Hess" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="nnet.Hess"><div class="page-main">
+<a href="#nnet.Hess" class="help-page-title"><h2>
 Evaluates Hessian for a Neural Network
 </h2></a>
 
@@ -697,10 +755,11 @@ neural network. Normally called via argument <code>Hess=TRUE</code> to <code>nne
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">nnetHess<span class="token punctuation">(</span>net<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> weights<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">nnetHess(net, x, y, weights)
+</code><code class="language-r">nnetHess<span class="token punctuation">(</span>net<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> weights<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -761,7 +820,14 @@ in the net.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># use half the iris data</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden"># use half the iris data
+ir &lt;- rbind(iris3[,,1], iris3[,,2], iris3[,,3])
+targets &lt;- matrix(c(rep(c(1,0,0),50), rep(c(0,1,0),50), rep(c(0,0,1),50)),
+150, 3, byrow=TRUE)
+samp &lt;- c(sample(1:50,25), sample(51:100,25), sample(101:150,25))
+ir1 &lt;- nnet(ir[samp,], targets[samp,], size=2, rang=0.1, decay=5e-4, maxit=200)
+eigen(nnetHess(ir1, ir[samp,], targets[samp,]), TRUE)$values
+</code><code class="language-r"><span class="token comment"># use half the iris data</span>
 ir <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 targets <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span>c<span class="token punctuation">(</span>rep<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token number">150</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> byrow<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span>
@@ -769,8 +835,10 @@ samp <span class="token operator">&lt;-</span> c<span class="token punctuation">
 ir1 <span class="token operator">&lt;-</span> nnet<span class="token punctuation">(</span>ir<span class="token punctuation">[</span>samp<span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span> targets<span class="token punctuation">[</span>samp<span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span> size<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> rang<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">,</span> decay<span class="token operator">=</span><span class="token number">5e-4</span><span class="token punctuation">,</span> maxit<span class="token operator">=</span><span class="token number">200</span><span class="token punctuation">)</span>
 eigen<span class="token punctuation">(</span>nnetHess<span class="token punctuation">(</span>ir1<span class="token punctuation">,</span> ir<span class="token punctuation">[</span>samp<span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span> targets<span class="token punctuation">[</span>samp<span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token operator">$</span>values</code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="predict.nnet"><main><a href="#predict.nnet" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="predict.nnet"><div class="page-main">
+<a href="#predict.nnet" class="help-page-title"><h2>
 Predict New Examples by a Trained Neural Net
 </h2></a>
 
@@ -782,11 +850,13 @@ Predict New Examples by a Trained Neural Net
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'nnet'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'nnet'
+predict(object, newdata, type = c("raw","class"), ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'nnet'</span>
 predict<span class="token punctuation">(</span>object<span class="token punctuation">,</span> newdata<span class="token punctuation">,</span> type <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"raw"</span><span class="token punctuation">,</span><span class="token string">"class"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -860,7 +930,26 @@ useful if the net was generated by <code>nnet.formula</code>).
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment"># use half the iris data</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden"># use half the iris data
+ir &lt;- rbind(iris3[,,1], iris3[,,2], iris3[,,3])
+targets &lt;- class.ind( c(rep("s", 50), rep("c", 50), rep("v", 50)) )
+samp &lt;- c(sample(1:50,25), sample(51:100,25), sample(101:150,25))
+ir1 &lt;- nnet(ir[samp,], targets[samp,],size = 2, rang = 0.1,
+            decay = 5e-4, maxit = 200)
+test.cl &lt;- function(true, pred){
+        true &lt;- max.col(true)
+        cres &lt;- max.col(pred)
+        table(true, cres)
+}
+test.cl(targets[-samp,], predict(ir1, ir[-samp,]))
+
+# or
+ird &lt;- data.frame(rbind(iris3[,,1], iris3[,,2], iris3[,,3]),
+        species = factor(c(rep("s",50), rep("c", 50), rep("v", 50))))
+ir.nn2 &lt;- nnet(species ~ ., data = ird, subset = samp, size = 2, rang = 0.1,
+               decay = 5e-4, maxit = 200)
+table(ird$species[-samp], predict(ir.nn2, ird[-samp,], type = "class"))
+</code><code class="language-r"><span class="token comment"># use half the iris data</span>
 ir <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>iris3<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> iris3<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 targets <span class="token operator">&lt;-</span> class.ind<span class="token punctuation">(</span> c<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
 samp <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span>sample<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sample<span class="token punctuation">(</span><span class="token number">51</span><span class="token operator">:</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sample<span class="token punctuation">(</span><span class="token number">101</span><span class="token operator">:</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -880,8 +969,10 @@ ir.nn2 <span class="token operator">&lt;-</span> nnet<span class="token punctuat
                decay <span class="token operator">=</span> <span class="token number">5e-4</span><span class="token punctuation">,</span> maxit <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">)</span>
 table<span class="token punctuation">(</span>ird<span class="token operator">$</span>species<span class="token punctuation">[</span><span class="token operator">-</span>samp<span class="token punctuation">]</span><span class="token punctuation">,</span> predict<span class="token punctuation">(</span>ir.nn2<span class="token punctuation">,</span> ird<span class="token punctuation">[</span><span class="token operator">-</span>samp<span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"class"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="which.is.max"><main><a href="#which.is.max" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="which.is.max"><div class="page-main">
+<a href="#which.is.max" class="help-page-title"><h2>
 Find Maximum Position in Vector
 </h2></a>
 
@@ -893,10 +984,11 @@ Find Maximum Position in Vector
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">which.is.max<span class="token punctuation">(</span>x<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">which.is.max(x)
+</code><code class="language-r">which.is.max<span class="token punctuation">(</span>x<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table><tr>
 <td><code id="x">x</code></td>
@@ -933,14 +1025,19 @@ Find Maximum Position in Vector
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: ## this is incomplete</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Not run: ## this is incomplete
+pred &lt;- predict(nnet, test)
+table(true, apply(pred, 1, which.is.max))
+
+## End(Not run)</code><code class="language-r"><span class="token comment">## Not run: ## this is incomplete</span>
 pred <span class="token operator">&lt;-</span> predict<span class="token punctuation">(</span>nnet<span class="token punctuation">,</span> test<span class="token punctuation">)</span>
 table<span class="token punctuation">(</span>true<span class="token punctuation">,</span> apply<span class="token punctuation">(</span>pred<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> which.is.max<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
+<hr>
+</div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.2</p></footer>
+    <footer><p>Rendered with postdoc 1.4.0</p></footer>
   </body>
 </html>

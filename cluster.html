@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <!-- styling for math and syntax -->
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
@@ -16,7 +16,7 @@
 
   </head>
 
-  <body class="macintosh">
+  <body class="postdoc macintosh">
     <h1 class="manual-title">Package 'cluster'</h1>
     <table class="description-table">
       <tr>
@@ -61,7 +61,7 @@ al.</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-03-27 22:42:19 UTC</td>
+<td class="description-date">2024-06-15 17:27:59 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -128,7 +128,8 @@ al.</td>
 
     <hr>
     <div class="manual-pages-content">
-<div class="container manual-page" id="agnes"><main><a href="#agnes" class="help-page-title"><h2>Agglomerative Nesting (Hierarchical Clustering)</h2></a>
+<div class="container manual-page" id="agnes"><div class="page-main">
+<a href="#agnes" class="help-page-title"><h2>Agglomerative Nesting (Hierarchical Clustering)</h2></a>
 
 <h3>Description</h3>
 
@@ -138,12 +139,15 @@ al.</td>
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">agnes<span class="token punctuation">(</span>x<span class="token punctuation">,</span> diss <span class="token operator">=</span> inherits<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"dist"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> metric <span class="token operator">=</span> <span class="token string">"euclidean"</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">agnes(x, diss = inherits(x, "dist"), metric = "euclidean",
+      stand = FALSE, method = "average", par.method,
+      keep.diss = n &lt; 100, keep.data = !diss, trace.lev = 0)
+</code><code class="language-r">agnes<span class="token punctuation">(</span>x<span class="token punctuation">,</span> diss <span class="token operator">=</span> inherits<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"dist"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> metric <span class="token operator">=</span> <span class="token string">"euclidean"</span><span class="token punctuation">,</span>
       stand <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"average"</span><span class="token punctuation">,</span> par.method<span class="token punctuation">,</span>
       keep.diss <span class="token operator">=</span> n <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">,</span> keep.data <span class="token operator">=</span> <span class="token operator">!</span>diss<span class="token punctuation">,</span> trace.lev <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -421,7 +425,60 @@ Two Approaches to Beta-Flexible Clustering.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(votes.repub)
+agn1 &lt;- agnes(votes.repub, metric = "manhattan", stand = TRUE)
+agn1
+plot(agn1)
+
+op &lt;- par(mfrow=c(2,2))
+agn2 &lt;- agnes(daisy(votes.repub), diss = TRUE, method = "complete")
+plot(agn2)
+## alpha = 0.625 ==&gt; beta = -1/4  is "recommended" by some
+agnS &lt;- agnes(votes.repub, method = "flexible", par.meth = 0.625)
+plot(agnS)
+par(op)
+
+## "show" equivalence of three "flexible" special cases
+d.vr &lt;- daisy(votes.repub)
+a.wgt  &lt;- agnes(d.vr, method = "weighted")
+a.sing &lt;- agnes(d.vr, method = "single")
+a.comp &lt;- agnes(d.vr, method = "complete")
+iC &lt;- -(6:7) # not using 'call' and 'method' for comparisons
+stopifnot(
+  all.equal(a.wgt [iC], agnes(d.vr, method="flexible", par.method = 0.5)[iC])   ,
+  all.equal(a.sing[iC], agnes(d.vr, method="flex", par.method= c(.5,.5,0, -.5))[iC]),
+  all.equal(a.comp[iC], agnes(d.vr, method="flex", par.method= c(.5,.5,0, +.5))[iC]))
+
+## Exploring the dendrogram structure
+(d2 &lt;- as.dendrogram(agn2)) # two main branches
+d2[[1]] # the first branch
+d2[[2]] # the 2nd one  { 8 + 42  = 50 }
+d2[[1]][[1]]# first sub-branch of branch 1 .. and shorter form
+identical(d2[[c(1,1)]],
+          d2[[1]][[1]])
+## a "textual picture" of the dendrogram :
+str(d2)
+
+data(agriculture)
+
+## Plot similar to Figure 7 in ref
+## Not run: plot(agnes(agriculture), ask = TRUE)
+
+
+data(animals)
+aa.a  &lt;- agnes(animals) # default method = "average"
+aa.ga &lt;- agnes(animals, method = "gaverage")
+op &lt;- par(mfcol=1:2, mgp=c(1.5, 0.6, 0), mar=c(.1+ c(4,3,2,1)),
+          cex.main=0.8)
+plot(aa.a,  which.plot = 2)
+plot(aa.ga, which.plot = 2)
+par(op)
+
+
+## Show how "gaverage" is a "generalized average":
+aa.ga.0 &lt;- agnes(animals, method = "gaverage", par.method = 0)
+stopifnot(all.equal(aa.ga.0[iC], aa.a[iC]))
+</code><code class="language-r">data<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span>
 agn1 <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>votes.repub<span class="token punctuation">,</span> metric <span class="token operator">=</span> <span class="token string">"manhattan"</span><span class="token punctuation">,</span> stand <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 agn1
 plot<span class="token punctuation">(</span>agn1<span class="token punctuation">)</span>
@@ -475,8 +532,10 @@ par<span class="token punctuation">(</span>op<span class="token punctuation">)</
 aa.ga.<span class="token number">0</span> <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>animals<span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"gaverage"</span><span class="token punctuation">,</span> par.method <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
 stopifnot<span class="token punctuation">(</span>all.equal<span class="token punctuation">(</span>aa.ga.<span class="token number">0</span><span class="token punctuation">[</span>iC<span class="token punctuation">]</span><span class="token punctuation">,</span> aa.a<span class="token punctuation">[</span>iC<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="agnes.object"><main><a href="#agnes.object" class="help-page-title"><h2>Agglomerative Nesting (AGNES) Object</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="agnes.object"><div class="page-main">
+<a href="#agnes.object" class="help-page-title"><h2>Agglomerative Nesting (AGNES) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -608,7 +667,16 @@ available, of course.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(agriculture)
+ag.ag &lt;- agnes(agriculture)
+class(ag.ag)
+pltree(ag.ag) # the dendrogram
+
+## cut the dendrogram -&gt; get cluster assignments:
+(ck3 &lt;- cutree(ag.ag, k = 3))
+(ch6 &lt;- cutree(as.hclust(ag.ag), h = 6))
+stopifnot(identical(unname(ch6), ck3))
+</code><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
 ag.ag <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
 class<span class="token punctuation">(</span>ag.ag<span class="token punctuation">)</span>
 pltree<span class="token punctuation">(</span>ag.ag<span class="token punctuation">)</span> <span class="token comment"># the dendrogram</span>
@@ -618,8 +686,10 @@ pltree<span class="token punctuation">(</span>ag.ag<span class="token punctuatio
 <span class="token punctuation">(</span>ch6 <span class="token operator">&lt;-</span> cutree<span class="token punctuation">(</span>as.hclust<span class="token punctuation">(</span>ag.ag<span class="token punctuation">)</span><span class="token punctuation">,</span> h <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>unname<span class="token punctuation">(</span>ch6<span class="token punctuation">)</span><span class="token punctuation">,</span> ck3<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="agriculture"><main><a href="#agriculture" class="help-page-title"><h2>European Union Agricultural Workforces</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="agriculture"><div class="page-main">
+<a href="#agriculture" class="help-page-title"><h2>European Union Agricultural Workforces</h2></a>
 
 <h3>Description</h3>
 
@@ -631,7 +701,7 @@ European Union in 1993.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(agriculture)</code><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span></code></pre>
 
 
 <h3>Format</h3>
@@ -688,7 +758,23 @@ consisting of Greece, Portugal, Spain, and Ireland.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(agriculture)
+
+## Compute the dissimilarities using Euclidean metric and without
+## standardization
+daisy(agriculture, metric = "euclidean", stand = FALSE)
+
+## 2nd plot is similar to Figure 3 in Struyf et al (1996)
+plot(pam(agriculture, 2))
+
+## Plot similar to Figure 7 in Struyf et al (1996)
+## Not run: plot(agnes(agriculture), ask = TRUE)
+
+
+## Plot similar to Figure 8 in Struyf et al (1996)
+## Not run: plot(diana(agriculture), ask = TRUE)
+
+</code><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
 
 <span class="token comment">## Compute the dissimilarities using Euclidean metric and without</span>
 <span class="token comment">## standardization</span>
@@ -704,8 +790,10 @@ plot<span class="token punctuation">(</span>pam<span class="token punctuation">(
 <span class="token comment">## Plot similar to Figure 8 in Struyf et al (1996)</span>
 <span class="token comment">## Not run: plot(diana(agriculture), ask = TRUE)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="animals"><main><a href="#animals" class="help-page-title"><h2>Attributes of Animals</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="animals"><div class="page-main">
+<a href="#animals" class="help-page-title"><h2>Attributes of Animals</h2></a>
 
 <h3>Description</h3>
 
@@ -715,7 +803,7 @@ plot<span class="token punctuation">(</span>pam<span class="token punctuation">(
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>animals<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(animals)</code><code class="language-r">data<span class="token punctuation">(</span>animals<span class="token punctuation">)</span></code></pre>
 
 
 <h3>Format</h3>
@@ -793,7 +881,14 @@ New York: Wiley.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>animals<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(animals)
+apply(animals,2, table) # simple overview
+
+ma &lt;- mona(animals)
+ma
+## Plot similar to Figure 10 in Struyf et al (1996)
+plot(ma)
+</code><code class="language-r">data<span class="token punctuation">(</span>animals<span class="token punctuation">)</span>
 apply<span class="token punctuation">(</span>animals<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span> table<span class="token punctuation">)</span> <span class="token comment"># simple overview</span>
 
 ma <span class="token operator">&lt;-</span> mona<span class="token punctuation">(</span>animals<span class="token punctuation">)</span>
@@ -801,8 +896,10 @@ ma
 <span class="token comment">## Plot similar to Figure 10 in Struyf et al (1996)</span>
 plot<span class="token punctuation">(</span>ma<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="bannerplot"><main><a href="#bannerplot" class="help-page-title"><h2>Plot Banner (of Hierarchical Clustering)</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="bannerplot"><div class="page-main">
+<a href="#bannerplot" class="help-page-title"><h2>Plot Banner (of Hierarchical Clustering)</h2></a>
 
 <h3>Description</h3>
 
@@ -814,7 +911,14 @@ an other binary dendrogram structure.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">bannerplot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> w <span class="token operator">=</span> rev<span class="token punctuation">(</span>x<span class="token operator">$</span>height<span class="token punctuation">)</span><span class="token punctuation">,</span> fromLeft <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">bannerplot(x, w = rev(x$height), fromLeft = TRUE,
+           main=NULL, sub=NULL, xlab = "Height",  adj = 0,
+           col = c(2, 0), border = 0, axes = TRUE, frame.plot = axes,
+           rev.xax = !fromLeft, xax.pretty = TRUE,
+           labels = NULL, nmax.lab = 35, max.strlen = 5,
+           yax.do = axes &amp;&amp; length(x$order) &lt;= nmax.lab,
+           yaxRight = fromLeft, y.mar = 2.4 + max.strlen/2.5, ...)
+</code><code class="language-r">bannerplot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> w <span class="token operator">=</span> rev<span class="token punctuation">(</span>x<span class="token operator">$</span>height<span class="token punctuation">)</span><span class="token punctuation">,</span> fromLeft <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
            main<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span> sub<span class="token operator">=</span><span class="token keyword">NULL</span><span class="token punctuation">,</span> xlab <span class="token operator">=</span> <span class="token string">"Height"</span><span class="token punctuation">,</span>  adj <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
            col <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> border <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> axes <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> frame.plot <span class="token operator">=</span> axes<span class="token punctuation">,</span>
            rev.xax <span class="token operator">=</span> <span class="token operator">!</span>fromLeft<span class="token punctuation">,</span> xax.pretty <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
@@ -823,7 +927,7 @@ an other binary dendrogram structure.
            yaxRight <span class="token operator">=</span> fromLeft<span class="token punctuation">,</span> y.mar <span class="token operator">=</span> <span class="token number">2.4</span> <span class="token operator">+</span> max.strlen<span class="token operator">/</span><span class="token number">2.5</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -970,11 +1074,15 @@ be supplied as arguments to this function.</p>
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(agriculture)
+bannerplot(agnes(agriculture), main = "Bannerplot")
+</code><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
 bannerplot<span class="token punctuation">(</span>agnes<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span><span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token string">"Bannerplot"</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="chorSub"><main><a href="#chorSub" class="help-page-title"><h2>Subset of C-horizon of Kola Data</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="chorSub"><div class="page-main">
+<a href="#chorSub" class="help-page-title"><h2>Subset of C-horizon of Kola Data</h2></a>
 
 <h3>Description</h3>
 
@@ -985,7 +1093,7 @@ bannerplot<span class="token punctuation">(</span>agnes<span class="token punctu
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>chorSub<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(chorSub)</code><code class="language-r">data<span class="token punctuation">(</span>chorSub<span class="token punctuation">)</span></code></pre>
 
 
 <h3>Format</h3>
@@ -1022,12 +1130,17 @@ Kola data in the same package.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>chorSub<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(chorSub)
+summary(chorSub)
+pairs(chorSub, gap= .1)# some outliers
+</code><code class="language-r">data<span class="token punctuation">(</span>chorSub<span class="token punctuation">)</span>
 summary<span class="token punctuation">(</span>chorSub<span class="token punctuation">)</span>
 pairs<span class="token punctuation">(</span>chorSub<span class="token punctuation">,</span> gap<span class="token operator">=</span> <span class="token number">.1</span><span class="token punctuation">)</span><span class="token comment"># some outliers</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="clara"><main><a href="#clara" class="help-page-title"><h2>Clustering Large Applications</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="clara"><div class="page-main">
+<a href="#clara" class="help-page-title"><h2>Clustering Large Applications</h2></a>
 
 <h3>Description</h3>
 
@@ -1038,13 +1151,17 @@ clustering of the data into <code>k</code> clusters.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">clara<span class="token punctuation">(</span>x<span class="token punctuation">,</span> k<span class="token punctuation">,</span> metric <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"euclidean"</span><span class="token punctuation">,</span> <span class="token string">"manhattan"</span><span class="token punctuation">,</span> <span class="token string">"jaccard"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">clara(x, k, metric = c("euclidean", "manhattan", "jaccard"),
+      stand = FALSE, cluster.only = FALSE, samples = 5,
+      sampsize = min(n, 40 + 2 * k), trace = 0, medoids.x = TRUE,
+      keep.data = medoids.x, rngR = FALSE, pamLike = FALSE, correct.d = TRUE)
+</code><code class="language-r">clara<span class="token punctuation">(</span>x<span class="token punctuation">,</span> k<span class="token punctuation">,</span> metric <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"euclidean"</span><span class="token punctuation">,</span> <span class="token string">"manhattan"</span><span class="token punctuation">,</span> <span class="token string">"jaccard"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
       stand <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> cluster.only <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> samples <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span>
       sampsize <span class="token operator">=</span> min<span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token number">40</span> <span class="token operator">+</span> <span class="token number">2</span> <span class="token operator">*</span> k<span class="token punctuation">)</span><span class="token punctuation">,</span> trace <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> medoids.x <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
       keep.data <span class="token operator">=</span> medoids.x<span class="token punctuation">,</span> rngR <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> pamLike <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> correct.d <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1141,8 +1258,6 @@ one copy less of <code>x</code>.</p>
 <td>
 <p>logical indicating if the (<em>scaled</em> if
 <code>stand</code> is true) data should be kept in the result.
-
-
 Setting this to <code>FALSE</code> saves memory (and hence time), but
 disables <code><a href="#clusplot.partition">clusplot</a>()</code>ing of the result.  Use
 <code>medoids.x = FALSE</code> to save even more memory.</p>
@@ -1227,7 +1342,6 @@ integer vector of length <code class="reqn"><span class="katex"><span class="kat
 
 <h3>Note</h3>
 
-
 <p>By default, the random sampling is implemented with a <em>very</em>
 simple scheme (with period <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>16</mn></msup><mo>=</mo><mn>65536</mn></mrow><annotation encoding="application/x-tex">2^{16} = 65536</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">16</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">65536</span></span></span></span></code>) inside the Fortran
 code, independently of <span class="rlang"><b>R</b></span>'s random number generation, and as a matter
@@ -1275,7 +1389,50 @@ tests by Martin Maechler.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## generate 500 objects, divided into 2 clusters.</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## generate 500 objects, divided into 2 clusters.
+x &lt;- rbind(cbind(rnorm(200,0,8), rnorm(200,0,8)),
+           cbind(rnorm(300,50,8), rnorm(300,50,8)))
+clarax &lt;- clara(x, 2, samples=50)
+clarax
+clarax$clusinfo
+## using pamLike=TRUE  gives the same (apart from the 'call'):
+all.equal(clarax[-8],
+          clara(x, 2, samples=50, pamLike = TRUE)[-8])
+plot(clarax)
+
+## cluster.only = TRUE -- save some memory/time :
+clclus &lt;- clara(x, 2, samples=50, cluster.only = TRUE)
+stopifnot(identical(clclus, clarax$clustering))
+
+
+## 'xclara' is an artificial data set with 3 clusters of 1000 bivariate
+## objects each.
+data(xclara)
+(clx3 &lt;- clara(xclara, 3))
+## "better" number of samples
+cl.3 &lt;- clara(xclara, 3, samples=100)
+## but that did not change the result here:
+stopifnot(cl.3$clustering == clx3$clustering)
+## Plot similar to Figure 5 in Struyf et al (1996)
+## Not run: plot(clx3, ask = TRUE)
+
+
+## Try 100 times *different* random samples -- for reliability:
+nSim &lt;- 100
+nCl &lt;- 3 # = no.classes
+set.seed(421)# (reproducibility)
+cl &lt;- matrix(NA,nrow(xclara), nSim)
+for(i in 1:nSim)
+   cl[,i] &lt;- clara(xclara, nCl, medoids.x = FALSE, rngR = TRUE)$cluster
+tcl &lt;- apply(cl,1, tabulate, nbins = nCl)
+## those that are not always in same cluster (5 out of 3000 for this seed):
+(iDoubt &lt;- which(apply(tcl,2, function(n) all(n &lt; nSim))))
+if(length(iDoubt)) { # (not for all seeds)
+  tabD &lt;- tcl[,iDoubt, drop=FALSE]
+  dimnames(tabD) &lt;- list(cluster = paste(1:nCl), obs = format(iDoubt))
+  t(tabD) # how many times in which clusters
+}
+</code><code class="language-r"><span class="token comment">## generate 500 objects, divided into 2 clusters.</span>
 x <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
            cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 clarax <span class="token operator">&lt;-</span> clara<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> samples<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span>
@@ -1319,8 +1476,10 @@ tcl <span class="token operator">&lt;-</span> apply<span class="token punctuatio
   t<span class="token punctuation">(</span>tabD<span class="token punctuation">)</span> <span class="token comment"># how many times in which clusters</span>
 <span class="token punctuation">}</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="clara.object"><main><a href="#clara.object" class="help-page-title"><h2>Clustering Large Applications (CLARA) Object</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="clara.object"><div class="page-main">
+<a href="#clara.object" class="help-page-title"><h2>Clustering Large Applications (CLARA) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -1433,8 +1592,10 @@ be used on a <code>clara</code> object.
 <code><a href="#partition.object">partition.object</a></code>, <code><a href="#plot.partition">plot.partition</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="clusGap"><main><a href="#clusGap" class="help-page-title"><h2>Gap Statistic for Estimating the Number of Clusters</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="clusGap"><div class="page-main">
+<a href="#clusGap" class="help-page-title"><h2>Gap Statistic for Estimating the Number of Clusters</h2></a>
 
 <h3>Description</h3>
 
@@ -1461,7 +1622,23 @@ gap statistics and their standard deviations.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">clusGap<span class="token punctuation">(</span>x<span class="token punctuation">,</span> FUNcluster<span class="token punctuation">,</span> K.max<span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">,</span> d.power <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">clusGap(x, FUNcluster, K.max, B = 100, d.power = 1,
+        spaceH0 = c("scaledPCA", "original"),
+        verbose = interactive(), ...)
+
+maxSE(f, SE.f,
+      method = c("firstSEmax", "Tibs2001SEmax", "globalSEmax",
+                 "firstmax", "globalmax"),
+      SE.factor = 1)
+
+## S3 method for class 'clusGap'
+print(x, method = "firstSEmax", SE.factor = 1, ...)
+
+## S3 method for class 'clusGap'
+plot(x, type = "b", xlab = "k", ylab = expression(Gap[k]),
+     main = NULL, do.arrows = TRUE,
+     arrowArgs = list(col="red3", length=1/16, angle=90, code=3), ...)
+</code><code class="language-r">clusGap<span class="token punctuation">(</span>x<span class="token punctuation">,</span> FUNcluster<span class="token punctuation">,</span> K.max<span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">,</span> d.power <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
         spaceH0 <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"scaledPCA"</span><span class="token punctuation">,</span> <span class="token string">"original"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         verbose <span class="token operator">=</span> interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 
@@ -1479,7 +1656,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
      arrowArgs <span class="token operator">=</span> list<span class="token punctuation">(</span>col<span class="token operator">=</span><span class="token string">"red3"</span><span class="token punctuation">,</span> length<span class="token operator">=</span><span class="token number">1</span><span class="token operator">/</span><span class="token number">16</span><span class="token punctuation">,</span> angle<span class="token operator">=</span><span class="token number">90</span><span class="token punctuation">,</span> code<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1782,7 +1959,73 @@ alternative measures.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">### --- maxSE() methods -------------------------------------------</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">### --- maxSE() methods -------------------------------------------
+(mets &lt;- eval(formals(maxSE)$method))
+fk &lt;- c(2,3,5,4,7,8,5,4)
+sk &lt;- c(1,1,2,1,1,3,1,1)/2
+## use plot.clusGap():
+plot(structure(class="clusGap", list(Tab = cbind(gap=fk, SE.sim=sk))))
+## Note that 'firstmax' and 'globalmax' are always at 3 and 6 :
+sapply(c(1/4, 1,2,4), function(SEf)
+        sapply(mets, function(M) maxSE(fk, sk, method = M, SE.factor = SEf)))
+
+### --- clusGap() -------------------------------------------------
+## ridiculously nicely separated clusters in 3 D :
+x &lt;- rbind(matrix(rnorm(150,           sd = 0.1), ncol = 3),
+           matrix(rnorm(150, mean = 1, sd = 0.1), ncol = 3),
+           matrix(rnorm(150, mean = 2, sd = 0.1), ncol = 3),
+           matrix(rnorm(150, mean = 3, sd = 0.1), ncol = 3))
+
+## Slightly faster way to use pam (see below)
+pam1 &lt;- function(x,k) list(cluster = pam(x,k, cluster.only=TRUE))
+
+## We do not recommend using hier.clustering here, but if you want,
+## there is  factoextra::hcut () or a cheap version of it
+hclusCut &lt;- function(x, k, d.meth = "euclidean", ...)
+   list(cluster = cutree(hclust(dist(x, method=d.meth), ...), k=k))
+
+## You can manually set it before running this :    doExtras &lt;- TRUE  # or  FALSE
+if(!(exists("doExtras") &amp;&amp; is.logical(doExtras)))
+  doExtras &lt;- cluster:::doExtras()
+
+if(doExtras) {
+  ## Note we use  B = 60 in the following examples to keep them "speedy".
+  ## ---- rather keep the default B = 500 for your analysis!
+
+  ## note we can  pass 'nstart = 20' to kmeans() :
+  gskmn &lt;- clusGap(x, FUN = kmeans, nstart = 20, K.max = 8, B = 60)
+  gskmn #-&gt; its print() method
+  plot(gskmn, main = "clusGap(., FUN = kmeans, n.start=20, B= 60)")
+  set.seed(12); system.time(
+    gsPam0 &lt;- clusGap(x, FUN = pam, K.max = 8, B = 60)
+  )
+  set.seed(12); system.time(
+    gsPam1 &lt;- clusGap(x, FUN = pam1, K.max = 8, B = 60)
+  )
+  ## and show that it gives the "same":
+  not.eq &lt;- c("call", "FUNcluster"); n &lt;- names(gsPam0)
+  eq &lt;- n[!(n %in% not.eq)]
+  stopifnot(identical(gsPam1[eq], gsPam0[eq]))
+  print(gsPam1, method="globalSEmax")
+  print(gsPam1, method="globalmax")
+
+  print(gsHc &lt;- clusGap(x, FUN = hclusCut, K.max = 8, B = 60))
+
+}# end {doExtras}
+
+gs.pam.RU &lt;- clusGap(ruspini, FUN = pam1, K.max = 8, B = 60)
+gs.pam.RU
+plot(gs.pam.RU, main = "Gap statistic for the 'ruspini' data")
+mtext("k = 4 is best .. and  k = 5  pretty close")
+
+## This takes a minute..
+## No clustering ==&gt; k = 1 ("one cluster") should be optimal:
+Z &lt;- matrix(rnorm(256*3), 256,3)
+gsP.Z &lt;- clusGap(Z, FUN = pam1, K.max = 8, B = 200)
+plot(gsP.Z, main = "clusGap(&lt;iid_rnorm_p=3&gt;)  ==&gt; k = 1  cluster is optimal")
+gsP.Z
+
+</code><code class="language-r"><span class="token comment">### --- maxSE() methods -------------------------------------------</span>
 <span class="token punctuation">(</span>mets <span class="token operator">&lt;-</span> eval<span class="token punctuation">(</span>formals<span class="token punctuation">(</span>maxSE<span class="token punctuation">)</span><span class="token operator">$</span>method<span class="token punctuation">)</span><span class="token punctuation">)</span>
 fk <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span>
 sk <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span>
@@ -1848,8 +2091,10 @@ gsP.Z <span class="token operator">&lt;-</span> clusGap<span class="token punctu
 plot<span class="token punctuation">(</span>gsP.Z<span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token string">"clusGap(&lt;iid_rnorm_p=3&gt;)  ==&gt; k = 1  cluster is optimal"</span><span class="token punctuation">)</span>
 gsP.Z</code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="clusplot.partition"><main><a href="#clusplot.partition" class="help-page-title"><h2>Bivariate Cluster Plot (of a Partitioning Object)</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="clusplot.partition"><div class="page-main">
+<a href="#clusplot.partition" class="help-page-title"><h2>Bivariate Cluster Plot (of a Partitioning Object)</h2></a>
 
 <h3>Description</h3>
 
@@ -1861,13 +2106,17 @@ The generic function has a default and a <code>partition</code> method.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">clusplot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">clusplot(x, ...)
+
+## S3 method for class 'partition'
+clusplot(x, main = NULL, dist = NULL, ...)
+</code><code class="language-r">clusplot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 
 <span class="token comment">## S3 method for class 'partition'</span>
 clusplot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> dist <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1947,7 +2196,16 @@ list with components <code>Distances</code> and <code>Shading</code>, as for
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## For more, see ?clusplot.default</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden"> ## For more, see ?clusplot.default
+
+## generate 25 objects, divided into 2 clusters.
+x &lt;- rbind(cbind(rnorm(10,0,0.5), rnorm(10,0,0.5)),
+           cbind(rnorm(15,5,0.5), rnorm(15,5,0.5)))
+clusplot(pam(x, 2))
+## add noise, and try again :
+x4 &lt;- cbind(x, rnorm(25), rnorm(25))
+clusplot(pam(x4, 2))
+</code><code class="language-r"><span class="token comment">## For more, see ?clusplot.default</span>
 
 <span class="token comment">## generate 25 objects, divided into 2 clusters.</span>
 x <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -1957,8 +2215,10 @@ clusplot<span class="token punctuation">(</span>pam<span class="token punctuatio
 x4 <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span>x<span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 clusplot<span class="token punctuation">(</span>pam<span class="token punctuation">(</span>x4<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="clusplot.default"><main><a href="#clusplot.default" class="help-page-title"><h2>Bivariate Cluster Plot (clusplot) Default Method</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="clusplot.default"><div class="page-main">
+<a href="#clusplot.default" class="help-page-title"><h2>Bivariate Cluster Plot (clusplot) Default Method</h2></a>
 
 <h3>Description</h3>
 
@@ -1971,7 +2231,23 @@ is drawn.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Default S3 method:</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Default S3 method:
+clusplot(x, clus, diss = FALSE,
+          s.x.2d = mkCheckX(x, diss), stand = FALSE,
+          lines = 2, shade = FALSE, color = FALSE,
+          labels= 0, plotchar = TRUE,
+          col.p = "dark green", col.txt = col.p,
+          col.clus = if(color) c(2, 4, 6, 3) else 5, cex = 1, cex.txt = cex,
+          span = TRUE,
+          add = FALSE,
+          xlim = NULL, ylim = NULL,
+          main = paste("CLUSPLOT(", deparse1(substitute(x)),")"),
+          sub = paste("These two components explain",
+             round(100 * var.dec, digits = 2), "% of the point variability."),
+          xlab = "Component 1", ylab = "Component 2",
+          verbose = getOption("verbose"),
+          ...)
+</code><code class="language-r"><span class="token comment">## Default S3 method:</span>
 clusplot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> clus<span class="token punctuation">,</span> diss <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
           s.x.<span class="token number">2</span>d <span class="token operator">=</span> mkCheckX<span class="token punctuation">(</span>x<span class="token punctuation">,</span> diss<span class="token punctuation">)</span><span class="token punctuation">,</span> stand <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
           lines <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> shade <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
@@ -1989,7 +2265,7 @@ clusplot<span class="token punctuation">(</span>x<span class="token punctuation"
           <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -2349,7 +2625,55 @@ Integrating Robust Clustering Techniques in S-PLUS,
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## plotting votes.diss(dissimilarity) in a bivariate plot and</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## plotting votes.diss(dissimilarity) in a bivariate plot and
+## partitioning into 2 clusters
+data(votes.repub)
+votes.diss &lt;- daisy(votes.repub)
+pamv &lt;- pam(votes.diss, 2, diss = TRUE)
+clusplot(pamv, shade = TRUE)
+## is the same as
+votes.clus &lt;- pamv$clustering
+clusplot(votes.diss, votes.clus, diss = TRUE, shade = TRUE)
+## Now look at components 3 and 2 instead of 1 and 2:
+str(cMDS &lt;- cmdscale(votes.diss, k=3, add=TRUE))
+clusplot(pamv, s.x.2d = list(x=cMDS$points[, c(3,2)],
+                             labs=rownames(votes.repub), var.dec=NA),
+         shade = TRUE, col.p = votes.clus,
+         sub="", xlab = "Component 3", ylab = "Component 2")
+
+clusplot(pamv, col.p = votes.clus, labels = 4)# color points and label ellipses
+# "simple" cheap ellipses: larger than minimum volume:
+# here they are *added* to the previous plot:
+clusplot(pamv, span = FALSE, add = TRUE, col.clus = "midnightblue")
+
+## Setting a small *label* size:
+clusplot(votes.diss, votes.clus, diss = TRUE, labels = 3, cex.txt = 0.6)
+
+if(dev.interactive()) { #  uses identify() *interactively* :
+  clusplot(votes.diss, votes.clus, diss = TRUE, shade = TRUE, labels = 1)
+  clusplot(votes.diss, votes.clus, diss = TRUE, labels = 5)# ident. only points
+}
+
+## plotting iris (data frame) in a 2-dimensional plot and partitioning
+## into 3 clusters.
+data(iris)
+iris.x &lt;- iris[, 1:4]
+cl3 &lt;- pam(iris.x, 3)$clustering
+op &lt;- par(mfrow= c(2,2))
+clusplot(iris.x, cl3, color = TRUE)
+U &lt;- par("usr")
+## zoom in :
+rect(0,-1, 2,1, border = "orange", lwd=2)
+clusplot(iris.x, cl3, color = TRUE, xlim = c(0,2), ylim = c(-1,1))
+box(col="orange",lwd=2); mtext("sub region", font = 4, cex = 2)
+##  or zoom out :
+clusplot(iris.x, cl3, color = TRUE, xlim = c(-4,4), ylim = c(-4,4))
+mtext("'super' region", font = 4, cex = 2)
+rect(U[1],U[3], U[2],U[4], lwd=2, lty = 3)
+
+# reset graphics
+par(op)
+</code><code class="language-r"><span class="token comment">## plotting votes.diss(dissimilarity) in a bivariate plot and</span>
 <span class="token comment">## partitioning into 2 clusters</span>
 data<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span>
 votes.diss <span class="token operator">&lt;-</span> daisy<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span>
@@ -2398,8 +2722,10 @@ rect<span class="token punctuation">(</span>U<span class="token punctuation">[</
 <span class="token comment"># reset graphics</span>
 par<span class="token punctuation">(</span>op<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="coef.hclust"><main><a href="#coef.hclust" class="help-page-title"><h2>Agglomerative / Divisive Coefficient for 'hclust' Objects</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="coef.hclust"><div class="page-main">
+<a href="#coef.hclust" class="help-page-title"><h2>Agglomerative / Divisive Coefficient for 'hclust' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -2424,7 +2750,13 @@ be used to compare datasets of very different sizes.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">coefHier<span class="token punctuation">(</span>object<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">coefHier(object)
+coef.hclust(object, ...)
+## S3 method for class 'hclust'
+coef(object, ...)
+## S3 method for class 'twins'
+coef(object, ...)
+</code><code class="language-r">coefHier<span class="token punctuation">(</span>object<span class="token punctuation">)</span>
 coef.hclust<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'hclust'</span>
 coef<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
@@ -2432,7 +2764,7 @@ coef<span class="token punctuation">(</span>object<span class="token punctuation
 coef<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -2467,14 +2799,22 @@ see <code><a href="#agnes.object">agnes.object</a> $ ac</code> or <code><a href=
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(agriculture)
+aa &lt;- agnes(agriculture)
+coef(aa) # really just extracts aa$ac
+coef(as.hclust(aa))# recomputes
+coefHier(aa)       # ditto
+
+</code><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
 aa <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
 coef<span class="token punctuation">(</span>aa<span class="token punctuation">)</span> <span class="token comment"># really just extracts aa$ac</span>
 coef<span class="token punctuation">(</span>as.hclust<span class="token punctuation">(</span>aa<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment"># recomputes</span>
 coefHier<span class="token punctuation">(</span>aa<span class="token punctuation">)</span>       <span class="token comment"># ditto</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="daisy"><main><a href="#daisy" class="help-page-title"><h2>Dissimilarity Matrix Calculation</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="daisy"><div class="page-main">
+<a href="#daisy" class="help-page-title"><h2>Dissimilarity Matrix Calculation</h2></a>
 
 <h3>Description</h3>
 
@@ -2488,13 +2828,17 @@ below.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">daisy<span class="token punctuation">(</span>x<span class="token punctuation">,</span> metric <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"euclidean"</span><span class="token punctuation">,</span> <span class="token string">"manhattan"</span><span class="token punctuation">,</span> <span class="token string">"gower"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">daisy(x, metric = c("euclidean", "manhattan", "gower"),
+      stand = FALSE, type = list(), weights = rep.int(1, p),
+      warnBin = warnType, warnAsym = warnType, warnConst = warnType,
+      warnType = TRUE)
+</code><code class="language-r">daisy<span class="token punctuation">(</span>x<span class="token punctuation">,</span> metric <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"euclidean"</span><span class="token punctuation">,</span> <span class="token string">"manhattan"</span><span class="token punctuation">,</span> <span class="token string">"gower"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
       stand <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> type <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> weights <span class="token operator">=</span> rep.int<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">,</span>
       warnBin <span class="token operator">=</span> warnType<span class="token punctuation">,</span> warnAsym <span class="token operator">=</span> warnType<span class="token punctuation">,</span> warnConst <span class="token operator">=</span> warnType<span class="token punctuation">,</span>
       warnType <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -2793,7 +3137,41 @@ Integrating Robust Clustering Techniques in S-PLUS,
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">
+data(agriculture)
+## Example 1 in ref:
+##  Dissimilarities using Euclidean metric and without standardization
+d.agr &lt;- daisy(agriculture, metric = "euclidean", stand = FALSE)
+d.agr
+as.matrix(d.agr)[,"DK"] # via as.matrix.dist(.)
+## compare with
+as.matrix(daisy(agriculture, metric = "gower"))
+
+## Example 2 in reference, extended  ---  different ways of "mixed" / "gower":
+
+example(flower) # -&gt; data(flower) *and* provide 'flowerN'
+
+summary(d0    &lt;- daisy(flower))  # -&gt; the first 3 {0,1} treated as *N*ominal
+summary(dS123 &lt;- daisy(flower,  type = list(symm = 1:3))) # first 3 treated as *S*ymmetric
+stopifnot(dS123 == d0) # i.e.,  *S*ymmetric &lt;==&gt; *N*ominal {for 2-level factor}
+summary(dNS123&lt;- daisy(flowerN, type = list(symm = 1:3)))
+stopifnot(dS123 == d0)
+## by default, however ...
+summary(dA123 &lt;- daisy(flowerN)) # .. all 3 logicals treated *A*symmetric binary (w/ warning)
+summary(dA3  &lt;- daisy(flower, type = list(asymm = 3)))
+summary(dA13 &lt;- daisy(flower, type = list(asymm = c(1, 3), ordratio = 7)))
+## Mixing variable *names* and column numbers (failed in the past):
+summary(dfl3 &lt;- daisy(flower, type = list(asymm = c("V1", "V3"), symm= 2,
+                                          ordratio= 7, logratio= 8)))
+
+## If we'd treat the first 3 as simple {0,1}
+Nflow &lt;- flower
+Nflow[,1:3] &lt;- lapply(flower[,1:3], \(f) as.integer(as.character(f)))
+summary(dN &lt;- daisy(Nflow)) # w/ warning: treated binary .. 1:3 as interval
+## Still, using Euclidean/Manhattan distance for {0-1} *is* identical to treating them as "N" :
+stopifnot(dN == d0)
+stopifnot(dN == daisy(Nflow, type = list(symm = 1:3))) # or as "S"
+</code><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
 <span class="token comment">## Example 1 in ref:</span>
 <span class="token comment">##  Dissimilarities using Euclidean metric and without standardization</span>
 d.agr <span class="token operator">&lt;-</span> daisy<span class="token punctuation">(</span>agriculture<span class="token punctuation">,</span> metric <span class="token operator">=</span> <span class="token string">"euclidean"</span><span class="token punctuation">,</span> stand <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
@@ -2827,8 +3205,10 @@ summary<span class="token punctuation">(</span>dN <span class="token operator">&
 stopifnot<span class="token punctuation">(</span>dN <span class="token operator">==</span> d0<span class="token punctuation">)</span>
 stopifnot<span class="token punctuation">(</span>dN <span class="token operator">==</span> daisy<span class="token punctuation">(</span>Nflow<span class="token punctuation">,</span> type <span class="token operator">=</span> list<span class="token punctuation">(</span>symm <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># or as "S"</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="diana"><main><a href="#diana" class="help-page-title"><h2>DIvisive ANAlysis Clustering</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="diana"><div class="page-main">
+<a href="#diana" class="help-page-title"><h2>DIvisive ANAlysis Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -2839,12 +3219,15 @@ returning an object of class <code>diana</code>.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">diana<span class="token punctuation">(</span>x<span class="token punctuation">,</span> diss <span class="token operator">=</span> inherits<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"dist"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> metric <span class="token operator">=</span> <span class="token string">"euclidean"</span><span class="token punctuation">,</span> stand <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">diana(x, diss = inherits(x, "dist"), metric = "euclidean", stand = FALSE,
+      stop.at.k = FALSE,
+      keep.diss = n &lt; 100, keep.data = !diss, trace.lev = 0)
+</code><code class="language-r">diana<span class="token punctuation">(</span>x<span class="token punctuation">,</span> diss <span class="token operator">=</span> inherits<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"dist"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> metric <span class="token operator">=</span> <span class="token string">"euclidean"</span><span class="token punctuation">,</span> stand <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
       stop.at.k <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
       keep.diss <span class="token operator">=</span> n <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">,</span> keep.data <span class="token operator">=</span> <span class="token operator">!</span>diss<span class="token punctuation">,</span> trace.lev <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -3060,7 +3443,28 @@ extraction; <code><a href="#daisy">daisy</a></code>, <code><a href="https://r-un
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(votes.repub)
+dv &lt;- diana(votes.repub, metric = "manhattan", stand = TRUE)
+print(dv)
+plot(dv)
+
+## Cut into 2 groups:
+dv2 &lt;- cutree(as.hclust(dv), k = 2)
+table(dv2) # 8 and 42 group members
+rownames(votes.repub)[dv2 == 1]
+
+## For two groups, does the metric matter ?
+dv0 &lt;- diana(votes.repub, stand = TRUE) # default: Euclidean
+dv.2 &lt;- cutree(as.hclust(dv0), k = 2)
+table(dv2 == dv.2)## identical group assignments
+
+str(as.dendrogram(dv0)) # {via as.dendrogram.twins() method}
+
+data(agriculture)
+## Plot similar to Figure 8 in ref
+## Not run: plot(diana(agriculture), ask = TRUE)
+
+</code><code class="language-r">data<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span>
 dv <span class="token operator">&lt;-</span> diana<span class="token punctuation">(</span>votes.repub<span class="token punctuation">,</span> metric <span class="token operator">=</span> <span class="token string">"manhattan"</span><span class="token punctuation">,</span> stand <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 print<span class="token punctuation">(</span>dv<span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>dv<span class="token punctuation">)</span>
@@ -3081,8 +3485,10 @@ data<span class="token punctuation">(</span>agriculture<span class="token punctu
 <span class="token comment">## Plot similar to Figure 8 in ref</span>
 <span class="token comment">## Not run: plot(diana(agriculture), ask = TRUE)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="dissimilarity.object"><main><a href="#dissimilarity.object" class="help-page-title"><h2>Dissimilarity Matrix Object</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="dissimilarity.object"><div class="page-main">
+<a href="#dissimilarity.object" class="help-page-title"><h2>Dissimilarity Matrix Object</h2></a>
 
 <h3>Description</h3>
 
@@ -3206,8 +3612,10 @@ functions: <code>print</code>, <code>summary</code>.
 <code><a href="#agnes">agnes</a></code>, <code><a href="#diana">diana</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="ellipsoidhull"><main><a href="#ellipsoidhull" class="help-page-title"><h2>Compute the Ellipsoid Hull or Spanning Ellipsoid of a Point Set</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="ellipsoidhull"><div class="page-main">
+<a href="#ellipsoidhull" class="help-page-title"><h2>Compute the Ellipsoid Hull or Spanning Ellipsoid of a Point Set</h2></a>
 
 <h3>Description</h3>
 
@@ -3219,13 +3627,17 @@ lie just inside or on the boundary of the ellipsoid.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">ellipsoidhull<span class="token punctuation">(</span>x<span class="token punctuation">,</span> tol<span class="token operator">=</span><span class="token number">0.01</span><span class="token punctuation">,</span> maxit<span class="token operator">=</span><span class="token number">5000</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">ellipsoidhull(x, tol=0.01, maxit=5000,
+              ret.wt = FALSE, ret.sqdist = FALSE, ret.pr = FALSE)
+## S3 method for class 'ellipsoid'
+print(x, digits = max(1, getOption("digits") - 2), ...)
+</code><code class="language-r">ellipsoidhull<span class="token punctuation">(</span>x<span class="token punctuation">,</span> tol<span class="token operator">=</span><span class="token number">0.01</span><span class="token punctuation">,</span> maxit<span class="token operator">=</span><span class="token number">5000</span><span class="token punctuation">,</span>
               ret.wt <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> ret.sqdist <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> ret.pr <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'ellipsoid'</span>
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> digits <span class="token operator">=</span> max<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> getOption<span class="token punctuation">(</span><span class="token string">"digits"</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -3401,7 +3813,23 @@ and <code><a href="https://mmaechler.r-universe.dev/sfsmisc/doc/manual.html#elli
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">x <span class="token operator">&lt;-</span> rnorm<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">x &lt;- rnorm(100)
+xy &lt;- unname(cbind(x, rnorm(100) + 2*x + 10))
+exy. &lt;- ellipsoidhull(xy)
+exy. # &gt;&gt; calling print.ellipsoid()
+
+plot(xy, main = "ellipsoidhull(&lt;Gauss data&gt;) -- 'spanning points'")
+lines(predict(exy.), col="blue")
+points(rbind(exy.$loc), col = "red", cex = 3, pch = 13)
+
+exy &lt;- ellipsoidhull(xy, tol = 1e-7, ret.wt = TRUE, ret.sq = TRUE)
+str(exy) # had small 'tol', hence many iterations
+(ii &lt;- which(zapsmall(exy $ wt) &gt; 1e-6))
+## --&gt; only about 4 to 6  "spanning ellipsoid" points
+round(exy$wt[ii],3); sum(exy$wt[ii]) # weights summing to 1
+points(xy[ii,], pch = 21, cex = 2,
+       col="blue", bg = adjustcolor("blue",0.25))
+</code><code class="language-r">x <span class="token operator">&lt;-</span> rnorm<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
 xy <span class="token operator">&lt;-</span> unname<span class="token punctuation">(</span>cbind<span class="token punctuation">(</span>x<span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>x <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 exy. <span class="token operator">&lt;-</span> ellipsoidhull<span class="token punctuation">(</span>xy<span class="token punctuation">)</span>
 exy. <span class="token comment"># &gt;&gt; calling print.ellipsoid()</span>
@@ -3418,8 +3846,10 @@ round<span class="token punctuation">(</span>exy<span class="token operator">$</
 points<span class="token punctuation">(</span>xy<span class="token punctuation">[</span>ii<span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pch <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">,</span> cex <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>
        col<span class="token operator">=</span><span class="token string">"blue"</span><span class="token punctuation">,</span> bg <span class="token operator">=</span> adjustcolor<span class="token punctuation">(</span><span class="token string">"blue"</span><span class="token punctuation">,</span><span class="token number">0.25</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="fanny"><main><a href="#fanny" class="help-page-title"><h2>Fuzzy Analysis Clustering</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="fanny"><div class="page-main">
+<a href="#fanny" class="help-page-title"><h2>Fuzzy Analysis Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -3429,7 +3859,13 @@ points<span class="token punctuation">(</span>xy<span class="token punctuation">
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">fanny<span class="token punctuation">(</span>x<span class="token punctuation">,</span> k<span class="token punctuation">,</span> diss <span class="token operator">=</span> inherits<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"dist"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> memb.exp <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">fanny(x, k, diss = inherits(x, "dist"), memb.exp = 2,
+      metric = c("euclidean", "manhattan", "SqEuclidean"),
+      stand = FALSE, iniMem.p = NULL, cluster.only = FALSE,
+      keep.diss = !diss &amp;&amp; !cluster.only &amp;&amp; n &lt; 100,
+      keep.data = !diss &amp;&amp; !cluster.only,
+      maxit = 500, tol = 1e-15, trace.lev = 0)
+</code><code class="language-r">fanny<span class="token punctuation">(</span>x<span class="token punctuation">,</span> k<span class="token punctuation">,</span> diss <span class="token operator">=</span> inherits<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"dist"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> memb.exp <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>
       metric <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"euclidean"</span><span class="token punctuation">,</span> <span class="token string">"manhattan"</span><span class="token punctuation">,</span> <span class="token string">"SqEuclidean"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
       stand <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> iniMem.p <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> cluster.only <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
       keep.diss <span class="token operator">=</span> <span class="token operator">!</span>diss <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>cluster.only <span class="token operator">&amp;&amp;</span> n <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">,</span>
@@ -3437,7 +3873,7 @@ points<span class="token punctuation">(</span>xy<span class="token punctuation">
       maxit <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">,</span> tol <span class="token operator">=</span> <span class="token number">1e-15</span><span class="token punctuation">,</span> trace.lev <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -3620,7 +4056,27 @@ See <code><a href="#fanny.object">fanny.object</a></code> for details.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## generate 10+15 objects in two clusters, plus 3 objects lying</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## generate 10+15 objects in two clusters, plus 3 objects lying
+## between those clusters.
+x &lt;- rbind(cbind(rnorm(10, 0, 0.5), rnorm(10, 0, 0.5)),
+           cbind(rnorm(15, 5, 0.5), rnorm(15, 5, 0.5)),
+           cbind(rnorm( 3,3.2,0.5), rnorm( 3,3.2,0.5)))
+fannyx &lt;- fanny(x, 2)
+## Note that observations 26:28 are "fuzzy" (closer to # 2):
+fannyx
+summary(fannyx)
+plot(fannyx)
+
+(fan.x.15 &lt;- fanny(x, 2, memb.exp = 1.5)) # 'crispier' for obs. 26:28
+(fanny(x, 2, memb.exp = 3))               # more fuzzy in general
+
+data(ruspini)
+f4 &lt;- fanny(ruspini, 4)
+stopifnot(rle(f4$clustering)$lengths == c(20,23,17,15))
+plot(f4, which = 1)
+## Plot similar to Figure 6 in Stryuf et al (1996)
+plot(fanny(ruspini, 5))
+</code><code class="language-r"><span class="token comment">## generate 10+15 objects in two clusters, plus 3 objects lying</span>
 <span class="token comment">## between those clusters.</span>
 x <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
            cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -3641,8 +4097,10 @@ plot<span class="token punctuation">(</span>f4<span class="token punctuation">,<
 <span class="token comment">## Plot similar to Figure 6 in Stryuf et al (1996)</span>
 plot<span class="token punctuation">(</span>fanny<span class="token punctuation">(</span>ruspini<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="fanny.object"><main><a href="#fanny.object" class="help-page-title"><h2>Fuzzy Analysis (FANNY) Object</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="fanny.object"><div class="page-main">
+<a href="#fanny.object" class="help-page-title"><h2>Fuzzy Analysis (FANNY) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -3781,8 +4239,10 @@ be used on a <code>fanny</code> object.
 <code><a href="#partition.object">partition.object</a></code>, <code><a href="#plot.partition">plot.partition</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="flower"><main><a href="#flower" class="help-page-title"><h2>Flower Characteristics</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="flower"><div class="page-main">
+<a href="#flower" class="help-page-title"><h2>Flower Characteristics</h2></a>
 
 <h3>Description</h3>
 
@@ -3791,7 +4251,7 @@ be used on a <code>fanny</code> object.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>flower<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(flower)</code><code class="language-r">data<span class="token punctuation">(</span>flower<span class="token punctuation">)</span></code></pre>
 
 
 <h3>Format</h3>
@@ -3899,7 +4359,21 @@ should be left between the plants.</p>
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>flower<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(flower)
+str(flower) # factors, ordered, numeric
+
+## "Nicer" version (less numeric more self explainable) of 'flower':
+flowerN &lt;- flower
+colnames(flowerN) &lt;- c("winters", "shadow", "tubers", "color",
+                       "soil", "preference", "height", "distance")
+for(j in 1:3) flowerN[,j] &lt;- (flowerN[,j] == "1")
+levels(flowerN$color) &lt;- c("1" = "white", "2" = "yellow", "3" = "pink",
+                           "4" = "red", "5" = "blue")[levels(flowerN$color)]
+levels(flowerN$soil)  &lt;- c("1" = "dry", "2" = "normal", "3" = "wet")[levels(flowerN$soil)]
+flowerN
+
+## ==&gt; example(daisy)  on how it is used
+</code><code class="language-r">data<span class="token punctuation">(</span>flower<span class="token punctuation">)</span>
 str<span class="token punctuation">(</span>flower<span class="token punctuation">)</span> <span class="token comment"># factors, ordered, numeric</span>
 
 <span class="token comment">## "Nicer" version (less numeric more self explainable) of 'flower':</span>
@@ -3914,8 +4388,10 @@ flowerN
 
 <span class="token comment">## ==&gt; example(daisy)  on how it is used</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="lower.to.upper.tri.inds"><main><a href="#lower.to.upper.tri.inds" class="help-page-title"><h2>Permute Indices for Triangular Matrices</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="lower.to.upper.tri.inds"><div class="page-main">
+<a href="#lower.to.upper.tri.inds" class="help-page-title"><h2>Permute Indices for Triangular Matrices</h2></a>
 
 <h3>Description</h3>
 
@@ -3926,11 +4402,13 @@ triangular matrices that are stored as contiguous vectors.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">lower.to.upper.tri.inds<span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">lower.to.upper.tri.inds(n)
+upper.to.lower.tri.inds(n)
+</code><code class="language-r">lower.to.upper.tri.inds<span class="token punctuation">(</span>n<span class="token punctuation">)</span>
 upper.to.lower.tri.inds<span class="token punctuation">(</span>n<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table><tr>
 <td><code id="n">n</code></td>
@@ -3953,7 +4431,16 @@ purpose.</p>
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">m5 <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span><span class="token keyword">NA</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">m5 &lt;- matrix(NA,5,5)
+m &lt;- m5; m[lower.tri(m)] &lt;- upper.to.lower.tri.inds(5); m
+m &lt;- m5; m[upper.tri(m)] &lt;- lower.to.upper.tri.inds(5); m
+
+stopifnot(lower.to.upper.tri.inds(2) == 1,
+          lower.to.upper.tri.inds(3) == 1:3,
+          upper.to.lower.tri.inds(3) == 1:3,
+     sort(upper.to.lower.tri.inds(5)) == 1:10,
+     sort(lower.to.upper.tri.inds(6)) == 1:15)
+</code><code class="language-r">m5 <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span><span class="token keyword">NA</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
 m <span class="token operator">&lt;-</span> m5<span class="token punctuation">;</span> m<span class="token punctuation">[</span>lower.tri<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> upper.to.lower.tri.inds<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> m
 m <span class="token operator">&lt;-</span> m5<span class="token punctuation">;</span> m<span class="token punctuation">[</span>upper.tri<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> lower.to.upper.tri.inds<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> m
 
@@ -3963,8 +4450,10 @@ stopifnot<span class="token punctuation">(</span>lower.to.upper.tri.inds<span cl
      sort<span class="token punctuation">(</span>upper.to.lower.tri.inds<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">,</span>
      sort<span class="token punctuation">(</span>lower.to.upper.tri.inds<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">15</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="medoids"><main><a href="#medoids" class="help-page-title"><h2>Compute <code>pam</code>-consistent Medoids from Clustering</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="medoids"><div class="page-main">
+<a href="#medoids" class="help-page-title"><h2>Compute <code>pam</code>-consistent Medoids from Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -3976,10 +4465,11 @@ compute the <code><a href="#pam">pam</a>()</code>-consistent medoids.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">medoids<span class="token punctuation">(</span>x<span class="token punctuation">,</span> clustering<span class="token punctuation">,</span> diss <span class="token operator">=</span> inherits<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"dist"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> USE.NAMES <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">medoids(x, clustering, diss = inherits(x, "dist"), USE.NAMES = FALSE, ...)
+</code><code class="language-r">medoids<span class="token punctuation">(</span>x<span class="token punctuation">,</span> clustering<span class="token punctuation">,</span> diss <span class="token operator">=</span> inherits<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"dist"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> USE.NAMES <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -4044,7 +4534,20 @@ Further, <code><a href="https://r-universe.dev/manuals/stats.html#cutree">cutree
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## From example(agnes):</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## From example(agnes):
+data(votes.repub)
+agn1 &lt;- agnes(votes.repub, metric = "manhattan", stand = TRUE)
+agn2 &lt;- agnes(daisy(votes.repub), diss = TRUE, method = "complete")
+agnS &lt;- agnes(votes.repub, method = "flexible", par.meth = 0.625)
+
+for(k in 2:11) {
+  print(table(cl.k &lt;- cutree(agnS, k=k)))
+  stopifnot(length(cl.k) == nrow(votes.repub), 1 &lt;= cl.k, cl.k &lt;= k, table(cl.k) &gt;= 2)
+  m.k &lt;- medoids(votes.repub, cl.k)
+  cat("k =", k,"; sort(medoids) = "); dput(sort(m.k), control={})
+}
+
+</code><code class="language-r"><span class="token comment">## From example(agnes):</span>
 data<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span>
 agn1 <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>votes.repub<span class="token punctuation">,</span> metric <span class="token operator">=</span> <span class="token string">"manhattan"</span><span class="token punctuation">,</span> stand <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 agn2 <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>daisy<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span><span class="token punctuation">,</span> diss <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"complete"</span><span class="token punctuation">)</span>
@@ -4057,8 +4560,10 @@ agnS <span class="token operator">&lt;-</span> agnes<span class="token punctuati
   cat<span class="token punctuation">(</span><span class="token string">"k ="</span><span class="token punctuation">,</span> k<span class="token punctuation">,</span><span class="token string">"; sort(medoids) = "</span><span class="token punctuation">)</span><span class="token punctuation">;</span> dput<span class="token punctuation">(</span>sort<span class="token punctuation">(</span>m.k<span class="token punctuation">)</span><span class="token punctuation">,</span> control<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="mona"><main><a href="#mona" class="help-page-title"><h2>MONothetic Analysis Clustering of Binary Variables</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="mona"><div class="page-main">
+<a href="#mona" class="help-page-title"><h2>MONothetic Analysis Clustering of Binary Variables</h2></a>
 
 <h3>Description</h3>
 
@@ -4069,10 +4574,11 @@ a dataset with binary variables only.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">mona<span class="token punctuation">(</span>x<span class="token punctuation">,</span> trace.lev <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">mona(x, trace.lev = 0)
+</code><code class="language-r">mona<span class="token punctuation">(</span>x<span class="token punctuation">,</span> trace.lev <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -4169,7 +4675,24 @@ algorithm now in C, haes not correctly taken account of this special case).
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>animals<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(animals)
+ma &lt;- mona(animals)
+ma
+## Plot similar to Figure 10 in Struyf et al (1996)
+plot(ma)
+
+## One place to see if/how error messages are *translated* (to 'de' / 'pl'):
+ani.NA   &lt;- animals; ani.NA[4,] &lt;- NA
+aniNA    &lt;- within(animals, { end[2:9] &lt;- NA })
+aniN2    &lt;- animals; aniN2[cbind(1:6, c(3, 1, 4:6, 2))] &lt;- NA
+ani.non2 &lt;- within(animals, end[7] &lt;- 3 )
+ani.idNA &lt;- within(animals, end[!is.na(end)] &lt;- 1 )
+try( mona(ani.NA)   ) ## error: .. object with all values missing
+try( mona(aniNA)    ) ## error: .. more than half missing values
+try( mona(aniN2)    ) ## error: all have at least one missing
+try( mona(ani.non2) ) ## error: all must be binary
+try( mona(ani.idNA) ) ## error:  ditto
+</code><code class="language-r">data<span class="token punctuation">(</span>animals<span class="token punctuation">)</span>
 ma <span class="token operator">&lt;-</span> mona<span class="token punctuation">(</span>animals<span class="token punctuation">)</span>
 ma
 <span class="token comment">## Plot similar to Figure 10 in Struyf et al (1996)</span>
@@ -4187,8 +4710,10 @@ try<span class="token punctuation">(</span> mona<span class="token punctuation">
 try<span class="token punctuation">(</span> mona<span class="token punctuation">(</span>ani.non2<span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token comment">## error: all must be binary</span>
 try<span class="token punctuation">(</span> mona<span class="token punctuation">(</span>ani.idNA<span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token comment">## error:  ditto</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="mona.object"><main><a href="#mona.object" class="help-page-title"><h2>Monothetic Analysis (MONA) Object</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="mona.object"><div class="page-main">
+<a href="#mona.object" class="help-page-title"><h2>Monothetic Analysis (MONA) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -4265,8 +4790,10 @@ specifying the separation steps at which the observations of
 <p><code><a href="#mona">mona</a></code> for examples etc, <code><a href="#plot.mona">plot.mona</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="pam"><main><a href="#pam" class="help-page-title"><h2>Partitioning Around Medoids</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="pam"><div class="page-main">
+<a href="#pam" class="help-page-title"><h2>Partitioning Around Medoids</h2></a>
 
 <h3>Description</h3>
 
@@ -4277,7 +4804,17 @@ medoids”, a more robust version of K-means.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">pam<span class="token punctuation">(</span>x<span class="token punctuation">,</span> k<span class="token punctuation">,</span> diss <span class="token operator">=</span> inherits<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"dist"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">pam(x, k, diss = inherits(x, "dist"),
+    metric = c("euclidean", "manhattan"), 
+    medoids = if(is.numeric(nstart)) "random",
+    nstart = if(variant == "faster") 1 else NA,
+    stand = FALSE, cluster.only = FALSE,
+    do.swap = TRUE,
+    keep.diss = !diss &amp;&amp; !cluster.only &amp;&amp; n &lt; 100,
+    keep.data = !diss &amp;&amp; !cluster.only,
+    variant = c("original", "o_1", "o_2", "f_3", "f_4", "f_5", "faster"),
+    pamonce = FALSE, trace.lev = 0)
+</code><code class="language-r">pam<span class="token punctuation">(</span>x<span class="token punctuation">,</span> k<span class="token punctuation">,</span> diss <span class="token operator">=</span> inherits<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"dist"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     metric <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"euclidean"</span><span class="token punctuation">,</span> <span class="token string">"manhattan"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
     medoids <span class="token operator">=</span> <span class="token keyword">if</span><span class="token punctuation">(</span>is.numeric<span class="token punctuation">(</span>nstart<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token string">"random"</span><span class="token punctuation">,</span>
     nstart <span class="token operator">=</span> <span class="token keyword">if</span><span class="token punctuation">(</span>variant <span class="token operator">==</span> <span class="token string">"faster"</span><span class="token punctuation">)</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token keyword">NA</span><span class="token punctuation">,</span>
@@ -4289,7 +4826,7 @@ medoids”, a more robust version of K-means.
     pamonce <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> trace.lev <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -4560,20 +5097,17 @@ implementation.
 
 <h3>References</h3>
 
-
 <p>Reynolds, A., Richards, G., de la Iglesia, B. and Rayward-Smith, V. (1992)
 Clustering rules: A comparison of partitioning and hierarchical
 clustering algorithms;
 <em>Journal of Mathematical Modelling and Algorithms</em> <b>5</b>,
 475–504. <a href="https://doi.org/10.1007/s10852-005-9022-1" target="_blank">doi:10.1007/s10852-005-9022-1</a>.
 </p>
-
 <p>Erich Schubert and Peter J. Rousseeuw (2019)
 Faster k-Medoids Clustering:
 Improving the PAM, CLARA, and CLARANS Algorithms;
 SISAP 2020, 171–187. <a href="https://doi.org/10.1007/978-3-030-32047-8_16" target="_blank">doi:10.1007/978-3-030-32047-8_16</a>.
 </p>
-
 <p>Erich Schubert and Peter J. Rousseeuw (2021)
 Fast and Eager k-Medoids Clustering:
 O(k) Runtime Improvement of the PAM, CLARA, and CLARANS Algorithms;
@@ -4592,7 +5126,31 @@ Preprint, to appear in Information Systems (<a href="https://arxiv.org/abs/2008.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## generate 25 objects, divided into 2 clusters.</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## generate 25 objects, divided into 2 clusters.
+x &lt;- rbind(cbind(rnorm(10,0,0.5), rnorm(10,0,0.5)),
+           cbind(rnorm(15,5,0.5), rnorm(15,5,0.5)))
+pamx &lt;- pam(x, 2)
+pamx # Medoids: '7' and '25' ...
+summary(pamx)
+plot(pamx)
+## use obs. 1 &amp; 16 as starting medoids -- same result (typically)
+(p2m &lt;- pam(x, 2, medoids = c(1,16)))
+## no _build_ *and* no _swap_ phase: just cluster all obs. around (1, 16):
+p2.s &lt;- pam(x, 2, medoids = c(1,16), do.swap = FALSE)
+p2.s
+
+p3m &lt;- pam(x, 3, trace = 2)
+## rather stupid initial medoids:
+(p3m. &lt;- pam(x, 3, medoids = 3:1, trace = 1))
+
+
+pam(daisy(x, metric = "manhattan"), 2, diss = TRUE)
+
+data(ruspini)
+## Plot similar to Figure 4 in Stryuf et al (1996)
+## Not run: plot(pam(ruspini, 4), ask = TRUE)
+
+</code><code class="language-r"><span class="token comment">## generate 25 objects, divided into 2 clusters.</span>
 x <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
            cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 pamx <span class="token operator">&lt;-</span> pam<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
@@ -4616,8 +5174,10 @@ data<span class="token punctuation">(</span>ruspini<span class="token punctuatio
 <span class="token comment">## Plot similar to Figure 4 in Stryuf et al (1996)</span>
 <span class="token comment">## Not run: plot(pam(ruspini, 4), ask = TRUE)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="pam.object"><main><a href="#pam.object" class="help-page-title"><h2>Partitioning Around Medoids (PAM) Object</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="pam.object"><div class="page-main">
+<a href="#pam.object" class="help-page-title"><h2>Partitioning Around Medoids (PAM) Object</h2></a>
 
 <h3>Description</h3>
 
@@ -4748,7 +5308,21 @@ be used on a <code>pam</code> object.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Use the silhouette widths for assessing the best number of clusters,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Use the silhouette widths for assessing the best number of clusters,
+## following a one-dimensional example from Christian Hennig :
+##
+x &lt;- c(rnorm(50), rnorm(50,mean=5), rnorm(30,mean=15))
+asw &lt;- numeric(20)
+## Note that "k=1" won't work!
+for (k in 2:20)
+  asw[k] &lt;- pam(x, k) $ silinfo $ avg.width
+k.best &lt;- which.max(asw)
+cat("silhouette-optimal number of clusters:", k.best, "\n")
+
+plot(1:20, asw, type= "h", main = "pam() clustering assessment",
+     xlab= "k  (# clusters)", ylab = "average silhouette width")
+axis(1, k.best, paste("best",k.best,sep="\n"), col = "red", col.axis = "red")
+</code><code class="language-r"><span class="token comment">## Use the silhouette widths for assessing the best number of clusters,</span>
 <span class="token comment">## following a one-dimensional example from Christian Hennig :</span>
 <span class="token comment">##</span>
 x <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span>mean<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span>mean<span class="token operator">=</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -4763,8 +5337,10 @@ plot<span class="token punctuation">(</span><span class="token number">1</span><
      xlab<span class="token operator">=</span> <span class="token string">"k  (# clusters)"</span><span class="token punctuation">,</span> ylab <span class="token operator">=</span> <span class="token string">"average silhouette width"</span><span class="token punctuation">)</span>
 axis<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> k.best<span class="token punctuation">,</span> paste<span class="token punctuation">(</span><span class="token string">"best"</span><span class="token punctuation">,</span>k.best<span class="token punctuation">,</span>sep<span class="token operator">=</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token string">"red"</span><span class="token punctuation">,</span> col.axis <span class="token operator">=</span> <span class="token string">"red"</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="partition.object"><main><a href="#partition.object" class="help-page-title"><h2>Partitioning Object</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="partition.object"><div class="page-main">
+<a href="#partition.object" class="help-page-title"><h2>Partitioning Object</h2></a>
 
 <h3>Description</h3>
 
@@ -4889,8 +5465,10 @@ as input structure to the clustering method.
 <p><code><a href="#pam">pam</a></code>, <code><a href="#clara">clara</a></code>, <code><a href="#fanny">fanny</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="plantTraits"><main><a href="#plantTraits" class="help-page-title"><h2>Plant Species Traits Data</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="plantTraits"><div class="page-main">
+<a href="#plantTraits" class="help-page-title"><h2>Plant Species Traits Data</h2></a>
 
 <h3>Description</h3>
 
@@ -4901,7 +5479,8 @@ according to biological attributes (morphological or reproductive)
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>plantTraits<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(plantTraits)
+</code><code class="language-r">data<span class="token punctuation">(</span>plantTraits<span class="token punctuation">)</span></code></pre>
 
 
 <h3>Format</h3>
@@ -4927,12 +5506,10 @@ according to biological attributes (morphological or reproductive)
 <p>Plant height, an ordered factor with levels
 <code>1</code> &lt; <code>2</code> &lt; ... &lt; <code>8</code>.</p>
 </dd>
-
 <dt><code>begflow</code></dt>
 <dd>
 <p>Time of first flowering, an ordered factor with levels <code>1</code> &lt; <code>2</code> &lt; <code>3</code> &lt; <code>4</code> &lt; <code>5</code> &lt; <code>6</code> &lt; <code>7</code> &lt; <code>8</code> &lt; <code>9</code></p>
 </dd>
-
 <dt><code>mycor</code></dt>
 <dd>
 <p>Mycorrhizas, an ordered factor with levels <code>0</code>never &lt; <code>1</code> sometimes&lt; <code>2</code>always</p>
@@ -5062,7 +5639,24 @@ Université Paris Sud XI, 30p.+ annexes (in french)
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>plantTraits<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(plantTraits)
+
+## Calculation of a dissimilarity matrix
+library(cluster)
+dai.b &lt;- daisy(plantTraits,
+               type = list(ordratio = 4:11, symm = 12:13, asymm = 14:31))
+
+## Hierarchical classification
+agn.trts &lt;- agnes(dai.b, method="ward")
+plot(agn.trts, which.plots = 2, cex= 0.6)
+plot(agn.trts, which.plots = 1)
+cutree6 &lt;- cutree(agn.trts, k=6)
+cutree6
+
+## Principal Coordinate Analysis
+cmdsdai.b &lt;- cmdscale(dai.b, k=6)
+plot(cmdsdai.b[, 1:2], asp = 1, col = cutree6)
+</code><code class="language-r">data<span class="token punctuation">(</span>plantTraits<span class="token punctuation">)</span>
 
 <span class="token comment">## Calculation of a dissimilarity matrix</span>
 library<span class="token punctuation">(</span>cluster<span class="token punctuation">)</span>
@@ -5080,8 +5674,10 @@ cutree6
 cmdsdai.b <span class="token operator">&lt;-</span> cmdscale<span class="token punctuation">(</span>dai.b<span class="token punctuation">,</span> k<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>cmdsdai.b<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> asp <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> col <span class="token operator">=</span> cutree6<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="plot.agnes"><main><a href="#plot.agnes" class="help-page-title"><h2>Plots of an Agglomerative Hierarchical Clustering</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="plot.agnes"><div class="page-main">
+<a href="#plot.agnes" class="help-page-title"><h2>Plots of an Agglomerative Hierarchical Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -5091,13 +5687,17 @@ plot<span class="token punctuation">(</span>cmdsdai.b<span class="token punctuat
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'agnes'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'agnes'
+plot(x, ask = FALSE, which.plots = NULL, main = NULL,
+           sub = paste("Agglomerative Coefficient = ",round(x$ac, digits = 2)),
+           adj = 0, nmax.lab = 35, max.strlen = 5, xax.pretty = TRUE, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'agnes'</span>
 plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> ask <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> which.plots <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
            sub <span class="token operator">=</span> paste<span class="token punctuation">(</span><span class="token string">"Agglomerative Coefficient = "</span><span class="token punctuation">,</span>round<span class="token punctuation">(</span>x<span class="token operator">$</span>ac<span class="token punctuation">,</span> digits <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
            adj <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> nmax.lab <span class="token operator">=</span> <span class="token number">35</span><span class="token punctuation">,</span> max.strlen <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> xax.pretty <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -5244,7 +5844,15 @@ and <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></co
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Can also pass 'labels' to pltree() and bannerplot():</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Can also pass 'labels' to pltree() and bannerplot():
+data(iris)
+cS &lt;- as.character(Sp &lt;- iris$Species)
+cS[Sp == "setosa"] &lt;- "S"
+cS[Sp == "versicolor"] &lt;- "V"
+cS[Sp == "virginica"] &lt;- "g"
+ai &lt;- agnes(iris[, 1:4])
+plot(ai, labels = cS, nmax = 150)# bannerplot labels are mess
+</code><code class="language-r"><span class="token comment">## Can also pass 'labels' to pltree() and bannerplot():</span>
 data<span class="token punctuation">(</span>iris<span class="token punctuation">)</span>
 cS <span class="token operator">&lt;-</span> as.character<span class="token punctuation">(</span>Sp <span class="token operator">&lt;-</span> iris<span class="token operator">$</span>Species<span class="token punctuation">)</span>
 cS<span class="token punctuation">[</span>Sp <span class="token operator">==</span> <span class="token string">"setosa"</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token string">"S"</span>
@@ -5253,8 +5861,10 @@ cS<span class="token punctuation">[</span>Sp <span class="token operator">==</sp
 ai <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>iris<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>ai<span class="token punctuation">,</span> labels <span class="token operator">=</span> cS<span class="token punctuation">,</span> nmax <span class="token operator">=</span> <span class="token number">150</span><span class="token punctuation">)</span><span class="token comment"># bannerplot labels are mess</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="plot.diana"><main><a href="#plot.diana" class="help-page-title"><h2>Plots of a Divisive Hierarchical Clustering</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="plot.diana"><div class="page-main">
+<a href="#plot.diana" class="help-page-title"><h2>Plots of a Divisive Hierarchical Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -5264,13 +5874,17 @@ plot<span class="token punctuation">(</span>ai<span class="token punctuation">,<
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'diana'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'diana'
+plot(x, ask = FALSE, which.plots = NULL, main = NULL,
+           sub = paste("Divisive Coefficient = ", round(x$dc, digits = 2)),
+           adj = 0, nmax.lab = 35, max.strlen = 5, xax.pretty = TRUE, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'diana'</span>
 plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> ask <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> which.plots <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
            sub <span class="token operator">=</span> paste<span class="token punctuation">(</span><span class="token string">"Divisive Coefficient = "</span><span class="token punctuation">,</span> round<span class="token punctuation">(</span>x<span class="token operator">$</span>dc<span class="token punctuation">,</span> digits <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
            adj <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> nmax.lab <span class="token operator">=</span> <span class="token number">35</span><span class="token punctuation">,</span> max.strlen <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> xax.pretty <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -5395,7 +6009,15 @@ Moreover, observation labels are truncated to maximally
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">example<span class="token punctuation">(</span>diana<span class="token punctuation">)</span><span class="token comment"># -&gt; dv &lt;- diana(....)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">example(diana)# -&gt; dv &lt;- diana(....)
+
+plot(dv, which = 1, nmax.lab = 100)
+
+## wider labels :
+op &lt;- par(mar = par("mar") + c(0, 2, 0,0))
+plot(dv, which = 1, nmax.lab = 100, max.strlen = 12)
+par(op)
+</code><code class="language-r">example<span class="token punctuation">(</span>diana<span class="token punctuation">)</span><span class="token comment"># -&gt; dv &lt;- diana(....)</span>
 
 plot<span class="token punctuation">(</span>dv<span class="token punctuation">,</span> which <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> nmax.lab <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span>
 
@@ -5404,8 +6026,10 @@ op <span class="token operator">&lt;-</span> par<span class="token punctuation">
 plot<span class="token punctuation">(</span>dv<span class="token punctuation">,</span> which <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> nmax.lab <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">,</span> max.strlen <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">)</span>
 par<span class="token punctuation">(</span>op<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="plot.mona"><main><a href="#plot.mona" class="help-page-title"><h2>Banner of Monothetic Divisive Hierarchical Clusterings</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="plot.mona"><div class="page-main">
+<a href="#plot.mona" class="help-page-title"><h2>Banner of Monothetic Divisive Hierarchical Clusterings</h2></a>
 
 <h3>Description</h3>
 
@@ -5415,14 +6039,19 @@ par<span class="token punctuation">(</span>op<span class="token punctuation">)</
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'mona'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'mona'
+plot(x, main = paste("Banner of ", deparse1(x$call)),
+          sub = NULL, xlab = "Separation step",
+	  col = c(2,0), axes = TRUE, adj = 0,
+          nmax.lab = 35, max.strlen = 5, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'mona'</span>
 plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> main <span class="token operator">=</span> paste<span class="token punctuation">(</span><span class="token string">"Banner of "</span><span class="token punctuation">,</span> deparse1<span class="token punctuation">(</span>x<span class="token operator">$</span>call<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
           sub <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> xlab <span class="token operator">=</span> <span class="token string">"Separation step"</span><span class="token punctuation">,</span>
 	  col <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> axes <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> adj <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
           nmax.lab <span class="token operator">=</span> <span class="token number">35</span><span class="token punctuation">,</span> max.strlen <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -5522,8 +6151,10 @@ Moreover, observation labels are truncated to maximally
 <p><code><a href="#mona">mona</a></code>, <code><a href="#mona.object">mona.object</a></code>, <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="plot.partition"><main><a href="#plot.partition" class="help-page-title"><h2>Plot of a Partition of the Data Set</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="plot.partition"><div class="page-main">
+<a href="#plot.partition" class="help-page-title"><h2>Plot of a Partition of the Data Set</h2></a>
 
 <h3>Description</h3>
 
@@ -5532,7 +6163,13 @@ Moreover, observation labels are truncated to maximally
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'partition'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'partition'
+plot(x, ask = FALSE, which.plots = NULL,
+     nmax.lab = 40, max.strlen = 5, data = x$data, dist = NULL,
+     stand = FALSE, lines = 2,
+     shade = FALSE, color = FALSE, labels = 0, plotchar = TRUE,
+     span = TRUE, xlim = NULL, ylim = NULL, main = NULL, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'partition'</span>
 plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> ask <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> which.plots <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
      nmax.lab <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">,</span> max.strlen <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> data <span class="token operator">=</span> x<span class="token operator">$</span>data<span class="token punctuation">,</span> dist <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
      stand <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> lines <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>
@@ -5540,7 +6177,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
      span <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> xlim <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> ylim <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -5679,7 +6316,17 @@ cluster analysis. <em>J. Comput. Appl. Math.</em>, <b>20</b>, 53–65.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## generate 25 objects, divided into 2 clusters.</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## generate 25 objects, divided into 2 clusters.
+x &lt;- rbind(cbind(rnorm(10,0,0.5), rnorm(10,0,0.5)),
+           cbind(rnorm(15,5,0.5), rnorm(15,5,0.5)))
+plot(pam(x, 2))
+
+## Save space not keeping data in clus.object, and still clusplot() it:
+data(xclara)
+cx &lt;- clara(xclara, 3, keep.data = FALSE)
+cx$data # is NULL
+plot(cx, data = xclara)
+</code><code class="language-r"><span class="token comment">## generate 25 objects, divided into 2 clusters.</span>
 x <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
            cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>pam<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -5690,8 +6337,10 @@ cx <span class="token operator">&lt;-</span> clara<span class="token punctuation
 cx<span class="token operator">$</span>data <span class="token comment"># is NULL</span>
 plot<span class="token punctuation">(</span>cx<span class="token punctuation">,</span> data <span class="token operator">=</span> xclara<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="pltree"><main><a href="#pltree" class="help-page-title"><h2>Plot Clustering Tree of a Hierarchical Clustering</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="pltree"><div class="page-main">
+<a href="#pltree" class="help-page-title"><h2>Plot Clustering Tree of a Hierarchical Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -5704,13 +6353,17 @@ typically resulting from <code><a href="#agnes">agnes</a>()</code> or <code><a h
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">pltree<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">pltree(x, ...)
+## S3 method for class 'twins'
+pltree(x, main = paste("Dendrogram of ", deparse1(x$call)),
+             labels = NULL, ylab = "Height", ...)
+</code><code class="language-r">pltree<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'twins'</span>
 pltree<span class="token punctuation">(</span>x<span class="token punctuation">,</span> main <span class="token operator">=</span> paste<span class="token punctuation">(</span><span class="token string">"Dendrogram of "</span><span class="token punctuation">,</span> deparse1<span class="token punctuation">(</span>x<span class="token operator">$</span>call<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
              labels <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> ylab <span class="token operator">=</span> <span class="token string">"Height"</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -5779,7 +6432,19 @@ consider <code>xx &lt;- <a href="https://r-universe.dev/manuals/stats.html#dendr
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(votes.repub)
+agn &lt;- agnes(votes.repub)
+pltree(agn)
+
+dagn  &lt;- as.dendrogram(as.hclust(agn))
+dagn2 &lt;- as.dendrogram(as.hclust(agn), hang = 0.2)
+op &lt;- par(mar = par("mar") + c(0,0,0, 2)) # more space to the right
+plot(dagn2, horiz = TRUE)
+plot(dagn, horiz = TRUE, center = TRUE,
+     nodePar = list(lab.cex = 0.6, lab.col = "forest green", pch = NA),
+     main = deparse(agn$call))
+par(op)
+</code><code class="language-r">data<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span>
 agn <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span>
 pltree<span class="token punctuation">(</span>agn<span class="token punctuation">)</span>
 
@@ -5792,8 +6457,10 @@ plot<span class="token punctuation">(</span>dagn<span class="token punctuation">
      main <span class="token operator">=</span> deparse<span class="token punctuation">(</span>agn<span class="token operator">$</span>call<span class="token punctuation">)</span><span class="token punctuation">)</span>
 par<span class="token punctuation">(</span>op<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="pluton"><main><a href="#pluton" class="help-page-title"><h2>Isotopic Composition Plutonium Batches</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="pluton"><div class="page-main">
+<a href="#pluton" class="help-page-title"><h2>Isotopic Composition Plutonium Batches</h2></a>
 
 <h3>Description</h3>
 
@@ -5805,7 +6472,7 @@ batches.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>pluton<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(pluton)</code><code class="language-r">data<span class="token punctuation">(</span>pluton<span class="token punctuation">)</span></code></pre>
 
 
 <h3>Format</h3>
@@ -5865,15 +6532,23 @@ Fuzzy clustering using scatter matrices,
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>pluton<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(pluton)
+
+hist(apply(pluton,1,sum), col = "gray") # between 94% and 100%
+pu5 &lt;- pluton
+pu5$Pu242 &lt;- 100 - apply(pluton,1,sum) # the remaining isotope.
+pairs(pu5)
+</code><code class="language-r">data<span class="token punctuation">(</span>pluton<span class="token punctuation">)</span>
 
 hist<span class="token punctuation">(</span>apply<span class="token punctuation">(</span>pluton<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>sum<span class="token punctuation">)</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token string">"gray"</span><span class="token punctuation">)</span> <span class="token comment"># between 94% and 100%</span>
 pu5 <span class="token operator">&lt;-</span> pluton
 pu5<span class="token operator">$</span>Pu242 <span class="token operator">&lt;-</span> <span class="token number">100</span> <span class="token operator">-</span> apply<span class="token punctuation">(</span>pluton<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>sum<span class="token punctuation">)</span> <span class="token comment"># the remaining isotope.</span>
 pairs<span class="token punctuation">(</span>pu5<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="predict.ellipsoid"><main><a href="#predict.ellipsoid" class="help-page-title"><h2>Predict Method for Ellipsoid Objects</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="predict.ellipsoid"><div class="page-main">
+<a href="#predict.ellipsoid" class="help-page-title"><h2>Predict Method for Ellipsoid Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -5883,13 +6558,17 @@ pairs<span class="token punctuation">(</span>pu5<span class="token punctuation">
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">predict.ellipsoid<span class="token punctuation">(</span>object<span class="token punctuation">,</span> n.out<span class="token operator">=</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">predict.ellipsoid(object, n.out=201, ...)
+## S3 method for class 'ellipsoid'
+predict(object, n.out=201, ...)
+ellipsoidPoints(A, d2, loc, n.half = 201)
+</code><code class="language-r">predict.ellipsoid<span class="token punctuation">(</span>object<span class="token punctuation">,</span> n.out<span class="token operator">=</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'ellipsoid'</span>
 predict<span class="token punctuation">(</span>object<span class="token punctuation">,</span> n.out<span class="token operator">=</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 ellipsoidPoints<span class="token punctuation">(</span>A<span class="token punctuation">,</span> d2<span class="token punctuation">,</span> loc<span class="token punctuation">,</span> n.half <span class="token operator">=</span> <span class="token number">201</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -5954,7 +6633,23 @@ contributions for <code class="reqn"><span class="katex"><span class="katex-math
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## see also  example(ellipsoidhull)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden"> ## see also  example(ellipsoidhull)
+
+## Robust vs. L.S. covariance matrix
+set.seed(143)
+x &lt;- rt(200, df=3)
+y &lt;- 3*x + rt(200, df=2)
+plot(x,y, main="non-normal data (N=200)")
+mtext("with classical and robust cov.matrix ellipsoids")
+X &lt;- cbind(x,y)
+C.ls &lt;- cov(X) ; m.ls &lt;- colMeans(X)
+d2.99 &lt;- qchisq(0.99, df = 2)
+lines(ellipsoidPoints(C.ls, d2.99, loc=m.ls), col="green")
+if(require(MASS)) {
+  Cxy &lt;- cov.rob(cbind(x,y))
+  lines(ellipsoidPoints(Cxy$cov, d2 = d2.99, loc=Cxy$center), col="red")
+}# MASS
+</code><code class="language-r"><span class="token comment">## see also  example(ellipsoidhull)</span>
 
 <span class="token comment">## Robust vs. L.S. covariance matrix</span>
 set.seed<span class="token punctuation">(</span><span class="token number">143</span><span class="token punctuation">)</span>
@@ -5971,8 +6666,10 @@ lines<span class="token punctuation">(</span>ellipsoidPoints<span class="token p
   lines<span class="token punctuation">(</span>ellipsoidPoints<span class="token punctuation">(</span>Cxy<span class="token operator">$</span>cov<span class="token punctuation">,</span> d2 <span class="token operator">=</span> d2.<span class="token number">99</span><span class="token punctuation">,</span> loc<span class="token operator">=</span>Cxy<span class="token operator">$</span>center<span class="token punctuation">)</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token string">"red"</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token comment"># MASS</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="print.agnes"><main><a href="#print.agnes" class="help-page-title"><h2>Print Method for AGNES Objects</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="print.agnes"><div class="page-main">
+<a href="#print.agnes" class="help-page-title"><h2>Print Method for AGNES Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -5986,11 +6683,13 @@ inheriting from class <code>agnes</code>, see <code><a href="#agnes.object">agne
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'agnes'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'agnes'
+print(x, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'agnes'</span>
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -6013,8 +6712,10 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="print.clara"><main><a href="#print.clara" class="help-page-title"><h2>Print Method for CLARA Objects</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="print.clara"><div class="page-main">
+<a href="#print.clara" class="help-page-title"><h2>Print Method for CLARA Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6028,11 +6729,13 @@ inheriting from class <code><a href="#clara">clara</a></code>.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'clara'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'clara'
+print(x, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'clara'</span>
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -6055,8 +6758,10 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="print.diana"><main><a href="#print.diana" class="help-page-title"><h2>Print Method for DIANA Objects</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="print.diana"><div class="page-main">
+<a href="#print.diana" class="help-page-title"><h2>Print Method for DIANA Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6070,11 +6775,13 @@ inheriting from class <code><a href="#diana">diana</a></code>.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'diana'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'diana'
+print(x, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'diana'</span>
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -6096,8 +6803,10 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="print.dissimilarity"><main><a href="#print.dissimilarity" class="help-page-title"><h2>Print and Summary Methods for Dissimilarity Objects</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="print.dissimilarity"><div class="page-main">
+<a href="#print.dissimilarity" class="help-page-title"><h2>Print and Summary Methods for Dissimilarity Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6112,7 +6821,15 @@ or <code>summary</code> for the general behavior of these.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'dissimilarity'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'dissimilarity'
+print(x, diag = NULL, upper = NULL,
+      digits = getOption("digits"), justify = "none", right = TRUE, ...)
+## S3 method for class 'dissimilarity'
+summary(object,
+        digits = max(3, getOption("digits") - 2), ...)
+## S3 method for class 'summary.dissimilarity'
+print(x, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'dissimilarity'</span>
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> diag <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> upper <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
       digits <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"digits"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> justify <span class="token operator">=</span> <span class="token string">"none"</span><span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'dissimilarity'</span>
@@ -6122,7 +6839,7 @@ summary<span class="token punctuation">(</span>object<span class="token punctuat
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -6166,14 +6883,21 @@ the triangular dissimilarity matrix is printed; see
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## See  example(daisy)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden"> ## See  example(daisy)
+
+ sd &lt;- summary(daisy(matrix(rnorm(100), 20,5)))
+ sd # -&gt; print.summary.dissimilarity(.)
+ str(sd)
+</code><code class="language-r"><span class="token comment">## See  example(daisy)</span>
 
  sd <span class="token operator">&lt;-</span> summary<span class="token punctuation">(</span>daisy<span class="token punctuation">(</span>matrix<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
  sd <span class="token comment"># -&gt; print.summary.dissimilarity(.)</span>
  str<span class="token punctuation">(</span>sd<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="print.fanny"><main><a href="#print.fanny" class="help-page-title"><h2>Print and Summary Methods for FANNY Objects</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="print.fanny"><div class="page-main">
+<a href="#print.fanny" class="help-page-title"><h2>Print and Summary Methods for FANNY Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6187,7 +6911,13 @@ inheriting from class <code><a href="#fanny">fanny</a></code>.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'fanny'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'fanny'
+print(x, digits = getOption("digits"), ...)
+## S3 method for class 'fanny'
+summary(object, ...)
+## S3 method for class 'summary.fanny'
+print(x, digits = getOption("digits"), ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'fanny'</span>
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> digits <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"digits"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'fanny'</span>
 summary<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
@@ -6195,7 +6925,7 @@ summary<span class="token punctuation">(</span>object<span class="token punctuat
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> digits <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"digits"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -6226,8 +6956,10 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="print.mona"><main><a href="#print.mona" class="help-page-title"><h2>Print Method for MONA Objects</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="print.mona"><div class="page-main">
+<a href="#print.mona" class="help-page-title"><h2>Print Method for MONA Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6241,11 +6973,13 @@ inheriting from class <code><a href="#mona">mona</a></code>.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'mona'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'mona'
+print(x, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'mona'</span>
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -6267,8 +7001,10 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="print.pam"><main><a href="#print.pam" class="help-page-title"><h2>Print Method for PAM Objects</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="print.pam"><div class="page-main">
+<a href="#print.pam" class="help-page-title"><h2>Print Method for PAM Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6282,11 +7018,13 @@ inheriting from class <code><a href="#pam">pam</a></code>.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'pam'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'pam'
+print(x, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'pam'</span>
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -6308,8 +7046,10 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <code><a href="https://r-universe.dev/manuals/base.html#print.default">print.default</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="ruspini"><main><a href="#ruspini" class="help-page-title"><h2>Ruspini Data</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="ruspini"><div class="page-main">
+<a href="#ruspini" class="help-page-title"><h2>Ruspini Data</h2></a>
 
 <h3>Description</h3>
 
@@ -6320,7 +7060,7 @@ popular for illustrating clustering techniques.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>ruspini<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(ruspini)</code><code class="language-r">data<span class="token punctuation">(</span>ruspini<span class="token punctuation">)</span></code></pre>
 
 
 <h3>Format</h3>
@@ -6346,7 +7086,15 @@ Numerical methods for fuzzy clustering.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>ruspini<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(ruspini)
+
+## Plot similar to Figure 4 in Stryuf et al (1996)
+## Not run: plot(pam(ruspini, 4), ask = TRUE)
+
+
+## Plot similar to Figure 6 in Stryuf et al (1996)
+plot(fanny(ruspini, 5))
+</code><code class="language-r">data<span class="token punctuation">(</span>ruspini<span class="token punctuation">)</span>
 
 <span class="token comment">## Plot similar to Figure 4 in Stryuf et al (1996)</span>
 <span class="token comment">## Not run: plot(pam(ruspini, 4), ask = TRUE)</span>
@@ -6355,8 +7103,10 @@ Numerical methods for fuzzy clustering.
 <span class="token comment">## Plot similar to Figure 6 in Stryuf et al (1996)</span>
 plot<span class="token punctuation">(</span>fanny<span class="token punctuation">(</span>ruspini<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="silhouette"><main><a href="#silhouette" class="help-page-title"><h2>Compute or Extract Silhouette Information from Clustering</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="silhouette"><div class="page-main">
+<a href="#silhouette" class="help-page-title"><h2>Compute or Extract Silhouette Information from Clustering</h2></a>
 
 <h3>Description</h3>
 
@@ -6367,7 +7117,23 @@ plot<span class="token punctuation">(</span>fanny<span class="token punctuation"
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">silhouette<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">silhouette(x, ...)
+## Default S3 method:
+  silhouette(x, dist, dmatrix, ...)
+## S3 method for class 'partition'
+silhouette(x, ...)
+## S3 method for class 'clara'
+silhouette(x, full = FALSE, subset = NULL, ...)
+
+sortSilhouette(object, ...)
+## S3 method for class 'silhouette'
+summary(object, FUN = mean, ...)
+## S3 method for class 'silhouette'
+plot(x, nmax.lab = 40, max.strlen = 5,
+     main = NULL, sub = NULL, xlab = expression("Silhouette width "* s[i]),
+     col = "gray",  do.col.sort = length(col) &gt; 1, border = 0,
+     cex.names = par("cex.axis"), do.n.k = TRUE, do.clus.stat = TRUE, ...)
+</code><code class="language-r">silhouette<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## Default S3 method:</span>
   silhouette<span class="token punctuation">(</span>x<span class="token punctuation">,</span> dist<span class="token punctuation">,</span> dmatrix<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'partition'</span>
@@ -6385,7 +7151,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
      cex.names <span class="token operator">=</span> par<span class="token punctuation">(</span><span class="token string">"cex.axis"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> do.n.k <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> do.clus.stat <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -6627,7 +7393,55 @@ the references in <code><a href="#plot.agnes">plot.agnes</a></code>.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>ruspini<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(ruspini)
+pr4 &lt;- pam(ruspini, 4)
+str(si &lt;- silhouette(pr4))
+(ssi &lt;- summary(si))
+plot(si) # silhouette plot
+plot(si, col = c("red", "green", "blue", "purple"))# with cluster-wise coloring
+
+si2 &lt;- silhouette(pr4$clustering, dist(ruspini, "canberra"))
+summary(si2) # has small values: "canberra"'s fault
+plot(si2, nmax= 80, cex.names=0.6)
+
+op &lt;- par(mfrow= c(3,2), oma= c(0,0, 3, 0),
+          mgp= c(1.6,.8,0), mar= .1+c(4,2,2,2))
+for(k in 2:6)
+   plot(silhouette(pam(ruspini, k=k)), main = paste("k = ",k), do.n.k=FALSE)
+mtext("PAM(Ruspini) as in Kaufman &amp; Rousseeuw, p.101",
+      outer = TRUE, font = par("font.main"), cex = par("cex.main")); frame()
+
+## the same with cluster-wise colours:
+c6 &lt;- c("tomato", "forest green", "dark blue", "purple2", "goldenrod4", "gray20")
+for(k in 2:6)
+   plot(silhouette(pam(ruspini, k=k)), main = paste("k = ",k), do.n.k=FALSE,
+        col = c6[1:k])
+par(op)
+
+## clara(): standard silhouette is just for the best random subset
+data(xclara)
+set.seed(7)
+str(xc1k &lt;- xclara[ sample(nrow(xclara), size = 1000) ,]) # rownames == indices
+cl3 &lt;- clara(xc1k, 3)
+plot(silhouette(cl3))# only of the "best" subset of 46
+## The full silhouette: internally needs large (36 MB) dist object:
+sf &lt;- silhouette(cl3, full = TRUE) ## this is the same as
+s.full &lt;- silhouette(cl3$clustering, daisy(xc1k))
+stopifnot(all.equal(sf, s.full, check.attributes = FALSE, tolerance = 0))
+## color dependent on original "3 groups of each 1000": % __FIXME ??__
+plot(sf, col = 2+ as.integer(names(cl3$clustering) ) %/% 1000,
+     main ="plot(silhouette(clara(.), full = TRUE))")
+
+## Silhouette for a hierarchical clustering:
+ar &lt;- agnes(ruspini)
+si3 &lt;- silhouette(cutree(ar, k = 5), # k = 4 gave the same as pam() above
+    	           daisy(ruspini))
+stopifnot(is.data.frame(di3 &lt;- as.data.frame(si3)))
+plot(si3, nmax = 80, cex.names = 0.5)
+## 2 groups: Agnes() wasn't too good:
+si4 &lt;- silhouette(cutree(ar, k = 2), daisy(ruspini))
+plot(si4, nmax = 80, cex.names = 0.5)
+</code><code class="language-r">data<span class="token punctuation">(</span>ruspini<span class="token punctuation">)</span>
 pr4 <span class="token operator">&lt;-</span> pam<span class="token punctuation">(</span>ruspini<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
 str<span class="token punctuation">(</span>si <span class="token operator">&lt;-</span> silhouette<span class="token punctuation">(</span>pr4<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">(</span>ssi <span class="token operator">&lt;-</span> summary<span class="token punctuation">(</span>si<span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -6676,8 +7490,10 @@ plot<span class="token punctuation">(</span>si3<span class="token punctuation">,
 si4 <span class="token operator">&lt;-</span> silhouette<span class="token punctuation">(</span>cutree<span class="token punctuation">(</span>ar<span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> daisy<span class="token punctuation">(</span>ruspini<span class="token punctuation">)</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>si4<span class="token punctuation">,</span> nmax <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">,</span> cex.names <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="sizeDiss"><main><a href="#sizeDiss" class="help-page-title"><h2>Sample Size of Dissimilarity Like Object</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="sizeDiss"><div class="page-main">
+<a href="#sizeDiss" class="help-page-title"><h2>Sample Size of Dissimilarity Like Object</h2></a>
 
 <h3>Description</h3>
 
@@ -6692,10 +7508,11 @@ when only the lower or upper triangular part (without diagonal) is given.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">sizeDiss<span class="token punctuation">(</span>d<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">sizeDiss(d)
+</code><code class="language-r">sizeDiss<span class="token punctuation">(</span>d<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table><tr>
 <td><code id="d">d</code></td>
@@ -6718,14 +7535,21 @@ when only the lower or upper triangular part (without diagonal) is given.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">sizeDiss<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token comment"># 5, since 10 == 5 * (5 - 1) / 2</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">sizeDiss(1:10)# 5, since 10 == 5 * (5 - 1) / 2
+sizeDiss(1:9) # NA
+
+n &lt;- 1:100
+stopifnot(n == sapply( n*(n-1)/2, function(n) sizeDiss(logical(n))))
+</code><code class="language-r">sizeDiss<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token comment"># 5, since 10 == 5 * (5 - 1) / 2</span>
 sizeDiss<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">9</span><span class="token punctuation">)</span> <span class="token comment"># NA</span>
 
 n <span class="token operator">&lt;-</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">100</span>
 stopifnot<span class="token punctuation">(</span>n <span class="token operator">==</span> sapply<span class="token punctuation">(</span> n<span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> sizeDiss<span class="token punctuation">(</span>logical<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="summary.agnes"><main><a href="#summary.agnes" class="help-page-title"><h2>Summary Method for 'agnes' Objects</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="summary.agnes"><div class="page-main">
+<a href="#summary.agnes" class="help-page-title"><h2>Summary Method for 'agnes' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6737,13 +7561,17 @@ Printing gives more output than the corresponding
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'agnes'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'agnes'
+summary(object, ...)
+## S3 method for class 'summary.agnes'
+print(x, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'agnes'</span>
 summary<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'summary.agnes'</span>
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -6768,11 +7596,15 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(agriculture)
+summary(agnes(agriculture))
+</code><code class="language-r">data<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span>
 summary<span class="token punctuation">(</span>agnes<span class="token punctuation">(</span>agriculture<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="summary.clara"><main><a href="#summary.clara" class="help-page-title"><h2>Summary Method for 'clara' Objects</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="summary.clara"><div class="page-main">
+<a href="#summary.clara" class="help-page-title"><h2>Summary Method for 'clara' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6784,13 +7616,17 @@ Printing gives more output than the corresponding
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'clara'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'clara'
+summary(object, ...)
+## S3 method for class 'summary.clara'
+print(x, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'clara'</span>
 summary<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'summary.clara'</span>
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -6815,7 +7651,24 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## generate 2000 objects, divided into 5 clusters.</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## generate 2000 objects, divided into 5 clusters.
+set.seed(47)
+x &lt;- rbind(cbind(rnorm(400, 0,4), rnorm(400, 0,4)),
+           cbind(rnorm(400,10,8), rnorm(400,40,6)),
+           cbind(rnorm(400,30,4), rnorm(400, 0,4)),
+           cbind(rnorm(400,40,4), rnorm(400,20,2)),
+           cbind(rnorm(400,50,4), rnorm(400,50,4))
+)
+clx5 &lt;- clara(x, 5)
+## Mis'classification' table:
+table(rep(1:5, rep(400,5)), clx5$clust) # -&gt; 1 "error"
+summary(clx5)
+
+## Graphically:
+par(mfrow = c(3,1), mgp = c(1.5, 0.6, 0), mar = par("mar") - c(0,0,2,0))
+plot(x, col = rep(2:6, rep(400,5)))
+plot(clx5)
+</code><code class="language-r"><span class="token comment">## generate 2000 objects, divided into 5 clusters.</span>
 set.seed<span class="token punctuation">(</span><span class="token number">47</span><span class="token punctuation">)</span>
 x <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
            cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -6825,19 +7678,18 @@ x <span class="token operator">&lt;-</span> rbind<span class="token punctuation"
 <span class="token punctuation">)</span>
 clx5 <span class="token operator">&lt;-</span> clara<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
 <span class="token comment">## Mis'classification' table:</span>
-
-
 table<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> clx5<span class="token operator">$</span>clust<span class="token punctuation">)</span> <span class="token comment"># -&gt; 1 "error"</span>
 summary<span class="token punctuation">(</span>clx5<span class="token punctuation">)</span>
 
 <span class="token comment">## Graphically:</span>
 par<span class="token punctuation">(</span>mfrow <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mgp <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1.5</span><span class="token punctuation">,</span> <span class="token number">0.6</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mar <span class="token operator">=</span> par<span class="token punctuation">(</span><span class="token string">"mar"</span><span class="token punctuation">)</span> <span class="token operator">-</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
 plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> col <span class="token operator">=</span> rep<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>clx5<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="summary.diana"><main><a href="#summary.diana" class="help-page-title"><h2>Summary Method for 'diana' Objects</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="summary.diana"><div class="page-main">
+<a href="#summary.diana" class="help-page-title"><h2>Summary Method for 'diana' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6846,13 +7698,17 @@ plot<span class="token punctuation">(</span>clx5<span class="token punctuation">
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'diana'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'diana'
+summary(object, ...)
+## S3 method for class 'summary.diana'
+print(x, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'diana'</span>
 summary<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'summary.diana'</span>
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -6874,8 +7730,10 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <p><code><a href="#diana">diana</a></code>, <code><a href="#diana">diana.object</a></code>.</p>
 
-<hr></main></div>
-<div class="container manual-page" id="summary.mona"><main><a href="#summary.mona" class="help-page-title"><h2>Summary Method for 'mona' Objects</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="summary.mona"><div class="page-main">
+<a href="#summary.mona" class="help-page-title"><h2>Summary Method for 'mona' Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6884,13 +7742,17 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'mona'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'mona'
+summary(object, ...)
+## S3 method for class 'summary.mona'
+print(x, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'mona'</span>
 summary<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'summary.mona'</span>
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -6912,8 +7774,10 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <p><code><a href="#mona">mona</a></code>, <code><a href="#mona.object">mona.object</a></code>.</p>
 
-<hr></main></div>
-<div class="container manual-page" id="summary.pam"><main><a href="#summary.pam" class="help-page-title"><h2>Summary Method for PAM Objects</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="summary.pam"><div class="page-main">
+<a href="#summary.pam" class="help-page-title"><h2>Summary Method for PAM Objects</h2></a>
 
 <h3>Description</h3>
 
@@ -6925,13 +7789,17 @@ There's a <code><a href="https://r-universe.dev/manuals/base.html#print">print</
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'pam'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'pam'
+summary(object, ...)
+## S3 method for class 'summary.pam'
+print(x, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'pam'</span>
 summary<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'summary.pam'</span>
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -6954,8 +7822,10 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <p><code><a href="#pam">pam</a></code>, <code><a href="#pam.object">pam.object</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="twins.object"><main><a href="#twins.object" class="help-page-title"><h2>Hierarchical Clustering Object</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="twins.object"><div class="page-main">
+<a href="#twins.object" class="help-page-title"><h2>Hierarchical Clustering Object</h2></a>
 
 <h3>Description</h3>
 
@@ -6995,8 +7865,10 @@ divisive (polythetic) hierarchical clustering of a dataset.
 <p><code><a href="#agnes">agnes</a></code>,<code><a href="#diana">diana</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="volume.ellipsoid"><main><a href="#volume.ellipsoid" class="help-page-title"><h2>Compute the Volume (of an Ellipsoid)</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="volume.ellipsoid"><div class="page-main">
+<a href="#volume.ellipsoid" class="help-page-title"><h2>Compute the Volume (of an Ellipsoid)</h2></a>
 
 <h3>Description</h3>
 
@@ -7008,12 +7880,15 @@ This is a generic function and has a method for <code>ellipsoid</code> objects
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">volume<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">volume(object, ...)
+## S3 method for class 'ellipsoid'
+volume(object, log = FALSE, ...)
+</code><code class="language-r">volume<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'ellipsoid'</span>
 volume<span class="token punctuation">(</span>object<span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -7059,7 +7934,17 @@ Keefe Murphy (2019) provided code for dimensions <code class="reqn"><span class=
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## example(ellipsoidhull) # which defines 'ellipsoid' object &lt;namefoo&gt;</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## example(ellipsoidhull) # which defines 'ellipsoid' object &lt;namefoo&gt;
+
+myEl &lt;- structure(list(cov = rbind(c(3,1),1:2), loc = c(0,0), d2 = 10),
+                   class = "ellipsoid")
+volume(myEl)# i.e. "area" here (d = 2)
+myEl # also mentions the "volume"
+
+set.seed(1)
+d5 &lt;- matrix(rt(500, df=3), 100,5)
+e5 &lt;- ellipsoidhull(d5)
+</code><code class="language-r"><span class="token comment">## example(ellipsoidhull) # which defines 'ellipsoid' object &lt;namefoo&gt;</span>
 
 myEl <span class="token operator">&lt;-</span> structure<span class="token punctuation">(</span>list<span class="token punctuation">(</span>cov <span class="token operator">=</span> rbind<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> loc <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> d2 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                    class <span class="token operator">=</span> <span class="token string">"ellipsoid"</span><span class="token punctuation">)</span>
@@ -7070,8 +7955,10 @@ set.seed<span class="token punctuation">(</span><span class="token number">1</sp
 d5 <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span>rt<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span> df<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
 e5 <span class="token operator">&lt;-</span> ellipsoidhull<span class="token punctuation">(</span>d5<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="votes.repub"><main><a href="#votes.repub" class="help-page-title"><h2>Votes for Republican Candidate in Presidential Elections</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="votes.repub"><div class="page-main">
+<a href="#votes.repub" class="help-page-title"><h2>Votes for Republican Candidate in Presidential Elections</h2></a>
 
 <h3>Description</h3>
 
@@ -7083,7 +7970,7 @@ represent the 50 states, and columns the 31 elections.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(votes.repub)</code><code class="language-r">data<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span></code></pre>
 
 
 <h3>Source</h3>
@@ -7096,8 +7983,10 @@ New York: Frederick Ungar Publishing Co.
 <em>American Votes 12</em>, Congressional Quarterly.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="xclara"><main><a href="#xclara" class="help-page-title"><h2>Bivariate Data Set with 3 Clusters</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="xclara"><div class="page-main">
+<a href="#xclara" class="help-page-title"><h2>Bivariate Data Set with 3 Clusters</h2></a>
 
 <h3>Description</h3>
 
@@ -7108,7 +7997,7 @@ clusters.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>xclara<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(xclara)</code><code class="language-r">data<span class="token punctuation">(</span>xclara<span class="token punctuation">)</span></code></pre>
 
 
 <h3>Format</h3>
@@ -7123,7 +8012,7 @@ clusters.
 
 <p>Our version of the <code>xclara</code> is slightly more rounded than the one
 from <code><a href="https://r-universe.dev/manuals/utils.html#read.table">read.table</a>("xclara.dat")</code> and the relative
-difference measured by <code><a href="https://r-universe.dev/manuals/Matrix.html#all.equal-methods">all.equal</a></code> is <code>1.15e-7</code> for
+difference measured by <code><a href="https://r-universe.dev/manuals/base.html#all.equal">all.equal</a></code> is <code>1.15e-7</code> for
 <code>V1</code> and <code>1.17e-7</code> for <code>V2</code> which suggests that our
 version has been the result of a <code><a href="https://r-universe.dev/manuals/base.html#options">options</a>(digits = 7)</code>
 formatting.
@@ -7155,7 +8044,32 @@ Clustering in an Object-Oriented Environment.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Visualization: Assuming groups are defined as {1:1000}, {1001:2000}, {2001:3000}</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Visualization: Assuming groups are defined as {1:1000}, {1001:2000}, {2001:3000}
+plot(xclara, cex = 3/4, col = rep(1:3, each=1000))
+p.ID &lt;- c(78, 1411, 2535) ## PAM's medoid indices  == pam(xclara, 3)$id.med
+text(xclara[p.ID,], labels = 1:3, cex=2, col=1:3)
+
+ px &lt;- pam(xclara, 3) ## takes ~2 seconds
+ cxcl &lt;- px$clustering ; iCl &lt;- split(seq_along(cxcl), cxcl)
+ boxplot(iCl, range = 0.7, horizontal=TRUE,
+         main = "Indices of the 3 clusters of  pam(xclara, 3)")
+
+ ## Look more closely now:
+ bxCl &lt;- boxplot(iCl, range = 0.7, plot=FALSE)
+ ## We see 3 + 2 + 2 = 7  clear "outlier"s  or "wrong group" observations:
+ with(bxCl, rbind(out, group))
+ ## out   1038 1451 1610   30  327  562  770
+ ## group    1    1    1    2    2    3    3
+ ## Apart from these, what are the robust ranges of indices? -- Robust range:
+ t(iR &lt;- bxCl$stats[c(1,5),])
+ ##    1  900
+ ##  901 2050
+ ## 2051 3000
+ gc &lt;- adjustcolor("gray20",1/2)
+ abline(v = iR, col = gc, lty=3)
+ axis(3, at = c(0, iR[2,]), padj = 1.2, col=gc, col.axis=gc)
+
+</code><code class="language-r"><span class="token comment">## Visualization: Assuming groups are defined as {1:1000}, {1001:2000}, {2001:3000}</span>
 plot<span class="token punctuation">(</span>xclara<span class="token punctuation">,</span> cex <span class="token operator">=</span> <span class="token number">3</span><span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">,</span> col <span class="token operator">=</span> rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span> each<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 p.ID <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">78</span><span class="token punctuation">,</span> <span class="token number">1411</span><span class="token punctuation">,</span> <span class="token number">2535</span><span class="token punctuation">)</span> <span class="token comment">## PAM's medoid indices  == pam(xclara, 3)$id.med</span>
 text<span class="token punctuation">(</span>xclara<span class="token punctuation">[</span>p.ID<span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span> labels <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span> cex<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">)</span>
@@ -7180,8 +8094,9 @@ text<span class="token punctuation">(</span>xclara<span class="token punctuation
  abline<span class="token punctuation">(</span>v <span class="token operator">=</span> iR<span class="token punctuation">,</span> col <span class="token operator">=</span> gc<span class="token punctuation">,</span> lty<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
  axis<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> at <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> iR<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> padj <span class="token operator">=</span> <span class="token number">1.2</span><span class="token punctuation">,</span> col<span class="token operator">=</span>gc<span class="token punctuation">,</span> col.axis<span class="token operator">=</span>gc<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
+<hr>
+</div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.2</p></footer>
+    <footer><p>Rendered with postdoc 1.4.0</p></footer>
   </body>
 </html>

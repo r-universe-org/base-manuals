@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <!-- styling for math and syntax -->
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
@@ -16,7 +16,7 @@
 
   </head>
 
-  <body class="macintosh">
+  <body class="postdoc macintosh">
     <h1 class="manual-title">Package 'compiler'</h1>
     <table class="description-table">
       <tr>
@@ -37,15 +37,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.4.0</td>
+<td class="description-license">Part of R 4.4.1</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.4.0</td>
+<td class="description-version">4.4.1</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-03-27 22:41:21 UTC</td>
+<td class="description-date">2024-06-15 17:27:02 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -57,7 +57,8 @@
     <ul id="help-index-list"><li class="help-index-item"><a href="#compile">Byte Code Compiler</a></li></ul>
 
     <hr>
-    <div class="manual-pages-content"><div class="container manual-page" id="compile"><main><a href="#compile" class="help-page-title"><h2>Byte Code Compiler</h2></a>
+    <div class="manual-pages-content"><div class="container manual-page" id="compile"><div class="page-main">
+<a href="#compile" class="help-page-title"><h2>Byte Code Compiler</h2></a>
 
 <h3>Description</h3>
 
@@ -67,7 +68,17 @@
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">cmpfun<span class="token punctuation">(</span>f<span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">cmpfun(f, options = NULL)
+compile(e, env = .GlobalEnv, options = NULL, srcref = NULL)
+cmpfile(infile, outfile, ascii = FALSE, env = .GlobalEnv,
+        verbose = FALSE, options = NULL, version = NULL)
+loadcmp(file, envir = .GlobalEnv, chdir = FALSE)
+disassemble(code)
+enableJIT(level)
+compilePKGS(enable)
+getCompilerOption(name, options)
+setCompilerOptions(...)
+</code><code class="language-r">cmpfun<span class="token punctuation">(</span>f<span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
 compile<span class="token punctuation">(</span>e<span class="token punctuation">,</span> env <span class="token operator">=</span> .GlobalEnv<span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> srcref <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
 cmpfile<span class="token punctuation">(</span>infile<span class="token punctuation">,</span> outfile<span class="token punctuation">,</span> ascii <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> env <span class="token operator">=</span> .GlobalEnv<span class="token punctuation">,</span>
         verbose <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> version <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
@@ -79,7 +90,7 @@ getCompilerOption<span class="token punctuation">(</span>name<span class="token 
 setCompilerOptions<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -272,7 +283,58 @@ representation is actually threaded code rather than byte code.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">oldJIT <span class="token operator">&lt;-</span> enableJIT<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">oldJIT &lt;- enableJIT(0)
+# a simple example
+f &lt;- function(x) x+1
+fc &lt;- cmpfun(f)
+fc(2)
+disassemble(fc)
+
+# old R version of lapply
+la1 &lt;- function(X, FUN, ...) {
+    FUN &lt;- match.fun(FUN)
+    if (!is.list(X))
+	X &lt;- as.list(X)
+    rval &lt;- vector("list", length(X))
+    for(i in seq_along(X))
+	rval[i] &lt;- list(FUN(X[[i]], ...))
+    names(rval) &lt;- names(X)		  # keep `names' !
+    return(rval)
+}
+# a small variation
+la2 &lt;- function(X, FUN, ...) {
+    FUN &lt;- match.fun(FUN)
+    if (!is.list(X))
+	X &lt;- as.list(X)
+    rval &lt;- vector("list", length(X))
+    for(i in seq_along(X)) {
+        v &lt;- FUN(X[[i]], ...)
+        if (is.null(v)) rval[i] &lt;- list(v)
+        else rval[[i]] &lt;- v
+    }
+    names(rval) &lt;- names(X)		  # keep `names' !
+    return(rval)
+}
+# Compiled versions
+la1c &lt;- cmpfun(la1)
+la2c &lt;- cmpfun(la2)
+# some timings
+x &lt;- 1:10
+y &lt;- 1:100
+
+system.time(for (i in 1:10000) lapply(x, is.null))
+system.time(for (i in 1:10000) la1(x, is.null))
+system.time(for (i in 1:10000) la1c(x, is.null))
+system.time(for (i in 1:10000) la2(x, is.null))
+system.time(for (i in 1:10000) la2c(x, is.null))
+system.time(for (i in 1:1000) lapply(y, is.null))
+system.time(for (i in 1:1000) la1(y, is.null))
+system.time(for (i in 1:1000) la1c(y, is.null))
+system.time(for (i in 1:1000) la2(y, is.null))
+system.time(for (i in 1:1000) la2c(y, is.null))
+
+
+enableJIT(oldJIT)</code><code class="language-r">oldJIT <span class="token operator">&lt;-</span> enableJIT<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
 <span class="token comment"># a simple example</span>
 f <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> x<span class="token operator">+</span><span class="token number">1</span>
 fc <span class="token operator">&lt;-</span> cmpfun<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
@@ -325,7 +387,8 @@ system.time<span class="token punctuation">(</span><span class="token keyword">f
 
 enableJIT<span class="token punctuation">(</span>oldJIT<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div></div>
-    <footer><p>Rendered with postdoc 1.2.2</p></footer>
+<hr>
+</div></div></div>
+    <footer><p>Rendered with postdoc 1.4.0</p></footer>
   </body>
 </html>

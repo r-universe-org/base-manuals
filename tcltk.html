@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <!-- styling for math and syntax -->
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
@@ -16,7 +16,7 @@
 
   </head>
 
-  <body class="macintosh">
+  <body class="postdoc macintosh">
     <h1 class="manual-title">Package 'tcltk'</h1>
     <table class="description-table">
       <tr>
@@ -37,15 +37,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.4.0</td>
+<td class="description-license">Part of R 4.4.1</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.4.0</td>
+<td class="description-version">4.4.1</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-03-27 22:42:05 UTC</td>
+<td class="description-date">2024-06-15 17:27:46 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -55,26 +55,67 @@
 
     <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
     <ul id="help-index-list">
-<li class="help-index-item"><a href="#TclInterface">Low-level Tcl/Tk Interface</a></li>
-<li class="help-index-item"><a href="#TkCommands">Tk non-widget commands</a></li>
-<li class="help-index-item"><a href="#TkWidgetcmds">Tk widget commands</a></li>
-<li class="help-index-item"><a href="#TkWidgets">Tk widgets</a></li>
 <li class="help-index-item"><a href="#tcltk-package">
 Tcl/Tk Interface
 </a></li>
+<li class="help-index-item"><a href="#TclInterface">Low-level Tcl/Tk Interface</a></li>
 <li class="help-index-item"><a href="#tclServiceMode"> Allow Tcl events to be serviced or not </a></li>
-<li class="help-index-item"><a href="#tkProgressBar">Progress Bars via Tk</a></li>
-<li class="help-index-item"><a href="#tkStartGUI">Tcl/Tk GUI startup</a></li>
 <li class="help-index-item"><a href="#tk_choose.dir">Choose a Folder Interactively</a></li>
 <li class="help-index-item"><a href="#tk_choose.files">Choose a List of Files Interactively</a></li>
 <li class="help-index-item"><a href="#tk_messageBox">Tk Message Box</a></li>
 <li class="help-index-item"><a href="#tk_select.list">Select Items from a List</a></li>
+<li class="help-index-item"><a href="#TkCommands">Tk non-widget commands</a></li>
 <li class="help-index-item"><a href="#tkpager">Page file using Tk text widget</a></li>
+<li class="help-index-item"><a href="#tkProgressBar">Progress Bars via Tk</a></li>
+<li class="help-index-item"><a href="#tkStartGUI">Tcl/Tk GUI startup</a></li>
+<li class="help-index-item"><a href="#TkWidgetcmds">Tk widget commands</a></li>
+<li class="help-index-item"><a href="#TkWidgets">Tk widgets</a></li>
 </ul>
 
     <hr>
     <div class="manual-pages-content">
-<div class="container manual-page" id="TclInterface"><main><a href="#TclInterface" class="help-page-title"><h2>Low-level Tcl/Tk Interface</h2></a>
+<div class="container manual-page" id="tcltk-package"><div class="page-main">
+<a href="#tcltk-package" class="help-page-title"><h2>
+Tcl/Tk Interface
+</h2></a>
+
+<h3>Description</h3>
+
+<p>Interface and language bindings to Tcl/Tk GUI elements.
+</p>
+
+
+<h3>Details</h3>
+
+<p>This package provides access to the platform-independent Tcl scripting
+language and Tk GUI elements.  See <a href="#TkWidgets">TkWidgets</a> for a list of
+supported widgets, <a href="#TkWidgetcmds">TkWidgetcmds</a> for commands to work with them,
+and references in those files for more.
+</p>
+<p>The Tcl/Tk documentation is in
+</p>
+<p>the system man pages.
+</p>
+<p>For a complete list of functions, use <code>ls("package:tcltk")</code>.
+</p>
+<p>Note that Tk will not be initialized if there is no <code>DISPLAY</code>
+variable set, but Tcl can still be used.  This is most useful to allow
+the loading of a package which depends on <span class="pkg">tcltk</span> in a session that
+does not actually use it (e.g., during installation).
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>R Core Team
+</p>
+<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
+</p>
+
+<hr>
+</div></div>
+<div class="container manual-page" id="TclInterface"><div class="page-main">
+<a href="#TclInterface" class="help-page-title"><h2>Low-level Tcl/Tk Interface</h2></a>
 
 <h3>Description</h3>
 
@@ -88,7 +129,79 @@ objects is accessed via objects of class <code>tclObj</code>.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">.Tcl<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">.Tcl(...)
+.Tcl.objv(objv)
+.Tcl.args(...)
+.Tcl.args.objv(...)
+.Tcl.callback(...)
+.Tk.ID(win)
+.Tk.newwin(ID)
+.Tk.subwin(parent)
+.TkRoot
+.TkUp
+
+tkdestroy(win)
+is.tkwin(x)
+
+tclvalue(x)
+tclvalue(x) &lt;- value
+
+tclVar(init = "")
+## S3 method for class 'tclVar'
+as.character(x, ...)
+## S3 method for class 'tclVar'
+tclvalue(x)
+## S3 replacement method for class 'tclVar'
+tclvalue(x) &lt;- value
+
+tclArray()
+## S3 method for class 'tclArray'
+x[[...]]
+## S3 replacement method for class 'tclArray'
+x[[...]] &lt;- value
+## S3 method for class 'tclArray'
+x$i
+## S3 replacement method for class 'tclArray'
+x$i &lt;- value
+
+## S3 method for class 'tclArray'
+names(x)
+## S3 method for class 'tclArray'
+length(x)
+
+tclObj(x)
+tclObj(x) &lt;- value
+## S3 method for class 'tclVar'
+tclObj(x)
+## S3 replacement method for class 'tclVar'
+tclObj(x) &lt;- value
+
+as.tclObj(x, drop = FALSE)
+is.tclObj(x)
+
+## S3 method for class 'tclObj'
+as.character(x, ...)
+## S3 method for class 'tclObj'
+as.integer(x, ...)
+## S3 method for class 'tclObj'
+as.double(x, ...)
+## S3 method for class 'tclObj'
+as.logical(x, ...)
+## S3 method for class 'tclObj'
+as.raw(x, ...)
+## S3 method for class 'tclObj'
+tclvalue(x)
+
+## Default S3 method:
+tclvalue(x)
+## Default S3 replacement method:
+tclvalue(x) &lt;- value
+
+
+addTclPath(path = ".")
+tclRequire(package, warn = TRUE)
+tclVersion()
+</code><code class="language-r">.Tcl<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
 .Tcl.objv<span class="token punctuation">(</span>objv<span class="token punctuation">)</span>
 .Tcl.args<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
 .Tcl.args.objv<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
@@ -162,7 +275,7 @@ tclRequire<span class="token punctuation">(</span>package<span class="token punc
 tclVersion<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -402,7 +515,32 @@ compiled into this build of <span class="rlang"><b>R</b></span>.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">tclVersion<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">tclVersion()
+
+.Tcl("format \"%s\n\" \"Hello, World!\"")
+
+f &lt;- function() cat("HI!\n")
+.Tcl.callback(f)
+.Tcl.args(text = "Push!", command = f) # NB: Different address
+
+
+xyzzy &lt;- tclVar(7913)
+tclvalue(xyzzy)
+tclvalue(xyzzy) &lt;- "foo"
+as.character(xyzzy)
+tcl("set", as.character(xyzzy))
+
+## Not run: 
+## These cannot be run by example() but should be OK when pasted
+## into an interactive R session with the tcltk package loaded
+top &lt;- tktoplevel() # a Tk widget, see Tk-widgets
+ls(envir = top$env, all.names = TRUE)
+
+## End(Not run)
+
+ls(envir = .TkRoot$env, all.names = TRUE) # .Tcl.args put a callback ref in here
+
+</code><code class="language-r">tclVersion<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 .Tcl<span class="token punctuation">(</span><span class="token string">"format \"%s\n\" \"Hello, World!\""</span><span class="token punctuation">)</span>
 
@@ -427,8 +565,369 @@ ls<span class="token punctuation">(</span>envir <span class="token operator">=</
 
 ls<span class="token punctuation">(</span>envir <span class="token operator">=</span> .TkRoot<span class="token operator">$</span>env<span class="token punctuation">,</span> all.names <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span> <span class="token comment"># .Tcl.args put a callback ref in here</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="TkCommands"><main><a href="#TkCommands" class="help-page-title"><h2>Tk non-widget commands</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="tclServiceMode"><div class="page-main">
+<a href="#tclServiceMode" class="help-page-title"><h2> Allow Tcl events to be serviced or not </h2></a>
+
+<h3>Description</h3>
+
+<p>This function controls or reports on the Tcl service mode,
+i.e., whether Tcl will respond to events.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">tclServiceMode(on = NULL)
+</code><code class="language-r">tclServiceMode<span class="token punctuation">(</span>on <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table><tr>
+<td><code id="on">on</code></td>
+<td>
+<p>(logical) Whether event servicing is turned on. </p>
+</td>
+</tr></table>
+<h3>Details</h3>
+
+<p>If called with <code>on == NULL</code> (the default), no change is made.
+</p>
+<p>Note that this blocks all Tcl/Tk activity, including for widgets from
+other packages.  It may be better to manage mapping of windows individually.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The value of the Tcl service mode before the call.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## see demo(tkcanvas) for an example
+oldmode &lt;- tclServiceMode(FALSE)
+# Do some work to create a nice picture.
+# Nothing will be displayed until...
+tclServiceMode(oldmode)
+## another idea is to use tkwm.withdraw() ... tkwm.deiconify()
+</code><code class="language-r"><span class="token comment">## see demo(tkcanvas) for an example</span>
+oldmode <span class="token operator">&lt;-</span> tclServiceMode<span class="token punctuation">(</span><span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+<span class="token comment"># Do some work to create a nice picture.</span>
+<span class="token comment"># Nothing will be displayed until...</span>
+tclServiceMode<span class="token punctuation">(</span>oldmode<span class="token punctuation">)</span>
+<span class="token comment">## another idea is to use tkwm.withdraw() ... tkwm.deiconify()</span></code></pre>
+
+<hr>
+</div></div>
+<div class="container manual-page" id="tk_choose.dir"><div class="page-main">
+<a href="#tk_choose.dir" class="help-page-title"><h2>Choose a Folder Interactively</h2></a>
+
+<h3>Description</h3>
+
+<p>Use a Tk widget to choose a directory interactively.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">tk_choose.dir(default = "", caption = "Select directory")
+</code><code class="language-r">tk_choose.dir<span class="token punctuation">(</span>default <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> caption <span class="token operator">=</span> <span class="token string">"Select directory"</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table>
+<tr>
+<td><code id="default">default</code></td>
+<td>
+<p>which directory to show initially.</p>
+</td>
+</tr>
+<tr>
+<td><code id="caption">caption</code></td>
+<td>
+<p>the caption on the selection dialog.</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>A length-one character vector, character <code>NA</code> if
+‘Cancel’ was selected.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#tk_choose.files">tk_choose.files</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">if (interactive()) tk_choose.dir(getwd(), "Choose a suitable folder")
+</code><code class="language-r"><span class="token keyword">if</span> <span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> tk_choose.dir<span class="token punctuation">(</span>getwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"Choose a suitable folder"</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div></div>
+<div class="container manual-page" id="tk_choose.files"><div class="page-main">
+<a href="#tk_choose.files" class="help-page-title"><h2>Choose a List of Files Interactively</h2></a>
+
+<h3>Description</h3>
+
+<p>Use a Tk file dialog to choose a list of zero or more files
+interactively.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">tk_choose.files(default = "", caption = "Select files",
+                multi = TRUE, filters = NULL, index = 1)
+</code><code class="language-r">tk_choose.files<span class="token punctuation">(</span>default <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> caption <span class="token operator">=</span> <span class="token string">"Select files"</span><span class="token punctuation">,</span>
+                multi <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> filters <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table>
+<tr>
+<td><code id="default">default</code></td>
+<td>
+<p>which filename to show initially.</p>
+</td>
+</tr>
+<tr>
+<td><code id="caption">caption</code></td>
+<td>
+<p>the caption on the file selection dialog.</p>
+</td>
+</tr>
+<tr>
+<td><code id="multi">multi</code></td>
+<td>
+<p>whether to allow multiple files to be selected.</p>
+</td>
+</tr>
+<tr>
+<td><code id="filters">filters</code></td>
+<td>
+<p>two-column character matrix of filename filters.</p>
+</td>
+</tr>
+<tr>
+<td><code id="index">index</code></td>
+<td>
+<p>unused.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Unlike <code><a href="https://r-universe.dev/manuals/base.html#file.choose">file.choose</a></code>, <code>tk_choose.files</code> will always
+attempt to return a character vector giving a list of files.  If the
+user cancels the dialog, then zero files are returned, whereas
+<code><a href="https://r-universe.dev/manuals/base.html#file.choose">file.choose</a></code> would signal an error.
+</p>
+<p>The format of <code>filters</code> can be seen from the example.  File
+patterns are specified via extensions, with <code>"*"</code> meaning any
+file, and <code>""</code> any file without an extension (a filename not
+containing a period).  (Other forms may work on specific platforms.)
+Note that the way to have multiple extensions for one file type is to
+have multiple rows with the same name in the first column, and that
+whether the extensions are named in file chooser widget is
+platform-specific. <b>The format may change before release.</b>
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector giving zero or more file paths.
+</p>
+
+
+<h3>Note</h3>
+
+<p>A bug in Tk 8.5.0–8.5.4 prevented multiple selections being used.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="https://r-universe.dev/manuals/base.html#file.choose">file.choose</a></code>, <code><a href="#tk_choose.dir">tk_choose.dir</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">Filters &lt;- matrix(c("R code", ".R", "R code", ".s",
+                    "Text", ".txt", "All files", "*"),
+                  4, 2, byrow = TRUE)
+Filters
+if(interactive()) tk_choose.files(filter = Filters)
+</code><code class="language-r">Filters <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"R code"</span><span class="token punctuation">,</span> <span class="token string">".R"</span><span class="token punctuation">,</span> <span class="token string">"R code"</span><span class="token punctuation">,</span> <span class="token string">".s"</span><span class="token punctuation">,</span>
+                    <span class="token string">"Text"</span><span class="token punctuation">,</span> <span class="token string">".txt"</span><span class="token punctuation">,</span> <span class="token string">"All files"</span><span class="token punctuation">,</span> <span class="token string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> byrow <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+Filters
+<span class="token keyword">if</span><span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> tk_choose.files<span class="token punctuation">(</span>filter <span class="token operator">=</span> Filters<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div></div>
+<div class="container manual-page" id="tk_messageBox"><div class="page-main">
+<a href="#tk_messageBox" class="help-page-title"><h2>Tk Message Box</h2></a>
+
+<h3>Description</h3>
+
+<p>An implementation of a generic message box using Tk.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">tk_messageBox(type = c("ok", "okcancel", "yesno", "yesnocancel",
+                       "retrycancel", "abortretryignore"),
+              message, caption = "", default = "", ...)
+</code><code class="language-r">tk_messageBox<span class="token punctuation">(</span>type <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"ok"</span><span class="token punctuation">,</span> <span class="token string">"okcancel"</span><span class="token punctuation">,</span> <span class="token string">"yesno"</span><span class="token punctuation">,</span> <span class="token string">"yesnocancel"</span><span class="token punctuation">,</span>
+                       <span class="token string">"retrycancel"</span><span class="token punctuation">,</span> <span class="token string">"abortretryignore"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              message<span class="token punctuation">,</span> caption <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> default <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table>
+<tr>
+<td><code id="type">type</code></td>
+<td>
+<p>character. The type of dialog box. It will have the
+buttons implied by its name.  Can be abbreviated.</p>
+</td>
+</tr>
+<tr>
+<td><code id="message">message</code></td>
+<td>
+<p>character. The information field of the dialog box.</p>
+</td>
+</tr>
+<tr>
+<td><code id="caption">caption</code></td>
+<td>
+<p>the caption on the widget displayed.</p>
+</td>
+</tr>
+<tr>
+<td><code id="default">default</code></td>
+<td>
+<p>character. The name of the button to be used as the
+default.</p>
+</td>
+</tr>
+<tr>
+<td><code id="...">...</code></td>
+<td>
+<p>additional named arguments to be passed to the Tk
+function of this name.  An example is <code>icon = "warning"</code>.</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>A character string giving the name of the button pressed.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#TkCommands">tkmessageBox</a></code> for a ‘raw’ interface.
+</p>
+
+<hr>
+</div></div>
+<div class="container manual-page" id="tk_select.list"><div class="page-main">
+<a href="#tk_select.list" class="help-page-title"><h2>Select Items from a List</h2></a>
+
+<h3>Description</h3>
+
+<p>Select item(s) from a character vector using a Tk listbox.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">tk_select.list(choices, preselect = NULL, multiple = FALSE,
+               title = NULL)
+</code><code class="language-r">tk_select.list<span class="token punctuation">(</span>choices<span class="token punctuation">,</span> preselect <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> multiple <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+               title <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table>
+<tr>
+<td><code id="choices">choices</code></td>
+<td>
+<p>a character vector of items.</p>
+</td>
+</tr>
+<tr>
+<td><code id="preselect">preselect</code></td>
+<td>
+<p>a character vector, or <code>NULL</code>.  If non-null and
+if the string(s) appear in the list, the item(s) are selected
+initially.</p>
+</td>
+</tr>
+<tr>
+<td><code id="multiple">multiple</code></td>
+<td>
+<p>logical: can more than one item be selected?</p>
+</td>
+</tr>
+<tr>
+<td><code id="title">title</code></td>
+<td>
+<p>optional character string for window title, or
+<code>NULL</code> for no title.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>This is a version of <code><a href="https://r-universe.dev/manuals/utils.html#select.list">select.list</a></code> implemented as a Tk
+list box plus <code>OK</code> and <code>Cancel</code> buttons.  There will be a
+scrollbar if the list is too long to fit comfortably on the screen.
+</p>
+<p>The dialog box is <em>modal</em>, so a selection must be made or
+cancelled before the <span class="rlang"><b>R</b></span> session can proceed.  Double-clicking on an
+item is equivalent to selecting it and then clicking <code>OK</code>.
+</p>
+<p>If Tk is version 8.5 or later, themed widgets will be used.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of selected items.  If <code>multiple</code> is false and
+no item was selected (or <code>Cancel</code> was used), <code>""</code> is
+returned.   If <code>multiple</code> is true and no item was selected (or
+<code>Cancel</code> was used) then a character vector of length 0 is returned.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="https://r-universe.dev/manuals/utils.html#select.list">select.list</a></code> (a text version except on Windows and the macOS GUI),
+<code><a href="https://r-universe.dev/manuals/utils.html#menu">menu</a></code> (whose <code>graphics = TRUE</code> mode uses this
+on most Unix-alikes).
+</p>
+
+<hr>
+</div></div>
+<div class="container manual-page" id="TkCommands"><div class="page-main">
+<a href="#TkCommands" class="help-page-title"><h2>Tk non-widget commands</h2></a>
 
 <h3>Description</h3>
 
@@ -439,7 +938,144 @@ window manager interface commands and the geometry managers.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">tcl<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">tcl(...)
+tktitle(x)
+
+tktitle(x) &lt;- value
+
+tkbell(...)
+tkbind(...)
+tkbindtags(...)
+tkfocus(...)
+tklower(...)
+tkraise(...)
+
+tkclipboard.append(...)
+tkclipboard.clear(...)
+
+tkevent.add(...)
+tkevent.delete(...)
+tkevent.generate(...)
+tkevent.info(...)
+
+tkfont.actual(...)
+tkfont.configure(...)
+tkfont.create(...)
+tkfont.delete(...)
+tkfont.families(...)
+tkfont.measure(...)
+tkfont.metrics(...)
+tkfont.names(...)
+
+tkgrab(...)
+tkgrab.current(...)
+tkgrab.release(...)
+tkgrab.set(...)
+tkgrab.status(...)
+
+tkimage.create(...)
+tkimage.delete(...)
+tkimage.height(...)
+tkimage.inuse(...)
+tkimage.names(...)
+tkimage.type(...)
+tkimage.types(...)
+tkimage.width(...)
+
+## NB: some widgets also have a selection.clear command,
+## hence the "X".
+
+tkXselection.clear(...)
+tkXselection.get(...)
+tkXselection.handle(...)
+tkXselection.own(...)
+
+tkwait.variable(...)
+tkwait.visibility(...)
+tkwait.window(...)
+
+## winfo actually has a large number of subcommands,
+## but it's rarely used,
+## so use tkwinfo("atom", ...) etc. instead.
+
+tkwinfo(...)
+
+# Window manager interface
+
+tkwm.aspect(...)
+tkwm.client(...)
+tkwm.colormapwindows(...)
+tkwm.command(...)
+tkwm.deiconify(...)
+tkwm.focusmodel(...)
+tkwm.frame(...)
+tkwm.geometry(...)
+tkwm.grid(...)
+tkwm.group(...)
+tkwm.iconbitmap(...)
+tkwm.iconify(...)
+tkwm.iconmask(...)
+tkwm.iconname(...)
+tkwm.iconposition(...)
+tkwm.iconwindow(...)
+tkwm.maxsize(...)
+tkwm.minsize(...)
+tkwm.overrideredirect(...)
+tkwm.positionfrom(...)
+tkwm.protocol(...)
+tkwm.resizable(...)
+tkwm.sizefrom(...)
+tkwm.state(...)
+tkwm.title(...)
+tkwm.transient(...)
+tkwm.withdraw(...)
+
+
+### Geometry managers
+
+tkgrid(...)
+tkgrid.bbox(...)
+tkgrid.columnconfigure(...)
+tkgrid.configure(...)
+tkgrid.forget(...)
+tkgrid.info(...)
+tkgrid.location(...)
+tkgrid.propagate(...)
+tkgrid.rowconfigure(...)
+tkgrid.remove(...)
+tkgrid.size(...)
+tkgrid.slaves(...)
+
+tkpack(...)
+tkpack.configure(...)
+tkpack.forget(...)
+tkpack.info(...)
+tkpack.propagate(...)
+tkpack.slaves(...)
+
+tkplace(...)
+tkplace.configure(...)
+tkplace.forget(...)
+tkplace.info(...)
+tkplace.slaves(...)
+
+## Standard dialogs
+tkgetOpenFile(...)
+tkgetSaveFile(...)
+tkchooseDirectory(...)
+tkmessageBox(...)
+tkdialog(...)
+tkpopup(...)
+
+
+## File handling functions
+tclfile.tail(...)
+tclfile.dir(...)
+tclopen(...)
+tclclose(...)
+tclputs(...)
+tclread(...)
+</code><code class="language-r">tcl<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
 tktitle<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 
 tktitle<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> value
@@ -578,7 +1214,7 @@ tclputs<span class="token punctuation">(</span><span class="token ellipsis">...<
 tclread<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -630,7 +1266,21 @@ With a few exceptions, the pattern is that Tk subcommands like
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Not run: 
+## These cannot be run by examples() but should be OK when pasted
+## into an interactive R session with the tcltk package loaded
+
+tt &lt;- tktoplevel()
+tkpack(l1 &lt;- tklabel(tt, text = "Heave"), l2 &lt;- tklabel(tt, text = "Ho"))
+tkpack.configure(l1, side = "left")
+
+## Try stretching the window and then
+
+tkdestroy(tt)
+
+## End(Not run)
+
+</code><code class="language-r"><span class="token comment">## Not run: </span>
 <span class="token comment">## These cannot be run by examples() but should be OK when pasted</span>
 <span class="token comment">## into an interactive R session with the tcltk package loaded</span>
 
@@ -644,8 +1294,249 @@ tkdestroy<span class="token punctuation">(</span>tt<span class="token punctuatio
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="TkWidgetcmds"><main><a href="#TkWidgetcmds" class="help-page-title"><h2>Tk widget commands</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="tkpager"><div class="page-main">
+<a href="#tkpager" class="help-page-title"><h2>Page file using Tk text widget</h2></a>
+
+<h3>Description</h3>
+
+<p>This plugs into <code>file.show</code>, showing files in separate windows.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">tkpager(file, header, title, delete.file)
+</code><code class="language-r">tkpager<span class="token punctuation">(</span>file<span class="token punctuation">,</span> header<span class="token punctuation">,</span> title<span class="token punctuation">,</span> delete.file<span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table>
+<tr>
+<td><code id="file">file</code></td>
+<td>
+<p>character vector containing the names of the
+files to be displayed</p>
+</td>
+</tr>
+<tr>
+<td><code id="header">header</code></td>
+<td>
+<p>headers to use for each file</p>
+</td>
+</tr>
+<tr>
+<td><code id="title">title</code></td>
+<td>
+<p>common title to use for the window(s). Pasted together
+with the <code>header</code> to form actual window title.</p>
+</td>
+</tr>
+<tr>
+<td><code id="delete.file">delete.file</code></td>
+<td>
+<p>logical. Should file(s) be deleted after display?</p>
+</td>
+</tr>
+</table>
+<h3>Note</h3>
+
+<p>  The <code>"\b_"</code> string used for underlining is currently
+quietly removed. The font and background colour are currently
+hardcoded to Courier and gray90.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="https://r-universe.dev/manuals/base.html#file.show">file.show</a></code>
+</p>
+
+<hr>
+</div></div>
+<div class="container manual-page" id="tkProgressBar"><div class="page-main">
+<a href="#tkProgressBar" class="help-page-title"><h2>Progress Bars via Tk</h2></a>
+
+<h3>Description</h3>
+
+<p>Put up a Tk progress bar widget.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">tkProgressBar(title = "R progress bar", label = "",
+              min = 0, max = 1, initial = 0, width = 300)
+
+getTkProgressBar(pb)
+setTkProgressBar(pb, value, title = NULL, label = NULL)
+## S3 method for class 'tkProgressBar'
+close(con, ...)
+</code><code class="language-r">tkProgressBar<span class="token punctuation">(</span>title <span class="token operator">=</span> <span class="token string">"R progress bar"</span><span class="token punctuation">,</span> label <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span>
+              min <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> max <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> initial <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> width <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">)</span>
+
+getTkProgressBar<span class="token punctuation">(</span>pb<span class="token punctuation">)</span>
+setTkProgressBar<span class="token punctuation">(</span>pb<span class="token punctuation">,</span> value<span class="token punctuation">,</span> title <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> label <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'tkProgressBar'</span>
+close<span class="token punctuation">(</span>con<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table>
+<tr>
+<td>
+<code id="title">title</code>, <code id="label">label</code>
+</td>
+<td>
+<p>character strings, giving the window title and the
+label on the dialog box respectively.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code id="min">min</code>, <code id="max">max</code>
+</td>
+<td>
+<p>(finite) numeric values for the extremes of the
+progress bar.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code id="initial">initial</code>, <code id="value">value</code>
+</td>
+<td>
+<p>initial or new value for the progress bar.</p>
+</td>
+</tr>
+<tr>
+<td><code id="width">width</code></td>
+<td>
+<p>the width of the progress bar in pixels: the dialog box
+will be 40 pixels wider (plus frame).</p>
+</td>
+</tr>
+<tr>
+<td>
+<code id="pb">pb</code>, <code id="con">con</code>
+</td>
+<td>
+<p>an object of class <code>"tkProgressBar"</code>.</p>
+</td>
+</tr>
+<tr>
+<td><code id="...">...</code></td>
+<td>
+<p>for consistency with the generic.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>tkProgressBar</code> will display a widget containing a label and
+progress bar.
+</p>
+<p><code>setTkProgessBar</code> will update the value and for non-<code>NULL</code>
+values, the title and label (provided there was one when the widget
+was created).  Missing (<code><a href="https://r-universe.dev/manuals/base.html#NA">NA</a></code>) and out-of-range values of
+<code>value</code> will be (silently) ignored.
+</p>
+<p>The progress bar should be <code>close</code>d when finished with.
+</p>
+<p>This will use the <code>ttk::progressbar</code> widget for Tk version 8.5 or
+later, otherwise <span class="rlang"><b>R</b></span>'s copy of BWidget's <code>progressbar</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>tkProgressBar</code> an object of class <code>"tkProgressBar"</code>.
+</p>
+<p>For <code>getTkProgressBar</code> and <code>setTkProgressBar</code>, a
+length-one numeric vector giving the previous value (invisibly for
+<code>setTkProgressBar</code>).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="https://r-universe.dev/manuals/utils.html#txtProgressBar">txtProgressBar</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">
+pb &lt;- tkProgressBar("test progress bar", "Some information in %",
+                    0, 100, 50)
+Sys.sleep(0.5)
+u &lt;- c(0, sort(runif(20, 0, 100)), 100)
+for(i in u) {
+    Sys.sleep(0.1)
+    info &lt;- sprintf("%d%% done", round(i))
+    setTkProgressBar(pb, i, sprintf("test (%s)", info), info)
+}
+Sys.sleep(5)
+close(pb)
+</code><code class="language-r">pb <span class="token operator">&lt;-</span> tkProgressBar<span class="token punctuation">(</span><span class="token string">"test progress bar"</span><span class="token punctuation">,</span> <span class="token string">"Some information in %"</span><span class="token punctuation">,</span>
+                    <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span>
+Sys.sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+u <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> sort<span class="token punctuation">(</span>runif<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token keyword">in</span> u<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Sys.sleep<span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span>
+    info <span class="token operator">&lt;-</span> sprintf<span class="token punctuation">(</span><span class="token string">"%d%% done"</span><span class="token punctuation">,</span> round<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    setTkProgressBar<span class="token punctuation">(</span>pb<span class="token punctuation">,</span> i<span class="token punctuation">,</span> sprintf<span class="token punctuation">(</span><span class="token string">"test (%s)"</span><span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">,</span> info<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+Sys.sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+close<span class="token punctuation">(</span>pb<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div></div>
+<div class="container manual-page" id="tkStartGUI"><div class="page-main">
+<a href="#tkStartGUI" class="help-page-title"><h2>Tcl/Tk GUI startup</h2></a>
+
+<h3>Description</h3>
+
+<p>Starts up the Tcl/Tk GUI
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">tkStartGUI()
+</code><code class="language-r">tkStartGUI<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3>Details</h3>
+
+<p>Starts a GUI console implemented via a Tk text widget. This should
+probably be called at most once per session. Also redefines the file
+pager (as used by <code>help()</code>) to be the Tk pager.
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>tkStartGUI()</code> saves its evaluation environment as
+<code>.GUIenv</code>. This means that the user interface elements can be
+accessed in order to extend the interface. The three main objects are
+named <code>Term</code>, <code>Menu</code>, and <code>Toolbar</code>, and the various
+submenus and callback functions can be seen with
+<code>ls(envir = .GUIenv)</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Peter Dalgaard</p>
+
+<hr>
+</div></div>
+<div class="container manual-page" id="TkWidgetcmds"><div class="page-main">
+<a href="#TkWidgetcmds" class="help-page-title"><h2>Tk widget commands</h2></a>
 
 <h3>Description</h3>
 
@@ -655,7 +1546,99 @@ tkdestroy<span class="token punctuation">(</span>tt<span class="token punctuatio
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">tkactivate<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">tkactivate(widget, ...)
+tkadd(widget, ...)
+tkaddtag(widget, ...)
+tkbbox(widget, ...)
+tkcanvasx(widget, ...)
+tkcanvasy(widget, ...)
+tkcget(widget, ...)
+tkcompare(widget, ...)
+tkconfigure(widget, ...)
+tkcoords(widget, ...)
+tkcreate(widget, ...)
+tkcurselection(widget, ...)
+tkdchars(widget, ...)
+tkdebug(widget, ...)
+tkdelete(widget, ...)
+tkdelta(widget, ...)
+tkdeselect(widget, ...)
+tkdlineinfo(widget, ...)
+tkdtag(widget, ...)
+tkdump(widget, ...)
+tkentrycget(widget, ...)
+tkentryconfigure(widget, ...)
+tkfind(widget, ...)
+tkflash(widget, ...)
+tkfraction(widget, ...)
+tkget(widget, ...)
+tkgettags(widget, ...)
+tkicursor(widget, ...)
+tkidentify(widget, ...)
+tkindex(widget, ...)
+tkinsert(widget, ...)
+tkinvoke(widget, ...)
+tkitembind(widget, ...)
+tkitemcget(widget, ...)
+tkitemconfigure(widget, ...)
+tkitemfocus(widget, ...)
+tkitemlower(widget, ...)
+tkitemraise(widget, ...)
+tkitemscale(widget, ...)
+tkmark.gravity(widget, ...)
+tkmark.names(widget, ...)
+tkmark.next(widget, ...)
+tkmark.previous(widget, ...)
+tkmark.set(widget, ...)
+tkmark.unset(widget, ...)
+tkmove(widget, ...)
+tknearest(widget, ...)
+tkpost(widget, ...)
+tkpostcascade(widget, ...)
+tkpostscript(widget, ...)
+tkscan.mark(widget, ...)
+tkscan.dragto(widget, ...)
+tksearch(widget, ...)
+tksee(widget, ...)
+tkselect(widget, ...)
+tkselection.adjust(widget, ...)
+tkselection.anchor(widget, ...)
+tkselection.clear(widget, ...)
+tkselection.from(widget, ...)
+tkselection.includes(widget, ...)
+tkselection.present(widget, ...)
+tkselection.range(widget, ...)
+tkselection.set(widget, ...)
+tkselection.to(widget, ...)
+tkset(widget, ...)
+tksize(widget, ...)
+tktoggle(widget, ...)
+tktag.add(widget, ...)
+tktag.bind(widget, ...)
+tktag.cget(widget, ...)
+tktag.configure(widget, ...)
+tktag.delete(widget, ...)
+tktag.lower(widget, ...)
+tktag.names(widget, ...)
+tktag.nextrange(widget, ...)
+tktag.prevrange(widget, ...)
+tktag.raise(widget, ...)
+tktag.ranges(widget, ...)
+tktag.remove(widget, ...)
+tktype(widget, ...)
+tkunpost(widget, ...)
+tkwindow.cget(widget, ...)
+tkwindow.configure(widget, ...)
+tkwindow.create(widget, ...)
+tkwindow.names(widget, ...)
+tkxview(widget, ...)
+tkxview.moveto(widget, ...)
+tkxview.scroll(widget, ...)
+tkyposition(widget, ...)
+tkyview(widget, ...)
+tkyview.moveto(widget, ...)
+tkyview.scroll(widget, ...)
+</code><code class="language-r">tkactivate<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 tkadd<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 tkaddtag<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 tkbbox<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
@@ -749,7 +1732,7 @@ tkyview.moveto<span class="token punctuation">(</span>widget<span class="token p
 tkyview.scroll<span class="token punctuation">(</span>widget<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -784,7 +1767,25 @@ possibly with subcommands like
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Not run: 
+## These cannot be run by examples() but should be OK when pasted
+## into an interactive R session with the tcltk package loaded
+
+tt &lt;- tktoplevel()
+tkpack(txt.w &lt;- tktext(tt))
+tkinsert(txt.w, "0.0", "plot(1:10)")
+
+# callback function
+eval.txt &lt;- function() eval(str2lang(tclvalue(tkget(txt.w, "0.0", "end"))))
+tkpack(but.w &lt;- tkbutton(tt, text = "Submit", command = eval.txt))
+
+## Try pressing the button, edit the text and when finished:
+
+tkdestroy(tt)
+
+## End(Not run)
+
+</code><code class="language-r"><span class="token comment">## Not run: </span>
 <span class="token comment">## These cannot be run by examples() but should be OK when pasted</span>
 <span class="token comment">## into an interactive R session with the tcltk package loaded</span>
 
@@ -802,8 +1803,10 @@ tkdestroy<span class="token punctuation">(</span>tt<span class="token punctuatio
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="TkWidgets"><main><a href="#TkWidgets" class="help-page-title"><h2>Tk widgets</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="TkWidgets"><div class="page-main">
+<a href="#TkWidgets" class="help-page-title"><h2>Tk widgets</h2></a>
 
 <h3>Description</h3>
 
@@ -813,7 +1816,43 @@ tkdestroy<span class="token punctuation">(</span>tt<span class="token punctuatio
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">tkwidget<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> type<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">tkwidget(parent, type, ...)
+
+tkbutton(parent, ...)
+tkcanvas(parent, ...)
+tkcheckbutton(parent, ...)
+tkentry(parent, ...)
+ttkentry(parent, ...)
+tkframe(parent, ...)
+tklabel(parent, ...)
+tklistbox(parent, ...)
+tkmenu(parent, ...)
+tkmenubutton(parent, ...)
+tkmessage(parent, ...)
+tkradiobutton(parent, ...)
+tkscale(parent, ...)
+tkscrollbar(parent, ...)
+tktext(parent, ...)
+tktoplevel(parent = .TkRoot, ...)
+
+ttkbutton(parent, ...)
+ttkcheckbutton(parent, ...)
+ttkcombobox(parent, ...)
+ttkframe(parent, ...)
+ttklabel(parent, ...)
+ttklabelframe(parent, ...)
+ttkmenubutton(parent, ...)
+ttknotebook(parent, ...)
+ttkpanedwindow(parent, ...)
+ttkprogressbar(parent, ...)
+ttkradiobutton(parent, ...)
+ttkscale(parent, ...)
+ttkscrollbar(parent, ...)
+ttkseparator(parent, ...)
+ttksizegrip(parent, ...)
+ttkspinbox(parent, ...)
+ttktreeview(parent, ...)
+</code><code class="language-r">tkwidget<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> type<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 
 tkbutton<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 tkcanvas<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
@@ -851,7 +1890,7 @@ ttkspinbox<span class="token punctuation">(</span>parent<span class="token punct
 ttktreeview<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -895,7 +1934,35 @@ full.  Please refer to the Tcl/Tk documentation.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Not run: 
+## These cannot be run by examples() but should be OK when pasted
+## into an interactive R session with the tcltk package loaded
+
+tt &lt;- tktoplevel()
+label.widget &lt;- tklabel(tt, text = "Hello, World!")
+button.widget &lt;- tkbutton(tt, text = "Push",
+                          command = function()cat("OW!\n"))
+tkpack(label.widget, button.widget) # geometry manager
+                                    # see Tk-commands
+
+## Push the button and then...
+
+tkdestroy(tt)
+
+## test for themed widgets
+if(as.character(tcl("info", "tclversion")) &gt;= "8.5") {
+  # make use of themed widgets
+  # list themes
+  themes &lt;- as.character(tcl("ttk::style", "theme", "names"))
+  themes
+  # select a theme -- for pre-XP windows
+  #   tcl("ttk::style", "theme", "use", "winnative")
+  tcl("ttk::style", "theme", "use", themes[1])
+} else {
+  # use Tk 8.0 widgets
+}
+
+## End(Not run)</code><code class="language-r"><span class="token comment">## Not run: </span>
 <span class="token comment">## These cannot be run by examples() but should be OK when pasted</span>
 <span class="token comment">## into an interactive R session with the tcltk package loaded</span>
 
@@ -925,585 +1992,9 @@ tkdestroy<span class="token punctuation">(</span>tt<span class="token punctuatio
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="tcltk-package"><main><a href="#tcltk-package" class="help-page-title"><h2>
-Tcl/Tk Interface
-</h2></a>
-
-<h3>Description</h3>
-
-<p>Interface and language bindings to Tcl/Tk GUI elements.
-</p>
-
-
-<h3>Details</h3>
-
-<p>This package provides access to the platform-independent Tcl scripting
-language and Tk GUI elements.  See <a href="#TkWidgets">TkWidgets</a> for a list of
-supported widgets, <a href="#TkWidgetcmds">TkWidgetcmds</a> for commands to work with them,
-and references in those files for more.
-</p>
-<p>The Tcl/Tk documentation is in
-the system man pages.
-</p>
-<p>For a complete list of functions, use <code>ls("package:tcltk")</code>.
-</p>
-<p>Note that Tk will not be initialized if there is no <code>DISPLAY</code>
-variable set, but Tcl can still be used.  This is most useful to allow
-the loading of a package which depends on <span class="pkg">tcltk</span> in a session that
-does not actually use it (e.g., during installation).
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>R Core Team
-</p>
-<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
-</p>
-
-<hr></main></div>
-<div class="container manual-page" id="tclServiceMode"><main><a href="#tclServiceMode" class="help-page-title"><h2> Allow Tcl events to be serviced or not </h2></a>
-
-<h3>Description</h3>
-
-<p>This function controls or reports on the Tcl service mode,
-i.e., whether Tcl will respond to events.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">tclServiceMode<span class="token punctuation">(</span>on <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table><tr>
-<td><code id="on">on</code></td>
-<td>
-<p>(logical) Whether event servicing is turned on. </p>
-</td>
-</tr></table>
-<h3>Details</h3>
-
-<p>If called with <code>on == NULL</code> (the default), no change is made.
-</p>
-<p>Note that this blocks all Tcl/Tk activity, including for widgets from
-other packages.  It may be better to manage mapping of windows individually.
-</p>
-
-
-<h3>Value</h3>
-
-<p>The value of the Tcl service mode before the call.
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment">## see demo(tkcanvas) for an example</span>
-oldmode <span class="token operator">&lt;-</span> tclServiceMode<span class="token punctuation">(</span><span class="token boolean">FALSE</span><span class="token punctuation">)</span>
-<span class="token comment"># Do some work to create a nice picture.</span>
-<span class="token comment"># Nothing will be displayed until...</span>
-tclServiceMode<span class="token punctuation">(</span>oldmode<span class="token punctuation">)</span>
-<span class="token comment">## another idea is to use tkwm.withdraw() ... tkwm.deiconify()</span></code></pre>
-
-<hr></main></div>
-<div class="container manual-page" id="tkProgressBar"><main><a href="#tkProgressBar" class="help-page-title"><h2>Progress Bars via Tk</h2></a>
-
-<h3>Description</h3>
-
-<p>Put up a Tk progress bar widget.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">tkProgressBar<span class="token punctuation">(</span>title <span class="token operator">=</span> <span class="token string">"R progress bar"</span><span class="token punctuation">,</span> label <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span>
-              min <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> max <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> initial <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> width <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">)</span>
-
-getTkProgressBar<span class="token punctuation">(</span>pb<span class="token punctuation">)</span>
-setTkProgressBar<span class="token punctuation">(</span>pb<span class="token punctuation">,</span> value<span class="token punctuation">,</span> title <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> label <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
-<span class="token comment">## S3 method for class 'tkProgressBar'</span>
-close<span class="token punctuation">(</span>con<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr>
-<td>
-<code id="title">title</code>, <code id="label">label</code>
-</td>
-<td>
-<p>character strings, giving the window title and the
-label on the dialog box respectively.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code id="min">min</code>, <code id="max">max</code>
-</td>
-<td>
-<p>(finite) numeric values for the extremes of the
-progress bar.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code id="initial">initial</code>, <code id="value">value</code>
-</td>
-<td>
-<p>initial or new value for the progress bar.</p>
-</td>
-</tr>
-<tr>
-<td><code id="width">width</code></td>
-<td>
-<p>the width of the progress bar in pixels: the dialog box
-will be 40 pixels wider (plus frame).</p>
-</td>
-</tr>
-<tr>
-<td>
-<code id="pb">pb</code>, <code id="con">con</code>
-</td>
-<td>
-<p>an object of class <code>"tkProgressBar"</code>.</p>
-</td>
-</tr>
-<tr>
-<td><code id="...">...</code></td>
-<td>
-<p>for consistency with the generic.</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p><code>tkProgressBar</code> will display a widget containing a label and
-progress bar.
-</p>
-<p><code>setTkProgessBar</code> will update the value and for non-<code>NULL</code>
-values, the title and label (provided there was one when the widget
-was created).  Missing (<code><a href="https://r-universe.dev/manuals/base.html#NA">NA</a></code>) and out-of-range values of
-<code>value</code> will be (silently) ignored.
-</p>
-<p>The progress bar should be <code>close</code>d when finished with.
-</p>
-<p>This will use the <code>ttk::progressbar</code> widget for Tk version 8.5 or
-later, otherwise <span class="rlang"><b>R</b></span>'s copy of BWidget's <code>progressbar</code>.
-</p>
-
-
-<h3>Value</h3>
-
-<p>For <code>tkProgressBar</code> an object of class <code>"tkProgressBar"</code>.
-</p>
-<p>For <code>getTkProgressBar</code> and <code>setTkProgressBar</code>, a
-length-one numeric vector giving the previous value (invisibly for
-<code>setTkProgressBar</code>).
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="https://r-universe.dev/manuals/utils.html#txtProgressBar">txtProgressBar</a></code>
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r">pb <span class="token operator">&lt;-</span> tkProgressBar<span class="token punctuation">(</span><span class="token string">"test progress bar"</span><span class="token punctuation">,</span> <span class="token string">"Some information in %"</span><span class="token punctuation">,</span>
-                    <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span>
-Sys.sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span>
-u <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> sort<span class="token punctuation">(</span>runif<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token keyword">in</span> u<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    Sys.sleep<span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span>
-    info <span class="token operator">&lt;-</span> sprintf<span class="token punctuation">(</span><span class="token string">"%d%% done"</span><span class="token punctuation">,</span> round<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    setTkProgressBar<span class="token punctuation">(</span>pb<span class="token punctuation">,</span> i<span class="token punctuation">,</span> sprintf<span class="token punctuation">(</span><span class="token string">"test (%s)"</span><span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">,</span> info<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-Sys.sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
-close<span class="token punctuation">(</span>pb<span class="token punctuation">)</span></code></pre>
-
-<hr></main></div>
-<div class="container manual-page" id="tkStartGUI"><main><a href="#tkStartGUI" class="help-page-title"><h2>Tcl/Tk GUI startup</h2></a>
-
-<h3>Description</h3>
-
-<p>Starts up the Tcl/Tk GUI
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">tkStartGUI<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Details</h3>
-
-<p>Starts a GUI console implemented via a Tk text widget. This should
-probably be called at most once per session. Also redefines the file
-pager (as used by <code>help()</code>) to be the Tk pager.
-</p>
-
-
-<h3>Note</h3>
-
-<p><code>tkStartGUI()</code> saves its evaluation environment as
-<code>.GUIenv</code>. This means that the user interface elements can be
-accessed in order to extend the interface. The three main objects are
-named <code>Term</code>, <code>Menu</code>, and <code>Toolbar</code>, and the various
-submenus and callback functions can be seen with
-<code>ls(envir = .GUIenv)</code>.
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>Peter Dalgaard</p>
-
-<hr></main></div>
-<div class="container manual-page" id="tk_choose.dir"><main><a href="#tk_choose.dir" class="help-page-title"><h2>Choose a Folder Interactively</h2></a>
-
-<h3>Description</h3>
-
-<p>Use a Tk widget to choose a directory interactively.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">tk_choose.dir<span class="token punctuation">(</span>default <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> caption <span class="token operator">=</span> <span class="token string">"Select directory"</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr>
-<td><code id="default">default</code></td>
-<td>
-<p>which directory to show initially.</p>
-</td>
-</tr>
-<tr>
-<td><code id="caption">caption</code></td>
-<td>
-<p>the caption on the selection dialog.</p>
-</td>
-</tr>
-</table>
-<h3>Value</h3>
-
-<p>A length-one character vector, character <code>NA</code> if
-‘Cancel’ was selected.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#tk_choose.files">tk_choose.files</a></code>
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token keyword">if</span> <span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> tk_choose.dir<span class="token punctuation">(</span>getwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"Choose a suitable folder"</span><span class="token punctuation">)</span></code></pre>
-
-<hr></main></div>
-<div class="container manual-page" id="tk_choose.files"><main><a href="#tk_choose.files" class="help-page-title"><h2>Choose a List of Files Interactively</h2></a>
-
-<h3>Description</h3>
-
-<p>Use a Tk file dialog to choose a list of zero or more files
-interactively.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">tk_choose.files<span class="token punctuation">(</span>default <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> caption <span class="token operator">=</span> <span class="token string">"Select files"</span><span class="token punctuation">,</span>
-                multi <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> filters <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> index <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr>
-<td><code id="default">default</code></td>
-<td>
-<p>which filename to show initially.</p>
-</td>
-</tr>
-<tr>
-<td><code id="caption">caption</code></td>
-<td>
-<p>the caption on the file selection dialog.</p>
-</td>
-</tr>
-<tr>
-<td><code id="multi">multi</code></td>
-<td>
-<p>whether to allow multiple files to be selected.</p>
-</td>
-</tr>
-<tr>
-<td><code id="filters">filters</code></td>
-<td>
-<p>two-column character matrix of filename filters.</p>
-</td>
-</tr>
-<tr>
-<td><code id="index">index</code></td>
-<td>
-<p>unused.</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p>Unlike <code><a href="https://r-universe.dev/manuals/base.html#file.choose">file.choose</a></code>, <code>tk_choose.files</code> will always
-attempt to return a character vector giving a list of files.  If the
-user cancels the dialog, then zero files are returned, whereas
-<code><a href="https://r-universe.dev/manuals/base.html#file.choose">file.choose</a></code> would signal an error.
-</p>
-<p>The format of <code>filters</code> can be seen from the example.  File
-patterns are specified via extensions, with <code>"*"</code> meaning any
-file, and <code>""</code> any file without an extension (a filename not
-containing a period).  (Other forms may work on specific platforms.)
-Note that the way to have multiple extensions for one file type is to
-have multiple rows with the same name in the first column, and that
-whether the extensions are named in file chooser widget is
-platform-specific. <b>The format may change before release.</b>
-</p>
-
-
-<h3>Value</h3>
-
-<p>A character vector giving zero or more file paths.
-</p>
-
-
-<h3>Note</h3>
-
-<p>A bug in Tk 8.5.0–8.5.4 prevented multiple selections being used.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="https://r-universe.dev/manuals/base.html#file.choose">file.choose</a></code>, <code><a href="#tk_choose.dir">tk_choose.dir</a></code>
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r">Filters <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"R code"</span><span class="token punctuation">,</span> <span class="token string">".R"</span><span class="token punctuation">,</span> <span class="token string">"R code"</span><span class="token punctuation">,</span> <span class="token string">".s"</span><span class="token punctuation">,</span>
-                    <span class="token string">"Text"</span><span class="token punctuation">,</span> <span class="token string">".txt"</span><span class="token punctuation">,</span> <span class="token string">"All files"</span><span class="token punctuation">,</span> <span class="token string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                  <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> byrow <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
-Filters
-<span class="token keyword">if</span><span class="token punctuation">(</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> tk_choose.files<span class="token punctuation">(</span>filter <span class="token operator">=</span> Filters<span class="token punctuation">)</span></code></pre>
-
-<hr></main></div>
-<div class="container manual-page" id="tk_messageBox"><main><a href="#tk_messageBox" class="help-page-title"><h2>Tk Message Box</h2></a>
-
-<h3>Description</h3>
-
-<p>An implementation of a generic message box using Tk.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">tk_messageBox<span class="token punctuation">(</span>type <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"ok"</span><span class="token punctuation">,</span> <span class="token string">"okcancel"</span><span class="token punctuation">,</span> <span class="token string">"yesno"</span><span class="token punctuation">,</span> <span class="token string">"yesnocancel"</span><span class="token punctuation">,</span>
-                       <span class="token string">"retrycancel"</span><span class="token punctuation">,</span> <span class="token string">"abortretryignore"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-              message<span class="token punctuation">,</span> caption <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> default <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr>
-<td><code id="type">type</code></td>
-<td>
-<p>character. The type of dialog box. It will have the
-buttons implied by its name.  Can be abbreviated.</p>
-</td>
-</tr>
-<tr>
-<td><code id="message">message</code></td>
-<td>
-<p>character. The information field of the dialog box.</p>
-</td>
-</tr>
-<tr>
-<td><code id="caption">caption</code></td>
-<td>
-<p>the caption on the widget displayed.</p>
-</td>
-</tr>
-<tr>
-<td><code id="default">default</code></td>
-<td>
-<p>character. The name of the button to be used as the
-default.</p>
-</td>
-</tr>
-<tr>
-<td><code id="...">...</code></td>
-<td>
-<p>additional named arguments to be passed to the Tk
-function of this name.  An example is <code>icon = "warning"</code>.</p>
-</td>
-</tr>
-</table>
-<h3>Value</h3>
-
-<p>A character string giving the name of the button pressed.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#TkCommands">tkmessageBox</a></code> for a ‘raw’ interface.
-</p>
-
-<hr></main></div>
-<div class="container manual-page" id="tk_select.list"><main><a href="#tk_select.list" class="help-page-title"><h2>Select Items from a List</h2></a>
-
-<h3>Description</h3>
-
-<p>Select item(s) from a character vector using a Tk listbox.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">tk_select.list<span class="token punctuation">(</span>choices<span class="token punctuation">,</span> preselect <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> multiple <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
-               title <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr>
-<td><code id="choices">choices</code></td>
-<td>
-<p>a character vector of items.</p>
-</td>
-</tr>
-<tr>
-<td><code id="preselect">preselect</code></td>
-<td>
-<p>a character vector, or <code>NULL</code>.  If non-null and
-if the string(s) appear in the list, the item(s) are selected
-initially.</p>
-</td>
-</tr>
-<tr>
-<td><code id="multiple">multiple</code></td>
-<td>
-<p>logical: can more than one item be selected?</p>
-</td>
-</tr>
-<tr>
-<td><code id="title">title</code></td>
-<td>
-<p>optional character string for window title, or
-<code>NULL</code> for no title.</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p>This is a version of <code><a href="https://r-universe.dev/manuals/utils.html#select.list">select.list</a></code> implemented as a Tk
-list box plus <code>OK</code> and <code>Cancel</code> buttons.  There will be a
-scrollbar if the list is too long to fit comfortably on the screen.
-</p>
-<p>The dialog box is <em>modal</em>, so a selection must be made or
-cancelled before the <span class="rlang"><b>R</b></span> session can proceed.  Double-clicking on an
-item is equivalent to selecting it and then clicking <code>OK</code>.
-</p>
-<p>If Tk is version 8.5 or later, themed widgets will be used.
-</p>
-
-
-<h3>Value</h3>
-
-<p>A character vector of selected items.  If <code>multiple</code> is false and
-no item was selected (or <code>Cancel</code> was used), <code>""</code> is
-returned.   If <code>multiple</code> is true and no item was selected (or
-<code>Cancel</code> was used) then a character vector of length 0 is returned.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="https://r-universe.dev/manuals/utils.html#select.list">select.list</a></code> (a text version except on Windows and the macOS GUI),
-<code><a href="https://r-universe.dev/manuals/utils.html#menu">menu</a></code> (whose <code>graphics = TRUE</code> mode uses this
-on most Unix-alikes).
-</p>
-
-<hr></main></div>
-<div class="container manual-page" id="tkpager"><main><a href="#tkpager" class="help-page-title"><h2>Page file using Tk text widget</h2></a>
-
-<h3>Description</h3>
-
-<p>This plugs into <code>file.show</code>, showing files in separate windows.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">tkpager<span class="token punctuation">(</span>file<span class="token punctuation">,</span> header<span class="token punctuation">,</span> title<span class="token punctuation">,</span> delete.file<span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr>
-<td><code id="file">file</code></td>
-<td>
-<p>character vector containing the names of the
-files to be displayed</p>
-</td>
-</tr>
-<tr>
-<td><code id="header">header</code></td>
-<td>
-<p>headers to use for each file</p>
-</td>
-</tr>
-<tr>
-<td><code id="title">title</code></td>
-<td>
-<p>common title to use for the window(s). Pasted together
-with the <code>header</code> to form actual window title.</p>
-</td>
-</tr>
-<tr>
-<td><code id="delete.file">delete.file</code></td>
-<td>
-<p>logical. Should file(s) be deleted after display?</p>
-</td>
-</tr>
-</table>
-<h3>Note</h3>
-
-<p>  The <code>"\b_"</code> string used for underlining is currently
-quietly removed. The font and background colour are currently
-hardcoded to Courier and gray90.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="https://r-universe.dev/manuals/base.html#file.show">file.show</a></code>
-</p>
-
-<hr></main></div>
+<hr>
+</div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.2</p></footer>
+    <footer><p>Rendered with postdoc 1.4.0</p></footer>
   </body>
 </html>

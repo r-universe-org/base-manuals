@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <!-- styling for math and syntax -->
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
@@ -16,7 +16,7 @@
 
   </head>
 
-  <body class="macintosh">
+  <body class="postdoc macintosh">
     <h1 class="manual-title">Package 'rpart'</h1>
     <table class="description-table">
       <tr>
@@ -50,7 +50,7 @@
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-03-27 22:42:15 UTC</td>
+<td class="description-date">2024-06-15 17:27:55 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -131,7 +131,8 @@ Return Cross-Validated Predictions
 
     <hr>
     <div class="manual-pages-content">
-<div class="container manual-page" id="car.test.frame"><main><a href="#car.test.frame" class="help-page-title"><h2>Automobile Data from 'Consumer Reports' 1990</h2></a>
+<div class="container manual-page" id="car.test.frame"><div class="page-main">
+<a href="#car.test.frame" class="help-page-title"><h2>Automobile Data from 'Consumer Reports' 1990</h2></a>
 
 <h3>Description</h3>
 
@@ -144,7 +145,8 @@ columns of which are given in <code><a href="#cu.summary">cu.summary</a></code>.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">car.test.frame</code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">car.test.frame
+</code><code class="language-r">car.test.frame</code></pre>
 
 
 <h3>Format</h3>
@@ -227,11 +229,15 @@ Pacific Grove, CA, pp. 46–47.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">z.auto &lt;- rpart(Mileage ~ Weight, car.test.frame)
+summary(z.auto)
+</code><code class="language-r">z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
 summary<span class="token punctuation">(</span>z.auto<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="car90"><main><a href="#car90" class="help-page-title"><h2>Automobile Data from 'Consumer Reports' 1990</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="car90"><div class="page-main">
+<a href="#car90" class="help-page-title"><h2>Automobile Data from 'Consumer Reports' 1990</h2></a>
 
 <h3>Description</h3>
 
@@ -242,7 +248,7 @@ April 1990 <em>Consumer Reports</em> Magazine.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>car90<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(car90)</code><code class="language-r">data<span class="token punctuation">(</span>car90<span class="token punctuation">)</span></code></pre>
 
 
 <h3>Format</h3>
@@ -420,7 +426,15 @@ S-PLUS, but with some further clean up of variable names and definitions.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>car90<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(car90)
+plot(car90$Price/1000, car90$Weight,
+     xlab = "Price (thousands)", ylab = "Weight (lbs)")
+mlowess &lt;- function(x, y, ...) {
+    keep &lt;- !(is.na(x) | is.na(y))
+    lowess(x[keep], y[keep], ...)
+}
+with(car90, lines(mlowess(Price/1000, Weight, f = 0.5)))
+</code><code class="language-r">data<span class="token punctuation">(</span>car90<span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>car90<span class="token operator">$</span>Price<span class="token operator">/</span><span class="token number">1000</span><span class="token punctuation">,</span> car90<span class="token operator">$</span>Weight<span class="token punctuation">,</span>
      xlab <span class="token operator">=</span> <span class="token string">"Price (thousands)"</span><span class="token punctuation">,</span> ylab <span class="token operator">=</span> <span class="token string">"Weight (lbs)"</span><span class="token punctuation">)</span>
 mlowess <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -429,8 +443,10 @@ mlowess <span class="token operator">&lt;-</span> <span class="token keyword">fu
 <span class="token punctuation">}</span>
 with<span class="token punctuation">(</span>car90<span class="token punctuation">,</span> lines<span class="token punctuation">(</span>mlowess<span class="token punctuation">(</span>Price<span class="token operator">/</span><span class="token number">1000</span><span class="token punctuation">,</span> Weight<span class="token punctuation">,</span> f <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="cu.summary"><main><a href="#cu.summary" class="help-page-title"><h2>Automobile Data from 'Consumer Reports' 1990</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="cu.summary"><div class="page-main">
+<a href="#cu.summary" class="help-page-title"><h2>Automobile Data from 'Consumer Reports' 1990</h2></a>
 
 <h3>Description</h3>
 
@@ -442,7 +458,8 @@ giving data on makes of cars taken from the April, 1990 issue of
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">cu.summary</code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">cu.summary
+</code><code class="language-r">cu.summary</code></pre>
 
 
 <h3>Format</h3>
@@ -513,13 +530,19 @@ Pacific Grove, CA, pp. 46–47.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Price <span class="token operator">~</span> Mileage <span class="token operator">+</span> Type <span class="token operator">+</span> Country<span class="token punctuation">,</span> cu.summary<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">fit &lt;- rpart(Price ~ Mileage + Type + Country, cu.summary)
+par(xpd = TRUE)
+plot(fit, compress = TRUE)
+text(fit, use.n = TRUE)
+</code><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Price <span class="token operator">~</span> Mileage <span class="token operator">+</span> Type <span class="token operator">+</span> Country<span class="token punctuation">,</span> cu.summary<span class="token punctuation">)</span>
 par<span class="token punctuation">(</span>xpd <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>fit<span class="token punctuation">,</span> compress <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 text<span class="token punctuation">(</span>fit<span class="token punctuation">,</span> use.n <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="kyphosis"><main><a href="#kyphosis" class="help-page-title"><h2>Data on Children who have had Corrective Spinal Surgery</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="kyphosis"><div class="page-main">
+<a href="#kyphosis" class="help-page-title"><h2>Data on Children who have had Corrective Spinal Surgery</h2></a>
 
 <h3>Description</h3>
 
@@ -530,7 +553,8 @@ representing data on children who have had corrective spinal surgery
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">kyphosis</code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">kyphosis
+</code><code class="language-r">kyphosis</code></pre>
 
 
 <h3>Format</h3>
@@ -574,7 +598,17 @@ Pacific Grove, CA.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Kyphosis <span class="token operator">~</span> Age <span class="token operator">+</span> Number <span class="token operator">+</span> Start<span class="token punctuation">,</span> data <span class="token operator">=</span> kyphosis<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">fit &lt;- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis)
+fit2 &lt;- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis,
+              parms = list(prior = c(0.65, 0.35), split = "information"))
+fit3 &lt;- rpart(Kyphosis ~ Age + Number + Start, data=kyphosis,
+              control = rpart.control(cp = 0.05))
+par(mfrow = c(1,2), xpd = TRUE)
+plot(fit)
+text(fit, use.n = TRUE)
+plot(fit2)
+text(fit2, use.n = TRUE)
+</code><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Kyphosis <span class="token operator">~</span> Age <span class="token operator">+</span> Number <span class="token operator">+</span> Start<span class="token punctuation">,</span> data <span class="token operator">=</span> kyphosis<span class="token punctuation">)</span>
 fit2 <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Kyphosis <span class="token operator">~</span> Age <span class="token operator">+</span> Number <span class="token operator">+</span> Start<span class="token punctuation">,</span> data <span class="token operator">=</span> kyphosis<span class="token punctuation">,</span>
               parms <span class="token operator">=</span> list<span class="token punctuation">(</span>prior <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0.65</span><span class="token punctuation">,</span> <span class="token number">0.35</span><span class="token punctuation">)</span><span class="token punctuation">,</span> split <span class="token operator">=</span> <span class="token string">"information"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 fit3 <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Kyphosis <span class="token operator">~</span> Age <span class="token operator">+</span> Number <span class="token operator">+</span> Start<span class="token punctuation">,</span> data<span class="token operator">=</span>kyphosis<span class="token punctuation">,</span>
@@ -585,8 +619,10 @@ text<span class="token punctuation">(</span>fit<span class="token punctuation">,
 plot<span class="token punctuation">(</span>fit2<span class="token punctuation">)</span>
 text<span class="token punctuation">(</span>fit2<span class="token punctuation">,</span> use.n <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="labels.rpart"><main><a href="#labels.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="labels.rpart"><div class="page-main">
+<a href="#labels.rpart" class="help-page-title"><h2>
 Create Split Labels For an Rpart Object 
 </h2></a>
 
@@ -598,11 +634,13 @@ Create Split Labels For an Rpart Object
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'rpart'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'rpart'
+labels(object, digits = 4, minlength = 1L, pretty, collapse = TRUE, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'rpart'</span>
 labels<span class="token punctuation">(</span>object<span class="token punctuation">,</span> digits <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">,</span> minlength <span class="token operator">=</span> <span class="token number">1L</span><span class="token punctuation">,</span> pretty<span class="token punctuation">,</span> collapse <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -688,8 +726,10 @@ and is not intended to be called directly by the users.
 <p><code><a href="https://r-universe.dev/manuals/base.html#abbreviate">abbreviate</a></code> 
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="meanvar.rpart"><main><a href="#meanvar.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="meanvar.rpart"><div class="page-main">
+<a href="#meanvar.rpart" class="help-page-title"><h2>
 Mean-Variance Plot for an Rpart Object 
 </h2></a>
 
@@ -703,13 +743,17 @@ the node number.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">meanvar<span class="token punctuation">(</span>tree<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">meanvar(tree, ...)
+
+## S3 method for class 'rpart'
+meanvar(tree, xlab = "ave(y)", ylab = "ave(deviance)", ...)
+</code><code class="language-r">meanvar<span class="token punctuation">(</span>tree<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 
 <span class="token comment">## S3 method for class 'rpart'</span>
 meanvar<span class="token punctuation">(</span>tree<span class="token punctuation">,</span> xlab <span class="token operator">=</span> <span class="token string">"ave(y)"</span><span class="token punctuation">,</span> ylab <span class="token operator">=</span> <span class="token string">"ave(deviance)"</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -791,11 +835,15 @@ components as that returned by the <code>rpart</code> function.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">z.auto &lt;- rpart(Mileage ~ Weight, car.test.frame)
+meanvar(z.auto, log = 'xy')
+</code><code class="language-r">z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
 meanvar<span class="token punctuation">(</span>z.auto<span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token string">'xy'</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="na.rpart"><main><a href="#na.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="na.rpart"><div class="page-main">
+<a href="#na.rpart" class="help-page-title"><h2>
 Handles Missing Values in an Rpart Object 
 </h2></a>
 
@@ -807,10 +855,11 @@ Handles Missing Values in an Rpart Object
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">na.rpart<span class="token punctuation">(</span>x<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">na.rpart(x)
+</code><code class="language-r">na.rpart<span class="token punctuation">(</span>x<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table><tr>
 <td><code id="x">x</code></td>
@@ -829,8 +878,10 @@ function <code>rpart</code>.
 explanatory variables are missing.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="path.rpart"><main><a href="#path.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="path.rpart"><div class="page-main">
+<a href="#path.rpart" class="help-page-title"><h2>
 Follow Paths to Selected Nodes of an Rpart Object
 </h2></a>
 
@@ -843,10 +894,11 @@ path from the root to the selected nodes.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">path.rpart<span class="token punctuation">(</span>tree<span class="token punctuation">,</span> nodes<span class="token punctuation">,</span> pretty <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> print.it <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">path.rpart(tree, nodes, pretty = 0, print.it = TRUE)
+</code><code class="language-r">path.rpart<span class="token punctuation">(</span>tree<span class="token punctuation">,</span> nodes<span class="token punctuation">,</span> pretty <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> print.it <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -937,12 +989,17 @@ paths.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Kyphosis <span class="token operator">~</span> Age <span class="token operator">+</span> Number <span class="token operator">+</span> Start<span class="token punctuation">,</span> data <span class="token operator">=</span> kyphosis<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">fit &lt;- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis)
+print(fit)
+path.rpart(fit, nodes = c(11, 22))
+</code><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Kyphosis <span class="token operator">~</span> Age <span class="token operator">+</span> Number <span class="token operator">+</span> Start<span class="token punctuation">,</span> data <span class="token operator">=</span> kyphosis<span class="token punctuation">)</span>
 print<span class="token punctuation">(</span>fit<span class="token punctuation">)</span>
 path.rpart<span class="token punctuation">(</span>fit<span class="token punctuation">,</span> nodes <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="plot.rpart"><main><a href="#plot.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="plot.rpart"><div class="page-main">
+<a href="#plot.rpart" class="help-page-title"><h2>
 Plot an Rpart Object
 </h2></a>
 
@@ -954,13 +1011,17 @@ Plot an Rpart Object
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'rpart'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'rpart'
+plot(x, uniform = FALSE, branch = 1, compress = FALSE, nspace,
+     margin = 0, minbranch = 0.3, branch.col = 1, branch.lty = 1, 
+     branch.lwd = 1, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'rpart'</span>
 plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> uniform <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> branch <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> compress <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> nspace<span class="token punctuation">,</span>
      margin <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> minbranch <span class="token operator">=</span> <span class="token number">0.3</span><span class="token punctuation">,</span> branch.col <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> branch.lty <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> 
      branch.lwd <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1107,13 +1168,19 @@ plot needs be retained.  This is kept in an environment in the package.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Price <span class="token operator">~</span> Mileage <span class="token operator">+</span> Type <span class="token operator">+</span> Country<span class="token punctuation">,</span> cu.summary<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">fit &lt;- rpart(Price ~ Mileage + Type + Country, cu.summary)
+par(xpd = TRUE)
+plot(fit, compress = TRUE)
+text(fit, use.n = TRUE)
+</code><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Price <span class="token operator">~</span> Mileage <span class="token operator">+</span> Type <span class="token operator">+</span> Country<span class="token punctuation">,</span> cu.summary<span class="token punctuation">)</span>
 par<span class="token punctuation">(</span>xpd <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>fit<span class="token punctuation">,</span> compress <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 text<span class="token punctuation">(</span>fit<span class="token punctuation">,</span> use.n <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="plotcp"><main><a href="#plotcp" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="plotcp"><div class="page-main">
+<a href="#plotcp" class="help-page-title"><h2>
 Plot a Complexity Parameter Table for an Rpart Fit 
 </h2></a>
 
@@ -1126,11 +1193,13 @@ Plot a Complexity Parameter Table for an Rpart Fit
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">plotcp<span class="token punctuation">(</span>x<span class="token punctuation">,</span> minline <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> lty <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">plotcp(x, minline = TRUE, lty = 3, col = 1,
+       upper = c("size", "splits", "none"), ...)
+</code><code class="language-r">plotcp<span class="token punctuation">(</span>x<span class="token punctuation">,</span> minline <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> lty <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
        upper <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"size"</span><span class="token punctuation">,</span> <span class="token string">"splits"</span><span class="token punctuation">,</span> <span class="token string">"none"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1213,8 +1282,10 @@ leftmost value for which the mean lies below the horizontal line.
 <p><code><a href="#rpart">rpart</a></code>,  <code><a href="#printcp">printcp</a></code>,  <code><a href="#rpart.object">rpart.object</a></code>   
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="post.rpart"><main><a href="#post.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="post.rpart"><div class="page-main">
+<a href="#post.rpart" class="help-page-title"><h2>
 PostScript Presentation Plot of an Rpart Object 
 </h2></a>
 
@@ -1226,7 +1297,14 @@ PostScript Presentation Plot of an Rpart Object
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">post<span class="token punctuation">(</span>tree<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">post(tree, ...)
+
+## S3 method for class 'rpart'
+post(tree, title., 
+     filename = paste(deparse(substitute(tree)), ".ps", sep = ""), 
+     digits = getOption("digits") - 2, pretty = TRUE,
+     use.n = TRUE, horizontal = TRUE, ...)
+</code><code class="language-r">post<span class="token punctuation">(</span>tree<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 
 <span class="token comment">## S3 method for class 'rpart'</span>
 post<span class="token punctuation">(</span>tree<span class="token punctuation">,</span> title.<span class="token punctuation">,</span> 
@@ -1235,7 +1313,7 @@ post<span class="token punctuation">(</span>tree<span class="token punctuation">
      use.n <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> horizontal <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1342,7 +1420,16 @@ the current device if <code>filename = ""</code>.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Not run: 
+z.auto &lt;- rpart(Mileage ~ Weight, car.test.frame)
+post(z.auto, file = "")   # display tree on active device
+   # now construct postscript version on file "pretty.ps"
+   # with no title
+post(z.auto, file = "pretty.ps", title = " ")
+z.hp &lt;- rpart(Mileage ~ Weight + HP, car.test.frame)
+post(z.hp)
+## End(Not run)
+</code><code class="language-r"><span class="token comment">## Not run: </span>
 z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
 post<span class="token punctuation">(</span>z.auto<span class="token punctuation">,</span> file <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span>   <span class="token comment"># display tree on active device</span>
    <span class="token comment"># now construct postscript version on file "pretty.ps"</span>
@@ -1352,8 +1439,10 @@ z.hp <span class="token operator">&lt;-</span> rpart<span class="token punctuati
 post<span class="token punctuation">(</span>z.hp<span class="token punctuation">)</span>
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="predict.rpart"><main><a href="#predict.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="predict.rpart"><div class="page-main">
+<a href="#predict.rpart" class="help-page-title"><h2>
 Predictions from a Fitted Rpart Object 
 </h2></a>
 
@@ -1365,13 +1454,17 @@ Predictions from a Fitted Rpart Object
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'rpart'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'rpart'
+predict(object, newdata,
+       type = c("vector", "prob", "class", "matrix"),
+       na.action = na.pass, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'rpart'</span>
 predict<span class="token punctuation">(</span>object<span class="token punctuation">,</span> newdata<span class="token punctuation">,</span>
        type <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"vector"</span><span class="token punctuation">,</span> <span class="token string">"prob"</span><span class="token punctuation">,</span> <span class="token string">"class"</span><span class="token punctuation">,</span> <span class="token string">"matrix"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
        na.action <span class="token operator">=</span> na.pass<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1476,7 +1569,20 @@ responses.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">z.auto &lt;- rpart(Mileage ~ Weight, car.test.frame)
+predict(z.auto)
+
+fit &lt;- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis)
+predict(fit, type = "prob")   # class probabilities (default)
+predict(fit, type = "vector") # level numbers
+predict(fit, type = "class")  # factor
+predict(fit, type = "matrix") # level number, class frequencies, probabilities
+
+sub &lt;- c(sample(1:50, 25), sample(51:100, 25), sample(101:150, 25))
+fit &lt;- rpart(Species ~ ., data = iris, subset = sub)
+fit
+table(predict(fit, iris[-sub,], type = "class"), iris[-sub, "Species"])
+</code><code class="language-r">z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
 predict<span class="token punctuation">(</span>z.auto<span class="token punctuation">)</span>
 
 fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Kyphosis <span class="token operator">~</span> Age <span class="token operator">+</span> Number <span class="token operator">+</span> Start<span class="token punctuation">,</span> data <span class="token operator">=</span> kyphosis<span class="token punctuation">)</span>
@@ -1490,8 +1596,10 @@ fit <span class="token operator">&lt;-</span> rpart<span class="token punctuatio
 fit
 table<span class="token punctuation">(</span>predict<span class="token punctuation">(</span>fit<span class="token punctuation">,</span> iris<span class="token punctuation">[</span><span class="token operator">-</span>sub<span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"class"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> iris<span class="token punctuation">[</span><span class="token operator">-</span>sub<span class="token punctuation">,</span> <span class="token string">"Species"</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="print.rpart"><main><a href="#print.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="print.rpart"><div class="page-main">
+<a href="#print.rpart" class="help-page-title"><h2>
 Print an Rpart Object 
 </h2></a>
 
@@ -1504,12 +1612,15 @@ function <code>print</code> of class <code>"rpart"</code>.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'rpart'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'rpart'
+print(x, minlength = 0, spaces = 2, cp, digits = getOption("digits"),
+  nsmall = min(20, digits), ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'rpart'</span>
 print<span class="token punctuation">(</span>x<span class="token punctuation">,</span> minlength <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> spaces <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> cp<span class="token punctuation">,</span> digits <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"digits"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   nsmall <span class="token operator">=</span> min<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> digits<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1600,7 +1711,20 @@ class probabilities are also printed.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">z.auto &lt;- rpart(Mileage ~ Weight, car.test.frame)
+z.auto
+## Not run: node), split, n, deviance, yval
+      * denotes terminal node
+
+ 1) root 60 1354.58300 24.58333  
+   2) Weight&gt;=2567.5 45  361.20000 22.46667  
+     4) Weight&gt;=3087.5 22   61.31818 20.40909 *
+     5) Weight&lt;3087.5 23  117.65220 24.43478  
+      10) Weight&gt;=2747.5 15   60.40000 23.80000 *
+      11) Weight&lt;2747.5 8   39.87500 25.62500 *
+   3) Weight&lt;2567.5 15  186.93330 30.93333 *
+
+## End(Not run)</code><code class="language-r">z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
 z.auto
 <span class="token comment">## Not run: node), split, n, deviance, yval</span>
       <span class="token operator">*</span> denotes terminal node
@@ -1615,8 +1739,10 @@ z.auto
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="printcp"><main><a href="#printcp" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="printcp"><div class="page-main">
+<a href="#printcp" class="help-page-title"><h2>
 Displays CP table for Fitted Rpart Object 
 </h2></a>
 
@@ -1628,10 +1754,11 @@ Displays CP table for Fitted Rpart Object
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">printcp<span class="token punctuation">(</span>x<span class="token punctuation">,</span> digits <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"digits"</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">printcp(x, digits = getOption("digits") - 2)
+</code><code class="language-r">printcp<span class="token punctuation">(</span>x<span class="token punctuation">,</span> digits <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"digits"</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1667,7 +1794,24 @@ components as that returned by the <code>rpart</code> function.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">z.auto &lt;- rpart(Mileage ~ Weight, car.test.frame)
+printcp(z.auto)
+## Not run: 
+Regression tree:
+rpart(formula = Mileage ~ Weight, data = car.test.frame)
+
+Variables actually used in tree construction:
+[1] Weight
+
+Root node error: 1354.6/60 = 22.576
+
+        CP nsplit rel error  xerror     xstd 
+1 0.595349      0   1.00000 1.03436 0.178526
+2 0.134528      1   0.40465 0.60508 0.105217
+3 0.012828      2   0.27012 0.45153 0.083330
+4 0.010000      3   0.25729 0.44826 0.076998
+
+## End(Not run)</code><code class="language-r">z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
 printcp<span class="token punctuation">(</span>z.auto<span class="token punctuation">)</span>
 <span class="token comment">## Not run: </span>
 Regression tree<span class="token operator">:</span>
@@ -1686,8 +1830,10 @@ Root node error<span class="token operator">:</span> <span class="token number">
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="prune.rpart"><main><a href="#prune.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="prune.rpart"><div class="page-main">
+<a href="#prune.rpart" class="help-page-title"><h2>
 Cost-complexity Pruning of an Rpart Object 
 </h2></a>
 
@@ -1701,13 +1847,17 @@ complexity parameter (<code>cp</code>).
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">prune<span class="token punctuation">(</span>tree<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">prune(tree, ...)
+
+## S3 method for class 'rpart'
+prune(tree, cp, ...)
+</code><code class="language-r">prune<span class="token punctuation">(</span>tree<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 
 <span class="token comment">## S3 method for class 'rpart'</span>
 prune<span class="token punctuation">(</span>tree<span class="token punctuation">,</span> cp<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1749,12 +1899,17 @@ components as that returned by the <code>rpart</code> function.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">z.auto &lt;- rpart(Mileage ~ Weight, car.test.frame)
+zp &lt;- prune(z.auto, cp = 0.1)
+plot(zp) #plot smaller rpart object
+</code><code class="language-r">z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
 zp <span class="token operator">&lt;-</span> prune<span class="token punctuation">(</span>z.auto<span class="token punctuation">,</span> cp <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>zp<span class="token punctuation">)</span> <span class="token comment">#plot smaller rpart object</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="residuals.rpart"><main><a href="#residuals.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="residuals.rpart"><div class="page-main">
+<a href="#residuals.rpart" class="help-page-title"><h2>
 Residuals From a Fitted Rpart Object 
 </h2></a>
 
@@ -1766,11 +1921,13 @@ Residuals From a Fitted Rpart Object
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'rpart'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'rpart'
+residuals(object, type = c("usual", "pearson", "deviance"), ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'rpart'</span>
 residuals<span class="token punctuation">(</span>object<span class="token punctuation">,</span> type <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"usual"</span><span class="token punctuation">,</span> <span class="token string">"pearson"</span><span class="token punctuation">,</span> <span class="token string">"deviance"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1830,13 +1987,19 @@ London: Chapman and Hall.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>skips <span class="token operator">~</span> Opening <span class="token operator">+</span> Solder <span class="token operator">+</span> Mask <span class="token operator">+</span> PadType <span class="token operator">+</span> Panel<span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">fit &lt;- rpart(skips ~ Opening + Solder + Mask + PadType + Panel,
+             data = solder.balance, method = "anova")
+summary(residuals(fit))
+plot(predict(fit),residuals(fit))
+</code><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>skips <span class="token operator">~</span> Opening <span class="token operator">+</span> Solder <span class="token operator">+</span> Mask <span class="token operator">+</span> PadType <span class="token operator">+</span> Panel<span class="token punctuation">,</span>
              data <span class="token operator">=</span> solder.balance<span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"anova"</span><span class="token punctuation">)</span>
 summary<span class="token punctuation">(</span>residuals<span class="token punctuation">(</span>fit<span class="token punctuation">)</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>predict<span class="token punctuation">(</span>fit<span class="token punctuation">)</span><span class="token punctuation">,</span>residuals<span class="token punctuation">(</span>fit<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="rpart"><main><a href="#rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="rpart"><div class="page-main">
+<a href="#rpart" class="help-page-title"><h2>
 Recursive Partitioning and Regression Trees
 </h2></a>
 
@@ -1848,11 +2011,13 @@ Recursive Partitioning and Regression Trees
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">rpart<span class="token punctuation">(</span>formula<span class="token punctuation">,</span> data<span class="token punctuation">,</span> weights<span class="token punctuation">,</span> subset<span class="token punctuation">,</span> na.action <span class="token operator">=</span> na.rpart<span class="token punctuation">,</span> method<span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">rpart(formula, data, weights, subset, na.action = na.rpart, method,
+      model = FALSE, x = FALSE, y = TRUE, parms, control, cost, ...)
+</code><code class="language-r">rpart<span class="token punctuation">(</span>formula<span class="token punctuation">,</span> data<span class="token punctuation">,</span> weights<span class="token punctuation">,</span> subset<span class="token punctuation">,</span> na.action <span class="token operator">=</span> na.rpart<span class="token punctuation">,</span> method<span class="token punctuation">,</span>
       model <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> x <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> parms<span class="token punctuation">,</span> control<span class="token punctuation">,</span> cost<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -2010,7 +2175,17 @@ Wadsworth.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Kyphosis <span class="token operator">~</span> Age <span class="token operator">+</span> Number <span class="token operator">+</span> Start<span class="token punctuation">,</span> data <span class="token operator">=</span> kyphosis<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">fit &lt;- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis)
+fit2 &lt;- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis,
+              parms = list(prior = c(.65,.35), split = "information"))
+fit3 &lt;- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis,
+              control = rpart.control(cp = 0.05))
+par(mfrow = c(1,2), xpd = NA) # otherwise on some devices the text is clipped
+plot(fit)
+text(fit, use.n = TRUE)
+plot(fit2)
+text(fit2, use.n = TRUE)
+</code><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Kyphosis <span class="token operator">~</span> Age <span class="token operator">+</span> Number <span class="token operator">+</span> Start<span class="token punctuation">,</span> data <span class="token operator">=</span> kyphosis<span class="token punctuation">)</span>
 fit2 <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Kyphosis <span class="token operator">~</span> Age <span class="token operator">+</span> Number <span class="token operator">+</span> Start<span class="token punctuation">,</span> data <span class="token operator">=</span> kyphosis<span class="token punctuation">,</span>
               parms <span class="token operator">=</span> list<span class="token punctuation">(</span>prior <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">.65</span><span class="token punctuation">,</span><span class="token number">.35</span><span class="token punctuation">)</span><span class="token punctuation">,</span> split <span class="token operator">=</span> <span class="token string">"information"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 fit3 <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Kyphosis <span class="token operator">~</span> Age <span class="token operator">+</span> Number <span class="token operator">+</span> Start<span class="token punctuation">,</span> data <span class="token operator">=</span> kyphosis<span class="token punctuation">,</span>
@@ -2021,8 +2196,10 @@ text<span class="token punctuation">(</span>fit<span class="token punctuation">,
 plot<span class="token punctuation">(</span>fit2<span class="token punctuation">)</span>
 text<span class="token punctuation">(</span>fit2<span class="token punctuation">,</span> use.n <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="rpart.control"><main><a href="#rpart.control" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="rpart.control"><div class="page-main">
+<a href="#rpart.control" class="help-page-title"><h2>
 Control for Rpart Fits
 </h2></a>
 
@@ -2034,12 +2211,15 @@ Control for Rpart Fits
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">rpart.control<span class="token punctuation">(</span>minsplit <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> minbucket <span class="token operator">=</span> round<span class="token punctuation">(</span>minsplit<span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cp <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">,</span> 
+<pre class="language-r"><code class="language-r-input" hidden="hidden">rpart.control(minsplit = 20, minbucket = round(minsplit/3), cp = 0.01, 
+              maxcompete = 4, maxsurrogate = 5, usesurrogate = 2, xval = 10,
+              surrogatestyle = 0, maxdepth = 30, ...)
+</code><code class="language-r">rpart.control<span class="token punctuation">(</span>minsplit <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> minbucket <span class="token operator">=</span> round<span class="token punctuation">(</span>minsplit<span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cp <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">,</span> 
               maxcompete <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">,</span> maxsurrogate <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> usesurrogate <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> xval <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
               surrogatestyle <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> maxdepth <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -2167,8 +2347,10 @@ give nonsense results on 32-bit machines.
 <p><code><a href="#rpart">rpart</a></code>
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="rpart.exp"><main><a href="#rpart.exp" class="help-page-title"><h2>Initialization function for exponential fitting</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="rpart.exp"><div class="page-main">
+<a href="#rpart.exp" class="help-page-title"><h2>Initialization function for exponential fitting</h2></a>
 
 <h3>Description</h3>
 
@@ -2181,10 +2363,10 @@ function would rarely if ever be called directly by a user.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">rpart.exp<span class="token punctuation">(</span>y<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> parms<span class="token punctuation">,</span> wt<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">rpart.exp(y, offset, parms, wt)</code><code class="language-r">rpart.exp<span class="token punctuation">(</span>y<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> parms<span class="token punctuation">,</span> wt<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -2233,8 +2415,10 @@ deviance method and 0 for the square root.</p>
 
 <p><code><a href="#rpart">rpart</a></code></p>
 
-<hr></main></div>
-<div class="container manual-page" id="rpart.object"><main><a href="#rpart.object" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="rpart.object"><div class="page-main">
+<a href="#rpart.object" class="help-page-title"><h2>
 Recursive Partitioning and Regression Trees Object 
 </h2></a>
 
@@ -2440,8 +2624,10 @@ object.
 <p><code><a href="#rpart">rpart</a></code>.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="rsq.rpart"><main><a href="#rsq.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="rsq.rpart"><div class="page-main">
+<a href="#rsq.rpart" class="help-page-title"><h2>
 Plots the Approximate R-Square for the Different Splits 
 </h2></a>
 
@@ -2456,10 +2642,11 @@ cross-validation versus the number of splits.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">rsq.rpart<span class="token punctuation">(</span>x<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">rsq.rpart(x)
+</code><code class="language-r">rsq.rpart<span class="token punctuation">(</span>x<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table><tr>
 <td><code id="x">x</code></td>
@@ -2485,11 +2672,15 @@ components as that returned by the <code>rpart</code> function.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">z.auto &lt;- rpart(Mileage ~ Weight, car.test.frame)
+rsq.rpart(z.auto)
+</code><code class="language-r">z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
 rsq.rpart<span class="token punctuation">(</span>z.auto<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="snip.rpart"><main><a href="#snip.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="snip.rpart"><div class="page-main">
+<a href="#snip.rpart" class="help-page-title"><h2>
 Snip Subtrees of an Rpart Object 
 </h2></a>
 
@@ -2504,10 +2695,11 @@ button on specified nodes within the graphics window.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">snip.rpart<span class="token punctuation">(</span>x<span class="token punctuation">,</span> toss<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">snip.rpart(x, toss)
+</code><code class="language-r">snip.rpart<span class="token punctuation">(</span>x<span class="token punctuation">,</span> toss<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -2570,7 +2762,17 @@ colour.  This will do nothing if the background is transparent
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## dataset not in R</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## dataset not in R
+## Not run: 
+z.survey &lt;- rpart(market.survey) # grow the rpart object
+plot(z.survey) # plot the tree
+z.survey2 &lt;- snip.rpart(z.survey, toss = 2) # trim subtree at node 2
+plot(z.survey2) # plot new tree
+
+# can also interactively select the node using the mouse in the
+# graphics window
+
+## End(Not run)</code><code class="language-r"><span class="token comment">## dataset not in R</span>
 <span class="token comment">## Not run: </span>
 z.survey <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>market.survey<span class="token punctuation">)</span> <span class="token comment"># grow the rpart object</span>
 plot<span class="token punctuation">(</span>z.survey<span class="token punctuation">)</span> <span class="token comment"># plot the tree</span>
@@ -2582,8 +2784,10 @@ plot<span class="token punctuation">(</span>z.survey2<span class="token punctuat
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="solder.balance"><main><a href="#solder.balance" class="help-page-title"><h2>Soldering of Components on Printed-Circuit Boards</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="solder.balance"><div class="page-main">
+<a href="#solder.balance" class="help-page-title"><h2>Soldering of Components on Printed-Circuit Boards</h2></a>
 
 <h3>Description</h3>
 
@@ -2598,7 +2802,8 @@ rows.  It is located in both the rpart and the survival packages.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">solder</code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">solder
+</code><code class="language-r">solder</code></pre>
 
 
 <h3>Format</h3>
@@ -2656,13 +2861,19 @@ Pacific Grove, CA.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>skips <span class="token operator">~</span> Opening <span class="token operator">+</span> Solder <span class="token operator">+</span> Mask <span class="token operator">+</span> PadType <span class="token operator">+</span> Panel<span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">fit &lt;- rpart(skips ~ Opening + Solder + Mask + PadType + Panel,
+             data = solder.balance, method = "anova")
+summary(residuals(fit))
+plot(predict(fit), residuals(fit))
+</code><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>skips <span class="token operator">~</span> Opening <span class="token operator">+</span> Solder <span class="token operator">+</span> Mask <span class="token operator">+</span> PadType <span class="token operator">+</span> Panel<span class="token punctuation">,</span>
              data <span class="token operator">=</span> solder.balance<span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"anova"</span><span class="token punctuation">)</span>
 summary<span class="token punctuation">(</span>residuals<span class="token punctuation">(</span>fit<span class="token punctuation">)</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>predict<span class="token punctuation">(</span>fit<span class="token punctuation">)</span><span class="token punctuation">,</span> residuals<span class="token punctuation">(</span>fit<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="stagec"><main><a href="#stagec" class="help-page-title"><h2>Stage C Prostate Cancer</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="stagec"><div class="page-main">
+<a href="#stagec" class="help-page-title"><h2>Stage C Prostate Cancer</h2></a>
 
 <h3>Description</h3>
 
@@ -2672,7 +2883,7 @@ study exploring the prognostic value of flow cytometry.</p>
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">data<span class="token punctuation">(</span>stagec<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">data(stagec)</code><code class="language-r">data<span class="token punctuation">(</span>stagec<span class="token punctuation">)</span></code></pre>
 
 
 <h3>Format</h3>
@@ -2728,11 +2939,15 @@ impossible to measure.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">require<span class="token punctuation">(</span>survival<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">require(survival)
+rpart(Surv(pgtime, pgstat) ~ ., stagec)
+</code><code class="language-r">require<span class="token punctuation">(</span>survival<span class="token punctuation">)</span>
 rpart<span class="token punctuation">(</span>Surv<span class="token punctuation">(</span>pgtime<span class="token punctuation">,</span> pgstat<span class="token punctuation">)</span> <span class="token operator">~</span> .<span class="token punctuation">,</span> stagec<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="summary.rpart"><main><a href="#summary.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="summary.rpart"><div class="page-main">
+<a href="#summary.rpart" class="help-page-title"><h2>
 Summarize a Fitted Rpart Object 
 </h2></a>
 
@@ -2744,11 +2959,13 @@ Summarize a Fitted Rpart Object
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'rpart'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'rpart'
+summary(object, cp = 0, digits = getOption("digits"), file, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'rpart'</span>
 summary<span class="token punctuation">(</span>object<span class="token punctuation">,</span> cp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> digits <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"digits"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> file<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -2816,15 +3033,23 @@ details depending on the type of tree).
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## a regression tree</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## a regression tree
+z.auto &lt;- rpart(Mileage ~ Weight, car.test.frame)
+summary(z.auto)
+
+## a classification tree with multiple variables and surrogate splits.
+summary(rpart(Kyphosis ~ Age + Number + Start, data = kyphosis))
+</code><code class="language-r"><span class="token comment">## a regression tree</span>
 z.auto <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
 summary<span class="token punctuation">(</span>z.auto<span class="token punctuation">)</span>
 
 <span class="token comment">## a classification tree with multiple variables and surrogate splits.</span>
 summary<span class="token punctuation">(</span>rpart<span class="token punctuation">(</span>Kyphosis <span class="token operator">~</span> Age <span class="token operator">+</span> Number <span class="token operator">+</span> Start<span class="token punctuation">,</span> data <span class="token operator">=</span> kyphosis<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="text.rpart"><main><a href="#text.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="text.rpart"><div class="page-main">
+<a href="#text.rpart" class="help-page-title"><h2>
 Place Text on a Dendrogram Plot
 </h2></a>
 
@@ -2836,14 +3061,19 @@ Place Text on a Dendrogram Plot
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## S3 method for class 'rpart'</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'rpart'
+text(x, splits = TRUE, label, FUN = text, all = FALSE,
+     pretty = NULL, digits = getOption("digits") - 3, use.n = FALSE,
+     fancy = FALSE, fwidth = 0.8, fheight = 0.8, bg = par("bg"),
+     minlength = 1L, ...)
+</code><code class="language-r"><span class="token comment">## S3 method for class 'rpart'</span>
 text<span class="token punctuation">(</span>x<span class="token punctuation">,</span> splits <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> label<span class="token punctuation">,</span> FUN <span class="token operator">=</span> text<span class="token punctuation">,</span> all <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
      pretty <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> digits <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"digits"</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">3</span><span class="token punctuation">,</span> use.n <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
      fancy <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> fwidth <span class="token operator">=</span> <span class="token number">0.8</span><span class="token punctuation">,</span> fheight <span class="token operator">=</span> <span class="token number">0.8</span><span class="token punctuation">,</span> bg <span class="token operator">=</span> par<span class="token punctuation">(</span><span class="token string">"bg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
      minlength <span class="token operator">=</span> <span class="token number">1L</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -2996,13 +3226,19 @@ region it can be helpful to specify <code>xpd = TRUE</code>.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">freen.tr <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>y <span class="token operator">~</span> .<span class="token punctuation">,</span> freeny<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">freen.tr &lt;- rpart(y ~ ., freeny)
+par(xpd = TRUE)
+plot(freen.tr)
+text(freen.tr, use.n = TRUE, all = TRUE)
+</code><code class="language-r">freen.tr <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>y <span class="token operator">~</span> .<span class="token punctuation">,</span> freeny<span class="token punctuation">)</span>
 par<span class="token punctuation">(</span>xpd <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>freen.tr<span class="token punctuation">)</span>
 text<span class="token punctuation">(</span>freen.tr<span class="token punctuation">,</span> use.n <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> all <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="xpred.rpart"><main><a href="#xpred.rpart" class="help-page-title"><h2>
+<hr>
+</div></div>
+<div class="container manual-page" id="xpred.rpart"><div class="page-main">
+<a href="#xpred.rpart" class="help-page-title"><h2>
 Return Cross-Validated Predictions 
 </h2></a>
 
@@ -3015,10 +3251,11 @@ cross validation, for a set of complexity parameter values.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">xpred.rpart<span class="token punctuation">(</span>fit<span class="token punctuation">,</span> xval <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> cp<span class="token punctuation">,</span> return.all <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">xpred.rpart(fit, xval = 10, cp, return.all = FALSE)
+</code><code class="language-r">xpred.rpart<span class="token punctuation">(</span>fit<span class="token punctuation">,</span> xval <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> cp<span class="token punctuation">,</span> return.all <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -3088,7 +3325,15 @@ probabilities of the selected terminal node;
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">fit &lt;- rpart(Mileage ~ Weight, car.test.frame)
+xmat &lt;- xpred.rpart(fit)
+xerr &lt;- (xmat - car.test.frame$Mileage)^2
+apply(xerr, 2, sum)   # cross-validated error estimate
+
+# approx same result as rel. error from printcp(fit)
+apply(xerr, 2, sum)/var(car.test.frame$Mileage) 
+printcp(fit)
+</code><code class="language-r">fit <span class="token operator">&lt;-</span> rpart<span class="token punctuation">(</span>Mileage <span class="token operator">~</span> Weight<span class="token punctuation">,</span> car.test.frame<span class="token punctuation">)</span>
 xmat <span class="token operator">&lt;-</span> xpred.rpart<span class="token punctuation">(</span>fit<span class="token punctuation">)</span>
 xerr <span class="token operator">&lt;-</span> <span class="token punctuation">(</span>xmat <span class="token operator">-</span> car.test.frame<span class="token operator">$</span>Mileage<span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span>
 apply<span class="token punctuation">(</span>xerr<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> sum<span class="token punctuation">)</span>   <span class="token comment"># cross-validated error estimate</span>
@@ -3097,8 +3342,9 @@ apply<span class="token punctuation">(</span>xerr<span class="token punctuation"
 apply<span class="token punctuation">(</span>xerr<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> sum<span class="token punctuation">)</span><span class="token operator">/</span>var<span class="token punctuation">(</span>car.test.frame<span class="token operator">$</span>Mileage<span class="token punctuation">)</span> 
 printcp<span class="token punctuation">(</span>fit<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
+<hr>
+</div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.2</p></footer>
+    <footer><p>Rendered with postdoc 1.4.0</p></footer>
   </body>
 </html>

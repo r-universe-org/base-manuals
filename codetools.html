@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <!-- styling for math and syntax -->
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
@@ -16,7 +16,7 @@
 
   </head>
 
-  <body class="macintosh">
+  <body class="postdoc macintosh">
     <h1 class="manual-title">Package 'codetools'</h1>
     <table class="description-table">
       <tr>
@@ -41,11 +41,11 @@
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">0.2-19</td>
+<td class="description-version">0.2-20</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-03-27 22:42:15 UTC</td>
+<td class="description-date">2024-06-15 17:27:55 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -63,7 +63,8 @@
 
     <hr>
     <div class="manual-pages-content">
-<div class="container manual-page" id="checkUsage"><main><a href="#checkUsage" class="help-page-title"><h2>Check R Code for Possible Problems</h2></a>
+<div class="container manual-page" id="checkUsage"><div class="page-main">
+<a href="#checkUsage" class="help-page-title"><h2>Check R Code for Possible Problems</h2></a>
 
 <h3>Description</h3>
 
@@ -73,7 +74,15 @@
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">checkUsage<span class="token punctuation">(</span>fun<span class="token punctuation">,</span> name <span class="token operator">=</span> <span class="token string">"&lt;anonymous&gt;"</span><span class="token punctuation">,</span> report <span class="token operator">=</span> cat<span class="token punctuation">,</span> all <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> 
+<pre class="language-r"><code class="language-r-input" hidden="hidden">checkUsage(fun, name = "&lt;anonymous&gt;", report = cat, all = FALSE, 
+           suppressLocal = FALSE, suppressParamAssigns = !all,
+           suppressParamUnused = !all, suppressFundefMismatch = FALSE,
+           suppressLocalUnused = FALSE, suppressNoLocalFun = !all,
+           skipWith = FALSE, suppressUndefined = dfltSuppressUndefined,
+           suppressPartialMatchArgs = TRUE) 
+checkUsageEnv(env, ...) 
+checkUsagePackage(pack, ...) 
+</code><code class="language-r">checkUsage<span class="token punctuation">(</span>fun<span class="token punctuation">,</span> name <span class="token operator">=</span> <span class="token string">"&lt;anonymous&gt;"</span><span class="token punctuation">,</span> report <span class="token operator">=</span> cat<span class="token punctuation">,</span> all <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> 
            suppressLocal <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> suppressParamAssigns <span class="token operator">=</span> <span class="token operator">!</span>all<span class="token punctuation">,</span>
            suppressParamUnused <span class="token operator">=</span> <span class="token operator">!</span>all<span class="token punctuation">,</span> suppressFundefMismatch <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
            suppressLocalUnused <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> suppressNoLocalFun <span class="token operator">=</span> <span class="token operator">!</span>all<span class="token punctuation">,</span>
@@ -83,7 +92,7 @@ checkUsageEnv<span class="token punctuation">(</span>env<span class="token punct
 checkUsagePackage<span class="token punctuation">(</span>pack<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -173,8 +182,8 @@ definition</p>
 <tr>
 <td><code id="skipWith">skipWith</code></td>
 <td>
-<p>logical; if true, do no examine code portion of
-<code>with</code> expressions.</p>
+<p>logical; if true, do not examine code portion of
+<code>with</code> or <code>within</code> expressions.</p>
 </td>
 </tr>
 <tr>
@@ -217,12 +226,17 @@ name space frame is checked.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">checkUsage<span class="token punctuation">(</span>checkUsage<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">checkUsage(checkUsage)
+checkUsagePackage("codetools",all=TRUE)
+## Not run: checkUsagePackage("base",suppressLocal=TRUE)
+</code><code class="language-r">checkUsage<span class="token punctuation">(</span>checkUsage<span class="token punctuation">)</span>
 checkUsagePackage<span class="token punctuation">(</span><span class="token string">"codetools"</span><span class="token punctuation">,</span>all<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 <span class="token comment">## Not run: checkUsagePackage("base",suppressLocal=TRUE)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="codetools"><main><a href="#codetools" class="help-page-title"><h2>Low Level Code Analysis Tools for R</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="codetools"><div class="page-main">
+<a href="#codetools" class="help-page-title"><h2>Low Level Code Analysis Tools for R</h2></a>
 
 <h3>Description</h3>
 
@@ -234,7 +248,24 @@ compilation.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">collectLocals<span class="token punctuation">(</span>e<span class="token punctuation">,</span> collect<span class="token punctuation">)</span> 
+<pre class="language-r"><code class="language-r-input" hidden="hidden">collectLocals(e, collect) 
+collectUsage(fun, name = "&lt;anonymous&gt;", ...) 
+constantFold(e, env = NULL, fail = NULL) 
+findFuncLocals(formals, body) 
+findLocals(e, envir = .BaseEnv) 
+findLocalsList(elist, envir = .BaseEnv)
+flattenAssignment(e) 
+getAssignedVar(e) 
+isConstantValue(v, w) 
+makeCodeWalker(..., handler, call, leaf) 
+makeConstantFolder(..., leaf, handler, call, exit, isLocal, foldable,
+                   isConstant, signal)
+makeLocalsCollector(..., leaf, handler, isLocal, exit, collect) 
+makeUsageCollector(fun, ..., name, enterLocal, enterGlobal, enterInternal,
+                   startCollectLocals, finishCollectLocals, warn,
+                   signal)
+walkCode(e, w = makeCodeWalker()) 
+</code><code class="language-r">collectLocals<span class="token punctuation">(</span>e<span class="token punctuation">,</span> collect<span class="token punctuation">)</span> 
 collectUsage<span class="token punctuation">(</span>fun<span class="token punctuation">,</span> name <span class="token operator">=</span> <span class="token string">"&lt;anonymous&gt;"</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span> 
 constantFold<span class="token punctuation">(</span>e<span class="token punctuation">,</span> env <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> fail <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span> 
 findFuncLocals<span class="token punctuation">(</span>formals<span class="token punctuation">,</span> body<span class="token punctuation">)</span> 
@@ -253,7 +284,7 @@ makeUsageCollector<span class="token punctuation">(</span>fun<span class="token 
 walkCode<span class="token punctuation">(</span>e<span class="token punctuation">,</span> w <span class="token operator">=</span> makeCodeWalker<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -423,8 +454,10 @@ walkCode<span class="token punctuation">(</span>e<span class="token punctuation"
 
 <p>Luke Tierney</p>
 
-<hr></main></div>
-<div class="container manual-page" id="findGlobals"><main><a href="#findGlobals" class="help-page-title"><h2>Find Global Functions and Variables Used by a Closure</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="findGlobals"><div class="page-main">
+<a href="#findGlobals" class="help-page-title"><h2>Find Global Functions and Variables Used by a Closure</h2></a>
 
 <h3>Description</h3>
 
@@ -434,10 +467,11 @@ walkCode<span class="token punctuation">(</span>e<span class="token punctuation"
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">findGlobals<span class="token punctuation">(</span>fun<span class="token punctuation">,</span> merge <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">findGlobals(fun, merge = TRUE) 
+</code><code class="language-r">findGlobals<span class="token punctuation">(</span>fun<span class="token punctuation">,</span> merge <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -476,11 +510,15 @@ Character vectors are of length zero For non-closures.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">findGlobals<span class="token punctuation">(</span>findGlobals<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">findGlobals(findGlobals)
+findGlobals(findGlobals, merge = FALSE)
+</code><code class="language-r">findGlobals<span class="token punctuation">(</span>findGlobals<span class="token punctuation">)</span>
 findGlobals<span class="token punctuation">(</span>findGlobals<span class="token punctuation">,</span> merge <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="showTree"><main><a href="#showTree" class="help-page-title"><h2>Print Lisp-Style Representation of R Expression</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="showTree"><div class="page-main">
+<a href="#showTree" class="help-page-title"><h2>Print Lisp-Style Representation of R Expression</h2></a>
 
 <h3>Description</h3>
 
@@ -491,10 +529,11 @@ useful for understanding how some things are parsed.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">showTree<span class="token punctuation">(</span>e<span class="token punctuation">,</span> write <span class="token operator">=</span> cat<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">showTree(e, write = cat)
+</code><code class="language-r">showTree<span class="token punctuation">(</span>e<span class="token punctuation">,</span> write <span class="token operator">=</span> cat<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -517,12 +556,16 @@ useful for understanding how some things are parsed.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">showTree<span class="token punctuation">(</span>quote<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">showTree(quote(-3))
+showTree(quote("x"&lt;-1))
+showTree(quote("f"(x)))
+</code><code class="language-r">showTree<span class="token punctuation">(</span>quote<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 showTree<span class="token punctuation">(</span>quote<span class="token punctuation">(</span><span class="token string">"x"</span><span class="token operator">&lt;-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 showTree<span class="token punctuation">(</span>quote<span class="token punctuation">(</span><span class="token string">"f"</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
+<hr>
+</div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.2</p></footer>
+    <footer><p>Rendered with postdoc 1.4.0</p></footer>
   </body>
 </html>

@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <!-- styling for math and syntax -->
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/katex.min.css">
+    <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
@@ -16,7 +16,7 @@
 
   </head>
 
-  <body class="macintosh">
+  <body class="postdoc macintosh">
     <h1 class="manual-title">Package 'foreign'</h1>
     <table class="description-table">
       <tr>
@@ -58,11 +58,11 @@
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">0.8-86</td>
+<td class="description-version">0.8-87</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-03-27 22:42:15 UTC</td>
+<td class="description-date">2024-06-26 09:42:22 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -72,7 +72,6 @@
 
     <a href="#help-index" style="color:black;"><h2 id="help-index">Help Index</h2></a>
     <ul id="help-index-list">
-<li class="help-index-item"><a href="#read.S">Read an S3 Binary or data.dump File</a></li>
 <li class="help-index-item"><a href="#lookup.xport">Lookup Information on a SAS XPORT Format Library</a></li>
 <li class="help-index-item"><a href="#read.arff">Read Data from ARFF Files</a></li>
 <li class="help-index-item"><a href="#read.dbf">Read a DBF File</a></li>
@@ -84,6 +83,7 @@
 <li class="help-index-item"><a href="#read.ssd">Obtain a Data Frame from a SAS Permanent Dataset, via read.xport </a></li>
 <li class="help-index-item"><a href="#read.systat">Obtain a Data Frame from a Systat File</a></li>
 <li class="help-index-item"><a href="#read.xport">Read a SAS XPORT Format Library</a></li>
+<li class="help-index-item"><a href="#read.S">Read an S3 Binary or data.dump File</a></li>
 <li class="help-index-item"><a href="#write.arff">Write Data into ARFF Files</a></li>
 <li class="help-index-item"><a href="#write.dbf">Write a DBF File</a></li>
 <li class="help-index-item"><a href="#write.dta">Write Files in Stata Binary Format</a></li>
@@ -92,96 +92,8 @@
 
     <hr>
     <div class="manual-pages-content">
-<div class="container manual-page" id="read.S"><main><a href="#read.S" class="help-page-title"><h2>Read an S3 Binary or data.dump File</h2></a>
-
-<h3>Description</h3>
-
-<p>Reads binary data files or <code>data.dump</code> files that were produced
-in S version 3.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r">data.restore<span class="token punctuation">(</span>file<span class="token punctuation">,</span> print <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> verbose <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> env <span class="token operator">=</span> .GlobalEnv<span class="token punctuation">)</span>
-  read.S<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
-
-
-<h3>Arguments</h3>
-
-<table>
-<tr>
-<td><code id="file">file</code></td>
-<td>
-<p>the filename of the S-PLUS <code>data.dump</code> or binary
-file.</p>
-</td>
-</tr>
-<tr>
-<td><code id="print">print</code></td>
-<td>
-<p>whether to print the name of each object as read from the
-file.</p>
-</td>
-</tr>
-<tr>
-<td><code id="verbose">verbose</code></td>
-<td>
-<p>whether to print the name of every subitem within each
-object.</p>
-</td>
-</tr>
-<tr>
-<td><code id="env">env</code></td>
-<td>
-<p>environment within which to create the restored object(s).</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p><code>read.S</code> can read the binary files produced in some older
-versions of S-PLUS on either Windows (versions 3.x, 4.x, 2000) or Unix
-(version 3.x with 4 byte integers).  It automatically detects whether
-the file was produced on a big- or little-endian machine and adapts
-itself accordingly.
-</p>
-<p><code>data.restore</code> can read a similar range of files produced by
-<code>data.dump</code> and for newer versions of S-PLUS, those from
-<code>data.dump(....., oldStyle=TRUE)</code>.
-</p>
-<p>Not all S3 objects can be handled in the current version.  The most
-frequently encountered exceptions are functions and expressions; you
-will also have trouble with objects that contain model formulas.  In
-particular, comments will be lost from function bodies, and the
-argument lists of functions will often be changed.
-</p>
-
-
-<h3>Value</h3>
-
-<p>For <code>read.S</code>, an R version of the S3 object.
-</p>
-<p>For <code>data.restore</code>, the name of the file.
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>Duncan Murdoch
-</p>
-
-
-<h3>Examples</h3>
-
-<pre class="language-r"><code class="language-r"><span class="token comment">## if you have an S-PLUS _Data file containing 'myobj'</span>
-<span class="token comment">## Not run: read.S(file.path("_Data", "myobj"))</span>
-data.restore<span class="token punctuation">(</span><span class="token string">"dumpdata"</span><span class="token punctuation">,</span> print <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
-
-<span class="token comment">## End(Not run)</span></code></pre>
-
-<hr></main></div>
-<div class="container manual-page" id="lookup.xport"><main><a href="#lookup.xport" class="help-page-title"><h2>Lookup Information on a SAS XPORT Format Library</h2></a>
+<div class="container manual-page" id="lookup.xport"><div class="page-main">
+<a href="#lookup.xport" class="help-page-title"><h2>Lookup Information on a SAS XPORT Format Library</h2></a>
 
 <h3>Description</h3>
 
@@ -192,10 +104,11 @@ containing information about the SAS library.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">lookup.xport<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">lookup.xport(file)
+</code><code class="language-r">lookup.xport<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table><tr>
 <td><code id="file">file</code></td>
@@ -232,13 +145,19 @@ available as
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: ## no XPORT file is installed.</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Not run: ## no XPORT file is installed.
+lookup.xport("test.xpt")
+
+## End(Not run)
+</code><code class="language-r"><span class="token comment">## Not run: ## no XPORT file is installed.</span>
 lookup.xport<span class="token punctuation">(</span><span class="token string">"test.xpt"</span><span class="token punctuation">)</span>
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="read.arff"><main><a href="#read.arff" class="help-page-title"><h2>Read Data from ARFF Files</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="read.arff"><div class="page-main">
+<a href="#read.arff" class="help-page-title"><h2>Read Data from ARFF Files</h2></a>
 
 <h3>Description</h3>
 
@@ -248,10 +167,11 @@ lookup.xport<span class="token punctuation">(</span><span class="token string">"
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">read.arff<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">read.arff(file)
+</code><code class="language-r">read.arff<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table><tr>
 <td><code id="file">file</code></td>
@@ -282,8 +202,10 @@ functions <code>write.arff</code> and <code>read.arff</code> in package
 or from factors.
 </p>
 
-<hr></main></div>
-<div class="container manual-page" id="read.dbf"><main><a href="#read.dbf" class="help-page-title"><h2>Read a DBF File</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="read.dbf"><div class="page-main">
+<a href="#read.dbf" class="help-page-title"><h2>Read a DBF File</h2></a>
 
 <h3>Description</h3>
 
@@ -297,10 +219,11 @@ guarantee this will read all DBF files.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">read.dbf<span class="token punctuation">(</span>file<span class="token punctuation">,</span> as.is <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">read.dbf(file, as.is = FALSE)
+</code><code class="language-r">read.dbf<span class="token punctuation">(</span>file<span class="token punctuation">,</span> as.is <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -369,9 +292,6 @@ this is a convenience function especially for shapefiles.
 </p>
 
 
-
-
-
 <h3>See Also</h3>
 
 <p><code><a href="#write.dbf">write.dbf</a></code>
@@ -380,12 +300,17 @@ this is a convenience function especially for shapefiles.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">x <span class="token operator">&lt;-</span> read.dbf<span class="token punctuation">(</span>system.file<span class="token punctuation">(</span><span class="token string">"files/sids.dbf"</span><span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"foreign"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">x &lt;- read.dbf(system.file("files/sids.dbf", package="foreign")[1])
+str(x)
+summary(x)
+</code><code class="language-r">x <span class="token operator">&lt;-</span> read.dbf<span class="token punctuation">(</span>system.file<span class="token punctuation">(</span><span class="token string">"files/sids.dbf"</span><span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"foreign"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 str<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 summary<span class="token punctuation">(</span>x<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="read.dta"><main><a href="#read.dta" class="help-page-title"><h2>Read Stata Binary Files</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="read.dta"><div class="page-main">
+<a href="#read.dta" class="help-page-title"><h2>Read Stata Binary Files</h2></a>
 
 <h3>Description</h3>
 
@@ -397,12 +322,15 @@ summary<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">read.dta<span class="token punctuation">(</span>file<span class="token punctuation">,</span> convert.dates <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> convert.factors <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">read.dta(file, convert.dates = TRUE, convert.factors = TRUE,
+         missing.type = FALSE,
+         convert.underscore = FALSE, warn.missing.labels = TRUE)
+</code><code class="language-r">read.dta<span class="token punctuation">(</span>file<span class="token punctuation">,</span> convert.dates <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> convert.factors <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
          missing.type <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
          convert.underscore <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> warn.missing.labels <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -532,11 +460,15 @@ help for <code>Stata.file</code>), function <code>read_dta</code> in package
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">write.dta<span class="token punctuation">(</span>swiss<span class="token punctuation">,</span>swissfile <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">write.dta(swiss,swissfile &lt;- tempfile())
+read.dta(swissfile)
+</code><code class="language-r">write.dta<span class="token punctuation">(</span>swiss<span class="token punctuation">,</span>swissfile <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 read.dta<span class="token punctuation">(</span>swissfile<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="read.epiinfo"><main><a href="#read.epiinfo" class="help-page-title"><h2>Read Epi Info Data Files</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="read.epiinfo"><div class="page-main">
+<a href="#read.epiinfo" class="help-page-title"><h2>Read Epi Info Data Files</h2></a>
 
 <h3>Description</h3>
 
@@ -549,11 +481,13 @@ and EpiData is a freely available data entry and validation system.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">read.epiinfo<span class="token punctuation">(</span>file<span class="token punctuation">,</span> read.deleted <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> guess.broken.dates <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">read.epiinfo(file, read.deleted = FALSE, guess.broken.dates = FALSE,
+             thisyear = NULL, lower.case.names = FALSE)
+</code><code class="language-r">read.epiinfo<span class="token punctuation">(</span>file<span class="token punctuation">,</span> read.deleted <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> guess.broken.dates <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
              thisyear <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> lower.case.names <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -633,13 +567,19 @@ format to store data. That may be readable with the <span class="pkg">RODBC</spa
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: ## That file is not available</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Not run: ## That file is not available
+read.epiinfo("oswego.rec", guess.broken.dates = TRUE, thisyear = "1972")
+
+## End(Not run)
+</code><code class="language-r"><span class="token comment">## Not run: ## That file is not available</span>
 read.epiinfo<span class="token punctuation">(</span><span class="token string">"oswego.rec"</span><span class="token punctuation">,</span> guess.broken.dates <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> thisyear <span class="token operator">=</span> <span class="token string">"1972"</span><span class="token punctuation">)</span>
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="read.mtp"><main><a href="#read.mtp" class="help-page-title"><h2>Read a Minitab Portable Worksheet</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="read.mtp"><div class="page-main">
+<a href="#read.mtp" class="help-page-title"><h2>Read a Minitab Portable Worksheet</h2></a>
 
 <h3>Description</h3>
 
@@ -650,10 +590,11 @@ Worksheet.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">read.mtp<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">read.mtp(file)
+</code><code class="language-r">read.mtp<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table><tr>
 <td><code id="file">file</code></td>
@@ -689,13 +630,19 @@ then. Later versions of Minitab appear to have added to the format.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Not run: 
+read.mtp("ex1-10.mtp")
+
+## End(Not run)
+</code><code class="language-r"><span class="token comment">## Not run: </span>
 read.mtp<span class="token punctuation">(</span><span class="token string">"ex1-10.mtp"</span><span class="token punctuation">)</span>
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="read.octave"><main><a href="#read.octave" class="help-page-title"><h2>Read Octave Text Data Files</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="read.octave"><div class="page-main">
+<a href="#read.octave" class="help-page-title"><h2>Read Octave Text Data Files</h2></a>
 
 <h3>Description</h3>
 
@@ -705,10 +652,11 @@ read.mtp<span class="token punctuation">(</span><span class="token string">"ex1-
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">read.octave<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">read.octave(file)
+</code><code class="language-r">read.octave<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table><tr>
 <td><code id="file">file</code></td>
@@ -750,8 +698,10 @@ facilities as an intermediary step.
 
 <p><a href="https://octave.org/" target="_blank">https://octave.org/</a></p>
 
-<hr></main></div>
-<div class="container manual-page" id="read.spss"><main><a href="#read.spss" class="help-page-title"><h2>Read an SPSS Data File</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="read.spss"><div class="page-main">
+<a href="#read.spss" class="help-page-title"><h2>Read an SPSS Data File</h2></a>
 
 <h3>Description</h3>
 
@@ -765,7 +715,13 @@ in SPSS formats since (which have not been many).
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">read.spss<span class="token punctuation">(</span>file<span class="token punctuation">,</span> use.value.labels <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> to.data.frame <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">read.spss(file, use.value.labels = TRUE, to.data.frame = FALSE,
+          max.value.labels = Inf, trim.factor.names = FALSE,
+          trim_values = TRUE, reencode = NA, use.missings = to.data.frame, 
+          sub = ".", add.undeclared.levels = c("sort", "append", "no"),
+          duplicated.value.labels = c("append", "condense"),
+          duplicated.value.labels.infix = "_duplicated_", ...)
+</code><code class="language-r">read.spss<span class="token punctuation">(</span>file<span class="token punctuation">,</span> use.value.labels <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> to.data.frame <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
           max.value.labels <span class="token operator">=</span> <span class="token number">Inf</span><span class="token punctuation">,</span> trim.factor.names <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
           trim_values <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> reencode <span class="token operator">=</span> <span class="token keyword">NA</span><span class="token punctuation">,</span> use.missings <span class="token operator">=</span> to.data.frame<span class="token punctuation">,</span> 
           sub <span class="token operator">=</span> <span class="token string">"."</span><span class="token punctuation">,</span> add.undeclared.levels <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"sort"</span><span class="token punctuation">,</span> <span class="token string">"append"</span><span class="token punctuation">,</span> <span class="token string">"no"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -773,7 +729,7 @@ in SPSS formats since (which have not been many).
           duplicated.value.labels.infix <span class="token operator">=</span> <span class="token string">"_duplicated_"</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -992,7 +948,63 @@ package <span class="pkg">memisc</span>: see its help for <code>spss.system.file
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token punctuation">(</span>sav <span class="token operator">&lt;-</span> system.file<span class="token punctuation">(</span><span class="token string">"files"</span><span class="token punctuation">,</span> <span class="token string">"electric.sav"</span><span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">"foreign"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">(sav &lt;- system.file("files", "electric.sav", package = "foreign"))
+dat &lt;- read.spss(file=sav) 
+str(dat)   # list structure with attributes
+
+dat &lt;- read.spss(file=sav, to.data.frame=TRUE) 
+str(dat)   # now a data.frame
+
+
+### Now we use an example file that is not very well structured and 
+### hence may need some special treatment with appropriate argument settings.
+### Expect lots of warnings as value labels (corresponding to R factor labels) are uncomplete, 
+### and an unsupported long string variable is present in the data
+(sav &lt;- system.file("files", "testdata.sav", package = "foreign"))
+
+### Examples for add.undeclared.levels:
+## add.undeclared.levels = "sort" (default):
+x.sort &lt;- read.spss(file=sav, to.data.frame = TRUE)
+## add.undeclared.levels = "append":
+x.append &lt;- read.spss(file=sav, to.data.frame = TRUE, 
+    add.undeclared.levels = "append")
+## add.undeclared.levels = "no":
+x.no &lt;- read.spss(file=sav, to.data.frame = TRUE, 
+    add.undeclared.levels = "no")
+
+levels(x.sort$factor_n_undeclared)
+levels(x.append$factor_n_undeclared)
+str(x.no$factor_n_undeclared)
+
+
+### Examples for duplicated.value.labels:
+## duplicated.value.labels = "append" (default)
+x.append &lt;- read.spss(file=sav, to.data.frame=TRUE)
+## duplicated.value.labels = "condense"
+x.condense &lt;- read.spss(file=sav, to.data.frame=TRUE, 
+    duplicated.value.labels = "condense")
+
+levels(x.append$factor_n_duplicated)
+levels(x.condense$factor_n_duplicated)
+
+as.numeric(x.append$factor_n_duplicated)
+as.numeric(x.condense$factor_n_duplicated)
+
+    
+## Long Strings (&gt;255 chars) are imported in consecutive separate variables 
+## (see warning about subtype 14):
+x &lt;- read.spss(file=sav, to.data.frame=TRUE, stringsAsFactors=FALSE)
+
+cat.long.string &lt;- function(x, w=70) cat(paste(strwrap(x, width=w), "\n"))
+
+## first part: x$string_500:
+cat.long.string(x$string_500)
+## second part: x$STRIN0:
+cat.long.string(x$STRIN0)
+## complete long string:
+long.string &lt;- apply(x[,c("string_500", "STRIN0")], 1, paste, collapse="")
+cat.long.string(long.string)
+</code><code class="language-r"><span class="token punctuation">(</span>sav <span class="token operator">&lt;-</span> system.file<span class="token punctuation">(</span><span class="token string">"files"</span><span class="token punctuation">,</span> <span class="token string">"electric.sav"</span><span class="token punctuation">,</span> package <span class="token operator">=</span> <span class="token string">"foreign"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 dat <span class="token operator">&lt;-</span> read.spss<span class="token punctuation">(</span>file<span class="token operator">=</span>sav<span class="token punctuation">)</span> 
 str<span class="token punctuation">(</span>dat<span class="token punctuation">)</span>   <span class="token comment"># list structure with attributes</span>
 
@@ -1049,8 +1061,10 @@ cat.long.string<span class="token punctuation">(</span>x<span class="token opera
 long.string <span class="token operator">&lt;-</span> apply<span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token punctuation">,</span>c<span class="token punctuation">(</span><span class="token string">"string_500"</span><span class="token punctuation">,</span> <span class="token string">"STRIN0"</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> paste<span class="token punctuation">,</span> collapse<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span>
 cat.long.string<span class="token punctuation">(</span>long.string<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="read.ssd"><main><a href="#read.ssd" class="help-page-title"><h2>Obtain a Data Frame from a SAS Permanent Dataset, via read.xport </h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="read.ssd"><div class="page-main">
+<a href="#read.ssd" class="help-page-title"><h2>Obtain a Data Frame from a SAS Permanent Dataset, via read.xport </h2></a>
 
 <h3>Description</h3>
 
@@ -1061,11 +1075,13 @@ and then uses <code>read.xport</code> to obtain a data frame.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">read.ssd<span class="token punctuation">(</span>libname<span class="token punctuation">,</span> sectionnames<span class="token punctuation">,</span> 
+<pre class="language-r"><code class="language-r-input" hidden="hidden">read.ssd(libname, sectionnames, 
+   tmpXport=tempfile(), tmpProgLoc=tempfile(), sascmd="sas")
+</code><code class="language-r">read.ssd<span class="token punctuation">(</span>libname<span class="token punctuation">,</span> sectionnames<span class="token punctuation">,</span> 
    tmpXport<span class="token operator">=</span>tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> tmpProgLoc<span class="token operator">=</span>tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sascmd<span class="token operator">=</span><span class="token string">"sas"</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1149,7 +1165,26 @@ worked by the use of symbolic links: these are barely supported on Windows.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## if there were some files on the web we could get a real</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## if there were some files on the web we could get a real
+## runnable example
+## Not run: 
+R&gt; list.files("trialdata")
+ [1] "baseline.sas7bdat" "form11.sas7bdat"   "form12.sas7bdat"  
+ [4] "form13.sas7bdat"   "form22.sas7bdat"   "form23.sas7bdat"  
+ [7] "form3.sas7bdat"    "form4.sas7bdat"    "form48.sas7bdat"  
+[10] "form50.sas7bdat"   "form51.sas7bdat"   "form71.sas7bdat"  
+[13] "form72.sas7bdat"   "form8.sas7bdat"    "form9.sas7bdat"   
+[16] "form90.sas7bdat"   "form91.sas7bdat"  
+R&gt; baseline &lt;- read.ssd("trialdata", "baseline")
+R&gt; form90 &lt;- read.ssd("trialdata", "form90")
+
+## Or for a Windows example
+sashome &lt;- "/Program Files/SAS/SAS 9.1"
+read.ssd(file.path(sashome, "core", "sashelp"), "retail",
+         sascmd = file.path(sashome, "sas.exe"))
+
+## End(Not run)
+</code><code class="language-r"><span class="token comment">## if there were some files on the web we could get a real</span>
 <span class="token comment">## runnable example</span>
 <span class="token comment">## Not run: </span>
 R<span class="token operator">&gt;</span> list.files<span class="token punctuation">(</span><span class="token string">"trialdata"</span><span class="token punctuation">)</span>
@@ -1169,8 +1204,10 @@ read.ssd<span class="token punctuation">(</span>file.path<span class="token punc
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="read.systat"><main><a href="#read.systat" class="help-page-title"><h2>Obtain a Data Frame from a Systat File</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="read.systat"><div class="page-main">
+<a href="#read.systat" class="help-page-title"><h2>Obtain a Data Frame from a Systat File</h2></a>
 
 <h3>Description</h3>
 
@@ -1182,10 +1219,11 @@ read.ssd<span class="token punctuation">(</span>file.path<span class="token punc
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">read.systat<span class="token punctuation">(</span>file<span class="token punctuation">,</span> to.data.frame <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">read.systat(file, to.data.frame = TRUE)
+</code><code class="language-r">read.systat<span class="token punctuation">(</span>file<span class="token punctuation">,</span> to.data.frame <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1247,13 +1285,19 @@ observations. <em>Computers and Geosciences</em> <b>18</b>, 951–963.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">summary<span class="token punctuation">(</span>iris<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">summary(iris)
+iris.s &lt;- read.systat(system.file("files/Iris.syd", package="foreign")[1])
+str(iris.s)
+summary(iris.s)
+</code><code class="language-r">summary<span class="token punctuation">(</span>iris<span class="token punctuation">)</span>
 iris.s <span class="token operator">&lt;-</span> read.systat<span class="token punctuation">(</span>system.file<span class="token punctuation">(</span><span class="token string">"files/Iris.syd"</span><span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"foreign"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 str<span class="token punctuation">(</span>iris.s<span class="token punctuation">)</span>
 summary<span class="token punctuation">(</span>iris.s<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="read.xport"><main><a href="#read.xport" class="help-page-title"><h2>Read a SAS XPORT Format Library</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="read.xport"><div class="page-main">
+<a href="#read.xport" class="help-page-title"><h2>Read a SAS XPORT Format Library</h2></a>
 
 <h3>Description</h3>
 
@@ -1264,10 +1308,11 @@ data.frames.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">read.xport<span class="token punctuation">(</span>file<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">read.xport(file, ...)
+</code><code class="language-r">read.xport<span class="token punctuation">(</span>file<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1323,13 +1368,116 @@ available at
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: ## no XPORT file is installed</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Not run: ## no XPORT file is installed
+read.xport("test.xpt")
+
+## End(Not run)
+</code><code class="language-r"><span class="token comment">## Not run: ## no XPORT file is installed</span>
 read.xport<span class="token punctuation">(</span><span class="token string">"test.xpt"</span><span class="token punctuation">)</span>
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="write.arff"><main><a href="#write.arff" class="help-page-title"><h2>Write Data into ARFF Files</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="read.S"><div class="page-main">
+<a href="#read.S" class="help-page-title"><h2>Read an S3 Binary or data.dump File</h2></a>
+
+<h3>Description</h3>
+
+<p>Reads binary data files or <code>data.dump</code> files that were produced
+in S version 3.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">  data.restore(file, print = FALSE, verbose = FALSE, env = .GlobalEnv)
+  read.S(file)
+</code><code class="language-r">data.restore<span class="token punctuation">(</span>file<span class="token punctuation">,</span> print <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> verbose <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> env <span class="token operator">=</span> .GlobalEnv<span class="token punctuation">)</span>
+  read.S<span class="token punctuation">(</span>file<span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table>
+<tr>
+<td><code id="file">file</code></td>
+<td>
+<p>the filename of the S-PLUS <code>data.dump</code> or binary
+file.</p>
+</td>
+</tr>
+<tr>
+<td><code id="print">print</code></td>
+<td>
+<p>whether to print the name of each object as read from the
+file.</p>
+</td>
+</tr>
+<tr>
+<td><code id="verbose">verbose</code></td>
+<td>
+<p>whether to print the name of every subitem within each
+object.</p>
+</td>
+</tr>
+<tr>
+<td><code id="env">env</code></td>
+<td>
+<p>environment within which to create the restored object(s).</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>read.S</code> can read the binary files produced in some older
+versions of S-PLUS on either Windows (versions 3.x, 4.x, 2000) or Unix
+(version 3.x with 4 byte integers).  It automatically detects whether
+the file was produced on a big- or little-endian machine and adapts
+itself accordingly.
+</p>
+<p><code>data.restore</code> can read a similar range of files produced by
+<code>data.dump</code> and for newer versions of S-PLUS, those from
+<code>data.dump(....., oldStyle=TRUE)</code>.
+</p>
+<p>Not all S3 objects can be handled in the current version.  The most
+frequently encountered exceptions are functions and expressions; you
+will also have trouble with objects that contain model formulas.  In
+particular, comments will be lost from function bodies, and the
+argument lists of functions will often be changed.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>read.S</code>, an R version of the S3 object.
+</p>
+<p>For <code>data.restore</code>, the name of the file.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Duncan Murdoch
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## if you have an S-PLUS _Data file containing 'myobj'
+## Not run: read.S(file.path("_Data", "myobj"))
+data.restore("dumpdata", print = TRUE)
+
+## End(Not run)</code><code class="language-r"><span class="token comment">## if you have an S-PLUS _Data file containing 'myobj'</span>
+<span class="token comment">## Not run: read.S(file.path("_Data", "myobj"))</span>
+data.restore<span class="token punctuation">(</span><span class="token string">"dumpdata"</span><span class="token punctuation">,</span> print <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+
+<span class="token comment">## End(Not run)</span></code></pre>
+
+<hr>
+</div></div>
+<div class="container manual-page" id="write.arff"><div class="page-main">
+<a href="#write.arff" class="help-page-title"><h2>Write Data into ARFF Files</h2></a>
 
 <h3>Description</h3>
 
@@ -1339,10 +1487,11 @@ read.xport<span class="token punctuation">(</span><span class="token string">"te
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">write.arff<span class="token punctuation">(</span>x<span class="token punctuation">,</span> file<span class="token punctuation">,</span> eol <span class="token operator">=</span> <span class="token string">"\n"</span><span class="token punctuation">,</span> relation <span class="token operator">=</span> deparse<span class="token punctuation">(</span>substitute<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">write.arff(x, file, eol = "\n", relation = deparse(substitute(x)))
+</code><code class="language-r">write.arff<span class="token punctuation">(</span>x<span class="token punctuation">,</span> file<span class="token punctuation">,</span> eol <span class="token operator">=</span> <span class="token string">"\n"</span><span class="token punctuation">,</span> relation <span class="token operator">=</span> deparse<span class="token punctuation">(</span>substitute<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1402,10 +1551,13 @@ or from factors.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">write.arff<span class="token punctuation">(</span>iris<span class="token punctuation">,</span> file <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">write.arff(iris, file = "")
+</code><code class="language-r">write.arff<span class="token punctuation">(</span>iris<span class="token punctuation">,</span> file <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="write.dbf"><main><a href="#write.dbf" class="help-page-title"><h2>Write a DBF File</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="write.dbf"><div class="page-main">
+<a href="#write.dbf" class="help-page-title"><h2>Write a DBF File</h2></a>
 
 <h3>Description</h3>
 
@@ -1415,10 +1567,11 @@ or from factors.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">write.dbf<span class="token punctuation">(</span>dataframe<span class="token punctuation">,</span> file<span class="token punctuation">,</span> factor2char <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> max_nchar <span class="token operator">=</span> <span class="token number">254</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">write.dbf(dataframe, file, factor2char = TRUE, max_nchar = 254)
+</code><code class="language-r">write.dbf<span class="token punctuation">(</span>dataframe<span class="token punctuation">,</span> file<span class="token punctuation">,</span> factor2char <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> max_nchar <span class="token operator">=</span> <span class="token number">254</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1515,7 +1668,17 @@ shapelib by Frank Warmerdam.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">str<span class="token punctuation">(</span>warpbreaks<span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">str(warpbreaks)
+try1 &lt;- paste(tempfile(), ".dbf", sep = "")
+write.dbf(warpbreaks, try1, factor2char = FALSE)
+in1 &lt;- read.dbf(try1)
+str(in1)
+try2 &lt;- paste(tempfile(), ".dbf", sep = "")
+write.dbf(warpbreaks, try2, factor2char = TRUE)
+in2 &lt;- read.dbf(try2)
+str(in2)
+unlink(c(try1, try2))
+</code><code class="language-r">str<span class="token punctuation">(</span>warpbreaks<span class="token punctuation">)</span>
 try1 <span class="token operator">&lt;-</span> paste<span class="token punctuation">(</span>tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">".dbf"</span><span class="token punctuation">,</span> sep <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span>
 write.dbf<span class="token punctuation">(</span>warpbreaks<span class="token punctuation">,</span> try1<span class="token punctuation">,</span> factor2char <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 in1 <span class="token operator">&lt;-</span> read.dbf<span class="token punctuation">(</span>try1<span class="token punctuation">)</span>
@@ -1526,8 +1689,10 @@ in2 <span class="token operator">&lt;-</span> read.dbf<span class="token punctua
 str<span class="token punctuation">(</span>in2<span class="token punctuation">)</span>
 unlink<span class="token punctuation">(</span>c<span class="token punctuation">(</span>try1<span class="token punctuation">,</span> try2<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="write.dta"><main><a href="#write.dta" class="help-page-title"><h2>Write Files in Stata Binary Format</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="write.dta"><div class="page-main">
+<a href="#write.dta" class="help-page-title"><h2>Write Files in Stata Binary Format</h2></a>
 
 <h3>Description</h3>
 
@@ -1541,12 +1706,15 @@ format.  Does not write array variables unless they can be
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">write.dta<span class="token punctuation">(</span>dataframe<span class="token punctuation">,</span> file<span class="token punctuation">,</span> version <span class="token operator">=</span> <span class="token number">7L</span><span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">write.dta(dataframe, file, version = 7L,
+          convert.dates = TRUE, tz = "GMT",
+          convert.factors = c("labels", "string", "numeric", "codes"))
+</code><code class="language-r">write.dta<span class="token punctuation">(</span>dataframe<span class="token punctuation">,</span> file<span class="token punctuation">,</span> version <span class="token operator">=</span> <span class="token number">7L</span><span class="token punctuation">,</span>
           convert.dates <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> tz <span class="token operator">=</span> <span class="token string">"GMT"</span><span class="token punctuation">,</span>
           convert.factors <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"labels"</span><span class="token punctuation">,</span> <span class="token string">"string"</span><span class="token punctuation">,</span> <span class="token string">"numeric"</span><span class="token punctuation">,</span> <span class="token string">"codes"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1707,11 +1875,15 @@ and <a href="https://www.stata.com/help.cgi?dta_113" target="_blank">https://www
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r">write.dta<span class="token punctuation">(</span>swiss<span class="token punctuation">,</span> swissfile <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">write.dta(swiss, swissfile &lt;- tempfile())
+read.dta(swissfile)
+</code><code class="language-r">write.dta<span class="token punctuation">(</span>swiss<span class="token punctuation">,</span> swissfile <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 read.dta<span class="token punctuation">(</span>swissfile<span class="token punctuation">)</span></code></pre>
 
-<hr></main></div>
-<div class="container manual-page" id="write.foreign"><main><a href="#write.foreign" class="help-page-title"><h2>Write Text Files and Code to Read Them</h2></a>
+<hr>
+</div></div>
+<div class="container manual-page" id="write.foreign"><div class="page-main">
+<a href="#write.foreign" class="help-page-title"><h2>Write Text Files and Code to Read Them</h2></a>
 
 <h3>Description</h3>
 
@@ -1723,11 +1895,13 @@ instructions for the other package to read the data.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r">write.foreign<span class="token punctuation">(</span>df<span class="token punctuation">,</span> datafile<span class="token punctuation">,</span> codefile<span class="token punctuation">,</span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">write.foreign(df, datafile, codefile,
+              package = c("SPSS", "Stata", "SAS"), ...)
+</code><code class="language-r">write.foreign<span class="token punctuation">(</span>df<span class="token punctuation">,</span> datafile<span class="token punctuation">,</span> codefile<span class="token punctuation">,</span>
               package <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"SPSS"</span><span class="token punctuation">,</span> <span class="token string">"Stata"</span><span class="token punctuation">,</span> <span class="token string">"SAS"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
-<h3>Arguments</h3>
+<h3 class="r-arguments-title">Arguments</h3>
 
 <table>
 <tr>
@@ -1809,7 +1983,16 @@ derived from the current locale.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r"><span class="token comment">## Not run: </span>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Not run: 
+datafile &lt;- tempfile()
+codefile &lt;- tempfile()
+write.foreign(esoph, datafile, codefile, package="SPSS")
+file.show(datafile)
+file.show(codefile)
+unlink(datafile)
+unlink(codefile)
+
+## End(Not run)</code><code class="language-r"><span class="token comment">## Not run: </span>
 datafile <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span>
 codefile <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span>
 write.foreign<span class="token punctuation">(</span>esoph<span class="token punctuation">,</span> datafile<span class="token punctuation">,</span> codefile<span class="token punctuation">,</span> package<span class="token operator">=</span><span class="token string">"SPSS"</span><span class="token punctuation">)</span>
@@ -1820,8 +2003,9 @@ unlink<span class="token punctuation">(</span>codefile<span class="token punctua
 
 <span class="token comment">## End(Not run)</span></code></pre>
 
-<hr></main></div>
+<hr>
+</div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.2.2</p></footer>
+    <footer><p>Rendered with postdoc 1.4.0</p></footer>
   </body>
 </html>
