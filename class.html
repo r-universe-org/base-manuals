@@ -7,12 +7,12 @@
 
     <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
     <!-- for (future) customizations -->
     <script src="https://r-universe.dev/static/manual.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css">
 
   </head>
 
@@ -35,7 +35,7 @@
 </tr>
       <tr>
 <th>Maintainer:</th>
-<td class="description-maintainer">Brian Ripley &lt;ripley@stats.ox.ac.uk&gt;</td>
+<td class="description-maintainer">Brian Ripley &lt;Brian.Ripley@R-project.org&gt;</td>
 </tr>
       <tr>
 <th>License:</th>
@@ -43,11 +43,11 @@
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">7.3-22</td>
+<td class="description-version">7.3-23</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-06-15 17:27:59 UTC</td>
+<td class="description-date">2025-04-11 20:16:01 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -125,7 +125,7 @@ Self-Organizing Maps: Batch Algorithm
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="data">data</code></td>
 <td>
@@ -172,7 +172,7 @@ randomly from <code>data</code>.
 
 <p>An object of class <code>"SOM"</code> with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>grid</code></td>
 <td>
@@ -258,7 +258,7 @@ Condense training set for k-NN classifier
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="train">train</code></td>
 <td>
@@ -368,7 +368,7 @@ majority vote, with ties broken at random. If there are ties for the
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="train">train</code></td>
 <td>
@@ -488,7 +488,7 @@ k-Nearest Neighbour Cross-Validatory Classification
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="train">train</code></td>
 <td>
@@ -611,7 +611,7 @@ one nearest, a majority vote is used with ties broken at random.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="train">train</code></td>
 <td>
@@ -692,7 +692,7 @@ Learning Vector Quantization 1
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -816,7 +816,7 @@ Learning Vector Quantization 2.1
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -949,7 +949,7 @@ Learning Vector Quantization 3
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1088,7 +1088,7 @@ Initialize a LVQ Codebook
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1209,7 +1209,7 @@ Classify Test Set from LVQ Codebook
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="codebk">codebk</code></td>
 <td>
@@ -1283,7 +1283,7 @@ Multiedit for k-NN Classifier
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1407,7 +1407,7 @@ Optimized Learning Vector Quantization 1
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1525,7 +1525,7 @@ Reduce Training Set for a k-NN Classifier
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="train">train</code></td>
 <td>
@@ -1623,7 +1623,7 @@ Self-Organizing Maps: Online Algorithm
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="data">data</code></td>
 <td>
@@ -1689,7 +1689,7 @@ used in turn, allowing two- or more phase training.
 
 <p>An object of class <code>"SOM"</code> with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>grid</code></td>
 <td>
@@ -1794,7 +1794,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="xdim">xdim</code>, <code id="ydim">ydim</code>
@@ -1839,7 +1839,7 @@ plot of the representative at each grid point.
 <p>For <code>somgrid</code>, an object of class <code>"somgrid"</code>, a list with
 components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>pts</code></td>
 <td>
@@ -1870,6 +1870,6 @@ components
 <hr>
 </div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.4.0</p></footer>
+    <footer><p>Rendered with postdoc 1.4.1</p></footer>
   </body>
 </html>

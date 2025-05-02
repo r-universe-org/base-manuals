@@ -7,12 +7,12 @@
 
     <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
     <!-- for (future) customizations -->
     <script src="https://r-universe.dev/static/manual.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css">
 
   </head>
 
@@ -46,11 +46,11 @@
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.1.23</td>
+<td class="description-version">4.1.24</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-06-15 17:27:55 UTC</td>
+<td class="description-date">2025-04-11 20:15:57 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -642,7 +642,7 @@ labels<span class="token punctuation">(</span>object<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -755,7 +755,7 @@ meanvar<span class="token punctuation">(</span>tree<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="tree">tree</code></td>
 <td>
@@ -795,7 +795,7 @@ components as that returned by the <code>rpart</code> function.
 
 <p>an invisible list containing the following vectors is returned. 
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>x</code></td>
 <td>
@@ -861,7 +861,7 @@ Handles Missing Values in an Rpart Object
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 
@@ -900,7 +900,7 @@ path from the root to the selected nodes.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="tree">tree</code></td>
 <td>
@@ -1023,7 +1023,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1201,7 +1201,7 @@ Plot a Complexity Parameter Table for an Rpart Fit
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1315,7 +1315,7 @@ post<span class="token punctuation">(</span>tree<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="tree">tree</code></td>
 <td>
@@ -1466,7 +1466,7 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -1622,7 +1622,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1760,7 +1760,7 @@ Displays CP table for Fitted Rpart Object
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1859,7 +1859,7 @@ prune<span class="token punctuation">(</span>tree<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="tree">tree</code></td>
 <td>
@@ -1929,7 +1929,7 @@ residuals<span class="token punctuation">(</span>object<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -2019,7 +2019,7 @@ Recursive Partitioning and Regression Trees
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="formula">formula</code></td>
 <td>
@@ -2221,7 +2221,7 @@ Control for Rpart Fits
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="minsplit">minsplit</code></td>
 <td>
@@ -2322,8 +2322,8 @@ missing values.
 <td>
 
 <p>Set the maximum depth of any node of the final tree, with the root
-node counted as depth 0.  Values greater than  30 <code>rpart</code> will
-give nonsense results on 32-bit machines.
+node counted as depth 0.  Maximum value 30 (as node numbers have to
+be stored in 32-bit signed integer types).
 </p>
 </td>
 </tr>
@@ -2368,7 +2368,7 @@ function would rarely if ever be called directly by a user.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="y">y</code></td>
 <td>
@@ -2430,7 +2430,7 @@ Recursive Partitioning and Regression Trees Object
 
 <h3>Value</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code>frame</code></td>
 <td>
@@ -2648,7 +2648,7 @@ cross-validation versus the number of splits.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 
@@ -2701,7 +2701,7 @@ button on specified nodes within the graphics window.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -2967,7 +2967,7 @@ summary<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -3075,7 +3075,7 @@ text<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -3257,7 +3257,7 @@ cross validation, for a set of complexity parameter values.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="fit">fit</code></td>
 <td>
@@ -3345,6 +3345,6 @@ printcp<span class="token punctuation">(</span>fit<span class="token punctuation
 <hr>
 </div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.4.0</p></footer>
+    <footer><p>Rendered with postdoc 1.4.1</p></footer>
   </body>
 </html>

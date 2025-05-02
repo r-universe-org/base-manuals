@@ -7,12 +7,12 @@
 
     <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
     <!-- for (future) customizations -->
     <script src="https://r-universe.dev/static/manual.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css">
 
   </head>
 
@@ -38,15 +38,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.4.1</td>
+<td class="description-license">Part of R 4.5.0</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.4.1</td>
+<td class="description-version">4.5.0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-06-15 17:27:43 UTC</td>
+<td class="description-date">2025-04-11 20:15:40 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -314,7 +314,7 @@ converted into <code>"null"</code> units.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="unit">unit</code></td>
 <td>
 <p> An object of class <code>"unit"</code>. </p>
@@ -371,7 +371,7 @@ e.g., <code><a href="#grid.lines">grid.lines</a></code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="angle">angle</code></td>
 <td>
@@ -429,7 +429,7 @@ based on a grob.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -523,7 +523,7 @@ information for a character or expression vector.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="text">text</code></td>
 <td>
 <p> A character or expression vector. </p>
@@ -704,7 +704,7 @@ x- and/or y-scales based on numeric values passed to the function.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="xData">xData</code></td>
 <td>
@@ -748,8 +748,8 @@ the <code>viewport()</code> function. </p>
 </table>
 <h3>Details</h3>
 
-<p>If <code>xscale</code> is not specified then the values in <code>x</code> are
-used to generate an x-scale based on the range of <code>x</code>, extended
+<p>If <code>xscale</code> is not specified then the values in <code>xData</code> are
+used to generate an x-scale based on the range of <code>xData</code>, extended
 by the proportion specified in <code>extension</code>.  Similarly for the
 y-scale.
 </p>
@@ -802,7 +802,7 @@ depth<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -880,7 +880,7 @@ deviceDim<span class="token punctuation">(</span>w<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>, <code id="w">w</code>, <code id="h">h</code>
@@ -1030,7 +1030,7 @@ postDrawDetails<span class="token punctuation">(</span>x<span class="token punct
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1121,7 +1121,7 @@ new class derived from grob (or gTree).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1183,7 +1183,7 @@ viewport), with specified modifications.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="vp">vp</code></td>
 <td>
@@ -1244,7 +1244,7 @@ explode<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 
@@ -1305,7 +1305,7 @@ applyEdits<span class="token punctuation">(</span>x<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -1427,7 +1427,7 @@ get.gpar<span class="token punctuation">(</span>names <span class="token operato
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -1680,7 +1680,7 @@ in <code>grid.edit</code> and friends.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="...">...</code></td>
 <td>
 <p> Character values which are grob names. </p>
@@ -1829,7 +1829,7 @@ vpTree<span class="token punctuation">(</span>parent<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -2209,7 +2209,7 @@ setChildren<span class="token punctuation">(</span>x<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="gTree">gTree</code>, <code id="x">x</code>
@@ -2317,7 +2317,7 @@ of a gTree at once (instead of repeated calls to <code>addGrob</code>).
 <h3>See Also</h3>
 
 <p><code><a href="#grid.grob">grob</a></code>, <code><a href="#grid.get">getGrob</a></code>,
-<code><a href="#grid.add">addGrob</a></code>, <code><a href="#grid.remove">removeGrob</a></code>.
+<code><a href="#grid.remove">removeGrob</a></code>.
 </p>
 
 <hr>
@@ -2348,7 +2348,7 @@ bezierGrob<span class="token punctuation">(</span>x <span class="token operator"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -2572,7 +2572,7 @@ circleGrob<span class="token punctuation">(</span>x<span class="token operator">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -2698,7 +2698,7 @@ clipGrob<span class="token punctuation">(</span>x <span class="token operator">=
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -2873,7 +2873,7 @@ convertUnit<span class="token punctuation">(</span>x<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -3073,7 +3073,7 @@ convertX<span class="token punctuation">(</span>unit<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="grob">grob</code></td>
 <td>
 <p>A grob object.</p>
@@ -3129,7 +3129,7 @@ arcCurvature<span class="token punctuation">(</span>theta<span class="token punc
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x1">x1</code></td>
 <td>
@@ -3406,7 +3406,7 @@ grid.delay<span class="token punctuation">(</span>expr<span class="token punctua
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="expr">expr</code></td>
 <td>
@@ -3513,7 +3513,7 @@ engine.display.list<span class="token punctuation">(</span>on<span class="token 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="on">on</code></td>
 <td>
 <p>A logical value to indicate whether the display list
@@ -3577,7 +3577,7 @@ display list will result in no redrawing whatsoever.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="FUN">FUN</code></td>
 <td>
@@ -3661,7 +3661,7 @@ grid.refresh<span class="token punctuation">(</span><span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -3756,7 +3756,7 @@ editGrob<span class="token punctuation">(</span>grob<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="grob">grob</code></td>
 <td>
@@ -3932,7 +3932,7 @@ grid.revert<span class="token punctuation">(</span>x<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -4126,7 +4126,7 @@ frameGrob<span class="token punctuation">(</span>layout<span class="token operat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="layout">layout</code></td>
 <td>
@@ -4228,7 +4228,7 @@ grid.abline<span class="token punctuation">(</span>intercept<span class="token p
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -4437,7 +4437,7 @@ getGrob<span class="token punctuation">(</span>gTree<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="gTree">gTree</code></td>
 <td>
@@ -4516,7 +4516,7 @@ NOT YET IMPLEMENTED.
 
 <h3>See Also</h3>
 
-<p><code><a href="#grid.grob">grob</a></code>, <code><a href="#grid.get">getGrob</a></code>,
+<p><code><a href="#grid.grob">grob</a></code>,
 <code><a href="#grid.add">addGrob</a></code>, <code><a href="#grid.remove">removeGrob</a></code>.
 </p>
 
@@ -4563,7 +4563,7 @@ glyphGrob<span class="token punctuation">(</span>glyphInfo<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="glyphInfo">glyphInfo</code></td>
 <td>
@@ -4680,7 +4680,7 @@ grid.grabExpr<span class="token punctuation">(</span>expr<span class="token punc
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="expr">expr</code></td>
 <td>
@@ -4840,7 +4840,7 @@ or within a given grob.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="path">path</code></td>
 <td>
@@ -5006,7 +5006,7 @@ grid.grep<span class="token punctuation">(</span><span class="token string">"[a-
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="h">h</code></td>
 <td>
@@ -5108,7 +5108,7 @@ is.grob<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -5279,7 +5279,7 @@ grid.use<span class="token punctuation">(</span>group<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="src">src</code></td>
 <td>
@@ -5488,7 +5488,7 @@ of a rectangular region.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="nrow">nrow</code></td>
 <td>
@@ -5706,7 +5706,7 @@ polylineGrob<span class="token punctuation">(</span>x <span class="token operato
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -5866,7 +5866,7 @@ current viewport, in the specified coordinate system.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="unit">unit</code></td>
 <td>
 <p> The coordinate system in which to return the location
@@ -5902,8 +5902,8 @@ current viewport, in the specified coordinate system.
 
  <p><code><a href="#viewport">viewport</a></code>, <code><a href="#unit">unit</a></code>,
 <code><a href="https://r-universe.dev/manuals/graphics.html#locator">locator</a></code> in package <span class="pkg">graphics</span>, and for an application
-see <code><a href="https://r-universe.dev/manuals/lattice.html#interaction">trellis.focus</a></code> and
-<code><a href="https://r-universe.dev/manuals/lattice.html#interaction">panel.identify</a></code> in package
+see <code><a href="https://r-universe.dev/manuals/lattice.html#trellis.focus">trellis.focus</a></code> and
+<code><a href="https://r-universe.dev/manuals/lattice.html#panel.identify">panel.identify</a></code> in package
 <a href="https://CRAN.R-project.org/package=lattice" target="_blank"><span class="pkg">lattice</span></a>.
 </p>
 
@@ -6007,7 +6007,7 @@ grobPathListing<span class="token punctuation">(</span>x<span class="token punct
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6247,7 +6247,7 @@ lineToGrob<span class="token punctuation">(</span>x <span class="token operator"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6370,7 +6370,7 @@ popViewport<span class="token punctuation">(</span><span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="recording">recording</code></td>
 <td>
@@ -6448,7 +6448,7 @@ grid.null<span class="token punctuation">(</span><span class="token ellipsis">..
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6565,7 +6565,7 @@ packGrob<span class="token punctuation">(</span>frame<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="gPath">gPath</code></td>
 <td>
@@ -6764,7 +6764,7 @@ grid.path<span class="token punctuation">(</span><span class="token ellipsis">..
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -7079,7 +7079,7 @@ placeGrob<span class="token punctuation">(</span>frame<span class="token punctua
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="gPath">gPath</code></td>
 <td>
@@ -7216,7 +7216,7 @@ pointsGrob<span class="token punctuation">(</span>x <span class="token operator"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -7340,7 +7340,7 @@ polygonGrob<span class="token punctuation">(</span>x<span class="token operator"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -7484,7 +7484,7 @@ function, which also underlies base <span class="pkg">graphics</span>' package
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="range">range</code></td>
 <td>
@@ -7556,7 +7556,7 @@ rasterGrob<span class="token punctuation">(</span>image<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="image">image</code></td>
 <td>
@@ -7751,7 +7751,7 @@ grid.record<span class="token punctuation">(</span>expr<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="expr">expr</code></td>
 <td>
@@ -7866,7 +7866,7 @@ rectGrob<span class="token punctuation">(</span>x <span class="token operator">=
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -8031,7 +8031,7 @@ removeGrob<span class="token punctuation">(</span>gTree<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="gTree">gTree</code></td>
 <td>
@@ -8130,7 +8130,8 @@ is <code>TRUE</code> it then redraws everything to reflect the change.
 
 <h3>See Also</h3>
 
-<p><code><a href="#grid.grob">grob</a></code>, <code><a href="#grid.get">getGrob</a></code>.
+<p><code><a href="#grid.grob">grob</a></code>, <code><a href="#grid.get">getGrob</a></code>,
+<code><a href="#grid.add">addGrob</a></code>.
 </p>
 
 <hr>
@@ -8154,7 +8155,7 @@ reorderGrob<span class="token punctuation">(</span>x<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="gPath">gPath</code></td>
 <td>
@@ -8318,7 +8319,7 @@ segmentsGrob<span class="token punctuation">(</span>x0 <span class="token operat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x0">x0</code></td>
 <td>
@@ -8437,7 +8438,7 @@ setGrob<span class="token punctuation">(</span>gTree<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="gTree">gTree</code></td>
 <td>
@@ -8538,7 +8539,7 @@ Grid layout.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="l">l</code></td>
 <td>
@@ -8685,7 +8686,7 @@ a Grid viewport.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="v">v</code></td>
 <td>
@@ -8851,7 +8852,7 @@ as.path<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -8983,7 +8984,7 @@ textGrob<span class="token punctuation">(</span>label<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="label">label</code></td>
 <td>
@@ -9218,7 +9219,7 @@ xaxisGrob<span class="token punctuation">(</span>at <span class="token operator"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="at">at</code></td>
 <td>
@@ -9362,7 +9363,7 @@ xsplineGrob<span class="token punctuation">(</span>x <span class="token operator
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -9653,7 +9654,7 @@ yaxisGrob<span class="token punctuation">(</span>at <span class="token operator"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="at">at</code></td>
 <td>
@@ -9799,7 +9800,7 @@ isEmptyCoords<span class="token punctuation">(</span>coords<span class="token pu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -9883,7 +9884,7 @@ isClosed<span class="token punctuation">(</span>x<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -9965,7 +9966,7 @@ a grob, based on the grob's class.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="grob">grob</code></td>
 <td>
@@ -10015,7 +10016,7 @@ grobDescent<span class="token punctuation">(</span>x<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p>A grob object.</p>
@@ -10061,7 +10062,7 @@ grobY<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -10150,7 +10151,7 @@ grid.legend<span class="token punctuation">(</span><span class="token ellipsis">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="labels">labels</code></td>
 <td>
@@ -10320,7 +10321,7 @@ makeContent<span class="token punctuation">(</span>x<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p> A grid grob. </p>
@@ -10451,7 +10452,7 @@ pattern<span class="token punctuation">(</span>grob<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="colours">colours</code></td>
 <td>
@@ -10634,7 +10635,7 @@ number of lines of text.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="margins">margins</code></td>
 <td>
@@ -10698,16 +10699,18 @@ current.parent(n=1)
 current.vpTree(all=TRUE)
 current.vpPath()
 current.transform()
+current.rotation()
 </code><code class="language-r">current.viewport<span class="token punctuation">(</span><span class="token punctuation">)</span>
 current.parent<span class="token punctuation">(</span>n<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
 current.vpTree<span class="token punctuation">(</span>all<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 current.vpPath<span class="token punctuation">(</span><span class="token punctuation">)</span>
-current.transform<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+current.transform<span class="token punctuation">(</span><span class="token punctuation">)</span>
+current.rotation<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="n">n</code></td>
 <td>
@@ -10819,7 +10822,7 @@ function is called.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p> A raster grob </p>
@@ -10898,7 +10901,7 @@ grid.roundrect<span class="token punctuation">(</span><span class="token ellipsi
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>, <code id="width">width</code>, <code id="height">height</code>
@@ -11006,7 +11009,7 @@ It is also possible to label only specific grobs in the scene.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -11219,7 +11222,7 @@ and the leaf viewports are labelled with the viewport name.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="vp">vp</code></td>
 <td>
@@ -11373,7 +11376,7 @@ stringDescent<span class="token punctuation">(</span>string<span class="token pu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="string">string</code></td>
 <td>
 <p>A character vector or a language object (as used for
@@ -11423,7 +11426,7 @@ is.unit<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -11663,7 +11666,7 @@ unit objects specified as arguments.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -11716,7 +11719,7 @@ the generic <code>length</code> function.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="unit">unit</code></td>
 <td>
 <p>A unit object.</p>
@@ -11776,7 +11779,7 @@ unit.psum<span class="token punctuation">(</span><span class="token ellipsis">..
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="...">...</code></td>
 <td>
 <p> One or more unit objects. </p>
@@ -11830,7 +11833,7 @@ the generic <code>rep</code> function.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -11896,7 +11899,7 @@ rep<span class="token punctuation">(</span>unit<span class="token punctuation">(
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -12006,7 +12009,7 @@ resolveVJust<span class="token punctuation">(</span>just<span class="token punct
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="just">just</code></td>
 <td>
@@ -12070,7 +12073,7 @@ new class derived from grob (or gTree).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p> A grid grob. </p>
@@ -12154,7 +12157,7 @@ groupFlip<span class="token punctuation">(</span>flipX<span class="token operato
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="group">group</code></td>
 <td>
@@ -12331,7 +12334,7 @@ in <code>downViewport</code> or <code>seekViewport</code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="...">...</code></td>
 <td>
 <p> Character values which are viewport names. </p>
@@ -12400,7 +12403,7 @@ descentDetails<span class="token punctuation">(</span>x<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p> A grid grob. </p>
@@ -12467,7 +12470,7 @@ upViewport<span class="token punctuation">(</span>n <span class="token operator"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -12713,7 +12716,7 @@ yDetails<span class="token punctuation">(</span>x<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -12792,7 +12795,7 @@ bezierPoints<span class="token punctuation">(</span>x<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 
@@ -12884,6 +12887,6 @@ grid.circle<span class="token punctuation">(</span>trace<span class="token opera
 <hr>
 </div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.4.0</p></footer>
+    <footer><p>Rendered with postdoc 1.4.1</p></footer>
   </body>
 </html>

@@ -7,12 +7,12 @@
 
     <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
     <!-- for (future) customizations -->
     <script src="https://r-universe.dev/static/manual.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css">
 
   </head>
 
@@ -32,7 +32,7 @@
 </tr>
       <tr>
 <th>Authors:</th>
-<td class="description-author"><span>R Core Team [aut, cph, cre],
+<td class="description-author"><span>R Core Team [aut, cph, cre] (02zz1nj61),
   Roger Bivand [ctb, cph],
   Vincent J. Carey [ctb, cph],
   Saikat DebRoy [ctb, cph],
@@ -58,11 +58,11 @@
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">0.8-87</td>
+<td class="description-version">0.8-90</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-06-26 09:42:22 UTC</td>
+<td class="description-date">2025-04-11 20:15:57 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -110,7 +110,7 @@ containing information about the SAS library.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="file">file</code></td>
 <td>
 <p>character variable with the name of the file to read.  The
@@ -173,7 +173,7 @@ lookup.xport<span class="token punctuation">(</span><span class="token string">"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="file">file</code></td>
 <td>
 <p>a character string with the name of the ARFF file to read
@@ -225,7 +225,7 @@ guarantee this will read all DBF files.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -332,7 +332,7 @@ summary<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -489,7 +489,7 @@ and EpiData is a freely available data entry and validation system.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -596,7 +596,7 @@ Worksheet.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="file">file</code></td>
 <td>
 <p>character variable with the name of the file to read.  The
@@ -658,7 +658,7 @@ read.mtp<span class="token punctuation">(</span><span class="token string">"ex1-
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="file">file</code></td>
 <td>
 <p>a character string with the name of the file to read.</p>
@@ -731,7 +731,7 @@ in SPSS formats since (which have not been many).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -1083,7 +1083,7 @@ and then uses <code>read.xport</code> to obtain a data frame.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="libname">libname</code></td>
 <td>
@@ -1225,7 +1225,7 @@ read.ssd<span class="token punctuation">(</span>file.path<span class="token punc
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -1314,7 +1314,7 @@ data.frames.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -1399,7 +1399,7 @@ in S version 3.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -1493,7 +1493,7 @@ data.restore<span class="token punctuation">(</span><span class="token string">"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1573,7 +1573,7 @@ or from factors.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="dataframe">dataframe</code></td>
 <td>
@@ -1716,7 +1716,7 @@ format.  Does not write array variables unless they can be
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="dataframe">dataframe</code></td>
 <td>
@@ -1903,7 +1903,7 @@ instructions for the other package to read the data.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="df">df</code></td>
 <td>
@@ -2006,6 +2006,6 @@ unlink<span class="token punctuation">(</span>codefile<span class="token punctua
 <hr>
 </div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.4.0</p></footer>
+    <footer><p>Rendered with postdoc 1.4.1</p></footer>
   </body>
 </html>

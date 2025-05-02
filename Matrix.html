@@ -7,12 +7,12 @@
 
     <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
     <!-- for (future) customizations -->
     <script src="https://r-universe.dev/static/manual.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css">
 
   </head>
 
@@ -46,7 +46,7 @@
     Octave's condest() and onenormest(), Copyright: Regents of the
     University of California),
   Jens Oehlschlägel [ctb] (initial nearPD()),
-  R Core Team [ctb] (base R's matrix implementation)</span></td>
+  R Core Team [ctb] (02zz1nj61, base R's matrix implementation)</span></td>
 </tr>
       <tr>
 <th>Maintainer:</th>
@@ -58,11 +58,11 @@
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">1.7-0</td>
+<td class="description-version">1.7-3</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-06-15 17:28:00 UTC</td>
+<td class="description-date">2025-04-11 20:16:02 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -381,7 +381,7 @@ c<span class="token punctuation">(</span><span class="token ellipsis">...</span>
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="from">from</code>, <code id="to">to</code>
@@ -535,7 +535,7 @@ aggregateT<span class="token punctuation">(</span>x<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -697,7 +697,7 @@ tril<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -855,7 +855,7 @@ super-diagonals.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="n">n</code>, <code id="m">m</code>
@@ -1020,7 +1020,7 @@ stopifnot<span class="token punctuation">(</span>identical<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -1604,7 +1604,7 @@ BunchKaufman<span class="token punctuation">(</span>x<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1826,7 +1826,7 @@ rbind2<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -1972,7 +1972,7 @@ for numeric and symbolic factorizations, respectively.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p>an object inheriting from virtual class <code>CHMfactor</code>,
@@ -2454,7 +2454,7 @@ chol<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -2778,7 +2778,7 @@ chol2inv<span class="token punctuation">(</span>x<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -3253,7 +3253,7 @@ Cholesky<span class="token punctuation">(</span>A<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="A">A</code></td>
 <td>
@@ -3831,7 +3831,7 @@ T2graph<span class="token punctuation">(</span>from<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="from">from</code></td>
 <td>
@@ -4059,7 +4059,7 @@ rowMeans<span class="token punctuation">(</span>x<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -4213,7 +4213,7 @@ onenormest<span class="token punctuation">(</span>A<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="A">A</code></td>
 <td>
@@ -4296,7 +4296,7 @@ seed, see, e.g., <code><a href="https://r-universe.dev/manuals/base.html#Random"
 <p>Both functions return a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code>;
 <code>condest()</code> with components,
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>est</code></td>
 <td>
@@ -4316,7 +4316,7 @@ when <code>est</code> is large, <code>v</code> is an approximate null vector.</p
 </table>
 <p>The function <code>onenormest()</code> returns a list with components,
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>est</code></td>
 <td>
@@ -5539,7 +5539,7 @@ i.e., an object inheriting from virtual class
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="n">n</code></td>
 <td>
@@ -5896,7 +5896,7 @@ hence they should be used with care.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6009,7 +6009,7 @@ colScale<span class="token punctuation">(</span>x<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6250,7 +6250,7 @@ permutated matrix is “as upper triangular” as possible.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6289,7 +6289,7 @@ seed, etc).</p>
 
 <p>a named <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with (by default) 6 components,
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>p</code></td>
 <td>
@@ -6634,7 +6634,7 @@ in memory) from a sparse matrix and returns the result.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -7864,7 +7864,7 @@ expand <span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -8182,7 +8182,7 @@ all.equal<span class="token punctuation">(</span>a1<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p>a matrix, typically inheriting from the
@@ -8289,7 +8289,7 @@ writeMM<span class="token punctuation">(</span>obj<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="obj">obj</code></td>
 <td>
@@ -8439,7 +8439,7 @@ from a matrix factorization or its transpose.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -8626,7 +8626,7 @@ e.g., <code>as(., &lt;class&gt;)</code> for coercions.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="from">from</code>, <code id="x">x</code>, <code id="a">a</code>, <code id="b">b</code>
@@ -9044,7 +9044,7 @@ stopifnot<span class="token punctuation">(</span>exprs <span class="token operat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -9151,7 +9151,7 @@ with (short/empty) column names construction.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -9354,7 +9354,7 @@ they are often used for testing numerical linear algebra code.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="n">n</code></td>
 <td>
 <p>a non-negative integer.</p>
@@ -9423,7 +9423,7 @@ image<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -10035,7 +10035,7 @@ invPerm<span class="token punctuation">(</span>p<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="p">p</code></td>
 <td>
@@ -10227,7 +10227,7 @@ is.na<span class="token punctuation">(</span>x<span class="token punctuation">)<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object, here a sparse or dense matrix or vector.</p>
@@ -10311,7 +10311,7 @@ look like.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="dn">dn</code></td>
 <td>
 <p><code><a href="https://r-universe.dev/manuals/base.html#dimnames">dimnames</a>()</code> of a <code><a href="https://r-universe.dev/manuals/base.html#matrix">matrix</a></code>-like <span class="rlang"><b>R</b></span>
@@ -10457,7 +10457,7 @@ isSymmetric<span class="token punctuation">(</span>object<span class="token punc
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -10582,7 +10582,7 @@ isDiagonal<span class="token punctuation">(</span>object<span class="token punct
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -10680,7 +10680,7 @@ higher-dimensional tensor decompositions, see Bader and Kolda (2008).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="X">X</code>, <code id="Y">Y</code>
@@ -11693,7 +11693,7 @@ lu<span class="token punctuation">(</span>x<span class="token punctuation">,</sp
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -11896,7 +11896,7 @@ collapse to a “Duplet” in the case of binary aka pattern, such as
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -11918,7 +11918,7 @@ representation should be ‘unique’ in the sense of
 
 <p>A <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code>, typically with three components,
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>i</code></td>
 <td>
@@ -12046,7 +12046,7 @@ tcrossprod<span class="token punctuation">(</span>x<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -12224,7 +12224,7 @@ methods.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="data">data</code></td>
 <td>
@@ -12664,7 +12664,7 @@ package <span class="pkg">Matrix</span>, returning <code><a href="https://r-univ
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="cl">cl</code></td>
 <td>
@@ -12983,7 +12983,7 @@ one, typically a correlation or variance-covariance matrix.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -13128,7 +13128,7 @@ approximating matrix;
 Otherwise, as by default, an S3 object of <code><a href="https://r-universe.dev/manuals/base.html#class">class</a></code>
 <code>"nearPD"</code>, basically a list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>mat</code></td>
 <td>
@@ -13541,7 +13541,7 @@ in particular an object <code>x</code> inheriting from class
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -13695,7 +13695,7 @@ spectral norm or 2-norm (<code>"2"</code>), as determined by the value of
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -14243,7 +14243,7 @@ unpack<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -14757,7 +14757,7 @@ printSpMatrix2<span class="token punctuation">(</span>x<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -14901,7 +14901,7 @@ in trivial cases or for sparse matrices without <code>x</code> slot.</p>
 </dl>
 <h3>Value</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code>formatSpMatrix()</code></td>
 <td>
@@ -15017,7 +15017,7 @@ qr<span class="token punctuation">(</span>x<span class="token punctuation">,</sp
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -15333,7 +15333,7 @@ qr2rankMatrix<span class="token punctuation">(</span>qr<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -15653,7 +15653,7 @@ rcond<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -15853,7 +15853,7 @@ cbind<span class="token punctuation">(</span>rr <span class="token operator">&lt
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -15986,7 +15986,7 @@ patter<b>n</b> matrices, i.e. inheriting from <code><a href="#nsparseMatrix-clas
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="nrow">nrow</code>, <code id="ncol">ncol</code>
@@ -16405,7 +16405,7 @@ and <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmln
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -16599,7 +16599,7 @@ solve<span class="token punctuation">(</span>a<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="a">a</code></td>
 <td>
@@ -16906,7 +16906,7 @@ fac2Sparse<span class="token punctuation">(</span>from<span class="token punctua
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -17388,7 +17388,7 @@ calls such as <code><a href="https://r-universe.dev/manuals/methods.html#new">ne
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="i">i</code>, <code id="j">j</code>
@@ -17968,7 +17968,7 @@ upper <em>triangular</em>).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="qr">qr</code></td>
 <td>
@@ -18402,7 +18402,7 @@ non-zero entries.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -18822,7 +18822,7 @@ somewhat <em>deprecated</em>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="nrow">nrow</code>, <code id="ncol">ncol</code>
@@ -19288,7 +19288,7 @@ skewpart<span class="token punctuation">(</span>x<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p>a <em>square</em> matrix; either “traditional” of class
@@ -19681,7 +19681,7 @@ factorization
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="update">update</code></td>
 <td>
@@ -19975,6 +19975,6 @@ stopifnot<span class="token punctuation">(</span>all.equal<span class="token pun
 <hr>
 </div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.4.0</p></footer>
+    <footer><p>Rendered with postdoc 1.4.1</p></footer>
   </body>
 </html>

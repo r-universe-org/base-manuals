@@ -7,12 +7,12 @@
 
     <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
     <!-- for (future) customizations -->
     <script src="https://r-universe.dev/static/manual.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css">
 
   </head>
 
@@ -57,11 +57,11 @@ al.</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">2.1.6</td>
+<td class="description-version">2.1.8.1</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-06-15 17:27:59 UTC</td>
+<td class="description-date">2025-04-11 20:16:01 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -149,7 +149,7 @@ al.</td>
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -434,7 +434,7 @@ op &lt;- par(mfrow=c(2,2))
 agn2 &lt;- agnes(daisy(votes.repub), diss = TRUE, method = "complete")
 plot(agn2)
 ## alpha = 0.625 ==&gt; beta = -1/4  is "recommended" by some
-agnS &lt;- agnes(votes.repub, method = "flexible", par.meth = 0.625)
+agnS &lt;- agnes(votes.repub, method = "flexible", par.method = 0.625)
 plot(agnS)
 par(op)
 
@@ -470,8 +470,8 @@ aa.a  &lt;- agnes(animals) # default method = "average"
 aa.ga &lt;- agnes(animals, method = "gaverage")
 op &lt;- par(mfcol=1:2, mgp=c(1.5, 0.6, 0), mar=c(.1+ c(4,3,2,1)),
           cex.main=0.8)
-plot(aa.a,  which.plot = 2)
-plot(aa.ga, which.plot = 2)
+plot(aa.a,  which.plots = 2)
+plot(aa.ga, which.plots = 2)
 par(op)
 
 
@@ -487,7 +487,7 @@ op <span class="token operator">&lt;-</span> par<span class="token punctuation">
 agn2 <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>daisy<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span><span class="token punctuation">,</span> diss <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"complete"</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>agn2<span class="token punctuation">)</span>
 <span class="token comment">## alpha = 0.625 ==&gt; beta = -1/4  is "recommended" by some</span>
-agnS <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>votes.repub<span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"flexible"</span><span class="token punctuation">,</span> par.meth <span class="token operator">=</span> <span class="token number">0.625</span><span class="token punctuation">)</span>
+agnS <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>votes.repub<span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"flexible"</span><span class="token punctuation">,</span> par.method <span class="token operator">=</span> <span class="token number">0.625</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>agnS<span class="token punctuation">)</span>
 par<span class="token punctuation">(</span>op<span class="token punctuation">)</span>
 
@@ -523,8 +523,8 @@ aa.a  <span class="token operator">&lt;-</span> agnes<span class="token punctuat
 aa.ga <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>animals<span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"gaverage"</span><span class="token punctuation">)</span>
 op <span class="token operator">&lt;-</span> par<span class="token punctuation">(</span>mfcol<span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span> mgp<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token number">1.5</span><span class="token punctuation">,</span> <span class="token number">0.6</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mar<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token number">.1</span><span class="token operator">+</span> c<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
           cex.main<span class="token operator">=</span><span class="token number">0.8</span><span class="token punctuation">)</span>
-plot<span class="token punctuation">(</span>aa.a<span class="token punctuation">,</span>  which.plot <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
-plot<span class="token punctuation">(</span>aa.ga<span class="token punctuation">,</span> which.plot <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>aa.a<span class="token punctuation">,</span>  which.plots <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>aa.ga<span class="token punctuation">,</span> which.plots <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
 par<span class="token punctuation">(</span>op<span class="token punctuation">)</span>
 
 
@@ -548,7 +548,7 @@ represent an agglomerative hierarchical clustering of a dataset.
 
 <p>A legitimate <code>agnes</code> object is a list with the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>order</code></td>
 <td>
@@ -929,7 +929,7 @@ an other binary dendrogram structure.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1163,7 +1163,7 @@ clustering of the data into <code>k</code> clusters.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1423,7 +1423,7 @@ nCl &lt;- 3 # = no.classes
 set.seed(421)# (reproducibility)
 cl &lt;- matrix(NA,nrow(xclara), nSim)
 for(i in 1:nSim)
-   cl[,i] &lt;- clara(xclara, nCl, medoids.x = FALSE, rngR = TRUE)$cluster
+   cl[,i] &lt;- clara(xclara, nCl, medoids.x = FALSE, rngR = TRUE)$clustering
 tcl &lt;- apply(cl,1, tabulate, nbins = nCl)
 ## those that are not always in same cluster (5 out of 3000 for this seed):
 (iDoubt &lt;- which(apply(tcl,2, function(n) all(n &lt; nSim))))
@@ -1466,7 +1466,7 @@ nCl <span class="token operator">&lt;-</span> <span class="token number">3</span
 set.seed<span class="token punctuation">(</span><span class="token number">421</span><span class="token punctuation">)</span><span class="token comment"># (reproducibility)</span>
 cl <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span><span class="token keyword">NA</span><span class="token punctuation">,</span>nrow<span class="token punctuation">(</span>xclara<span class="token punctuation">)</span><span class="token punctuation">,</span> nSim<span class="token punctuation">)</span>
 <span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span>nSim<span class="token punctuation">)</span>
-   cl<span class="token punctuation">[</span><span class="token punctuation">,</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;-</span> clara<span class="token punctuation">(</span>xclara<span class="token punctuation">,</span> nCl<span class="token punctuation">,</span> medoids.x <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> rngR <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token operator">$</span>cluster
+   cl<span class="token punctuation">[</span><span class="token punctuation">,</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;-</span> clara<span class="token punctuation">(</span>xclara<span class="token punctuation">,</span> nCl<span class="token punctuation">,</span> medoids.x <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> rngR <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token operator">$</span>clustering
 tcl <span class="token operator">&lt;-</span> apply<span class="token punctuation">(</span>cl<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span> tabulate<span class="token punctuation">,</span> nbins <span class="token operator">=</span> nCl<span class="token punctuation">)</span>
 <span class="token comment">## those that are not always in same cluster (5 out of 3000 for this seed):</span>
 <span class="token punctuation">(</span>iDoubt <span class="token operator">&lt;-</span> which<span class="token punctuation">(</span>apply<span class="token punctuation">(</span>tcl<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> all<span class="token punctuation">(</span>n <span class="token operator">&lt;</span> nSim<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -1492,7 +1492,7 @@ dataset into clusters and are typically returned from <code><a href="#clara">cla
 
 <p>A legitimate <code>clara</code> object is a list with the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>sample</code></td>
 <td>
@@ -1658,7 +1658,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1852,7 +1852,7 @@ after an another run.
 <p><code>clusGap(..)</code> returns an object of S3 class <code>"clusGap"</code>,
 basically a list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>Tab</code></td>
 <td>
@@ -1993,14 +1993,14 @@ if(doExtras) {
   ## ---- rather keep the default B = 500 for your analysis!
 
   ## note we can  pass 'nstart = 20' to kmeans() :
-  gskmn &lt;- clusGap(x, FUN = kmeans, nstart = 20, K.max = 8, B = 60)
+  gskmn &lt;- clusGap(x, FUNcluster = kmeans, nstart = 20, K.max = 8, B = 60)
   gskmn #-&gt; its print() method
-  plot(gskmn, main = "clusGap(., FUN = kmeans, n.start=20, B= 60)")
+  plot(gskmn, main = "clusGap(., FUNcluster = kmeans, n.start=20, B= 60)")
   set.seed(12); system.time(
-    gsPam0 &lt;- clusGap(x, FUN = pam, K.max = 8, B = 60)
+    gsPam0 &lt;- clusGap(x, FUNcluster = pam, K.max = 8, B = 60)
   )
   set.seed(12); system.time(
-    gsPam1 &lt;- clusGap(x, FUN = pam1, K.max = 8, B = 60)
+    gsPam1 &lt;- clusGap(x, FUNcluster = pam1, K.max = 8, B = 60)
   )
   ## and show that it gives the "same":
   not.eq &lt;- c("call", "FUNcluster"); n &lt;- names(gsPam0)
@@ -2009,11 +2009,11 @@ if(doExtras) {
   print(gsPam1, method="globalSEmax")
   print(gsPam1, method="globalmax")
 
-  print(gsHc &lt;- clusGap(x, FUN = hclusCut, K.max = 8, B = 60))
+  print(gsHc &lt;- clusGap(x, FUNcluster = hclusCut, K.max = 8, B = 60))
 
 }# end {doExtras}
 
-gs.pam.RU &lt;- clusGap(ruspini, FUN = pam1, K.max = 8, B = 60)
+gs.pam.RU &lt;- clusGap(ruspini, FUNcluster = pam1, K.max = 8, B = 60)
 gs.pam.RU
 plot(gs.pam.RU, main = "Gap statistic for the 'ruspini' data")
 mtext("k = 4 is best .. and  k = 5  pretty close")
@@ -2021,7 +2021,7 @@ mtext("k = 4 is best .. and  k = 5  pretty close")
 ## This takes a minute..
 ## No clustering ==&gt; k = 1 ("one cluster") should be optimal:
 Z &lt;- matrix(rnorm(256*3), 256,3)
-gsP.Z &lt;- clusGap(Z, FUN = pam1, K.max = 8, B = 200)
+gsP.Z &lt;- clusGap(Z, FUNcluster = pam1, K.max = 8, B = 200)
 plot(gsP.Z, main = "clusGap(&lt;iid_rnorm_p=3&gt;)  ==&gt; k = 1  cluster is optimal")
 gsP.Z
 
@@ -2059,14 +2059,14 @@ hclusCut <span class="token operator">&lt;-</span> <span class="token keyword">f
   <span class="token comment">## ---- rather keep the default B = 500 for your analysis!</span>
 
   <span class="token comment">## note we can  pass 'nstart = 20' to kmeans() :</span>
-  gskmn <span class="token operator">&lt;-</span> clusGap<span class="token punctuation">(</span>x<span class="token punctuation">,</span> FUN <span class="token operator">=</span> kmeans<span class="token punctuation">,</span> nstart <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> K.max <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">)</span>
+  gskmn <span class="token operator">&lt;-</span> clusGap<span class="token punctuation">(</span>x<span class="token punctuation">,</span> FUNcluster <span class="token operator">=</span> kmeans<span class="token punctuation">,</span> nstart <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> K.max <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">)</span>
   gskmn <span class="token comment">#-&gt; its print() method</span>
-  plot<span class="token punctuation">(</span>gskmn<span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token string">"clusGap(., FUN = kmeans, n.start=20, B= 60)"</span><span class="token punctuation">)</span>
+  plot<span class="token punctuation">(</span>gskmn<span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token string">"clusGap(., FUNcluster = kmeans, n.start=20, B= 60)"</span><span class="token punctuation">)</span>
   set.seed<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span> system.time<span class="token punctuation">(</span>
-    gsPam0 <span class="token operator">&lt;-</span> clusGap<span class="token punctuation">(</span>x<span class="token punctuation">,</span> FUN <span class="token operator">=</span> pam<span class="token punctuation">,</span> K.max <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">)</span>
+    gsPam0 <span class="token operator">&lt;-</span> clusGap<span class="token punctuation">(</span>x<span class="token punctuation">,</span> FUNcluster <span class="token operator">=</span> pam<span class="token punctuation">,</span> K.max <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">)</span>
   <span class="token punctuation">)</span>
   set.seed<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span> system.time<span class="token punctuation">(</span>
-    gsPam1 <span class="token operator">&lt;-</span> clusGap<span class="token punctuation">(</span>x<span class="token punctuation">,</span> FUN <span class="token operator">=</span> pam1<span class="token punctuation">,</span> K.max <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">)</span>
+    gsPam1 <span class="token operator">&lt;-</span> clusGap<span class="token punctuation">(</span>x<span class="token punctuation">,</span> FUNcluster <span class="token operator">=</span> pam1<span class="token punctuation">,</span> K.max <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">)</span>
   <span class="token punctuation">)</span>
   <span class="token comment">## and show that it gives the "same":</span>
   not.eq <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token string">"call"</span><span class="token punctuation">,</span> <span class="token string">"FUNcluster"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> n <span class="token operator">&lt;-</span> names<span class="token punctuation">(</span>gsPam0<span class="token punctuation">)</span>
@@ -2075,11 +2075,11 @@ hclusCut <span class="token operator">&lt;-</span> <span class="token keyword">f
   print<span class="token punctuation">(</span>gsPam1<span class="token punctuation">,</span> method<span class="token operator">=</span><span class="token string">"globalSEmax"</span><span class="token punctuation">)</span>
   print<span class="token punctuation">(</span>gsPam1<span class="token punctuation">,</span> method<span class="token operator">=</span><span class="token string">"globalmax"</span><span class="token punctuation">)</span>
 
-  print<span class="token punctuation">(</span>gsHc <span class="token operator">&lt;-</span> clusGap<span class="token punctuation">(</span>x<span class="token punctuation">,</span> FUN <span class="token operator">=</span> hclusCut<span class="token punctuation">,</span> K.max <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  print<span class="token punctuation">(</span>gsHc <span class="token operator">&lt;-</span> clusGap<span class="token punctuation">(</span>x<span class="token punctuation">,</span> FUNcluster <span class="token operator">=</span> hclusCut<span class="token punctuation">,</span> K.max <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token punctuation">}</span><span class="token comment"># end {doExtras}</span>
 
-gs.pam.RU <span class="token operator">&lt;-</span> clusGap<span class="token punctuation">(</span>ruspini<span class="token punctuation">,</span> FUN <span class="token operator">=</span> pam1<span class="token punctuation">,</span> K.max <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">)</span>
+gs.pam.RU <span class="token operator">&lt;-</span> clusGap<span class="token punctuation">(</span>ruspini<span class="token punctuation">,</span> FUNcluster <span class="token operator">=</span> pam1<span class="token punctuation">,</span> K.max <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">)</span>
 gs.pam.RU
 plot<span class="token punctuation">(</span>gs.pam.RU<span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token string">"Gap statistic for the 'ruspini' data"</span><span class="token punctuation">)</span>
 mtext<span class="token punctuation">(</span><span class="token string">"k = 4 is best .. and  k = 5  pretty close"</span><span class="token punctuation">)</span>
@@ -2087,7 +2087,7 @@ mtext<span class="token punctuation">(</span><span class="token string">"k = 4 i
 <span class="token comment">## This takes a minute..</span>
 <span class="token comment">## No clustering ==&gt; k = 1 ("one cluster") should be optimal:</span>
 Z <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">256</span><span class="token operator">*</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">256</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
-gsP.Z <span class="token operator">&lt;-</span> clusGap<span class="token punctuation">(</span>Z<span class="token punctuation">,</span> FUN <span class="token operator">=</span> pam1<span class="token punctuation">,</span> K.max <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">)</span>
+gsP.Z <span class="token operator">&lt;-</span> clusGap<span class="token punctuation">(</span>Z<span class="token punctuation">,</span> FUNcluster <span class="token operator">=</span> pam1<span class="token punctuation">,</span> K.max <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span> B <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>gsP.Z<span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token string">"clusGap(&lt;iid_rnorm_p=3&gt;)  ==&gt; k = 1  cluster is optimal"</span><span class="token punctuation">)</span>
 gsP.Z</code></pre>
 
@@ -2118,7 +2118,7 @@ clusplot<span class="token punctuation">(</span>x<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -2267,7 +2267,7 @@ clusplot<span class="token punctuation">(</span>x<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -2552,7 +2552,7 @@ plot is determined by the optional arguments.
 
 <p>An invisible list with components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>Distances</code></td>
 <td>
@@ -2766,7 +2766,7 @@ coef<span class="token punctuation">(</span>object<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -2840,7 +2840,7 @@ below.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -3166,7 +3166,7 @@ summary(dfl3 &lt;- daisy(flower, type = list(asymm = c("V1", "V3"), symm= 2,
 
 ## If we'd treat the first 3 as simple {0,1}
 Nflow &lt;- flower
-Nflow[,1:3] &lt;- lapply(flower[,1:3], \(f) as.integer(as.character(f)))
+Nflow[,1:3] &lt;- lapply(flower[,1:3], function(f) as.integer(as.character(f)))
 summary(dN &lt;- daisy(Nflow)) # w/ warning: treated binary .. 1:3 as interval
 ## Still, using Euclidean/Manhattan distance for {0-1} *is* identical to treating them as "N" :
 stopifnot(dN == d0)
@@ -3199,7 +3199,7 @@ summary<span class="token punctuation">(</span>dfl3 <span class="token operator"
 
 <span class="token comment">## If we'd treat the first 3 as simple {0,1}</span>
 Nflow <span class="token operator">&lt;-</span> flower
-Nflow<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> lapply<span class="token punctuation">(</span>flower<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> \<span class="token punctuation">(</span>f<span class="token punctuation">)</span> as.integer<span class="token punctuation">(</span>as.character<span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+Nflow<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> lapply<span class="token punctuation">(</span>flower<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span> as.integer<span class="token punctuation">(</span>as.character<span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 summary<span class="token punctuation">(</span>dN <span class="token operator">&lt;-</span> daisy<span class="token punctuation">(</span>Nflow<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># w/ warning: treated binary .. 1:3 as interval</span>
 <span class="token comment">## Still, using Euclidean/Manhattan distance for {0-1} *is* identical to treating them as "N" :</span>
 stopifnot<span class="token punctuation">(</span>dN <span class="token operator">==</span> d0<span class="token punctuation">)</span>
@@ -3229,7 +3229,7 @@ returning an object of class <code>diana</code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -3354,7 +3354,7 @@ used on a <code>diana</code> object, and <code><a href="https://r-universe.dev/m
 </p>
 <p>A legitimate <code>diana</code> object is a list with the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>order</code></td>
 <td>
@@ -3446,7 +3446,7 @@ extraction; <code><a href="#daisy">daisy</a></code>, <code><a href="https://r-un
 <pre class="language-r"><code class="language-r-input" hidden="hidden">data(votes.repub)
 dv &lt;- diana(votes.repub, metric = "manhattan", stand = TRUE)
 print(dv)
-plot(dv)
+plot(dv) #-&gt; plot.diana()  {w/ its own help + examples}
 
 ## Cut into 2 groups:
 dv2 &lt;- cutree(as.hclust(dv), k = 2)
@@ -3467,7 +3467,7 @@ data(agriculture)
 </code><code class="language-r">data<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span>
 dv <span class="token operator">&lt;-</span> diana<span class="token punctuation">(</span>votes.repub<span class="token punctuation">,</span> metric <span class="token operator">=</span> <span class="token string">"manhattan"</span><span class="token punctuation">,</span> stand <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 print<span class="token punctuation">(</span>dv<span class="token punctuation">)</span>
-plot<span class="token punctuation">(</span>dv<span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>dv<span class="token punctuation">)</span> <span class="token comment">#-&gt; plot.diana()  {w/ its own help + examples}</span>
 
 <span class="token comment">## Cut into 2 groups:</span>
 dv2 <span class="token operator">&lt;-</span> cutree<span class="token punctuation">(</span>as.hclust<span class="token punctuation">(</span>dv<span class="token punctuation">)</span><span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
@@ -3514,7 +3514,7 @@ from above is just <code>as.matrix(do)[i,j]</code>.
 </p>
 <p>The object has the following attributes:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>Size</code></td>
 <td>
@@ -3639,7 +3639,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -3699,7 +3699,7 @@ ellipsoid of which a more more flexible and general implementation is
 <p>an object of class <code>"ellipsoid"</code>, basically a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code>
 with several components, comprising at least
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>cov</code></td>
 <td>
@@ -3822,7 +3822,7 @@ plot(xy, main = "ellipsoidhull(&lt;Gauss data&gt;) -- 'spanning points'")
 lines(predict(exy.), col="blue")
 points(rbind(exy.$loc), col = "red", cex = 3, pch = 13)
 
-exy &lt;- ellipsoidhull(xy, tol = 1e-7, ret.wt = TRUE, ret.sq = TRUE)
+exy &lt;- ellipsoidhull(xy, tol = 1e-7, ret.wt = TRUE, ret.sqdist = TRUE)
 str(exy) # had small 'tol', hence many iterations
 (ii &lt;- which(zapsmall(exy $ wt) &gt; 1e-6))
 ## --&gt; only about 4 to 6  "spanning ellipsoid" points
@@ -3838,7 +3838,7 @@ plot<span class="token punctuation">(</span>xy<span class="token punctuation">,<
 lines<span class="token punctuation">(</span>predict<span class="token punctuation">(</span>exy.<span class="token punctuation">)</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token string">"blue"</span><span class="token punctuation">)</span>
 points<span class="token punctuation">(</span>rbind<span class="token punctuation">(</span>exy.<span class="token operator">$</span>loc<span class="token punctuation">)</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token string">"red"</span><span class="token punctuation">,</span> cex <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> pch <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">)</span>
 
-exy <span class="token operator">&lt;-</span> ellipsoidhull<span class="token punctuation">(</span>xy<span class="token punctuation">,</span> tol <span class="token operator">=</span> <span class="token number">1e-7</span><span class="token punctuation">,</span> ret.wt <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> ret.sq <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+exy <span class="token operator">&lt;-</span> ellipsoidhull<span class="token punctuation">(</span>xy<span class="token punctuation">,</span> tol <span class="token operator">=</span> <span class="token number">1e-7</span><span class="token punctuation">,</span> ret.wt <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> ret.sqdist <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 str<span class="token punctuation">(</span>exy<span class="token punctuation">)</span> <span class="token comment"># had small 'tol', hence many iterations</span>
 <span class="token punctuation">(</span>ii <span class="token operator">&lt;-</span> which<span class="token punctuation">(</span>zapsmall<span class="token punctuation">(</span>exy <span class="token operator">$</span> wt<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">1e-6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment">## --&gt; only about 4 to 6  "spanning ellipsoid" points</span>
@@ -3875,7 +3875,7 @@ points<span class="token punctuation">(</span>xy<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -4113,7 +4113,7 @@ dataset.
 
 <p>A legitimate <code>fanny</code> object is a list with the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>membership</code></td>
 <td>
@@ -4410,7 +4410,7 @@ upper.to.lower.tri.inds<span class="token punctuation">(</span>n<span class="tok
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="n">n</code></td>
 <td>
 <p>integer larger than 1.</p>
@@ -4471,7 +4471,7 @@ compute the <code><a href="#pam">pam</a>()</code>-consistent medoids.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -4538,7 +4538,7 @@ Further, <code><a href="https://r-universe.dev/manuals/stats.html#cutree">cutree
 data(votes.repub)
 agn1 &lt;- agnes(votes.repub, metric = "manhattan", stand = TRUE)
 agn2 &lt;- agnes(daisy(votes.repub), diss = TRUE, method = "complete")
-agnS &lt;- agnes(votes.repub, method = "flexible", par.meth = 0.625)
+agnS &lt;- agnes(votes.repub, method = "flexible", par.method = 0.625)
 
 for(k in 2:11) {
   print(table(cl.k &lt;- cutree(agnS, k=k)))
@@ -4551,7 +4551,7 @@ for(k in 2:11) {
 data<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span>
 agn1 <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>votes.repub<span class="token punctuation">,</span> metric <span class="token operator">=</span> <span class="token string">"manhattan"</span><span class="token punctuation">,</span> stand <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 agn2 <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>daisy<span class="token punctuation">(</span>votes.repub<span class="token punctuation">)</span><span class="token punctuation">,</span> diss <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"complete"</span><span class="token punctuation">)</span>
-agnS <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>votes.repub<span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"flexible"</span><span class="token punctuation">,</span> par.meth <span class="token operator">=</span> <span class="token number">0.625</span><span class="token punctuation">)</span>
+agnS <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>votes.repub<span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"flexible"</span><span class="token punctuation">,</span> par.method <span class="token operator">=</span> <span class="token number">0.625</span><span class="token punctuation">)</span>
 
 <span class="token keyword">for</span><span class="token punctuation">(</span>k <span class="token keyword">in</span> <span class="token number">2</span><span class="token operator">:</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   print<span class="token punctuation">(</span>table<span class="token punctuation">(</span>cl.k <span class="token operator">&lt;-</span> cutree<span class="token punctuation">(</span>agnS<span class="token punctuation">,</span> k<span class="token operator">=</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -4580,7 +4580,7 @@ a dataset with binary variables only.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -4728,7 +4728,7 @@ hierarchical clustering of a dataset with only binary variables
 
 <p>A legitimate <code>mona</code> object is a list with the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>data</code></td>
 <td>
@@ -4828,7 +4828,7 @@ medoids”, a more robust version of K-means.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -5127,21 +5127,29 @@ Preprint, to appear in Information Systems (<a href="https://arxiv.org/abs/2008.
 <h3>Examples</h3>
 
 <pre class="language-r"><code class="language-r-input" hidden="hidden">## generate 25 objects, divided into 2 clusters.
+set.seed(17) # to get reproducible data:
 x &lt;- rbind(cbind(rnorm(10,0,0.5), rnorm(10,0,0.5)),
            cbind(rnorm(15,5,0.5), rnorm(15,5,0.5)))
 pamx &lt;- pam(x, 2)
-pamx # Medoids: '7' and '25' ...
+pamx # Medoids: '9' and '15' ...
 summary(pamx)
 plot(pamx)
-## use obs. 1 &amp; 16 as starting medoids -- same result (typically)
+stopifnot(pamx$id.med == c(9, 15))
+stopifnot(identical(pamx$clustering, rep(1:2, c(10, 15))))
+
+## use obs. 1 &amp; 16 as starting medoids -- same result (for seed above, *and* typically) :
 (p2m &lt;- pam(x, 2, medoids = c(1,16)))
 ## no _build_ *and* no _swap_ phase: just cluster all obs. around (1, 16):
 p2.s &lt;- pam(x, 2, medoids = c(1,16), do.swap = FALSE)
 p2.s
+keep_nms &lt;- setdiff(names(pamx), c("call", "objective"))# .$objective["build"] differ
+stopifnot(p2.s$id.med == c(1,16), # of course
+          identical(pamx[keep_nms],
+                    p2m[keep_nms]))
 
-p3m &lt;- pam(x, 3, trace = 2)
+p3m &lt;- pam(x, 3, trace.lev = 2)
 ## rather stupid initial medoids:
-(p3m. &lt;- pam(x, 3, medoids = 3:1, trace = 1))
+(p3m. &lt;- pam(x, 3, medoids = 3:1, trace.lev = 1))
 
 
 pam(daisy(x, metric = "manhattan"), 2, diss = TRUE)
@@ -5151,21 +5159,29 @@ data(ruspini)
 ## Not run: plot(pam(ruspini, 4), ask = TRUE)
 
 </code><code class="language-r"><span class="token comment">## generate 25 objects, divided into 2 clusters.</span>
+set.seed<span class="token punctuation">(</span><span class="token number">17</span><span class="token punctuation">)</span> <span class="token comment"># to get reproducible data:</span>
 x <span class="token operator">&lt;-</span> rbind<span class="token punctuation">(</span>cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
            cbind<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rnorm<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 pamx <span class="token operator">&lt;-</span> pam<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
-pamx <span class="token comment"># Medoids: '7' and '25' ...</span>
+pamx <span class="token comment"># Medoids: '9' and '15' ...</span>
 summary<span class="token punctuation">(</span>pamx<span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>pamx<span class="token punctuation">)</span>
-<span class="token comment">## use obs. 1 &amp; 16 as starting medoids -- same result (typically)</span>
+stopifnot<span class="token punctuation">(</span>pamx<span class="token operator">$</span>id.med <span class="token operator">==</span> c<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>pamx<span class="token operator">$</span>clustering<span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## use obs. 1 &amp; 16 as starting medoids -- same result (for seed above, *and* typically) :</span>
 <span class="token punctuation">(</span>p2m <span class="token operator">&lt;-</span> pam<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> medoids <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment">## no _build_ *and* no _swap_ phase: just cluster all obs. around (1, 16):</span>
 p2.s <span class="token operator">&lt;-</span> pam<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> medoids <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span> do.swap <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 p2.s
+keep_nms <span class="token operator">&lt;-</span> setdiff<span class="token punctuation">(</span>names<span class="token punctuation">(</span>pamx<span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token string">"call"</span><span class="token punctuation">,</span> <span class="token string">"objective"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment"># .$objective["build"] differ</span>
+stopifnot<span class="token punctuation">(</span>p2.s<span class="token operator">$</span>id.med <span class="token operator">==</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># of course</span>
+          identical<span class="token punctuation">(</span>pamx<span class="token punctuation">[</span>keep_nms<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    p2m<span class="token punctuation">[</span>keep_nms<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-p3m <span class="token operator">&lt;-</span> pam<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> trace <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
+p3m <span class="token operator">&lt;-</span> pam<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> trace.lev <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
 <span class="token comment">## rather stupid initial medoids:</span>
-<span class="token punctuation">(</span>p3m. <span class="token operator">&lt;-</span> pam<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> medoids <span class="token operator">=</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> trace <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span>p3m. <span class="token operator">&lt;-</span> pam<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> medoids <span class="token operator">=</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> trace.lev <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 
 pam<span class="token punctuation">(</span>daisy<span class="token punctuation">(</span>x<span class="token punctuation">,</span> metric <span class="token operator">=</span> <span class="token string">"manhattan"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> diss <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
@@ -5190,7 +5206,7 @@ dataset into clusters.
 
 <p>A legitimate <code>pam</code> object is a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>medoids</code></td>
 <td>
@@ -5354,7 +5370,7 @@ dataset into clusters.
 <p>a <code>"partition"</code> object is a list with the following
 (and typically more) components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>clustering</code></td>
 <td>
@@ -5699,7 +5715,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -5851,7 +5867,7 @@ cS[Sp == "setosa"] &lt;- "S"
 cS[Sp == "versicolor"] &lt;- "V"
 cS[Sp == "virginica"] &lt;- "g"
 ai &lt;- agnes(iris[, 1:4])
-plot(ai, labels = cS, nmax = 150)# bannerplot labels are mess
+plot(ai, labels = cS, nmax.lab = 150)# bannerplot labels are mess
 </code><code class="language-r"><span class="token comment">## Can also pass 'labels' to pltree() and bannerplot():</span>
 data<span class="token punctuation">(</span>iris<span class="token punctuation">)</span>
 cS <span class="token operator">&lt;-</span> as.character<span class="token punctuation">(</span>Sp <span class="token operator">&lt;-</span> iris<span class="token operator">$</span>Species<span class="token punctuation">)</span>
@@ -5859,7 +5875,7 @@ cS<span class="token punctuation">[</span>Sp <span class="token operator">==</sp
 cS<span class="token punctuation">[</span>Sp <span class="token operator">==</span> <span class="token string">"versicolor"</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token string">"V"</span>
 cS<span class="token punctuation">[</span>Sp <span class="token operator">==</span> <span class="token string">"virginica"</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token string">"g"</span>
 ai <span class="token operator">&lt;-</span> agnes<span class="token punctuation">(</span>iris<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-plot<span class="token punctuation">(</span>ai<span class="token punctuation">,</span> labels <span class="token operator">=</span> cS<span class="token punctuation">,</span> nmax <span class="token operator">=</span> <span class="token number">150</span><span class="token punctuation">)</span><span class="token comment"># bannerplot labels are mess</span></code></pre>
+plot<span class="token punctuation">(</span>ai<span class="token punctuation">,</span> labels <span class="token operator">=</span> cS<span class="token punctuation">,</span> nmax.lab <span class="token operator">=</span> <span class="token number">150</span><span class="token punctuation">)</span><span class="token comment"># bannerplot labels are mess</span></code></pre>
 
 <hr>
 </div></div>
@@ -5886,7 +5902,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6011,19 +6027,19 @@ Moreover, observation labels are truncated to maximally
 
 <pre class="language-r"><code class="language-r-input" hidden="hidden">example(diana)# -&gt; dv &lt;- diana(....)
 
-plot(dv, which = 1, nmax.lab = 100)
+plot(dv, which.plots = 1, nmax.lab = 100)
 
 ## wider labels :
 op &lt;- par(mar = par("mar") + c(0, 2, 0,0))
-plot(dv, which = 1, nmax.lab = 100, max.strlen = 12)
+plot(dv, which.plots = 1, nmax.lab = 100, max.strlen = 12)
 par(op)
 </code><code class="language-r">example<span class="token punctuation">(</span>diana<span class="token punctuation">)</span><span class="token comment"># -&gt; dv &lt;- diana(....)</span>
 
-plot<span class="token punctuation">(</span>dv<span class="token punctuation">,</span> which <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> nmax.lab <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>dv<span class="token punctuation">,</span> which.plots <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> nmax.lab <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span>
 
 <span class="token comment">## wider labels :</span>
 op <span class="token operator">&lt;-</span> par<span class="token punctuation">(</span>mar <span class="token operator">=</span> par<span class="token punctuation">(</span><span class="token string">"mar"</span><span class="token punctuation">)</span> <span class="token operator">+</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-plot<span class="token punctuation">(</span>dv<span class="token punctuation">,</span> which <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> nmax.lab <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">,</span> max.strlen <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>dv<span class="token punctuation">,</span> which.plots <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> nmax.lab <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">,</span> max.strlen <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">)</span>
 par<span class="token punctuation">(</span>op<span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -6053,7 +6069,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6179,7 +6195,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6365,7 +6381,7 @@ pltree<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6570,7 +6586,7 @@ ellipsoidPoints<span class="token punctuation">(</span>A<span class="token punct
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -6691,7 +6707,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6737,7 +6753,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6783,7 +6799,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6841,7 +6857,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="object">object</code>
@@ -6927,7 +6943,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="object">object</code>
@@ -6981,7 +6997,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -7026,7 +7042,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -7153,7 +7169,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -7514,7 +7530,7 @@ when only the lower or upper triangular part (without diagonal) is given.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="d">d</code></td>
 <td>
 <p>any <span class="rlang"><b>R</b></span> object with length (typically) <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">n(n-1)/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord">/2</span></span></span></span></code>.</p>
@@ -7573,7 +7589,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="object">object</code>
@@ -7628,7 +7644,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="object">object</code>
@@ -7661,7 +7677,7 @@ x &lt;- rbind(cbind(rnorm(400, 0,4), rnorm(400, 0,4)),
 )
 clx5 &lt;- clara(x, 5)
 ## Mis'classification' table:
-table(rep(1:5, rep(400,5)), clx5$clust) # -&gt; 1 "error"
+table(rep(1:5, rep(400,5)), clx5$clustering) # -&gt; 1 "error"
 summary(clx5)
 
 ## Graphically:
@@ -7678,7 +7694,7 @@ x <span class="token operator">&lt;-</span> rbind<span class="token punctuation"
 <span class="token punctuation">)</span>
 clx5 <span class="token operator">&lt;-</span> clara<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
 <span class="token comment">## Mis'classification' table:</span>
-table<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> clx5<span class="token operator">$</span>clust<span class="token punctuation">)</span> <span class="token comment"># -&gt; 1 "error"</span>
+table<span class="token punctuation">(</span>rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> clx5<span class="token operator">$</span>clustering<span class="token punctuation">)</span> <span class="token comment"># -&gt; 1 "error"</span>
 summary<span class="token punctuation">(</span>clx5<span class="token punctuation">)</span>
 
 <span class="token comment">## Graphically:</span>
@@ -7710,7 +7726,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="object">object</code>
@@ -7754,7 +7770,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="object">object</code>
@@ -7801,7 +7817,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="object">object</code>
@@ -7890,7 +7906,7 @@ volume<span class="token punctuation">(</span>object<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -8097,6 +8113,6 @@ text<span class="token punctuation">(</span>xclara<span class="token punctuation
 <hr>
 </div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.4.0</p></footer>
+    <footer><p>Rendered with postdoc 1.4.1</p></footer>
   </body>
 </html>

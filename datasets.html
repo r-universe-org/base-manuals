@@ -7,12 +7,12 @@
 
     <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
     <!-- for (future) customizations -->
     <script src="https://r-universe.dev/static/manual.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css">
 
   </head>
 
@@ -37,15 +37,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.4.1</td>
+<td class="description-license">Part of R 4.5.0</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.4.1</td>
+<td class="description-version">4.5.0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-06-15 17:27:36 UTC</td>
+<td class="description-date">2025-04-11 20:15:32 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -88,6 +88,7 @@ Daily Closing Prices of Major European Stock Indices, 1991–1998
 <li class="help-index-item"><a href="#faithful">Old Faithful Geyser Data</a></li>
 <li class="help-index-item"><a href="#Formaldehyde">Determination of Formaldehyde</a></li>
 <li class="help-index-item"><a href="#freeny">Freeny's Revenue Data</a></li>
+<li class="help-index-item"><a href="#gait">Hip and Knee Angle while Walking</a></li>
 <li class="help-index-item"><a href="#HairEyeColor">Hair and Eye Color of Statistics Students</a></li>
 <li class="help-index-item"><a href="#Harman23.cor">Harman Example 2.3</a></li>
 <li class="help-index-item"><a href="#Harman74.cor">Harman Example 7.4</a></li>
@@ -118,6 +119,7 @@ Classical N, P, K Factorial Experiment
 <li class="help-index-item"><a href="#occupationalStatus">Occupational Status of Fathers and their Sons</a></li>
 <li class="help-index-item"><a href="#Orange">Growth of Orange Trees</a></li>
 <li class="help-index-item"><a href="#OrchardSprays">Potency of Orchard Sprays</a></li>
+<li class="help-index-item"><a href="#penguins">Measurements of Penguins near Palmer Station, Antarctica</a></li>
 <li class="help-index-item"><a href="#PlantGrowth">Results from an Experiment on Plant Growth</a></li>
 <li class="help-index-item"><a href="#precip">Annual Precipitation in US Cities</a></li>
 <li class="help-index-item"><a href="#presidents">Quarterly Approval Ratings of US Presidents</a></li>
@@ -1293,7 +1295,7 @@ experimental diet the chick received.
 second day thereafter until day 20.  They were also measured on day
 21.  There were four groups on chicks on different protein diets.
 </p>
-<p>This dataset was originally part of package <code>nlme</code>, and that has
+<p>This dataset was originally part of package <a href="https://CRAN.R-project.org/package=nlme" target="_blank"><span class="pkg">nlme</span></a>, and that has
 methods (including for <code>[</code>, <code>as.data.frame</code>, <code>plot</code> and
 <code>print</code>) for its grouped-data classes.
 </p>
@@ -1536,7 +1538,7 @@ from Mississippi was measured at several levels of ambient
 <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><msub><mi>O</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">CO_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></code> concentration.  Half the plants of each type were
 chilled overnight before the experiment was conducted.
 </p>
-<p>This dataset was originally part of package <code>nlme</code>, and that has
+<p>This dataset was originally part of package <a href="https://CRAN.R-project.org/package=nlme" target="_blank"><span class="pkg">nlme</span></a>, and that has
 methods (including for <code>[</code>, <code>as.data.frame</code>, <code>plot</code> and
 <code>print</code>) for its grouped-data classes.
 </p>
@@ -1881,7 +1883,7 @@ measurements were obtained.
 </dl>
 <h3>Details</h3>
 
-<p>This dataset was originally part of package <code>nlme</code>, and that has
+<p>This dataset was originally part of package <a href="https://CRAN.R-project.org/package=nlme" target="_blank"><span class="pkg">nlme</span></a>, and that has
 methods (including for <code>[</code>, <code>as.data.frame</code>, <code>plot</code> and
 <code>print</code>) for its grouped-data classes.
 </p>
@@ -2560,6 +2562,105 @@ par<span class="token punctuation">(</span>opar<span class="token punctuation">)
 
 <hr>
 </div></div>
+<div class="container manual-page" id="gait"><div class="page-main">
+<a href="#gait" class="help-page-title"><h2>Hip and Knee Angle while Walking</h2></a>
+
+<h3>Description</h3>
+
+<p>Hip and knee angle (in degrees) through a 20 point movement cycle for 39 boys.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">gait</code><code class="language-r">gait</code></pre>
+
+
+<h3>Format</h3>
+
+<p>A 3-dimensional array with dimensions <code>c(20, 39, 2)</code> giving the
+<code>"Hip Angle"</code> and <code>"Knee Angle"</code> (in degrees) for 39 repetitions of 
+a 20 point gait cycle (over standardized gait times).
+</p>
+
+
+<h3>Details</h3>
+
+<p>The named components of <code><a href="https://r-universe.dev/manuals/base.html#dimnames">dimnames</a>(gait)</code> are as follows:
+</p>
+
+<dl>
+<dt><code>Time</code></dt>
+<dd>
+<p><code>seq(from = 0.025, to = 0.975, by = 0.05)</code></p>
+</dd>
+<dt><code>Subject</code></dt>
+<dd>
+<p><code>"boy1"</code>, <code>"boy2"</code>, ..., <code>"boy39"</code></p>
+</dd>
+<dt><code>Variable</code></dt>
+<dd>
+<p><code>"Hip Angle"</code> and <code>"Knee Angle"</code></p>
+</dd>
+</dl>
+<h3>Note</h3>
+
+<p>This is the version of the data as in the <a href="https://CRAN.R-project.org/package=fda" target="_blank"><span class="pkg">fda</span></a> package and 
+corresponding textbooks, but with named dimensions. One record appears to be 
+duplicated from the original paper,
+Olshen <abbr>et al.</abbr> (1989), which 
+analyses a sample of 38 boys. The <code>gait</code> dataset has 39 boys but 
+<code>boy19</code> and <code>boy26</code> have identical measurements.
+</p>
+
+
+<h3>Source</h3>
+
+<p>In the FDA book (2006), p.8, <em>“The Motion Analysis Laboratory at
+Children's Hospital, San Diego, collected these data”</em>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Olshen, R. A., Biden, E. N., Wyatt, M. P., and Sutherland, D. (1989)
+Gait Analysis and the Bootstrap.
+<em>Annals of Statistics</em> <b>17</b>, 4, 1419–1440.
+<a href="https://doi.org/10.1214/AOS/1176347372" target="_blank">doi:10.1214/AOS/1176347372</a>
+</p>
+<p>Ramsay, J. O., and Silverman, B. W. (2006)
+<em>Functional Data Analysis</em>, 2nd ed., New York: Springer.
+</p>
+<p>Ramsay, J. (2023)  <em>fda: Functional Data Analysis</em>.
+R package version 6.1.4, <a href="https://CRAN.R-project.org/package=fda" target="_blank">https://CRAN.R-project.org/package=fda</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">plot(gait[, 1, ], type = "b",
+     xlim = range(gait[,,1]), ylim = range(gait[,,2]), 
+     xlab = "Hip Angle", ylab = "Knee Angle", main = "'gait' data : Boy 1")
+mtext("all other boys", col = "thistle"); grid()
+matlines(gait[, -1, 1], gait[, -1, 2], type = "l", lty = 1, col = adjustcolor("thistle", 1/3))
+
+## The data array, two matrices :
+op &lt;- options(width = 128) # on a wide console
+aperm(gait, c(2:1, 3))
+options(op)
+</code><code class="language-r">plot<span class="token punctuation">(</span>gait<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"b"</span><span class="token punctuation">,</span>
+     xlim <span class="token operator">=</span> range<span class="token punctuation">(</span>gait<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ylim <span class="token operator">=</span> range<span class="token punctuation">(</span>gait<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+     xlab <span class="token operator">=</span> <span class="token string">"Hip Angle"</span><span class="token punctuation">,</span> ylab <span class="token operator">=</span> <span class="token string">"Knee Angle"</span><span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token string">"'gait' data : Boy 1"</span><span class="token punctuation">)</span>
+mtext<span class="token punctuation">(</span><span class="token string">"all other boys"</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token string">"thistle"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> grid<span class="token punctuation">(</span><span class="token punctuation">)</span>
+matlines<span class="token punctuation">(</span>gait<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> gait<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"l"</span><span class="token punctuation">,</span> lty <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> col <span class="token operator">=</span> adjustcolor<span class="token punctuation">(</span><span class="token string">"thistle"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## The data array, two matrices :</span>
+op <span class="token operator">&lt;-</span> options<span class="token punctuation">(</span>width <span class="token operator">=</span> <span class="token number">128</span><span class="token punctuation">)</span> <span class="token comment"># on a wide console</span>
+aperm<span class="token punctuation">(</span>gait<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+options<span class="token punctuation">(</span>op<span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div></div>
 <div class="container manual-page" id="HairEyeColor"><div class="page-main">
 <a href="#HairEyeColor" class="help-page-title"><h2>Hair and Eye Color of Statistics Students</h2></a>
 
@@ -2802,7 +2903,7 @@ ordering is according to increasing maximum response.
 <p>Each of the six subjects were given an intravenous injection of
 indometacin.
 </p>
-<p>This dataset was originally part of package <code>nlme</code>, and that has
+<p>This dataset was originally part of package <a href="https://CRAN.R-project.org/package=nlme" target="_blank"><span class="pkg">nlme</span></a>, and that has
 methods (including for <code>[</code>, <code>as.data.frame</code>, <code>plot</code> and
 <code>print</code>) for its grouped-data classes.
 </p>
@@ -3487,7 +3588,7 @@ The ordering is according to increasing maximum height.
 </dl>
 <h3>Details</h3>
 
-<p>This dataset was originally part of package <code>nlme</code>, and that has
+<p>This dataset was originally part of package <a href="https://CRAN.R-project.org/package=nlme" target="_blank"><span class="pkg">nlme</span></a>, and that has
 methods (including for <code>[</code>, <code>as.data.frame</code>, <code>plot</code> and
 <code>print</code>) for its grouped-data classes.
 </p>
@@ -4341,7 +4442,7 @@ forestry.
 </dl>
 <h3>Details</h3>
 
-<p>This dataset was originally part of package <code>nlme</code>, and that has
+<p>This dataset was originally part of package <a href="https://CRAN.R-project.org/package=nlme" target="_blank"><span class="pkg">nlme</span></a>, and that has
 methods (including for <code>[</code>, <code>as.data.frame</code>, <code>plot</code> and
 <code>print</code>) for its grouped-data classes.
 </p>
@@ -4510,6 +4611,309 @@ New York: Wiley.
 pairs(OrchardSprays, main = "OrchardSprays data")
 </code><code class="language-r">require<span class="token punctuation">(</span>graphics<span class="token punctuation">)</span>
 pairs<span class="token punctuation">(</span>OrchardSprays<span class="token punctuation">,</span> main <span class="token operator">=</span> <span class="token string">"OrchardSprays data"</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div></div>
+<div class="container manual-page" id="penguins"><div class="page-main">
+<a href="#penguins" class="help-page-title"><h2>Measurements of Penguins near Palmer Station, Antarctica</h2></a>
+
+<h3>Description</h3>
+
+<p>Data on adult penguins covering three species found on three islands in the 
+Palmer Archipelago, Antarctica, including their size 
+(flipper length, body mass, bill dimensions), and sex.
+</p>
+<p>The columns of <code>penguins</code> are a subset of the more extensive
+<code>penguins_raw</code> data frame, which includes nesting observations 
+and blood isotope data. There are differences in the column names 
+and data types. See the ‘Format’ section for details. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">penguins
+penguins_raw
+</code><code class="language-r">penguins
+penguins_raw</code></pre>
+
+
+<h3>Format</h3>
+
+<p><code>penguins</code> is a data frame with 344 rows and 8 variables:
+</p>
+
+<dl>
+<dt><code>species</code></dt>
+<dd>
+<p><code><a href="https://r-universe.dev/manuals/base.html#factor">factor</a></code>, with levels 
+<code>Adelie</code>, <code>Chinstrap</code>, and <code>Gentoo</code></p>
+</dd>
+<dt><code>island</code></dt>
+<dd>
+<p><code>factor</code>, 
+with levels <code>Biscoe</code>, <code>Dream</code>, and <code>Torgersen</code>)</p>
+</dd>
+<dt><code>bill_len</code></dt>
+<dd>
+<p><code><a href="https://r-universe.dev/manuals/base.html#numeric">numeric</a></code>, bill length (millimeters)</p>
+</dd>
+<dt><code>bill_dep</code></dt>
+<dd>
+<p><code>numeric</code>, bill depth (millimeters)</p>
+</dd>
+<dt><code>flipper_len</code></dt>
+<dd>
+<p><code><a href="https://r-universe.dev/manuals/base.html#integer">integer</a></code>, flipper length (millimeters)</p>
+</dd>
+<dt><code>body_mass</code></dt>
+<dd>
+<p><code>integer</code>, body mass (grams)</p>
+</dd>
+<dt><code>sex</code></dt>
+<dd>
+<p><code>factor</code>, with levels <code>female</code> and <code>male</code></p>
+</dd>
+<dt><code>year</code></dt>
+<dd>
+<p><code>integer</code>, study year: 2007, 2008, or 2009</p>
+</dd>
+</dl>
+<p><code>penguins_raw</code> is a data frame with 344 rows and 17 variables. 
+8 columns correspond to columns in <code>penguins</code>, 
+though with different variable names and/or classes:
+</p>
+
+<dl>
+<dt><code>Species</code></dt>
+<dd>
+<p><code>character</code></p>
+</dd>
+<dt><code>Island</code></dt>
+<dd>
+<p><code>character</code></p>
+</dd>
+<dt><code>Culmen Length (mm)</code></dt>
+<dd>
+<p><code>numeric</code>, bill length</p>
+</dd>
+<dt><code>Culmen Depth (mm)</code></dt>
+<dd>
+<p><code>numeric</code>, bill depth</p>
+</dd>
+<dt><code>Flipper Length (mm)</code></dt>
+<dd>
+<p><code>numeric</code>, flipper length</p>
+</dd>
+<dt><code>Body Mass (g)</code></dt>
+<dd>
+<p><code>numeric</code>, body mass</p>
+</dd>
+<dt><code>Sex</code></dt>
+<dd>
+<p><code>character</code></p>
+</dd>
+<dt><code>Date Egg</code></dt>
+<dd>
+<p><code><a href="https://r-universe.dev/manuals/base.html#Dates">Date</a></code>, when study nest observed with 1 egg.
+The year component is the <code>year</code> column in <code>penguins</code></p>
+</dd>
+</dl>
+<p>There are 9 further columns in <code>penguins_raw</code>:
+</p>
+
+<dl>
+<dt><code>studyName</code></dt>
+<dd>
+<p><code>character</code>, expedition during which the data was collected</p>
+</dd>
+<dt><code>Sample Number</code></dt>
+<dd>
+<p><code>numeric</code>, continuous numbering sequence for each sample</p>
+</dd>
+<dt><code>Region</code></dt>
+<dd>
+<p><code>character</code>, the region of Palmer <abbr><span class="acronym">LTER</span></abbr> sampling grid</p>
+</dd>
+<dt><code>Stage</code></dt>
+<dd>
+<p><code>character</code>, denoting reproductive stage at sampling</p>
+</dd>
+<dt><code>Individual ID</code></dt>
+<dd>
+<p><code>character</code>, unique ID for each individual in dataset</p>
+</dd>
+<dt><code>Clutch Completion</code></dt>
+<dd>
+<p><code>character</code>, 
+if the study nest was observed with a full clutch, i.e., 2 eggs</p>
+</dd>
+<dt><code>Delta 15 N (o/oo)</code></dt>
+<dd>
+<p><code>numeric</code>, the ratio of stable isotopes 15N:14N</p>
+</dd>
+<dt><code>Delta 13 C (o/oo)</code></dt>
+<dd>
+<p><code>numeric</code>, the ratio of stable isotopes 13C:12C</p>
+</dd>
+<dt><code>Comments</code></dt>
+<dd>
+<p><code>character</code>, additional relevant information</p>
+</dd>
+</dl>
+<h3>Details</h3>
+
+<p>Gorman <abbr>et al.</abbr> (2014)
+used the data to study sex dimorphism separately for the three species.
+</p>
+<p>Horst <abbr>et al.</abbr> (2022) popularized the data as an illustration 
+for different statistical methods, as an alternative to the <code><a href="#iris">iris</a></code> data.
+</p>
+<p>Kaye <abbr>et al.</abbr> (2025) provide the scripts used to create
+these data sets from the original source data, 
+and a notebook reproducing results from Gorman <abbr>et al.</abbr> (2014).
+</p>
+
+
+<h3>Note</h3>
+
+<p>These data sets are also available in the <a href="https://CRAN.R-project.org/package=palmerpenguins" target="_blank"><span class="pkg">palmerpenguins</span></a> package.  
+See the <a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank">package website</a> 
+for further details and resources.
+</p>
+<p>The <code>penguins</code> data has some shorter variable names than the <span class="pkg">palmerpenguins</span> version, 
+for compact code and data display. 
+</p>
+
+
+<h3>Source</h3>
+
+
+<dl>
+<dt>Adélie penguins:</dt>
+<dd>
+<p>Palmer Station Antarctica <abbr><span class="acronym">LTER</span></abbr> and K. Gorman (2020).
+Structural size measurements and isotopic signatures of foraging
+among adult male and female Adélie penguins (Pygoscelis adeliae)
+nesting along the Palmer Archipelago near Palmer Station, 2007-2009
+ver 5. Environmental Data Initiative, <a href="https://doi.org/10.6073/pasta/98b16d7d563f265cb52372c8ca99e60f" target="_blank">doi:10.6073/pasta/98b16d7d563f265cb52372c8ca99e60f</a>.</p>
+</dd>
+<dt>Gentoo penguins:</dt>
+<dd>
+<p>Palmer Station Antarctica <abbr><span class="acronym">LTER</span></abbr> and K. Gorman (2020).
+<a href="https://doi.org/10.6073/pasta/7fca67fb28d56ee2ffa3d9370ebda689" target="_blank">doi:10.6073/pasta/7fca67fb28d56ee2ffa3d9370ebda689</a>.</p>
+</dd>
+<dt>Chinstrap penguins:</dt>
+<dd>
+<p>Palmer Station Antarctica <abbr><span class="acronym">LTER</span></abbr> and K. Gorman (2020).
+<a href="https://doi.org/10.6073/pasta/c14dfcfada8ea13a17536e73eb6fbe9e" target="_blank">doi:10.6073/pasta/c14dfcfada8ea13a17536e73eb6fbe9e</a>.</p>
+</dd>
+</dl>
+<p>The title naming convention for the source for the Gentoo and Chinstrap
+data is that same as for Adélie penguins.
+</p>
+
+
+<h3>References</h3>
+
+<p>Gorman, K. B., Williams, T. D. and Fraser, W. R. (2014)
+Ecological Sexual Dimorphism and Environmental Variability within a
+Community of Antarctic Penguins (Genus Pygoscelis).
+<em>PLoS ONE</em> <b>9</b>, 3, e90081; <a href="https://doi.org/10.1371/journal.pone.0090081" target="_blank">doi:10.1371/journal.pone.0090081</a>.
+</p>
+<p>Horst, A. M., Hill, A. P. and Gorman, K. B. (2022) 
+Palmer Archipelago Penguins Data in the palmerpenguins R Package 
+- An Alternative to Anderson's Irises.
+<em>R Journal</em> <b>14</b>, 1; <a href="https://doi.org/10.32614/RJ-2022-020" target="_blank">doi:10.32614/RJ-2022-020</a>.
+</p>
+<p>Kaye, E., Turner, H., Gorman, K. B., Horst, A. M. and Hill, A. P. (2025)
+Preparing the Palmer Penguins Data for the <span class="pkg">datasets</span> Package in R. 
+<a href="https://doi.org/10.5281/zenodo.14902740" target="_blank">doi:10.5281/zenodo.14902740</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## view summaries
+summary(penguins)
+summary(penguins_raw) # not useful for character vectors
+## convert character vectors to factors first
+dFactor &lt;- function(dat) {
+  dat[] &lt;- lapply(dat, \(.) if (is.character(.)) as.factor(.) else .)
+  dat
+}
+summary(dFactor(penguins_raw))
+
+## visualise distribution across factors
+plot(island ~ species, data = penguins)
+plot(sex ~ interaction(island, species, sep = "\n"), data = penguins)
+
+## bill depth vs. length by species (color) and sex (symbol):
+## positive correlations for all species, males tend to have bigger bills
+sym &lt;- c(1, 16)
+pal &lt;- c("darkorange","purple","cyan4")
+plot(bill_dep ~ bill_len, data = penguins, pch = sym[sex], col = pal[species])
+
+## simplified sex dimorphism analysis for Adelie species:
+## proportion of males increases with several size measurements
+adelie &lt;- subset(penguins, species == "Adelie")
+plot(sex ~ bill_len, data = adelie)
+plot(sex ~ bill_dep, data = adelie)
+plot(sex ~ body_mass, data = adelie)
+m &lt;- glm(sex ~ bill_len + bill_dep + body_mass, data = adelie, family = binomial)
+summary(m)
+
+## Produce the long variable names as from {palmerpenguins} pkg:
+long_nms &lt;- sub("len", "length_mm",
+                sub("dep","depth_mm",
+                    sub("mass", "mass_g", colnames(penguins))))
+## compare long and short names:
+noquote(rbind(long_nms, nms = colnames(penguins)))
+
+## Not run:  # &lt;&lt; keeping shorter 'penguins' names in this example:
+    colnames(penguins) &lt;- long_nms
+
+## End(Not run)
+</code><code class="language-r"><span class="token comment">## view summaries</span>
+summary<span class="token punctuation">(</span>penguins<span class="token punctuation">)</span>
+summary<span class="token punctuation">(</span>penguins_raw<span class="token punctuation">)</span> <span class="token comment"># not useful for character vectors</span>
+<span class="token comment">## convert character vectors to factors first</span>
+dFactor <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>dat<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  dat<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> lapply<span class="token punctuation">(</span>dat<span class="token punctuation">,</span> \<span class="token punctuation">(</span>.<span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>is.character<span class="token punctuation">(</span>.<span class="token punctuation">)</span><span class="token punctuation">)</span> as.factor<span class="token punctuation">(</span>.<span class="token punctuation">)</span> <span class="token keyword">else</span> .<span class="token punctuation">)</span>
+  dat
+<span class="token punctuation">}</span>
+summary<span class="token punctuation">(</span>dFactor<span class="token punctuation">(</span>penguins_raw<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## visualise distribution across factors</span>
+plot<span class="token punctuation">(</span>island <span class="token operator">~</span> species<span class="token punctuation">,</span> data <span class="token operator">=</span> penguins<span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>sex <span class="token operator">~</span> interaction<span class="token punctuation">(</span>island<span class="token punctuation">,</span> species<span class="token punctuation">,</span> sep <span class="token operator">=</span> <span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> data <span class="token operator">=</span> penguins<span class="token punctuation">)</span>
+
+<span class="token comment">## bill depth vs. length by species (color) and sex (symbol):</span>
+<span class="token comment">## positive correlations for all species, males tend to have bigger bills</span>
+sym <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span>
+pal <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token string">"darkorange"</span><span class="token punctuation">,</span><span class="token string">"purple"</span><span class="token punctuation">,</span><span class="token string">"cyan4"</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>bill_dep <span class="token operator">~</span> bill_len<span class="token punctuation">,</span> data <span class="token operator">=</span> penguins<span class="token punctuation">,</span> pch <span class="token operator">=</span> sym<span class="token punctuation">[</span>sex<span class="token punctuation">]</span><span class="token punctuation">,</span> col <span class="token operator">=</span> pal<span class="token punctuation">[</span>species<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment">## simplified sex dimorphism analysis for Adelie species:</span>
+<span class="token comment">## proportion of males increases with several size measurements</span>
+adelie <span class="token operator">&lt;-</span> subset<span class="token punctuation">(</span>penguins<span class="token punctuation">,</span> species <span class="token operator">==</span> <span class="token string">"Adelie"</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>sex <span class="token operator">~</span> bill_len<span class="token punctuation">,</span> data <span class="token operator">=</span> adelie<span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>sex <span class="token operator">~</span> bill_dep<span class="token punctuation">,</span> data <span class="token operator">=</span> adelie<span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>sex <span class="token operator">~</span> body_mass<span class="token punctuation">,</span> data <span class="token operator">=</span> adelie<span class="token punctuation">)</span>
+m <span class="token operator">&lt;-</span> glm<span class="token punctuation">(</span>sex <span class="token operator">~</span> bill_len <span class="token operator">+</span> bill_dep <span class="token operator">+</span> body_mass<span class="token punctuation">,</span> data <span class="token operator">=</span> adelie<span class="token punctuation">,</span> family <span class="token operator">=</span> binomial<span class="token punctuation">)</span>
+summary<span class="token punctuation">(</span>m<span class="token punctuation">)</span>
+
+<span class="token comment">## Produce the long variable names as from {palmerpenguins} pkg:</span>
+long_nms <span class="token operator">&lt;-</span> sub<span class="token punctuation">(</span><span class="token string">"len"</span><span class="token punctuation">,</span> <span class="token string">"length_mm"</span><span class="token punctuation">,</span>
+                sub<span class="token punctuation">(</span><span class="token string">"dep"</span><span class="token punctuation">,</span><span class="token string">"depth_mm"</span><span class="token punctuation">,</span>
+                    sub<span class="token punctuation">(</span><span class="token string">"mass"</span><span class="token punctuation">,</span> <span class="token string">"mass_g"</span><span class="token punctuation">,</span> colnames<span class="token punctuation">(</span>penguins<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">## compare long and short names:</span>
+noquote<span class="token punctuation">(</span>rbind<span class="token punctuation">(</span>long_nms<span class="token punctuation">,</span> nms <span class="token operator">=</span> colnames<span class="token punctuation">(</span>penguins<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Not run:  # &lt;&lt; keeping shorter 'penguins' names in this example:</span>
+    colnames<span class="token punctuation">(</span>penguins<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> long_nms
+
+<span class="token comment">## End(Not run)</span></code></pre>
 
 <hr>
 </div></div>
@@ -5581,29 +5985,41 @@ points<span class="token punctuation">(</span>dst<span class="token punctuation"
 
 <h3>Description</h3>
 
-<p>Monthly numbers of sunspots, as from the World Data Center, aka <abbr>SIDC</abbr>.
-This is the version of the data that will occasionally be updated when
-new counts become available.
+<p>Monthly numbers of sunspots, as from the World Data Center, aka
+<abbr>SIDC</abbr>.  <code>sunspot.month</code> is the version of the data that will
+occasionally be updated when new counts become available (or the numbers
+are recalibrated). Note that around 2014–2015 there has been an
+international effort to recalibrate the sunspots numbers; since <span class="rlang"><b>R</b></span> 4.5.0
+(2025), the recalibrated series is used.
+<br> 
+The version in (too long) use from 2014 to 2024 is provided as
+<code>sunspot.m2014</code> for historical and reproducibility reasons.
+For strict reproducibility, hence use that, or <code><a href="#sunspots">sunspots</a></code>
+instead of <code>sunspot.month</code>.
 </p>
 
 
 <h3>Usage</h3>
 
 <pre class="language-r"><code class="language-r-input" hidden="hidden">sunspot.month
-</code><code class="language-r">sunspot.month</code></pre>
+sunspot.m2014
+</code><code class="language-r">sunspot.month
+sunspot.m2014</code></pre>
 
 
 <h3>Format</h3>
 
-<p>The univariate time series <code>sunspot.year</code> and
-<code>sunspot.month</code> contain 289 and 2988 observations, respectively.
-The objects are of class <code>"ts"</code>.
+<p>The univariate time series <code>sunspot.year</code>, <code>sunspot.m2014</code>
+and <code>sunspot.month</code> contain 289, 3177, and currently
+3310
+observations, respectively, where the latter will increase over time.
+The objects are of class <code>"<a href="https://r-universe.dev/manuals/stats.html#ts">ts</a>"</code>.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>R
+<p>R Core Team.
 </p>
 
 
@@ -5611,13 +6027,32 @@ The objects are of class <code>"ts"</code>.
 
 <p>WDC-SILSO, Solar Influences Data Analysis Center (<abbr>SIDC</abbr>),
 Royal Observatory of Belgium, Av. Circulaire, 3, B-1180 BRUSSELS
-Currently at <a href="http://www.sidc.be/silso/datafiles" target="_blank">http://www.sidc.be/silso/datafiles</a>
+Currently at <a href="https://www.sidc.be/SILSO/datafiles" target="_blank">https://www.sidc.be/SILSO/datafiles</a>
+
+</p>
+<p>From around 2015, expert astronomers decided to recalibrate historical sunspot
+numbers, see the ‘References’.
+This is <em>not yet</em> visible in current <code>sunspot.month</code> but
+may well change by the next release of <span class="rlang"><b>R</b></span>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Clette, Frédéric and Lefèvre, Laure (2016)
+The New Sunspot Number: Assembling All Corrections.
+<em>Solar Physics</em> <b>291</b>, 2629–2651. <a href="https://doi.org/10.1007/s11207-016-1014-y" target="_blank">doi:10.1007/s11207-016-1014-y</a>
+</p>
+<p>Clette, F.,  Lefèvre, L.,  Chatzistergos, T. et al. (2023)
+Recalibration of the Sunspot-Number: Status Report.
+<em>Solar Physics</em> <b>298</b>: 44.  <a href="https://doi.org/10.1007/s11207-023-02136-3" target="_blank">doi:10.1007/s11207-023-02136-3</a>
 </p>
 
 
 <h3>See Also</h3>
 
-<p><code>sunspot.month</code> is a longer version of <code><a href="#sunspots">sunspots</a></code>;
+<p><code>sunspot.month</code> is a more up-to-date and hence also longer version of
+<code><a href="#sunspots">sunspots</a></code>;
 the latter runs until 1983 and is kept fixed (for reproducibility as example
 dataset).
 </p>
@@ -5628,55 +6063,65 @@ dataset).
 <pre class="language-r"><code class="language-r-input" hidden="hidden">require(stats); require(graphics)
 ## Compare the monthly series
 plot (sunspot.month,
-      main="sunspot.month &amp; sunspots [package'datasets']", col=2)
-lines(sunspots) # -&gt; faint differences where they overlap
+      main="sunspot.month &amp; sunspots [package 'datasets']", col=2)
+lines(sunspots) # -&gt; clear recalibration (to *larger* values)
+at. &lt;- seq(1750, 2030, by=10)
+atyr &lt;- at.[at. %% 50 != 0] #%
+Axis(time(sunspot.month), at = atyr, side = 1,
+     tck= -1/100, padj = -1.5, cex.axis = 3/4)
 
 ## Now look at the difference :
 all(tsp(sunspots)     [c(1,3)] ==
     tsp(sunspot.month)[c(1,3)]) ## Start &amp; Periodicity are the same
 n1 &lt;- length(sunspots)
-table(eq &lt;- sunspots == sunspot.month[1:n1]) #&gt;  132  are different !
+table(eq &lt;- sunspots == sunspot.m2014[1:n1]) #&gt;  143  are different !
 i &lt;- which(!eq)
 rug(time(eq)[i])
-s1 &lt;- sunspots[i] ; s2 &lt;- sunspot.month[i]
+s1 &lt;- sunspots[i] ; s2 &lt;- sunspot.m2014[i]
 cbind(i = i, time = time(sunspots)[i], sunspots = s1, ss.month = s2,
       perc.diff = round(100*2*abs(s1-s2)/(s1+s2), 1))
 
-## How to recreate the "old" sunspot.month (R &lt;= 3.0.3):
+## How to recreate the "old" sunspot.month (R &lt;= 3.0.3) =: sunspot.month.0
 .sunspot.diff &lt;- cbind(
     i = c(1202L, 1256L, 1258L, 1301L, 1407L, 1429L, 1452L, 1455L,
           1663L, 2151L, 2329L, 2498L, 2594L, 2694L, 2819L),
     res10 = c(1L, 1L, 1L, -1L, -1L, -1L, 1L, -1L,
           1L, 1L, 1L, 1L, 1L, 20L, 1L))
-ssm0 &lt;- sunspot.month[1:2988]
+ssm0 &lt;- sunspot.m2014[1:2988]
 with(as.data.frame(.sunspot.diff), ssm0[i] &lt;&lt;- ssm0[i] - res10/10)
 sunspot.month.0 &lt;- ts(ssm0, start = 1749, frequency = 12)
+stopifnot(length(sunspot.month.0) == 2988)
 </code><code class="language-r">require<span class="token punctuation">(</span>stats<span class="token punctuation">)</span><span class="token punctuation">;</span> require<span class="token punctuation">(</span>graphics<span class="token punctuation">)</span>
 <span class="token comment">## Compare the monthly series</span>
 plot <span class="token punctuation">(</span>sunspot.month<span class="token punctuation">,</span>
-      main<span class="token operator">=</span><span class="token string">"sunspot.month &amp; sunspots [package'datasets']"</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
-lines<span class="token punctuation">(</span>sunspots<span class="token punctuation">)</span> <span class="token comment"># -&gt; faint differences where they overlap</span>
+      main<span class="token operator">=</span><span class="token string">"sunspot.month &amp; sunspots [package 'datasets']"</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+lines<span class="token punctuation">(</span>sunspots<span class="token punctuation">)</span> <span class="token comment"># -&gt; clear recalibration (to *larger* values)</span>
+at. <span class="token operator">&lt;-</span> seq<span class="token punctuation">(</span><span class="token number">1750</span><span class="token punctuation">,</span> <span class="token number">2030</span><span class="token punctuation">,</span> by<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span>
+atyr <span class="token operator">&lt;-</span> at.<span class="token punctuation">[</span>at. <span class="token percent-operator operator">%%</span> <span class="token number">50</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token comment">#%</span>
+Axis<span class="token punctuation">(</span>time<span class="token punctuation">(</span>sunspot.month<span class="token punctuation">)</span><span class="token punctuation">,</span> at <span class="token operator">=</span> atyr<span class="token punctuation">,</span> side <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+     tck<span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token operator">/</span><span class="token number">100</span><span class="token punctuation">,</span> padj <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1.5</span><span class="token punctuation">,</span> cex.axis <span class="token operator">=</span> <span class="token number">3</span><span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">)</span>
 
 <span class="token comment">## Now look at the difference :</span>
 all<span class="token punctuation">(</span>tsp<span class="token punctuation">(</span>sunspots<span class="token punctuation">)</span>     <span class="token punctuation">[</span>c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">==</span>
     tsp<span class="token punctuation">(</span>sunspot.month<span class="token punctuation">)</span><span class="token punctuation">[</span>c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">## Start &amp; Periodicity are the same</span>
 n1 <span class="token operator">&lt;-</span> length<span class="token punctuation">(</span>sunspots<span class="token punctuation">)</span>
-table<span class="token punctuation">(</span>eq <span class="token operator">&lt;-</span> sunspots <span class="token operator">==</span> sunspot.month<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span>n1<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">#&gt;  132  are different !</span>
+table<span class="token punctuation">(</span>eq <span class="token operator">&lt;-</span> sunspots <span class="token operator">==</span> sunspot.m2014<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span>n1<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">#&gt;  143  are different !</span>
 i <span class="token operator">&lt;-</span> which<span class="token punctuation">(</span><span class="token operator">!</span>eq<span class="token punctuation">)</span>
 rug<span class="token punctuation">(</span>time<span class="token punctuation">(</span>eq<span class="token punctuation">)</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-s1 <span class="token operator">&lt;-</span> sunspots<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token punctuation">;</span> s2 <span class="token operator">&lt;-</span> sunspot.month<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+s1 <span class="token operator">&lt;-</span> sunspots<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token punctuation">;</span> s2 <span class="token operator">&lt;-</span> sunspot.m2014<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
 cbind<span class="token punctuation">(</span>i <span class="token operator">=</span> i<span class="token punctuation">,</span> time <span class="token operator">=</span> time<span class="token punctuation">(</span>sunspots<span class="token punctuation">)</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> sunspots <span class="token operator">=</span> s1<span class="token punctuation">,</span> ss.month <span class="token operator">=</span> s2<span class="token punctuation">,</span>
       perc.diff <span class="token operator">=</span> round<span class="token punctuation">(</span><span class="token number">100</span><span class="token operator">*</span><span class="token number">2</span><span class="token operator">*</span>abs<span class="token punctuation">(</span>s1<span class="token operator">-</span>s2<span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>s1<span class="token operator">+</span>s2<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-<span class="token comment">## How to recreate the "old" sunspot.month (R &lt;= 3.0.3):</span>
+<span class="token comment">## How to recreate the "old" sunspot.month (R &lt;= 3.0.3) =: sunspot.month.0</span>
 .sunspot.diff <span class="token operator">&lt;-</span> cbind<span class="token punctuation">(</span>
     i <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1202L</span><span class="token punctuation">,</span> <span class="token number">1256L</span><span class="token punctuation">,</span> <span class="token number">1258L</span><span class="token punctuation">,</span> <span class="token number">1301L</span><span class="token punctuation">,</span> <span class="token number">1407L</span><span class="token punctuation">,</span> <span class="token number">1429L</span><span class="token punctuation">,</span> <span class="token number">1452L</span><span class="token punctuation">,</span> <span class="token number">1455L</span><span class="token punctuation">,</span>
           <span class="token number">1663L</span><span class="token punctuation">,</span> <span class="token number">2151L</span><span class="token punctuation">,</span> <span class="token number">2329L</span><span class="token punctuation">,</span> <span class="token number">2498L</span><span class="token punctuation">,</span> <span class="token number">2594L</span><span class="token punctuation">,</span> <span class="token number">2694L</span><span class="token punctuation">,</span> <span class="token number">2819L</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     res10 <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1L</span><span class="token punctuation">,</span> <span class="token number">1L</span><span class="token punctuation">,</span> <span class="token number">1L</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1L</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1L</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1L</span><span class="token punctuation">,</span> <span class="token number">1L</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1L</span><span class="token punctuation">,</span>
           <span class="token number">1L</span><span class="token punctuation">,</span> <span class="token number">1L</span><span class="token punctuation">,</span> <span class="token number">1L</span><span class="token punctuation">,</span> <span class="token number">1L</span><span class="token punctuation">,</span> <span class="token number">1L</span><span class="token punctuation">,</span> <span class="token number">20L</span><span class="token punctuation">,</span> <span class="token number">1L</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-ssm0 <span class="token operator">&lt;-</span> sunspot.month<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2988</span><span class="token punctuation">]</span>
+ssm0 <span class="token operator">&lt;-</span> sunspot.m2014<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2988</span><span class="token punctuation">]</span>
 with<span class="token punctuation">(</span>as.data.frame<span class="token punctuation">(</span>.sunspot.diff<span class="token punctuation">)</span><span class="token punctuation">,</span> ssm0<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;-</span> ssm0<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> res10<span class="token operator">/</span><span class="token number">10</span><span class="token punctuation">)</span>
-sunspot.month.<span class="token number">0</span> <span class="token operator">&lt;-</span> ts<span class="token punctuation">(</span>ssm0<span class="token punctuation">,</span> start <span class="token operator">=</span> <span class="token number">1749</span><span class="token punctuation">,</span> frequency <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">)</span></code></pre>
+sunspot.month.<span class="token number">0</span> <span class="token operator">&lt;-</span> ts<span class="token punctuation">(</span>ssm0<span class="token punctuation">,</span> start <span class="token operator">=</span> <span class="token number">1749</span><span class="token punctuation">,</span> frequency <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span>length<span class="token punctuation">(</span>sunspot.month.<span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">2988</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div></div>
@@ -5719,7 +6164,7 @@ and <code><a href="#sunspots">sunspots</a></code>.
 </p>
 <p>Regularly updated yearly sunspot numbers are available from
 WDC-SILSO, Royal Observatory of Belgium, at
-<a href="http://www.sidc.be/silso/datafiles" target="_blank">http://www.sidc.be/silso/datafiles</a>
+<a href="https://www.sidc.be/SILSO/datafiles" target="_blank">https://www.sidc.be/SILSO/datafiles</a>
 </p>
 
 
@@ -5729,9 +6174,9 @@ WDC-SILSO, Royal Observatory of Belgium, at
 utils::str(sy &lt;- sunspot.year)
 ## The common time interval
 (t1 &lt;- c(max(start(sm), start(sy)),     1)) # Jan 1749
-(t2 &lt;- c(min(  end(sm)[1],end(sy)[1]), 12)) # Dec 1983
+(t2 &lt;- c(min(  end(sm)[1],end(sy)[1]), 12)) # Dec 1983 (will not be updated!)
 s.m &lt;- window(sm, start=t1, end=t2)
-s.y &lt;- window(sy, start=t1, end=t2[1]) # {irrelevant warning}
+s.y &lt;- window(sy, start=t1, end=t2[1])
 stopifnot(length(s.y) * 12 == length(s.m),
           ## The yearly series *is* close to the averages of the monthly one:
           all.equal(s.y, aggregate(s.m, FUN = mean), tolerance = 0.0020))
@@ -5744,9 +6189,9 @@ all.equal(s.y, aggregate(s.m, FUN = weighted.mean, w = ndays)) # 0.0017
 utils<span class="token operator">::</span>str<span class="token punctuation">(</span>sy <span class="token operator">&lt;-</span> sunspot.year<span class="token punctuation">)</span>
 <span class="token comment">## The common time interval</span>
 <span class="token punctuation">(</span>t1 <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span>max<span class="token punctuation">(</span>start<span class="token punctuation">(</span>sm<span class="token punctuation">)</span><span class="token punctuation">,</span> start<span class="token punctuation">(</span>sy<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>     <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Jan 1749</span>
-<span class="token punctuation">(</span>t2 <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span>min<span class="token punctuation">(</span>  end<span class="token punctuation">(</span>sm<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>end<span class="token punctuation">(</span>sy<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Dec 1983</span>
+<span class="token punctuation">(</span>t2 <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span>min<span class="token punctuation">(</span>  end<span class="token punctuation">(</span>sm<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>end<span class="token punctuation">(</span>sy<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Dec 1983 (will not be updated!)</span>
 s.m <span class="token operator">&lt;-</span> window<span class="token punctuation">(</span>sm<span class="token punctuation">,</span> start<span class="token operator">=</span>t1<span class="token punctuation">,</span> end<span class="token operator">=</span>t2<span class="token punctuation">)</span>
-s.y <span class="token operator">&lt;-</span> window<span class="token punctuation">(</span>sy<span class="token punctuation">,</span> start<span class="token operator">=</span>t1<span class="token punctuation">,</span> end<span class="token operator">=</span>t2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># {irrelevant warning}</span>
+s.y <span class="token operator">&lt;-</span> window<span class="token punctuation">(</span>sy<span class="token punctuation">,</span> start<span class="token operator">=</span>t1<span class="token punctuation">,</span> end<span class="token operator">=</span>t2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 stopifnot<span class="token punctuation">(</span>length<span class="token punctuation">(</span>s.y<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">12</span> <span class="token operator">==</span> length<span class="token punctuation">(</span>s.m<span class="token punctuation">)</span><span class="token punctuation">,</span>
           <span class="token comment">## The yearly series *is* close to the averages of the monthly one:</span>
           all.equal<span class="token punctuation">(</span>s.y<span class="token punctuation">,</span> aggregate<span class="token punctuation">(</span>s.m<span class="token punctuation">,</span> FUN <span class="token operator">=</span> mean<span class="token punctuation">)</span><span class="token punctuation">,</span> tolerance <span class="token operator">=</span> <span class="token number">0.0020</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -6002,7 +6447,7 @@ next 25 hours.
 Pinheiro and Bates (2000) using a two-compartment open pharmacokinetic model,
 for which a self-starting model function, <code>SSfol</code>, is available.
 </p>
-<p>This dataset was originally part of package <code>nlme</code>, and that has
+<p>This dataset was originally part of package <a href="https://CRAN.R-project.org/package=nlme" target="_blank"><span class="pkg">nlme</span></a>, and that has
 methods (including for <code>[</code>, <code>as.data.frame</code>, <code>plot</code> and
 <code>print</code>) for its grouped-data classes.
 </p>
@@ -7512,6 +7957,6 @@ round<span class="token punctuation">(</span>aics <span class="token operator">-
 <hr>
 </div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.4.0</p></footer>
+    <footer><p>Rendered with postdoc 1.4.1</p></footer>
   </body>
 </html>

@@ -7,12 +7,12 @@
 
     <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
     <!-- for (future) customizations -->
     <script src="https://r-universe.dev/static/manual.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css">
 
   </head>
 
@@ -37,15 +37,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.4.1</td>
+<td class="description-license">Part of R 4.5.0</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.4.1</td>
+<td class="description-version">4.5.0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-06-15 17:27:02 UTC</td>
+<td class="description-date">2025-04-11 20:14:59 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -61,6 +61,7 @@
 Add a ‘datalist’ File to a Source Package
 </a></li>
 <li class="help-index-item"><a href="#assertCondition">Asserting Error Conditions</a></li>
+<li class="help-index-item"><a href="#basetools">Base Package Tools</a></li>
 <li class="help-index-item"><a href="#bibstyle">Select or Define a Bibliography Style</a></li>
 <li class="help-index-item"><a href="#buildVignette">Build One Vignette</a></li>
 <li class="help-index-item"><a href="#buildVignettes">List and Build Package Vignettes</a></li>
@@ -82,6 +83,7 @@ Compact PDF Files
 <li class="help-index-item"><a href="#CRANtools">CRAN Package Repository Tools</a></li>
 <li class="help-index-item"><a href="#delimMatch">Delimited Pattern Matching</a></li>
 <li class="help-index-item"><a href="#dependsOnPkgs">Find Reverse Dependencies</a></li>
+<li class="help-index-item"><a href="#doitools">Check Package DOIs</a></li>
 <li class="help-index-item"><a href="#encoded">Translate non-ASCII Text to LaTeX Escapes</a></li>
 <li class="help-index-item"><a href="#fileutils">File Utilities</a></li>
 <li class="help-index-item"><a href="#find_gs_cmd">
@@ -90,6 +92,7 @@ Find a GhostScript Executable
 <li class="help-index-item"><a href="#getVignetteInfo">Get Information on Installed Vignettes</a></li>
 <li class="help-index-item"><a href="#HTMLheader">Generate a Standard HTML Header for R Help</a></li>
 <li class="help-index-item"><a href="#HTMLlinks">Collect HTML Links from Package Documentation</a></li>
+<li class="help-index-item"><a href="#licensetools">License Tools</a></li>
 <li class="help-index-item"><a href="#loadRdMacros">Load User-defined Rd Help System Macros</a></li>
 <li class="help-index-item"><a href="#make_translations_pkg">Package the Current Translations in the R Sources</a></li>
 <li class="help-index-item"><a href="#makevars">User and Site Compilation Variables</a></li>
@@ -107,6 +110,7 @@ Write Skeleton for Adding Native Routine Registration to a Package
 <li class="help-index-item"><a href="#pskill">Kill a Process</a></li>
 <li class="help-index-item"><a href="#psnice">Get or Set the Priority (Niceness) of a Process</a></li>
 <li class="help-index-item"><a href="#QC">QC Checks for R Code and/or Documentation</a></li>
+<li class="help-index-item"><a href="#R">Call Function in Inferior R Process</a></li>
 <li class="help-index-item"><a href="#Rcmd">R CMD Interface</a></li>
 <li class="help-index-item"><a href="#Rd2HTML"> Rd Converters </a></li>
 <li class="help-index-item"><a href="#Rd2txt_options">Set Formatting Options for Text Help</a></li>
@@ -115,6 +119,7 @@ Write Skeleton for Adding Native Routine Registration to a Package
 <li class="help-index-item"><a href="#RdTextFilter">Select Text in an Rd File</a></li>
 <li class="help-index-item"><a href="#Rdutils">Rd Utilities</a></li>
 <li class="help-index-item"><a href="#read.00Index">Read 00Index-style Files</a></li>
+<li class="help-index-item"><a href="#sha256sum">Compute SHA-256 Checksums</a></li>
 <li class="help-index-item"><a href="#showNonASCII">Pick Out Non-ASCII Characters</a></li>
 <li class="help-index-item"><a href="#startDynamicHelp">Start the Dynamic HTML Help System</a></li>
 <li class="help-index-item"><a href="#SweaveTeXFilter">Strip R Code out of Sweave File</a></li>
@@ -129,6 +134,7 @@ Write Skeleton for Adding Native Routine Registration to a Package
 <li class="help-index-item"><a href="#update_pkg_po">
 Prepare Translations for a Package
 </a></li>
+<li class="help-index-item"><a href="#urltools">Check Package URLs</a></li>
 <li class="help-index-item"><a href="#userdir">R User Directories</a></li>
 <li class="help-index-item"><a href="#vignetteEngine">Set or Get a Vignette Processing Engine</a></li>
 <li class="help-index-item"><a href="#vignetteInfo">Basic Information about a Vignette</a></li>
@@ -184,7 +190,7 @@ method, useful, at least as a start, by a simple
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -256,7 +262,7 @@ supplying ‘<span class="file">data/datalist</span>’ file.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pkgpath">pkgpath</code></td>
 <td>
@@ -325,7 +331,7 @@ assertCondition<span class="token punctuation">(</span>expr<span class="token pu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="expr">expr</code></td>
 <td>
@@ -472,6 +478,61 @@ assertCondition<span class="token punctuation">(</span> assertCondition<span cla
 
 <hr>
 </div></div>
+<div class="container manual-page" id="basetools"><div class="page-main">
+<a href="#basetools" class="help-page-title"><h2>Base Package Tools</h2></a>
+
+<h3>Description</h3>
+
+<p>Tools for obtaining information about base packages.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">base_aliases_db(verbose = FALSE, Ncpus = getOption("Ncpus", 1L))
+base_rdxrefs_db(verbose = FALSE, Ncpus = getOption("Ncpus", 1L))
+</code><code class="language-r">base_aliases_db<span class="token punctuation">(</span>verbose <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> Ncpus <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"Ncpus"</span><span class="token punctuation">,</span> <span class="token number">1L</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+base_rdxrefs_db<span class="token punctuation">(</span>verbose <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> Ncpus <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"Ncpus"</span><span class="token punctuation">,</span> <span class="token number">1L</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table role="presentation">
+<tr>
+<td><code id="verbose">verbose</code></td>
+<td>
+<p>logical.  Should packages be listed as they are
+processed?</p>
+</td>
+</tr>
+<tr>
+<td><code id="Ncpus">Ncpus</code></td>
+<td>
+<p>the number of parallel processes to use for processing.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p><code>base_aliases_db()</code> returns the Rd aliases in the base
+packages, as a nested per-package named list of per-Rd-file named
+lists with the aliases.
+</p>
+<p><code>base_rdxrefs_db()</code> returns the Rd cross-references in the
+base packages, as a per-package list of matrices with columns 
+<code>"Target"</code>, <code>"Anchor"</code> and <code>"Source"</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#CRANtools">CRAN_aliases_db</a>()</code> and <code><a href="#CRANtools">CRAN_rdxrefs_db</a>()</code>
+for getting the Rd aliases and cross-references in the current CRAN
+packages.
+</p>
+
+<hr>
+</div></div>
 <div class="container manual-page" id="bibstyle"><div class="page-main">
 <a href="#bibstyle" class="help-page-title"><h2>Select or Define a Bibliography Style</h2></a>
 
@@ -493,7 +554,7 @@ getBibstyle<span class="token punctuation">(</span>all <span class="token operat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="style">style</code></td>
 <td>
@@ -690,7 +751,7 @@ print<span class="token punctuation">(</span>refs<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -843,7 +904,7 @@ pkgVignettes<span class="token punctuation">(</span>package<span class="token pu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -1103,7 +1164,7 @@ check_packages_in_dir_details<span class="token punctuation">(</span>dir<span cl
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="dir">dir</code></td>
 <td>
@@ -1293,7 +1354,7 @@ dependencies are renamed by prefixing their base names with
 </p>
 <p>Installation and checking is performed in parallel if <code>Ncpus</code> is
 greater than one: this will use <code><a href="https://r-universe.dev/manuals/parallel.html#mclapply">mclapply</a></code> on
-Unix and <code><a href="https://r-universe.dev/manuals/parallel.html#clusterApply">parLapply</a></code> on Windows.
+Unix and <code><a href="https://r-universe.dev/manuals/parallel.html#parLapply">parLapply</a></code> on Windows.
 </p>
 <p><code>check_packages_in_dir</code> returns an object inheriting from class
 <code>"check_packages_in_dir"</code> which has <code><a href="https://r-universe.dev/manuals/base.html#print">print</a></code> and
@@ -1398,7 +1459,7 @@ highly recommended to avoid name clashes in foreign function calls.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -1513,7 +1574,7 @@ checkFF<span class="token punctuation">(</span>package <span class="token operat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -1578,7 +1639,7 @@ checkPoFiles<span class="token punctuation">(</span>language<span class="token p
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -1706,7 +1767,7 @@ checkPoFiles<span class="token punctuation">(</span><span class="token string">"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="Rd">Rd</code></td>
 <td>
@@ -2034,7 +2095,7 @@ resaveRdaFiles<span class="token punctuation">(</span>paths<span class="token pu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="paths">paths</code></td>
 <td>
@@ -2078,7 +2139,7 @@ version 2: however version-3 files will only be saved as version 3.
 <p>For <code>checkRdaFiles</code>, a data frame with rows names <code>paths</code>
 and columns
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>size</code></td>
 <td>
@@ -2156,7 +2217,7 @@ logicals.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -2234,7 +2295,7 @@ executed without errors.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -2358,7 +2419,7 @@ codocData<span class="token punctuation">(</span>package<span class="token punct
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -2508,7 +2569,7 @@ format<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="paths">paths</code></td>
 <td>
@@ -2655,8 +2716,9 @@ Extensions’ manual.
 
 <h3>Description</h3>
 
-<p>Tools for obtaining information about current packages in the
-<abbr>CRAN</abbr> package repository, and their check status.
+<p>Tools for obtaining information about current and archived packages in
+the <abbr>CRAN</abbr> package repository, and the check status of the
+current packages.
 </p>
 
 
@@ -2671,6 +2733,13 @@ summarize_CRAN_check_status(packages,
                             results = NULL,
                             details = NULL,
                             issues = NULL)
+
+CRAN_current_db()
+CRAN_aliases_db()
+CRAN_rdxrefs_db()
+CRAN_archive_db()
+
+CRAN_authors_db()
 </code><code class="language-r">CRAN_package_db<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 CRAN_check_results<span class="token punctuation">(</span>flavors <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
@@ -2679,12 +2748,19 @@ CRAN_check_issues<span class="token punctuation">(</span><span class="token punc
 summarize_CRAN_check_status<span class="token punctuation">(</span>packages<span class="token punctuation">,</span>
                             results <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
                             details <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
-                            issues <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span></code></pre>
+                            issues <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+
+CRAN_current_db<span class="token punctuation">(</span><span class="token punctuation">)</span>
+CRAN_aliases_db<span class="token punctuation">(</span><span class="token punctuation">)</span>
+CRAN_rdxrefs_db<span class="token punctuation">(</span><span class="token punctuation">)</span>
+CRAN_archive_db<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+CRAN_authors_db<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="packages">packages</code></td>
 <td>
@@ -2741,12 +2817,35 @@ columns <code>Check</code>, <code>Status</code> and <code>Output</code>, respect
 Packages with all-OK checks are indicated via a <code>*</code> <code>Check</code>
 wildcard name and OK <code>Status</code>.
 </p>
-<p><code>CRAN_check_issues()</code> returns a character frame with additional
+<p><code>CRAN_check_issues()</code> returns a information on additional
 check issues (including the memory-access check results made available
 from <a href="https://www.stats.ox.ac.uk/pub/bdr/memtests/" target="_blank">https://www.stats.ox.ac.uk/pub/bdr/memtests/</a>) as a
-character frame with variables <code>Package</code>, <code>Version</code>,
+data frame with character variables <code>Package</code>, <code>Version</code>,
 <code>kind</code> (an identifier for the issue) and <code>href</code> (a URL with
 information on the issue).
+</p>
+<p><code>CRAN_current_db()</code> returns a data frame with the
+<code><a href="https://r-universe.dev/manuals/base.html#file.info">file.info</a>()</code> of all current package sources in the
+<abbr>CRAN</abbr> package repository.
+</p>
+<p><code>CRAN_aliases_db()</code> returns the Rd aliases in the current
+packages, as a nested per-package named list of per-Rd-file named
+lists with the aliases.
+</p>
+<p><code>CRAN_rdxrefs_db()</code> returns the Rd cross-references in the
+current packages, as a per-package list of matrices with columns 
+<code>"Target"</code>, <code>"Anchor"</code> and <code>"Source"</code>.
+</p>
+<p><code>CRAN_archive_db()</code> returns the <code><a href="https://r-universe.dev/manuals/base.html#file.info">file.info</a>()</code> of all
+archived packages sources in the <abbr>CRAN</abbr> package repository, as a
+per-package named list of data frames.
+</p>
+<p><code>CRAN_authors_db()</code> returns information on the authors of the
+current CRAN packages extracted from the ‘<span class="samp">⁠Authors@R⁠</span>’ fields in
+the package ‘<span class="file">DESCRIPTION</span>’ files, as a data frame with character
+columns giving the given and family names, email addresses, roles, 
+comments, <abbr>ORCID</abbr> and <abbr>ROR</abbr> identifiers of the person
+entries, and the corresponding package.
 </p>
 
 
@@ -2760,7 +2859,12 @@ information on the issue).
 
 <h3>Which CRAN?</h3>
 
-<p>The main functions access a <abbr>CRAN</abbr> mirror specified by the
+<p>Functions
+<code>CRAN_package_db()</code>,
+<code>CRAN_check_results()</code>,
+<code>CRAN_check_details()</code> and
+<code>CRAN_check_issues()</code>
+access a <abbr>CRAN</abbr> mirror specified by the
 environment variable <span class="env">R_CRAN_WEB</span>, defaulting to one specified in
 the <code>"repos"</code> option.  Otherwise the entry in the
 ‘<span class="file">repositories</span>’ file (see <code><a href="https://r-universe.dev/manuals/utils.html#setRepositories">setRepositories</a></code>) is used:
@@ -2775,9 +2879,23 @@ entry for CRAN then <a href="https://CRAN.R-project.org" target="_blank">https:/
 mirror of just ‘<span class="file">src/contrib</span>’ for installing packages you will
 need to set <span class="env">R_CRAN_WEB</span> to point to a full mirror.
 </p>
-<p>Internal functions <code>CRAN_aliases_db</code>, <code>CRAN_archive_db</code>,
-<code>CRAN_current_db</code> and <code>CRAN_rdxrefs_db</code> (used by <code>R
-  CMD check</code>) use <span class="env">R_CRAN_SRC</span> rather than <span class="env">R_CRAN_WEB</span>.
+<p>Functions
+<code>CRAN_current_db()</code>,
+<code>CRAN_aliases_db()</code>,
+<code>CRAN_rdxrefs_db()</code>,
+<code>CRAN_authors_db()</code> and
+<code>CRAN_archive_db()</code>
+(also used by <code>R CMD check</code>)
+use <span class="env">R_CRAN_SRC</span> rather than <span class="env">R_CRAN_WEB</span>.
+The mirror to be used is reported by
+<code>utils::<a href="https://r-universe.dev/manuals/utils.html#findCRANmirror">findCRANmirror</a>("src")</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#basetools">base_aliases_db</a>()</code> and <code><a href="#basetools">base_rdxrefs_db</a>()</code>
+for getting the Rd aliases and cross-references in the base packages.
 </p>
 
 
@@ -2890,7 +3008,7 @@ summarize_CRAN_check_status<span class="token punctuation">(</span>pdb<span clas
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -2968,7 +3086,7 @@ which depend on this one, and (optionally) so on recursively.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pkgs">pkgs</code></td>
 <td>
@@ -3035,6 +3153,68 @@ dependsOnPkgs<span class="token punctuation">(</span><span class="token string">
 
 <hr>
 </div></div>
+<div class="container manual-page" id="doitools"><div class="page-main">
+<a href="#doitools" class="help-page-title"><h2>Check Package <abbr>DOI</abbr>s</h2></a>
+
+<h3>Description</h3>
+
+<p>Check <abbr>DOI</abbr>s in package sources.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">check_package_dois(dir, verbose = FALSE)
+</code><code class="language-r">check_package_dois<span class="token punctuation">(</span>dir<span class="token punctuation">,</span> verbose <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table role="presentation">
+<tr>
+<td><code id="dir">dir</code></td>
+<td>
+<p>a character string specifying the path to a package's root 
+source directory.</p>
+</td>
+</tr>
+<tr>
+<td><code id="verbose">verbose</code></td>
+<td>
+<p>a logical indicating if output should monitor check
+progress.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Checking <abbr>DOI</abbr>s is performed in parallel using <a href="https://CRAN.R-project.org/package=curl" target="_blank"><span class="pkg">curl</span></a> (so this
+must be installed for checking).
+</p>
+<p>The <abbr>DOI</abbr>s checked are extracted from the package ‘<span class="file">DESCRIPTION</span>’
+(‘<span class="samp">⁠&lt;doi:...&gt;⁠</span>’ <abbr>URI</abbr>s in the ‘<span class="samp">⁠Description⁠</span>’ field), Rd and
+‘<span class="file">CITATION</span>’ files.
+</p>
+<p>The <abbr>DOI</abbr>s are checked via ‘<span class="samp">⁠HEAD⁠</span>’ requests to the DOI system Proxy
+Server REST API.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A data frame inheriting from class <code>check_doi_db</code> with
+information on the DOI check problems found.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This functionality is still experimental: interfaces may change in
+future versions. 
+</p>
+
+<hr>
+</div></div>
 <div class="container manual-page" id="encoded"><div class="page-main">
 <a href="#encoded" class="help-page-title"><h2>Translate non-ASCII Text to LaTeX Escapes</h2></a>
 
@@ -3056,7 +3236,7 @@ dependsOnPkgs<span class="token punctuation">(</span><span class="token string">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -3209,7 +3389,7 @@ list_files_with_type<span class="token punctuation">(</span>dir<span class="toke
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -3341,7 +3521,7 @@ Find a GhostScript Executable
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="gs_cmd">gs_cmd</code></td>
 <td>
 <p>The name, full or partial path of a GhostScript executable.</p>
@@ -3409,7 +3589,7 @@ Sys.setenv<span class="token punctuation">(</span>R_GSCMD <span class="token ope
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -3439,7 +3619,7 @@ Sys.setenv<span class="token punctuation">(</span>R_GSCMD <span class="token ope
 
 <p>A matrix with columns
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>Package</code></td>
 <td>
@@ -3533,7 +3713,7 @@ getVignetteInfo("grid")
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="title">title</code></td>
 <td>
@@ -3634,13 +3814,13 @@ documentation.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r-input" hidden="hidden">findHTMLlinks(pkgDir = "", lib.loc = NULL, level = 0:2)
-</code><code class="language-r">findHTMLlinks<span class="token punctuation">(</span>pkgDir <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> lib.loc <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> level <span class="token operator">=</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">findHTMLlinks(pkgDir = "", lib.loc = NULL, level = 0:3)
+</code><code class="language-r">findHTMLlinks<span class="token punctuation">(</span>pkgDir <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> lib.loc <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> level <span class="token operator">=</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pkgDir">pkgDir</code></td>
 <td>
@@ -3675,13 +3855,13 @@ HTML help for that package (level 0).
 </p>
 </li>
 <li>
-<p> The base and recommended packages (level 1).
+<p> The base and recommended packages (levels 1 and 2).
 </p>
 </li>
 <li>
 <p> Other packages found in the library trees specified by
 <code>lib.loc</code> in the order of the trees and alphabetically within a
-library tree (level 2).
+library tree (level 3).
 </p>
 </li>
 </ul>
@@ -3696,6 +3876,116 @@ directory of an installed package.  So these are of the form
 <h3>Author(s)</h3>
 
 <p>Duncan Murdoch, Brian Ripley</p>
+
+<hr>
+</div></div>
+<div class="container manual-page" id="licensetools"><div class="page-main">
+<a href="#licensetools" class="help-page-title"><h2>License Tools</h2></a>
+
+<h3>Description</h3>
+
+<p>Tools for computing on license specifications.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">analyze_license(x)
+</code><code class="language-r">analyze_license<span class="token punctuation">(</span>x<span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table role="presentation"><tr>
+<td><code id="x">x</code></td>
+<td>
+<p>a character string.</p>
+</td>
+</tr></table>
+<h3>Details</h3>
+
+<p>R packages use the ‘<span class="samp">⁠License⁠</span>’ field in their ‘<span class="file">DESCRIPTION</span>’
+file to specify their license in a standardized form described in
+section ‘Licenses’ of the ‘Writing R Extensions’ manual.
+This uses alternatives of individual specifications
+(‘components’) which can use version restrictions or give
+pointers to ‘<span class="file">LICENSE</span>’ (or ‘<span class="file">LICENCE</span>’) files either
+restricting the base license or giving a full license.
+</p>
+<p>Function <code>analyze_license()</code> checks if a given character string
+provides such a standardized license spec (or something recognized as
+a historic exception which can be transformed to a standardized spec).
+If standardizable, it extracts the individual components and where
+these give version ranges the corresponding expansions into components
+with fixed versions.  It also indicates whether the license can be
+verified to be <abbr>FOSS</abbr>
+(<a href="https://en.wikipedia.org/wiki/Free_and_open-source_software" target="_blank">https://en.wikipedia.org/wiki/Free_and_open-source_software</a>)
+licenses.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list with elements including
+</p>
+<table role="presentation">
+<tr>
+<td><code>is_canonical</code></td>
+<td>
+<p>a logical indicating whether the given string 
+is a standardized license spec.</p>
+</td>
+</tr>
+<tr>
+<td><code>is_standardizable</code></td>
+<td>
+<p>a logical indicating whether the given string
+is a standardized license spec, or can be transformed to one.</p>
+</td>
+</tr>
+<tr>
+<td><code>standardization</code></td>
+<td>
+<p>a character string giving the standardized
+license spec corresponding to the given string if this is
+standardizable.</p>
+</td>
+</tr>
+<tr>
+<td><code>components</code></td>
+<td>
+<p>the components of the standardized license spec.</p>
+</td>
+</tr>
+<tr>
+<td><code>expansions</code></td>
+<td>
+<p>the expansions of the components of the standardized
+license spec.</p>
+</td>
+</tr>
+<tr>
+<td><code>is_verified</code></td>
+<td>
+<p>a logical indicating whether the given string can
+be verified to specify a <abbr>FOSS</abbr> license.</p>
+</td>
+</tr>
+</table>
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Examples from section 'Licenses' of 'Writing R Extensions':
+analyze_license("GPL-2")
+analyze_license("LGPL (&gt;= 2.0, &lt; 3) | Mozilla Public License")
+analyze_license("GPL-2 | file LICENCE")
+analyze_license("GPL (&gt;= 2) | BSD_3_clause + file LICENSE")
+analyze_license("Artistic-2.0 | AGPL-3 + file LICENSE")
+</code><code class="language-r"><span class="token comment">## Examples from section 'Licenses' of 'Writing R Extensions':</span>
+analyze_license<span class="token punctuation">(</span><span class="token string">"GPL-2"</span><span class="token punctuation">)</span>
+analyze_license<span class="token punctuation">(</span><span class="token string">"LGPL (&gt;= 2.0, &lt; 3) | Mozilla Public License"</span><span class="token punctuation">)</span>
+analyze_license<span class="token punctuation">(</span><span class="token string">"GPL-2 | file LICENCE"</span><span class="token punctuation">)</span>
+analyze_license<span class="token punctuation">(</span><span class="token string">"GPL (&gt;= 2) | BSD_3_clause + file LICENSE"</span><span class="token punctuation">)</span>
+analyze_license<span class="token punctuation">(</span><span class="token string">"Artistic-2.0 | AGPL-3 + file LICENSE"</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div></div>
@@ -3719,7 +4009,7 @@ loadPkgRdMacros<span class="token punctuation">(</span>pkgdir<span class="token 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -3843,7 +4133,7 @@ parse_Rd<span class="token punctuation">(</span>textConnection<span class="token
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="srcdir">srcdir</code></td>
 <td>
@@ -3975,7 +4265,7 @@ followConcordance<span class="token punctuation">(</span>concordance<span class=
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="linenum">linenum</code></td>
 <td>
@@ -4130,24 +4420,33 @@ if no concordance strings are found.
 
 <h3>Description</h3>
 
-<p>Compute the 32-byte MD5 hashes of one or more files.
+<p>Compute the 32-byte MD5 hashes of one or more files, or a raw vector of bytes.
 </p>
 
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r-input" hidden="hidden">md5sum(files)
-</code><code class="language-r">md5sum<span class="token punctuation">(</span>files<span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">md5sum(files, bytes)
+</code><code class="language-r">md5sum<span class="token punctuation">(</span>files<span class="token punctuation">,</span> bytes<span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation">
+<tr>
 <td><code id="files">files</code></td>
 <td>
 <p>character. The paths of file(s) whose contents are to be hashed.</p>
 </td>
-</tr></table>
+</tr>
+<tr>
+<td><code id="bytes">bytes</code></td>
+<td>
+<p>raw. Bytes to be hashed.
+NB: <code>bytes</code> and <code>files</code> are mutually exclusive.</p>
+</td>
+</tr>
+</table>
 <h3>Details</h3>
 
 <p>A MD5 ‘hash’ or ‘checksum’ or ‘message digest’ is
@@ -4167,10 +4466,13 @@ correctly and not subsequently accidentally modified.
 
 <h3>Value</h3>
 
-<p>A character vector of the same length as <code>files</code>, with names
+<p>If used with <code>files</code>,
+a character vector of the same length as <code>files</code>, with names
 equal to <code>files</code> (possibly expanded).  The elements will be
 <code>NA</code> for non-existent or unreadable files, otherwise a
 32-character string of hexadecimal digits.
+</p>
+<p>For <code>bytes</code> the result is a single 32-character string.
 </p>
 
 
@@ -4183,14 +4485,18 @@ a 2001 release of <code>glibc</code>.
 
 <h3>See Also</h3>
 
-<p><code><a href="#checkMD5sums">checkMD5sums</a></code>
+<p><code><a href="#checkMD5sums">checkMD5sums</a></code>, <code><a href="#sha256sum">sha256sum</a></code>
 </p>
 
 
 <h3>Examples</h3>
 
 <pre class="language-r"><code class="language-r-input" hidden="hidden">as.vector(md5sum(dir(R.home(), pattern = "^COPY", full.names = TRUE)))
-</code><code class="language-r">as.vector<span class="token punctuation">(</span>md5sum<span class="token punctuation">(</span>dir<span class="token punctuation">(</span>R.home<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pattern <span class="token operator">=</span> <span class="token string">"^COPY"</span><span class="token punctuation">,</span> full.names <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+md5sum(bytes=raw())
+md5sum(bytes=charToRaw("abc"))
+</code><code class="language-r">as.vector<span class="token punctuation">(</span>md5sum<span class="token punctuation">(</span>dir<span class="token punctuation">(</span>R.home<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pattern <span class="token operator">=</span> <span class="token string">"^COPY"</span><span class="token punctuation">,</span> full.names <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+md5sum<span class="token punctuation">(</span>bytes<span class="token operator">=</span>raw<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+md5sum<span class="token punctuation">(</span>bytes<span class="token operator">=</span>charToRaw<span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div></div>
@@ -4215,7 +4521,7 @@ a 2001 release of <code>glibc</code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="packages">packages</code></td>
 <td>
@@ -4358,7 +4664,7 @@ Write Skeleton for Adding Native Routine Registration to a Package
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="dir">dir</code></td>
 <td>
@@ -4632,7 +4938,7 @@ as.character<span class="token punctuation">(</span>x<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -4789,25 +5095,33 @@ characters.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r-input" hidden="hidden">parseLatex(text, filename = deparse1(substitute(text)),
+<pre class="language-r"><code class="language-r-input" hidden="hidden">parseLatex(text, filename = "text",
            verbose = FALSE,
            verbatim = c("verbatim", "verbatim*",
                         "Sinput", "Soutput"),
-           verb = "\\Sexpr")
+           verb = "\\Sexpr",
+           defcmd = c("\\newcommand", "\\renewcommand",
+                      "\\providecommand", "\\def", "\\let"),
+           defenv = c("\\newenvironment",
+                      "\\renewenvironment"))
 deparseLatex(x, dropBraces = FALSE)
 latexToUtf8(x)
-</code><code class="language-r">parseLatex<span class="token punctuation">(</span>text<span class="token punctuation">,</span> filename <span class="token operator">=</span> deparse1<span class="token punctuation">(</span>substitute<span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+</code><code class="language-r">parseLatex<span class="token punctuation">(</span>text<span class="token punctuation">,</span> filename <span class="token operator">=</span> <span class="token string">"text"</span><span class="token punctuation">,</span>
            verbose <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
            verbatim <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"verbatim"</span><span class="token punctuation">,</span> <span class="token string">"verbatim*"</span><span class="token punctuation">,</span>
                         <span class="token string">"Sinput"</span><span class="token punctuation">,</span> <span class="token string">"Soutput"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-           verb <span class="token operator">=</span> <span class="token string">"\\Sexpr"</span><span class="token punctuation">)</span>
+           verb <span class="token operator">=</span> <span class="token string">"\\Sexpr"</span><span class="token punctuation">,</span>
+           defcmd <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"\\newcommand"</span><span class="token punctuation">,</span> <span class="token string">"\\renewcommand"</span><span class="token punctuation">,</span>
+                      <span class="token string">"\\providecommand"</span><span class="token punctuation">,</span> <span class="token string">"\\def"</span><span class="token punctuation">,</span> <span class="token string">"\\let"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+           defenv <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"\\newenvironment"</span><span class="token punctuation">,</span>
+                      <span class="token string">"\\renewenvironment"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 deparseLatex<span class="token punctuation">(</span>x<span class="token punctuation">,</span> dropBraces <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 latexToUtf8<span class="token punctuation">(</span>x<span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="text">text</code></td>
 <td>
@@ -4820,7 +5134,7 @@ latexToUtf8<span class="token punctuation">(</span>x<span class="token punctuati
 <td><code id="filename">filename</code></td>
 <td>
 
-<p>A filename to use in syntax error messages.
+<p>No longer used.
 </p>
 </td>
 </tr>
@@ -4846,6 +5160,17 @@ latexToUtf8<span class="token punctuation">(</span>x<span class="token punctuati
 
 <p>A character vector containing LaTeX macros that should be 
 assumed to hold verbatim text.
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code id="defcmd">defcmd</code>, <code id="defenv">defenv</code>
+</td>
+<td>
+
+<p>Character vectors containing LaTeX macros that should be assumed
+to define macros or environments respectively.
 </p>
 </td>
 </tr>
@@ -4953,11 +5278,11 @@ contained in an installed or source R package.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
-<p> a character string, typically giving the name of an
+<p> typically a character string giving the name of an
 installed package. Can also be a file path or URL pointing to a source
 tarball (this feature is experimental).
 </p>
@@ -5061,7 +5386,7 @@ examples section is wrapped inside a <code>rcode</code> block.
 <td><code id="mathjax_config">mathjax_config</code></td>
 <td>
 <p> character string giving path of file containing
-configuration instructions for mathjax. Relevant only if
+configuration instructions for MathJax. Relevant only if
 <code>texmath = "mathjax"</code>.
 </p>
 </td>
@@ -5155,7 +5480,7 @@ SIGUSR2</code></pre>
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pid">pid</code></td>
 <td>
@@ -5243,7 +5568,7 @@ more other processes.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pid">pid</code></td>
 <td>
@@ -5334,7 +5659,7 @@ nonS3methods<span class="token punctuation">(</span>package<span class="token pu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -5372,8 +5697,10 @@ documentation of arguments.</p>
 <h3>Details</h3>
 
 <p><code>checkDocFiles</code> checks, for all Rd files in a package, whether all
-arguments shown in the usage sections of the Rd file are documented in
-its arguments section.  It also reports duplicated entries in the
+functions shown in the usage section of the Rd file have a corresponding
+<code style="white-space: pre;">⁠\alias⁠</code>,
+and all of their arguments are documented in
+the arguments section.  It also reports duplicated entries in the
 arguments section, and ‘over-documented’ arguments which are
 given in the arguments section but not in the usage.
 </p>
@@ -5437,6 +5764,143 @@ contained in such objects.
 
 <hr>
 </div></div>
+<div class="container manual-page" id="R"><div class="page-main">
+<a href="#R" class="help-page-title"><h2>Call Function in Inferior R Process</h2></a>
+
+<h3>Description</h3>
+
+<p>Call a function with given arguments in a new (“inferior”) R
+process.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">R(fun, args = list(), opts = "--no-save --no-restore", 
+  env = character(), arch = "", drop = TRUE, timeout = 0)
+</code><code class="language-r">R<span class="token punctuation">(</span>fun<span class="token punctuation">,</span> args <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> opts <span class="token operator">=</span> <span class="token string">"--no-save --no-restore"</span><span class="token punctuation">,</span> 
+  env <span class="token operator">=</span> character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> arch <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> drop <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> timeout <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table role="presentation">
+<tr>
+<td><code id="fun">fun</code></td>
+<td>
+<p>a function to call in the inferior R process.</p>
+</td>
+</tr>
+<tr>
+<td><code id="args">args</code></td>
+<td>
+<p>a list of arguments to the function call.</p>
+</td>
+</tr>
+<tr>
+<td><code id="opts">opts</code></td>
+<td>
+<p>a character vector of command line options to use when
+starting the inferior R process.</p>
+</td>
+</tr>
+<tr>
+<td><code id="env">env</code></td>
+<td>
+<p>a character vector of name=value strings to set environment
+variables to use when starting the inferior R process.</p>
+</td>
+</tr>
+<tr>
+<td><code id="arch">arch</code></td>
+<td>
+<p>a character string giving a sub-architecture to use for
+the inferior R process.</p>
+</td>
+</tr>
+<tr>
+<td><code id="drop">drop</code></td>
+<td>
+<p>a logical controlling what gets returned in case of
+“success” (when there was no error running the inferior R
+process and the value of the function call is not a condition
+object).  By default, in this case only that value is returned.
+If <code>drop = FALSE</code>, a list with that value and status, stdout
+and stderr of running the inferior R process.</p>
+</td>
+</tr>
+<tr>
+<td><code id="timeout">timeout</code></td>
+<td>
+<p>a timeout in seconds for the inferior R process,
+ignored if 0.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>The given function and argument list are serialized into a
+tempfile.
+Then, an inferior R process is run via (a wrapper for)
+<code><a href="https://r-universe.dev/manuals/base.html#system2">system2</a>()</code> as controlled by arguments <code>opts</code>,
+<code>env</code>, <code>arch</code> and <code>timeout</code>, the input of which loads
+the tempfile and calls the function with the argument list.
+It is ensured that an appropriate CRAN mirror is set.
+</p>
+
+
+<h3>Value</h3>
+
+<p>In case of “success” (see above), the value of the function
+call if <code>drop = TRUE</code> (default), or a named list with the value
+and the status, stdout and stderr of running the inferior R process.
+</p>
+<p>Otherwise, currently an error condition object inheriting from
+<code>"inferiorCallError"</code> with the result (status, stdout and stderr)
+of running the inferior R process, and in case this was successfully
+run but the value of the function call is a condition object, that
+object in the <code>value</code> element.
+</p>
+<p>What gets returned in the non-success case may change in the future,
+perhaps using two different classes for the two cases of
+“failure” (i.e., failure in running the inferior R process or
+calling the function).
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Compute cos(0) in an inferior R process.
+## By default, only return the value of the function call.
+R(cos, list(0))
+## If 'drop = FALSE', we also get status, stdout and stderr.
+
+R(cos, list(0), drop = FALSE)
+    
+
+## A call giving an error:
+(e &lt;- tryCatch(R(stop, list("FOOBAR")), error = identity))
+## The inferior R process ran successfully:
+e$status
+## The function call gave an error:
+e$value
+</code><code class="language-r"><span class="token comment">## Compute cos(0) in an inferior R process.</span>
+<span class="token comment">## By default, only return the value of the function call.</span>
+R<span class="token punctuation">(</span>cos<span class="token punctuation">,</span> list<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">## If 'drop = FALSE', we also get status, stdout and stderr.</span>
+
+R<span class="token punctuation">(</span>cos<span class="token punctuation">,</span> list<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> drop <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+    
+
+<span class="token comment">## A call giving an error:</span>
+<span class="token punctuation">(</span>e <span class="token operator">&lt;-</span> tryCatch<span class="token punctuation">(</span>R<span class="token punctuation">(</span>stop<span class="token punctuation">,</span> list<span class="token punctuation">(</span><span class="token string">"FOOBAR"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> error <span class="token operator">=</span> identity<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">## The inferior R process ran successfully:</span>
+e<span class="token operator">$</span>status
+<span class="token comment">## The function call gave an error:</span>
+e<span class="token operator">$</span>value</code></pre>
+
+<hr>
+</div></div>
 <div class="container manual-page" id="Rcmd"><div class="page-main">
 <a href="#Rcmd" class="help-page-title"><h2>
 <code>R CMD</code> Interface</h2></a>
@@ -5455,7 +5919,7 @@ contained in such objects.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="args">args</code></td>
 <td>
@@ -5516,7 +5980,7 @@ Rd2txt(Rd, out = "", package = "", defines = .Platform$OS.type,
 
 Rd2latex(Rd, out = "", defines = .Platform$OS.type,
          stages = "render", outputEncoding = "UTF-8",
-         fragment = FALSE, ..., writeEncoding = TRUE,
+         fragment = FALSE, ..., writeEncoding = outputEncoding != "UTF-8",
          concordance = FALSE)
 
 Rd2ex(Rd, out = "", defines = .Platform$OS.type,
@@ -5541,7 +6005,7 @@ Rd2txt<span class="token punctuation">(</span>Rd<span class="token punctuation">
 
 Rd2latex<span class="token punctuation">(</span>Rd<span class="token punctuation">,</span> out <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> defines <span class="token operator">=</span> .Platform<span class="token operator">$</span>OS.type<span class="token punctuation">,</span>
          stages <span class="token operator">=</span> <span class="token string">"render"</span><span class="token punctuation">,</span> outputEncoding <span class="token operator">=</span> <span class="token string">"UTF-8"</span><span class="token punctuation">,</span>
-         fragment <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> writeEncoding <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
+         fragment <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span> writeEncoding <span class="token operator">=</span> outputEncoding <span class="token operator">!=</span> <span class="token string">"UTF-8"</span><span class="token punctuation">,</span>
          concordance <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 
 Rd2ex<span class="token punctuation">(</span>Rd<span class="token punctuation">,</span> out <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> defines <span class="token operator">=</span> .Platform<span class="token operator">$</span>OS.type<span class="token punctuation">,</span>
@@ -5551,7 +6015,7 @@ Rd2ex<span class="token punctuation">(</span>Rd<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="Rd">Rd</code></td>
 <td>
@@ -5653,7 +6117,7 @@ omitted, so that the output can be combined with other fragments.
 <tr>
 <td><code id="hooks">hooks</code></td>
 <td>
-<p>A list of functions controlling details of
+<p>a list of functions controlling details of
 output. Currently the only component used is <code>pkg_href</code>, which
 is used by <code>pkg2HTML</code> to determine the output HTML file path
 given a package name as input. </p>
@@ -5686,7 +6150,7 @@ links, as returned by <code><a href="#HTMLlinks">findHTMLlinks</a></code>.</p>
 <tr>
 <td><code id="options">options</code></td>
 <td>
-<p>An optional named list of options to pass to
+<p>an optional named list of options to pass to
 <code><a href="#Rd2txt_options">Rd2txt_options</a></code>.</p>
 </td>
 </tr>
@@ -5700,21 +6164,22 @@ links, as returned by <code><a href="#HTMLlinks">findHTMLlinks</a></code>.</p>
 <tr>
 <td><code id="writeEncoding">writeEncoding</code></td>
 <td>
-<p>should <code style="white-space: pre;">⁠\inputencoding⁠</code> lines be written in
-the file for non-ASCII encodings?</p>
+<p>logical: should an <code style="white-space: pre;">⁠\inputencoding⁠</code> line be written
+for non-ASCII encodings? LaTeX release 2018-04-01 and later
+default to UTF-8; the declaration is obsolete in that case.</p>
 </td>
 </tr>
 <tr>
 <td><code id="commentDontrun">commentDontrun</code></td>
 <td>
-<p>should <code style="white-space: pre;">⁠\dontrun⁠</code> sections be commented
+<p>logical: should <code style="white-space: pre;">⁠\dontrun⁠</code> sections be commented
 out?</p>
 </td>
 </tr>
 <tr>
 <td><code id="commentDonttest">commentDonttest</code></td>
 <td>
-<p>should <code style="white-space: pre;">⁠\donttest⁠</code> sections be commented out?</p>
+<p>logical: should <code style="white-space: pre;">⁠\donttest⁠</code> sections be commented out?</p>
 </td>
 </tr>
 </table>
@@ -5811,17 +6276,17 @@ page is converted to a readable format).
 <ol>
 <li>
 <p> built on
-2024-06-16 at 05:27:52,
+2025-04-12 at 08:15:54,
 </p>
 </li>
 <li>
 <p> installed on
-2024-06-16 at 05:27:52, and
+2025-04-12 at 08:15:54, and
 </p>
 </li>
 <li>
 <p> rendered on
-2024-09-28 at 14:34:40.
+2025-05-02 at 11:11:53.
 </p>
 </li>
 </ol>
@@ -5883,7 +6348,7 @@ Rd2txt<span class="token punctuation">(</span>Rd<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="...">...</code></td>
 <td>
 <p>A list containing named options, or
@@ -6004,7 +6469,7 @@ footers and some other differences.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="from">from</code>, <code id="to">to</code>
@@ -6074,6 +6539,8 @@ by GNU, Solaris and FreeBSD versions – macOS uses an old GNU version.)
 <p>Mainly for use in examples and tests, text from marker
 ‘<span class="samp">⁠&gt; ## IGNORE_RDIFF_BEGIN⁠</span>’ up to (but not including)
 ‘<span class="samp">⁠&gt; ## IGNORE_RDIFF_END⁠</span>’ is ignored.
+In examples, since <span class="rlang"><b>R</b></span> 4.4.0, the built-in Rd macro <code style="white-space: pre;">⁠\dontdiff{}⁠</code>
+can be used instead.
 </p>
 
 
@@ -6118,7 +6585,7 @@ and 72, respectively).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="RdFiles">RdFiles</code></td>
 <td>
@@ -6191,7 +6658,7 @@ for spell checking or other uses.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="ifile">ifile</code></td>
 <td>
@@ -6309,7 +6776,7 @@ the Rd file is used to highlight just the start of a word.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -6420,7 +6887,7 @@ packages.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="file">file</code></td>
 <td>
 <p>the name of a file to read data values from.  If the
@@ -6446,6 +6913,86 @@ function call.</p>
 
 <hr>
 </div></div>
+<div class="container manual-page" id="sha256sum"><div class="page-main">
+<a href="#sha256sum" class="help-page-title"><h2>Compute <abbr>SHA</abbr>-256 Checksums</h2></a>
+
+<h3>Description</h3>
+
+<p>Compute the 32-byte <abbr>SHA</abbr>-256 hashes of one or more files, or a raw vector of bytes.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">sha256sum(files, bytes)
+</code><code class="language-r">sha256sum<span class="token punctuation">(</span>files<span class="token punctuation">,</span> bytes<span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table role="presentation">
+<tr>
+<td><code id="files">files</code></td>
+<td>
+<p>character. The paths of file(s) whose contents are to be hashed.</p>
+</td>
+</tr>
+<tr>
+<td><code id="bytes">bytes</code></td>
+<td>
+<p><code><a href="https://r-universe.dev/manuals/base.html#raw">raw</a></code>. Bytes to be hashed.
+NB: <code>bytes</code> and <code>files</code> are mutually exclusive.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>A <abbr>SHA</abbr>-256 ‘hash’ or ‘checksum’ or ‘message digest’ is
+a 256-bit summary of the file contents represented by 64 hexadecimal
+digits.
+</p>
+<p>On Windows all files are read in binary mode (as the <code>sha256sum</code>
+utilities there do): on other OSes the files are read in the default
+mode (almost always text mode where there is more than one).
+</p>
+
+
+<h3>Value</h3>
+
+<p>If used with <code>files</code>,
+a character vector of the same length as <code>files</code>, with names
+equal to <code>files</code> (possibly expanded).  The elements will be
+<code>NA</code> for non-existent or unreadable files, otherwise a
+64-character string of hexadecimal digits.
+</p>
+<p>For <code>bytes</code> the result is a single 64-character string.
+</p>
+
+
+<h3>Source</h3>
+
+<p>The underlying C code was written by Ulrich Drepper, extracted from
+the public domain version ‘<span class="file">SHA-crypt.txt</span>’ version 0.6 (2016-8-31).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="#md5sum">md5sum</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">as.vector(sha256sum(dir(R.home(), pattern = "^COPY", full.names = TRUE)))
+sha256sum(bytes=raw())
+sha256sum(bytes=charToRaw("abc"))
+</code><code class="language-r">as.vector<span class="token punctuation">(</span>sha256sum<span class="token punctuation">(</span>dir<span class="token punctuation">(</span>R.home<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pattern <span class="token operator">=</span> <span class="token string">"^COPY"</span><span class="token punctuation">,</span> full.names <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+sha256sum<span class="token punctuation">(</span>bytes<span class="token operator">=</span>raw<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+sha256sum<span class="token punctuation">(</span>bytes<span class="token operator">=</span>charToRaw<span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div></div>
 <div class="container manual-page" id="showNonASCII"><div class="page-main">
 <a href="#showNonASCII" class="help-page-title"><h2>Pick Out Non-ASCII Characters</h2></a>
 
@@ -6468,7 +7015,7 @@ showNonASCIIfile<span class="token punctuation">(</span>file<span class="token p
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6551,7 +7098,7 @@ are rendered when requested.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="start">start</code></td>
 <td>
 <p>logical: whether to start or shut down the dynamic help
@@ -6621,7 +7168,7 @@ input file, for spell checking or other uses.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="ifile">ifile</code></td>
 <td>
@@ -6712,7 +7259,7 @@ standard_package_names<span class="token punctuation">(</span><span class="token
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pkg">pkg</code></td>
 <td>
@@ -6799,7 +7346,8 @@ The package-specific tests are run in a ‘<span class="file"><var>pkg</var>-tes
 </p>
 <p><code>testInstalledBasic</code> runs the basic tests, if installed or inside
 <code>testSrcdir</code>.  This
-should be run with <code>LC_COLLATE=C</code> set: the function tries to set
+should be run with <a href="https://r-universe.dev/manuals/base.html#locales"><span class="env">LC_COLLATE</span></a> set to ‘<span class="samp">⁠C⁠</span>’:
+the function tries to set
 this but it may not work on all OSes.  For non-English locales it may
 be desirable to set environment variables <span class="env">LANGUAGE</span> to ‘<span class="samp">⁠en⁠</span>’
 and <span class="env">LC_TIME</span> to ‘<span class="samp">⁠C⁠</span>’ to reduce the number of differences from
@@ -6811,8 +7359,11 @@ run the package tests in parallel using its value as the maximum
 number of parallel processes.
 </p>
 <p>The package-specific tests for the base and recommended packages are
-not normally installed, but <code>make install-tests</code> is provided
-to do so (as well as the basic tests).
+an optional part of the install, where on unix-alikes, i.e., not on Windows,
+<code>make install-tests</code> is provided to do so (as well as the basic tests).
+</p>
+<p>On Windows, currently testing requires a Unix-like <code>diff</code> for a
+full report if more than simple differences are found.
 </p>
 
 
@@ -6823,7 +7374,7 @@ to do so (as well as the basic tests).
 <p><code>standard_package_names()</code> returns a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with
 components named
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>base</code></td>
 <td>
@@ -6888,7 +7439,7 @@ texi2pdf<span class="token punctuation">(</span>file<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -6930,7 +7481,7 @@ can be selected by the value <code>"emulation"</code>).  See also
 <tr>
 <td><code id="texinputs">texinputs</code></td>
 <td>
-<p><code>NULL</code> or a character vector of paths to add to
+<p><code>NULL</code> or a character vector of paths to prepend to
 the LaTeX and BibTeX input search paths.</p>
 </td>
 </tr>
@@ -6952,9 +7503,9 @@ specifically those generated from vignettes and by the
 ensures that the ‘<span class="file"><var><a href="https://r-universe.dev/manuals/base.html#Rhome">R_HOME</a></var>/share/texmf</span>’ directory is
 in the <span class="env">TEXINPUTS</span> path, so <span class="rlang"><b>R</b></span> style files such as ‘<span class="file">Sweave.sty</span>’
 and ‘<span class="file">Rd.sty</span>’ will be found.  The TeX search path used is first the
+elements of argument <code>texinputs</code>, then the
 existing <span class="env">TEXINPUTS</span> setting (or the current directory if unset),
-then elements of argument <code>texinputs</code>, then
-‘<span class="file"><var>R_HOME</var>/share/texmf</span>’ and finally the default path.
+then ‘<span class="file"><var>R_HOME</var>/share/texmf</span>’ and finally the system paths.
 Analogous changes are made to <span class="env">BIBINPUTS</span> and <span class="env">BSTINPUTS</span>
 settings.
 </p>
@@ -6965,7 +7516,7 @@ variable <span class="env">TEXI2DVI</span> or if that is unset, from a value cho
 </p>
 
 
-<p>A shell script <code>texi2dvi</code> is part of GNU's <span class="pkg">texinfo</span>.
+<p>A shell script <code>texi2dvi</code> is part of GNU Texinfo.
 Several issues have been seen with released versions, so if yours does
 not work correctly try <span class="env">R_TEXI2DVICMD=emulation</span>.
 </p>
@@ -7005,8 +7556,7 @@ Unix-alike <code>texi2dvi</code> script removes ancillary files that already
 exist but the other two approaches do not (and may get confused by
 such files).
 </p>
-<p>Where supported (<code>texi2dvi</code> 5.0 and later;
-<code>texify.exe</code> from MiKTeX), option <span class="option">--max-iterations=20</span>
+<p>Option <span class="option">--max-iterations=20</span>
 is used to avoid infinite retries.
 </p>
 <p>The emulation mode supports <code>quiet = TRUE</code> from <span class="rlang"><b>R</b></span> 3.2.3 only.
@@ -7052,7 +7602,7 @@ toHTML<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -7131,7 +7681,7 @@ toRd<span class="token punctuation">(</span>obj<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="obj">obj</code></td>
 <td>
@@ -7179,7 +7729,7 @@ object of that class to markup appropriate for use in a bibliography.
 
 <h3>Description</h3>
 
-<p>Convert a character vector to title case, especially package titles.
+<p>Convert a character vector to title case for English, especially package titles.
 </p>
 
 
@@ -7191,7 +7741,7 @@ object of that class to markup appropriate for use in a bibliography.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="text">text</code></td>
 <td>
 <p>a character vector.</p>
@@ -7201,7 +7751,7 @@ object of that class to markup appropriate for use in a bibliography.
 
 <p>This is intended for English text only.
 </p>
-<p>No definition of‘title case’ is universally accepted: all agree
+<p>No definition of ‘title case’ is universally accepted: all agree
 that ‘principal’ words are capitalized and common words like
 ‘for’ are not, but not which words fall into each category.
 </p>
@@ -7219,6 +7769,30 @@ quoted in titles.
 
 <p>A character vector of the same length as <code>text</code>, without names.
 </p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">toTitleCase("bayesian network modeling and analysis")
+toTitleCase("ensemble tool for predictions from species distribution models")
+## Treatment after "-":
+toTitleCase("small- and large-scale analysis") # lowercase "and"
+
+toTitleCase("a small fox is jumping")    # "a Small Fox is .."     (the 'a' may change)% i.e. BUG
+toTitleCase("is a small fox jumping?")   # "Is a Small Fox .."     (fine)
+## After ":", start a new sentence
+toTitleCase("a pangram: the quick brown fox jumps over the lazy dog")
+toTitleCase("asking -- 'is a small fox jumping?'") # ".. -- Is a Small ..."     (fine)
+</code><code class="language-r">toTitleCase<span class="token punctuation">(</span><span class="token string">"bayesian network modeling and analysis"</span><span class="token punctuation">)</span>
+toTitleCase<span class="token punctuation">(</span><span class="token string">"ensemble tool for predictions from species distribution models"</span><span class="token punctuation">)</span>
+<span class="token comment">## Treatment after "-":</span>
+toTitleCase<span class="token punctuation">(</span><span class="token string">"small- and large-scale analysis"</span><span class="token punctuation">)</span> <span class="token comment"># lowercase "and"</span>
+
+toTitleCase<span class="token punctuation">(</span><span class="token string">"a small fox is jumping"</span><span class="token punctuation">)</span>    <span class="token comment"># "a Small Fox is .."     (the 'a' may change)% i.e. BUG</span>
+toTitleCase<span class="token punctuation">(</span><span class="token string">"is a small fox jumping?"</span><span class="token punctuation">)</span>   <span class="token comment"># "Is a Small Fox .."     (fine)</span>
+<span class="token comment">## After ":", start a new sentence</span>
+toTitleCase<span class="token punctuation">(</span><span class="token string">"a pangram: the quick brown fox jumps over the lazy dog"</span><span class="token punctuation">)</span>
+toTitleCase<span class="token punctuation">(</span><span class="token string">"asking -- 'is a small fox jumping?'"</span><span class="token punctuation">)</span> <span class="token comment"># ".. -- Is a Small ..."     (fine)</span></code></pre>
 
 <hr>
 </div></div>
@@ -7241,7 +7815,7 @@ provided by the package), but no documentation entry exists.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -7337,7 +7911,7 @@ repository indexes, particularly in non-strict mode (see Details).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="dir">dir</code></td>
 <td>
@@ -7568,7 +8142,7 @@ the translations.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pkgdir">pkgdir</code></td>
 <td>
@@ -7714,6 +8288,104 @@ except in a UTF-8 locale, so these are skipped elsewhere.
 
 <hr>
 </div></div>
+<div class="container manual-page" id="urltools"><div class="page-main">
+<a href="#urltools" class="help-page-title"><h2>Check Package URLs</h2></a>
+
+<h3>Description</h3>
+
+<p>Check URLs in package sources.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">check_package_urls(dir, verbose = FALSE)
+parse_URI_reference(x)
+</code><code class="language-r">check_package_urls<span class="token punctuation">(</span>dir<span class="token punctuation">,</span> verbose <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+parse_URI_reference<span class="token punctuation">(</span>x<span class="token punctuation">)</span></code></pre>
+
+
+<h3 class="r-arguments-title">Arguments</h3>
+
+<table role="presentation">
+<tr>
+<td><code id="dir">dir</code></td>
+<td>
+<p>a character string specifying the path to a package's root 
+source directory.</p>
+</td>
+</tr>
+<tr>
+<td><code id="verbose">verbose</code></td>
+<td>
+<p>a logical indicating if output should monitor check
+progress.</p>
+</td>
+</tr>
+<tr>
+<td><code id="x">x</code></td>
+<td>
+<p>a character vector of <abbr>URI</abbr>s.</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>Checking URLs is performed in parallel using <a href="https://CRAN.R-project.org/package=curl" target="_blank"><span class="pkg">curl</span></a> (so this
+must be installed for checking).
+</p>
+<p>The URLs checked are extracted from the package ‘<span class="file">DESCRIPTION</span>’
+(‘<span class="samp">⁠Description⁠</span>’, ‘<span class="samp">⁠URL⁠</span>’ and ‘<span class="samp">⁠BugReports⁠</span>’ fields), Rd,
+‘<span class="file">CITATION</span>’ and ‘<span class="file">NEWS.md</span>’ files, if package <a href="https://CRAN.R-project.org/package=xml2" target="_blank"><span class="pkg">xml2</span></a> is
+installed also from the ‘<span class="file">.html</span>’ files in ‘<span class="file">inst/doc</span>’, and if
+additionally <code>pandoc</code> is available on the system the
+‘<span class="file">README.md</span>’ and ‘<span class="file">NEWS.md</span>’ files.
+</p>
+<p>For efficiency reasons, URLs are first checked using ‘<span class="samp">⁠HEAD⁠</span>’
+requests, and the ones with non-OK (200) status codes re-checked via
+‘<span class="samp">⁠GET⁠</span>’ requests (unfortunately, ‘<span class="samp">⁠HEAD⁠</span>’ requests are not
+always honored appropriately).
+</p>
+<p><code>parse_URI_reference()</code> is a helper which splits URI references
+into its scheme, authority, path, query and fragment parts.
+See RFC 3986 (<a href="https://www.rfc-editor.org/rfc/rfc3986" target="_blank">https://www.rfc-editor.org/rfc/rfc3986</a>) for more
+information.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>check_url_db()</code>, a data frame inheriting from class
+<code>check_url_db</code> with information on the URL check problems found.
+</p>
+<p>For <code>parse_URI_reference()</code>, a data frame with character
+variables <code>scheme</code>, <code>authority</code>, <code>path</code>, <code>query</code>
+and <code>fragment</code>. 
+</p>
+
+
+<h3>Note</h3>
+
+<p>This functionality is still experimental: interfaces may change in
+future versions. 
+</p>
+
+
+<h3>Examples</h3>
+
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Examples from RFC 3986.
+parse_URI_reference(c("foo://example.com:8042/over/there?name=ferret#nose",
+                      "urn:example:animal:ferret:nose",
+                      "mailto:John.Doe@example.com",
+                      "tel:+1-816-555-1212"))
+</code><code class="language-r"><span class="token comment">## Examples from RFC 3986.</span>
+parse_URI_reference<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"foo://example.com:8042/over/there?name=ferret#nose"</span><span class="token punctuation">,</span>
+                      <span class="token string">"urn:example:animal:ferret:nose"</span><span class="token punctuation">,</span>
+                      <span class="token string">"mailto:John.Doe@example.com"</span><span class="token punctuation">,</span>
+                      <span class="token string">"tel:+1-816-555-1212"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<hr>
+</div></div>
 <div class="container manual-page" id="userdir"><div class="page-main">
 <a href="#userdir" class="help-page-title"><h2>R User Directories</h2></a>
 
@@ -7732,7 +8404,7 @@ and cache files.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -7827,7 +8499,7 @@ is used by those packages to register their engines, and internally by
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="name">name</code></td>
 <td>
@@ -7910,7 +8582,7 @@ is used.
 <p>If the engine is being deleted, <code>NULL</code>.  Otherwise a list
 containing components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>name</code></td>
 <td>
@@ -7978,7 +8650,7 @@ containing components
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="file">file</code></td>
 <td>
 <p>file name of the vignette.</p>
@@ -7989,7 +8661,7 @@ containing components
 <p>A <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with the following
 <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>file</code></td>
 <td>
@@ -8068,7 +8740,7 @@ files for a repository of source or Mac/Windows binary packages.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="dir">dir</code></td>
 <td>
@@ -8104,7 +8776,7 @@ are used.
 <td><code id="type">type</code></td>
 <td>
 
-<p>Type of packages: currently source ‘<span class="file">.tar.{gz,bz2,xz}</span>’ archives,
+<p>Type of packages: currently source ‘<span class="file">.tar.{gz,bz2,xz,zstd}</span>’ archives,
 and macOS or Windows binary (‘<span class="file">.tgz</span>’ or ‘<span class="file">.zip</span>’,
 respectively) packages are supported.  Defaults to
 <code>"win.binary"</code> on Windows and to <code>"source"</code> otherwise.
@@ -8294,7 +8966,7 @@ xgettext2pot<span class="token punctuation">(</span>dir<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="dir">dir</code></td>
 <td>
@@ -8350,10 +9022,10 @@ to <code>gettext</code> (or <code>warning</code>, etc.) whose strings would be v
 if <code>asCall</code> is false.
 </p>
 <p><code>xgettext2pot</code> calls <code>xgettext</code> and then <code>xngettext</code>,
-and writes a PO template file (to <code>potFile</code>) for use with the <span class="pkg">GNU Gettext</span>
+and writes a PO template file (to <code>potFile</code>) for use with the GNU gettext
 tools.  This ensures that the strings for simple translation are
-unique in the file (as <span class="pkg">GNU Gettext</span> requires), but does not do so
-for <code>ngettext</code> calls (and the rules are not stated in the Gettext
+unique in the file (as GNU gettext requires), but does not do so
+for <code>ngettext</code> calls (and the rules are not stated in the GNU gettext
 manual, but <code>msgfmt</code> complains if there is duplication between
 the sets.).
 </p>
@@ -8463,6 +9135,6 @@ unlink<span class="token punctuation">(</span>tmpRDir<span class="token punctuat
 <hr>
 </div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.4.0</p></footer>
+    <footer><p>Rendered with postdoc 1.4.1</p></footer>
   </body>
 </html>

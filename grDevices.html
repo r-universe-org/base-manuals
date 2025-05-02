@@ -7,12 +7,12 @@
 
     <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
     <!-- for (future) customizations -->
     <script src="https://r-universe.dev/static/manual.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css">
 
   </head>
 
@@ -37,15 +37,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.4.1</td>
+<td class="description-license">Part of R 4.5.0</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.4.1</td>
+<td class="description-version">4.5.0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-06-15 17:27:20 UTC</td>
+<td class="description-date">2025-04-11 20:15:16 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -129,7 +129,6 @@ Hold or Flush Output on an On-Screen Graphics Device
 <li class="help-index-item"><a href="#windowsFonts">Windows Fonts</a></li>
 <li class="help-index-item"><a href="#x11">X Window System Graphics (X11)</a></li>
 <li class="help-index-item"><a href="#x11Fonts">X11 Fonts</a></li>
-<li class="help-index-item"><a href="#xfig">XFig Graphics Device</a></li>
 <li class="help-index-item"><a href="#xy.coords">Extracting Plotting Structures</a></li>
 <li class="help-index-item"><a href="#xyTable">Multiplicities of (x,y) Points, e.g., for a Sunflower Plot</a></li>
 <li class="help-index-item"><a href="#xyz.coords">Extracting Plotting Structures</a></li>
@@ -188,7 +187,7 @@ scaling them.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="col">col</code></td>
 <td>
@@ -319,7 +318,7 @@ palette<span class="token punctuation">(</span>opal<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object</p>
@@ -392,7 +391,7 @@ as.raster<span class="token punctuation">(</span>x<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -560,12 +559,14 @@ log scale axes.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="usr">usr</code></td>
 <td>
 <p>numeric vector of length 2, with <code>c(min, max)</code> axis
-extents.</p>
+extents.  Corresponds to traditional <span class="pkg">graphics</span>'
+<code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a>("usr")</code>, and hence for <code>log = TRUE</code>
+needs to use <code><a href="https://r-universe.dev/manuals/base.html#Log">log10</a>()</code> transformed coordinates.</p>
 </td>
 </tr>
 <tr>
@@ -602,7 +603,7 @@ integer <em>code</em> <code>n.</code>.
 <p><code>axisTicks(usr, *)</code> calls <code>.axisPars(usr, ..)</code> to set
 <code>axp</code> when that is missing or <code>NULL</code>.
 </p>
-<p>Apart from that, <code><a href="#axisTicks">axisTicks</a>()</code> just calls the C function
+<p>Apart from that, <code>axisTicks()</code> just calls the C function
 <code>CreateAtVector()</code> in ‘<span class="file"><var>R</var>/src/main/plot.c</span>’ which is also
 called by the base <span class="pkg">graphics</span> package function
 <code><a href="https://r-universe.dev/manuals/graphics.html#axis">axis</a>(side, *)</code> when its argument <code>at</code> is not
@@ -616,11 +617,12 @@ to provide a considerably more balanced (symmetric) set of tick locations.
 <h3>Value</h3>
 
 <p><code>axisTicks()</code> returns a numeric vector of potential axis tick
-locations, of length approximately <code>nint+1</code>.
+locations in case of <code>log=TRUE</code> in the original scale, of length
+approximately <code>nint+1</code>.
 </p>
 <p><code>.axisPars()</code> returns a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>axp</code></td>
 <td>
@@ -659,12 +661,19 @@ aX(2, print(ya &lt;- axisTicks(pu[3:4], log = FALSE)))  # y axis
 
 axisTicks(pu[3:4], log = FALSE, nint = 10)
 
-plot(10*(0:10), log = "y"); (pu &lt;- par("usr"))
-aX(2, print(ya &lt;- axisTicks(pu[3:4], log = TRUE)))  # y axis
+
+## --------------------  Log Scale  --------------------------------
+x &lt;- c(10, 1000)
+#         _____
+axisTicks(log10(x), log = TRUE) #  10 20 50 .... 1000
+
+plot(10*(0:10), log = "y"); (pu &lt;- par("usr")) # ... ...  0.96 2.04
+aX(2, print(ya &lt;- axisTicks(pu[3:4], log = TRUE)))  # 10 20 50 100 (y axis)
 
 plot(2^(0:9), log = "y"); (pu &lt;- par("usr"))
 aX(2, print(ya &lt;- axisTicks(pu[3:4], log = TRUE)))  # y axis
-
+## 'usr' corresponds to log10(&lt;range&gt;) :
+stopifnot(ya == axisTicks(log10(c(1, 512)), log=TRUE))
 </code><code class="language-r"><span class="token comment">##--- Demonstrating correspondence between graphics'</span>
 <span class="token comment">##--- axis() and the graphics-engine agnostic  axisTicks() :</span>
 
@@ -678,11 +687,19 @@ aX<span class="token punctuation">(</span><span class="token number">2</span><sp
 
 axisTicks<span class="token punctuation">(</span>pu<span class="token punctuation">[</span><span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> nint <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span>
 
-plot<span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token string">"y"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">(</span>pu <span class="token operator">&lt;-</span> par<span class="token punctuation">(</span><span class="token string">"usr"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-aX<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> print<span class="token punctuation">(</span>ya <span class="token operator">&lt;-</span> axisTicks<span class="token punctuation">(</span>pu<span class="token punctuation">[</span><span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># y axis</span>
+
+<span class="token comment">## --------------------  Log Scale  --------------------------------</span>
+x <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token comment">#         _____</span>
+axisTicks<span class="token punctuation">(</span>log10<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span> <span class="token comment">#  10 20 50 .... 1000</span>
+
+plot<span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token string">"y"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">(</span>pu <span class="token operator">&lt;-</span> par<span class="token punctuation">(</span><span class="token string">"usr"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># ... ...  0.96 2.04</span>
+aX<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> print<span class="token punctuation">(</span>ya <span class="token operator">&lt;-</span> axisTicks<span class="token punctuation">(</span>pu<span class="token punctuation">[</span><span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 10 20 50 100 (y axis)</span>
 
 plot<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">^</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token string">"y"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">(</span>pu <span class="token operator">&lt;-</span> par<span class="token punctuation">(</span><span class="token string">"usr"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-aX<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> print<span class="token punctuation">(</span>ya <span class="token operator">&lt;-</span> axisTicks<span class="token punctuation">(</span>pu<span class="token punctuation">[</span><span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># y axis</span></code></pre>
+aX<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> print<span class="token punctuation">(</span>ya <span class="token operator">&lt;-</span> axisTicks<span class="token punctuation">(</span>pu<span class="token punctuation">[</span><span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> log <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># y axis</span>
+<span class="token comment">## 'usr' corresponds to log10(&lt;range&gt;) :</span>
+stopifnot<span class="token punctuation">(</span>ya <span class="token operator">==</span> axisTicks<span class="token punctuation">(</span>log10<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">512</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> log<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div></div>
@@ -705,7 +722,7 @@ but may be invoked separately.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -762,7 +779,7 @@ interval for the difference in two medians.
 
 <p>A list with named components as follows:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>stats</code></td>
 <td>
@@ -879,11 +896,13 @@ stopifnot<span class="token punctuation">(</span>r<span class="token operator">$
 
 <h3>Description</h3>
 
+<p>Available only on Windows.
+</p>
 <p><code>bringToTop</code> brings the specified screen device's window to the
 front of the window stack (and gives it focus).  With first argument
 <code>-1</code> it brings the console to the top.
 </p>
-<p>If <code>stay =  TRUE</code>, the window is designated as a topmost window,
+<p>If <code>stay = TRUE</code>, the window is designated as a topmost window,
 i.e. it will stay on top of any regular window.  <code>stay</code> may only be used
 when RGui is run in SDI mode.  This corresponds to the “Stay on top”
 popup menu item in RGui.
@@ -898,7 +917,7 @@ popup menu item in RGui.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="which">which</code></td>
 <td>
@@ -969,7 +988,7 @@ cairo_ps<span class="token punctuation">(</span>filename <span class="token oper
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="filename">filename</code></td>
 <td>
@@ -1177,7 +1196,7 @@ supports Private Use Area code points.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="family">family</code></td>
 <td>
@@ -1273,7 +1292,7 @@ list in <code>name.opt</code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="new">new</code></td>
 <td>
@@ -1384,7 +1403,7 @@ set of points specified.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
 </td>
@@ -1468,7 +1487,7 @@ polygon<span class="token punctuation">(</span>X<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p>numeric vector</p>
@@ -1506,7 +1525,7 @@ polygon<span class="token punctuation">(</span>X<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="col">col</code></td>
 <td>
@@ -1735,7 +1754,7 @@ colorRampPalette<span class="token punctuation">(</span>colors<span class="token
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="colors">colors</code></td>
 <td>
@@ -1934,7 +1953,7 @@ colours<span class="token punctuation">(</span>distinct <span class="token opera
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="distinct">distinct</code></td>
 <td>
 <p>logical indicating if the colors returned should all be
@@ -2022,7 +2041,7 @@ demo<span class="token punctuation">(</span><span class="token string">"colors"<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -2072,7 +2091,7 @@ The source code is in ‘<span class="file"><var><a href="https://r-universe.dev
 
 <p>A <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> of contours, each itself a <code>list</code> with elements:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>level</code></td>
 <td>
@@ -2154,7 +2173,7 @@ colour spaces.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="color">color</code></td>
 <td>
@@ -2378,7 +2397,7 @@ blues9</code></pre>
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -2496,7 +2515,7 @@ graphics.off<span class="token punctuation">(</span><span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="which">which</code></td>
 <td>
@@ -2569,7 +2588,7 @@ is active.
 </p>
 <p><code>dev.list</code> returns the numbers of all open devices, except device
 1, the null device.  This is a numeric vector with a
-<code><a href="https://r-universe.dev/manuals/base.html#names">names</a></code> attribute giving the device names, or <code>NULL</code> is
+<code><a href="https://r-universe.dev/manuals/base.html#names">names</a></code> attribute giving the device names, or <code>NULL</code> if
 there is no open device.
 </p>
 <p><code>dev.next</code> and <code>dev.prev</code> return the number and name of the
@@ -2643,7 +2662,7 @@ dev.off<span class="token punctuation">(</span><span class="token punctuation">)
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="what">what</code></td>
 <td>
 <p>a character vector partially matching the names of the
@@ -2671,7 +2690,7 @@ backgrounds: generally the latter is found only in PDF and PNG plots.
 <p>A named list with some or all of the following components, any of which may
 take value <code>NA</code>:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>semiTransparency</code></td>
 <td>
@@ -2717,7 +2736,7 @@ support <code><a href="https://r-universe.dev/manuals/graphics.html#locator">loc
 <td>
 <p>character:  Which events can be generated on this device?
 Currently this will be a subset of <code>c("MouseDown",
-      "MouseMove", "MouseUp", "Keybd")</code>, but other events may be
+      "MouseMove", "MouseUp", "Keybd", "Idle")</code>, but other events may be
 supported in the future.  </p>
 </td>
 </tr>
@@ -2812,7 +2831,7 @@ as a raster (bitmap) image.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="native">native</code></td>
 <td>
 <p>Logical. If <code>FALSE</code> the result is a matrix of R
@@ -2859,7 +2878,7 @@ dev.flush<span class="token punctuation">(</span>level <span class="token operat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="level">level</code></td>
 <td>
 <p>Integer &gt;= 0.  The amount by which to change the hold
@@ -2917,7 +2936,7 @@ deviceIsInteractive<span class="token punctuation">(</span>name <span class="tok
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="orNone">orNone</code></td>
 <td>
@@ -2988,7 +3007,7 @@ print<span class="token punctuation">(</span>deviceIsInteractive<span class="tok
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="units">units</code></td>
 <td>
 <p>the units in which to return the value – inches, cm, or
@@ -3066,7 +3085,7 @@ dev.control<span class="token punctuation">(</span>displaylist <span class="toke
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="device">device</code></td>
 <td>
@@ -3245,7 +3264,7 @@ dev2bitmap<span class="token punctuation">(</span>file<span class="token punctua
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -3454,7 +3473,7 @@ whether the user is prompted before starting a new page of output.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="ask">ask</code></td>
 <td>
 <p><code>NULL</code> or a logical value.  If <code>TRUE</code>, the user
@@ -3520,7 +3539,7 @@ Windows (on screen, to printer and to Windows metafile).</p>
 a file.</p>
 </dd>
 <dt>
-<code><a href="#xfig">xfig</a></code>:</dt>
+<code><a href="#grDevices-defunct">xfig</a></code>:</dt>
 <dd>
 <p>Device for XFig graphics file format.  (Of
 historical interest only, deprecated in <span class="rlang"><b>R</b></span> 4.4.0.)</p>
@@ -3685,7 +3704,7 @@ embedGlyphs<span class="token punctuation">(</span>file<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -3810,7 +3829,7 @@ you can run the command by hand in a shell to look for problems.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -3908,7 +3927,7 @@ setGraphicsEventEnv<span class="token punctuation">(</span>which <span class="to
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="prompt">prompt</code></td>
 <td>
@@ -4222,8 +4241,8 @@ par<span class="token punctuation">(</span>savepar<span class="token punctuation
 <h3>Description</h3>
 
 <p>Create an object that contains information about typeset glyphs.
-This includes glyph identifiers, glyph locations, font and colour
-information, and metric information.
+This includes glyph identifiers, glyph locations, font, colour 
+and rotation information, and metric information.
 </p>
 
 
@@ -4231,7 +4250,7 @@ information, and metric information.
 
 <pre class="language-r"><code class="language-r-input" hidden="hidden">glyphInfo(id, x, y, font, size, fontList, 
           width, height, hAnchor, vAnchor,
-          col=NA)
+          col=NA, rot=0)
 
 glyphFont(file, index, family, weight, style, PSname=NA)
 glyphFontList(...)
@@ -4249,7 +4268,7 @@ glyphJust(just, ...)
 glyphJust(just, which=NULL, ...)
 </code><code class="language-r">glyphInfo<span class="token punctuation">(</span>id<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> font<span class="token punctuation">,</span> size<span class="token punctuation">,</span> fontList<span class="token punctuation">,</span> 
           width<span class="token punctuation">,</span> height<span class="token punctuation">,</span> hAnchor<span class="token punctuation">,</span> vAnchor<span class="token punctuation">,</span>
-          col<span class="token operator">=</span><span class="token keyword">NA</span><span class="token punctuation">)</span>
+          col<span class="token operator">=</span><span class="token keyword">NA</span><span class="token punctuation">,</span> rot<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
 
 glyphFont<span class="token punctuation">(</span>file<span class="token punctuation">,</span> index<span class="token punctuation">,</span> family<span class="token punctuation">,</span> weight<span class="token punctuation">,</span> style<span class="token punctuation">,</span> PSname<span class="token operator">=</span><span class="token keyword">NA</span><span class="token punctuation">)</span>
 glyphFontList<span class="token punctuation">(</span><span class="token ellipsis">...</span><span class="token punctuation">)</span>
@@ -4269,7 +4288,7 @@ glyphJust<span class="token punctuation">(</span>just<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="id">id</code></td>
 <td>
@@ -4340,6 +4359,12 @@ but can also be result from a call to <code>glyphAnchor()</code>.</p>
 <td><code id="col">col</code></td>
 <td>
 <p>An R colour value for each glyph. Can be <code>NA</code>.</p>
+</td>
+</tr>
+<tr>
+<td><code id="rot">rot</code></td>
+<td>
+<p>The angle to rotate each glyph.</p>
 </td>
 </tr>
 <tr>
@@ -4465,9 +4490,9 @@ width and height metrics.
 
 <p>The result from <code>glyphInfo()</code> is an <code>"RGlyphInfo"</code> object,
 essentially a data frame with each row
-containing id, location, font, and colour for a glyph.
-The metric information (widths and anchors) are stored as attributes
-of the data frame.
+containing id, location, font, colour and rotation for a glyph.
+The metric information (widths and anchors) are stored 
+as attributes of the data frame.
 </p>
 <p><code>glyphAnchor()</code>, <code>glyphWidth()</code>, and <code>glyphHeight()</code>
 return values that can be used to specify <code>width</code>, <code>height</code>,
@@ -4477,8 +4502,8 @@ return values that can be used to specify <code>width</code>, <code>height</code
 
 <h3>Warning</h3>
 
-<p>Any glyph with <code>NA</code> in any of <code>id</code>, <code>x</code>, <code>y</code>, or
-<code>size</code> is silently dropped.
+<p>Any glyph with <code>NA</code> in any of <code>id</code>, <code>x</code>, <code>y</code>, 
+<code>size</code> or <code>rot</code> is silently dropped.
 </p>
 
 <hr>
@@ -4502,7 +4527,7 @@ grey<span class="token punctuation">(</span>level<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="level">level</code></td>
 <td>
@@ -4568,7 +4593,7 @@ grey.colors<span class="token punctuation">(</span>n<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="n">n</code></td>
 <td>
@@ -4669,7 +4694,7 @@ current platform for <span class="rlang"><b>R</b></span>'s graphics.
 
 <p>A named character vector containing at least the elements
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>cairo</code></td>
 <td>
@@ -4698,7 +4723,7 @@ pango is not available.</p>
 standard (on Windows), or X11-based (on Unix-alikes)
 bitmap devices:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>libpng</code></td>
 <td>
@@ -4768,7 +4793,7 @@ chroma and luminance.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="h">h</code></td>
 <td>
@@ -5380,7 +5405,7 @@ value.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="h">h</code>, <code id="s">s</code>, <code id="v">v</code>
@@ -5551,7 +5576,7 @@ colorConverter<span class="token punctuation">(</span>toXYZ<span class="token pu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="red">red</code>, <code id="green">green</code>, <code id="blue">blue</code>
@@ -5752,7 +5777,8 @@ stopifnot<span class="token punctuation">(</span>ccv <span class="token operator
 
 <h3>Description</h3>
 
-<p><code>msgWindow</code> sends a message to manipulate the specified screen
+<p>On Windows, only,
+<code>msgWindow</code> sends a message to manipulate the specified screen
 device's window.  With argument <code>which = -1</code> it applies to the GUI
 console (which only accepts the first three actions).
 </p>
@@ -5770,7 +5796,7 @@ console (which only accepts the first three actions).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="type">type</code></td>
 <td>
@@ -5810,7 +5836,7 @@ one page.  This computes a sensible default for
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="nr.plots">nr.plots</code></td>
 <td>
@@ -5911,7 +5937,7 @@ nclass.FD<span class="token punctuation">(</span>x<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6036,7 +6062,7 @@ palette.colors<span class="token punctuation">(</span>n <span class="token opera
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="value">value</code></td>
 <td>
@@ -6333,7 +6359,7 @@ cm.colors<span class="token punctuation">(</span>n<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="n">n</code></td>
 <td>
@@ -6701,16 +6727,18 @@ graphics.
 <pre class="language-r"><code class="language-r-input" hidden="hidden">pdf(file = if(onefile) "Rplots.pdf" else "Rplot%03d.pdf",
     width, height, onefile, family, title, fonts, version,
     paper, encoding, bg, fg, pointsize, pagecentre, colormodel,
-    useDingbats, useKerning, fillOddEven, compress)
+    useDingbats, useKerning, fillOddEven, compress,
+    timestamp, producer, author)
 </code><code class="language-r">pdf<span class="token punctuation">(</span>file <span class="token operator">=</span> <span class="token keyword">if</span><span class="token punctuation">(</span>onefile<span class="token punctuation">)</span> <span class="token string">"Rplots.pdf"</span> <span class="token keyword">else</span> <span class="token string">"Rplot%03d.pdf"</span><span class="token punctuation">,</span>
     width<span class="token punctuation">,</span> height<span class="token punctuation">,</span> onefile<span class="token punctuation">,</span> family<span class="token punctuation">,</span> title<span class="token punctuation">,</span> fonts<span class="token punctuation">,</span> version<span class="token punctuation">,</span>
     paper<span class="token punctuation">,</span> encoding<span class="token punctuation">,</span> bg<span class="token punctuation">,</span> fg<span class="token punctuation">,</span> pointsize<span class="token punctuation">,</span> pagecentre<span class="token punctuation">,</span> colormodel<span class="token punctuation">,</span>
-    useDingbats<span class="token punctuation">,</span> useKerning<span class="token punctuation">,</span> fillOddEven<span class="token punctuation">,</span> compress<span class="token punctuation">)</span></code></pre>
+    useDingbats<span class="token punctuation">,</span> useKerning<span class="token punctuation">,</span> fillOddEven<span class="token punctuation">,</span> compress<span class="token punctuation">,</span>
+    timestamp<span class="token punctuation">,</span> producer<span class="token punctuation">,</span> author<span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -6749,7 +6777,8 @@ character string.  See the section ‘Families’.  Defaults to
 <td><code id="title">title</code></td>
 <td>
 <p>title string to embed as the ‘<span class="samp">⁠/Title⁠</span>’ field in the
-file.  Defaults to <code>"R Graphics Output"</code>.</p>
+document metadata.  Defaults to <code>"R Graphics Output"</code>;
+use an empty string (<code>""</code>) to omit the field.</p>
 </td>
 </tr>
 <tr>
@@ -6886,6 +6915,27 @@ setting text and calculating string widths?  Defaults to <code>TRUE</code>.</p>
 <td>
 <p>logical.  Should PDF streams be generated with Flate
 compression?  Defaults to <code>TRUE</code>.</p>
+</td>
+</tr>
+<tr>
+<td><code id="timestamp">timestamp</code></td>
+<td>
+<p>logical.  If <code>FALSE</code>, omit the ‘<span class="samp">⁠/CreationDate⁠</span>’
+and ‘<span class="samp">⁠/ModDate⁠</span>’ metadata fields.  Defaults to <code>TRUE</code>.</p>
+</td>
+</tr>
+<tr>
+<td><code id="producer">producer</code></td>
+<td>
+<p>logical.  If <code>FALSE</code>, omit the ‘<span class="samp">⁠/Producer⁠</span>’
+metadata field.  Defaults to <code>TRUE</code>.</p>
+</td>
+</tr>
+<tr>
+<td><code id="author">author</code></td>
+<td>
+<p>author string to embed as the ‘<span class="samp">⁠/Author⁠</span>’ field in the
+document metadata.  Defaults to <code>""</code>, omitting the field.</p>
 </td>
 </tr>
 </table>
@@ -7333,12 +7383,13 @@ TestChars<span class="token punctuation">(</span><span class="token string">"ISO
 <hr>
 </div></div>
 <div class="container manual-page" id="pdf.options"><div class="page-main">
-<a href="#pdf.options" class="help-page-title"><h2>Auxiliary Function to Set/View Defaults for Arguments of pdf</h2></a>
+<a href="#pdf.options" class="help-page-title"><h2>Auxiliary Function to Set/View Defaults for Arguments of <code>pdf</code>
+</h2></a>
 
 <h3>Description</h3>
 
 <p>The auxiliary function <code>pdf.options</code> can be used to set or view
-(if called without arguments) the default values for some of the
+(if called without arguments) the default values for most of the
 arguments to <code><a href="#pdf">pdf</a></code>.
 </p>
 <p><code>pdf.options</code> needs to be called before calling <code>pdf</code>,
@@ -7355,15 +7406,17 @@ arguments to <code>pdf</code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
 <p>arguments <code>width</code>, <code>height</code>, <code>onefile</code>,
-<code>family</code>, <code>title</code>, <code>fonts</code>, <code>paper</code>,
-<code>encoding</code>, <code>pointsize</code>, <code>bg</code>, <code>fg</code>,
-<code>pagecentre</code>, <code>useDingbats</code>, <code>colormodel</code>,
-<code>fillOddEven</code> and <code>compress</code> can be supplied.</p>
+<code>family</code>, <code>title</code>, <code>fonts</code>, <code>version</code>, <code>paper</code>,
+<code>encoding</code>, <code>bg</code>, <code>fg</code>, <code>pointsize</code>,
+<code>pagecentre</code>, <code>colormodel</code>, <code>useDingbats</code>,
+<code>useKerning</code>, <code>fillOddEven</code>, <code>compress</code>,
+<code>timestamp</code>, <code>producer</code> and <code>author</code>
+can be supplied.</p>
 </td>
 </tr>
 <tr>
@@ -7429,7 +7482,7 @@ Consider the <a href="https://CRAN.R-project.org/package=tikzDevice" target="_bl
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -8456,7 +8509,7 @@ tiff<span class="token punctuation">(</span>filename <span class="token operator
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="filename">filename</code></td>
 <td>
@@ -8844,7 +8897,7 @@ PostScript graphics.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -9376,7 +9429,7 @@ pdfFonts<span class="token punctuation">(</span><span class="token ellipsis">...
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="...">...</code></td>
 <td>
 <p>either character strings naming mappings to display,
@@ -9444,8 +9497,7 @@ pre-defined font families.
 <p>Once a font family is in use it cannot be changed.  ‘In use’
 means that it has been specified <em>via</em> a <code>family</code> or
 <code>fonts</code> argument to an invocation of the same graphics device
-already in the <span class="rlang"><b>R</b></span> session.  (For these purposes <code>xfig</code> counts the
-same as <code>postscript</code> but only uses some of the predefined mappings.)
+already in the <span class="rlang"><b>R</b></span> session.
 </p>
 
 
@@ -9713,7 +9765,7 @@ pretty<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -9771,7 +9823,7 @@ pretty(Sys.time(), n = 10)
 
 pretty(as.Date("2000-03-01")) # R 1.0.0 came in a leap year
 
-## time ranges in diverse scales:% also in ../../../../tests/reg-tests-1c.R
+## time ranges in diverse scales:
 steps &lt;- stats::setNames(,
     c("10 secs", "1 min", "5 mins", "30 mins", "6 hours", "12 hours",
       "1 DSTday", "2 weeks", "1 month", "6 months", "1 year",
@@ -9782,12 +9834,13 @@ lapply(steps,
            at &lt;- pretty(seq(x, by = s, length.out = 2), n = 5)
            attr(at, "labels")
        })
+
 </code><code class="language-r">pretty<span class="token punctuation">(</span>Sys.Date<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 pretty<span class="token punctuation">(</span>Sys.time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span>
 
 pretty<span class="token punctuation">(</span>as.Date<span class="token punctuation">(</span><span class="token string">"2000-03-01"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># R 1.0.0 came in a leap year</span>
 
-<span class="token comment">## time ranges in diverse scales:% also in ../../../../tests/reg-tests-1c.R</span>
+<span class="token comment">## time ranges in diverse scales:</span>
 steps <span class="token operator">&lt;-</span> stats<span class="token operator">::</span>setNames<span class="token punctuation">(</span><span class="token punctuation">,</span>
     c<span class="token punctuation">(</span><span class="token string">"10 secs"</span><span class="token punctuation">,</span> <span class="token string">"1 min"</span><span class="token punctuation">,</span> <span class="token string">"5 mins"</span><span class="token punctuation">,</span> <span class="token string">"30 mins"</span><span class="token punctuation">,</span> <span class="token string">"6 hours"</span><span class="token punctuation">,</span> <span class="token string">"12 hours"</span><span class="token punctuation">,</span>
       <span class="token string">"1 DSTday"</span><span class="token punctuation">,</span> <span class="token string">"2 weeks"</span><span class="token punctuation">,</span> <span class="token string">"1 month"</span><span class="token punctuation">,</span> <span class="token string">"6 months"</span><span class="token punctuation">,</span> <span class="token string">"1 year"</span><span class="token punctuation">,</span>
@@ -9830,7 +9883,7 @@ setPS<span class="token punctuation">(</span><span class="token ellipsis">...</s
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -9942,7 +9995,7 @@ quartz.save<span class="token punctuation">(</span>file<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="title">title</code></td>
 <td>
@@ -10209,7 +10262,7 @@ quartzFonts<span class="token punctuation">(</span><span class="token ellipsis">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="family">family</code></td>
 <td>
@@ -10306,7 +10359,7 @@ Intended <em>only</em> for expert use.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="expr">expr</code></td>
 <td>
@@ -10413,7 +10466,7 @@ replayPlot<span class="token punctuation">(</span>x<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="load">load</code></td>
 <td>
@@ -10543,7 +10596,7 @@ colors.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="red">red</code>, <code id="blue">blue</code>, <code id="green">green</code>, <code id="alpha">alpha</code>
@@ -10654,7 +10707,7 @@ into HSV space (hue/saturation/value).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="r">r</code></td>
 <td>
@@ -10863,7 +10916,7 @@ all.equal<span class="token punctuation">(</span>rgb2hsv <span class="token punc
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="filename">filename</code></td>
 <td>
@@ -10941,7 +10994,7 @@ perspective plots such as <code><a href="https://r-universe.dev/manuals/graphics
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>, <code id="z">z</code>
@@ -10983,7 +11036,7 @@ should be issued when points are cut off.</p>
 
 <p>a list with two components
 </p>
-<table><tr>
+<table role="presentation"><tr>
 <td>
 <code>x</code>, <code>y</code>
 </td>
@@ -11082,7 +11135,7 @@ CIDFont<span class="token punctuation">(</span>family<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="family">family</code></td>
 <td>
@@ -11263,7 +11316,7 @@ win.print<span class="token punctuation">(</span>width <span class="token operat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="width">width</code>, <code id="height">height</code>
@@ -11528,7 +11581,7 @@ application background colour.  Graphics parameters such as
 <h3>Fonts</h3>
 
 <p>The fonts used for text drawn in a Windows device may be controlled in
-two ways.  The file <code>R_HOME\etc\<a href="https://r-universe.dev/manuals/utils.html#Rconsole">Rdevga</a></code> can be used to
+two ways.  The file ‘<span class="file"><var><a href="https://r-universe.dev/manuals/base.html#Rhome">R_HOME</a></var>\etc\<a href="https://r-universe.dev/manuals/utils.html#Rconsole">Rdevga</a></span>’ can be used to
 specify mappings for <code>par(font =)</code> (or the <span class="pkg">grid</span> equivalent).
 Alternatively, a font family can be specified by a non-empty
 <code>family</code> argument (or by e.g. <code>par(family =)</code> in the graphics
@@ -11630,7 +11683,8 @@ if(.Platform$OS.type == "windows")
 
 <h3>Description</h3>
 
-<p>The auxiliary function <code>windows.options</code> can be used to set or view
+<p>Only available on Windows,
+the auxiliary function <code>windows.options</code> can be used to set or view
 (if called without arguments) the default values for the arguments of
 <code><a href="#windows">windows</a></code>.
 </p>
@@ -11648,7 +11702,7 @@ arguments to <code>windows</code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -11720,9 +11774,9 @@ setHook<span class="token punctuation">(</span>packageEvent<span class="token pu
 
 <h3>Description</h3>
 
-<p>These functions handle the translation of a device-independent R graphics
-font family name to a windows font description  and are available only
-on Windows.
+<p>These functions handle the translation of a device-independent <span class="rlang"><b>R</b></span>
+graphics font family name to a windows font description and are available
+only on Windows.
 </p>
 
 
@@ -11738,7 +11792,7 @@ windowsFonts<span class="token punctuation">(</span><span class="token ellipsis"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="family">family</code></td>
 <td>
@@ -11875,7 +11929,7 @@ X11.options<span class="token punctuation">(</span><span class="token ellipsis">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="display">display</code></td>
 <td>
@@ -12356,7 +12410,7 @@ X11Fonts<span class="token punctuation">(</span><span class="token ellipsis">...
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="font">font</code></td>
 <td>
@@ -12432,236 +12486,6 @@ X11Fonts<span class="token punctuation">(</span>utopia <span class="token operat
 
 <hr>
 </div></div>
-<div class="container manual-page" id="xfig"><div class="page-main">
-<a href="#xfig" class="help-page-title"><h2>XFig Graphics Device</h2></a>
-
-<h3>Description</h3>
-
-<p><code>xfig</code> starts the graphics device driver for producing XFig
-(version 3.2) graphics.
-</p>
-<p>It was deprecated in <span class="rlang"><b>R</b></span> 4.4.0: consider using an SVG device for
-editable graphics.
-</p>
-<p>The auxiliary function <code>ps.options</code> can be used to set and view
-(if called without arguments) default values for the arguments to
-<code>xfig</code> and <code>postscript</code>.
-</p>
-
-
-<h3>Usage</h3>
-
-<pre class="language-r"><code class="language-r-input" hidden="hidden">xfig(file = if(onefile) "Rplots.fig" else "Rplot%03d.fig",
-     onefile = FALSE, encoding = "none",
-     paper = "default", horizontal = TRUE,
-     width = 0, height = 0, family = "Helvetica",
-     pointsize = 12, bg = "transparent", fg = "black",
-     pagecentre = TRUE, defaultfont = FALSE, textspecial = FALSE)
-</code><code class="language-r">xfig<span class="token punctuation">(</span>file <span class="token operator">=</span> <span class="token keyword">if</span><span class="token punctuation">(</span>onefile<span class="token punctuation">)</span> <span class="token string">"Rplots.fig"</span> <span class="token keyword">else</span> <span class="token string">"Rplot%03d.fig"</span><span class="token punctuation">,</span>
-     onefile <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> encoding <span class="token operator">=</span> <span class="token string">"none"</span><span class="token punctuation">,</span>
-     paper <span class="token operator">=</span> <span class="token string">"default"</span><span class="token punctuation">,</span> horizontal <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
-     width <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> height <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> family <span class="token operator">=</span> <span class="token string">"Helvetica"</span><span class="token punctuation">,</span>
-     pointsize <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">,</span> bg <span class="token operator">=</span> <span class="token string">"transparent"</span><span class="token punctuation">,</span> fg <span class="token operator">=</span> <span class="token string">"black"</span><span class="token punctuation">,</span>
-     pagecentre <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> defaultfont <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> textspecial <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
-
-
-<h3 class="r-arguments-title">Arguments</h3>
-
-<table>
-<tr>
-<td><code id="file">file</code></td>
-<td>
-<p>a character string giving the file path.   For use
-with <code>onefile = FALSE</code>, give a C integer format such as
-<code>"Rplot%03d.fig"</code> (the default in that case).
-</p>
-<p>See section ‘File specifications’ in the help
-for <code><a href="#pdf">pdf</a></code> for further details.
-</p>
-</td>
-</tr>
-<tr>
-<td><code id="onefile">onefile</code></td>
-<td>
-<p>logical: if true allow multiple figures
-in one file. If false, assume only one page per file and generate a
-file number containing the page number.</p>
-</td>
-</tr>
-<tr>
-<td><code id="encoding">encoding</code></td>
-<td>
-<p>The encoding in which to write text strings.  The
-default is not to re-encode.  This can be any encoding recognized by
-<code><a href="https://r-universe.dev/manuals/base.html#iconv">iconv</a></code>: in a Western UTF-8 locale you probably want to
-select an 8-bit encoding such as <code>latin1</code>, and in an East Asian
-locale an <code>EUC</code> encoding.  If re-encoding fails, the text
-strings will be written in the current encoding with a warning.</p>
-</td>
-</tr>
-<tr>
-<td><code id="paper">paper</code></td>
-<td>
-<p>the size of paper region.  The choices
-are <code>"A4"</code>, <code>"Letter"</code> and <code>"Legal"</code> (and these
-can be lowercase).  A further choice is <code>"default"</code>, which
-is the default.  If this is selected, the paper size is taken
-from the option <code>"papersize"</code> if that is set to a non-empty
-value, otherwise <code>"A4"</code>.</p>
-</td>
-</tr>
-<tr>
-<td><code id="horizontal">horizontal</code></td>
-<td>
-<p>the orientation of the printed image, a
-logical.  Defaults to true, that is landscape orientation.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code id="width">width</code>, <code id="height">height</code>
-</td>
-<td>
-<p>the width and height of the
-graphics region in inches.  The default is to use the entire
-page less a 0.5 inch overall margin in each direction.  (See
-<code><a href="#postscript">postscript</a></code> for further details.)</p>
-</td>
-</tr>
-<tr>
-<td><code id="family">family</code></td>
-<td>
-<p>the font family to be used.  This must be one
-of <code>"AvantGarde"</code>, <code>"Bookman"</code>, <code>"Courier"</code>,
-<code>"Helvetica"</code> (the default), <code>"Helvetica-Narrow"</code>,
-<code>"NewCenturySchoolbook"</code>, <code>"Palatino"</code> or
-<code>"Times"</code>.  Any other value is replaced by
-<code>"Helvetica"</code>, with a warning.</p>
-</td>
-</tr>
-<tr>
-<td><code id="pointsize">pointsize</code></td>
-<td>
-<p>the default point size to be used.</p>
-</td>
-</tr>
-<tr>
-<td><code id="bg">bg</code></td>
-<td>
-<p>the initial background color to be used.</p>
-</td>
-</tr>
-<tr>
-<td><code id="fg">fg</code></td>
-<td>
-<p>the initial foreground color to be used.</p>
-</td>
-</tr>
-<tr>
-<td><code id="pagecentre">pagecentre</code></td>
-<td>
-<p>logical: should the device region be centred on the
-page?</p>
-</td>
-</tr>
-<tr>
-<td><code id="defaultfont">defaultfont</code></td>
-<td>
-<p>logical: should the device use XFig's default
-font?</p>
-</td>
-</tr>
-<tr>
-<td><code id="textspecial">textspecial</code></td>
-<td>
-<p>logical: should the device set the textspecial flag
-for all text elements? This is useful when generating pstex from XFig
-figures.</p>
-</td>
-</tr>
-</table>
-<h3>Details</h3>
-
-<p>Although <code>xfig</code> can produce multiple plots in one file, the XFig
-format does not say how to separate or view them.  So
-<code>onefile = FALSE</code> is the default.
-</p>
-<p>The <code>file</code> argument is interpreted as a C integer format as used
-by <code><a href="https://r-universe.dev/manuals/base.html#sprintf">sprintf</a></code>, with integer argument the page number.
-The default gives files ‘<span class="file">Rplot001.fig</span>’, ..., ‘<span class="file">Rplot999.fig</span>’,
-‘<span class="file">Rplot1000.fig</span>’, ....
-</p>
-<p>Line widths as controlled by <code>par(lwd =)</code> are in multiples of
-5/6*1/72 inch.  Multiples less than 1 are allowed.  <code>pch = "."</code> with
-<code>cex = 1</code> corresponds to a square of side 1/72 inch.
-</p>
-
-
-
-<p>Windows users could make use of WinFIG (<a href="http://winfig.com/" target="_blank">http://winfig.com/</a>, shareware).
-</p>
-
-
-<h3>Conventions</h3>
-
-<p>This section describes the implementation of the conventions for
-graphics devices set out in the ‘R Internals’ manual.
-</p>
-
-<ul>
-<li>
-<p> The default device size is the paper size with a 0.25 inch
-border on all sides.
-</p>
-</li>
-<li>
-<p> Font sizes are in big points.
-</p>
-</li>
-<li>
-<p> The default font family is Helvetica.
-</p>
-</li>
-<li>
-<p> Line widths are integers, multiples of 5/432 inch.
-</p>
-</li>
-<li>
-<p> Circle radii are multiples of 1/1200 inch.
-</p>
-</li>
-<li>
-<p> Colours are interpreted by the viewing/printing application.
-</p>
-</li>
-</ul>
-<h3>Note</h3>
-
-<p>Only some line textures (<code>0 &lt;= lty &lt; 4</code>) are used.  Eventually this
-may be partially remedied, but the XFig file format does not allow as
-general line textures as the <span class="rlang"><b>R</b></span> model.  Unimplemented line textures
-are displayed as <em>dash-double-dotted</em>.
-</p>
-<p>There is a limit of 512 colours (plus white and black) per file.
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>Brian Ripley.  Support for <code>defaultFont</code> and <code>textSpecial</code>
-contributed by Sebastian Fischmeister.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code><a href="#Devices">Devices</a></code>,
-<code><a href="#postscript">postscript</a></code>,
-<code><a href="#ps.options">ps.options</a></code>.
-</p>
-
-<hr>
-</div></div>
 <div class="container manual-page" id="xy.coords"><div class="page-main">
 <a href="#xy.coords" class="help-page-title"><h2>Extracting Plotting Structures</h2></a>
 
@@ -12683,7 +12507,7 @@ across all relevant <span class="rlang"><b>R</b></span> functions produces a mea
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -12772,7 +12596,7 @@ component is set to <code>"Index"</code> (if <code>setLab</code> is true as by d
 
 <p>A list with the components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>x</code></td>
 <td>
@@ -12859,7 +12683,7 @@ special kind of 2D binning.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -12883,7 +12707,7 @@ rounding them via <code><a href="https://r-universe.dev/manuals/base.html#Round"
 
 <p>A list with three components of same length,
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>x</code></td>
 <td>
@@ -12904,6 +12728,13 @@ rounding them via <code><a href="https://r-universe.dev/manuals/base.html#Round"
 </td>
 </tr>
 </table>
+<h3>Note</h3>
+
+<p>Missing values in the coordinates are counted towards the multiplicities. The
+sum of the multiplicities will equal the number of coordinates.
+</p>
+
+
 <h3>See Also</h3>
 
 <p><code><a href="https://r-universe.dev/manuals/graphics.html#sunflowerplot">sunflowerplot</a></code> which typically uses
@@ -12915,11 +12746,23 @@ rounding them via <code><a href="https://r-universe.dev/manuals/base.html#Round"
 
 <pre class="language-r"><code class="language-r-input" hidden="hidden">xyTable(iris[, 3:4], digits = 6)
 
+## If missing coordinates exist, they are also counted
+iris2 &lt;- iris[1:10, 3:4]
+iris2[4, 2] &lt;- NA
+iris2[c(3, 5), ] &lt;- NA
+xyTable(iris2)
+
 ## Discretized uncorrelated Gaussian:
 
 xy &lt;- data.frame(x = round(sort(stats::rnorm(100))), y = stats::rnorm(100))
 xyTable(xy, digits = 1)
 </code><code class="language-r">xyTable<span class="token punctuation">(</span>iris<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> digits <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">)</span>
+
+<span class="token comment">## If missing coordinates exist, they are also counted</span>
+iris2 <span class="token operator">&lt;-</span> iris<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span>
+iris2<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token keyword">NA</span>
+iris2<span class="token punctuation">[</span>c<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">]</span> <span class="token operator">&lt;-</span> <span class="token keyword">NA</span>
+xyTable<span class="token punctuation">(</span>iris2<span class="token punctuation">)</span>
 
 <span class="token comment">## Discretized uncorrelated Gaussian:</span>
 
@@ -12950,7 +12793,7 @@ for three dimensional (3D) plots.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>, <code id="z">z</code>
@@ -13014,7 +12857,7 @@ otherwise, the arguments <code>xlab</code> and <code>ylab</code> are used.</p>
 
 <p>A list with the components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>x</code></td>
 <td>
@@ -13094,6 +12937,6 @@ suppressWarnings<span class="token punctuation">(</span>xyz.coords<span class="t
 <hr>
 </div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.4.0</p></footer>
+    <footer><p>Rendered with postdoc 1.4.1</p></footer>
   </body>
 </html>

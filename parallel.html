@@ -7,12 +7,12 @@
 
     <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
     <!-- for (future) customizations -->
     <script src="https://r-universe.dev/static/manual.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css">
 
   </head>
 
@@ -39,15 +39,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.4.1</td>
+<td class="description-license">Part of R 4.5.0</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.4.1</td>
+<td class="description-version">4.5.0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-06-15 17:27:47 UTC</td>
+<td class="description-date">2025-04-11 20:15:43 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -184,7 +184,7 @@ parSapplyLB<span class="token punctuation">(</span>cl <span class="token operato
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="cl">cl</code></td>
 <td>
@@ -527,7 +527,7 @@ stopCluster<span class="token punctuation">(</span>cl<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="all.tests">all.tests</code></td>
 <td>
@@ -628,6 +628,8 @@ stopCluster(cl = NULL)
 
 setDefaultCluster(cl = NULL)
 getDefaultCluster()
+
+registerClusterType(type, starter, make.default = FALSE)
 </code><code class="language-r">makeCluster<span class="token punctuation">(</span>spec<span class="token punctuation">,</span> type<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 makePSOCKcluster<span class="token punctuation">(</span>names<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 makeForkCluster<span class="token punctuation">(</span>nnodes <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"mc.cores"</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
@@ -635,12 +637,14 @@ makeForkCluster<span class="token punctuation">(</span>nnodes <span class="token
 stopCluster<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
 
 setDefaultCluster<span class="token punctuation">(</span>cl <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
-getDefaultCluster<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+getDefaultCluster<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+registerClusterType<span class="token punctuation">(</span>type<span class="token punctuation">,</span> starter<span class="token punctuation">,</span> make.default <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="spec">spec</code></td>
 <td>
@@ -664,7 +668,9 @@ that number of copies is run on ‘<span class="samp">⁠localhost⁠</span>’)
 <tr>
 <td><code id="type">type</code></td>
 <td>
-<p>One of the supported types: see ‘Details’.</p>
+<p>One of the supported types: see ‘Details’. For
+<code>registerClusterType</code>, a name for the newly-registered type of
+cluster.</p>
 </td>
 </tr>
 <tr>
@@ -678,6 +684,22 @@ See ‘Details’.</p>
 <td><code id="cl">cl</code></td>
 <td>
 <p>an object of class <code>"cluster"</code>.</p>
+</td>
+</tr>
+<tr>
+<td><code id="starter">starter</code></td>
+<td>
+<p>A function used for creating a cluster of the appropriate
+<code>type</code>.</p>
+</td>
+</tr>
+<tr>
+<td><code id="make.default">make.default</code></td>
+<td>
+<p>logical. If <code>TRUE</code>, the newly-registered cluster
+type will become the default type of cluster created by
+<code>makeCluster</code>. If <code>FALSE</code> (the default), the default cluster
+type remains unchanged.</p>
 </td>
 </tr>
 </table>
@@ -810,7 +832,7 @@ may be removed in future versions of R.</p>
 See <code><a href="#mcfork">mcfork</a></code> for details.
 </p>
 <p>It is good practice to shut down the workers by calling
-<code><a href="#makeCluster">stopCluster</a></code>: however the workers will terminate
+<code>stopCluster</code>: however the workers will terminate
 themselves once the socket on which they are listening for commands
 becomes unavailable, which it should if the master <span class="rlang"><b>R</b></span> session is
 completed (or its process dies).
@@ -818,6 +840,11 @@ completed (or its process dies).
 <p>Function <code>setDefaultCluster</code> registers a cluster as the default one
 for the current session.  Using <code>setDefaultCluster(NULL)</code> removes
 the registered cluster, as does stopping that cluster.
+</p>
+<p>Function <code>registerClusterType</code> registers a new type of parallel cluster
+in the current session. When <code>makeCluster</code> is called with the
+newly-registered <code>type</code>, a cluster of that type is created using the
+<code>starter</code> function.
 </p>
 
 
@@ -828,6 +855,10 @@ the registered cluster, as does stopping that cluster.
 </p>
 <p>For the default cluster setter and getter, the registered default
 cluster or <code>NULL</code> if there is no such cluster.
+</p>
+<p><code>registerClusterType</code> is invoked for its side effect which is to define
+a mechanism for creating a parallel socket cluster of a given named
+<code>type</code>.
 </p>
 
 
@@ -854,7 +885,7 @@ single multi-core host, the default settings are the appropriate ones.
 <p>A socket <a href="https://r-universe.dev/manuals/base.html#connections">connection</a> is used to communicate from the master to
 each worker so the maximum number of connections (default 128 but some
 will be in use) may need to be increased when the master process is
-started.  
+started.
 </p>
 
 
@@ -887,7 +918,7 @@ hyperthread unit.)
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="affinity">affinity</code></td>
 <td>
 <p>specification of the CPUs to lock this process to
@@ -964,7 +995,7 @@ mckill<span class="token punctuation">(</span>process<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="select">select</code></td>
 <td>
@@ -1106,7 +1137,7 @@ support long vectors prior to <span class="rlang"><b>R</b></span> 3.4.0 and so w
 
 <h3>See Also</h3>
 
-<p><code><a href="#mcfork">mcfork</a></code>, <code><a href="#children">sendMaster</a></code>, <code><a href="#mcparallel">mcparallel</a></code>
+<p><code><a href="#mcfork">mcfork</a></code>, <code><a href="#mcparallel">mcparallel</a></code>
 </p>
 
 
@@ -1153,7 +1184,7 @@ mcexit<span class="token punctuation">(</span>exit.code <span class="token opera
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="estranged">estranged</code></td>
 <td>
@@ -1347,7 +1378,7 @@ mcMap<span class="token punctuation">(</span>f<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="X">X</code></td>
 <td>
@@ -1593,7 +1624,7 @@ B &lt;- runif(2500000,0,100)
 C &lt;- runif(5000000,0,100)
 first &lt;- function(i) head(sort(i), n = 1)
 
-# Restict all elements of X to run on CPU 1 and 2
+# Restrict all elements of X to run on CPU 1 and 2
 affL &lt;- list(c(1,2), c(1,2), c(1,2))
 mclapply(list(A, A, A), first, mc.preschedule = FALSE, affinity.list = affL)
 
@@ -1632,7 +1663,7 @@ B <span class="token operator">&lt;-</span> runif<span class="token punctuation"
 C <span class="token operator">&lt;-</span> runif<span class="token punctuation">(</span><span class="token number">5000000</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
 first <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> head<span class="token punctuation">(</span>sort<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
 
-<span class="token comment"># Restict all elements of X to run on CPU 1 and 2</span>
+<span class="token comment"># Restrict all elements of X to run on CPU 1 and 2</span>
 affL <span class="token operator">&lt;-</span> list<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 mclapply<span class="token punctuation">(</span>list<span class="token punctuation">(</span>A<span class="token punctuation">,</span> A<span class="token punctuation">,</span> A<span class="token punctuation">)</span><span class="token punctuation">,</span> first<span class="token punctuation">,</span> mc.preschedule <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> affinity.list <span class="token operator">=</span> affL<span class="token punctuation">)</span>
 
@@ -1677,7 +1708,7 @@ mccollect<span class="token punctuation">(</span>jobs<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="expr">expr</code></td>
 <td>
@@ -1936,7 +1967,7 @@ doesn't depend on the partition of the vector.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="v">v</code></td>
 <td>
@@ -2134,7 +2165,7 @@ mc.reset.stream<span class="token punctuation">(</span><span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="seed">seed</code></td>
 <td>
@@ -2279,7 +2310,7 @@ equal size, as a way to allocate tasks to nodes in a cluster.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="nx">nx</code></td>
 <td>
@@ -2307,6 +2338,6 @@ equal size, as a way to allocate tasks to nodes in a cluster.
 <hr>
 </div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.4.0</p></footer>
+    <footer><p>Rendered with postdoc 1.4.1</p></footer>
   </body>
 </html>

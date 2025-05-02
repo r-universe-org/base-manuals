@@ -7,12 +7,12 @@
 
     <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
     <!-- for (future) customizations -->
     <script src="https://r-universe.dev/static/manual.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css">
 
   </head>
 
@@ -38,15 +38,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.4.1</td>
+<td class="description-license">Part of R 4.5.0</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.4.1</td>
+<td class="description-version">4.5.0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-06-15 17:27:36 UTC</td>
+<td class="description-date">2025-04-11 20:15:33 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -108,7 +108,6 @@ Use Function Definitions from a Source File without Reinstalling a Package
 <li class="help-index-item"><a href="#Methods_Details">General Information on Methods</a></li>
 <li class="help-index-item"><a href="#Methods_for_Nongenerics">Methods for Non-Generic Functions in Other Packages</a></li>
 <li class="help-index-item"><a href="#Methods_for_S3">Methods For S3 and S4 Dispatch</a></li>
-<li class="help-index-item"><a href="#MethodsList-class">Class "MethodsList", Defunct Representation of Methods </a></li>
 <li class="help-index-item"><a href="#MethodWithNext-class">Class "MethodWithNext" </a></li>
 <li class="help-index-item"><a href="#new"> Generate an Object from a Class </a></li>
 <li class="help-index-item"><a href="#nonStructure-class">A non-structure S4 Class for basic types </a></li>
@@ -295,7 +294,7 @@ as<span class="token punctuation">(</span>object<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -567,7 +566,7 @@ used in methods for group generic functions.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="...">...</code></td>
 <td>
 
@@ -689,7 +688,7 @@ value of <code>callNextMethod</code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="...">...</code></td>
 <td>
 
@@ -1095,7 +1094,7 @@ Maybe useful inside <code>if()</code> to ensure that calling
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -1156,7 +1155,7 @@ rbind2<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1241,9 +1240,8 @@ for one argument using <span class="rlang"><b>R</b></span>'s internal code.</p>
 </dl>
 <h3>See Also</h3>
 
-<p><code><a href="https://r-universe.dev/manuals/base.html#cbind">cbind</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#cbind">rbind</a></code>;
-further, <code><a href="https://r-universe.dev/manuals/Matrix.html#cBind">cBind</a></code>, <code><a href="https://r-universe.dev/manuals/Matrix.html#cBind">rBind</a></code> in
-the <a href="https://CRAN.R-project.org/package=Matrix" target="_blank"><span class="pkg">Matrix</span></a> package.
+<p><code><a href="https://r-universe.dev/manuals/base.html#cbind">cbind</a></code>,
+<code><a href="https://r-universe.dev/manuals/base.html#cbind">rbind</a></code>
 </p>
 
 
@@ -1671,7 +1669,7 @@ and other software to construct graph representations of relationships.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="classes">classes</code></td>
 <td>
@@ -1837,7 +1835,7 @@ multipleClasses<span class="token punctuation">(</span>details <span class="toke
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="class">class</code>, <code id="package">package</code>
@@ -2606,7 +2604,7 @@ inheriting from the <span class="rlang"><b>R</b></span> types with reference sem
 with slots that identify the name of the function as a class method
 and the other class methods called from this method.
 The latter information is determined heuristically when the class is
-defined by using the <code>codetools</code> recommended package.  This
+defined by using the <span class="pkg">codetools</span> recommended package.  This
 package must be installed when reference classes are defined, but is
 not needed in order to use existing reference classes.
 </p>
@@ -2648,7 +2646,7 @@ insertSource<span class="token punctuation">(</span>source<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="source">source</code></td>
 <td>
@@ -2948,7 +2946,7 @@ sealClass<span class="token punctuation">(</span>Class<span class="token punctua
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="Class">Class</code></td>
 <td>
@@ -3131,7 +3129,8 @@ according to whether there is a non-empty table of methods for
 function <code>f</code> in the environment or search position <code>where</code>
 (or for the generic function generally if <code>where</code> is missing).
 </p>
-<p>The defunct function <code>getMethods</code> is an older alternative to
+<p>The deprecated function <code>getMethods</code> (defunct for default <code>table=FALSE</code>)
+is an older alternative to
 <code>findMethods</code> , returning information in the form of an object of
 class <code>MethodsList</code>, previously used for method dispatch.  This
 class of objects is deprecated generally and will disappear in a
@@ -3149,7 +3148,7 @@ findMethodSignatures(..., target = TRUE, methods = )
 hasMethods(f, where, package)
 
 ## Deprecated in 2010 and defunct in 2015 for 'table = FALSE':
-getMethods(f, where, table = FALSE)
+getMethods(f, where, table = FALSE) # deprecated -&gt; use getMethodsForDispatch()
 </code><code class="language-r">findMethods<span class="token punctuation">(</span>f<span class="token punctuation">,</span> where<span class="token punctuation">,</span> classes <span class="token operator">=</span> character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> inherited <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
       package <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span>
 
@@ -3158,12 +3157,12 @@ findMethodSignatures<span class="token punctuation">(</span><span class="token e
 hasMethods<span class="token punctuation">(</span>f<span class="token punctuation">,</span> where<span class="token punctuation">,</span> package<span class="token punctuation">)</span>
 
 <span class="token comment">## Deprecated in 2010 and defunct in 2015 for 'table = FALSE':</span>
-getMethods<span class="token punctuation">(</span>f<span class="token punctuation">,</span> where<span class="token punctuation">,</span> table <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
+getMethods<span class="token punctuation">(</span>f<span class="token punctuation">,</span> where<span class="token punctuation">,</span> table <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span> <span class="token comment"># deprecated -&gt; use getMethodsForDispatch()</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -3375,7 +3374,7 @@ version of R.)
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="names">names</code></td>
 <td>
@@ -3540,8 +3539,8 @@ directly.</p>
 <h3>Extends</h3>
 
 <p>Class <code>"function"</code>, from data part.<br>
-Class <code>"OptionalMethods"</code>, by class <code>"function"</code>.<br>
-Class <code>"PossibleMethod"</code>, by class <code>"function"</code>.
+Classes <code>"optionalMethod"</code>, <code>"PossibleMethod"</code>, and
+<code>"OptionalFunction"</code> by class <code>"function"</code>.
 </p>
 
 
@@ -3600,7 +3599,7 @@ getGenerics<span class="token punctuation">(</span>where<span class="token punct
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -3710,7 +3709,13 @@ by <code>search()</code>, otherwise as the simple package name (e.g,
 <dt>
 <code>isGeneric</code>:</dt>
 <dd>
-<p>Is there a function named <code>f</code>, and if so, is it a generic?
+<p>If <code>fdef</code> is <code>NULL</code>, then test if there is a formal
+generic function named <code>f</code> in the current search path or in
+the position specified by <code>where</code>.
+</p>
+<p>If <code>fdef</code> is non-<code>NULL</code>, then test if it is a formal
+generic function, with name matching <code>f</code> if <code>f</code> is not
+missing.
 </p>
 <p>The <code>getName</code> argument allows a function to find the name
 from a function definition.  If it is <code>TRUE</code> then the name of
@@ -3719,14 +3724,12 @@ function definition.
 </p>
 <p>The behavior of <code>isGeneric</code> and <code><a href="#RMethodUtils">getGeneric</a></code> for
 primitive functions is slightly different.  These functions don't
-exist as formal function objects (for efficiency and historical
-reasons), regardless of whether methods have been defined for
-them.  A call to <code>isGeneric</code> tells you whether methods have
-been defined for this primitive function, anywhere in the current
-search list, or in the specified position <code>where</code>.  In
-contrast, a call to <code><a href="#RMethodUtils">getGeneric</a></code> will return what the
-generic for that function would be, even if no methods have been
-currently defined for it.
+exist as formal generic function objects (for efficiency and
+historical reasons), regardless of whether methods have been
+defined for them.  For a primitive function, <code>isGeneric</code>
+tests whether methods have been defined, whereas
+<code><a href="#RMethodUtils">getGeneric</a></code> returns what the formal generic function
+object would be, even if no methods have been defined.
 </p>
 </dd>
 <dt>
@@ -4028,7 +4031,7 @@ getClassDef<span class="token punctuation">(</span>Class<span class="token punct
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="Class">Class</code></td>
 <td>
@@ -4201,7 +4204,7 @@ without using inheritance or group generics.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -4455,7 +4458,7 @@ packageSlot<span class="token punctuation">(</span>object<span class="token punc
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="where">where</code></td>
 <td>
@@ -4562,7 +4565,7 @@ call, either a formal argument to the function, or a component of
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="name">name</code></td>
 <td>
 <p>The name of a potential argument, as an unquoted name or
@@ -4651,7 +4654,7 @@ registerImplicitGenerics<span class="token punctuation">(</span>what<span class=
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="name">name</code></td>
 <td>
@@ -4825,7 +4828,7 @@ classes, rather than by this class' definition itself.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="Class">Class</code></td>
 <td>
@@ -5204,7 +5207,7 @@ extends<span class="token punctuation">(</span>class1<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -5383,7 +5386,7 @@ isSealedClass<span class="token punctuation">(</span>Class<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -5594,7 +5597,7 @@ over the arguments involved.
 
 <h3>Objects from the Class</h3>
 
-<p>The function <code><a href="#MethodsList">linearizeMlist</a></code> converts an ordinary methods
+<p>The function <code><a href="#methods-defunct">linearizeMlist</a></code> converts an ordinary methods
 list object into the linearized form.
 </p>
 
@@ -5643,8 +5646,8 @@ the current information will be obtainable in the future.
 
 <h3>See Also</h3>
 
-<p> Function <code><a href="#MethodsList">linearizeMlist</a></code> for the computation,
-and class <code><a href="#MethodsList-class">MethodsList</a></code> for the original, recursive
+<p> Function <code><a href="#methods-defunct">linearizeMlist</a></code> for the computation,
+and class <code><a href="#methods-defunct">MethodsList</a></code> for the original, recursive
 form.
 </p>
 
@@ -5797,7 +5800,7 @@ call it to create a class definition without assigning it, as
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="name">name</code></td>
 <td>
@@ -5913,7 +5916,7 @@ in the call, but can be made an external (previously assigned) function.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="generic">generic</code></td>
 <td>
@@ -6067,13 +6070,13 @@ for which the method was created. </p>
 
 <p>Class <code>"function"</code>, from data part.<br>
 Class <code>"PossibleMethod"</code>, directly.<br>
-Class <code>"OptionalMethods"</code>, by class <code>"function"</code>.
+Class <code>"optionalMethod"</code>, by class <code>"function"</code>.
 </p>
 
 
 <h3>See Also</h3>
 
-<p>class <code><a href="#MethodsList-class">MethodsList</a></code> for the objects
+<p>class <code><a href="#methods-defunct">MethodsList</a></code> for the objects
 defining sets of methods associated with a particular generic
 function.  The individual method definitions stored in these objects
 are from class <code>MethodDefinition</code>, or an extension.
@@ -6272,7 +6275,7 @@ either the direct class or one of its superclasses, for each argument
 in the active signature.
 For an example, suppose there is only one argument in the signature and that the class of
 the corresponding object was <code>"dgeMatrix"</code> (from the recommended package
-<code>Matrix</code>).
+<a href="https://CRAN.R-project.org/package=Matrix" target="_blank"><span class="pkg">Matrix</span></a>).
 This class has (currently) three direct superclasses and through these
 additional superclasses at distances 2 through 4.
 A method that had been defined for any of these classes or for class
@@ -6588,7 +6591,7 @@ available in all these packages.
 <p>However, calls from any package that imports the old version or just
 selects it from the search list will usually <em>not</em> select methods.
 </p>
-<p>A an example, consider the function
+<p>As an example, consider the function
 <code><a href="https://r-universe.dev/manuals/base.html#data.frame">data.frame</a>()</code> in the base package.
 This function takes any number of objects as arguments and attempts to combine
 them as variables into a data frame object.
@@ -7110,82 +7113,6 @@ Chapman &amp; Hall.
 
 <hr>
 </div></div>
-<div class="container manual-page" id="MethodsList-class"><div class="page-main">
-<a href="#MethodsList-class" class="help-page-title"><h2>Class <code>"MethodsList"</code>, Defunct Representation of Methods </h2></a>
-
-<h3>Description</h3>
-
-<p> This class of objects was used in the original
-implementation of the package to control method dispatch.  Its use
-is now defunct, but object appear as the default method slot in
-generic functions.  This and any other remaining uses will be
-removed in the future.
-</p>
-<p>For the modern alternative, see <a href="#findMethods">listOfMethods</a>.
-</p>
-<p>The details in this documentation are retained to allow analysis of
-old-style objects. </p>
-
-
-<h3>Details</h3>
-
-<p>Suppose a function <code>f</code> has
-formal arguments <code>x</code> and <code>y</code>.  The methods list object for
-that function has the object <code>as.name("x")</code> as its
-<code>argument</code> slot.  An element of the methods named <code>"track"</code>
-is selected if the actual argument corresponding to <code>x</code> is an
-object of class <code>"track"</code>.  If there is such an element, it can
-generally be either a function or another methods list object.
-</p>
-<p>In the first case, the function defines the method to use for any call
-in which <code>x</code> is of class <code>"track"</code>.  In the second case, the
-new methods list object defines the available methods depending on
-the remaining formal arguments, in this example, <code>y</code>.
-</p>
-<p>Each method  corresponds conceptually to a <em>signature</em>;
-that is a named list of classes, with names corresponding to some or
-all of the formal arguments.  In the previous example, if selecting
-class <code>"track"</code> for <code>x</code>, finding that the selection was
-another methods list and then selecting class <code>"numeric"</code> for
-<code>y</code> would produce a method associated with the signature
-<code>x = "track", y = "numeric"</code>.
-</p>
-
-
-<h3>Slots</h3>
-
-
-<dl>
-<dt>
-<code>argument</code>:</dt>
-<dd>
-<p>Object of class <code>"name"</code>.  The name of the
-argument being used for dispatch at this level. </p>
-</dd>
-<dt>
-<code>methods</code>:</dt>
-<dd>
-<p>A named list of the methods (and method lists)
-defined <em>explicitly</em> for this argument.
-The names are the names of classes, and the corresponding
-element defines the method or methods to be used if the corresponding
-argument has that class.  See the details below.</p>
-</dd>
-<dt>
-<code>allMethods</code>:</dt>
-<dd>
-<p>A named list,  contains
-all the directly defined methods from the <code>methods</code> slot, plus
-any inherited methods.  Ignored when methods tables are used for dispatch (see <a href="#Methods_Details">Methods_Details</a>). </p>
-</dd>
-</dl>
-<h3>Extends</h3>
-
-<p>Class <code>"OptionalMethods"</code>, directly.
-</p>
-
-<hr>
-</div></div>
 <div class="container manual-page" id="MethodWithNext-class"><div class="page-main">
 <a href="#MethodWithNext-class" class="help-page-title"><h2>Class <code>"MethodWithNext"</code> </h2></a>
 
@@ -7248,7 +7175,7 @@ for which the method was created. </p>
 <p>Class <code>"MethodDefinition"</code>, directly.<br>
 Class <code>"function"</code>, from data part.<br>
 Class <code>"PossibleMethod"</code>, by class <code>"MethodDefinition"</code>.<br>
-Class <code>"OptionalMethods"</code>, by class <code>"MethodDefinition"</code>.
+Class <code>"optionalMethod"</code>, by class <code>"MethodDefinition"</code>.
 </p>
 
 
@@ -7260,11 +7187,6 @@ Class <code>"OptionalMethods"</code>, by class <code>"MethodDefinition"</code>.
 <dd>
 <p><code>signature(method = "MethodWithNext")</code>:
 used internally by method dispatch. </p>
-</dd>
-<dt>loadMethod</dt>
-<dd>
-<p><code>signature(method = "MethodWithNext")</code>: used
-internally by method dispatch. </p>
 </dd>
 <dt>show</dt>
 <dd>
@@ -7310,7 +7232,7 @@ initialize<span class="token punctuation">(</span>.Object<span class="token punc
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="Class">Class</code></td>
 <td>
@@ -7340,7 +7262,7 @@ be passed to <code>initialize()</code>.</p>
 
 <p>The generic function <code>initialize</code> is not called directly.
 A call to <code>new</code> begins by copying the prototype object from
-the class definition, and then calls <code>intialize()</code> with this
+the class definition, and then calls <code>initialize()</code> with this
 object as the first argument, followed by the ... arguments. 
 </p>
 <p>The interpretation of the <code>...</code> arguments in a call to a
@@ -7602,7 +7524,7 @@ minimal markup for Rd processing; no QC facilities at present.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="clName">clName</code></td>
 <td>
@@ -7754,7 +7676,7 @@ function.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -7883,7 +7805,7 @@ getRefClass<span class="token punctuation">(</span>Class<span class="token punct
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="Class">Class</code></td>
 <td>
@@ -8945,7 +8867,7 @@ that were defined in other packages.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td>
 <code id="f">f</code>, <code id="signature">signature</code>, <code id="where">where</code>
 </td>
@@ -8998,7 +8920,7 @@ prototype<span class="token punctuation">(</span><span class="token ellipsis">..
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="...">...</code></td>
 <td>
 
@@ -9164,7 +9086,7 @@ S3Class<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -9449,6 +9371,7 @@ programmer, by calling <code><a href="#setGroupGeneric">setGroupGeneric</a></cod
 Arith(e1, e2)
 Compare(e1, e2)
 Ops(e1, e2)
+matrixOps(x, y)
 Logic(e1, e2)
 Math(x)
 Math2(x, digits)
@@ -9458,6 +9381,7 @@ Complex(z)
 Arith<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
 Compare<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
 Ops<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
+matrixOps<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
 Logic<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
 Math<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 Math2<span class="token punctuation">(</span>x<span class="token punctuation">,</span> digits<span class="token punctuation">)</span>
@@ -9467,10 +9391,10 @@ Complex<span class="token punctuation">(</span>z<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
-<code id="x">x</code>, <code id="z">z</code>, <code id="e1">e1</code>, <code id="e2">e2</code>
+<code id="x">x</code>, <code id="y">y</code>, <code id="z">z</code>, <code id="e1">e1</code>, <code id="e2">e2</code>
 </td>
 <td>
 <p>objects.</p>
@@ -9510,8 +9434,8 @@ inherited methods but after directly specified methods.  For more on
 method selection, see <code><a href="#Methods_Details">Methods_Details</a></code>.
 </p>
 <p>There are also
-S3 groups <code>Math</code>, <code>Ops</code>, <code>Summary</code> and
-<code>Complex</code>, see <code>?<a href="https://r-universe.dev/manuals/base.html#groupGeneric">S3groupGeneric</a></code>,
+S3 groups <code>Math</code>, <code>Ops</code>, <code>Summary</code>, <code>Complex</code>
+and <code>matrixOps</code>, see <code>?<a href="https://r-universe.dev/manuals/base.html#groupGeneric">S3groupGeneric</a></code>,
 with no corresponding <span class="rlang"><b>R</b></span> objects, but these are irrelevant for S4
 group generic functions.
 </p>
@@ -9571,6 +9495,10 @@ as follows:
 <p><code>"Arg"</code>, <code>"Conj"</code>, <code>"Im"</code>,
 <code>"Mod"</code>, <code>"Re"</code></p>
 </dd>
+<dt><code>matrixOps</code></dt>
+<dd>
+<p><code>"%*%"</code></p>
+</dd>
 </dl>
 <p>Note that <code>Ops</code> merely consists of three sub groups.
 </p>
@@ -9596,8 +9524,7 @@ the second reference.
 
 <p>Chambers, John M. (2016)
 <em>Extending R</em>,
-Chapman &amp; Hall.
-(Chapters 9 and 10.)
+Chapman &amp; Hall. (Chapters 9 and 10.)
 </p>
 <p>Chambers, John M. (2008)
 <em>Software for Data Analysis: Programming with R</em>
@@ -9619,6 +9546,7 @@ examples below and in section 10.5 of <em>Software for Data Analysis</em>.
 
 <pre class="language-r"><code class="language-r-input" hidden="hidden">setClass("testComplex", slots = c(zz = "complex"))
 ## method for whole group "Complex"
+getGroupMembers("Complex") # "Arg"  "Conj" "Im"   "Mod"  "Re"  
 setMethod("Complex", "testComplex",
           function(z) c("groupMethod", callGeneric(z@zz)))
 ## exception for Arg() :
@@ -9628,8 +9556,10 @@ z1 &lt;- 1+2i
 z2 &lt;- new("testComplex", zz = z1)
 stopifnot(identical(Mod(z2), c("groupMethod", Mod(z1))))
 stopifnot(identical(Arg(z2), c("ArgMethod", Arg(z1))))
+selectMethod("Re", signature = "testComplex") # shows Generic: .. "Re" &amp; .."Complex"
 </code><code class="language-r">setClass<span class="token punctuation">(</span><span class="token string">"testComplex"</span><span class="token punctuation">,</span> slots <span class="token operator">=</span> c<span class="token punctuation">(</span>zz <span class="token operator">=</span> <span class="token string">"complex"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment">## method for whole group "Complex"</span>
+getGroupMembers<span class="token punctuation">(</span><span class="token string">"Complex"</span><span class="token punctuation">)</span> <span class="token comment"># "Arg"  "Conj" "Im"   "Mod"  "Re"  </span>
 setMethod<span class="token punctuation">(</span><span class="token string">"Complex"</span><span class="token punctuation">,</span> <span class="token string">"testComplex"</span><span class="token punctuation">,</span>
           <span class="token keyword">function</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span> c<span class="token punctuation">(</span><span class="token string">"groupMethod"</span><span class="token punctuation">,</span> callGeneric<span class="token punctuation">(</span>z<span class="token operator">@</span>zz<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment">## exception for Arg() :</span>
@@ -9638,7 +9568,8 @@ setMethod<span class="token punctuation">(</span><span class="token string">"Arg
 z1 <span class="token operator">&lt;-</span> <span class="token number">1</span><span class="token operator">+</span><span class="token number">2i</span>
 z2 <span class="token operator">&lt;-</span> new<span class="token punctuation">(</span><span class="token string">"testComplex"</span><span class="token punctuation">,</span> zz <span class="token operator">=</span> z1<span class="token punctuation">)</span>
 stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>Mod<span class="token punctuation">(</span>z2<span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token string">"groupMethod"</span><span class="token punctuation">,</span> Mod<span class="token punctuation">(</span>z1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>Arg<span class="token punctuation">(</span>z2<span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token string">"ArgMethod"</span><span class="token punctuation">,</span> Arg<span class="token punctuation">(</span>z1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>Arg<span class="token punctuation">(</span>z2<span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token string">"ArgMethod"</span><span class="token punctuation">,</span> Arg<span class="token punctuation">(</span>z1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+selectMethod<span class="token punctuation">(</span><span class="token string">"Re"</span><span class="token punctuation">,</span> signature <span class="token operator">=</span> <span class="token string">"testComplex"</span><span class="token punctuation">)</span> <span class="token comment"># shows Generic: .. "Re" &amp; .."Complex"</span></code></pre>
 
 <hr>
 </div></div>
@@ -9775,7 +9706,7 @@ with the <code>contains</code> slot of the corresponding class definitions.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="Class">Class</code></td>
 <td>
@@ -9899,7 +9830,7 @@ on the first argument.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="from">from</code>, <code id="to">to</code>
@@ -10207,7 +10138,7 @@ not a requirement.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="Class">Class</code></td>
 <td>
@@ -10638,7 +10569,7 @@ isClassUnion<span class="token punctuation">(</span>Class<span class="token punc
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="name">name</code></td>
 <td>
@@ -10791,7 +10722,7 @@ arguments and becomes the default method.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="name">name</code></td>
 <td>
@@ -11219,7 +11150,7 @@ changes in the search list or direct specification of methods, etc.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="name">name</code></td>
 <td>
@@ -11337,7 +11268,7 @@ class of objects to another, it is usually better practice to call
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="class1">class1</code>, <code id="class2">class2</code>
@@ -11459,7 +11390,7 @@ mechanism for defining coerce methods by a call to
 <code><a href="#setAs">setAs</a></code>.  The difference between the  two is simply
 that <code><a href="#setAs">setAs</a></code> will require a call to <code><a href="#as">as</a></code>
 for a conversion to take place, whereas after the call to
-<code><a href="#setIs">setIs</a></code>, objects will be automatically converted to
+<code>setIs</code>, objects will be automatically converted to
 the superclass.
 </p>
 <p>The automatic feature is the dangerous part, mainly because it
@@ -11618,25 +11549,26 @@ Chapman &amp; Hall.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r-input" hidden="hidden">
-## Two examples of setIs() with coerce= and replace= arguments
+<pre class="language-r"><code class="language-r-input" hidden="hidden">## Two examples of setIs() with coerce= and replace= arguments
 ## The first one works fairly well, because neither class has many
 ## inherited methods do be disturbed by the new inheritance
 
 ## The second example does NOT work well, because the new superclass,
 ## "factor", causes methods to be inherited that should not be.
 
-## First example:
-## a class definition (see \link{setClass} for class "track")
+## First example (classes taken from examples in ?setClass):
+## A simple class with two slots
+setClass("track", slots = c(x="numeric", y="numeric"))
+## A class extending the previous, adding one more slot
 setClass("trackCurve", contains = "track",
-         slots = c( smooth = "numeric"))
+         slots = c(smooth = "numeric"))
 ## A class similar to "trackCurve", but with different structure
 ## allowing matrices for the "y" and "smooth" slots
 setClass("trackMultiCurve",
          slots = c(x="numeric", y="matrix", smooth="matrix"),
          prototype = structure(list(), x=numeric(), y=matrix(0,0,0),
+                               smooth=matrix(0,0,0)))
 
-                               smooth= matrix(0,0,0)))
 ## Automatically convert an object from class "trackCurve" into
 ## "trackMultiCurve", by making the y, smooth slots into 1-column matrices
 setIs("trackCurve",
@@ -11652,7 +11584,6 @@ setIs("trackCurve",
         obj@x &lt;- value@x
         obj@smooth &lt;- as.matrix(value@smooth)
         obj})
-
 
 
 
@@ -11686,17 +11617,19 @@ identical(levels(fd), levels(as(fd, "factor")))
 <span class="token comment">## The second example does NOT work well, because the new superclass,</span>
 <span class="token comment">## "factor", causes methods to be inherited that should not be.</span>
 
-<span class="token comment">## First example:</span>
-<span class="token comment">## a class definition (see \link{setClass} for class "track")</span>
+<span class="token comment">## First example (classes taken from examples in ?setClass):</span>
+<span class="token comment">## A simple class with two slots</span>
+setClass<span class="token punctuation">(</span><span class="token string">"track"</span><span class="token punctuation">,</span> slots <span class="token operator">=</span> c<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">"numeric"</span><span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token string">"numeric"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">## A class extending the previous, adding one more slot</span>
 setClass<span class="token punctuation">(</span><span class="token string">"trackCurve"</span><span class="token punctuation">,</span> contains <span class="token operator">=</span> <span class="token string">"track"</span><span class="token punctuation">,</span>
-         slots <span class="token operator">=</span> c<span class="token punctuation">(</span> smooth <span class="token operator">=</span> <span class="token string">"numeric"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+         slots <span class="token operator">=</span> c<span class="token punctuation">(</span>smooth <span class="token operator">=</span> <span class="token string">"numeric"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment">## A class similar to "trackCurve", but with different structure</span>
 <span class="token comment">## allowing matrices for the "y" and "smooth" slots</span>
 setClass<span class="token punctuation">(</span><span class="token string">"trackMultiCurve"</span><span class="token punctuation">,</span>
          slots <span class="token operator">=</span> c<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">"numeric"</span><span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token string">"matrix"</span><span class="token punctuation">,</span> smooth<span class="token operator">=</span><span class="token string">"matrix"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
          prototype <span class="token operator">=</span> structure<span class="token punctuation">(</span>list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token operator">=</span>numeric<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> y<span class="token operator">=</span>matrix<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                               smooth<span class="token operator">=</span>matrix<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-                               smooth<span class="token operator">=</span> matrix<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment">## Automatically convert an object from class "trackCurve" into</span>
 <span class="token comment">## "trackMultiCurve", by making the y, smooth slots into 1-column matrices</span>
 setIs<span class="token punctuation">(</span><span class="token string">"trackCurve"</span><span class="token punctuation">,</span>
@@ -11712,7 +11645,6 @@ setIs<span class="token punctuation">(</span><span class="token string">"trackCu
         obj<span class="token operator">@</span>x <span class="token operator">&lt;-</span> value<span class="token operator">@</span>x
         obj<span class="token operator">@</span>smooth <span class="token operator">&lt;-</span> as.matrix<span class="token punctuation">(</span>value<span class="token operator">@</span>smooth<span class="token punctuation">)</span>
         obj<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
 
 
 
@@ -11799,7 +11731,7 @@ evalqOnLoad<span class="token punctuation">(</span>expr<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="action">action</code>, <code id="...">...</code>
@@ -11986,7 +11918,7 @@ setLoadActions<span class="token punctuation">(</span><span class="token keyword
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -12449,7 +12381,7 @@ equivalent S4 class can be specified by <code>S4Class=</code> in the call to
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="Classes">Classes</code></td>
 <td>
@@ -12728,7 +12660,7 @@ usually be invoked for automatic printing (see the details).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="object">object</code></td>
 <td>
 <p>Any R object</p>
@@ -12863,7 +12795,7 @@ possibly restricted to those involving specified classes.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -13160,7 +13092,7 @@ getSlots<span class="token punctuation">(</span>x<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -13551,7 +13483,7 @@ performed by package authors <em>before</em> releasing a package.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -13825,7 +13757,7 @@ getValidity<span class="token punctuation">(</span>ClassDef<span class="token pu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -14029,6 +13961,6 @@ tT  <span class="token operator">&lt;-</span> new<span class="token punctuation"
 <hr>
 </div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.4.0</p></footer>
+    <footer><p>Rendered with postdoc 1.4.1</p></footer>
   </body>
 </html>

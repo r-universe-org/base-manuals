@@ -7,12 +7,12 @@
 
     <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
     <!-- for (future) customizations -->
     <script src="https://r-universe.dev/static/manual.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css">
 
   </head>
 
@@ -37,15 +37,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.4.1</td>
+<td class="description-license">Part of R 4.5.0</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.4.1</td>
+<td class="description-version">4.5.0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-06-15 17:27:16 UTC</td>
+<td class="description-date">2025-04-11 20:15:12 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -292,7 +292,7 @@ substitutions needed to transform one string into another.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -510,12 +510,12 @@ find<span class="token punctuation">(</span>what<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="what">what</code></td>
 <td>
-<p>character string.  For <code>simple.words = FALSE</code>
-the name of an object; otherwise
+<p>a character string.  For <code>find</code> with
+<code>simple.words = TRUE</code>, the name of an object; otherwise
 a <a href="https://r-universe.dev/manuals/base.html#regex">regular expression</a> to match object names against.</p>
 </td>
 </tr>
@@ -524,8 +524,8 @@ a <a href="https://r-universe.dev/manuals/base.html#regex">regular expression</a
 <code id="where">where</code>, <code id="numeric">numeric</code>
 </td>
 <td>
-<p>a logical indicating whether positions in the
-search list should also be returned</p>
+<p>logical indicating whether positions in the
+search list should also be returned.</p>
 </td>
 </tr>
 <tr>
@@ -545,7 +545,7 @@ case-insensitive, <code>TRUE</code> by default.</p>
 <tr>
 <td><code id="mode">mode</code></td>
 <td>
-<p>character; if not <code>"any"</code>, only objects whose
+<p>a character string; if not <code>"any"</code>, only objects whose
 <code><a href="https://r-universe.dev/manuals/base.html#mode">mode</a></code> equals <code>mode</code> are searched.</p>
 </td>
 </tr>
@@ -688,7 +688,7 @@ table<span class="token punctuation">(</span>nchar<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pattern">pattern</code></td>
 <td>
@@ -815,7 +815,7 @@ This may include windows not “belonging” to <span class="rlang"><b>R</b></sp
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="action">action</code></td>
 <td>
@@ -970,7 +970,7 @@ It provides a way for front-ends to substitute their own dialogs.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="msg">msg</code></td>
 <td>
@@ -1067,7 +1067,7 @@ left as-is for the default choice.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="files">files</code></td>
 <td>
@@ -1296,7 +1296,7 @@ aspell_write_personal_dictionary_file<span class="token punctuation">(</span>x<s
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="dir">dir</code></td>
 <td>
@@ -1441,20 +1441,28 @@ from a local mirror).
 <h3>Usage</h3>
 
 <pre class="language-r"><code class="language-r-input" hidden="hidden">available.packages(contriburl = contrib.url(repos, type), method,
-                   fields = NULL, type = getOption("pkgType"),
-                   filters = NULL, repos = getOption("repos"),
+                   fields = getOption("available_packages_fields"),
+                   type = getOption("pkgType"), filters = NULL,
+                   repos = getOption("repos"),
                    ignore_repo_cache = FALSE, max_repo_cache_age,
-                   quiet = TRUE, ...)
+                   cache_user_dir =
+                       str2logical(Sys.getenv("R_PACKAGES_CACHE_USER_DIR",
+                                              FALSE)),
+                   quiet = TRUE, verbose = FALSE, ...)
 </code><code class="language-r">available.packages<span class="token punctuation">(</span>contriburl <span class="token operator">=</span> contrib.url<span class="token punctuation">(</span>repos<span class="token punctuation">,</span> type<span class="token punctuation">)</span><span class="token punctuation">,</span> method<span class="token punctuation">,</span>
-                   fields <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> type <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"pkgType"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                   filters <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> repos <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"repos"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                   fields <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"available_packages_fields"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                   type <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"pkgType"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> filters <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
+                   repos <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"repos"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                    ignore_repo_cache <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> max_repo_cache_age<span class="token punctuation">,</span>
-                   quiet <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+                   cache_user_dir <span class="token operator">=</span>
+                       str2logical<span class="token punctuation">(</span>Sys.getenv<span class="token punctuation">(</span><span class="token string">"R_PACKAGES_CACHE_USER_DIR"</span><span class="token punctuation">,</span>
+                                              <span class="token boolean">FALSE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                   quiet <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> verbose <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="contriburl">contriburl</code></td>
 <td>
@@ -1528,10 +1536,25 @@ will be ignored. See ‘Details’.
 </td>
 </tr>
 <tr>
+<td><code id="cache_user_dir">cache_user_dir</code></td>
+<td>
+<p><code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> indicating if caching should
+happen in <span class="pkg">tools</span>' <code><a href="https://r-universe.dev/manuals/tools.html#R_user_dir">R_user_dir</a>("base", "cache")</code>
+instead of <code><a href="https://r-universe.dev/manuals/base.html#tempfile">tempdir</a>()</code>.</p>
+</td>
+</tr>
+<tr>
 <td><code id="quiet">quiet</code></td>
 <td>
 <p>logical, passed to <code><a href="#download.file">download.file</a>()</code>; change
 only if you know what you are doing.</p>
+</td>
+</tr>
+<tr>
+<td><code id="verbose">verbose</code></td>
+<td>
+<p>logical indicating if a “progress report” line
+should be printed about the number of packages found in each repository.</p>
 </td>
 </tr>
 <tr>
@@ -1747,7 +1770,7 @@ send output (stdout/stderr) to another file.</p>
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="infile">infile</code></td>
 <td>
@@ -1875,7 +1898,7 @@ toBibtex<span class="token punctuation">(</span>object<span class="token punctua
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="bibtype">bibtype</code></td>
 <td>
@@ -2450,7 +2473,7 @@ currently in <code>sys.frame()</code> environment.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="envir">envir</code></td>
 <td>
@@ -2589,7 +2612,7 @@ package (from <a href="https://www.bioconductor.org" target="_blank">https://www
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="url">url</code></td>
 <td>
@@ -2745,7 +2768,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -2836,7 +2859,7 @@ version and configuration of <span class="rlang"><b>R</b></span> are included au
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="subject">subject</code></td>
 <td>
@@ -3042,7 +3065,7 @@ string or sent to a file.  Related to <code><a href="https://r-universe.dev/manu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -3182,7 +3205,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 <h3 class="r-arguments-title">Arguments</h3>
 
  
-<table>
+<table role="presentation">
 <tr>
 <td><code id="path">path</code></td>
 <td>
@@ -3305,7 +3328,7 @@ digest function.
 <p><code>fileSnapshot</code> returns an object of class <code>"fileSnapshot"</code>.
 This is a list containing the fields 
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>info</code></td>
 <td>
@@ -3339,7 +3362,7 @@ the other arguments from the call</p>
 <p><code>changedFiles</code> produces an object of class <code>"changedFiles"</code>.
 This is a list containing
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code>added</code>, <code>deleted</code>, <code>changed</code>, <code>unchanged</code>
@@ -3433,7 +3456,7 @@ changedFiles<span class="token punctuation">(</span>snapshot<span class="token p
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -3610,7 +3633,7 @@ table<span class="token punctuation">(</span>pr<span class="token punctuation">)
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="default">default</code></td>
 <td>
@@ -3690,7 +3713,7 @@ Filters</code></pre>
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="default">default</code></td>
 <td>
@@ -3806,7 +3829,7 @@ files by pattern.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="graphics">graphics</code></td>
 <td>
@@ -3884,7 +3907,7 @@ getCRANmirrors<span class="token punctuation">(</span>all <span class="token ope
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="graphics">graphics</code></td>
 <td>
@@ -3977,7 +4000,7 @@ citFooter<span class="token punctuation">(</span><span class="token ellipsis">..
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -4033,13 +4056,24 @@ authors have invested a lot of time and effort in creating <span class="rlang"><
 today.  Please give credit where credit is due and cite <span class="rlang"><b>R</b></span> and <span class="rlang"><b>R</b></span>
 packages when you use them for data analysis.
 </p>
-<p>Execute function <code>citation()</code> for information on how to cite the
-base R system in publications.  If the name of a non-base package is
-given, the function either returns the information contained in the
-‘<span class="file">CITATION</span>’ file of the package (using <code>readCitationFile</code>
-with <code>meta</code> equal to <code>packageDescription(package, lib.loc)</code>)
-or auto-generates citation information from the ‘<span class="file">DESCRIPTION</span>’
-file.
+<p>Use <code>citation()</code> (without arguments) for information on how to
+cite the base R system in publications.
+</p>
+<p>If <code>citation()</code> is called with <code>package</code> the name of a
+non-base package, as controlled by the <code>auto</code> argument it either
+returns the information contained in the package ‘<span class="file">CITATION</span>’ file
+or auto-generates citation information from the package
+‘<span class="file">DESCRIPTION</span>’ file.  By default (<code>auto = NULL</code>), the
+‘<span class="file">CITATION</span>’ file is used if it exists, in which case it is read
+via <code>readCitationFile</code> with <code>meta</code> equal to
+<code>packageDescription(package, lib.loc)</code>.  One can force
+auto-generation via <code>auto = TRUE</code>.
+</p>
+<p>The auto-generated citation includes <abbr>URL</abbr>s for packages
+installed from the standard repositories CRAN and Bioconductor and
+from development platforms such as GitHub, GitLab, or
+R-Forge.  In case of CRAN and Bioconductor, <abbr>DOI</abbr>s are
+included as well.
 </p>
 <p>Packages can use an ‘<span class="samp">⁠Authors@R⁠</span>’ field in their
 ‘<span class="file">DESCRIPTION</span>’ to provide (<span class="rlang"><b>R</b></span> code giving) a
@@ -4151,7 +4185,7 @@ citation<span class="token punctuation">(</span><span class="token string">"nlme
 uses the <code>cite()</code> function from the default
 <code><a href="https://r-universe.dev/manuals/tools.html#bibstyle">bibstyle</a></code> if present, or <code>citeNatbib()</code> if not.
 <code>citeNatbib()</code> uses a style similar to that used by the LaTeX
-package <span class="pkg">natbib</span>.
+package ‘<span class="samp">⁠natbib⁠</span>’.
 </p>
 
 
@@ -4171,7 +4205,7 @@ citeNatbib<span class="token punctuation">(</span>keys<span class="token punctua
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="keys">keys</code></td>
 <td>
@@ -4252,7 +4286,7 @@ produce in LaTeX.
 <td><code id="bibpunct">bibpunct</code></td>
 <td>
 
-<p>A vector of punctuation to use in the citation, as used in <span class="pkg">natbib</span>.  See
+<p>A vector of punctuation to use in the citation, as used in ‘<span class="samp">⁠natbib⁠</span>’.  See
 the Details section.
 </p>
 </td>
@@ -4269,7 +4303,7 @@ the Details section.
 </table>
 <h3>Details</h3>
 
-<p>Argument names are chosen based on the documentation for the LaTeX <span class="pkg">natbib</span>
+<p>Argument names are chosen based on the documentation for the LaTeX ‘<span class="samp">⁠natbib⁠</span>’
 package.  See that documentation for the interpretation of the
 <code>bibpunct</code> entries.
 </p>
@@ -4467,7 +4501,7 @@ superseded by <code><a href="#bibentry">bibentry</a></code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="entry">entry</code></td>
 <td>
@@ -4547,7 +4581,7 @@ writeClipboard<span class="token punctuation">(</span>str<span class="token punc
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="numeric">numeric</code></td>
 <td>
@@ -4578,7 +4612,7 @@ as a character vector?</p>
 <h3>Details</h3>
 
 <p>The Windows clipboard offers data in a number of formats: see
-e.g. <a href="https://docs.microsoft.com/en-gb/windows/desktop/dataxchg/clipboard-formats" target="_blank">https://docs.microsoft.com/en-gb/windows/desktop/dataxchg/clipboard-formats</a>.
+e.g. <a href="https://learn.microsoft.com/en-gb/windows/desktop/dataxchg/clipboard-formats" target="_blank">https://learn.microsoft.com/en-gb/windows/desktop/dataxchg/clipboard-formats</a>.
 </p>
 <p>The standard formats include
 </p>
@@ -4755,7 +4789,7 @@ port may not be freed immediately.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="socket">socket</code></td>
 <td>
@@ -4814,7 +4848,7 @@ a list; otherwise returns an <code><a href="https://r-universe.dev/manuals/base.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -4953,7 +4987,7 @@ combn<span class="token punctuation">(</span>c<span class="token punctuation">(<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td>
 <code id="a">a</code>, <code id="b">b</code>
 </td>
@@ -4975,6 +5009,8 @@ those with the components present).
 <p><code>0</code> if the numbers are equal, <code>-1</code> if <code>b</code> is later
 and <code>1</code> if <code>a</code> is later (analogous to the C function
 <code>strcmp</code>).
+</p>
+<p>Gives an <span class="rlang"><b>R</b></span> error on malformed inputs.
 </p>
 
 
@@ -5013,7 +5049,7 @@ program using <code>R CMD LINK</code>.   Not available on Windows.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="srcfiles">srcfiles</code></td>
 <td>
@@ -5093,7 +5129,7 @@ repository to each URL in <code>repos</code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="repos">repos</code></td>
 <td>
@@ -5157,7 +5193,7 @@ set up a repository.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -5273,7 +5309,7 @@ maintainers or to <span class="rlang"><b>R</b></span> mailing lists.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="instructions">instructions</code></td>
 <td>
@@ -5416,7 +5452,7 @@ available.  Currently <code>subject</code> is ignored.</p>
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -5486,7 +5522,7 @@ case it had been run <em>via</em> <code>utils::data</code>.)
 </p>
 </li>
 <li>
-<p> files ending ‘<span class="file">.RData</span>’ or ‘<span class="file">.rda</span>’ are
+<p> files ending ‘<span class="file">.RData</span>’ or ‘<span class="file">.rdata</span>’ or ‘<span class="file">.rda</span>’ are
 <code><a href="https://r-universe.dev/manuals/base.html#load">load</a>()</code>ed.
 </p>
 </li>
@@ -5691,7 +5727,7 @@ de<span class="token punctuation">(</span><span class="token ellipsis">...</span
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -5885,7 +5921,7 @@ undebugcall<span class="token punctuation">(</span>call<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="call">call</code></td>
 <td>
@@ -5978,7 +6014,7 @@ limitedLabels<span class="token punctuation">(</span>value<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="dumpto">dumpto</code></td>
 <td>
@@ -6206,7 +6242,7 @@ options<span class="token punctuation">(</span>error <span class="token operator
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="topic">topic</code></td>
 <td>
@@ -6367,7 +6403,7 @@ build the DLL, if available.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="path">path</code></td>
 <td>
 <p>character vector of length one giving the complete path to
@@ -6426,7 +6462,7 @@ corresponding string is empty.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="url">url</code></td>
 <td>
@@ -6628,7 +6664,12 @@ be seen on Windows.
 <p>An (invisible) integer code, <code>0</code> for success and non-zero for
 failure.  For the <code>"wget"</code> and <code>"curl"</code> methods this is the
 status code returned by the external program.  The <code>"internal"</code>
-method can return <code>1</code>, but will in most cases throw an error.
+method can return <code>1</code>, but will in most cases throw an error.  When
+simultaneously downloading two or more files (see the <code>url</code> argument)
+and download of at least one file succeeds, <code>0</code> is returned with
+attribute <code>retvals</code>, which provides an integer vector of the same
+length as <code>url</code> with a result code for each file (<code>0</code> for
+success and non-zero for failure).
 </p>
 <p>What happens to the destination file(s) in the case of error depends
 on the method and <span class="rlang"><b>R</b></span> version. Currently the <code>"internal"</code>,
@@ -6795,7 +6836,7 @@ the repositories and update outdated packages on the fly.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pkgs">pkgs</code></td>
 <td>
@@ -6947,7 +6988,7 @@ xedit<span class="token punctuation">(</span>name <span class="token operator">=
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="name">name</code></td>
 <td>
@@ -7095,7 +7136,7 @@ edit<span class="token punctuation">(</span>name<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="name">name</code></td>
 <td>
@@ -7247,7 +7288,7 @@ topic <code>topic</code>, with possible exceptions due to <code style="white-spa
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="topic">topic</code></td>
 <td>
@@ -7504,7 +7545,7 @@ Shell-style Tests on Files
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="op">op</code></td>
 <td>
@@ -7581,7 +7622,7 @@ file_test<span class="token punctuation">(</span><span class="token string">"-nt
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -7684,7 +7725,7 @@ file.edit<span class="token punctuation">(</span><span class="token string">"scr
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="type">type</code></td>
 <td>
 <p>Is the mirror to be used for package sources or web information?</p>
@@ -7780,7 +7821,7 @@ setBreakpoint<span class="token punctuation">(</span>srcfile<span class="token p
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="srcfile">srcfile</code></td>
 <td>
@@ -7960,7 +8001,7 @@ setBreakpoint<span class="token punctuation">(</span><span class="token string">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -8057,7 +8098,7 @@ formatOL<span class="token punctuation">(</span>x<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -8174,7 +8215,7 @@ argsAnywhere<span class="token punctuation">(</span>x<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p>a character string or name.</p>
@@ -8200,7 +8241,7 @@ correct, especially if namespaces have been unloaded.
 <p>For <code>getAnywhere()</code> an object of class <code>"getAnywhere"</code>.
 This is a list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>name</code></td>
 <td>
@@ -8301,7 +8342,7 @@ fixInNamespace<span class="token punctuation">(</span>x<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -8445,7 +8486,7 @@ getParseText<span class="token punctuation">(</span>parseData<span class="token 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -8497,7 +8538,7 @@ parsed code, and retrieved by the <code>getParseData</code> function.
 If parse data is not present, <code>NULL</code>.  Otherwise
 a data frame is returned, containing the following columns:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>line1</code></td>
 <td>
@@ -8599,7 +8640,7 @@ tree, they are only retained in the table returned by <code>getParseData</code>.
 </p>
 </li>
 <li> <p><code style="white-space: pre;">⁠#line⁠</code> directives are identified, but other comment
-markup (e.g., <a href="https://CRAN.R-project.org/package=roxygen" target="_blank"><span class="pkg">roxygen</span></a> comments) are not.
+markup (e.g., <a href="https://CRAN.R-project.org/package=roxygen2" target="_blank"><span class="pkg">roxygen2</span></a> comments) are not.
 </p>
 </li>
 </ul>
@@ -8673,7 +8714,7 @@ generic's registry.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -8758,7 +8799,7 @@ getS3method<span class="token punctuation">(</span><span class="token string">"p
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="which">which</code></td>
 <td>
 <p>a string (see below), or the number of a graphics device
@@ -8851,7 +8892,7 @@ windows within the <span class="rlang"><b>R</b></span> MDI frame (when using the
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="which">which</code></td>
 <td>
@@ -8976,7 +9017,7 @@ corresponding regular expressions (<code><a href="https://r-universe.dev/manuals
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pattern">pattern</code></td>
 <td>
@@ -9031,7 +9072,7 @@ regular expression.
 
 <p><code><a href="https://r-universe.dev/manuals/base.html#regex">regexp</a></code> about regular expression,
 <code><a href="https://r-universe.dev/manuals/base.html#grep">sub</a></code>, etc about substitutions using regexps.
-<code><a href="https://r-universe.dev/manuals/base.html#Sys.glob">Sys.glob</a></code> does wildcard expansio, i.e., “globbing” on
+<code><a href="https://r-universe.dev/manuals/base.html#Sys.glob">Sys.glob</a></code> does wildcard expansion, i.e., “globbing” on
 file paths more subtly, e.g., allowing to escape special characters.
 </p>
 
@@ -9074,7 +9115,7 @@ Repeated calls in the same package accumulate the names of the
 global variables.
 </p>
 <p>Typical examples are the fields and methods in reference classes,
-which appear to be global objects to <code>codetools</code>.
+which appear to be global objects to <span class="pkg">codetools</span>.
 (This case is handled automatically by <code><a href="https://r-universe.dev/manuals/methods.html#refClass">setRefClass</a>()</code> and
 friends, using the supplied field and method names.)
 </p>
@@ -9103,7 +9144,7 @@ suppressForeignCheck<span class="token punctuation">(</span>names<span class="to
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="names">names</code></td>
 <td>
@@ -9143,7 +9184,7 @@ stored in a metadata object in the package's namespace, assuming the
 <code>globalVariables</code> or <code>suppressForeignCheck</code> call(s) occur
 as top-level calls in the package's source code.
 </p>
-<p>The check command, as implemented in package <code>tools</code>, queries
+<p>The check command, as implemented in package <span class="pkg">tools</span>, queries
 the list before checking the <span class="rlang"><b>R</b></span> source code in the package for
 possible problems.
 </p>
@@ -9168,7 +9209,7 @@ symbol objects which are not to be checked.
 <p>The global variables list really belongs to a restricted scope (a
 function or a group of method definitions, for example) rather than
 the package as a whole.  However, implementing finer control would
-require changes in <code>check</code> and/or in <code>codetools</code>, so in this
+require changes in <code>check</code> and/or in <span class="pkg">codetools</span>, so in this
 version the information is stored at the package level.
 </p>
 
@@ -9181,7 +9222,7 @@ version the information is stored at the package level.
 
 <h3>See Also</h3>
 
-<p><code>dontCheck</code>.
+<p><code><a href="https://r-universe.dev/manuals/base.html#dontCheck">dontCheck</a></code>
 </p>
 
 
@@ -9289,7 +9330,7 @@ str<span class="token punctuation">(</span>object<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="type">type</code></td>
 <td>
@@ -9436,7 +9477,7 @@ serialized and unserialized.
 </li>
 </ul>
 <p>As an experimental feature, the element operator <code>[[</code> can also be
-used get or set hash table entries, and <code>length</code> can be used to
+used to get or set hash table entries, and <code>length</code> can be used to
 obtain the number of entries. It is not yet clear whether this is a
 good idea.
 </p>
@@ -9567,7 +9608,7 @@ in an R object.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -9624,9 +9665,10 @@ hasName<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3>Description</h3>
 
-<p>Returns the first or last parts of a vector, matrix, table, data frame
+<p>Returns the first or last parts of a vector, matrix, array, table, data frame
 or function.  Since <code>head()</code> and <code>tail()</code> are generic
-functions, they may also have been extended to other classes.
+functions, they have been extended to other classes, including
+<code>"<a href="https://r-universe.dev/manuals/stats.html#ts">ts</a>"</code> from <span class="pkg">stats</span>.
 </p>
 
 
@@ -9657,6 +9699,8 @@ tail(x, n = 6L, keepnums = TRUE, addrownums, ...) # exported as tail.matrix()
 tail(x, n = 6L, keepnums = FALSE, addrownums, ...)
 ## S3 method for class 'function'
 tail(x, n = 6L, ...)
+
+.checkHT(n, d) 
 </code><code class="language-r">head<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## Default S3 method:</span>
 head<span class="token punctuation">(</span>x<span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token number">6L</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
@@ -9681,12 +9725,14 @@ tail<span class="token punctuation">(</span>x<span class="token punctuation">,</
 <span class="token comment">## S3 method for class 'ftable'</span>
 tail<span class="token punctuation">(</span>x<span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token number">6L</span><span class="token punctuation">,</span> keepnums <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> addrownums<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'function'</span>
-tail<span class="token punctuation">(</span>x<span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token number">6L</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+tail<span class="token punctuation">(</span>x<span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token number">6L</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+.checkHT<span class="token punctuation">(</span>n<span class="token punctuation">,</span> d<span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -9728,6 +9774,13 @@ set when <code>keepnums</code> is not.</p>
 <td><code id="...">...</code></td>
 <td>
 <p>arguments to be passed to or from other methods.</p>
+</td>
+</tr>
+<tr>
+<td><code id="d">d</code></td>
+<td>
+<p>typically <code>dim(x)</code>, hence <code>NULL</code> or a (typically integer, short)
+vector.</p>
 </td>
 </tr>
 </table>
@@ -9785,6 +9838,9 @@ padding)</p>
 <code><a href="https://r-universe.dev/manuals/base.html#attributes">attributes</a></code>, so do the <code>head()</code> and <code>tail()</code>
 methods for data frames.
 </p>
+<p>The auxiliary function <code>.checkHT(d, n)</code> is useful in <code>head(x, n)</code> or
+<code>tail(x, n)</code> methods, checking validity of <code>d &lt;- dim(x)</code> and <code>n</code>.
+</p>
 
 
 <h3>Value</h3>
@@ -9822,9 +9878,9 @@ head(letters, n = -6L)
 head(freeny.x, n = 10L)
 head(freeny.y)
 
-head(iris3)
-head(iris3, c(6L, 2L))
-head(iris3, c(6L, -1L, 2L))
+head(gait) # 3d array
+head(gait, c(6L, 2L))
+head(gait, c(6L, 2L, -1L))
 
 tail(letters)
 tail(letters, n = -6L)
@@ -9834,14 +9890,14 @@ tail(freeny.x)
 tail(freeny.x, n = c(4, 2))
 tail(freeny.y)
 
-tail(iris3)
-tail(iris3, c(6L, 2L))
-tail(iris3, c(6L, -1L, 2L))
+tail(gait)
+tail(gait, c(6L, 2L))
+tail(gait, c(6L, 2L, -1L))
 
-## iris with dimnames stripped
-a3d &lt;- iris3 ; dimnames(a3d) &lt;- NULL
-tail(a3d, c(6, -1, 2)) # keepnums = TRUE is default here!
-tail(a3d, c(6, -1, 2), keepnums = FALSE)
+## gait without dimnames --&gt; keepnums showing original row/col numbers
+a3 &lt;- gait ; dimnames(a3) &lt;- NULL
+tail(a3, c(6, 2, -1))# keepnums = TRUE is default here!
+tail(a3, c(6, 2, -1),  keepnums = FALSE)
 
 ## data frame w/ a (non-standard) attribute:
 treeS &lt;- structure(trees, foo = "bar")
@@ -9874,9 +9930,9 @@ head<span class="token punctuation">(</span>letters<span class="token punctuatio
 head<span class="token punctuation">(</span>freeny.x<span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token number">10L</span><span class="token punctuation">)</span>
 head<span class="token punctuation">(</span>freeny.y<span class="token punctuation">)</span>
 
-head<span class="token punctuation">(</span>iris3<span class="token punctuation">)</span>
-head<span class="token punctuation">(</span>iris3<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">6L</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-head<span class="token punctuation">(</span>iris3<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">6L</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1L</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+head<span class="token punctuation">(</span>gait<span class="token punctuation">)</span> <span class="token comment"># 3d array</span>
+head<span class="token punctuation">(</span>gait<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">6L</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+head<span class="token punctuation">(</span>gait<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">6L</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1L</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 tail<span class="token punctuation">(</span>letters<span class="token punctuation">)</span>
 tail<span class="token punctuation">(</span>letters<span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">6L</span><span class="token punctuation">)</span>
@@ -9886,14 +9942,14 @@ tail<span class="token punctuation">(</span>freeny.x<span class="token punctuati
 tail<span class="token punctuation">(</span>freeny.x<span class="token punctuation">,</span> n <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 tail<span class="token punctuation">(</span>freeny.y<span class="token punctuation">)</span>
 
-tail<span class="token punctuation">(</span>iris3<span class="token punctuation">)</span>
-tail<span class="token punctuation">(</span>iris3<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">6L</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-tail<span class="token punctuation">(</span>iris3<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">6L</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1L</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+tail<span class="token punctuation">(</span>gait<span class="token punctuation">)</span>
+tail<span class="token punctuation">(</span>gait<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">6L</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+tail<span class="token punctuation">(</span>gait<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">6L</span><span class="token punctuation">,</span> <span class="token number">2L</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1L</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-<span class="token comment">## iris with dimnames stripped</span>
-a3d <span class="token operator">&lt;-</span> iris3 <span class="token punctuation">;</span> dimnames<span class="token punctuation">(</span>a3d<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> <span class="token keyword">NULL</span>
-tail<span class="token punctuation">(</span>a3d<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># keepnums = TRUE is default here!</span>
-tail<span class="token punctuation">(</span>a3d<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> keepnums <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+<span class="token comment">## gait without dimnames --&gt; keepnums showing original row/col numbers</span>
+a3 <span class="token operator">&lt;-</span> gait <span class="token punctuation">;</span> dimnames<span class="token punctuation">(</span>a3<span class="token punctuation">)</span> <span class="token operator">&lt;-</span> <span class="token keyword">NULL</span>
+tail<span class="token punctuation">(</span>a3<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment"># keepnums = TRUE is default here!</span>
+tail<span class="token punctuation">(</span>a3<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  keepnums <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 
 <span class="token comment">## data frame w/ a (non-standard) attribute:</span>
 treeS <span class="token operator">&lt;-</span> structure<span class="token punctuation">(</span>trees<span class="token punctuation">,</span> foo <span class="token operator">=</span> <span class="token string">"bar"</span><span class="token punctuation">)</span>
@@ -9946,7 +10002,7 @@ stopifnot<span class="token punctuation">(</span>exprs <span class="token operat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="topic">topic</code></td>
 <td>
@@ -10242,7 +10298,7 @@ the email (on Unix systems).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="subject">subject</code></td>
 <td>
@@ -10368,7 +10424,7 @@ field??pattern</code></pre>
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pattern">pattern</code></td>
 <td>
@@ -10534,7 +10590,7 @@ standard keywords as listed in file ‘<span class="file">KEYWORDS</span>’ in 
 documentation directory are taken as concepts.  For standard keyword
 entries different from ‘<span class="samp">⁠internal⁠</span>’, the corresponding descriptions
 from file ‘<span class="file">KEYWORDS</span>’ are additionally taken as concepts.  All
-‘<span class="samp">⁠\concept⁠</span>’ entries used as concepts.  
+‘<span class="samp">⁠\concept⁠</span>’ entries are used as concepts.
 </p>
 <p>Vignettes are searched as follows.  The <code>"name"</code> and
 <code>"alias"</code> are both the base of the vignette filename, and the
@@ -10579,8 +10635,11 @@ mechanism.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r-input" hidden="hidden">help.search("linear models")    # In case you forgot how to fit linear
-                                # models
+<pre class="language-r"><code class="language-r-input" hidden="hidden">
+## Not run:  
+help.search("linear models")  # In case you forgot how to fit linear models
+
+## End(Not run)
 help.search("non-existent topic")
 
 ??utils::help  # All the topics matching "help" in the utils package
@@ -10599,8 +10658,10 @@ alias??"^try"  # the same
 help.search(keyword = "hplot")
 
 RShowDoc("KEYWORDS")  # show all keywords
-</code><code class="language-r">help.search<span class="token punctuation">(</span><span class="token string">"linear models"</span><span class="token punctuation">)</span>    <span class="token comment"># In case you forgot how to fit linear</span>
-                                <span class="token comment"># models</span>
+</code><code class="language-r"><span class="token comment">## Not run:  </span>
+help.search<span class="token punctuation">(</span><span class="token string">"linear models"</span><span class="token punctuation">)</span>  <span class="token comment"># In case you forgot how to fit linear models</span>
+
+<span class="token comment">## End(Not run)</span>
 help.search<span class="token punctuation">(</span><span class="token string">"non-existent topic"</span><span class="token punctuation">)</span>
 
 ??utils<span class="token operator">::</span>help  <span class="token comment"># All the topics matching "help" in the utils package</span>
@@ -10642,7 +10703,7 @@ documentation.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="update">update</code></td>
 <td>
@@ -10748,7 +10809,7 @@ hsearch_db_keywords<span class="token punctuation">(</span>db <span class="token
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -10871,7 +10932,7 @@ head<span class="token punctuation">(</span>hsearch_db_keywords<span class="toke
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pkgs">pkgs</code></td>
 <td>
@@ -11099,7 +11160,7 @@ local files.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pkgs">pkgs</code></td>
 <td>
@@ -11178,8 +11239,7 @@ Incompatible with <code>type = "both"</code>.
 <td><code id="method">method</code></td>
 <td>
 
-<p>download method, see <code><a href="#download.file">download.file</a></code>.  Unused if
-a non-<code>NULL</code> <code>available</code> is supplied.
+<p>download method, see <code><a href="#download.file">download.file</a></code>.
 </p>
 </td>
 </tr>
@@ -11323,7 +11383,8 @@ DLLs to a 32-bit install.
 
 <p>an optional character vector of additional option(s) to be passed to
 <code>R CMD INSTALL</code> for a source package install.  E.g.,
-<code>c("--html", "--no-multiarch", "--no-test-load")</code>.
+<code>c("--html", "--no-multiarch", "--no-test-load")</code> or, for
+macOS, <code>"--dsym"</code>.
 </p>
 <p>Can also be a named list of character vectors to be used as
 additional options, with names the respective package names.
@@ -11407,10 +11468,19 @@ also supported, and the type most commonly used on Windows and by the
 CRAN builds for macOS.  This function can install either type, either by
 downloading a file from a repository or from a local file.
 </p>
-<p>Possible values of <code>type</code> are (currently) <code>"source"</code>,
-<code>"mac.binary"</code>, and
-<code>"win.binary"</code>: the appropriate binary type where supported can
-also be selected as <code>"binary"</code>.
+<p>Possible values of <code>type</code> for binary packages are either simply
+<code>"binary"</code> to denote the binaries matching the current R, or
+a string consisting of two or three parts separated by periods: the
+operating system (<code>"win"</code> or <code>"mac"</code>), the string
+<code>"binary"</code> and optional build name (e.g., <code>"big-sur-arm64"</code>).
+The last part is optional and currently only used on macOS to
+disambiguate builds targeting different macOS versions or
+architectures. Example values:
+<code>"win.binary"</code> for Windows binaries and
+<code>"mac.binary.big-sur-arm64"</code> for macOS 11 (Big Sur) arm64 binaries.
+The corresponding binary type for the running R can be obtained via
+<code>.Platform$pkgType</code>, however, it may be <code>"source"</code> if
+the build does not support package binaries.
 </p>
 <p>For a binary install from a repository, the function checks for the
 availability of a source package on the same repository, and reports
@@ -11536,7 +11606,7 @@ being allowed for the default seconds) with <code>0</code> meaning no limit.
 <p>For non-parallel installs this is implemented <em>via</em> the
 <code>timeout</code> argument of <code><a href="https://r-universe.dev/manuals/base.html#system2">system2</a></code>: for parallel
 installs <em>via</em> the OS's <code>timeout</code> command.  (The one
-tested is from GNU <span class="pkg">coreutils</span>, commonly available on Linux but
+tested is from GNU coreutils, commonly available on Linux but
 not other Unix-alikes.  If no such command is available the timeout
 request is ignored, with a warning. On Windows, one needs to specify
 a suitable <code>timeout</code> command via environment variable
@@ -11653,16 +11723,24 @@ libraries.
 <h3>Usage</h3>
 
 <pre class="language-r"><code class="language-r-input" hidden="hidden">installed.packages(lib.loc = NULL, priority = NULL,
-                   noCache = FALSE, fields = NULL,
+                   noCache = FALSE,
+                   cache_user_dir =
+                       str2logical(Sys.getenv("R_PACKAGES_CACHE_USER_DIR",
+                                              FALSE)),
+                   fields = NULL,
                    subarch = .Platform$r_arch, ...)
 </code><code class="language-r">installed.packages<span class="token punctuation">(</span>lib.loc <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> priority <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
-                   noCache <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> fields <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
+                   noCache <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+                   cache_user_dir <span class="token operator">=</span>
+                       str2logical<span class="token punctuation">(</span>Sys.getenv<span class="token punctuation">(</span><span class="token string">"R_PACKAGES_CACHE_USER_DIR"</span><span class="token punctuation">,</span>
+                                              <span class="token boolean">FALSE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                   fields <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
                    subarch <span class="token operator">=</span> .Platform<span class="token operator">$</span>r_arch<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="lib.loc">lib.loc</code></td>
 <td>
@@ -11687,7 +11765,15 @@ assigned priority use <code>priority = NA_character_</code>.
 <tr>
 <td><code id="noCache">noCache</code></td>
 <td>
-<p>Do not use cached information, nor cache it.</p>
+<p>do not use cached information, nor cache it.</p>
+</td>
+</tr>
+<tr>
+<td><code id="cache_user_dir">cache_user_dir</code></td>
+<td>
+<p><code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> indicating if caching should
+happen in <span class="pkg">tools</span>' <code><a href="https://r-universe.dev/manuals/tools.html#R_user_dir">R_user_dir</a>("base", "cache")</code>
+instead of <code><a href="https://r-universe.dev/manuals/base.html#tempfile">tempdir</a>()</code>.</p>
 </td>
 </tr>
 <tr>
@@ -11816,7 +11902,7 @@ it is checked if <code>f</code> is the name of an S3 generic function and
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="method">method</code></td>
 <td>
@@ -11909,7 +11995,7 @@ function.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="f">f</code></td>
 <td>
 <p>a function object</p>
@@ -11955,7 +12041,7 @@ on Windows.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="linkcmd">linkcmd</code></td>
 <td>
@@ -12053,7 +12139,7 @@ single-byte encoding.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="locale">locale</code></td>
 <td>
 <p>character string naming a locale.</p>
@@ -12143,7 +12229,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pos">pos</code></td>
 <td>
@@ -12262,7 +12348,7 @@ lsf.str(pos = length(search()), pattern = "file")
 ## ["browser/debug mode"]:
 tt &lt;- function(x, y = 1) { aa &lt;- 7; r &lt;- x + y; ls.str() }
 (nms &lt;- sapply(strsplit(capture.output(tt(2))," *: *"), `[`, 1))
-stopifnot(nms == c("aa", "r","x","y"))
+stopifnot(setequal(nms, c("aa", "r","x","y")))
 </code><code class="language-r">require<span class="token punctuation">(</span>stats<span class="token punctuation">)</span>
 
 lsf.str<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">#- how do the functions look like which I am using?</span>
@@ -12280,7 +12366,7 @@ lsf.str<span class="token punctuation">(</span>pos <span class="token operator">
 <span class="token comment">## ["browser/debug mode"]:</span>
 tt <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> aa <span class="token operator">&lt;-</span> <span class="token number">7</span><span class="token punctuation">;</span> r <span class="token operator">&lt;-</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span> ls.str<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
 <span class="token punctuation">(</span>nms <span class="token operator">&lt;-</span> sapply<span class="token punctuation">(</span>strsplit<span class="token punctuation">(</span>capture.output<span class="token punctuation">(</span>tt<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">" *: *"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> `<span class="token punctuation">[</span>`<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-stopifnot<span class="token punctuation">(</span>nms <span class="token operator">==</span> c<span class="token punctuation">(</span><span class="token string">"aa"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span><span class="token string">"x"</span><span class="token punctuation">,</span><span class="token string">"y"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+stopifnot<span class="token punctuation">(</span>setequal<span class="token punctuation">(</span>nms<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token string">"aa"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span><span class="token string">"x"</span><span class="token punctuation">,</span><span class="token string">"y"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div></div>
@@ -12303,7 +12389,7 @@ Show Package Maintainer
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="pkg">pkg</code></td>
 <td>
 <p>a character string, the name of an installed package.</p>
@@ -12375,7 +12461,7 @@ by R-core.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="lib.loc">lib.loc</code></td>
 <td>
@@ -12469,7 +12555,7 @@ ensure that a socket is closed, as you only get 64 of them.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="host">host</code></td>
 <td>
@@ -12499,7 +12585,7 @@ ensure that a socket is closed, as you only get 64 of them.
 
 <p>An object of class <code>"socket"</code>, a list with components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>socket</code></td>
 <td>
@@ -12586,7 +12672,7 @@ select ‘<span class="samp">⁠0⁠</span>’.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="choices">choices</code></td>
 <td>
@@ -12674,7 +12760,7 @@ methods for an S3 or S4 class.
 <pre class="language-r"><code class="language-r-input" hidden="hidden">
    methods(generic.function, class, all.names = FALSE, dropPath = FALSE)
 .S3methods(generic.function, class, envir = parent.frame(),
-                                    all.names = FALSE, dropPath = FALSE)
+                                    all.names = FALSE, dropPath = FALSE, useEnv = FALSE)
 
 ## S3 method for class 'MethodsFunction'
 format(x, byclass = attr(x, "byclass"), ...)
@@ -12682,7 +12768,7 @@ format(x, byclass = attr(x, "byclass"), ...)
 print(x, byclass = attr(x, "byclass"), ...)
 </code><code class="language-r">methods<span class="token punctuation">(</span>generic.<span class="token keyword">function</span><span class="token punctuation">,</span> class<span class="token punctuation">,</span> all.names <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> dropPath <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 .S3methods<span class="token punctuation">(</span>generic.<span class="token keyword">function</span><span class="token punctuation">,</span> class<span class="token punctuation">,</span> envir <span class="token operator">=</span> parent.frame<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                                    all.names <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> dropPath <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+                                    all.names <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> dropPath <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> useEnv <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
 
 <span class="token comment">## S3 method for class 'MethodsFunction'</span>
 format<span class="token punctuation">(</span>x<span class="token punctuation">,</span> byclass <span class="token operator">=</span> attr<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">"byclass"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
@@ -12692,7 +12778,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="generic.function">generic.function</code></td>
 <td>
@@ -12733,6 +12819,14 @@ when searching for method definitions.  The default <code>FALSE</code> is
 back compatible and typically desired for <code>print()</code>ing, with or
 without asterisk; <code>dropPath=TRUE</code> has been hard coded in <span class="rlang"><b>R</b></span> 4.3.0
 and is faster for non-small <code><a href="https://r-universe.dev/manuals/base.html#search">search</a>()</code> paths.</p>
+</td>
+</tr>
+<tr>
+<td><code id="useEnv">useEnv</code></td>
+<td>
+<p>a <code><a href="https://r-universe.dev/manuals/base.html#logical">logical</a></code> indicating if <code>envir</code> should
+be searched in addition to the (much reduced in case of <code>dropPath=TRUE</code>)
+<code><a href="https://r-universe.dev/manuals/base.html#search">search</a>()</code> path.</p>
 </td>
 </tr>
 <tr>
@@ -12936,7 +13030,7 @@ checkCRAN<span class="token punctuation">(</span>method<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="mirrors">mirrors</code></td>
 <td>
@@ -12996,7 +13090,7 @@ elements at each level to match a second list.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -13077,7 +13171,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="query">query</code></td>
 <td>
@@ -13351,7 +13445,7 @@ only on unix-alikes, i.e., not on Windows.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="hostname">hostname</code></td>
 <td>
 <p>the name of the host.</p>
@@ -13412,7 +13506,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -13766,7 +13860,7 @@ appropriate places, and creates skeleton help files and a
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="name">name</code></td>
 <td>
@@ -13944,7 +14038,7 @@ asDateBuilt<span class="token punctuation">(</span>built<span class="token punct
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pkg">pkg</code></td>
 <td>
@@ -14120,7 +14214,7 @@ attempts to determine that package.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="env">env</code></td>
 <td>
 
@@ -14206,7 +14300,7 @@ upgrade<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="lib.loc">lib.loc</code></td>
 <td>
@@ -14282,7 +14376,7 @@ currently up-to-date.
 <p>An object of class <code>"packageStatus"</code>.  This is a list with two
 components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>inst</code></td>
 <td>
@@ -14307,7 +14401,7 @@ levels <code>c("installed", "not installed")</code>.
 <p>For the <code>summary</code> method the result is also of class
 <code>"summary.packageStatus"</code> with additional components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>Libs</code></td>
 <td>
@@ -14375,7 +14469,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">)<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -14463,7 +14557,7 @@ format(x,
        collapse = list(given = " ", family = " ", email = ", ",
                        role = ", ", comment = ", "),
        ...,
-       style = c("text", "R")
+       style = c("text", "R", "md")
 )
 
 ## S3 method for class 'person'
@@ -14484,7 +14578,7 @@ format<span class="token punctuation">(</span>x<span class="token punctuation">,
        collapse <span class="token operator">=</span> list<span class="token punctuation">(</span>given <span class="token operator">=</span> <span class="token string">" "</span><span class="token punctuation">,</span> family <span class="token operator">=</span> <span class="token string">" "</span><span class="token punctuation">,</span> email <span class="token operator">=</span> <span class="token string">", "</span><span class="token punctuation">,</span>
                        role <span class="token operator">=</span> <span class="token string">", "</span><span class="token punctuation">,</span> comment <span class="token operator">=</span> <span class="token string">", "</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
        <span class="token ellipsis">...</span><span class="token punctuation">,</span>
-       style <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"text"</span><span class="token punctuation">,</span> <span class="token string">"R"</span><span class="token punctuation">)</span>
+       style <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"text"</span><span class="token punctuation">,</span> <span class="token string">"R"</span><span class="token punctuation">,</span> <span class="token string">"md"</span><span class="token punctuation">)</span>
 <span class="token punctuation">)</span>
 
 <span class="token comment">## S3 method for class 'person'</span>
@@ -14493,7 +14587,7 @@ toBibtex<span class="token punctuation">(</span>object<span class="token punctua
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="given">given</code></td>
 <td>
@@ -14589,7 +14683,8 @@ when formatting.</p>
 <td><code id="style">style</code></td>
 <td>
 <p>a character string specifying the print style, with 
-<code>"R"</code> yielding formatting as R code.</p>
+<code>"R"</code> yielding formatting as R code and <code>"md"</code> yielding
+Markdown (with email addresses and ORCID iDs hyperlinked).</p>
 </td>
 </tr>
 <tr>
@@ -14678,7 +14773,9 @@ substantial contributions to the package.</p>
 <dd>
 <p>(Copyright holder) Use for all copyright
 holders.  This is a legal concept so should use the legal name of
-an institution or corporate body.</p>
+an institution or corporate body.  Note that authors which are
+‘natural persons’ are by default copyright holders and so
+do not need to be given this role.</p>
 </dd>
 <dt><code>"cre"</code></dt>
 <dd>
@@ -14733,7 +14830,12 @@ information about persons.  Elements named <code>"ORCID"</code> will be
 taken to give <abbr>ORCID</abbr> identifiers (see <a href="https://orcid.org/" target="_blank">https://orcid.org/</a> for more
 information), and be displayed as the corresponding <abbr>URI</abbr>s by the
 <code>print()</code> and <code>format()</code> methods (see <b>Examples</b>
-below).
+below).  Similarly, elements named <code>"ROR"</code> will be taken to give
+<abbr>ROR</abbr> identifiers (see <a href="https://ror.org/" target="_blank">https://ror.org/</a>).
+</p>
+<p>Where more than one entity is given a <code>"cph"</code> role, the
+<code>comment</code> field should be used to delimit who owns the copyright
+to what parts of the package.
 </p>
 
 
@@ -14791,6 +14893,10 @@ toBibtex(b)
 ## ORCID identifiers.
 (p3 &lt;- person("Achim", "Zeileis",
               comment = c(ORCID = "0000-0003-0918-3766")))
+
+## ROR identifiers.
+(p4 &lt;- person("R Core Team",
+              comment = c(ROR = "02zz1nj61")))
 </code><code class="language-r"><span class="token comment">## Create a person object directly ...</span>
 p1 <span class="token operator">&lt;-</span> person<span class="token punctuation">(</span><span class="token string">"Karl"</span><span class="token punctuation">,</span> <span class="token string">"Pearson"</span><span class="token punctuation">,</span> email <span class="token operator">=</span> <span class="token string">"pearson@stats.heaven"</span><span class="token punctuation">)</span>
 
@@ -14829,7 +14935,11 @@ toBibtex<span class="token punctuation">(</span>b<span class="token punctuation"
 
 <span class="token comment">## ORCID identifiers.</span>
 <span class="token punctuation">(</span>p3 <span class="token operator">&lt;-</span> person<span class="token punctuation">(</span><span class="token string">"Achim"</span><span class="token punctuation">,</span> <span class="token string">"Zeileis"</span><span class="token punctuation">,</span>
-              comment <span class="token operator">=</span> c<span class="token punctuation">(</span>ORCID <span class="token operator">=</span> <span class="token string">"0000-0003-0918-3766"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+              comment <span class="token operator">=</span> c<span class="token punctuation">(</span>ORCID <span class="token operator">=</span> <span class="token string">"0000-0003-0918-3766"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">## ROR identifiers.</span>
+<span class="token punctuation">(</span>p4 <span class="token operator">&lt;-</span> person<span class="token punctuation">(</span><span class="token string">"R Core Team"</span><span class="token punctuation">,</span>
+              comment <span class="token operator">=</span> c<span class="token punctuation">(</span>ROR <span class="token operator">=</span> <span class="token string">"02zz1nj61"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div></div>
@@ -14855,7 +14965,7 @@ as.personList<span class="token punctuation">(</span>x<span class="token punctua
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -14905,7 +15015,7 @@ R CMD build <span class="token punctuation">[</span>options<span class="token pu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pkgdirs">pkgdirs</code></td>
 <td>
@@ -15066,7 +15176,7 @@ promptImport<span class="token punctuation">(</span>object<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -15263,7 +15373,7 @@ unlink<span class="token punctuation">(</span><span class="token string">"sunspo
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -15346,7 +15456,7 @@ from package metadata when building the package.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -15454,7 +15564,7 @@ type?topic</code></pre>
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="topic">topic</code></td>
 <td>
@@ -15684,7 +15794,7 @@ findMatches<span class="token punctuation">(</span>pattern<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="ops">ops</code></td>
 <td>
@@ -15908,12 +16018,12 @@ mechanism is extended to include all loaded namespaces, i.e.,
 <code>"foopkg"</code> is a loaded namespace.
 </p>
 <p>The completion of package namespaces applies only to already
-loaded namespaces, i.e. if <code>MASS</code> is not loaded,
+loaded namespaces, i.e. if <span class="pkg">MASS</span> is not loaded,
 <code>MAS</code> will not complete to <code>MASS::</code>.  However, attempted
 completion <em>inside</em> an apparent namespace will attempt to
 load the namespace if it is not already loaded,
 e.g. trying to complete on <code>MASS::fr</code> will load
-<code>MASS</code> if it is not already loaded.
+<span class="pkg">MASS</span> if it is not already loaded.
 </p>
 </dd>
 <dt>
@@ -16015,7 +16125,7 @@ by the time the call is executed.
 </p>
 <p>The items of primary interest in the returned list are:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>comps</code></td>
 <td>
@@ -16222,7 +16332,7 @@ single spreadsheets.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -16473,7 +16583,7 @@ stopifnot<span class="token punctuation">(</span>identical<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -16602,7 +16712,7 @@ data into a <code><a href="https://r-universe.dev/manuals/base.html#data.frame">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -16734,22 +16844,22 @@ which is called internally.
 
 <pre class="language-r"><code class="language-r-input" hidden="hidden">ff &lt;- tempfile()
 cat(file = ff, "123456", "987654", sep = "\n")
-read.fwf(ff, widths = c(1,2,3))    #&gt; 1 23 456 \ 9 87 654
-read.fwf(ff, widths = c(1,-2,3))   #&gt; 1 456 \ 9 654
+read.fwf(ff, widths = c(1,2,3))     #&gt; 1 23 456 \\ 9 87 654
+read.fwf(ff, widths = c(1,-2,3))    #&gt; 1 456 \\ 9 654
 unlink(ff)
 cat(file = ff, "123", "987654", sep = "\n")
-read.fwf(ff, widths = c(1,0, 2,3))    #&gt; 1 NA 23 NA \ 9 NA 87 654
+read.fwf(ff, widths = c(1,0, 2,3))  #&gt; 1 NA 23 NA \\ 9 NA 87 654
 unlink(ff)
 cat(file = ff, "123456", "987654", sep = "\n")
 read.fwf(ff, widths = list(c(1,0, 2,3), c(2,2,2))) #&gt; 1 NA 23 456 98 76 54
 unlink(ff)
 </code><code class="language-r">ff <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span><span class="token punctuation">)</span>
 cat<span class="token punctuation">(</span>file <span class="token operator">=</span> ff<span class="token punctuation">,</span> <span class="token string">"123456"</span><span class="token punctuation">,</span> <span class="token string">"987654"</span><span class="token punctuation">,</span> sep <span class="token operator">=</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
-read.fwf<span class="token punctuation">(</span>ff<span class="token punctuation">,</span> widths <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment">#&gt; 1 23 456 \ 9 87 654</span>
-read.fwf<span class="token punctuation">(</span>ff<span class="token punctuation">,</span> widths <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment">#&gt; 1 456 \ 9 654</span>
+read.fwf<span class="token punctuation">(</span>ff<span class="token punctuation">,</span> widths <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token comment">#&gt; 1 23 456 \\ 9 87 654</span>
+read.fwf<span class="token punctuation">(</span>ff<span class="token punctuation">,</span> widths <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment">#&gt; 1 456 \\ 9 654</span>
 unlink<span class="token punctuation">(</span>ff<span class="token punctuation">)</span>
 cat<span class="token punctuation">(</span>file <span class="token operator">=</span> ff<span class="token punctuation">,</span> <span class="token string">"123"</span><span class="token punctuation">,</span> <span class="token string">"987654"</span><span class="token punctuation">,</span> sep <span class="token operator">=</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
-read.fwf<span class="token punctuation">(</span>ff<span class="token punctuation">,</span> widths <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment">#&gt; 1 NA 23 NA \ 9 NA 87 654</span>
+read.fwf<span class="token punctuation">(</span>ff<span class="token punctuation">,</span> widths <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">#&gt; 1 NA 23 NA \\ 9 NA 87 654</span>
 unlink<span class="token punctuation">(</span>ff<span class="token punctuation">)</span>
 cat<span class="token punctuation">(</span>file <span class="token operator">=</span> ff<span class="token punctuation">,</span> <span class="token string">"123456"</span><span class="token punctuation">,</span> <span class="token string">"987654"</span><span class="token punctuation">,</span> sep <span class="token operator">=</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
 read.fwf<span class="token punctuation">(</span>ff<span class="token punctuation">,</span> widths <span class="token operator">=</span> list<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#&gt; 1 NA 23 456 98 76 54</span>
@@ -16778,7 +16888,7 @@ write.socket<span class="token punctuation">(</span>socket<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="socket">socket</code></td>
 <td>
@@ -16930,7 +17040,7 @@ read.delim2<span class="token punctuation">(</span>file<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -17422,7 +17532,7 @@ optionally whole hives.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="key">key</code></td>
 <td>
@@ -17717,7 +17827,7 @@ unlist<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="flesh">flesh</code></td>
 <td>
@@ -17866,7 +17976,7 @@ are coerced to empty vectors of that type.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pkgs">pkgs</code></td>
 <td>
@@ -17934,7 +18044,7 @@ as necessary.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pkgs">pkgs</code></td>
 <td>
@@ -17981,7 +18091,7 @@ Such source reference attributes are removed from the object by
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="fn">fn</code></td>
 <td>
 <p>a <code><a href="https://r-universe.dev/manuals/base.html#function">function</a></code> or another language object
@@ -18107,7 +18217,7 @@ sum<span class="token punctuation">(</span>r2<span class="token punctuation">)</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -18135,7 +18245,7 @@ printing, formatting, subsetting, coercion, etc, see
 and  (<code>"<a href="https://r-universe.dev/manuals/base.html#Logic">Logic</a>"</code>), i.e., all <code>"<a href="https://r-universe.dev/manuals/base.html#groupGeneric">Ops</a>"</code> group
 operations work as for regular numbers via <span class="rlang"><b>R</b></span>'s integer functionality.
 </p>
-<p>Only numbers between 1 and 3999 have a unique representation as roman
+<p>Only numbers between 1 and 4999 are “well” representable as roman
 numbers, and hence others result in <code>as.roman(NA)</code>.
 </p>
 <p><code>.romans</code> is the basic dictionary, a named <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code> vector.
@@ -18163,15 +18273,15 @@ y[3]
 y - 10*c(0:3,10)
 
 ## mixture of arabic and roman numbers :
-as.roman(c(NA, 1:3, "", strrep("I", 1:6))) # + NA with a warning for "IIIIII"
-cc &lt;- c(NA, 1:3, strrep("I", 0:5))
+as.roman(c(NA, 1:3, "", strrep("I", 1:7))) # + NA with a warning for the last.
+cc &lt;- c(NA, 1:3, strrep("I", 0:6)) # "IIIIII" is historical (Wikipedia)
 (rc &lt;- as.roman(cc)) # two NAs: 0 is not "roman"
 (ic &lt;- as.integer(rc)) # works automatically [without an explicit method]
 rNA &lt;- as.roman(NA)
-## simple consistency checks -- arithmetic when result is in  {1,2,..,3999} :
+## simple consistency checks -- arithmetic when result is in  {1,2,..,4999} :
 stopifnot(identical(rc, as.roman(rc)), # as.roman(.) is "idempotent"
           identical(rc + rc + (3*rc), rc*5),
-          identical(ic, c(NA, 1:3, NA, 1:5)),
+          identical(ic, c(NA, 1:3, NA, 1:6)),
           identical(as.integer(5*rc), 5L*ic),
           identical(as.numeric(rc), as.numeric(ic)),
           identical(rc[1], rNA),
@@ -18181,8 +18291,8 @@ stopifnot(identical(rc, as.roman(rc)), # as.roman(.) is "idempotent"
 ## Non-Arithmetic 'Ops' :
 stopifnot(exprs = {
         # Comparisons :
-        identical(ic &lt; 1:5, rc &lt; 1:5)
-        identical(ic &lt; 1:5, rc &lt; as.roman(1:5))
+        identical(ic &lt;= (ii &lt;- c(0:4,1:6)), rc &lt;= ii)
+        identical(ic == ii, rc == as.roman(ii))
         # Logic  [integers |-&gt; logical] :
         identical(rc &amp; TRUE , ic &amp; TRUE)
         identical(rc &amp; FALSE, ic &amp; FALSE)
@@ -18197,9 +18307,10 @@ stopifnot(exprs = {
          as.roman(min(ic, na.rm=TRUE)))
         identical(range(rc.),
          as.roman(range(as.integer(rc.))))
-        identical(sum (rc, na.rm=TRUE), as.roman("XXI"))
-        identical(format(prod(rc, na.rm=TRUE)), "DCCXX")
-        format(prod(rc.)) == "DCCXX"
+        identical(sum (rc, na.rm=TRUE), as.roman("XXVII"))
+        identical(format(prod(rc, na.rm=TRUE)), "MMMMCCCXX")
+                  format(prod(rc.)) ==          "MMMMCCCXX"
+        identical(format(prod(rc[-11], na.rm=TRUE)), "DCCXX")
 })
 </code><code class="language-r"><span class="token comment">## First five roman 'numbers'.</span>
 <span class="token punctuation">(</span>y <span class="token operator">&lt;-</span> as.roman<span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -18211,15 +18322,15 @@ y<span class="token punctuation">[</span><span class="token number">3</span><spa
 y <span class="token operator">-</span> <span class="token number">10</span><span class="token operator">*</span>c<span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
 
 <span class="token comment">## mixture of arabic and roman numbers :</span>
-as.roman<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token keyword">NA</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> strrep<span class="token punctuation">(</span><span class="token string">"I"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># + NA with a warning for "IIIIII"</span>
-cc <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token keyword">NA</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span> strrep<span class="token punctuation">(</span><span class="token string">"I"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+as.roman<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token keyword">NA</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> strrep<span class="token punctuation">(</span><span class="token string">"I"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># + NA with a warning for the last.</span>
+cc <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token keyword">NA</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span> strrep<span class="token punctuation">(</span><span class="token string">"I"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># "IIIIII" is historical (Wikipedia)</span>
 <span class="token punctuation">(</span>rc <span class="token operator">&lt;-</span> as.roman<span class="token punctuation">(</span>cc<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># two NAs: 0 is not "roman"</span>
 <span class="token punctuation">(</span>ic <span class="token operator">&lt;-</span> as.integer<span class="token punctuation">(</span>rc<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># works automatically [without an explicit method]</span>
 rNA <span class="token operator">&lt;-</span> as.roman<span class="token punctuation">(</span><span class="token keyword">NA</span><span class="token punctuation">)</span>
-<span class="token comment">## simple consistency checks -- arithmetic when result is in  {1,2,..,3999} :</span>
+<span class="token comment">## simple consistency checks -- arithmetic when result is in  {1,2,..,4999} :</span>
 stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>rc<span class="token punctuation">,</span> as.roman<span class="token punctuation">(</span>rc<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># as.roman(.) is "idempotent"</span>
           identical<span class="token punctuation">(</span>rc <span class="token operator">+</span> rc <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token operator">*</span>rc<span class="token punctuation">)</span><span class="token punctuation">,</span> rc<span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-          identical<span class="token punctuation">(</span>ic<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token keyword">NA</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token keyword">NA</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          identical<span class="token punctuation">(</span>ic<span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token keyword">NA</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token keyword">NA</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
           identical<span class="token punctuation">(</span>as.integer<span class="token punctuation">(</span><span class="token number">5</span><span class="token operator">*</span>rc<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">5L</span><span class="token operator">*</span>ic<span class="token punctuation">)</span><span class="token punctuation">,</span>
           identical<span class="token punctuation">(</span>as.numeric<span class="token punctuation">(</span>rc<span class="token punctuation">)</span><span class="token punctuation">,</span> as.numeric<span class="token punctuation">(</span>ic<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
           identical<span class="token punctuation">(</span>rc<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> rNA<span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -18229,8 +18340,8 @@ stopifnot<span class="token punctuation">(</span>identical<span class="token pun
 <span class="token comment">## Non-Arithmetic 'Ops' :</span>
 stopifnot<span class="token punctuation">(</span>exprs <span class="token operator">=</span> <span class="token punctuation">{</span>
         <span class="token comment"># Comparisons :</span>
-        identical<span class="token punctuation">(</span>ic <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> rc <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">)</span>
-        identical<span class="token punctuation">(</span>ic <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> rc <span class="token operator">&lt;</span> as.roman<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        identical<span class="token punctuation">(</span>ic <span class="token operator">&lt;=</span> <span class="token punctuation">(</span>ii <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rc <span class="token operator">&lt;=</span> ii<span class="token punctuation">)</span>
+        identical<span class="token punctuation">(</span>ic <span class="token operator">==</span> ii<span class="token punctuation">,</span> rc <span class="token operator">==</span> as.roman<span class="token punctuation">(</span>ii<span class="token punctuation">)</span><span class="token punctuation">)</span>
         <span class="token comment"># Logic  [integers |-&gt; logical] :</span>
         identical<span class="token punctuation">(</span>rc <span class="token operator">&amp;</span> <span class="token boolean">TRUE</span> <span class="token punctuation">,</span> ic <span class="token operator">&amp;</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
         identical<span class="token punctuation">(</span>rc <span class="token operator">&amp;</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> ic <span class="token operator">&amp;</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
@@ -18245,9 +18356,10 @@ stopifnot<span class="token punctuation">(</span>exprs <span class="token operat
          as.roman<span class="token punctuation">(</span>min<span class="token punctuation">(</span>ic<span class="token punctuation">,</span> na.rm<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
         identical<span class="token punctuation">(</span>range<span class="token punctuation">(</span>rc.<span class="token punctuation">)</span><span class="token punctuation">,</span>
          as.roman<span class="token punctuation">(</span>range<span class="token punctuation">(</span>as.integer<span class="token punctuation">(</span>rc.<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        identical<span class="token punctuation">(</span>sum <span class="token punctuation">(</span>rc<span class="token punctuation">,</span> na.rm<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">,</span> as.roman<span class="token punctuation">(</span><span class="token string">"XXI"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        identical<span class="token punctuation">(</span>format<span class="token punctuation">(</span>prod<span class="token punctuation">(</span>rc<span class="token punctuation">,</span> na.rm<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"DCCXX"</span><span class="token punctuation">)</span>
-        format<span class="token punctuation">(</span>prod<span class="token punctuation">(</span>rc.<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"DCCXX"</span>
+        identical<span class="token punctuation">(</span>sum <span class="token punctuation">(</span>rc<span class="token punctuation">,</span> na.rm<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">,</span> as.roman<span class="token punctuation">(</span><span class="token string">"XXVII"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        identical<span class="token punctuation">(</span>format<span class="token punctuation">(</span>prod<span class="token punctuation">(</span>rc<span class="token punctuation">,</span> na.rm<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"MMMMCCCXX"</span><span class="token punctuation">)</span>
+                  format<span class="token punctuation">(</span>prod<span class="token punctuation">(</span>rc.<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span>          <span class="token string">"MMMMCCCXX"</span>
+        identical<span class="token punctuation">(</span>format<span class="token punctuation">(</span>prod<span class="token punctuation">(</span>rc<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">11</span><span class="token punctuation">]</span><span class="token punctuation">,</span> na.rm<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"DCCXX"</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
@@ -18277,7 +18389,7 @@ stopifnot<span class="token punctuation">(</span>exprs <span class="token operat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="filename">filename</code></td>
 <td>
@@ -18572,7 +18684,7 @@ Rprof<span class="token punctuation">(</span><span class="token keyword">NULL</s
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="filename">filename</code></td>
 <td>
@@ -18679,7 +18791,7 @@ Rscript <span class="token punctuation">[</span>options<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="options">options</code></td>
 <td>
@@ -18833,7 +18945,7 @@ res <span class="token operator">&lt;-</span> try<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="what">what</code></td>
 <td>
@@ -18943,7 +19055,7 @@ at <a href="https://search.r-project.org" target="_blank">https://search.r-proje
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="string">string</code></td>
 <td>
@@ -19088,7 +19200,7 @@ using R's own parser.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="path">path</code>, <code id="pattern">pattern</code>, <code id="recursive">recursive</code>
@@ -19249,7 +19361,7 @@ RtangleSetup<span class="token punctuation">(</span>file<span class="token punct
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -19476,7 +19588,7 @@ RweaveLatexSetup<span class="token punctuation">(</span>file<span class="token p
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -19877,7 +19989,7 @@ under MS Windows and <code>loadRconsole(*)</code> loads a new configuration.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="file">file</code></td>
 <td>
 <p>The file from which to load a new ‘<span class="file">Rconsole</span>’ configuration.
@@ -20027,7 +20139,7 @@ timestamp<span class="token punctuation">(</span>stamp <span class="token operat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -20189,7 +20301,7 @@ workspace), you can put a call to <code>savehistory()</code> in
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="choices">choices</code></td>
 <td>
@@ -20330,7 +20442,7 @@ osVersion</code></pre>
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="package">package</code></td>
 <td>
@@ -20382,7 +20494,7 @@ iff it differs from the <span class="rlang"><b>R</b></span> version's default, i
 which has <code>print</code> and
 <code><a href="#toLatex">toLatex</a></code> methods.  This is a list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>R.version</code></td>
 <td>
@@ -20552,7 +20664,7 @@ toLatex<span class="token punctuation">(</span>sI<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="graphics">graphics</code></td>
 <td>
@@ -20599,7 +20711,7 @@ in ‘<span class="file"><var>HOME</var>/.R/repositories</span>’, which will t
 <code><a href="https://r-universe.dev/manuals/base.html#options">options</a>("BioC_mirror")</code>, e.g. via
 <code><a href="#chooseBioCmirror">chooseBioCmirror</a></code> — the default value is
 ‘<span class="samp">⁠"https://bioconductor.org"⁠</span>’.
-This version of R chooses Bioconductor version 3.19 by default, but that can be changed via the environment variable
+This version of R chooses Bioconductor version 3.21 by default, but that can be changed via the environment variable
 <span class="env">R_BIOC_VERSION</span>.
 </p>
 <p>The items that are preselected are those that are currently in
@@ -20699,7 +20811,7 @@ setStatusBar<span class="token punctuation">(</span>text<span class="token punct
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="suffix">suffix</code></td>
 <td>
@@ -20805,7 +20917,7 @@ files into a shared object aka DLL which can be loaded into <span class="rlang">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="files">files</code></td>
 <td>
@@ -20916,7 +21028,7 @@ Windows API call <code>GetShortPathNameW</code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="path">path</code></td>
 <td>
 <p>character vector of file paths.</p>
@@ -20994,7 +21106,7 @@ getSrcLocation<span class="token punctuation">(</span>x<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -21146,7 +21258,7 @@ unstack<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -21210,7 +21322,7 @@ list is coerced to a data frame.
 </p>
 <p><code>stack</code> produces a data frame with two columns:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>values</code></td>
 <td>
@@ -21326,7 +21438,7 @@ strOptions<span class="token punctuation">(</span>strict.width <span class="toke
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -21683,7 +21795,7 @@ same number of tokens are captured from every input string.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="pattern">pattern</code></td>
 <td>
@@ -21785,7 +21897,7 @@ amount of time used by different <span class="rlang"><b>R</b></span> functions.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="filename">filename</code></td>
 <td>
@@ -21853,7 +21965,7 @@ will make the function run faster if sufficient memory is available.
 
 <p>If <code>memory = "none"</code> and <code>lines = "hide"</code>, a list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>by.self</code></td>
 <td>
@@ -21887,7 +21999,7 @@ respectively.
 </p>
 <p>If <code>lines = "show"</code>, an additional component is added to the list:
 </p>
-<table><tr>
+<table role="presentation"><tr>
 <td><code>by.line</code></td>
 <td>
 <p>A data frame of timings sorted by source location.</p>
@@ -22024,7 +22136,7 @@ Stangle<span class="token punctuation">(</span>file<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -22225,7 +22337,7 @@ format to another Sweave syntax definition.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -22301,18 +22413,18 @@ Create a Tar Archive
 <h3>Usage</h3>
 
 <pre class="language-r"><code class="language-r-input" hidden="hidden">tar(tarfile, files = NULL,
-    compression = c("none", "gzip", "bzip2", "xz"),
+    compression = c("none", "gzip", "bzip2", "xz", "zstd"),
     compression_level = 6, tar = Sys.getenv("tar"),
     extra_flags = "")
 </code><code class="language-r">tar<span class="token punctuation">(</span>tarfile<span class="token punctuation">,</span> files <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
-    compression <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"none"</span><span class="token punctuation">,</span> <span class="token string">"gzip"</span><span class="token punctuation">,</span> <span class="token string">"bzip2"</span><span class="token punctuation">,</span> <span class="token string">"xz"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    compression <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"none"</span><span class="token punctuation">,</span> <span class="token string">"gzip"</span><span class="token punctuation">,</span> <span class="token string">"bzip2"</span><span class="token punctuation">,</span> <span class="token string">"xz"</span><span class="token punctuation">,</span> <span class="token string">"zstd"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     compression_level <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">,</span> tar <span class="token operator">=</span> Sys.getenv<span class="token punctuation">(</span><span class="token string">"tar"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     extra_flags <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="tarfile">tarfile</code></td>
 <td>
@@ -22339,7 +22451,8 @@ be used (default none).  Can be abbreviated.</p>
 <td><code id="compression_level">compression_level</code></td>
 <td>
 <p>integer: the level of compression.  Only used
-for the internal method.</p>
+for the internal method: see the help for <code><a href="https://r-universe.dev/manuals/base.html#connections">gzfile</a></code> for
+possible values.</p>
 </td>
 </tr>
 <tr>
@@ -22372,9 +22485,7 @@ so is platform-dependent.  Possibly useful values include <span class="option">-
 (follow symbolic links, also <span class="option">-L</span> on some platforms),
 ‘<span class="samp">⁠--acls⁠</span>’, <span class="option">--exclude-backups</span>, <span class="option">--exclude-vcs</span> (and
 similar) and on Windows <span class="option">--force-local</span> (so drives can be
-included in filepaths). <code>Rtools</code> 4 and earlier included a
-<code>tar</code> which used <span class="option">--force-local</span>, but <code>Rtools</code> 4.2
-includes original GNU <code>tar</code>, which does not use it by default.
+included in filepaths: this used to be the default for <span class="rlang"><b>R</b></span> on Windows).
 </p>
 <p>A convenient and robust way to set options for GNU <code>tar</code> is via
 environment variable <span class="env">TAR_OPTIONS</span>.  Appending <span class="option">--force-local</span>
@@ -22387,17 +22498,19 @@ does not support the <span class="option">--force-local</span>, but ignores
 <p>For GNU <code>tar</code>,
 <span class="option">--format=ustar</span> forces a more portable format. (The default is
 set at compilation and will be shown at the end of the output from
-<code>tar --help</code>: for version 1.30 ‘out-of-the-box’ it is 
+<code>tar --help</code>: for version 1.35 ‘out-of-the-box’ it is 
 <span class="option">--format=gnu</span>, but the manual says the intention is to change
+
 to <span class="option">--format=posix</span> which is the same as <code>pax</code> –
 it was never part of the POSIX standard for <code>tar</code> and should
-not be used.)
+not be used.  However, the intention has been stated now for several
+years without changing the default.)
 For libarchive's <code>bsdtar</code>, <span class="option">--format=ustar</span> is more
 portable than the default.
 </p>
 
 <p>One issue which can cause an external command to fail is a command
-line too long for the system shell: as from <span class="rlang"><b>R</b></span> 3.5.0 this is worked
+line too long for the system shell: this is worked
 around if the external command is detected to be GNU <code>tar</code> or
 libarchive <code>tar</code> (aka <code>bsdtar</code>).
 </p>
@@ -22427,10 +22540,11 @@ behaviour seems to be changed with each version.  macOS &gt;= 10.6,
 FreeBSD and Windows 10 use <code>bsdtar</code> from the libarchive
 project (but for macOS often a quite-old version), and commercial
 Unixes will have their own versions. <code>bsdtar</code> is available for
-many other platforms: macOS up to at least 10.9 had GNU <code>tar</code>
-as <code>gnutar</code> and other platforms, e.g. Solaris, have it
-as <code>gtar</code>: on a Unix-alike <code>configure</code> will try
-<code>gnutar</code> and <code>gtar</code> before <code>tar</code>.
+many other platforms: macOS up to at least 10.9 (but not recently) had
+GNU <code>tar</code> as <code>gnutar</code> and other platforms,
+e.g. Solaris, have it as <code>gtar</code>: on a Unix-alike
+<code>configure</code> will try <code>gnutar</code> and <code>gtar</code>
+before <code>tar</code>.
 </p>
 
 
@@ -22503,22 +22617,39 @@ conventional to discard fractional seconds.
 
 <p>When an external <code>tar</code> command is used, compressing the tar
 archive requires that <code>tar</code> supports the <span class="option">-z</span>,
-<span class="option">-j</span> or <span class="option">-J</span> flag, and may require the appropriate
-command (<code>gzip</code>, <code>bzip2</code> or <code>xz</code>) to be
-available.  For GNU <code>tar</code>, further compression programs can be
-specified by e.g. <code>extra_flags = "-I lz4"</code>.
-Some versions of <code>bsdtar</code> accept options such as
-<span class="option">--lz4</span>, <span class="option">--lzop</span> and <span class="option">--lrzip</span> or an external
-compressor <em>via</em> <span class="option">--use-compress-program lz4</span>: these could
-be supplied in <code>extra_flags</code>.
+<span class="option">-j</span>, <span class="option">-J</span> or <span class="option">--zstd</span>flag, and may require the
+appropriate command (<code>gzip</code>, <code>bzip2</code> <code>xz</code> or
+<code>zstd</code>) to be available.  For GNU <code>tar</code>, further
+compression programs can be specified by
+e.g. <code>extra_flags = "-I lz4"</code> or <code>"--lzip"</code> or
+<code>"--lzop"</code> in argument <code>extra_flags</code>.  Some versions of
+<code>bsdtar</code> accept options such as <span class="option">--lz4</span>,
+<span class="option">--lzop</span> and <span class="option">--lrzip</span> or an external compressor
+<em>via</em> <span class="option">--use-compress-program lz4</span>: these could be
+supplied in <code>extra_flags</code>.
 </p>
 <p>NetBSD prior to 8.0 used flag <span class="option">--xz</span> rather than <span class="option">-J</span>,
 so this should be used <em>via</em> <code>extra_flags = "--xz"</code> rather
 than <code>compression = "xz"</code>.  The commands from OpenBSD and the
-Heirloom Toolchest are not documented to support <code>xz</code>.
+Heirloom Toolchest are not documented to support <code>xz</code> nor
+<code>zstd</code>.
+</p>
+<p>The <code>tar</code> program in recent macOS (e.g. 15.2) does
+support <code>zstd</code> compression.<em>via</em> an
+external command, but Apple does not supply one.
 </p>
 <p>The <code>tar</code> programs in commercial Unixen such as AIX and
 Solaris do not support compression.
+</p>
+<p>GNU <code>tar</code> added support in version 1.22 for <code>xz</code>
+compression and in version 1.31 for <code>zstd</code> compression.
+<code>bsdtar</code> added support for <code>xz</code> in 2019 and for
+<code>zstd</code> in 2020.
+</p>
+<p>Neither the internal or the known external <code>tar</code> commands
+support parallel compression — but this function can be used to write
+an uncompressed tarball which can then be compressed in parallel, for
+example with <code>zstd -T0</code>.
 </p>
 
 
@@ -22579,7 +22710,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -22651,7 +22782,7 @@ close<span class="token punctuation">(</span>con<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="min">min</code>, <code id="max">max</code>
@@ -22833,7 +22964,7 @@ type.convert<span class="token punctuation">(</span>x<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -23049,7 +23180,7 @@ Extract or List Tar Archives
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="tarfile">tarfile</code></td>
 <td>
@@ -23090,13 +23221,14 @@ the default is to extract all files.</p>
 <td>
 <p>(Deprecated in favour of auto-detection, used only
 for an external <code>tar</code> command.)  Logical or character
-string.  Values <code>"gzip"</code>, <code>"bzip2"</code> and <code>"xz"</code> select
-that form of compression (and may be abbreviated to the first
-letter).  <code>TRUE</code> indicates <code>gzip</code> compression,
-<code>FALSE</code> no known compression, and <code>NA</code> (the default)
-indicates that the type is to be inferred from the file header.
+string.  Values <code>"gzip"</code>, <code>"bzip2"</code>, <code>"xz"</code> and
+<code>"zstd"</code> select that form of compression (and may be
+abbreviated to the first letter).  <code>TRUE</code> indicates
+<code>gzip</code> compression, <code>FALSE</code> no known compression, and
+<code>NA</code> (the default) indicates that the type is to be inferred
+from the file header.
 </p>
-<p>The external command may ignore the selected compression type but
+<p>The external command may ignore the selected compression type and
 detect a type automagically.
 </p>
 </td>
@@ -23151,9 +23283,9 @@ the tarfile header to determine the type of compression.
 <td><code id="tar">tar</code></td>
 <td>
 <p>character string: the path to the command to be used or
-<code>"internal"</code>.  If the command itself contains spaces it needs
-to be quoted – but <code>tar</code> can also contain flags separated from
-the command by spaces.</p>
+<code>"internal"</code> or <code>""</code>.  If the command itself contains
+spaces it needs to be quoted – but <code>tar</code> can also contain
+flags separated from the command by spaces.</p>
 </td>
 </tr>
 </table>
@@ -23179,7 +23311,8 @@ support for most in a platform-independent way.
 <p>Modern GNU <code>tar</code> versions support
 compressed archives and since 1.15 are able to detect the type of
 compression automatically: version 1.22 added support for
-<code>xz</code> compression.
+<code>xz</code> compression and version 1.31 for <code>zstd</code>
+compression.
 </p>
 <p>On a Unix-alike, <code>configure</code> will set environment variable
 <span class="env">TAR</span>, preferring GNU tar if found.</p>
@@ -23189,9 +23322,16 @@ compression automatically: version 1.22 added support for
 <code>bsdtar</code>:</dt>
 <dd>
 <p>macOS 10.6 and later (and FreeBSD and some
-other OSes) have a <code>tar</code>
-from the libarchive project which detects all three forms
-of compression automagically (even if undocumented in macOS).</p>
+other OSes) have a <code>tar</code> from the libarchive project
+which detects known-to-it forms of compression automagically.
+However, this may rely on an external command being available: macOS
+has a tar which knows about <code>zstd</code> compression, but relies
+on a <code>zstd</code> command which it does not supply.
+</p>
+<p>This added support for <code>xz</code> in 2019 and for <code>zstd</code>
+in 2020 (if the appropriate library or external program is
+available).
+</p>
 </dd>
 <dt>NetBSD:</dt>
 <dd>
@@ -23213,24 +23353,25 @@ that the file is <code>xz</code>-compressed.  So <code>support_old_tars
 <dd>
 <p>This <code>tar</code> does automagically
 detect <code>gzip</code> and <code>bzip2</code> compression (undocumented)
-but has no support for <code>xz</code> compression.</p>
+but had no support for <code>xz</code> nor <code>zstd</code> compression.</p>
 </dd>
 <dt>Older support:</dt>
 <dd>
 <p>Environment variable <span class="env">R_GZIPCMD</span> gives the
 command to decompress <code>gzip</code> files, and
 <span class="env">R_BZIPCMD</span> for <code>bzip2</code> files. (On Unix-alikes
-these are set at installation if found.)  <code>xz</code> is used if
-available: if not decompression is expected to fail.</p>
+these are set at installation if found.)  An external program called
+<code>xz</code> or <code>zstd</code> is used if available: if not
+decompression is expected to fail.</p>
 </dd>
 </dl>
 <p>Arguments <code>compressed</code>, <code>extras</code> and <code>verbose</code> are only
 used when an external <code>tar</code> is used.
 </p>
 <p>Some external <code>tar</code> commands will detect some of
-<code>lrzip</code>, <code>lzma</code>, <code>lz4</code>, <code>lzop</code> and
-<code>zstd</code> compression in addition to <code>gzip</code>,
-<code>bzip2</code> and <code>xz</code>.  (For some external <code>tar</code>
+<code>lrzip</code>, <code>lzma</code>, <code>lz4</code> and <code>lzop</code>
+compression in addition to <code>gzip</code>, <code>bzip2</code>,
+<code>xz</code> and <code>zstd</code>.  (For some external <code>tar</code>
 commands, compressed tarfiles can only be read if the appropriate
 utility program is available.)  For GNU <code>tar</code>, further
 (de)compression programs can be specified by e.g. <code>extras
@@ -23245,14 +23386,14 @@ existing files, not for directories), and hard links as links.  If the
 linking operation fails (as it may on a FAT file system), a file copy
 is tried.  Since it uses <code><a href="https://r-universe.dev/manuals/base.html#connections">gzfile</a></code> to read a file it can
 handle files compressed by any of the methods that function can
-handle: at least <code>compress</code>, <code>gzip</code>, <code>bzip2</code>
-and <code>xz</code> compression, and some types of <code>lzma</code>
-compression.  It does not guard against restoring absolute file paths,
-as some <code>tar</code> implementations do.  It will create the parent
-directories for directories or files in the archive if necessary.  It
-handles the USTAR/POSIX, GNU and <code>pax</code> ways of handling file
-paths of more than 100 bytes, and the GNU way of handling link targets
-of more than 100 bytes.
+handle: at least <code>compress</code>, <code>gzip</code>, <code>bzip2</code>,
+<code>xz</code> and <code>zstd</code> compression, and some types of
+<code>lzma</code> compression.  It does not guard against restoring
+absolute file paths, as some <code>tar</code> implementations do.  It
+will create the parent directories for directories or files in the
+archive if necessary.  It handles the USTAR/POSIX, GNU and
+<code>pax</code> ways of handling file paths of more than 100 bytes, and
+the GNU way of handling link targets of more than 100 bytes.
 </p>
 <p>You may see warnings from the internal implementation such
 as </p>
@@ -23318,7 +23459,7 @@ Extract or List Zip Archives
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="zipfile">zipfile</code></td>
 <td>
@@ -23492,7 +23633,7 @@ new.packages<span class="token punctuation">(</span>lib.loc <span class="token o
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="lib.loc">lib.loc</code></td>
 <td>
@@ -23525,7 +23666,8 @@ Incompatible with <code>type = "both"</code>.
 <td><code id="method">method</code></td>
 <td>
 <p>Download method, see <code><a href="#download.file">download.file</a></code>.
-Unused if a non-<code>NULL</code> <code>available</code> is supplied.</p>
+Unused by <code>old.packages</code> if a non-<code>NULL</code> <code>available</code>
+is supplied.</p>
 </td>
 </tr>
 <tr>
@@ -23706,7 +23848,7 @@ set up a repository.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -23748,7 +23890,7 @@ server.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="url">url</code></td>
 <td>
@@ -23825,7 +23967,7 @@ URLdecode<span class="token punctuation">(</span>URL<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="URL">URL</code></td>
 <td>
@@ -23941,7 +24083,7 @@ y <span class="token operator">&lt;-</span> URLdecode<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -24030,7 +24172,7 @@ edit<span class="token punctuation">(</span>name<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="topic">topic</code></td>
 <td>
@@ -24190,7 +24332,7 @@ produce a <code><a href="https://r-universe.dev/manuals/base.html#warning">warni
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -24318,7 +24460,7 @@ winDialogString<span class="token punctuation">(</span>message<span class="token
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="type">type</code></td>
 <td>
@@ -24453,7 +24595,7 @@ winMenuItems<span class="token punctuation">(</span>menuname<span class="token p
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="menuname">menuname</code></td>
 <td>
@@ -24619,7 +24761,7 @@ close<span class="token punctuation">(</span>con<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="title">title</code>, <code id="label">label</code>
@@ -24738,7 +24880,7 @@ write.csv2<span class="token punctuation">(</span><span class="token ellipsis">.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -24894,7 +25036,7 @@ e.g. <code>file = file("filename", "wb")</code>.
 
 <h3>CSV files</h3>
 
-<p>By default there is no column name for a column of row names.  If
+<p>By default, <code>write.table</code> does not output a column name for a column of row names.  If
 <code>col.names = NA</code> and <code>row.names = TRUE</code> a blank column name
 is added, which is the convention used for CSV files to be read by
 spreadsheets.  Note that such CSV files can be read in <span class="rlang"><b>R</b></span> by
@@ -24956,7 +25098,7 @@ are all of the same class, consider using a matrix instead.
 
 <h3>Examples</h3>
 
-<pre class="language-r"><code class="language-r-input" hidden="hidden">x &lt;- data.frame(a = I("a \" quote"), b = pi)
+<pre class="language-r"><code class="language-r-input" hidden="hidden">x &lt;- data.frame(a = "a \" quote", b = pi)
 tf &lt;- tempfile(fileext = ".csv")
 
 ## To write a CSV file for input to Excel one might use
@@ -24980,7 +25122,7 @@ write.csv(x, file = "foo.csv", fileEncoding = "macroman")
 ## or for Windows Excel 2007/10
 write.csv(x, file = "foo.csv", fileEncoding = "UTF-16LE")
 
-## End(Not run)</code><code class="language-r">x <span class="token operator">&lt;-</span> data.frame<span class="token punctuation">(</span>a <span class="token operator">=</span> I<span class="token punctuation">(</span><span class="token string">"a \" quote"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> b <span class="token operator">=</span> pi<span class="token punctuation">)</span>
+## End(Not run)</code><code class="language-r">x <span class="token operator">&lt;-</span> data.frame<span class="token punctuation">(</span>a <span class="token operator">=</span> <span class="token string">"a \" quote"</span><span class="token punctuation">,</span> b <span class="token operator">=</span> pi<span class="token punctuation">)</span>
 tf <span class="token operator">&lt;-</span> tempfile<span class="token punctuation">(</span>fileext <span class="token operator">=</span> <span class="token string">".csv"</span><span class="token punctuation">)</span>
 
 <span class="token comment">## To write a CSV file for input to Excel one might use</span>
@@ -25027,7 +25169,7 @@ write.csv<span class="token punctuation">(</span>x<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="zipfile">zipfile</code></td>
 <td>
@@ -25096,6 +25238,6 @@ the filepaths contain spaces they must be quoted e.g. by
 <hr>
 </div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.4.0</p></footer>
+    <footer><p>Rendered with postdoc 1.4.1</p></footer>
   </body>
 </html>

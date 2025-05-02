@@ -7,12 +7,12 @@
 
     <!-- styling for math. katex.min.css expects fonts in same dir so use CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css">
     <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/R.css">
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/prism.css">
 
     <!-- for (future) customizations -->
     <script src="https://r-universe.dev/static/manual.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css?nocache=1">
+    <link rel="stylesheet" type="text/css" href="https://r-universe.dev/static/manual.css">
 
   </head>
 
@@ -37,15 +37,15 @@
 </tr>
       <tr>
 <th>License:</th>
-<td class="description-license">Part of R 4.4.1</td>
+<td class="description-license">Part of R 4.5.0</td>
 </tr>
       <tr>
 <th>Version:</th>
-<td class="description-version">4.4.1</td>
+<td class="description-version">4.5.0</td>
 </tr>
       <tr>
 <th>Built:</th>
-<td class="description-date">2024-06-15 17:27:26 UTC</td>
+<td class="description-date">2025-04-11 20:15:23 UTC</td>
 </tr>
       <tr>
 <th>Source:</th>
@@ -186,7 +186,7 @@ K-Means Clustering
 <li class="help-index-item"><a href="#lmfit">Fitter Functions for Linear Models</a></li>
 <li class="help-index-item"><a href="#lm.influence">Regression Diagnostics</a></li>
 <li class="help-index-item"><a href="#lm.summaries">Accessing Linear Model Fits</a></li>
-<li class="help-index-item"><a href="#loadings">Print Loadings in Factor Analysis</a></li>
+<li class="help-index-item"><a href="#loadings">Print Factor Analysis 'factanal()', Notably Loadings</a></li>
 <li class="help-index-item"><a href="#loess">Local Polynomial Regression Fitting</a></li>
 <li class="help-index-item"><a href="#loess.control">Set Parameters for loess</a></li>
 <li class="help-index-item"><a href="#Logistic">The Logistic Distribution</a></li>
@@ -451,7 +451,7 @@ method agree in type with those used for fitting.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="cl">cl</code></td>
 <td>
@@ -594,7 +594,7 @@ x<span class="token punctuation">[</span>i<span class="token punctuation">,</spa
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -695,7 +695,7 @@ observations.
 <p>An object of class <code>"acf"</code>, which is a list with the following
 elements:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>lag</code></td>
 <td>
@@ -822,7 +822,7 @@ pacf<span class="token punctuation">(</span>presidents<span class="token punctua
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="acf">acf</code></td>
 <td>
 <p>An autocorrelation or autocovariance sequence.</p>
@@ -926,7 +926,7 @@ drop1<span class="token punctuation">(</span>object<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -1136,7 +1136,7 @@ in the printed output from the function.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="A">A</code></td>
 <td>
@@ -1329,7 +1329,7 @@ aggregate<span class="token punctuation">(</span>x<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -1661,7 +1661,7 @@ BIC<span class="token punctuation">(</span>object<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -1811,7 +1811,7 @@ alias<span class="token punctuation">(</span>object<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -1873,7 +1873,7 @@ correlations induced by the design.
 
 <p>A list (of <code><a href="https://r-universe.dev/manuals/base.html#class">class</a></code> <code>"<a href="#listof">listof</a>"</code>) containing components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>Model</code></td>
 <td>
@@ -1953,7 +1953,7 @@ fitted model objects.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -2027,7 +2027,7 @@ anova<span class="token punctuation">(</span>object<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="object">object</code>, <code id="...">...</code>
@@ -2177,7 +2177,7 @@ anova<span class="token punctuation">(</span>object<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="object">object</code>, <code id="...">...</code>
@@ -2326,7 +2326,7 @@ anova<span class="token punctuation">(</span>object<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -2556,7 +2556,7 @@ ansari.test<span class="token punctuation">(</span>formula<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -2670,7 +2670,7 @@ more information.
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -2763,7 +2763,7 @@ difference in scale parameters;
 <code><a href="#var.test">var.test</a></code> and <code><a href="#bartlett.test">bartlett.test</a></code> for parametric
 tests for the homogeneity in variance.
 </p>
-<p><code><a href="https://r-forge.r-universe.dev/coin/doc/manual.html#ScaleTests">ansari_test</a></code> in package <a href="https://CRAN.R-project.org/package=coin" target="_blank"><span class="pkg">coin</span></a>
+<p><code><a href="https://r-forge.r-universe.dev/coin/doc/manual.html#ansari_test">ansari_test</a></code> in package <a href="https://CRAN.R-project.org/package=coin" target="_blank"><span class="pkg">coin</span></a>
 for exact and approximate <em>conditional</em> p-values for the
 Ansari-Bradley test, as well as different methods for handling ties.
 </p>
@@ -2818,7 +2818,7 @@ stratum if an <code>Error(.)</code> is used).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="formula">formula</code></td>
 <td>
@@ -3001,7 +3001,7 @@ approxfun<span class="token punctuation">(</span>x<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -3361,7 +3361,7 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -3498,7 +3498,7 @@ or (<code>ar.mle</code>) estimating a constant to subtract.
 <p>For <code>ar</code> and its methods a list of class <code>"ar"</code> with
 the following elements:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>order</code></td>
 <td>
@@ -3714,7 +3714,7 @@ least squares, by default selecting the complexity by AIC.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -3803,7 +3803,7 @@ zero. Otherwise the computations may be inaccurate or fail entirely.
 
 <p>A list of class <code>"ar"</code> with the following elements:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>order</code></td>
 <td>
@@ -3979,7 +3979,7 @@ ar.ols<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -3989,7 +3989,7 @@ ar.ols<span class="token punctuation">(</span>x<span class="token punctuation">,
 <tr>
 <td><code id="order">order</code></td>
 <td>
-<p>A specification of the non-seasonal part of the ARIMA
+<p>a specification of the non-seasonal part of the ARIMA
 model: the three integer components <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>p</mi><mo separator="true">,</mo><mi>d</mi><mo separator="true">,</mo><mi>q</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(p, d, q)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mclose">)</span></span></span></span></code> are the AR order, the
 degree of differencing, and the MA order.</p>
 </td>
@@ -3997,9 +3997,9 @@ degree of differencing, and the MA order.</p>
 <tr>
 <td><code id="seasonal">seasonal</code></td>
 <td>
-<p>A specification of the seasonal part of the ARIMA
+<p>a specification of the seasonal part of the ARIMA
 model, plus the period (which defaults to <code>frequency(x)</code>).
-This may be a list with components <code>order</code> and
+This may be a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with components <code>order</code> and
 <code>period</code>, or just a numeric vector of length 3 which
 specifies the seasonal <code>order</code>.  In the latter case the
 default period is used.</p>
@@ -4015,7 +4015,8 @@ which must have the same number of rows as <code>x</code>.</p>
 <tr>
 <td><code id="include.mean">include.mean</code></td>
 <td>
-<p>Should the ARMA model include a mean/intercept term?  The
+<p>logical indicating if the ARMA model should include a
+mean/intercept term.  The
 default is <code>TRUE</code> for undifferenced series, and it is ignored
 for ARIMA models with differencing.</p>
 </td>
@@ -4148,7 +4149,7 @@ and unit variance, but does attempt to estimate suitable scalings.
 
 <p>A list of class <code>"Arima"</code> with components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>coef</code></td>
 <td>
@@ -4431,7 +4432,7 @@ predict<span class="token punctuation">(</span>fit3<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="model">model</code></td>
 <td>
@@ -4550,6 +4551,7 @@ ts.plot<span class="token punctuation">(</span>ts.sim<span class="token punctuat
 
 <p>Fit an ARIMA model to a univariate time series, and forecast from
 the fitted model.
+For new projects, consider using <code><a href="#arima">arima</a>()</code> instead.
 </p>
 
 
@@ -4575,7 +4577,7 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -4585,20 +4587,20 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 <tr>
 <td><code id="order">order</code></td>
 <td>
-<p>A specification of the non-seasonal part of the ARIMA
-model: the three components <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>p</mi><mo separator="true">,</mo><mi>d</mi><mo separator="true">,</mo><mi>q</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(p, d, q)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mclose">)</span></span></span></span></code> are the AR order, the
+<p>a specification of the non-seasonal part of the ARIMA
+model: the three integer components <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>p</mi><mo separator="true">,</mo><mi>d</mi><mo separator="true">,</mo><mi>q</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(p, d, q)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mclose">)</span></span></span></span></code> are the AR order, the
 degree of differencing, and the MA order.</p>
 </td>
 </tr>
 <tr>
 <td><code id="seasonal">seasonal</code></td>
 <td>
-<p>A specification of the seasonal part of the ARIMA
+<p>a specification of the seasonal part of the ARIMA
 model, plus the period (which defaults to <code>frequency(x)</code>).
-This should be a list with components <code>order</code> and
-<code>period</code>, but a specification of just a numeric vector of
-length 3 will be turned into a suitable list with the specification
-as the <code>order</code>.</p>
+This may be a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with components <code>order</code> and
+<code>period</code>, or just a numeric vector of length 3 which
+specifies the seasonal <code>order</code>.  In the latter case the
+default period is used.</p>
 </td>
 </tr>
 <tr>
@@ -4627,7 +4629,7 @@ recursions’ should be used.  See the ‘Details’ section.</p>
 <tr>
 <td><code id="transform.pars">transform.pars</code></td>
 <td>
-<p>Logical.  If true, the AR parameters are
+<p>logical; if true, the AR parameters are
 transformed to ensure that they remain in the region of
 stationarity.  Not used for <code>method = "CSS"</code>.</p>
 </td>
@@ -4654,14 +4656,14 @@ will be ignored.</p>
 <tr>
 <td><code id="method">method</code></td>
 <td>
-<p>Fitting method: maximum likelihood or minimize
+<p>fitting method: maximum likelihood or minimize
 conditional sum-of-squares.  Can be abbreviated.</p>
 </td>
 </tr>
 <tr>
 <td><code id="n.cond">n.cond</code></td>
 <td>
-<p>Only used if fitting by conditional-sum-of-squares: the
+<p>only used if fitting by conditional-sum-of-squares: the
 number of initial observations to ignore.  It will be ignored if
 less than the maximum lag of an AR term.</p>
 </td>
@@ -4736,7 +4738,7 @@ models.
 
 <p>For <code>arima0</code>, a list of class <code>"arima0"</code> with components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>coef</code></td>
 <td>
@@ -4865,7 +4867,9 @@ roughly scale the regressors to zero mean and unit variance.
 
 <h3>Note</h3>
 
-<p>This is a preliminary version, and will be replaced by <code><a href="#arima">arima</a></code>.
+<p>This has been a preliminary version, and is mostly replaced by
+<code><a href="#arima">arima</a></code>, notably in the presence of missing values.
+<code>arima0()</code> remains mostly for reproducibility reasons.
 </p>
 <p>The standard errors of prediction exclude the uncertainty in the
 estimation of the ARMA model and the regression coefficients.
@@ -4897,7 +4901,7 @@ Sections 3.3 and 4.4.
 </p>
 <p>Harvey, A. C. and McKenzie, C. R. (1982).
 Algorithm AS 182: An algorithm for finite sample prediction from ARIMA
-processes. 
+processes.
 <em>Applied Statistics</em>, <b>31</b>, 180–187.
 <a href="https://doi.org/10.2307/2347987" target="_blank">doi:10.2307/2347987</a>.
 </p>
@@ -4979,7 +4983,7 @@ autocorrelation function for an ARMA process.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="ar">ar</code></td>
 <td>
@@ -5088,7 +5092,7 @@ toeplitz<span class="token punctuation">(</span>ARMAacf<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="ar">ar</code></td>
 <td>
@@ -5158,7 +5162,7 @@ class <code>"hclust"</code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -5244,7 +5248,7 @@ one-sided, in which case it is returned unaltered.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="object">object</code></td>
 <td>
 <p>a one-sided formula, name, call, expression, numeric value, or
@@ -5293,8 +5297,10 @@ asOneSidedFormula<span class="token punctuation">(</span><span class="token numb
 
 <h3>Description</h3>
 
-<p>Subsets of <code>x[]</code> are averaged, where each subset consist of those
-observations with the same factor levels.
+<p>A function is applied to subsets of a vector <code>x</code>, where each
+subset consists of those observations with the same factor levels.
+The <code><a href="https://r-universe.dev/manuals/base.html#mean">mean</a></code> function is applied by default,
+replacing the values in each group by the group <em>ave</em>rage.
 </p>
 
 
@@ -5306,39 +5312,43 @@ observations with the same factor levels.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
-<p>A numeric.</p>
+<p>a vector, typically numeric.</p>
 </td>
 </tr>
 <tr>
 <td><code id="...">...</code></td>
 <td>
-<p>Grouping variables, typically factors, all of the same
-<code>length</code> as <code>x</code>.</p>
+<p>grouping variables, typically factors, all of the same
+length as <code>x</code>. Groups are defined by the
+<code><a href="https://r-universe.dev/manuals/base.html#interaction">interaction</a></code> of these variables.</p>
 </td>
 </tr>
 <tr>
 <td><code id="FUN">FUN</code></td>
 <td>
-<p>Function to apply for each factor level combination.</p>
+<p>a function to apply for each factor level combination.
+(NOTE: If given, this argument must be named.)</p>
 </td>
 </tr>
 </table>
 <h3>Value</h3>
 
-<p>A numeric vector, say <code>y</code> of length <code>length(x)</code>.
-If <code>...</code> is <code>g1, g2</code>, e.g.,
-<code>y[i]</code> is equal to <code>FUN(x[j]</code>, for all <code>j</code> with
-<code>g1[j] == g1[i]</code> and <code>g2[j] == g2[i])</code>.
+<p>A vector, say <code>y</code>, of the same length as <code>x</code>.
+If grouping variables are missing, all elements of <code>y</code> are equal
+to <code>FUN(x)</code>. Otherwise, if, e.g., <code>...</code> is <code>g1, g2</code>,
+<code>y[i]</code> is equal to <code>FUN(x[sub])</code> with <code>sub</code> comprising all
+<code>j</code> for which <code>g1[j] == g1[i]</code> and <code>g2[j] == g2[i]</code>.
 </p>
 
 
 <h3>See Also</h3>
 
-<p><code><a href="https://r-universe.dev/manuals/base.html#mean">mean</a></code>, <code><a href="#median">median</a></code>.</p>
+<p><code><a href="https://r-universe.dev/manuals/base.html#mean">mean</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#split">split</a></code>, <code><a href="https://r-universe.dev/manuals/base.html#tapply">tapply</a></code>.
+</p>
 
 
 <h3>Examples</h3>
@@ -5358,6 +5368,10 @@ lines(ave(breaks, wool, tension, FUN = median), type = "s", col = "green")
 legend(40, 70, c("mean", "median"), lty = 1,
       col = c("blue","green"), bg = "gray90")
 detach()
+
+# Running index per group
+(g &lt;- sample(c("u","s","e","R"), 24, replace = TRUE))
+ave(seq_along(g), g, FUN = seq_along)
 </code><code class="language-r">require<span class="token punctuation">(</span>graphics<span class="token punctuation">)</span>
 
 ave<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">)</span>  <span class="token comment"># no grouping -&gt; grand mean</span>
@@ -5372,7 +5386,11 @@ lines<span class="token punctuation">(</span>ave<span class="token punctuation">
 lines<span class="token punctuation">(</span>ave<span class="token punctuation">(</span>breaks<span class="token punctuation">,</span> wool<span class="token punctuation">,</span> tension<span class="token punctuation">,</span> FUN <span class="token operator">=</span> median<span class="token punctuation">)</span><span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token string">"s"</span><span class="token punctuation">,</span> col <span class="token operator">=</span> <span class="token string">"green"</span><span class="token punctuation">)</span>
 legend<span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">70</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span><span class="token string">"mean"</span><span class="token punctuation">,</span> <span class="token string">"median"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> lty <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
       col <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"blue"</span><span class="token punctuation">,</span><span class="token string">"green"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> bg <span class="token operator">=</span> <span class="token string">"gray90"</span><span class="token punctuation">)</span>
-detach<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+detach<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Running index per group</span>
+<span class="token punctuation">(</span>g <span class="token operator">&lt;-</span> sample<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"u"</span><span class="token punctuation">,</span><span class="token string">"s"</span><span class="token punctuation">,</span><span class="token string">"e"</span><span class="token punctuation">,</span><span class="token string">"R"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> replace <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ave<span class="token punctuation">(</span>seq_along<span class="token punctuation">(</span>g<span class="token punctuation">)</span><span class="token punctuation">,</span> g<span class="token punctuation">,</span> FUN <span class="token operator">=</span> seq_along<span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div></div>
@@ -5415,7 +5433,7 @@ bw.SJ<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -5603,7 +5621,7 @@ bartlett.test<span class="token punctuation">(</span>formula<span class="token p
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -5677,7 +5695,7 @@ group for the corresponding elements of <code>x</code>.
 
 <p>A list of class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -5772,7 +5790,7 @@ rbeta<span class="token punctuation">(</span>n<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -6092,7 +6110,7 @@ probability of success in a Bernoulli experiment.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6142,7 +6160,7 @@ shortest-length confidence intervals.
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -6282,13 +6300,13 @@ rbinom<span class="token punctuation">(</span>n<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
 </td>
 <td>
-<p>vector of quantiles.</p>
+<p>vector of quantiles, the number of successes.</p>
 </td>
 </tr>
 <tr>
@@ -6465,7 +6483,7 @@ biplot<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6625,7 +6643,7 @@ biplot<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6742,7 +6760,7 @@ pbirthday<span class="token punctuation">(</span>n<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="classes">classes</code></td>
 <td>
@@ -6784,7 +6802,7 @@ good for very small probabilities.
 
 <h3>Value</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code>qbirthday</code></td>
 <td>
@@ -6884,7 +6902,7 @@ sometimes known as ‘portmanteau’ tests.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -6925,7 +6943,7 @@ setting <code>fitdf = p+q</code>, provided of course that <code>lag &gt; fitdf</
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -7018,7 +7036,7 @@ Box.test <span class="token punctuation">(</span>x<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -7128,7 +7146,7 @@ summary<span class="token punctuation">(</span>model3<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -7173,7 +7191,7 @@ of the <code>x</code> variables. The relationship is symmetric as
 
 <p>A list containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>cor</code></td>
 <td>
@@ -7288,7 +7306,7 @@ variable.names<span class="token punctuation">(</span>object<span class="token p
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -7373,7 +7391,7 @@ rcauchy<span class="token punctuation">(</span>n<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -7510,7 +7528,7 @@ and goodness-of-fit tests.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -7611,7 +7629,7 @@ slow.
 <p>A list with class <code>"htest"</code> containing the following
 components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -7819,7 +7837,7 @@ rchisq<span class="token punctuation">(</span>n<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -8091,7 +8109,7 @@ Also known as <em>principal coordinates analysis</em> (Gower, 1966).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="d">d</code></td>
 <td>
@@ -8167,13 +8185,13 @@ could be in fewer than <code>n - 1</code> dimensions.
 
 <h3>Value</h3>
 
-<p>If <code>.list</code> is false (as per default), a matrix with <code>k</code>
+<p>If <code>list.</code> is false (as per default), a matrix with <code>k</code>
 columns whose rows give the coordinates of the points chosen to
 represent the dissimilarities.
 </p>
 <p>Otherwise, a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> containing the following components.
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>points</code></td>
 <td>
@@ -8323,7 +8341,7 @@ coef<span class="token punctuation">(</span>object<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -8417,7 +8435,7 @@ have no missing values.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="...">...</code></td>
 <td>
 <p>a sequence of vectors, matrices and data frames.</p>
@@ -8505,7 +8523,7 @@ confint<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -8580,8 +8598,8 @@ limits for each parameter. These will be labelled as (1-level)/2 and
 
 <h3>See Also</h3>
 
-<p>Original versions: <code><a href="https://r-universe.dev/manuals/MASS.html#confint">confint.glm</a></code> and
-<code><a href="https://r-universe.dev/manuals/MASS.html#confint">confint.nls</a></code> in package <a href="https://CRAN.R-project.org/package=MASS" target="_blank"><span class="pkg">MASS</span></a>.
+<p>Original versions: <code><a href="https://r-universe.dev/manuals/MASS.html#confint.glm">confint.glm</a></code> and
+<code><a href="https://r-universe.dev/manuals/MASS.html#confint.nls">confint.nls</a></code> in package <a href="https://CRAN.R-project.org/package=MASS" target="_blank"><span class="pkg">MASS</span></a>.
 </p>
 
 
@@ -8633,7 +8651,7 @@ adaptive barrier algorithm.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="theta">theta</code></td>
 <td>
@@ -8868,7 +8886,7 @@ contr.SAS<span class="token punctuation">(</span>n<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="n">n</code></td>
 <td>
@@ -9017,7 +9035,7 @@ contrasts<span class="token punctuation">(</span>x<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -9161,7 +9179,7 @@ convolutions of two sequences.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -9307,7 +9325,7 @@ cophenetic<span class="token punctuation">(</span>x<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p>an R object representing a hierarchical clustering.
@@ -9446,7 +9464,7 @@ cov2cor<span class="token punctuation">(</span>V<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -9761,7 +9779,7 @@ cor.test<span class="token punctuation">(</span>formula<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -9893,7 +9911,7 @@ sizes (the cutoff has been changed from the original paper).
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -9975,8 +9993,8 @@ Pages 185–194 (Kendall and Spearman tests).
 
 <p><code><a href="https://cran.r-universe.dev/Kendall/doc/manual.html#Kendall">Kendall</a></code> in package <a href="https://CRAN.R-project.org/package=Kendall" target="_blank"><span class="pkg">Kendall</span></a>.
 </p>
-<p><code><a href="https://cran.r-universe.dev/SuppDists/doc/manual.html#Kendall">pKendall</a></code> and
-<code><a href="https://cran.r-universe.dev/SuppDists/doc/manual.html#Spearman">pSpearman</a></code> in package
+<p><code><a href="https://cran.r-universe.dev/SuppDists/doc/manual.html#pKendall">pKendall</a></code> and
+<code><a href="https://cran.r-universe.dev/SuppDists/doc/manual.html#pSpearman">pSpearman</a></code> in package
 <a href="https://CRAN.R-project.org/package=SuppDists" target="_blank"><span class="pkg">SuppDists</span></a>,
 <code><a href="https://cran.r-universe.dev/pspearman/doc/manual.html#spearman.test">spearman.test</a></code> in package
 <a href="https://CRAN.R-project.org/package=pspearman" target="_blank"><span class="pkg">pspearman</span></a>,
@@ -10063,7 +10081,7 @@ matrix.</p>
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -10117,7 +10135,7 @@ is obtained.
 
 <p>A list containing the following named components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>cov</code></td>
 <td>
@@ -10193,7 +10211,7 @@ Plot Cumulative Periodogram
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="ts">ts</code></td>
 <td>
@@ -10282,7 +10300,7 @@ height(s).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="tree">tree</code></td>
 <td>
@@ -10382,7 +10400,7 @@ seasonal component.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -10434,7 +10452,7 @@ periods.
 
 <p>An object of class <code>"decomposed.ts"</code> with following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>x</code></td>
 <td>
@@ -10539,9 +10557,10 @@ round<span class="token punctuation">(</span>decompose<span class="token punctua
 <p><code>delete.response</code> returns a <code>terms</code> object for the same
 model but with no response variable.
 </p>
-<p><code>drop.terms</code> removes variables from the right-hand side of the
-model. There is also a <code>"[.terms"</code> method to perform the same
-function (with <code>keep.response = TRUE</code>).
+<p><code>drop.terms</code> removes terms from the right-hand side of the
+model, optionally keeping the response.  There is also a
+<code>[.terms</code> method performing a complementary operation: it
+extracts terms, always keeping the response.
 </p>
 <p><code>reformulate</code> creates a formula from a character vector.  If
 <code>length(termlabels) &gt; 1</code>, its elements are concatenated with <code>+</code>.
@@ -10559,33 +10578,39 @@ back compatibly, with a deprecation warning.
 reformulate(termlabels, response = NULL, intercept = TRUE, env = parent.frame())
 
 drop.terms(termobj, dropx = NULL, keep.response = FALSE)
+
+## S3 method for class 'terms'
+termobj[i]
 </code><code class="language-r">delete.response<span class="token punctuation">(</span>termobj<span class="token punctuation">)</span>
 
 reformulate<span class="token punctuation">(</span>termlabels<span class="token punctuation">,</span> response <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> intercept <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> env <span class="token operator">=</span> parent.frame<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-drop.terms<span class="token punctuation">(</span>termobj<span class="token punctuation">,</span> dropx <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> keep.response <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span></code></pre>
+drop.terms<span class="token punctuation">(</span>termobj<span class="token punctuation">,</span> dropx <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> keep.response <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+
+<span class="token comment">## S3 method for class 'terms'</span>
+termobj<span class="token punctuation">[</span>i<span class="token punctuation">]</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="termobj">termobj</code></td>
 <td>
-<p>A <code>terms</code> object</p>
+<p>a <code><a href="#terms.object">terms</a></code> object.</p>
 </td>
 </tr>
 <tr>
 <td><code id="termlabels">termlabels</code></td>
 <td>
 <p>character vector giving the right-hand side of a
-model formula.  Cannot be zero-length.</p>
+model formula.  May be zero-length.</p>
 </td>
 </tr>
 <tr>
 <td><code id="response">response</code></td>
 <td>
-<p>character string, symbol or call giving the left-hand
+<p>a character string, symbol or call giving the left-hand
 side of a model formula, or <code>NULL</code>.</p>
 </td>
 </tr>
@@ -10603,25 +10628,30 @@ returned.</p>
 </td>
 </tr>
 <tr>
-<td><code id="dropx">dropx</code></td>
 <td>
-<p>vector of positions of variables to drop from the
-right-hand side of the model.</p>
+<code id="dropx">dropx</code>, <code id="i">i</code>
+</td>
+<td>
+<p>a numeric vector indexing <code>labels(termobj)</code>
+(that is, the <code>"term.labels"</code> attribute of <code>termobj</code>),
+indicating terms to drop (<code>dropx</code>) or select (<code>i</code>) from
+the right-hand side of the model. The default <code>dropx=NULL</code>
+means to keep all terms.</p>
 </td>
 </tr>
 <tr>
 <td><code id="keep.response">keep.response</code></td>
 <td>
-<p>Keep the response in the resulting object?</p>
+<p>logical: keep the response in the resulting object?</p>
 </td>
 </tr>
 </table>
 <h3>Value</h3>
 
-<p><code>delete.response</code> and <code>drop.terms</code> return a <code>terms</code>
+<p><code>delete.response</code> and <code>drop.terms</code> return a <code><a href="#terms">terms</a></code>
 object.
 </p>
-<p><code>reformulate</code> returns a <code>formula</code>.
+<p><code>reformulate</code> returns a <code><a href="#formula">formula</a></code>.
 </p>
 
 
@@ -10708,7 +10738,7 @@ dendrogram of the same graph structure as <code>x</code> and for each node,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="X">X</code></td>
 <td>
@@ -10922,7 +10952,7 @@ is.leaf<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -11196,7 +11226,7 @@ reversed nodes, see also <code><a href="#reorder.dendrogram">reorder.dendrogram<
 dendrograms into a new one which has <code>x</code> and <code>y</code> (and
 optional further arguments) as branches.  Note that before <span class="rlang"><b>R</b></span> 3.1.2,
 <code>adjust = "none"</code> was used implicitly, which is invalid when,
-e.g., the dendrograms are from <code><a href="#dendrogram">as.dendrogram</a>(hclust(..))</code>.
+e.g., the dendrograms are from <code>as.dendrogram(hclust(..))</code>.
 </p>
 <p><code><a href="#nobs">nobs</a>(object)</code> returns the total number of leaves (the
 <code>members</code> attribute, see above).
@@ -11428,7 +11458,7 @@ density<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -11629,7 +11659,7 @@ bandwidths.
 an object with class <code>"density"</code> whose
 underlying structure is a list containing the following components.
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>x</code></td>
 <td>
@@ -11955,7 +11985,7 @@ deriv3<span class="token punctuation">(</span>expr<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="expr">expr</code></td>
 <td>
@@ -12248,7 +12278,7 @@ stopifnot<span class="token punctuation">(</span>identical<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -12312,7 +12342,7 @@ object.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -12378,7 +12408,7 @@ diffinv<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -12493,7 +12523,7 @@ as.matrix<span class="token punctuation">(</span>x<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -12662,7 +12692,7 @@ The length of the vector is <code class="reqn"><span class="katex"><span class="
 <p>The object has the following attributes (besides <code>"class"</code> equal
 to <code>"dist"</code>):
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>Size</code></td>
 <td>
@@ -12696,7 +12726,7 @@ object.</p>
 <td><code>method</code></td>
 <td>
 <p>optionally, the distance method used; resulting from
-<code><a href="#dist">dist</a>()</code>, the (<code><a href="https://r-universe.dev/manuals/base.html#match.arg">match.arg</a>()</code>ed) <code>method</code>
+<code>dist()</code>, the (<code><a href="https://r-universe.dev/manuals/base.html#match.arg">match.arg</a>()</code>ed) <code>method</code>
 argument.</p>
 </td>
 </tr>
@@ -12923,7 +12953,7 @@ dummy.coef<span class="token punctuation">(</span>object<span class="token punct
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -13046,7 +13076,7 @@ quantile<span class="token punctuation">(</span>x<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="object">object</code>
@@ -13283,7 +13313,7 @@ variance model with multiple strata.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="aovlist">aovlist</code></td>
 <td>
 
@@ -13409,7 +13439,7 @@ effects<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -13506,7 +13536,7 @@ Euclidean space.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -13574,7 +13604,7 @@ to be recovered for a model using <code>sin(x)</code> as a predictor.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="model">model</code></td>
 <td>
@@ -13668,7 +13698,7 @@ rexp<span class="token punctuation">(</span>n<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -13822,7 +13852,7 @@ abline<span class="token punctuation">(</span><span class="token number">0</span
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="fit">fit</code></td>
 <td>
@@ -13908,7 +13938,7 @@ values are considered).
 
 <p>A numeric vector of length 2, with first and second elements giving
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>edf</code></td>
 <td>
@@ -13985,24 +14015,24 @@ data matrix.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
-<p>A formula or a numeric matrix or an object that can be
+<p><code><a href="#formula">formula</a></code> or a numeric matrix or an object that can be
 coerced to a numeric matrix.</p>
 </td>
 </tr>
 <tr>
 <td><code id="factors">factors</code></td>
 <td>
-<p>The number of factors to be fitted.</p>
+<p>integer number of factors to be fitted.</p>
 </td>
 </tr>
 <tr>
 <td><code id="data">data</code></td>
 <td>
-<p>An optional data frame (or similar: see
+<p>an optional data frame (or similar: see
 <code><a href="#model.frame">model.frame</a></code>), used only if <code>x</code> is a formula.  By
 default the variables are taken from <code>environment(formula)</code>.</p>
 </td>
@@ -14010,7 +14040,7 @@ default the variables are taken from <code>environment(formula)</code>.</p>
 <tr>
 <td><code id="covmat">covmat</code></td>
 <td>
-<p>A covariance matrix, or a covariance list as returned by
+<p>covariance matrix or a covariance list as returned by
 <code><a href="#cov.wt">cov.wt</a></code>.  Of course, correlation matrices are covariance
 matrices.</p>
 </td>
@@ -14018,22 +14048,23 @@ matrices.</p>
 <tr>
 <td><code id="n.obs">n.obs</code></td>
 <td>
-<p>The number of observations, used if <code>covmat</code> is a
+<p>the number of observations, used if <code>covmat</code> is a
 covariance matrix.</p>
 </td>
 </tr>
 <tr>
 <td><code id="subset">subset</code></td>
 <td>
-<p>A specification of the cases to be used, if <code>x</code> is
+<p>a specification of the cases to be used, if <code>x</code> is
 used as a matrix or formula.</p>
 </td>
 </tr>
 <tr>
 <td><code id="na.action">na.action</code></td>
 <td>
-<p>The <code>na.action</code> to be used if <code>x</code> is
-used as a formula.</p>
+<p>the <code><a href="#na.action">na.action</a></code> to be used if <code>x</code> is
+used as a formula, in which case <code><a href="#model.frame">model.frame</a>()</code> is
+called.</p>
 </td>
 </tr>
 <tr>
@@ -14055,7 +14086,8 @@ these names to be abbreviated.</p>
 <tr>
 <td><code id="rotation">rotation</code></td>
 <td>
-<p>character. <code>"none"</code> or the name of a function
+<p>a <code><a href="https://r-universe.dev/manuals/base.html#function">function</a></code> or <code><a href="https://r-universe.dev/manuals/base.html#character">character</a></code>
+string.  In the latter case, <code>"none"</code> or the name of a function
 to be used to rotate the factors: it will be called with first
 argument the loadings matrix, and should return a list with component
 <code>loadings</code> giving the rotated loadings, or just the rotated loadings.</p>
@@ -14064,30 +14096,30 @@ argument the loadings matrix, and should return a list with component
 <tr>
 <td><code id="control">control</code></td>
 <td>
-<p>A list of control values,
+<p>a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> of control values with components
 </p>
 
 <dl>
-<dt>nstart</dt>
+<dt><code>nstart</code></dt>
 <dd>
 <p>The number of starting values to be tried if
 <code>start = NULL</code>. Default 1.</p>
 </dd>
-<dt>trace</dt>
+<dt><code>trace</code></dt>
 <dd>
 <p>logical. Output tracing information? Default <code>FALSE</code>.</p>
 </dd>
-<dt>lower</dt>
+<dt><code>lower</code></dt>
 <dd>
 <p>The lower bound for uniquenesses during
 optimization. Should be &gt; 0. Default 0.005.</p>
 </dd>
-<dt>opt</dt>
+<dt><code>opt</code></dt>
 <dd>
-<p>A list of control values to be passed to
+<p>a list of control values to be passed to
 <code><a href="#optim">optim</a></code>'s <code>control</code> argument.</p>
 </dd>
-<dt>rotate</dt>
+<dt><code>rotate</code></dt>
 <dd>
 <p>a list of additional arguments for the rotation function.</p>
 </dd>
@@ -14097,7 +14129,7 @@ optimization. Should be &gt; 0. Default 0.005.</p>
 <tr>
 <td><code id="...">...</code></td>
 <td>
-<p>Components of <code>control</code> can also be supplied as
+<p>components of <code>control</code> can also be supplied directly as
 named arguments to <code>factanal</code>.</p>
 </td>
 </tr>
@@ -14183,14 +14215,15 @@ places, and small loadings are suppressed.
 
 <p>An object of class <code>"factanal"</code> with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>loadings</code></td>
 <td>
 <p>A matrix of loadings, one column for each factor.  The
 factors are ordered in decreasing order of sums of squares of
 loadings, and given the sign that will make the sum of the loadings
-positive.  This is of class <code>"loadings"</code>: see
+positive. For correlated factors, the correlation matrix is
+stored as an attribute labeled "covariance". This is of class <code>"loadings"</code>: see
 <code><a href="#loadings">loadings</a></code> for its <code>print</code> method.</p>
 </td>
 </tr>
@@ -14400,7 +14433,7 @@ factor.scope<span class="token punctuation">(</span>factor<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="terms1">terms1</code></td>
 <td>
@@ -14502,7 +14535,7 @@ quasipoisson<span class="token punctuation">(</span>link <span class="token oper
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="link">link</code></td>
 <td>
@@ -14608,7 +14641,7 @@ model.  The behaviour of S is closer to the quasi- variants.
 <p>An object of class <code>"family"</code> (which has a concise print method).
 This is a list with elements
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>family</code></td>
 <td>
@@ -14968,7 +15001,7 @@ rf<span class="token punctuation">(</span>n<span class="token punctuation">,</sp
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -15192,7 +15225,7 @@ mvfft<span class="token punctuation">(</span>z<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="z">z</code></td>
 <td>
@@ -15334,7 +15367,7 @@ separately of a multivariate time series.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -15472,7 +15505,7 @@ rows and columns in a contingency table with fixed marginals.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -15492,9 +15525,9 @@ or a factor object.</p>
 <p>an integer specifying the size of the workspace
 used in the network algorithm.  In units of 4 bytes.  Only used for
 non-simulated p-values larger than <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2 \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></code> tables.
-Since <span class="rlang"><b>R</b></span> version 3.5.0, this also increases the internal stack size
-which allows larger problems to be solved, however sometimes needing
-hours.  In such cases, <code>simulate.p.values=TRUE</code> may be more
+This also increases the internal stack size
+which allows larger problems to be solved, sometimes needing
+hours.  In such cases, <code>simulate.p.values = TRUE</code> may be more
 reasonable.</p>
 </td>
 </tr>
@@ -15517,7 +15550,7 @@ approximation, see ‘Details’.</p>
 <tr>
 <td><code id="control">control</code></td>
 <td>
-<p>a list with named components for low level algorithm
+<p>a list with named components for low-level algorithm
 control.  At present the only one used is <code>"mult"</code>, a positive
 integer <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\ge 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></code> with default 30 used only for larger than
 <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2 \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></code> tables.  This says how many times as much
@@ -15569,7 +15602,7 @@ p-values by Monte Carlo simulation, in larger than <code class="reqn"><span clas
 <td><code id="B">B</code></td>
 <td>
 <p>an integer specifying the number of replicates used in the
-Monte Carlo test.</p>
+Monte Carlo test when <code>simulate.p.value</code> is true.</p>
 </td>
 </tr>
 </table>
@@ -15581,7 +15614,7 @@ Otherwise, both <code>x</code> and <code>y</code> must be vectors or factors of 
 length.  Incomplete cases are removed, vectors are coerced into
 factor objects, and the contingency table is computed from these.
 </p>
-<p>For <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2 \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></code> cases, p-values are obtained directly
+<p>For <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2 \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></code> tables, p-values are obtained directly
 using the (central or non-central) hypergeometric
 distribution. Otherwise, computations are based on a C version of the
 FORTRAN subroutine <code>FEXACT</code> which implements the network developed by
@@ -15603,8 +15636,7 @@ non-centrality parameter given by the odds ratio (Fisher, 1935).  The
 alternative for a one-sided test is based on the odds ratio, so
 <code>alternative = "greater"</code> is a test of the odds ratio being bigger
 than <code>or</code>.
-</p>
-<p>Two-sided tests are based on the probabilities of the tables, and take
+Two-sided tests are based on the probabilities of the tables, and take
 as ‘more extreme’ all tables with probabilities less than or
 equal to that of the observed table, the p-value being the sum of such
 probabilities.
@@ -15618,16 +15650,9 @@ satisfied, that is if no cell has expected counts less than
 cells have expected counts at least 5 (<code>= expect</code>), otherwise
 the exact calculation is used.  A corresponding <code>if()</code> decision
 is made for all sub-tables considered.
-
-Accidentally, <span class="rlang"><b>R</b></span> has used <code>180</code> instead of <code>80</code> as
-<code>percent</code>, i.e., <code>hybridPars[2]</code> in <span class="rlang"><b>R</b></span> versions between
-3.0.0 and 3.4.1 (inclusive), i.e., the 2nd of the <code>hybridPars</code>
-(all of which used to be hard-coded previous to <span class="rlang"><b>R</b></span> 3.5.0).
-Consequently, in these versions of <span class="rlang"><b>R</b></span>, <code>hybrid=TRUE</code> never made a
-difference.
 </p>
 <p>In the <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>×</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">r \times c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></code> case with <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">r &gt; 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></code> or <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">c &gt; 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">c</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></code>,
-internal tables can get too large for the exact test in which case an
+internal tables can be too large for the exact test in which case an
 error is signalled.  Apart from increasing <code>workspace</code>
 sufficiently, which then may lead to very long running times, using
 <code>simulate.p.value = TRUE</code> may then often be sufficient and hence
@@ -15645,7 +15670,7 @@ minimum p-value of about 0.0005 (<code class="reqn"><span class="katex"><span cl
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>p.value</code></td>
 <td>
@@ -15806,8 +15831,8 @@ MP6 &lt;- rbind(
         c(1,1,2,0,0,0,1),
         c(0,1,1,1,1,0,0))
 fisher.test(MP6)
-# Exactly the same p-value, as Cochran's conditions are never met:
-fisher.test(MP6, hybrid=TRUE)
+# Exactly the same p-value, as Cochran's conditions are not met:
+fisher.test(MP6, hybrid = TRUE)
 </code><code class="language-r"><span class="token comment">## Agresti (1990, p. 61f; 2002, p. 91) Fisher's Tea Drinker</span>
 <span class="token comment">## A British woman claimed to be able to distinguish whether milk or</span>
 <span class="token comment">##  tea was added to the cup first.  To test, she was given 8 cups of</span>
@@ -15849,8 +15874,8 @@ MP6 <span class="token operator">&lt;-</span> rbind<span class="token punctuatio
         c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 fisher.test<span class="token punctuation">(</span>MP6<span class="token punctuation">)</span>
-<span class="token comment"># Exactly the same p-value, as Cochran's conditions are never met:</span>
-fisher.test<span class="token punctuation">(</span>MP6<span class="token punctuation">,</span> hybrid<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+<span class="token comment"># Exactly the same p-value, as Cochran's conditions are not met:</span>
+fisher.test<span class="token punctuation">(</span>MP6<span class="token punctuation">,</span> hybrid <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
 
 <hr>
 </div></div>
@@ -15883,7 +15908,7 @@ fitted.values<span class="token punctuation">(</span>object<span class="token pu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -15938,7 +15963,7 @@ upper-hinge, maximum) for the input data.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -16008,7 +16033,7 @@ fligner.test<span class="token punctuation">(</span>formula<span class="token pu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -16089,7 +16114,7 @@ each of the samples (F-K:med <code class="reqn"><span class="katex"><span class=
 
 <p>A list of class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -16191,7 +16216,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="object">object</code>
@@ -16444,7 +16469,7 @@ formula<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -16515,7 +16540,7 @@ friedman.test<span class="token punctuation">(</span>formula<span class="token p
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="y">y</code></td>
 <td>
@@ -16599,7 +16624,7 @@ contains <code>NA</code>'s, corresponding blocks are removed.
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -16764,7 +16789,7 @@ ftable<span class="token punctuation">(</span><span class="token ellipsis">...</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="...">...</code>
@@ -16913,7 +16938,7 @@ ftable<span class="token punctuation">(</span>formula<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="formula">formula</code></td>
 <td>
@@ -17036,7 +17061,7 @@ rgamma<span class="token punctuation">(</span>n<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -17291,7 +17316,7 @@ rgeom<span class="token punctuation">(</span>n<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -17430,7 +17455,7 @@ evaluated.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -17524,7 +17549,7 @@ weights<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="formula">formula</code></td>
 <td>
@@ -17777,7 +17802,7 @@ fit (after subsetting and <code>na.action</code>).
 <p>An object of class <code>"glm"</code> is a list containing at least the
 following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>coefficients</code></td>
 <td>
@@ -18184,7 +18209,7 @@ used to construct a <code>control</code> argument to either function.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="epsilon">epsilon</code></td>
 <td>
@@ -18301,7 +18326,7 @@ residuals<span class="token punctuation">(</span>object<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -18408,7 +18433,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="d">d</code></td>
 <td>
@@ -18559,7 +18584,7 @@ observation sequence number.
 tree produced by the clustering process.
 The object is a list with components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>merge</code></td>
 <td>
@@ -18818,7 +18843,7 @@ restrictions imposed by the dendrogram is carried out.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -18895,10 +18920,12 @@ symmetric case, the symmetry axis is as usual.</p>
 <tr>
 <td><code id="scale">scale</code></td>
 <td>
-<p>character indicating if the values should be centered and
-scaled in either the row direction or the column direction, or
-none.  The default is <code>"row"</code> if <code>symm</code> false, and
-<code>"none"</code> otherwise.</p>
+<p>character indicating if the values on the heatmap should
+be centered and scaled in either the row direction or the column
+direction, or none.  The default is <code>"row"</code> if <code>symm</code> is
+false, and <code>"none"</code> otherwise. This scaling only affects the
+<em>colour</em> scale; it does not scale the original data.  See the
+Examples.</p>
 </td>
 </tr>
 <tr>
@@ -19007,7 +19034,7 @@ from genomic plotting that this is useful.
 
 <p>Invisibly, a list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>rowInd</code></td>
 <td>
@@ -19046,7 +19073,7 @@ dendrogram.
 </p>
 <p><code>heatmap()</code> uses <code><a href="https://r-universe.dev/manuals/graphics.html#layout">layout</a></code> and draws the
 <code><a href="https://r-universe.dev/manuals/graphics.html#image">image</a></code> in the lower right corner of a 2x2 layout.
-Consequentially, it can <b>not</b> be used in a multi column/row
+Consequently, it can <b>not</b> be used in a multi column/row
 layout, i.e., when <code><a href="https://r-universe.dev/manuals/graphics.html#par">par</a>(mfrow = *)</code> or <code>(mfcol = *)</code>
 has been called.
 </p>
@@ -19083,6 +19110,23 @@ heatmap(x, Colv = NA, col = cm.colors(256), scale = "column",
 ## "no nothing"
 heatmap(x, Rowv = NA, Colv = NA, scale = "column",
         main = "heatmap(*, NA, NA) ~= image(t(x))")
+
+## Demonstration of the 'scale' argument:
+## The only change in the code is the 'scale' arg.
+## The only visible change is in the color scale on the heatmap
+## (the original data are not scaled).
+
+heatmap(x, col = terrain.colors(128), scale = "column",
+        RowSideColors = rc,
+        ColSideColors = cc,
+        margins = c(5,10),
+        main = "heatmap(&lt;Mtcars data&gt;, ..., scale = \"column\")")
+heatmap(x, col = terrain.colors(128), scale = "none",
+        RowSideColors = rc,
+        ColSideColors = cc,
+        margins = c(5,10),
+        main = "heatmap(&lt;Mtcars data&gt;, ..., scale = \"none\")")
+
 
 round(Ca &lt;- cor(attitude), 2)
 symnum(Ca) # simple graphic
@@ -19123,6 +19167,23 @@ heatmap<span class="token punctuation">(</span>x<span class="token punctuation">
 <span class="token comment">## "no nothing"</span>
 heatmap<span class="token punctuation">(</span>x<span class="token punctuation">,</span> Rowv <span class="token operator">=</span> <span class="token keyword">NA</span><span class="token punctuation">,</span> Colv <span class="token operator">=</span> <span class="token keyword">NA</span><span class="token punctuation">,</span> scale <span class="token operator">=</span> <span class="token string">"column"</span><span class="token punctuation">,</span>
         main <span class="token operator">=</span> <span class="token string">"heatmap(*, NA, NA) ~= image(t(x))"</span><span class="token punctuation">)</span>
+
+<span class="token comment">## Demonstration of the 'scale' argument:</span>
+<span class="token comment">## The only change in the code is the 'scale' arg.</span>
+<span class="token comment">## The only visible change is in the color scale on the heatmap</span>
+<span class="token comment">## (the original data are not scaled).</span>
+
+heatmap<span class="token punctuation">(</span>x<span class="token punctuation">,</span> col <span class="token operator">=</span> terrain.colors<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">,</span> scale <span class="token operator">=</span> <span class="token string">"column"</span><span class="token punctuation">,</span>
+        RowSideColors <span class="token operator">=</span> rc<span class="token punctuation">,</span>
+        ColSideColors <span class="token operator">=</span> cc<span class="token punctuation">,</span>
+        margins <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        main <span class="token operator">=</span> <span class="token string">"heatmap(&lt;Mtcars data&gt;, ..., scale = \"column\")"</span><span class="token punctuation">)</span>
+heatmap<span class="token punctuation">(</span>x<span class="token punctuation">,</span> col <span class="token operator">=</span> terrain.colors<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">,</span> scale <span class="token operator">=</span> <span class="token string">"none"</span><span class="token punctuation">,</span>
+        RowSideColors <span class="token operator">=</span> rc<span class="token punctuation">,</span>
+        ColSideColors <span class="token operator">=</span> cc<span class="token punctuation">,</span>
+        margins <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        main <span class="token operator">=</span> <span class="token string">"heatmap(&lt;Mtcars data&gt;, ..., scale = \"none\")"</span><span class="token punctuation">)</span>
+
 
 round<span class="token punctuation">(</span>Ca <span class="token operator">&lt;-</span> cor<span class="token punctuation">(</span>attitude<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
 symnum<span class="token punctuation">(</span>Ca<span class="token punctuation">)</span> <span class="token comment"># simple graphic</span>
@@ -19176,7 +19237,7 @@ prediction error.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -19316,7 +19377,7 @@ smoothing), the start value for <code>a</code> is <code>x[1]</code>.
 
 <p>An object of class <code>"HoltWinters"</code>, a list with components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>fitted</code></td>
 <td>
@@ -19470,7 +19531,7 @@ rhyper<span class="token punctuation">(</span>nn<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -19667,7 +19728,7 @@ identify<span class="token punctuation">(</span>x<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -19899,7 +19960,7 @@ hat<span class="token punctuation">(</span>x<span class="token punctuation">,</s
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="model">model</code></td>
 <td>
@@ -20052,10 +20113,10 @@ Sage.
 <em>An R and S-Plus Companion to Applied Regression</em>.
 Sage Publ.
 </p>
-<p>Fox, J. and Weisberg, S. (2011).
-<em>An R Companion to Applied Regression</em>, second edition.
-Sage Publ;
-<a href="https://socialsciences.mcmaster.ca/jfox/Books/Companion/" target="_blank">https://socialsciences.mcmaster.ca/jfox/Books/Companion/</a>.
+<p>Fox, J. and Weisberg, S. (2019).
+<em>An R Companion to Applied Regression</em>, third edition.
+Sage Publications.
+<a href="https://www.john-fox.ca/Companion/" target="_blank">https://www.john-fox.ca/Companion/</a>.
 </p>
 
 
@@ -20206,7 +20267,7 @@ infinite interval.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -20296,7 +20357,7 @@ now if they are not of length one.
 
 <p>A list of class <code>"integrate"</code> with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>value</code></td>
 <td>
@@ -20392,7 +20453,7 @@ integrate(dnorm, 0, 2)
 integrate(dnorm, 0, 20)
 integrate(dnorm, 0, 200)
 integrate(dnorm, 0, 2000)
-integrate(dnorm, 0, 20000) ## fails on many systems
+integrate(dnorm, 0, 20000) ## "fails" on many systems -- "wrongly" giving '0' 
 integrate(dnorm, 0, Inf)   ## works
 
 integrate(dnorm, 0:1, 20) #-&gt; error!
@@ -20421,7 +20482,7 @@ integrate<span class="token punctuation">(</span>dnorm<span class="token punctua
 integrate<span class="token punctuation">(</span>dnorm<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>
 integrate<span class="token punctuation">(</span>dnorm<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span>
 integrate<span class="token punctuation">(</span>dnorm<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span>
-integrate<span class="token punctuation">(</span>dnorm<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">20000</span><span class="token punctuation">)</span> <span class="token comment">## fails on many systems</span>
+integrate<span class="token punctuation">(</span>dnorm<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">20000</span><span class="token punctuation">)</span> <span class="token comment">## "fails" on many systems -- "wrongly" giving '0' </span>
 integrate<span class="token punctuation">(</span>dnorm<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">Inf</span><span class="token punctuation">)</span>   <span class="token comment">## works</span>
 
 integrate<span class="token punctuation">(</span>dnorm<span class="token punctuation">,</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span> <span class="token comment">#-&gt; error!</span>
@@ -20467,7 +20528,7 @@ combinations of factors, thereby illustrating possible interactions.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x.factor">x.factor</code></td>
 <td>
@@ -20678,7 +20739,7 @@ with<span class="token punctuation">(</span>OrchardSprays<span class="token punc
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -20754,7 +20815,7 @@ model.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p>A <code>terms</code> object or an object with a <code>terms</code> method.</p>
@@ -20802,7 +20863,7 @@ squares regression which is piecewise constant.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
 </td>
@@ -20830,7 +20891,7 @@ object which can be more parsimonious.
 <p><code>isoreg()</code> returns an object of class <code>isoreg</code> which is
 basically a list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>x</code></td>
 <td>
@@ -20991,7 +21052,7 @@ makeARIMA<span class="token punctuation">(</span>phi<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="y">y</code></td>
 <td>
@@ -21267,7 +21328,7 @@ kernapply<span class="token punctuation">(</span>x<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -21365,7 +21426,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="coef">coef</code></td>
 <td>
@@ -21393,7 +21454,7 @@ Currently this is supported only for the named <code>"*daniell"</code> kernels.<
 <tr>
 <td><code id="r">r</code></td>
 <td>
-<p>the kernel order for a Fejer kernel.</p>
+<p>the kernel order for a Dirichlet or Fejer kernel.</p>
 </td>
 </tr>
 <tr>
@@ -21543,7 +21604,7 @@ fitted<span class="token punctuation">(</span>object<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -21651,7 +21712,7 @@ an error for the Hartigan–Wong method.
 <code>print</code> and a <code>fitted</code> method.  It is a list with at least
 the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>cluster</code></td>
 <td>
@@ -21863,7 +21924,7 @@ kruskal.test<span class="token punctuation">(</span>formula<span class="token pu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -21942,7 +22003,7 @@ the group for the corresponding elements of <code>x</code>.
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -21992,7 +22053,7 @@ case for two samples;
 one-way location analysis under normality assumptions; with Student's
 t test (<code><a href="#t.test">t.test</a></code>) as the special case for two samples.
 </p>
-<p><code><a href="https://r-forge.r-universe.dev/coin/doc/manual.html#LocationTests">wilcox_test</a></code> in package
+<p><code><a href="https://r-forge.r-universe.dev/coin/doc/manual.html#wilcox_test">wilcox_test</a></code> in package
 <a href="https://CRAN.R-project.org/package=coin" target="_blank"><span class="pkg">coin</span></a> for exact, asymptotic and Monte Carlo
 <em>conditional</em> p-values, including in the presence of ties.
 </p>
@@ -22072,7 +22133,7 @@ ks.test<span class="token punctuation">(</span>formula<span class="token punctua
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -22228,7 +22289,7 @@ in <code>ks.test</code>.
 <p>A list inheriting from classes <code>"ks.test"</code> and <code>"htest"</code>
 containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -22409,7 +22470,7 @@ ks.test<span class="token punctuation">(</span>Ozone <span class="token operator
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -22461,7 +22522,7 @@ missing, <code>n.points</code> are chosen uniformly to cover
 
 <p>A list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>x</code></td>
 <td>
@@ -22530,7 +22591,7 @@ lag<span class="token punctuation">(</span>x<span class="token punctuation">,</s
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -22618,7 +22679,7 @@ vanish.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -22796,7 +22857,7 @@ opposed to Tukey's “resistant line” in the references).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -22962,7 +23023,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="formula">formula</code></td>
 <td>
@@ -23141,7 +23202,7 @@ various useful features of the value returned by <code>lm</code>.
 <p>An object of class <code>"lm"</code> is a list containing at least the
 following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>coefficients</code></td>
 <td>
@@ -23363,11 +23424,16 @@ par<span class="token punctuation">(</span>opar<span class="token punctuation">)
 <h3>Description</h3>
 
 <p>These are the basic computing engines called by <code><a href="#lm">lm</a></code> used
-to fit linear models.  These should usually <em>not</em> be used
-directly unless by experienced users.  <code>.lm.fit()</code> is a bare-bones
-wrapper to the innermost QR-based C code, on which
-<code><a href="#glm">glm.fit</a></code> and <code><a href="#lsfit">lsfit</a></code> are also based, for
-even more experienced users.
+to fit linear models.  As they work directly with numeric matrices, they
+may be more efficient, notably in the case of performing many similar
+regressions or when inference is not of interest.
+</p>
+<p><code><a href="#lm">lm</a></code> calls <code>lm.fit()</code> as a helper function.
+</p>
+<p><code>.lm.fit()</code> is a thin wrapper to the "innermost" C code performing
+the QR decomposition without much checking and should hence be used with
+care.  The same C code is called by <code>lm.fit()</code> and also by
+<code><a href="#glm">glm.fit</a>()</code> and <code><a href="#lsfit">lsfit</a>()</code>.
 </p>
 
 
@@ -23391,7 +23457,7 @@ lm.wfit<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -23460,7 +23526,7 @@ corresponding column of <code>y</code>.
 
 <p>a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with components (for <code>lm.fit</code> and <code>lm.wfit</code>)
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>coefficients</code></td>
 <td>
@@ -23601,18 +23667,22 @@ influence(model, do.coef = TRUE, ...)
 influence(model, do.coef = TRUE, ...)
 
 lm.influence(model, do.coef = TRUE)
+
+qr.influence(qr, res, tol = 10 * .Machine$double.eps)
 </code><code class="language-r">influence<span class="token punctuation">(</span>model<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'lm'</span>
 influence<span class="token punctuation">(</span>model<span class="token punctuation">,</span> do.coef <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'glm'</span>
 influence<span class="token punctuation">(</span>model<span class="token punctuation">,</span> do.coef <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 
-lm.influence<span class="token punctuation">(</span>model<span class="token punctuation">,</span> do.coef <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+lm.influence<span class="token punctuation">(</span>model<span class="token punctuation">,</span> do.coef <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+
+qr.influence<span class="token punctuation">(</span>qr<span class="token punctuation">,</span> res<span class="token punctuation">,</span> tol <span class="token operator">=</span> <span class="token number">10</span> <span class="token operator">*</span> .Machine<span class="token operator">$</span>double.eps<span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="model">model</code></td>
 <td>
@@ -23630,6 +23700,25 @@ lm.influence<span class="token punctuation">(</span>model<span class="token punc
 <td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
+</td>
+</tr>
+<tr>
+<td><code id="qr">qr</code></td>
+<td>
+<p>typically the result of <code><a href="https://r-universe.dev/manuals/base.html#qr">qr</a>()</code>, a <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code>
+of class <code>"qr"</code>.</p>
+</td>
+</tr>
+<tr>
+<td><code id="res">res</code></td>
+<td>
+<p>numerical vector of model residuals.</p>
+</td>
+</tr>
+<tr>
+<td><code id="tol">tol</code></td>
+<td>
+<p>non-negative numerical tolerance.</p>
 </td>
 </tr>
 </table>
@@ -23651,6 +23740,10 @@ possible to give simple drop-one diagnostics.)
 <p><code><a href="#nafns">naresid</a></code> is applied to the results and so will fill in
 with <code>NA</code>s it the fit had <code>na.action = na.exclude</code>.
 </p>
+<p><code>qr.influence()</code> is a <em>low level</em> interface to parts of
+<code>lm.influence(*, doc.coef = FALSE)</code> provided for cases where speed
+is more important than user safety.
+</p>
 
 
 <h3>Value</h3>
@@ -23660,7 +23753,7 @@ number of rows <code class="reqn"><span class="katex"><span class="katex-mathml"
 Cases omitted in the fit are omitted unless a <code><a href="#na.action">na.action</a></code>
 method was used (such as <code><a href="#na.fail">na.exclude</a></code>) which restores them.
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>hat</code></td>
 <td>
@@ -23693,6 +23786,11 @@ rather <em>deviance</em>) residuals.</p>
 </td>
 </tr>
 </table>
+<p><code>qr.influence()</code> returns list with the two components <code>hat</code> and
+<code>sigma</code>, as above but without <code><a href="https://r-universe.dev/manuals/base.html#names">names</a></code>.
+</p>
+
+
 <h3>Note</h3>
 
 <p>The <code>coefficients</code> returned by the <span class="rlang"><b>R</b></span> version
@@ -23742,6 +23840,12 @@ summary(lm.SR &lt;- lm(sr ~ pop15 + pop75 + dpi + ddpi,
         correlation = TRUE)
 utils::str(lmI &lt;- lm.influence(lm.SR))
 
+qRes &lt;- qr(lm.SR) # == lm.SR $ qr
+qrI &lt;- qr.influence(qRes, residuals(lm.SR))
+strip &lt;- function(x) lapply(lapply(x, unname), drop)
+stopifnot(identical(strip(qrI),
+                    strip(lmI[c("hat", "sigma")])))
+
 ## For more "user level" examples, use example(influence.measures)
 </code><code class="language-r"><span class="token comment">## Analysis of the life-cycle savings data</span>
 <span class="token comment">## given in Belsley, Kuh and Welsch.</span>
@@ -23749,6 +23853,12 @@ summary<span class="token punctuation">(</span>lm.SR <span class="token operator
                     data <span class="token operator">=</span> LifeCycleSavings<span class="token punctuation">)</span><span class="token punctuation">,</span>
         correlation <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 utils<span class="token operator">::</span>str<span class="token punctuation">(</span>lmI <span class="token operator">&lt;-</span> lm.influence<span class="token punctuation">(</span>lm.SR<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+qRes <span class="token operator">&lt;-</span> qr<span class="token punctuation">(</span>lm.SR<span class="token punctuation">)</span> <span class="token comment"># == lm.SR $ qr</span>
+qrI <span class="token operator">&lt;-</span> qr.influence<span class="token punctuation">(</span>qRes<span class="token punctuation">,</span> residuals<span class="token punctuation">(</span>lm.SR<span class="token punctuation">)</span><span class="token punctuation">)</span>
+strip <span class="token operator">&lt;-</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> lapply<span class="token punctuation">(</span>lapply<span class="token punctuation">(</span>x<span class="token punctuation">,</span> unname<span class="token punctuation">)</span><span class="token punctuation">,</span> drop<span class="token punctuation">)</span>
+stopifnot<span class="token punctuation">(</span>identical<span class="token punctuation">(</span>strip<span class="token punctuation">(</span>qrI<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                    strip<span class="token punctuation">(</span>lmI<span class="token punctuation">[</span>c<span class="token punctuation">(</span><span class="token string">"hat"</span><span class="token punctuation">,</span> <span class="token string">"sigma"</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token comment">## For more "user level" examples, use example(influence.measures)</span></code></pre>
 
@@ -23797,7 +23907,7 @@ labels<span class="token punctuation">(</span>object<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="object">object</code>, <code id="x">x</code>
@@ -23897,12 +24007,13 @@ qqnorm<span class="token punctuation">(</span>residuals<span class="token punctu
 <hr>
 </div></div>
 <div class="container manual-page" id="loadings"><div class="page-main">
-<a href="#loadings" class="help-page-title"><h2>Print Loadings in Factor Analysis</h2></a>
+<a href="#loadings" class="help-page-title"><h2>Print Factor Analysis 'factanal()', Notably Loadings</h2></a>
 
 <h3>Description</h3>
 
-<p>Extract or print loadings in factor analysis (or principal
-components analysis).
+<p>Print factor analysis result,  <code><a href="#factanal">factanal</a>()</code>;
+extract or print loadings in factor analysis (or principal
+components analysis, PCA).
 </p>
 
 
@@ -23926,7 +24037,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -23961,8 +24072,9 @@ they are assigned to, then those unassigned.</p>
 <tr>
 <td><code id="...">...</code></td>
 <td>
-<p>further arguments for other methods,
-ignored for <code>loadings</code>.</p>
+<p>further arguments for other methods; for <code>factanal</code>
+printing, notably passed to <code>print(&lt;loadings&gt;, ...)</code>, hence, e.g.,
+<code>cutoff = &lt;frac&gt;</code>; ignored for <code>loadings</code>.</p>
 </td>
 </tr>
 </table>
@@ -24028,7 +24140,7 @@ predictors, using local fitting.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="formula">formula</code></td>
 <td>
@@ -24272,7 +24384,7 @@ predict<span class="token punctuation">(</span>cars.lo2<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="surface">surface</code></td>
 <td>
@@ -24331,7 +24443,7 @@ information during the robust iterations (<code>iterations</code><code class="re
 
 <p>A list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>surface</code></td>
 <td>
@@ -24398,7 +24510,7 @@ rlogis<span class="token punctuation">(</span>n<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -24558,7 +24670,7 @@ logLik<span class="token punctuation">(</span>object<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -24641,7 +24753,7 @@ Bayesian inference for variance components using only error contrasts.
 
 <h3>See Also</h3>
 
-<p><code><a href="https://r-universe.dev/manuals/nlme.html#logLik.lme">logLik.gls</a></code>, <code><a href="https://r-universe.dev/manuals/nlme.html#logLik.lme">logLik.lme</a></code>, in
+<p><code><a href="https://r-universe.dev/manuals/nlme.html#logLik.gls">logLik.gls</a></code>, <code><a href="https://r-universe.dev/manuals/nlme.html#logLik.lme">logLik.lme</a></code>, in
 package <a href="https://CRAN.R-project.org/package=nlme" target="_blank"><span class="pkg">nlme</span></a>, etc.
 </p>
 <p><code><a href="#AIC">AIC</a></code>
@@ -24701,7 +24813,7 @@ contingency tables by Iterative Proportional Fitting.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="table">table</code></td>
 <td>
@@ -24724,7 +24836,8 @@ a model where factors 2 and 3 are independent conditional on factor
 1 (sometimes represented as ‘[12][13]’).
 </p>
 <p>The names of factors (i.e., <code>names(dimnames(table))</code>) may be
-used rather than numeric indices.
+used rather than numeric indices.  Or <code>NULL</code> or <code>list()</code>
+to specify fitting no margins.
 </p>
 </td>
 </tr>
@@ -24748,8 +24861,8 @@ returned.</p>
 <tr>
 <td><code id="eps">eps</code></td>
 <td>
-<p>maximum deviation allowed between observed and fitted
-margins.</p>
+<p>bound for allowed deviation (largest absolute value of the
+difference) between observed and fitted margins.</p>
 </td>
 </tr>
 <tr>
@@ -24769,7 +24882,7 @@ be returned.</p>
 <td><code id="print">print</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code>, the number of iterations and
-the final deviation are printed.</p>
+the final deviation (if there were any iterations) are printed.</p>
 </td>
 </tr>
 </table>
@@ -24803,7 +24916,7 @@ functions such as <code>lm</code> or <code>glm</code>.
 
 <p>A list with the following components.
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>lrt</code></td>
 <td>
@@ -24828,7 +24941,7 @@ adjustment for structural zeros.</p>
 <td>
 <p>list of the margins that were fit.  Basically the same
 as the input <code>margin</code>, but with numbers replaced by names
-where possible.</p>
+where possible.  Will be <code>NULL</code> if the input is.</p>
 </td>
 </tr>
 <tr>
@@ -24921,7 +25034,7 @@ rlnorm<span class="token punctuation">(</span>n<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -25086,7 +25199,7 @@ regression (see the references).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -25219,7 +25332,7 @@ for the regression coefficients.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="ls.out">ls.out</code></td>
 <td>
 <p>Typically the result of <code><a href="#lsfit">lsfit</a>()</code></p>
@@ -25229,7 +25342,7 @@ for the regression coefficients.
 
 <p>A <code>list</code> with the following numeric components.
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>std.dev</code></td>
 <td>
@@ -25348,7 +25461,7 @@ for the regression coefficients and prints them if <code>print.it</code> is
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="ls.out">ls.out</code></td>
 <td>
@@ -25373,7 +25486,7 @@ printed</p>
 
 <p>A list with the components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>summary</code></td>
 <td>
@@ -25428,7 +25541,7 @@ preferable.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -25487,7 +25600,7 @@ which allow for multiple left-hand sides.
 
 <p>A list with the following named components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>coef</code></td>
 <td>
@@ -25562,7 +25675,7 @@ factor for asymptotically normal consistency.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -25682,7 +25795,7 @@ This is (for vector <code>x</code>) defined as
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -25785,7 +25898,7 @@ for domain checking.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="link">link</code></td>
 <td>
 <p>character; one of <code>"logit"</code>,
@@ -25798,7 +25911,7 @@ for domain checking.
 
 <p>A object of class <code>"link-glm"</code>, a list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>linkfun</code></td>
 <td>
@@ -25867,7 +25980,7 @@ matrices when predicting from models with terms like (univariate)
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="var">var</code></td>
 <td>
@@ -25969,7 +26082,7 @@ stopifnot<span class="token punctuation">(</span>all.equal<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="...">...</code></td>
 <td>
 <p>Arguments to be passed to <code><a href="#aov">aov</a></code>.</p>
@@ -26056,7 +26169,7 @@ assuming that there is no three-way interaction.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -26129,7 +26242,7 @@ variables must take at least two different values.
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -26380,20 +26493,20 @@ transformation thereof) is proportional to a given matrix.
 mauchly.test(object, ...)
 ## S3 method for class 'SSD'
 mauchly.test(object, Sigma = diag(nrow = p),
-   T = Thin.row(Proj(M) - Proj(X)), M = diag(nrow = p), X = ~0,
-   idata = data.frame(index = seq_len(p)), ...)
+             T = Thin.row(Proj(M) - Proj(X)), M = diag(nrow = p), X = ~0,
+             idata = data.frame(index = seq_len(p)), ...)
 </code><code class="language-r">mauchly.test<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'mlm'</span>
 mauchly.test<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 <span class="token comment">## S3 method for class 'SSD'</span>
 mauchly.test<span class="token punctuation">(</span>object<span class="token punctuation">,</span> Sigma <span class="token operator">=</span> diag<span class="token punctuation">(</span>nrow <span class="token operator">=</span> p<span class="token punctuation">)</span><span class="token punctuation">,</span>
-   T <span class="token operator">=</span> Thin.row<span class="token punctuation">(</span>Proj<span class="token punctuation">(</span>M<span class="token punctuation">)</span> <span class="token operator">-</span> Proj<span class="token punctuation">(</span>X<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> M <span class="token operator">=</span> diag<span class="token punctuation">(</span>nrow <span class="token operator">=</span> p<span class="token punctuation">)</span><span class="token punctuation">,</span> X <span class="token operator">=</span> <span class="token operator">~</span><span class="token number">0</span><span class="token punctuation">,</span>
-   idata <span class="token operator">=</span> data.frame<span class="token punctuation">(</span>index <span class="token operator">=</span> seq_len<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+             T <span class="token operator">=</span> Thin.row<span class="token punctuation">(</span>Proj<span class="token punctuation">(</span>M<span class="token punctuation">)</span> <span class="token operator">-</span> Proj<span class="token punctuation">(</span>X<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> M <span class="token operator">=</span> diag<span class="token punctuation">(</span>nrow <span class="token operator">=</span> p<span class="token punctuation">)</span><span class="token punctuation">,</span> X <span class="token operator">=</span> <span class="token operator">~</span><span class="token number">0</span><span class="token punctuation">,</span>
+             idata <span class="token operator">=</span> data.frame<span class="token punctuation">(</span>index <span class="token operator">=</span> seq_len<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -26540,7 +26653,7 @@ in a two-dimensional contingency table.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -26582,7 +26695,7 @@ factors, and the contingency table is computed from these.
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -26675,7 +26788,7 @@ median<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -26763,7 +26876,7 @@ median<span class="token punctuation">(</span>c<span class="token punctuation">(
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -26819,7 +26932,7 @@ class, which are invoked via by the generics
 
 <p>An object of class <code>medpolish</code> with the following named components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>overall</code></td>
 <td>
@@ -26929,7 +27042,7 @@ model.weights<span class="token punctuation">(</span>x<span class="token punctua
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="frame">frame</code>, <code id="x">x</code>, <code id="data">data</code>
@@ -27072,7 +27185,7 @@ get_all_vars<span class="token punctuation">(</span>formula<span class="token pu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="formula">formula</code></td>
 <td>
@@ -27290,7 +27403,7 @@ model.matrix<span class="token punctuation">(</span>object<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -27464,7 +27577,7 @@ model.tables<span class="token punctuation">(</span>x<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -27515,7 +27628,7 @@ combinations of levels of the factors in a term.
 
 <p>An object of class <code>"tables.aov"</code>, as list which may contain components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>tables</code></td>
 <td>
@@ -27636,7 +27749,7 @@ monthplot<span class="token punctuation">(</span>x<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -27843,7 +27956,7 @@ mood.test<span class="token punctuation">(</span>formula<span class="token punct
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -27917,7 +28030,7 @@ common location parameter and <code class="reqn"><span class="katex"><span class
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -28016,7 +28129,7 @@ dmultinom<span class="token punctuation">(</span>x<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -28146,7 +28259,7 @@ round<span class="token punctuation">(</span>apply<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -28219,7 +28332,7 @@ series object.  (In the event of a tie, the first such stretch.)
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -28282,7 +28395,7 @@ na.pass<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -28371,7 +28484,7 @@ Adjust for Missing Values
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -28424,7 +28537,7 @@ napredict<span class="token punctuation">(</span>omit<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="omit">omit</code></td>
 <td>
@@ -28507,7 +28620,7 @@ rnbinom<span class="token punctuation">(</span>n<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -28744,7 +28857,7 @@ The default value for <code>factors</code> ensures this.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="n">n</code></td>
 <td>
@@ -28826,7 +28939,7 @@ using a Newton-type algorithm.  See the references for details.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -28963,7 +29076,7 @@ non-finite values are replaced by the maximum positive value with a warning.
 
 <p>A list containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>minimum</code></td>
 <td>
@@ -29128,7 +29241,7 @@ nlm<span class="token punctuation">(</span>f<span class="token punctuation">,</s
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="start">start</code></td>
 <td>
@@ -29219,7 +29332,7 @@ evaluation are replaced by <code>+Inf</code> with a warning.
 
 <p>A list with components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>par</code></td>
 <td>
@@ -29486,7 +29599,7 @@ parameters of a nonlinear model.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="formula">formula</code></td>
 <td>
@@ -29628,7 +29741,7 @@ with care.
 
 <p>A list of
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>m</code></td>
 <td>
@@ -30133,7 +30246,7 @@ nonlinear least squares algorithm.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="maxiter">maxiter</code></td>
 <td>
@@ -30202,7 +30315,7 @@ be used.</p>
 
 <p>A <code><a href="https://r-universe.dev/manuals/base.html#list">list</a></code> with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>maxiter</code></td>
 <td>
@@ -30289,7 +30402,7 @@ for more complicated models.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="xy">xy</code></td>
 <td>
 <p>a <code>sortedXyData</code> object</p>
@@ -30346,7 +30459,7 @@ which the function represented by <code>xy</code> is equal to <code>yval</code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="xy">xy</code></td>
 <td>
@@ -30409,7 +30522,7 @@ models.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="xy">xy</code></td>
 <td>
 <p>a <code>sortedXyData</code> object</p>
@@ -30468,7 +30581,7 @@ models.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="xy">xy</code></td>
 <td>
 <p>a <code>sortedXyData</code> object</p>
@@ -30490,7 +30603,7 @@ models.
 
 <p><code><a href="#sortedXyData">sortedXyData</a></code>,
 <code><a href="#NLSstClosestX">NLSstClosestX</a></code>,
-<code><a href="#NLSstRtAsymptote">NLSstRtAsymptote</a></code>,
+<code><a href="#NLSstLfAsymptote">NLSstLfAsymptote</a></code>,
 <code><a href="#selfStart">selfStart</a></code>
 </p>
 
@@ -30532,7 +30645,7 @@ nobs<span class="token punctuation">(</span>object<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -30612,7 +30725,7 @@ rnorm<span class="token punctuation">(</span>n<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -30838,7 +30951,7 @@ erfcinv <span class="token operator">&lt;-</span> <span class="token keyword">fu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="expr">expr</code></td>
 <td>
@@ -30971,7 +31084,7 @@ estimated coefficient.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="object">object</code></td>
 <td>
 <p>An offset to be included in a model frame</p>
@@ -31018,7 +31131,7 @@ same means.  The variances are not necessarily assumed to be equal.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="formula">formula</code></td>
 <td>
@@ -31074,7 +31187,7 @@ their interaction is taken to form the grouping.
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -31173,7 +31286,7 @@ optimHess<span class="token punctuation">(</span>par<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="par">par</code></td>
 <td>
@@ -31293,7 +31406,9 @@ parameters. It is not a general-purpose method but can be very useful
 in getting to a good value on a very rough surface.
 </p>
 <p>Method <code>"Brent"</code> is for one-dimensional problems only, using
-<code><a href="#optimize">optimize</a>()</code>.  It can be useful in cases where
+<code><a href="#optimize">optimize</a>(&lt;ff&gt;, lower, upper, tol = control$reltol)</code> where
+<code>&lt;ff&gt;</code> is <code>function(par) fn(par, ...)/control$fnscale</code>.  It can
+be useful in cases when
 <code>optim()</code> is used inside other functions where only <code>method</code>
 can be specified, such as in <code><a>mle</a></code> from package <span class="pkg">stats4</span>.
 </p>
@@ -31439,7 +31554,7 @@ be shared between calls: the function should not change or copy it.
 
 <p>For <code>optim</code>, a list with components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>par</code></td>
 <td>
@@ -31806,7 +31921,7 @@ optimise<span class="token punctuation">(</span>f<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -31981,7 +32096,7 @@ optimize<span class="token punctuation">(</span>fp<span class="token punctuation
 
 <h3>Description</h3>
 
-<p>Theses functions return the order (index) or the <code>"label"</code>
+<p>These functions return the order (index) or the <code>"label"</code>
 attribute for the leaves in a
 dendrogram.  These indices can then be used to access the appropriate
 components of any additional data.
@@ -32002,7 +32117,7 @@ labels<span class="token punctuation">(</span>object<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="object">object</code>
@@ -32098,7 +32213,7 @@ p.adjust.methods
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="p">p</code></td>
 <td>
@@ -32321,7 +32436,7 @@ Construct a Paired-Data Object
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -32377,7 +32492,7 @@ correction for multiple testing
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -32451,7 +32566,7 @@ for multiple testing
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -32559,7 +32674,7 @@ with corrections for multiple testing.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="compare.levels">compare.levels</code></td>
 <td>
@@ -32622,7 +32737,7 @@ for multiple testing.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -32733,7 +32848,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -32888,7 +33003,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -32962,7 +33077,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -33118,7 +33233,7 @@ lines<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -33324,7 +33439,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -33740,7 +33855,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -33856,7 +33971,7 @@ pairs<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -34002,7 +34117,7 @@ plot<span class="token punctuation">(</span>x<span class="token punctuation">,</
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -34167,7 +34282,7 @@ plot.spec.coherency<span class="token punctuation">(</span>x<span class="token p
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -34309,7 +34424,7 @@ lines<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -34423,7 +34538,7 @@ sample size <code class="reqn"><span class="katex"><span class="katex-mathml"><m
 
 <p>A list with two components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>t</code></td>
 <td>
@@ -34539,7 +34654,7 @@ lines<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -34719,7 +34834,7 @@ rpois<span class="token punctuation">(</span>n<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -34908,7 +35023,7 @@ ratio between two rate parameters.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -34955,7 +35070,7 @@ interval.</p>
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -35082,7 +35197,7 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="newdata">newdata</code>
@@ -35260,7 +35375,7 @@ options<span class="token punctuation">(</span>od<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="lambda">lambda</code></td>
 <td>
 <p>a real number.</p>
@@ -35332,7 +35447,7 @@ quasi<span class="token punctuation">(</span>link <span class="token operator">=
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="groups">groups</code></td>
 <td>
@@ -35459,7 +35574,7 @@ parameters to obtain a target power.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="n">n</code></td>
 <td>
@@ -35619,7 +35734,7 @@ or determine parameters to obtain a target power.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="n">n</code></td>
 <td>
@@ -35747,7 +35862,7 @@ Ekstrøm</p>
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -35782,7 +35897,7 @@ Banerjee <abbr>et al.</abbr> (1993).
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -35867,7 +35982,7 @@ where <code>m</code> is either <code>n</code>, if <code>length(n)==1</code>, or
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="n">n</code></td>
 <td>
@@ -36018,7 +36133,7 @@ ppr<span class="token punctuation">(</span>x<span class="token punctuation">,</s
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="formula">formula</code></td>
 <td>
@@ -36225,7 +36340,7 @@ converge to a saddle point of the sum of squares criterion.
 <p>A list with the following components, many of which are for use by the
 method functions.
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>call</code></td>
 <td>
@@ -36498,7 +36613,7 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="formula">formula</code></td>
 <td>
@@ -36636,7 +36751,7 @@ constant (for <code>center = TRUE</code>) variables.
 <p><code>prcomp</code> returns a list with class <code>"prcomp"</code>
 containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>sdev</code></td>
 <td>
@@ -36772,13 +36887,13 @@ the first argument.
 
 <h3>Usage</h3>
 
-<pre class="language-r"><code class="language-r-input" hidden="hidden">predict (object, ...)
-</code><code class="language-r">predict <span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-r"><code class="language-r-input" hidden="hidden">predict(object, ...)
+</code><code class="language-r">predict<span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -36806,7 +36921,7 @@ transformed to be so).
 <code>n.ahead</code> specifying how many time steps ahead to predict.
 </p>
 <p>Many methods have a logical argument <code>se.fit</code> saying if standard
-errors are to returned.
+errors are to be returned.
 </p>
 
 
@@ -36899,7 +37014,7 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -37011,19 +37126,19 @@ predictions from a fitted generalized linear model object.
 
 <pre class="language-r"><code class="language-r-input" hidden="hidden">## S3 method for class 'glm'
 predict(object, newdata = NULL,
-            type = c("link", "response", "terms"),
-            se.fit = FALSE, dispersion = NULL, terms = NULL,
-            na.action = na.pass, ...)
+        type = c("link", "response", "terms"),
+        se.fit = FALSE, dispersion = NULL, terms = NULL,
+        na.action = na.pass, ...)
 </code><code class="language-r"><span class="token comment">## S3 method for class 'glm'</span>
 predict<span class="token punctuation">(</span>object<span class="token punctuation">,</span> newdata <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
-            type <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"link"</span><span class="token punctuation">,</span> <span class="token string">"response"</span><span class="token punctuation">,</span> <span class="token string">"terms"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            se.fit <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> dispersion <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> terms <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
-            na.action <span class="token operator">=</span> na.pass<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+        type <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"link"</span><span class="token punctuation">,</span> <span class="token string">"response"</span><span class="token punctuation">,</span> <span class="token string">"terms"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        se.fit <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> dispersion <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> terms <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
+        na.action <span class="token operator">=</span> na.pass<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -37108,7 +37223,7 @@ may have an attribute <code>"constant"</code>.
 </p>
 <p>If <code>se.fit = TRUE</code>, a list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>fit</code></td>
 <td>
@@ -37212,7 +37327,7 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -37327,7 +37442,7 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -37535,7 +37650,7 @@ is a matrix with a column per term and may have an attribute
 <p>If <code>se.fit</code> is
 <code>TRUE</code>, a list with the following components is returned:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>fit</code></td>
 <td>
@@ -37678,7 +37793,7 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -37734,7 +37849,7 @@ missing (<code>NA</code>) predictions and standard errors.
 <code>newdata</code> (or the original data). If <code>se = TRUE</code>, a list
 containing components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>fit</code></td>
 <td>
@@ -37844,7 +37959,7 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -37916,7 +38031,7 @@ predictions and bounds with column names <code>fit</code>, <code>lwr</code>, and
 <code>upr</code>.  When implemented, if <code>se.fit</code> is
 <code>TRUE</code>, a list with the following components will be returned:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>fit</code></td>
 <td>
@@ -38010,7 +38125,7 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -38040,7 +38155,7 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 
 <p>A list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>x</code></td>
 <td>
@@ -38148,7 +38263,7 @@ detach<span class="token punctuation">(</span><span class="token punctuation">)<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -38215,7 +38330,7 @@ predict<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="formula">formula</code></td>
 <td>
@@ -38275,8 +38390,8 @@ principal component should be calculated.</p>
 <td><code id="covmat">covmat</code></td>
 <td>
 <p>a covariance matrix, or a covariance list as returned by
-<code><a href="#cov.wt">cov.wt</a></code> (and <code><a href="https://r-universe.dev/manuals/MASS.html#cov.rob">cov.mve</a></code> or
-<code><a href="https://r-universe.dev/manuals/MASS.html#cov.rob">cov.mcd</a></code> from package <a href="https://CRAN.R-project.org/package=MASS" target="_blank"><span class="pkg">MASS</span></a>).
+<code><a href="#cov.wt">cov.wt</a></code> (and <code><a href="https://r-universe.dev/manuals/MASS.html#cov.mve">cov.mve</a></code> or
+<code><a href="https://r-universe.dev/manuals/MASS.html#cov.mcd">cov.mcd</a></code> from package <a href="https://CRAN.R-project.org/package=MASS" target="_blank"><span class="pkg">MASS</span></a>).
 If supplied, this is used rather than the covariance matrix of
 <code>x</code>.</p>
 </td>
@@ -38348,7 +38463,7 @@ variables.  For Q-mode PCA use <code><a href="#prcomp">prcomp</a></code>.
 <p><code>princomp</code> returns a list with class <code>"princomp"</code>
 containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>sdev</code></td>
 <td>
@@ -38522,7 +38637,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -38616,7 +38731,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -38660,11 +38775,11 @@ from the calendar times where applicable.
 
 <pre class="language-r"><code class="language-r-input" hidden="hidden">print(ts(1:10, frequency = 7, start = c(12, 2)), calendar = TRUE)
 
-print(sunsp.1 &lt;- window(sunspot.month, end=c(1756, 12)))
+print(sunsp.1 &lt;- window(sunspot.m2014, end=c(1756, 12)))
 m &lt;- .preformat.ts(sunsp.1) # a character matrix
 </code><code class="language-r">print<span class="token punctuation">(</span>ts<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">,</span> frequency <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">,</span> start <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> calendar <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
 
-print<span class="token punctuation">(</span>sunsp.<span class="token number">1</span> <span class="token operator">&lt;-</span> window<span class="token punctuation">(</span>sunspot.month<span class="token punctuation">,</span> end<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token number">1756</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>sunsp.<span class="token number">1</span> <span class="token operator">&lt;-</span> window<span class="token punctuation">(</span>sunspot.m2014<span class="token punctuation">,</span> end<span class="token operator">=</span>c<span class="token punctuation">(</span><span class="token number">1756</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 m <span class="token operator">&lt;-</span> .preformat.ts<span class="token punctuation">(</span>sunsp.<span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># a character matrix</span></code></pre>
 
 <hr>
@@ -38708,7 +38823,7 @@ that often, only <code>x</code> needs to be specified.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -38875,7 +38990,7 @@ represented by <code>fitted</code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="fitted">fitted</code></td>
 <td>
@@ -38930,7 +39045,7 @@ profile<span class="token punctuation">(</span>fitted<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="fitted">fitted</code></td>
 <td>
@@ -39005,7 +39120,7 @@ of the profiled model.
 element for each parameter being profiled.  The elements are
 data-frames with two variables
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>par.vals</code></td>
 <td>
@@ -39076,7 +39191,7 @@ profile<span class="token punctuation">(</span>fitted<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="fitted">fitted</code></td>
 <td>
@@ -39133,7 +39248,7 @@ appropriate sign.
 <p>A list with an element for each parameter being profiled. The elements
 are data-frames with two variables
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>par.vals</code></td>
 <td>
@@ -39237,7 +39352,7 @@ proj<span class="token punctuation">(</span>object<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -39382,7 +39497,7 @@ same, or that they equal certain given values.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -39479,7 +39594,7 @@ is never used.
 <p>A list with class <code>"htest"</code> containing the following
 components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -39623,7 +39738,7 @@ as the group numbers.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -39746,7 +39861,7 @@ qqplot<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -39831,7 +39946,7 @@ with black borders.</p>
 
 <p>For <code>qqnorm</code> and <code>qqplot</code>, a list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>x</code></td>
 <td>
@@ -40007,7 +40122,7 @@ quade.test<span class="token punctuation">(</span>formula<span class="token punc
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="y">y</code></td>
 <td>
@@ -40091,7 +40206,7 @@ allowed in <code>groups</code> or <code>blocks</code>;  if <code>y</code> contai
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -40220,17 +40335,21 @@ largest to a probability of 1.
 
 ## Default S3 method:
 quantile(x, probs = seq(0, 1, 0.25), na.rm = FALSE,
-         names = TRUE, type = 7, digits = 7, ...)
+         names = TRUE, type = 7, digits = 7,
+         fuzz = if(type == 7L) 0 else 4 * .Machine$double.eps,
+         ...)
 </code><code class="language-r">quantile<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
 
 <span class="token comment">## Default S3 method:</span>
 quantile<span class="token punctuation">(</span>x<span class="token punctuation">,</span> probs <span class="token operator">=</span> seq<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0.25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> na.rm <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
-         names <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">,</span> digits <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
+         names <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> type <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">,</span> digits <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">,</span>
+         fuzz <span class="token operator">=</span> <span class="token keyword">if</span><span class="token punctuation">(</span>type <span class="token operator">==</span> <span class="token number">7L</span><span class="token punctuation">)</span> <span class="token number">0</span> <span class="token keyword">else</span> <span class="token number">4</span> <span class="token operator">*</span> .Machine<span class="token operator">$</span>double.eps<span class="token punctuation">,</span>
+         <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -40278,6 +40397,14 @@ been set to <code>max(2, getOption("digits"))</code>, internally.</p>
 </td>
 </tr>
 <tr>
+<td><code id="fuzz">fuzz</code></td>
+<td>
+<p>small non-negative number to protect against rounding errors
+when <code>j &lt;- <a href="https://r-universe.dev/manuals/base.html#Round">floor</a>(np + m)</code>, (<code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">np</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">p</span></span></span></span></code> “a version of”
+<code>n * probs</code>, see the formula below), is computed.</p>
+</td>
+</tr>
+<tr>
 <td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
@@ -40304,6 +40431,11 @@ from ties) will be ordered on their real parts.
 <p>There is a method for the date-time classes (see
 <code>"<a href="https://r-universe.dev/manuals/base.html#DateTimeClasses">POSIXt</a>"</code>).  Types 1 and 3 can be used for class
 <code>"<a href="https://r-universe.dev/manuals/base.html#Dates">Date</a>"</code> and for ordered factors.
+</p>
+<p><code>fuzz := 4 * .Machine$double.eps</code> has been hard coded and used for
+<code>type = 4,5,6, 8,9</code> since <code>type</code>s were introduced, 
+and is used, since <span class="rlang"><b>R</b></span> 4.5.0, also for the other types (but with default
+<code>0</code> for the default <code>type = 7</code> for back compatibility reasons).
 </p>
 
 
@@ -40415,9 +40547,10 @@ the expected order statistics if <code>x</code> is normally distributed.
 </dd>
 </dl>
 <p>Further details are provided in Hyndman and Fan (1996) who
-recommended type 8. 
+recommended type 8.
 The default method is type 7, as used by S and by <span class="rlang"><b>R</b></span> &lt; 2.0.0.
-Makkonen argues for type 6, also as already proposed by Weibull in 1939.
+Makkonen and Pajari (2014) argue for type 6, also as already
+proposed by Weibull in 1939.
 The Wikipedia page contains further information about availability of
 these 9 types in software.
 </p>
@@ -40425,7 +40558,8 @@ these 9 types in software.
 
 <h3>Author(s)</h3>
 
-<p>of the version used in <span class="rlang"><b>R</b></span> &gt;= 2.0.0, Ivan Frohne and Rob J Hyndman.
+<p>of the version used in <span class="rlang"><b>R</b></span> &gt;= 2.0.0, Ivan Frohne and Rob J Hyndman;
+tweaks, notably use of <code>fuzz</code>, by the R Core Team.
 </p>
 
 
@@ -40439,13 +40573,16 @@ Wadsworth &amp; Brooks/Cole.
 packages, <em>American Statistician</em> <b>50</b>, 361–365.
 <a href="https://doi.org/10.2307/2684934" target="_blank">doi:10.2307/2684934</a>.
 </p>
+<p>Eric Langford (2006)  Quartiles in Elementary Statistics, <em>Journal
+of Statistics Education</em> <b>14</b> 3; <a href="https://doi.org/10.1080/10691898.2006.11910589" target="_blank">doi:10.1080/10691898.2006.11910589</a>
+</p>
+<p>Makkonen, L. and Pajari, M. (2014)  Defining Sample Quantiles by the True
+Rank Probability, <em>Journal of Probability and Statistics; Hindawi Publ.Corp.</em>
+<a href="https://doi.org/10.1155/2014/326579" target="_blank">doi:10.1155/2014/326579</a>
+</p>
 <p>Wicklin, R. (2017) Sample quantiles: A comparison of 9 definitions; SAS Blog.
 <a href="https://blogs.sas.com/content/iml/2017/05/24/definitions-sample-quantiles.html" target="_blank">https://blogs.sas.com/content/iml/2017/05/24/definitions-sample-quantiles.html</a>
 </p>
-
-
-
-
 <p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Quantile#Estimating_quantiles_from_a_sample" target="_blank">https://en.wikipedia.org/wiki/Quantile#Estimating_quantiles_from_a_sample</a>
 </p>
 
@@ -40514,7 +40651,7 @@ algorithm.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="n">n</code></td>
 <td>
@@ -40640,7 +40777,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="file">file</code></td>
 <td>
@@ -40916,7 +41053,7 @@ level, then a rectangle is drawn around selected branches.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="tree">tree</code></td>
 <td>
@@ -41010,7 +41147,7 @@ the reference.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -41087,7 +41224,7 @@ reorder<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -41231,7 +41368,7 @@ reorder<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -41338,7 +41475,7 @@ each term in the formula.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="formula">formula</code></td>
 <td>
@@ -41513,7 +41650,7 @@ rows).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="data">data</code></td>
 <td>
@@ -41735,6 +41872,8 @@ back to the original form.
 <code><a href="https://r-universe.dev/manuals/base.html#table">as.data.frame.table</a></code> for creating contingency tables and
 converting them back to data frames.
 </p>
+<p><code>vignette("reshape")</code> for detailed examples.
+</p>
 
 
 <h3>Examples</h3>
@@ -41756,7 +41895,7 @@ reshape(wide, idvar = "Subject", varying = list(2:12),
 
 ## times need not be numeric
 df &lt;- data.frame(id = rep(1:4, rep(2,4)),
-                 visit = I(rep(c("Before","After"), 4)),
+                 visit = rep(c("Before","After"), 4),
                  x = rnorm(4), y = runif(4))
 df
 reshape(df, timevar = "visit", idvar = "id", direction = "wide")
@@ -41810,7 +41949,7 @@ reshape<span class="token punctuation">(</span>wide<span class="token punctuatio
 
 <span class="token comment">## times need not be numeric</span>
 df <span class="token operator">&lt;-</span> data.frame<span class="token punctuation">(</span>id <span class="token operator">=</span> rep<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">,</span> rep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                 visit <span class="token operator">=</span> I<span class="token punctuation">(</span>rep<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"Before"</span><span class="token punctuation">,</span><span class="token string">"After"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                 visit <span class="token operator">=</span> rep<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"Before"</span><span class="token punctuation">,</span><span class="token string">"After"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                  x <span class="token operator">=</span> rnorm<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> y <span class="token operator">=</span> runif<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 df
 reshape<span class="token punctuation">(</span>df<span class="token punctuation">,</span> timevar <span class="token operator">=</span> <span class="token string">"visit"</span><span class="token punctuation">,</span> idvar <span class="token operator">=</span> <span class="token string">"id"</span><span class="token punctuation">,</span> direction <span class="token operator">=</span> <span class="token string">"wide"</span><span class="token punctuation">)</span>
@@ -41882,7 +42021,7 @@ resid<span class="token punctuation">(</span>object<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -41948,7 +42087,7 @@ results.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -42261,7 +42400,7 @@ Wishart distribution with parameters <code>Sigma</code> and <code>df</code>,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="n">n</code></td>
 <td>
@@ -42394,7 +42533,7 @@ loess.smooth<span class="token punctuation">(</span>x<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -42536,7 +42675,7 @@ screeplot<span class="token punctuation">(</span>x<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -42626,7 +42765,7 @@ computation proceeds.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -42689,7 +42828,7 @@ se.contrast<span class="token punctuation">(</span>object<span class="token punc
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -42922,7 +43061,7 @@ e.g., <code><a href="#nls">nls</a>()</code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="model">model</code></td>
 <td>
@@ -43128,7 +43267,7 @@ prefer not to store it under a name just so the names can be assigned.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -43197,7 +43336,7 @@ setNames<span class="token punctuation">(</span>nm <span class="token operator">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table><tr>
+<table role="presentation"><tr>
 <td><code id="x">x</code></td>
 <td>
 <p>a numeric vector of data values. Missing values are allowed,
@@ -43208,7 +43347,7 @@ but the number of non-missing values must be between 3 and 5000.</p>
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -43313,7 +43452,7 @@ sigma<span class="token punctuation">(</span>object<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -43506,7 +43645,7 @@ rsignrank<span class="token punctuation">(</span>nn<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -43640,7 +43779,7 @@ corresponding to a fitted model object.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -43699,7 +43838,7 @@ natural for binomials specified as proportions but less so for a
 Poisson, for which prior weights are ignored with a warning.
 </p>
 <p>For a gamma GLM the shape parameter is estimated by maximum likelihood
-(using function <code><a href="https://r-universe.dev/manuals/MASS.html#gamma.shape.glm">gamma.shape</a></code> in package
+(using function <code><a href="https://r-universe.dev/manuals/MASS.html#gamma.shape">gamma.shape</a></code> in package
 <a href="https://CRAN.R-project.org/package=MASS" target="_blank"><span class="pkg">MASS</span></a>).  The interpretation of weights is as multipliers to a
 basic shape parameter, since dispersion is inversely proportional to
 shape.
@@ -43711,7 +43850,7 @@ where <code class="reqn"><span class="katex"><span class="katex-mathml"><math xm
 estimate for the fit.  The variance is
 <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>μ</mi><mi>i</mi><mn>3</mn></msubsup><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mi>λ</mi><msub><mi>w</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\mu_i^3/(\lambda w_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0728em;vertical-align:-0.2587em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-2.4413em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2587em;"><span></span></span></span></span></span></span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></code> and
 hence inversely proportional to the prior weights.  The simulation is
-done by function <code><a href="https://cran.r-universe.dev/SuppDists/doc/manual.html#invGauss">rinvGauss</a></code> from the
+done by function <code><a href="https://cran.r-universe.dev/SuppDists/doc/manual.html#rinvGauss">rinvGauss</a></code> from the
 <a href="https://CRAN.R-project.org/package=SuppDists" target="_blank"><span class="pkg">SuppDists</span></a> package, which must be installed.
 </p>
 
@@ -43847,7 +43986,7 @@ rsmirnov<span class="token punctuation">(</span>n<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="q">q</code></td>
 <td>
@@ -43997,7 +44136,7 @@ computing exact distributions.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -44190,7 +44329,7 @@ lines<span class="token punctuation">(</span>sm<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -44436,7 +44575,7 @@ of duplicated points.  <code>cv = TRUE</code> is best avoided in that case.
 
 <p>An object of class <code>"smooth.spline"</code> with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>x</code></td>
 <td>
@@ -44648,7 +44787,7 @@ sense, but very close unless a small smoothing parameter (or large
 
 <p>This function is based on code in the <code>GAMFIT</code> Fortran program by
 T. Hastie and R. Tibshirani (originally taken from
-<a href="http://lib.stat.cmu.edu/general/gamfit" target="_blank">http://lib.stat.cmu.edu/general/gamfit</a>)
+<a href="https://lib.stat.cmu.edu/general/gamfit" target="_blank">https://lib.stat.cmu.edu/general/gamfit</a>)
 which makes use of spline code by Finbarr O'Sullivan.  Its design
 parallels the <code>smooth.spline</code> function of Chambers &amp; Hastie (1992).
 </p>
@@ -44816,7 +44955,7 @@ medians and Tukey's end point rule at the very end. (of odd span),
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="y">y</code></td>
 <td>
@@ -44962,7 +45101,7 @@ of the <code>selfStart</code> class.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -45036,7 +45175,7 @@ sortedXyData<span class="token punctuation">(</span> expression<span class="toke
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -45173,7 +45312,7 @@ the end values).
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -45273,7 +45412,7 @@ is returned for that frequency.
 <p>A list object of class <code>"spec"</code> (see <code><a href="#spectrum">spectrum</a></code>)
 with the following additional components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>kernel</code></td>
 <td>
@@ -45436,7 +45575,7 @@ plot<span class="token punctuation">(</span>sales.spc<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -45491,7 +45630,7 @@ time series.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -45536,7 +45675,7 @@ mark indicates the equivalent bandwidth.
 <p>An object of class <code>"spec"</code>, which is a list containing at
 least the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>freq</code></td>
 <td>
@@ -45712,7 +45851,7 @@ splinefunH<span class="token punctuation">(</span>x<span class="token punctuatio
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -46108,7 +46247,7 @@ with an extra parameter.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="input">input</code></td>
 <td>
@@ -46276,7 +46415,7 @@ attribute that creates initial estimates of the parameters
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="input">input</code></td>
 <td>
@@ -46431,7 +46570,7 @@ parameters <code>Asym</code> and <code>lrc</code> for a given set of data.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="input">input</code></td>
 <td>
@@ -46573,7 +46712,7 @@ creates initial estimates of the parameters <code>A1</code>, <code>lrc1</code>,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="input">input</code></td>
 <td>
@@ -46759,7 +46898,7 @@ estVar<span class="token punctuation">(</span>object<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -46779,7 +46918,7 @@ the case of <code>estVar</code>.</p>
 <p><code>SSD()</code> returns a list of class <code>"SSD"</code> containing the
 following components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>SSD</code></td>
 <td>
@@ -46878,7 +47017,7 @@ and <code>lCl</code>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="Dose">Dose</code></td>
 <td>
@@ -46981,7 +47120,7 @@ initial estimates of the parameters <code>A</code>, <code>B</code>,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="input">input</code></td>
 <td>
@@ -47145,7 +47284,7 @@ creates initial estimates of the parameters <code>Asym</code>,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -47253,7 +47392,7 @@ init function failed when <code>min(input)</code> was exactly zero.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="input">input</code></td>
 <td>
@@ -47423,7 +47562,7 @@ will evaluate initial estimates of the parameters <code>Vm</code> and <code>K</c
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="input">input</code></td>
 <td>
@@ -47565,7 +47704,7 @@ will evaluate initial estimates of the parameters <code>Asym</code>, <code>Drop<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -47693,7 +47832,7 @@ end<span class="token punctuation">(</span>x<span class="token punctuation">,</s
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -47754,7 +47893,7 @@ and should not be used by the average user.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="table">table</code></td>
 <td>
@@ -47879,7 +48018,7 @@ Choose a model by AIC in a Stepwise Algorithm
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -48155,7 +48294,7 @@ summary<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -48224,7 +48363,7 @@ representing (<code>"print(.)"</code>) and plotting  (<code>"plot(.)"</code>, se
 <p>The <code><a href="https://r-universe.dev/manuals/base.html#environment">environment</a></code> of <code>fn</code> contains all the
 information needed;
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code>"x"</code>, <code>"y"</code>
@@ -48261,7 +48400,7 @@ information needed;
 </td>
 </tr>
 </table>
-<p>The knots are also available via <code><a href="#stepfun">knots</a>(fn)</code>.
+<p>The knots are also available via <code>knots(fn)</code>.
 </p>
 
 
@@ -48372,7 +48511,7 @@ using <code>loess</code>, acronym <abbr>STL</abbr>.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -48487,7 +48626,7 @@ residuals from the seasonal plus trend fit.
 
 <p><code>stl</code> returns an object of class <code>"stl"</code> with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>time.series</code></td>
 <td>
@@ -48636,19 +48775,27 @@ plot(x, labels = colnames(X),
                      tck = -0.01, mfrow = c(nplot, 1)),
      main = NULL, range.bars = TRUE, ...,
      col.range = "light gray")
+
+## S3 method for class 'stl'
+summary(object, digits = max(3L, getOption("digits") - 3L), ...)
 </code><code class="language-r"><span class="token comment">## S3 method for class 'stl'</span>
 plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> labels <span class="token operator">=</span> colnames<span class="token punctuation">(</span>X<span class="token punctuation">)</span><span class="token punctuation">,</span>
      set.pars <span class="token operator">=</span> list<span class="token punctuation">(</span>mar <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">,</span> oma <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                      tck <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">0.01</span><span class="token punctuation">,</span> mfrow <span class="token operator">=</span> c<span class="token punctuation">(</span>nplot<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
      main <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span> range.bars <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">,</span>
-     col.range <span class="token operator">=</span> <span class="token string">"light gray"</span><span class="token punctuation">)</span></code></pre>
+     col.range <span class="token operator">=</span> <span class="token string">"light gray"</span><span class="token punctuation">)</span>
+
+<span class="token comment">## S3 method for class 'stl'</span>
+summary<span class="token punctuation">(</span>object<span class="token punctuation">,</span> digits <span class="token operator">=</span> max<span class="token punctuation">(</span><span class="token number">3L</span><span class="token punctuation">,</span> getOption<span class="token punctuation">(</span><span class="token string">"digits"</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">3L</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span></code></pre>
 
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
-<td><code id="x">x</code></td>
+<td>
+<code id="x">x</code>, <code id="object">object</code>
+</td>
 <td>
 <p><code><a href="#stl">stl</a></code> object.</p>
 </td>
@@ -48680,23 +48827,32 @@ its right side which are of equal heights in user coordinates.</p>
 </td>
 </tr>
 <tr>
-<td><code id="...">...</code></td>
-<td>
-<p>further arguments passed to or from other methods.</p>
-</td>
-</tr>
-<tr>
 <td><code id="col.range">col.range</code></td>
 <td>
 <p>colour to be used for the range bars, if plotted.
 Note this appears after <code>...</code> and so cannot be abbreviated.</p>
 </td>
 </tr>
+<tr>
+<td><code id="...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods; for
+<code>summary()</code>, e.g., <code>zdigits</code> passed to the default method.</p>
+</td>
+</tr>
+<tr>
+<td><code id="digits">digits</code></td>
+<td>
+<p>passed to the default <code><a href="https://r-universe.dev/manuals/base.html#summary">summary</a></code> method (for
+<code>time.series</code> and <code>weights</code> components).</p>
+</td>
+</tr>
 </table>
 <h3>See Also</h3>
 
-<p><code><a href="#plot.ts">plot.ts</a></code> and <code><a href="#stl">stl</a></code>, particularly for
-examples.</p>
+<p><code><a href="#plot.ts">plot.ts</a></code> and <code><a href="#stl">stl</a></code>, particularly for examples;
+<code><a href="https://r-universe.dev/manuals/base.html#summary">summary.default</a></code>.
+</p>
 
 <hr>
 </div></div>
@@ -48719,7 +48875,7 @@ examples.</p>
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -48818,7 +48974,7 @@ sometimes known as the ‘dummy variable’ version of the <abbr>BSM</abbr>.)
 
 <p>A list of class <code>"StructTS"</code> with components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>coef</code></td>
 <td>
@@ -48999,7 +49155,7 @@ summary<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -49158,7 +49314,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -49263,7 +49419,7 @@ handled by <code><a href="#summary.lm">summary.lm</a></code>.
 <p><code>summary.glm</code> returns an object of class <code>"summary.glm"</code>, a
 list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>call</code></td>
 <td>
@@ -49412,7 +49568,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -49483,7 +49639,7 @@ statistics of the fitted linear model given in <code>object</code>, using
 the components (list elements) <code>"call"</code> and <code>"terms"</code>
 from its argument, plus
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>residuals</code></td>
 <td>
@@ -49645,7 +49801,7 @@ summary<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -49711,7 +49867,7 @@ to transform the responses to remove the high correlation.
 <p>An object of class <code>"summary.manova"</code>.  If there is a positive
 residual degrees of freedom, this is a list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>row.names</code></td>
 <td>
@@ -49832,7 +49988,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -49902,7 +50058,7 @@ directly.
 statistics of the fitted model given in <code>object</code>, using
 the component  <code>"formula"</code> from its argument, plus
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>residuals</code></td>
 <td>
@@ -49998,7 +50154,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -50082,7 +50238,7 @@ print<span class="token punctuation">(</span>summary<span class="token punctuati
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -50158,7 +50314,7 @@ dropped, with a warning.
 
 <p>A list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>x</code></td>
 <td>
@@ -50247,7 +50403,7 @@ e.g., correlation, sparse, or logical ones.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -50501,7 +50657,7 @@ t.test<span class="token punctuation">(</span>formula<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -50617,7 +50773,7 @@ two means) an error is generated.
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -50776,7 +50932,7 @@ rt<span class="token punctuation">(</span>n<span class="token punctuation">,</sp
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -50962,7 +51118,7 @@ tails, otherwise via <code><a href="#Beta">pbeta</a></code>.
 </p>
 <p>Lenth, R. V. (1989). <em>Algorithm AS 243</em> —
 Cumulative distribution function of the non-central <code class="reqn"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span></code> distribution,
-<em>Applied Statistics</em> <b>38</b>, 185–189.
+<em>Applied Statistics</em> <b>38</b>, 185–189; <a href="https://doi.org/10.2307/2347693" target="_blank">doi:10.2307/2347693</a> .
 </p>
 <p>This computes the lower tail only, so the upper tail currently suffers from
 cancellation and a warning will be given when this is likely to be
@@ -50971,12 +51127,12 @@ significant.
 <p>For central <code>qt</code>, a C translation of
 </p>
 <p>Hill, G. W. (1970) Algorithm 396: Student's t-quantiles.
-<em>Communications of the ACM</em>, <b>13(10)</b>, 619–620. 
+<em>Communications of the ACM</em>, <b>13(10)</b>, 619–620; <a href="https://doi.org/10.1145/355598.355599" target="_blank">doi:10.1145/355598.355599</a> .
 </p>
 <p>altered to take account of
 </p>
 <p>Hill, G. W. (1981) Remark on Algorithm 396, <em>ACM Transactions on
-Mathematical Software</em>, <b>7</b>, 250–1. 
+Mathematical Software</em>, <b>7</b>, 250–1; <a href="https://doi.org/10.1145/355945.355956" target="_blank">doi:10.1145/355945.355956</a> .
 </p>
 <p>The non-central case is done by inversion.
 </p>
@@ -51106,7 +51262,7 @@ standard errors and partial residuals added.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="model">model</code></td>
 <td>
@@ -51253,7 +51409,7 @@ is <code>TRUE</code>, partial residuals for the corresponding term are
 plotted against transformed values.
 The model response is then a straight line, allowing a
 ready comparison against the data or against the curve
-obtained from <code>smooth-panel.smooth</code>.</p>
+obtained from <code>smooth = panel.smooth</code>.</p>
 </td>
 </tr>
 <tr>
@@ -51379,7 +51535,7 @@ from various kinds of <span class="rlang"><b>R</b></span> data objects.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -51395,15 +51551,15 @@ from various kinds of <span class="rlang"><b>R</b></span> data objects.
 </table>
 <h3>Details</h3>
 
-<p>There are methods for classes <code>"aovlist"</code>, and <code>"terms"</code>
+<p>There are methods for classes <code>"aovlist"</code>, <code>"terms"</code>, and
 <code>"formula"</code> (see <code><a href="#terms.formula">terms.formula</a></code>):
 the default method just extracts the <code>terms</code> component of the
 object, or failing that a <code>"terms"</code> attribute (as used by
 <code><a href="#model.frame">model.frame</a></code>).
 </p>
 <p>There are <code><a href="https://r-universe.dev/manuals/base.html#print">print</a></code> and <code><a href="https://r-universe.dev/manuals/base.html#labels">labels</a></code> methods for
-class <code>"terms"</code>: the latter prints the term labels (see
-<code><a href="#terms.object">terms.object</a></code>).
+class <code>"terms"</code>: the latter extracts the term labels (see
+<code>?<a href="#terms.object">terms.object</a></code>).
 </p>
 
 
@@ -51411,7 +51567,7 @@ class <code>"terms"</code>: the latter prints the term labels (see
 
 <p>An object of class <code>c("terms", "formula")</code> which contains the
 <em>terms</em> representation of a symbolic model.  See
-<code><a href="#terms.object">terms.object</a></code> for its structure.
+<code>?<a href="#terms.object">terms.object</a></code> for its structure.
 </p>
 
 
@@ -51433,13 +51589,13 @@ eds J. M. Chambers and T. J. Hastie, Wadsworth &amp; Brooks/Cole.
 <hr>
 </div></div>
 <div class="container manual-page" id="terms.formula"><div class="page-main">
-<a href="#terms.formula" class="help-page-title"><h2>Construct a terms Object from a Formula</h2></a>
+<a href="#terms.formula" class="help-page-title"><h2>Construct a <code>terms</code> Object from a Formula</h2></a>
 
 <h3>Description</h3>
 
 <p>This function takes a formula and some optional arguments and
-constructs a terms object. The terms object can then be used to
-construct a <code><a href="#model.matrix">model.matrix</a></code>.
+constructs a <code><a href="#terms.object">terms</a></code> object, which
+can then be used to construct a <code><a href="#model.matrix">model.matrix</a></code>.
 </p>
 
 
@@ -51457,7 +51613,7 @@ terms<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -51523,13 +51679,6 @@ remaining variables contained in <code>data</code>.  Exceptionally,
 </td>
 </tr>
 </table>
-<h3>Details</h3>
-
-<p>Not all of the options work in the same way that they do in S and not
-all are implemented.
-</p>
-
-
 <h3>Value</h3>
 
 <p>A <code>terms</code> object is returned.  It is the re-ordered formula (unless
@@ -51620,14 +51769,14 @@ indicating the order of interaction for each term.</p>
 </dd>
 <dt><code>response</code></dt>
 <dd>
-<p>The index of the variable (in variables) of the
+<p>The index of the variable (in <code>variables</code>) of the
 response (the left hand side of the formula).  Zero, if there is no
 response.</p>
 </dd>
 <dt><code>offset</code></dt>
 <dd>
 <p>If the model contains <code><a href="#offset">offset</a></code> terms there
-is an <code>offset</code> attribute indicating which variable(s) are offsets</p>
+is an <code>offset</code> attribute indicating which <code>variables</code> are offsets.</p>
 </dd>
 <dt><code>specials</code></dt>
 <dd>
@@ -51728,7 +51877,7 @@ deltat<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -51836,7 +51985,7 @@ toeplitz2<span class="token punctuation">(</span>x<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -52010,7 +52159,7 @@ is.mts<span class="token punctuation">(</span>x<span class="token punctuation">)
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="data">data</code></td>
 <td>
@@ -52091,8 +52240,7 @@ series: defaults to the colnames of <code>data</code>, or <code>"Series 1"</code
 
 <p>The function <code>ts</code> is used to create time-series objects.  These
 are vectors or matrices which inherit from class <code>"ts"</code> (and have
-additional
-attributes) which represent data which has been sampled at equispaced
+additional attributes) which represent data sampled at equispaced
 points in time.  In the matrix case, each column of the matrix
 <code>data</code> is assumed to contain a single (univariate) time series.
 Time series must have at least one observation, and although they need
@@ -52170,11 +52318,18 @@ gnp &lt;- ts(cumsum(1 + round(rnorm(100), 2)),
           start = c(1954, 7), frequency = 12)
 plot(gnp) # using 'plot.ts' for time-series plot
 
+utils:: methods(class = "ts") # all functions with methods available for "ts"
+
+## "ts" methods for head() and tail()
+utils:: head(lynx, 4)
+utils:: tail(lynx, -7)
+
+
 ## Multivariate
 z &lt;- ts(matrix(rnorm(300), 100, 3), start = c(1961, 1), frequency = 12)
 class(z)
 is.mts(z)
-head(z) # as "matrix"
+head(z) # "ts" method ==&gt; incl. times:
 plot(z)
 plot(z, plot.type = "single", lty = 1:3)
 
@@ -52191,11 +52346,18 @@ gnp <span class="token operator">&lt;-</span> ts<span class="token punctuation">
           start <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1954</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">,</span> frequency <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>gnp<span class="token punctuation">)</span> <span class="token comment"># using 'plot.ts' for time-series plot</span>
 
+utils<span class="token operator">::</span> methods<span class="token punctuation">(</span>class <span class="token operator">=</span> <span class="token string">"ts"</span><span class="token punctuation">)</span> <span class="token comment"># all functions with methods available for "ts"</span>
+
+<span class="token comment">## "ts" methods for head() and tail()</span>
+utils<span class="token operator">::</span> head<span class="token punctuation">(</span>lynx<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+utils<span class="token operator">::</span> tail<span class="token punctuation">(</span>lynx<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">7</span><span class="token punctuation">)</span>
+
+
 <span class="token comment">## Multivariate</span>
 z <span class="token operator">&lt;-</span> ts<span class="token punctuation">(</span>matrix<span class="token punctuation">(</span>rnorm<span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> start <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">1961</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> frequency <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">)</span>
 class<span class="token punctuation">(</span>z<span class="token punctuation">)</span>
 is.mts<span class="token punctuation">(</span>z<span class="token punctuation">)</span>
-head<span class="token punctuation">(</span>z<span class="token punctuation">)</span> <span class="token comment"># as "matrix"</span>
+head<span class="token punctuation">(</span>z<span class="token punctuation">)</span> <span class="token comment"># "ts" method ==&gt; incl. times:</span>
 plot<span class="token punctuation">(</span>z<span class="token punctuation">)</span>
 plot<span class="token punctuation">(</span>z<span class="token punctuation">,</span> plot.type <span class="token operator">=</span> <span class="token string">"single"</span><span class="token punctuation">,</span> lty <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">)</span>
 
@@ -52231,7 +52393,7 @@ na.omit<span class="token punctuation">(</span>object<span class="token punctuat
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -52307,7 +52469,7 @@ but they should have the same frequency.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -52375,7 +52537,7 @@ ts.union<span class="token punctuation">(</span><span class="token ellipsis">...
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="...">...</code></td>
 <td>
@@ -52445,7 +52607,7 @@ ts.intersect<span class="token punctuation">(</span>sales1<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -52537,7 +52699,7 @@ hasTsp<span class="token punctuation">(</span>x<span class="token punctuation">)
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -52608,7 +52770,7 @@ of the state at each time point based on the whole observed series.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -52675,7 +52837,7 @@ qtukey<span class="token punctuation">(</span>p<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="q">q</code></td>
 <td>
@@ -52820,7 +52982,7 @@ method.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -52972,7 +53134,7 @@ runif<span class="token punctuation">(</span>n<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -53133,7 +53295,7 @@ does not satisfy the requirements at the interval end points; see the
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="f">f</code></td>
 <td>
@@ -53187,8 +53349,8 @@ an error.  Can be abbreviated.</p>
 <tr>
 <td><code id="check.conv">check.conv</code></td>
 <td>
-<p>logical indicating whether a convergence warning of the
-underlying <code><a href="#uniroot">uniroot</a></code> should be caught as an error and if
+<p>logical indicating whether a convergence warning
+should be caught as an error and if
 non-convergence in <code>maxiter</code> iterations should be an error
 instead of a warning.</p>
 </td>
@@ -53504,7 +53666,7 @@ getCall<span class="token punctuation">(</span>x<span class="token punctuation">
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="object">object</code>, <code id="x">x</code>
@@ -53612,7 +53774,7 @@ update<span class="token punctuation">(</span>old<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="old">old</code></td>
 <td>
@@ -53707,7 +53869,7 @@ var.test<span class="token punctuation">(</span>formula<span class="token punctu
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="y">y</code>
@@ -53792,7 +53954,7 @@ equal to <code>ratio</code>.
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -53894,7 +54056,7 @@ promax<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -53938,7 +54100,7 @@ variance of the factors being preserved.
 
 <p>A list with components
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>loadings</code></td>
 <td>
@@ -54028,7 +54190,7 @@ vcov<span class="token punctuation">(</span>object<span class="token punctuation
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -54143,7 +54305,7 @@ rweibull<span class="token punctuation">(</span>n<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -54299,7 +54461,7 @@ weighted.mean<span class="token punctuation">(</span>x<span class="token punctua
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -54391,7 +54553,7 @@ xm <span class="token operator">&lt;-</span> weighted.mean<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="obj">obj</code></td>
 <td>
@@ -54487,7 +54649,7 @@ for the omission of missing values.  The default methods does so.
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="object">object</code></td>
 <td>
@@ -54563,7 +54725,7 @@ wilcox.test<span class="token punctuation">(</span>formula<span class="token pun
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -54749,7 +54911,7 @@ boundaries and sometimes the <code>estimate</code> now contain
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role="presentation">
 <tr>
 <td><code>statistic</code></td>
 <td>
@@ -54854,7 +55016,7 @@ Or second edition (1999).
 
 <p><code><a href="#SignRank">psignrank</a></code>, <code><a href="#Wilcoxon">pwilcox</a></code>.
 </p>
-<p><code><a href="https://r-forge.r-universe.dev/coin/doc/manual.html#LocationTests">wilcox_test</a></code> in package
+<p><code><a href="https://r-forge.r-universe.dev/coin/doc/manual.html#wilcox_test">wilcox_test</a></code> in package
 <a href="https://CRAN.R-project.org/package=coin" target="_blank"><span class="pkg">coin</span></a> for exact, asymptotic and Monte Carlo
 <em>conditional</em> p-values, including in the presence of ties.
 </p>
@@ -54985,7 +55147,7 @@ rwilcox<span class="token punctuation">(</span>nn<span class="token punctuation"
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td>
 <code id="x">x</code>, <code id="q">q</code>
@@ -55210,7 +55372,7 @@ window<span class="token punctuation">(</span>x<span class="token punctuation">,
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="x">x</code></td>
 <td>
@@ -55361,7 +55523,7 @@ print<span class="token punctuation">(</span>x<span class="token punctuation">,<
 
 <h3 class="r-arguments-title">Arguments</h3>
 
-<table>
+<table role="presentation">
 <tr>
 <td><code id="formula">formula</code></td>
 <td>
@@ -55620,6 +55782,6 @@ ftable<span class="token punctuation">(</span>xtabs<span class="token punctuatio
 <hr>
 </div></div>
 </div>
-    <footer><p>Rendered with postdoc 1.4.0</p></footer>
+    <footer><p>Rendered with postdoc 1.4.1</p></footer>
   </body>
 </html>
